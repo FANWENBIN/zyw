@@ -1,0 +1,102 @@
+@charset "utf-8";
+
+.webmain .con { margin-bottom: 45px;}
+.webmain .con .title { height: 60px; overflow: hidden; background: url(../images/line_contitle.gif) center center repeat-x; margin-bottom: 15px; position: relative;}
+.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 15px; background: url(../images/more_contitle.gif); width: 130px; height: 30px; text-indent: -99em; overflow: hidden;}
+.webmain .con .title h2 { display: block; width: 100px; height: 60px; background-image: url(../images/txt_contitle.gif); background-repeat: no-repeat; text-indent: -99em; overflow: hidden; float: left;}
+.webmain .con .title ul { float: left; height: 26px; background: #fff; padding: 17px 5px 17px 5px;}
+.webmain .con .title ul li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px;}
+.webmain .con .title ul li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px;}
+.webmain .con .title ul li.c a { background: #000; color: #fff;}
+
+.webmain .conTopbanner {}
+.webmain .conTopbanner { height: 470px; overflow: hidden;}
+.webmain .conTopbanner img { display: block; width: 100%; height: 470px;}
+
+
+.webmain .conStars { margin-bottom: 0;}
+.webmain .conStars .title h2 { width: 192px; background-position: 0 -420px;}
+.webmain .conStars .inner .group { float: left;}
+.webmain .conStars .inner .group h2 { font-size: 18px; line-height: 22px; height: 22px; overflow: hidden; display: block; margin-bottom: 20px;}
+.webmain .conStars .inner .group h2 span { display: inline-block; width: 3px; height: 17px; background: #7865f0; position: relative; margin-right: 4px; top: 2px;}
+.webmain .conStars .inner .group .list a { display: block; width: 110px; height: 140px; overflow: hidden; position: relative; float: left; margin: 0 1px 30px 0;}
+.webmain .conStars .inner .group .list a img { display: block; width: 110px; height: 140px;}
+.webmain .conStars .inner .group .list a .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+.webmain .conStars .inner .group .list p { display: block; position: absolute; left: 0; bottom: 0; width: 100%; height: 30px; line-height: 30px; background: rgba(0,0,0,0.6); text-align: center; color: #fff; font-size: 14px; z-index: 2;}
+.webmain .conStars .inner .group1 { width: 555px; margin-right: 30px;}
+.webmain .conStars .inner .group2 { width: 222px; margin-right: 30px;}
+.webmain .conStars .inner .group3 { width: 222px; margin-right: 30px;}
+.webmain .conStars .inner .group4 { width: 110px;}
+
+
+.webmain .conRule {}
+.webmain .conRule .tab { display: block; width: 100%; height: 340px; position: relative; margin-bottom: 10px;}
+.webmain .conRule .tab a { display: block; position: absolute; left: 0; top: 0; width: 340px; height: 340px;}
+.webmain .conRule .tab a span { display: none; width: 100%; height: 100%; background: url(../images/bg_vote_rule.png); position: absolute; left: 0; top: 0;}
+.webmain .conRule .tab a p { display: block; width: 340px; height: 140px; position: absolute; left: 0; top: 0; z-index: 2; text-align: center; font-size: 24px; color: #fff; line-height: 20px; padding-top: 200px;}
+.webmain .conRule .tab a.c span { display: block;}
+.webmain .conRule .tab a.t1 { left: 0;}
+.webmain .conRule .tab a.t2 { left: 287px}
+.webmain .conRule .tab a.t3 { left: 574px}
+.webmain .conRule .tab a.t4 { left: 861px;}
+.webmain .conRule .tab a.t1 p,
+.webmain .conRule .tab a.t3 p { z-index: 3;}
+.webmain .conRule .tab a.t1 p { background: url(../images/tab_vote_rule1.png) center center no-repeat;}
+.webmain .conRule .tab a.t2 p { background: url(../images/tab_vote_rule2.png) center center no-repeat;}
+.webmain .conRule .tab a.t3 p { background: url(../images/tab_vote_rule3.png) center center no-repeat;}
+.webmain .conRule .tab a.t4 p { background: url(../images/tab_vote_rule4.png) center center no-repeat;}
+.webmain .conRule .inner .content1 .l { float: left; width: 200px; height: 227px; background: #dcdcdc url(../images/point_vote_rule.gif) center 0 repeat-x; padding: 58px 20px 20px 120px; position: relative; margin-right: 30px;}
+.webmain .conRule .inner .content1 .l h6 { font-size: 38px; font-weight: normal; position: absolute; left: 20px; top: 58px; line-height: 38px;}
+.webmain .conRule .inner .content1 .l p { display: block; line-height: 20px; font-size: 14px;}
+.webmain .conRule .inner .content1 .r { float: left; width: 830px;}
+.webmain .conRule .inner .content1 .r .title h2 { width: 170px; background-position: 0 -600px;}
+.webmain .conRule .inner .content1 .r .title a.result { display: block; position: absolute; right: 0; top: 15px; background: url(../images/btn_vote_result.gif); width: 190px; height: 30px; text-indent: -99em; overflow: hidden;}
+.webmain .conRule .inner .content1 .r .in {}
+.webmain .conRule .inner .content1 .r .in .item { float: left; width: 183px; margin-left: 30px; border-left: 1px solid #dfdfdf; border-right: 1px solid #dfdfdf; height: 222px; padding-top: 8px; position: relative;}
+.webmain .conRule .inner .content1 .r .in .item .head { width: 88px; height: 88px; position: relative; padding: 6px; margin: 0 auto 16px auto;}
+.webmain .conRule .inner .content1 .r .in .item .head span { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url(../images/mask_vote_head1.png);}
+.webmain .conRule .inner .content1 .r .in .item .head img { display: block; width: 88px; height: 88px;}
+.webmain .conRule .inner .content1 .r .in .item h6 { display: block; width: 100%; height: 22px; line-height: 22px; text-align: center; font-size: 18px; color: #000; margin-bottom: 16px; font-weight: normal;}
+.webmain .conRule .inner .content1 .r .in .item span { display: block; width: 100%; height: 22px; line-height: 22px; text-align: center; font-size: 12px; color: #898989; margin-bottom: 4px;}
+.webmain .conRule .inner .content1 .r .in .item strong { display: block; width: 100%; height: 24px; line-height: 24px; text-align: center; font-size: 24px; color: #000; font-weight: normal;}
+.webmain .conRule .inner .content1 .r .in .item1 { margin-left: 0;}
+.webmain .conRule .inner .content1 .r .in .item2 .head span { background: url(../images/mask_vote_head2.png);}
+.webmain .conRule .inner .content1 .r .in .item3 .head span { background: url(../images/mask_vote_head3.png);}
+.webmain .conRule .inner .content1 .r .in .item4 .head span { background: url(../images/mask_vote_head4.png);}
+.webmain .conRule .inner .content1 .r .in .item .vote { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2; display: none;}
+.webmain .conRule .inner .content1 .r .in .item .vote img { width: 100px; height: 100px; display: block; position: absolute; left: 50%; top: 80px; margin-left: -50px;}
+.webmain .conRule .inner .content1 .r .in .item .vote p { color: #fff; font-size: 12px; line-height: 18px; text-align: center; display: block; padding-top: 50px;}
+
+.webmain .conVote {}
+.webmain .conVote .title h2 { width: 300px; background-position: 0 -480px;}
+.webmain .conVote .inner { width: 1230px; height: 650px; overflow: hidden; margin-left: -30px;}
+.webmain .conVote .inner .item { float: left; width: 277px; overflow: hidden; height: 310px; margin: 0 0 30px 30px; position: relative; display: block;}
+.webmain .conVote .inner .item img { display: block; width: 277px; height: 310px;}
+.webmain .conVote .inner .item .txt { position: absolute; left: 0; bottom: 0; background: rgba(0,0,0,0.6); width: 100%; padding: 12px 0 10px 0;}
+.webmain .conVote .inner .item .txt p { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal; text-align: center;}
+.webmain .conVote .inner .item .txt span { color: #fff; font-size: 12px; line-height: 18px; opacity: 0.7; display: block; text-align: center;}
+.webmain .conVote .inner .item .vote { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2; display: none;}
+.webmain .conVote .inner .item .vote img { width: 150px; height: 150px; display: block; position: absolute; left: 50%; top: 90px; margin-left: -75px;}
+.webmain .conVote .inner .item .vote p { color: #fff; font-size: 12px; line-height: 18px; text-align: center; display: block; padding-top: 60px;}
+
+
+.webmain .conComment { margin-bottom: 0;}
+.webmain .conComment .title { margin-bottom: 5px;}
+.webmain .conComment .title h2 { width: 120px; background-position: 0 -540px;}
+.webmain .conComment .inner .list { margin-bottom: 20px;}
+.webmain .conComment .inner .list .item { position: relative; margin-top: 10px;}
+.webmain .conComment .inner .list .item .head { width: 50px; height: 50px; float: left; margin-right: 10px;}
+.webmain .conComment .inner .list .item .head img { display: block; width: 50px; height: 50px;}
+.webmain .conComment .inner .list .item .info { float: left; width: 1140px;}
+.webmain .conComment .inner .list .item .info span { color: #c1c1c1; font-size: 12px; line-height: 18px; margin-bottom: 4px; display: block;}
+.webmain .conComment .inner .list .item .info p { color: #000; font-size: 14px; line-height: 20px;}
+.webmain .conComment .inner .list .item .reply { position: absolute; right: 0; top: 0; line-height: 20px; display: block;}
+.webmain .conComment .inner .pager { height: 20px; overflow: hidden; margin-bottom: 15px;}
+.webmain .conComment .inner .pager a,
+.webmain .conComment .inner .pager span { display: block; float: left; margin-right: 5px; font-size: 12px; padding: 0 2px; line-height: 20px;} 
+.webmain .conComment .inner .pager a.c { color: #f25e5e;}
+.webmain .conComment .inner .send textarea { width: 1178px; height: 120px; padding: 10px; border: 1px solid #000; display: block; margin-bottom: 10px;}
+.webmain .conComment .inner .send .submit { width: 80px; height: 32px; line-height: 32px; color: #fff; text-align: center; display: block; background: #000; margin-left: 1122px;}
+
+
+

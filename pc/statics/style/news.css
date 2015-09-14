@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+.webmain .con { margin-bottom: 45px;}
+.webmain .con .title { height: 60px; overflow: hidden; background: url(../images/line_contitle.gif) center center repeat-x; margin-bottom: 15px; position: relative;}
+.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 15px; background: url(../images/more_contitle.gif); width: 130px; height: 30px; text-indent: -99em; overflow: hidden;}
+.webmain .con .title h2 { display: block; width: 100px; height: 60px; background-image: url(../images/txt_contitle.gif); background-repeat: no-repeat; text-indent: -99em; overflow: hidden; float: left;}
+.webmain .con .title ul { float: left; height: 26px; background: #fff; padding: 17px 5px 17px 5px;}
+.webmain .con .title ul li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px;}
+.webmain .con .title ul li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px;}
+.webmain .con .title ul li.c a { background: #000; color: #fff;}
+
+
+.webmain .conTopbanner {}
+.webmain .conTopbanner { height: 470px; overflow: hidden;}
+.webmain .conTopbanner img { display: block; width: 100%; height: 470px;}
+
+
+.webmain .conFansFocus {}
+.webmain .conFansFocus .title h2 { width: 166px; background-position: 0 -600px;}
+.webmain .conFansFocus .inner { width: 1230px; margin-left: -30px; height: 530px; overflow: hidden;}
+.webmain .conFansFocus .inner .item { width: 380px; height: 250px; overflow: hidden; position: relative; display: block; float: left; margin: 0 0 30px 30px;}
+.webmain .conFansFocus .inner .item img { display: block; width: 380px; height: 250px;}
+.webmain .conFansFocus .inner .item .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 12px 10px 10px 10px; background: rgba(0,0,0,0.68); width: 360px;}
+.webmain .conFansFocus .inner .item .txt h3 { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal;}
+.webmain .conFansFocus .inner .item .txt span { color: #fff; font-size: 12px; line-height: 18px; opacity: 0.7;}
+.webmain .conFansFocus .inner .item ul li { display: block; line-height: 20px; height: 20px; overflow: hidden; position: relative; padding-right: 100px; padding: 5px 0;}
+.webmain .conFansFocus .inner .item ul li a { display: inline-block; line-height: 20px;}
+.webmain .conFansFocus .inner .item ul li span { display: block; height: 20px; line-height: 20px; overflow: hidden; position: absolute; right: 0; top: 5px; color: #c1c1c1; font-size: 12px;}
+.webmain .conFansFocus .inner .item .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+
+
+.webmain .conStarsNews {}
+.webmain .conStarsNews .title h2 { width: 166px; background-position: 0 -660px;}
+.webmain .conStarsNews .inner .l { width: 380px; height: 430px; overflow: hidden; float: left; position: relative; display: block;}
+.webmain .conStarsNews .inner .l p { position: absolute; left: 0; bottom: 0; width: 100%; height: 55px; background: rgba(0,0,0,0.6); color: #fff; font-size: 18px; line-height: 55px; text-align: center; z-index: 2;}
+.webmain .conStarsNews .inner .l img { display: block; width: 380px; height: 430px;}
+.webmain .conStarsNews .inner .l .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+.webmain .conStarsNews .inner .r { float: left; width: 820px; height: 430px; overflow: hidden;}
+.webmain .conStarsNews .inner .r .item { width: 175px; height: 200px; float: left; margin: 0 0 30px 30px; overflow: hidden; position: relative; display: block;}
+.webmain .conStarsNews .inner .r .item img { display: block; width: 175px; height: 200px;}
+.webmain .conStarsNews .inner .r .item p { position: absolute; left: 0; bottom: 0; width: 100%; height: 36px; line-height: 36px; background: rgba(0,0,0,0.6); color: #fff; font-size: 14px; text-align: center; z-index: 2;}
+.webmain .conStarsNews .inner .r .item .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+
+
+.webmain .conChinaDream { margin-bottom: 0;}
+.webmain .conChinaDream .title h2 { width: 195px; background-position: 0 -720px;}
+.webmain .conChinaDream .inner { width: 1230px; margin-left: -30px;}
+.webmain .conChinaDream .inner .item { width: 380px; height: 250px; overflow: hidden; position: relative; display: block; float: left; margin: 0 0 0 30px;}
+.webmain .conChinaDream .inner .item img { display: block; width: 380px; height: 250px;}
+.webmain .conChinaDream .inner .item .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 12px 10px 10px 10px; background: rgba(0,0,0,0.68); width: 360px;}
+.webmain .conChinaDream .inner .item .txt h3 { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal;}
+.webmain .conChinaDream .inner .item .txt span { color: #fff; font-size: 12px; line-height: 18px; opacity: 0.7;}
+.webmain .conChinaDream .inner .item .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+
+
+
+
+
+
+
+
+
