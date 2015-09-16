@@ -8,16 +8,16 @@
 <title>首页</title>
 <meta name="Keywords" content="">
 <meta name="Description" content="">
-<link href="__PUBLIC__/login/style/reset.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/login/style/base.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/stage/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/stage/style/base.css" rel="stylesheet" type="text/css" />
 <style>html, body { height: 100%; overflow: hidden;}</style>
 
 </head>
   <script type="text/javascript">
-    function changeVerify(){
+    function changeVerify(urls){
         var randomnum = Math.random();
         var img       = document.getElementById('codepic');
-        img.src       = "/index.php?m=Ding&c=Index&a=verify";
+        img.src       = urls;
     }
     </script>
 <body>
@@ -30,7 +30,7 @@
 			<h2><span>LOGIN</span>登录</h2>
 		</div>
 		<div class="inner">
-			<form class="form" id="form" method='post' action='/index.php?m=Ding&c=Index&a=index'>
+			<form class="form" id="form" method='post' action='{:U('Index/index')}'>
 				<fieldset>
 					<div class="l">
 						<div class="i"><input type="text" id="username" name="user" class="input w320" placeholder="用户名" /></div>
@@ -44,7 +44,7 @@
 						</div>
 						<div class="i mr0">
 
-							<img id="codepic" src="/index.php?m=Ding&c=Index&a=verify" onclick="changeVerify()"/>
+				<img id="codepic" src="{:U('Index/verify')}" onclick="changeVerify('{:U('Index/verify')}')"/>
 
 						</div>
 					</div>
@@ -64,9 +64,9 @@
 
 	
 	
-	<script type="text/javascript" src="__PUBLIC__/login/js/jquery-1.8.0.min.js"></script>
-	<script type="text/javascript" src="__PUBLIC__/login/js/common.js"></script>
-	<script type="text/javascript" src="__PUBLIC__/login/js/login.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/stage/js/login.js"></script>
 
 
 

@@ -1,0 +1,180 @@
+
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="style/reset.css" rel="stylesheet" type="text/css" />
+<link href="style/base.css" rel="stylesheet" type="text/css" />
+<link href="style/page.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<!--header-->
+	<div class="webHeader" id="webHeader">
+		<div class="inner">
+			<h1 class="logo">公众号管理平台</h1>
+			<div class="userInfo">
+				<div class="head"><img src="images/head.jpg" /></div>
+				<div class="info">
+					<h2>您好，<span>useradmin</span>！</h2>
+					<ul class="tools">
+						<li><a href="javascript:void(0)" class="msg"><span>195</span>消息通知</a></li>
+						<li><a href="javascript:void(0)" class="chagepw">修改密码</a></li>
+						<li><a href="login.html">安全退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--header end-->
+
+	<!--container-->
+	<div class="webContainer clearFix containerWcSingleArticleAsset" id="webContainer">
+
+		<!--aside-->
+		<div class="webAside">
+			<div class="menu">
+
+				<dl class="ft">
+					<dt><span></span>基本元素</dt>
+					<dd>
+						<ul>
+							<li><a href="index.html">Table表格</a></li>
+							<li><a href="form.html">Form表单</a></li>
+							<li><a href="upload.html">图片上传<sub>192</sub></a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>微信设置</dt>
+					<dd>
+						<ul>
+							<li><a href="wechatBind.html">微信绑定</a></li>
+							<li><a href="wechatMenu.html">自定义菜单</a></li>
+							<li><a href="wechatReply.html">自定义回复</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>微信管理</dt>
+					<dd>
+						<ul>
+							<li><a href="wechatUsers.html">用户管理</a></li>
+							<li class="current"><a href="wechatArticleAssetsList.html">素材管理</a></li>
+							<li><a href="massSend.html">高级群发</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>数据统计</dt>
+					<dd>
+						<ul>
+							<li><a href="chart.html">网站访问统计</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+			</div>
+		</div>
+		<!--aside end-->
+
+		<!--main-->
+		<div class="webMain">
+			<div class="mainHeader">
+				<h1>添加单图文消息</h1>
+			</div>
+			<div class="mainBody" id="wechatSingleAsset">
+
+				<div class="item itemSingle" id="itemSingle">
+					<h2><a href="javascript:void(0)">标题</a></h2>
+					<div class="img">封面图片</div>
+					<p></p>
+				</div>
+
+				<div class="form">
+					<form>
+						<fieldset>
+							<div class="l">
+								<h6>标题</h6>
+								<div class="i"><input type="text" class="input" id="title" name="title" /></div>
+							</div>
+							<div class="l">
+								<h6>作者<span>（选填）</span></h6>
+								<div class="i"><input type="text" class="input" id="author" name="author" /></div>
+							</div>
+							<div class="l cover">
+								<h6>封面<span>（大图片建议尺寸：900像素 * 500像素）</span></h6>
+								<div class="i">
+									<div class="up"><input type="text" class="js_imgupload" id="coverimg" value="asdasda.jpg" name="coverimg" maxWidth="900" onchange="$.__singleArticleAssetImgChange__" /></div>
+									<div class="cb clearFix"><input type="checkbox" name="show" data-val="封面图片显示在正文中" checked="checked" id="showInArticle" /></div>
+								</div>
+							</div>
+							<div class="l">
+								<h6>摘要</h6>
+								<div class="i"><textarea class="input" id="summary" name="summary"></textarea></div>
+							</div>
+							<div class="l">
+								<h6>正文</h6>
+								<div class="i"><script id="article" type="text/plain" name="article"></script></div>
+							</div>
+							<div class="l">
+								<h6>原文链接<span>（选填）</span></h6>
+								<div class="i"><input type="text" class="input" id="link" name="link" /></div>
+							</div>
+						</fieldset>
+					</form>
+					<div class="point"></div>
+				</div>
+
+				<div class="btnCon btnCon2">
+					<a href="#" class="btnD">取消</a>
+					<input type="submit" id="submit" class="btnA" value="提交" />
+				</div>
+				
+				
+
+
+			</div>
+		</div>
+		<!--main end-->
+
+	</div>
+	<!--container end-->
+
+
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/wechat/singleArticleAsset.js"></script>
+
+	<!--富文本编辑器-->
+	<script type="text/javascript" charset="utf-8" src="js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/ueditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="js/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!--富文本编辑器 end-->
+
+    <script type="text/javascript">
+
+	// $("#submit").on("click", function(){
+	// 	var o = $(".form").getForm();
+	// 	console.log(o)
+	// });
+
+    </script>
+	
+
+
+
+
+</body>
+</html>

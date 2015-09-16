@@ -8,16 +8,16 @@
 <title>首页</title>
 <meta name="Keywords" content="">
 <meta name="Description" content="">
-<link href="/zyw/Public/login/style/reset.css" rel="stylesheet" type="text/css" />
-<link href="/zyw/Public/login/style/base.css" rel="stylesheet" type="text/css" />
+<link href="/zyw/Public/stage/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="/zyw/Public/stage/style/base.css" rel="stylesheet" type="text/css" />
 <style>html, body { height: 100%; overflow: hidden;}</style>
 
 </head>
   <script type="text/javascript">
-    function changeVerify(){
+    function changeVerify(urls){
         var randomnum = Math.random();
         var img       = document.getElementById('codepic');
-        img.src       = "/index.php?m=Ding&c=Index&a=verify";
+        img.src       = urls;
     }
     </script>
 <body>
@@ -30,7 +30,7 @@
 			<h2><span>LOGIN</span>登录</h2>
 		</div>
 		<div class="inner">
-			<form class="form" id="form" method='post' action='/index.php?m=Ding&c=Index&a=index'>
+			<form class="form" id="form" method='post' action='<?php echo U('Index/index');?>'>
 				<fieldset>
 					<div class="l">
 						<div class="i"><input type="text" id="username" name="user" class="input w320" placeholder="用户名" /></div>
@@ -44,7 +44,7 @@
 						</div>
 						<div class="i mr0">
 
-							<img id="codepic" src="/index.php?m=Ding&c=Index&a=verify" onclick="changeVerify()"/>
+				<img id="codepic" src="<?php echo U('Index/verify');?>" onclick="changeVerify('<?php echo U('Index/verify');?>')"/>
 
 						</div>
 					</div>
@@ -64,9 +64,9 @@
 
 	
 	
-	<script type="text/javascript" src="/zyw/Public/login/js/jquery-1.8.0.min.js"></script>
-	<script type="text/javascript" src="/zyw/Public/login/js/common.js"></script>
-	<script type="text/javascript" src="/zyw/Public/login/js/login.js"></script>
+	<script type="text/javascript" src="/zyw/Public/stage/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="/zyw/Public/stage/js/common.js"></script>
+	<script type="text/javascript" src="/zyw/Public/stage/js/login.js"></script>
 
 
 

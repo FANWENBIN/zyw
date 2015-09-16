@@ -1,0 +1,318 @@
+
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="style/reset.css" rel="stylesheet" type="text/css" />
+<link href="style/base.css" rel="stylesheet" type="text/css" />
+<link href="style/page.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<!--header-->
+	<div class="webHeader" id="webHeader">
+		<div class="inner">
+			<h1 class="logo">公众号管理平台</h1>
+			<div class="userInfo">
+				<div class="head"><img src="images/head.jpg" /></div>
+				<div class="info">
+					<h2>您好，<span>useradmin</span>！</h2>
+					<ul class="tools">
+						<li><a href="javascript:void(0)" class="msg"><span>195</span>消息通知</a></li>
+						<li><a href="javascript:void(0)" class="chagepw">修改密码</a></li>
+						<li><a href="login.html">安全退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--header end-->
+
+	<!--container-->
+	<div class="webContainer clearFix containerModuleList" id="webContainer">
+
+		<!--aside-->
+		<div class="webAside">
+			<div class="menu">
+
+				<dl class="ft">
+					<dt><span></span>基本元素</dt>
+					<dd>
+						<ul>
+							<li><a href="index.html">Table表格</a></li>
+							<li><a href="form.html">Form表单</a></li>
+							<li><a href="upload.html">图片上传<sub>192</sub></a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>微信设置</dt>
+					<dd>
+						<ul>
+							<li><a href="wechatBind.html">微信绑定</a></li>
+							<li><a href="wechatMenu.html">自定义菜单</a></li>
+							<li><a href="wechatReply.html">自定义回复</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>微信管理</dt>
+					<dd>
+						<ul>
+							<li><a href="wechatUsers.html">用户管理</a></li>
+							<li><a href="wechatArticleAssetsList.html">素材管理</a></li>
+							<li><a href="massSend.html">高级群发</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>数据统计</dt>
+					<dd>
+						<ul>
+							<li><a href="chart.html">网站访问统计</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+			</div>
+		</div>
+		<!--aside end-->
+
+		<!--main-->
+		<div class="webMain">
+			<div class="mainHeader">
+				<h1>模块设置</h1>
+			</div>
+			<div class="mainBody">
+
+				<!--表单-->
+				<div class="form">
+					<div class="formHeader">
+						<h1>问答</h1>
+					</div>
+					<form>
+						<fieldset>
+							<div class="l">
+								<h6>编号</h6>
+								<div class="i">
+
+									<table class="table" id="questionTable">
+										<thead>
+											<tr>
+												<td class="t1">问题</td>
+												<td class="t2">正确答案</td>
+												<td class="t3"><a href="javascript:void(0)" class="btnB" id="appendQuestion">添加</a></td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="t1">
+													123
+													<input type="hidden" class="q" value="123" />
+													<input type="hidden" class="a1" value="123" />
+													<input type="hidden" class="a2" value="1231" />
+													<input type="hidden" class="a3" value="23123" />
+													<input type="hidden" class="a4" value="12311" />
+													<input type="hidden" class="rad" value="1" />
+												</td>
+												<td class="t2">选项A</td>
+												<td class="t3">
+													<p class="console">
+														<a href="javascript:void(0)" class="revise">修改</a><a href="javascript:void(0)" class="del">删除</a>
+													</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+
+				
+
+			</div>
+		</div>
+		<!--main end-->
+
+	</div>
+	<!--container end-->
+
+
+
+	
+	
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript">
+	$(function(){
+
+
+		var page = {
+			init: function(){
+				$("#appendQuestion").on("click", page.append);
+				$("#questionTable").on("click", ".console .del", page.onDel);
+				$("#questionTable").on("click", ".console .revise", page.onRevise);
+			},
+			append: function(){
+				page.showPop();
+			},
+			onRevise: function(){
+				var tr = $(this).parents("tr"), o = {};
+				o.q = tr.find("input.q").val();
+				o.a1 = tr.find("input.a1").val();
+				o.a2 = tr.find("input.a2").val();
+				o.a3 = tr.find("input.a3").val();
+				o.a4 = tr.find("input.a4").val();
+				o.rad = tr.find("input.rad").val();
+				o.tr = tr;
+				page.showPop(o);
+			},
+			showPop: function(o){
+				if (!o){
+					o = {q: "", a1: "", a2: "", a3: "", a4: "", rad: "1"};
+				}
+				var html = "<div class='i question'><h6>问题</h6><input type='text' class='input' value='" + o.q + "' /></div>";
+				html += "<div class='i answer1'><h6>选项A</h6><input type='text' class='input' value='" + o.a1 + "' /></div>";
+				html += "<div class='i answer2'><h6>选项B</h6><input type='text' class='input' value='" + o.a2 + "' /></div>";
+				html += "<div class='i answer3'><h6>选项C</h6><input type='text' class='input' value='" + o.a3 + "' /></div>";
+				html += "<div class='i answer4'><h6>选项D</h6><input type='text' class='input' value='" + o.a4 + "' /></div>";
+				html += "<div class='i'><h6>正确答案</h6>";
+				html += "<div class='rad'>";
+				var abcd = ["A","B","C","D"];
+				for (var i = 0; i < 4; i++){
+					if (i + 1 != o.rad){
+						html += "<input type='radio' class='r' name='r' value='" + (i + 1) + "' data-val='选项" + abcd[i] + "' />";
+					} else {
+						html += "<input type='radio' class='r' name='r' value='" + (i + 1) + "' data-val='选项" + abcd[i] + "' checked='checked' />";
+					}
+				}
+				html += "</div></div>";
+				var btntxt = "添加";
+				if (o.tr){
+					btntxt = "修改";
+				}
+				$.alert({
+					title: "添加问答",
+					txt: html,
+					btnY: btntxt,
+					btnN: "取消",
+					css: "pop-alert-appendQuestion",
+					init: function(){
+						$("#pop-alert .rad .r").inputInit();
+					},
+					callbackY: function(){
+						var question = $("#pop-alert .pop .bd .question .input");
+						var answer1 = $("#pop-alert .pop .bd .answer1 .input");
+						var answer2 = $("#pop-alert .pop .bd .answer2 .input");
+						var answer3 = $("#pop-alert .pop .bd .answer3 .input");
+						var answer4 = $("#pop-alert .pop .bd .answer4 .input");
+
+						if (question.inputEmpty()){
+							question.inputError("问题不能为空");
+							return false;
+						} else if (question.inputLengthOverflow(60)){
+							question.inputError("问题不多于30个汉字或60个字母");
+							return false;
+						} else if (answer1.inputEmpty() || answer1.inputLengthOverflow(40)) {
+							answer1.inputError("选项A不能为空并不多于20个汉字或40个字母");
+							return false;
+						} else if (answer2.inputEmpty() || answer2.inputLengthOverflow(40)) {
+							answer2.inputError("选项B不能为空并不多于20个汉字或40个字母");
+							return false;
+						} else if (answer3.inputEmpty() || answer3.inputLengthOverflow(40)) {
+							answer3.inputError("选项C不能为空并不多于20个汉字或40个字母");
+							return false;
+						} else if (answer4.inputEmpty() || answer4.inputLengthOverflow(40)) {
+							answer4.inputError("选项D不能为空并不多于20个汉字或40个字母");
+							return false;
+						} else {
+							var q = $.trim(question.val());
+							var a1 = $.trim(answer1.val());
+							var a2 = $.trim(answer2.val());
+							var a3 = $.trim(answer3.val());
+							var a4 = $.trim(answer4.val());
+							var radio = $("#pop-alert .pop .bd .rad input:checked");
+							var radioVal = radio.val();
+							var radioTxt = radio.data("val");
+							var valinputs = "<input type='hidden' class='q' value='" + q + "' />"
+										+ "<input type='hidden' class='a1' value='" + a1 + "' />"
+										+ "<input type='hidden' class='a2' value='" + a2 + "' />"
+										+ "<input type='hidden' class='a3' value='" + a3 + "' />"
+										+ "<input type='hidden' class='a4' value='" + a4 + "' />"
+										+ "<input type='hidden' class='rad' value='" + radioVal + "' />";
+
+
+							var html = "";
+							if (!o.tr){
+								html += "<tr>";
+							}
+							html += "<td class='t1'>" + q + valinputs + "</td><td class='t2'>" + radioTxt + "</td>";
+							html += "<td class='t3'><p class='console'><a href='javascript:void(0)' class='revise'>修改</a><a href='javascript:void(0)' class='del'>删除</a></p></td>";
+							if (!o.tr){
+								html += "</tr>";
+								$("#questionTable tbody").append(html);
+							} else {
+								o.tr.html(html);
+							}
+						}
+					}
+				});
+			},
+			onDel: function(){
+				var tr = $(this).parents("tr");
+				$.alert({
+					title: "温馨提示",
+					txt: "确定要删除吗？",
+					btnY: "删除",
+					btnN: "取消",
+					btnYcss: "btnC",
+					callbackY: function(){
+						tr.remove();
+					}
+				});
+			}
+		};
+		page.init();
+
+
+
+
+	});
+	</script>
+
+	<style type="text/css">
+	#questionTable .t1 { width: auto; padding-left: 20px;}
+	#questionTable .t2 { width: 100px; text-align: center;}
+	#questionTable .t3 { width: 100px; text-align: center;}
+
+	.pop-alert-appendQuestion .pop { width: 600px !important; margin: -240px 0 0 -300px !important;}
+	.pop-alert-appendQuestion .pop .bd .p { padding: 10px; text-align: center;}
+	.pop-alert-appendQuestion .pop .bd .i { margin-bottom: 10px; height: 36px;}
+	.pop-alert-appendQuestion .pop .bd .i h6 { float: left; width: 120px; text-align: right; margin-right: 10px; line-height: 36px;}
+	.pop-alert-appendQuestion .pop .bd .i .input { width: 340px; float: left;}
+	.pop-alert-appendQuestion .pop .bd .i .rad { width: 340px; float: left;}
+	.pop-alert-appendQuestion .pop .bd .i .rad .js_radio { width: 50px !important; float: left; margin-right: 10px !important;}
+	.pop-alert-appendQuestion .pop .btn { padding-left: 148px !important;}
+	</style>
+
+	
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="style/reset.css" rel="stylesheet" type="text/css" />
+<link href="style/base.css" rel="stylesheet" type="text/css" />
+<link href="style/page.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<!--header-->
+	<div class="webHeader" id="webHeader">
+		<div class="inner">
+			<h1 class="logo">公众号管理平台</h1>
+			<div class="userInfo">
+				<div class="head"><img src="images/head.jpg" /></div>
+				<div class="info">
+					<h2>您好，<span>useradmin</span>！</h2>
+					<ul class="tools">
+						<li><a href="javascript:void(0)" class="msg"><span>195</span>消息通知</a></li>
+						<li><a href="javascript:void(0)" class="chagepw">修改密码</a></li>
+						<li><a href="login.html">安全退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--header end-->
+
+	<!--container-->
+	<div class="webContainer clearFix" id="webContainer">
+
+		<!--aside-->
+		<div class="webAside">
+			<div class="menu">
+
+				<dl class="ft">
+					<dt><span></span>基本元素</dt>
+					<dd>
+						<ul>
+							<li><a href="index.html">Table表格</a></li>
+							<li><a href="form.html">Form表单</a></li>
+							<li class="current"><a href="upload.html">图片上传<sub>192</sub></a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>微信设置</dt>
+					<dd>
+						<ul>
+							<li><a href="wechatBind.html">微信绑定</a></li>
+							<li><a href="wechatMenu.html">自定义菜单</a></li>
+							<li><a href="wechatReply.html">自定义回复</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>微信管理</dt>
+					<dd>
+						<ul>
+							<li><a href="wechatUsers.html">用户管理</a></li>
+							<li><a href="wechatArticleAssetsList.html">素材管理</a></li>
+							<li><a href="massSend.html">高级群发</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>数据统计</dt>
+					<dd>
+						<ul>
+							<li><a href="chart.html">网站访问统计</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+			</div>
+		</div>
+		<!--aside end-->
+
+		<!--main-->
+		<div class="webMain">
+			<div class="mainHeader">
+				<h1>图片上传</h1>
+				<ul class="menu clearFix">
+					<li class="current"><a href="#">菜单A</a></li>
+					<li><a href="#">菜单B</a></li>
+					<li><a href="#">菜单C</a></li>
+				</ul>
+			</div>
+			<div class="mainBody">
+
+				<!--表单-->
+				<div class="form">
+					<div class="formHeader">
+						<h1>图片上传</h1>
+					</div>
+					<form>
+						<fieldset>
+							<div class="l">
+								<h6>单张图片</h6>
+								<div class="i">
+									<input type="text" class="js_imgupload" id="imgurl" maxWidth="200" />
+								</div>
+							</div>
+							<div class="l">
+								<h6>单张图片可裁切</h6>
+								<div class="i">
+									<input type="text" value="http://192.168.0.16/php/1418723281.jpg" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" />
+								</div>
+							</div>
+							<div class="l">
+								<h6>按钮上传</h6>
+								<div class="i">
+									<a href="javascript:viod(0)" id="flashupload" class="btnB btnSmall">上传图片</a>
+									<p class="flashupload_url"></p>
+								</div>
+							</div>
+							<div class="l">
+								<h6>一组图片</h6>
+								<div class="i">
+									<input type="hidden" value="http://192.168.0.16/php/1418723281.jpg|||http://192.168.0.16/php/1418723281.jpg|||http://192.168.0.16/php/1418723281.jpg|||http://192.168.0.16/php/1418723281.jpg" class="js_imgupload_arr" id="imgurl3" width="400" height="200" max="6" />
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+
+				<!--主提交按钮-->
+				<div class="btnCon btnCon2">
+					<a href="#" class="btnD">取消</a>
+					<input type="submit" class="btnA" value="提交" />
+				</div>
+
+
+
+			</div>
+		</div>
+		<!--main end-->
+
+	</div>
+	<!--container end-->
+
+
+
+	
+	
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.dragsort-0.5.1.min.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+
+	<script type="text/javascript">
+	$(function(){
+
+		$("#flashupload").on("click", function(){
+			$.imgUploadPop({
+				width: 300,
+				height: 100,
+				complete: function(data){
+					$("#flashupload").next("p.flashupload_url").html("url root:" + data);
+				}
+			});
+		});
+
+
+	});
+	</script>
+
+
+	
+
+
+
+
+</body>
+</html>
