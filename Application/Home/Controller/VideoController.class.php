@@ -2,8 +2,8 @@
 // 本类由系统自动生成，仅供测试用途
 namespace Home\Controller;
 use Think\Controller;
-class VoteController extends ComController {
+class VideoController extends ComController {
     public function index(){
-	echo  '中演网';
+		$this->display('video');
     }
 }

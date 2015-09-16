@@ -11,6 +11,7 @@ class IndexController extends ComController {
     	echo __ACTION__.'：会替换成当前操作的URL地址 （不含域名）';
     	echo __SELF__.'： 会替换成当前的页面URL';
     	echo __PUBLIC__ ;die();*/
+
 		$this->display();
     }
 }
