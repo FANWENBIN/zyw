@@ -1,4 +1,4 @@
-
+<?php if (!defined('THINK_PATH')) exit();?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
@@ -6,9 +6,9 @@
 <head>
 <meta charset="utf-8">
 <title>中演网</title>
-<link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/style/common.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/style/index.css" rel="stylesheet" type="text/css" />
+<link href="/zyw/Public/statics/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="/zyw/Public/statics/style/common.css" rel="stylesheet" type="text/css" />
+<link href="/zyw/Public/statics/style/index.css" rel="stylesheet" type="text/css" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="Keywords" content="">
 <meta name="Description" content="">
@@ -22,7 +22,7 @@
             <a href="index.html" class="logo"></a>
             <div class="nav">
                 <ul class="clearFix">
-                    <li class="first c"><a href="__URL__/index">首页</a></li>
+                    <li class="first c"><a href="/zyw/index.php/Home/Index/index">首页</a></li>
                     <li><a href="news.html">资讯</a></li>
                     <li><a href="#">活动</a></li>
                     <li><a href="#">演工委之声</a></li>
@@ -52,7 +52,7 @@
                     <span>2015-10-14 02:13:36</span>
                 </div>
                 <div class="play hover"><span></span></div>
-                <img src="__PUBLIC__/statics/images/p/p2.jpg" />
+                <img src="/zyw/Public/statics/images/p/p2.jpg" />
             </a>
             <div class="r">
                 <a href="#" class="t item">
@@ -60,7 +60,7 @@
                         <h3>VIXX LR突出女团重围夺得一位</h3>
                         <span>2015-10-14 02:13:36</span>
                     </div>
-                    <img src="__PUBLIC__/statics/images/p/p1.jpg" />
+                    <img src="/zyw/Public/statics/images/p/p1.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="b item">
@@ -68,7 +68,7 @@
                         <h3>Purfles性感回归"铐链舞"大玩SM救赎爱情</h3>
                         <span>2015-10-14 02:13:36</span>
                     </div>
-                    <img src="__PUBLIC__/statics/images/p/p3.jpg" />
+                    <img src="/zyw/Public/statics/images/p/p3.jpg" />
                     <sub class="hover"></sub>
                 </a>
             </div>
@@ -88,7 +88,7 @@
                             <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
                             <span>2015-10-14 02:13:36</span>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/p5.jpg" />
+                        <img src="/zyw/Public/statics/images/p/p5.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <ul>
@@ -106,7 +106,7 @@
                             <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
                             <span>2015-10-14 02:13:36</span>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/p4.jpg" />
+                        <img src="/zyw/Public/statics/images/p/p4.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <ul>
@@ -124,7 +124,7 @@
                             <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
                             <span>2015-10-14 02:13:36</span>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/p6.jpg" />
+                        <img src="/zyw/Public/statics/images/p/p6.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <ul>
@@ -154,7 +154,7 @@
             <div class="inner clearFix">
                 <a href="#" class="l">
                     <p>102<span>参加</span></p>
-                    <img src="__PUBLIC__/statics/images/__p2.jpg" />
+                    <img src="/zyw/Public/statics/images/__p2.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <div class="r clearFix">
@@ -164,7 +164,7 @@
                             <span>2015-09-08</span>
                             <a href="#">查看</a>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/s10.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s10.jpg" />
                     </div>
                     <div class="item">
                         <div class="txt hover">
@@ -172,7 +172,7 @@
                             <span>2015-09-08</span>
                             <a href="#">查看</a>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s2.jpg" />
                     </div>
                     <div class="item">
                         <div class="txt hover">
@@ -180,7 +180,7 @@
                             <span>2015-09-08</span>
                             <a href="#">查看</a>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s3.jpg" />
                     </div>
                     <div class="item">
                         <div class="txt hover">
@@ -188,7 +188,7 @@
                             <span>2015-09-08</span>
                             <a href="#">查看</a>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s4.jpg" />
                     </div>
                     <div class="item">
                         <div class="txt hover">
@@ -196,7 +196,7 @@
                             <span>2015-09-08</span>
                             <a href="#">查看</a>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/s5.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s5.jpg" />
                     </div>
                     <div class="item">
                         <div class="txt hover">
@@ -204,7 +204,7 @@
                             <span>2015-09-08</span>
                             <a href="#">查看</a>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/s6.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s6.jpg" />
                     </div>
                     <div class="item">
                         <div class="txt hover">
@@ -212,7 +212,7 @@
                             <span>2015-09-08</span>
                             <a href="#">查看</a>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/s7.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s7.jpg" />
                     </div>
                     <div class="item">
                         <div class="txt hover">
@@ -220,7 +220,7 @@
                             <span>2015-09-08</span>
                             <a href="#">查看</a>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/s8.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s8.jpg" />
                     </div>
                 </div>
             </div>
@@ -245,7 +245,7 @@
                     </div>
                     <div class="list">
                         <div class="item top1">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a1.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a1.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">邓紫棋</a></h6>
                                 <span>热度: 321231</span>
@@ -255,7 +255,7 @@
                             </div>
                         </div>
                         <div class="item top2">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a2.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a2.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">李易峰</a></h6>
                                 <span>热度: 321231</span>
@@ -265,7 +265,7 @@
                             </div>
                         </div>
                         <div class="item top3">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a3.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a3.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">范冰冰</a></h6>
                                 <span>热度: 321231</span>
@@ -275,7 +275,7 @@
                             </div>
                         </div>
                         <div class="item top4">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a4.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a4.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">杨幂</a></h6>
                                 <span>热度: 321231</span>
@@ -285,7 +285,7 @@
                             </div>
                         </div>
                         <div class="item top5">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a5.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a5.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">angelababy</a></h6>
                                 <span>热度: 321231</span>
@@ -295,7 +295,7 @@
                             </div>
                         </div>
                         <div class="item top6">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a6.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a6.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">唐嫣</a></h6>
                                 <span>热度: 321231</span>
@@ -305,7 +305,7 @@
                             </div>
                         </div>
                         <div class="item top7">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a7.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a7.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">吴亦凡</a></h6>
                                 <span>热度: 321231</span>
@@ -315,7 +315,7 @@
                             </div>
                         </div>
                         <div class="item top8">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a8.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a8.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">刘诗诗</a></h6>
                                 <span>热度: 321231</span>
@@ -325,7 +325,7 @@
                             </div>
                         </div>
                         <div class="item top9">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a9.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a9.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">周星驰</a></h6>
                                 <span>热度: 321231</span>
@@ -335,7 +335,7 @@
                             </div>
                         </div>
                         <div class="item top10">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a10.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a10.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">李小璐</a></h6>
                                 <span>热度: 321231</span>
@@ -358,7 +358,7 @@
                     </div>
                     <div class="list">
                         <div class="item top1">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a11.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a11.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">柳岩</a></h6>
                                 <span>热度: 321231</span>
@@ -368,7 +368,7 @@
                             </div>
                         </div>
                         <div class="item top2">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a12.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a12.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">周杰伦</a></h6>
                                 <span>热度: 321231</span>
@@ -378,7 +378,7 @@
                             </div>
                         </div>
                         <div class="item top3">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a13.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a13.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">鹿晗</a></h6>
                                 <span>热度: 321231</span>
@@ -388,7 +388,7 @@
                             </div>
                         </div>
                         <div class="item top4">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a14.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a14.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">赵丽颖</a></h6>
                                 <span>热度: 321231</span>
@@ -398,7 +398,7 @@
                             </div>
                         </div>
                         <div class="item top5">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a15.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a15.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">柯震东</a></h6>
                                 <span>热度: 321231</span>
@@ -408,7 +408,7 @@
                             </div>
                         </div>
                         <div class="item top6">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a16.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a16.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">宋茜</a></h6>
                                 <span>热度: 321231</span>
@@ -418,7 +418,7 @@
                             </div>
                         </div>
                         <div class="item top7">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a17.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a17.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">姚笛</a></h6>
                                 <span>热度: 321231</span>
@@ -428,7 +428,7 @@
                             </div>
                         </div>
                         <div class="item top8">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a18.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a18.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">谢霆锋</a></h6>
                                 <span>热度: 321231</span>
@@ -438,7 +438,7 @@
                             </div>
                         </div>
                         <div class="item top9">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a19.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a19.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">林志颖</a></h6>
                                 <span>热度: 321231</span>
@@ -448,7 +448,7 @@
                             </div>
                         </div>
                         <div class="item top10">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a20.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a20.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">杨紫</a></h6>
                                 <span>热度: 321231</span>
@@ -471,7 +471,7 @@
                     </div>
                     <div class="list">
                         <div class="item top1">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a21.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a21.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">李敏镐</a></h6>
                                 <span>热度: 321231</span>
@@ -481,7 +481,7 @@
                             </div>
                         </div>
                         <div class="item top2">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a22.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a22.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">吴镇宇</a></h6>
                                 <span>热度: 321231</span>
@@ -491,7 +491,7 @@
                             </div>
                         </div>
                         <div class="item top3">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a23.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a23.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">林志玲</a></h6>
                                 <span>热度: 321231</span>
@@ -501,7 +501,7 @@
                             </div>
                         </div>
                         <div class="item top4">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a1.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a1.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">邓紫棋</a></h6>
                                 <span>热度: 321231</span>
@@ -511,7 +511,7 @@
                             </div>
                         </div>
                         <div class="item top5">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a2.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a2.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">李易峰</a></h6>
                                 <span>热度: 321231</span>
@@ -521,7 +521,7 @@
                             </div>
                         </div>
                         <div class="item top6">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a3.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a3.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">范冰冰</a></h6>
                                 <span>热度: 321231</span>
@@ -531,7 +531,7 @@
                             </div>
                         </div>
                         <div class="item top7">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a4.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a4.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">杨幂</a></h6>
                                 <span>热度: 321231</span>
@@ -541,7 +541,7 @@
                             </div>
                         </div>
                         <div class="item top8">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a5.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a5.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">angelababy</a></h6>
                                 <span>热度: 321231</span>
@@ -551,7 +551,7 @@
                             </div>
                         </div>
                         <div class="item top9">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a6.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a6.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">唐嫣</a></h6>
                                 <span>热度: 321231</span>
@@ -561,7 +561,7 @@
                             </div>
                         </div>
                         <div class="item top10">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a7.jpeg" /></a>
+                            <a href="#" class="head"><span></span><img src="/zyw/Public/statics/images/p/a7.jpeg" /></a>
                             <div class="info">
                                 <h6><a href="#">吴亦凡</a></h6>
                                 <span>热度: 321231</span>
@@ -586,48 +586,48 @@
             <div class="inner clearFix">
                 <a href="#" class="l">
                     <p>陈伟伦-百声现场</p>
-                    <img src="__PUBLIC__/statics/images/__p2.jpg" />
+                    <img src="/zyw/Public/statics/images/__p2.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <div class="r clearFix">
                     <a href="#" class="item">
                         <p>Stephanie</p>
-                        <img src="__PUBLIC__/statics/images/p/s1.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s1.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>JUNIEL</p>
-                        <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s2.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>金亨俊</p>
-                        <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s3.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>APRIL</p>
-                        <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s4.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>myB</p>
-                        <img src="__PUBLIC__/statics/images/p/s5.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s5.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>ZPZG</p>
-                        <img src="__PUBLIC__/statics/images/p/s9.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s9.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>BEAT WIN</p>
-                        <img src="__PUBLIC__/statics/images/p/s7.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s7.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>FlaShe</p>
-                        <img src="__PUBLIC__/statics/images/p/s8.jpg" />
+                        <img src="/zyw/Public/statics/images/p/s8.jpg" />
                         <sub class="hover"></sub>
                     </a>
                 </div>
@@ -643,62 +643,62 @@
             <div class="inner clearFix">
                 <a href="#" class="item">
                     <p>Stephanie</p>
-                    <img src="__PUBLIC__/statics/images/p/s1.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s1.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>JUNIEL</p>
-                    <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s2.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>金亨俊</p>
-                    <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s3.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>APRIL</p>
-                    <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s4.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>myB</p>
-                    <img src="__PUBLIC__/statics/images/p/s5.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s5.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>ZPZG</p>
-                    <img src="__PUBLIC__/statics/images/p/s9.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s9.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>BEAT WIN</p>
-                    <img src="__PUBLIC__/statics/images/p/s7.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s7.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>FlaShe</p>
-                    <img src="__PUBLIC__/statics/images/p/s8.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s8.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>刷子乱乱唱</p>
-                    <img src="__PUBLIC__/statics/images/p/s10.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s10.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>JUNIEL</p>
-                    <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s2.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>金亨俊</p>
-                    <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s3.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <a href="#" class="item">
                     <p>APRIL</p>
-                    <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+                    <img src="/zyw/Public/statics/images/p/s4.jpg" />
                     <sub class="hover"></sub>
                 </a>
             </div>
@@ -724,7 +724,7 @@
                             <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
                             <span>2015-10-14 02:13:36</span>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/p5.jpg" />
+                        <img src="/zyw/Public/statics/images/p/p5.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <ul>
@@ -742,7 +742,7 @@
                             <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
                             <span>2015-10-14 02:13:36</span>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/p4.jpg" />
+                        <img src="/zyw/Public/statics/images/p/p4.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <ul>
@@ -760,7 +760,7 @@
                             <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
                             <span>2015-10-14 02:13:36</span>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/p6.jpg" />
+                        <img src="/zyw/Public/statics/images/p/p6.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <ul>
@@ -786,48 +786,48 @@
                     <div class="txt">
                         <h3>微电影拍摄花絮</h3>
                     </div>
-                    <img src="__PUBLIC__/statics/images/p/b1.jpg" />
+                    <img src="/zyw/Public/statics/images/p/b1.jpg" />
                     <sub class="hover"></sub>
                 </a>
                 <div class="r clearFix">
                     <a href="#" class="item">
                         <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b1.jpg" />
+                        <img src="/zyw/Public/statics/images/p/b1.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b2.jpg" />
+                        <img src="/zyw/Public/statics/images/p/b2.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b3.jpg" />
+                        <img src="/zyw/Public/statics/images/p/b3.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b4.jpg" />
+                        <img src="/zyw/Public/statics/images/p/b4.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b5.jpg" />
+                        <img src="/zyw/Public/statics/images/p/b5.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b6.jpg" />
+                        <img src="/zyw/Public/statics/images/p/b6.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b7.jpg" />
+                        <img src="/zyw/Public/statics/images/p/b7.jpg" />
                         <sub class="hover"></sub>
                     </a>
                     <a href="#" class="item">
                         <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b2.jpg" />
+                        <img src="/zyw/Public/statics/images/p/b2.jpg" />
                         <sub class="hover"></sub>
                     </a>
                 </div>
@@ -860,11 +860,11 @@
     <!--webfooter end-->
 
 
-<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
-<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
-<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+<script src="/zyw/Public/statics/js/jquery-1.8.0.min.js"></script>
+<script src="/zyw/Public/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+<script src="/zyw/Public/statics/js/jquery.easing.js"></script>
 
-<script src="__PUBLIC__/statics/js/index.js"></script>
+<script src="/zyw/Public/statics/js/index.js"></script>
 
 </body>
 </html>
