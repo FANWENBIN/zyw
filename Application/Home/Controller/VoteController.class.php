@@ -5,7 +5,7 @@ use Think\Controller;
 class VoteController extends ComController {
     public function index(){
 		//$this->display('vote');
-		echo $ip = $this->get_client_ip();
+		echo $ip = get_client_ip();
     }
 
 
