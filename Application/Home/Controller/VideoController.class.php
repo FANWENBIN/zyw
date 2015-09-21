@@ -6,4 +6,6 @@ class VideoController extends ComController {
     public function index(){
 		$this->display('video');
     }
+   
+   
 }

@@ -4,14 +4,21 @@ use Think\Controller;
 //首页类
 class IndexController extends ComController {
     public function index(){
-    	/*echo __ROOT__.'： 会替换成当前网站的地址（不含域名） ';
-    	echo __APP__.'： 会替换成当前应用的URL地址 （不含域名）';
-    	echo __MODULE__.'：会替换成当前模块的URL地址 （不含域名）';
-    	echo __CONTROLLER__.'（__或者__URL__ 兼容考虑）： 会替换成当前控制器的URL地址（不含域名）';
-    	echo __ACTION__.'：会替换成当前操作的URL地址 （不含域名）';
-    	echo __SELF__.'： 会替换成当前的页面URL';
-    	echo __PUBLIC__ ;die();*/
 
 		$this->display();
     }
+
+
+   /* public function test(){
+        define('DB_HOST','121.41.101.8');
+        define('DB_USER','nadoocomp');
+        define('DB_PSWD','nadoom2db#!^');
+        define('DB_NAME','zyw');
+        define('DB_PORT','3306');
+        mysql_connect(DB_HOST, DB_USER, DB_PSWD, DB_PORT) or die('mysql connect fail');
+        mysql_select_db(DB_NAME);
+        mysql_query('set names utf8');
+        $result = mysql_query('select * from zyw_admin');
+       var_dump(mysql_fetch_array($result));
+    }*/
 }

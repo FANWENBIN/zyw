@@ -1,0 +1,172 @@
+
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="style/reset.css" rel="stylesheet" type="text/css" />
+<link href="style/base.css" rel="stylesheet" type="text/css" />
+<link href="style/page.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<!--header-->
+	<div class="webHeader" id="webHeader">
+		<div class="inner">
+			<h1 class="logo">公众号管理平台</h1>
+			<div class="userInfo">
+				<div class="head"><img src="images/head.jpg" /></div>
+				<div class="info">
+					<h2>您好，<span>useradmin</span>！</h2>
+					<ul class="tools">
+						<li><a href="javascript:void(0)" class="msg"><span>195</span>消息通知</a></li>
+						<li><a href="javascript:void(0)" class="chagepw">修改密码</a></li>
+						<li><a href="login.html">安全退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--header end-->
+
+	<!--container-->
+	<div class="webContainer clearFix containerChart" id="webContainer">
+
+		<!--aside-->
+    <div class="webAside">
+      <div class="menu">
+
+        <dl class="ft">
+          <dt><span></span>基本元素</dt>
+          <dd>
+            <ul>
+              <li class="current"><a href="index.html">普通用户管理</a></li>
+              <li><a href="form.html">明星用户管理</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt><span></span>信息发布</dt>
+          <dd>
+            <ul>
+              <li><a href="wechatBind.html">咨询</a></li>
+              <li><a href="wechatMenu.html">活动</a></li>
+              <li><a href="wechatReply.html">演工委之声</a></li>
+              <li><a href="wechatUsers.html">好演员评选</a></li>
+              <li><a href="wechatArticleAssetsList.html">饭团</a></li>
+              <li><a href="massSend.html">星站</a></li>
+              <li><a href="chart.html">明日之星</a></li>
+              <li><a href="wechatReply.html">stage</a></li>
+              <li><a href="wechatReply.html">演艺库</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+		<!--aside end-->
+
+		<!--main-->
+		<div class="webMain">
+			<div class="mainHeader">
+				<h1>网站访问统计</h1>
+				<ul class="menu clearFix">
+					<li class="current"><a href="#.html">PV数与UV数统计</a></li>
+					<li><a href="#.html">游戏A次数统计</a></li>
+				</ul>
+			</div>
+			<div class="mainBody">
+
+
+				<!--汇总-->
+				<div class="tableInfo">
+					<div class="item"><h2>网站PV访问量(最近30天)</h2><span id="totalPV"></span></div>
+					<div class="item"><h2>平均PV值</h2><span id="averagePV"></span></div>
+				</div>
+
+				<canvas id="pvCanvas" class="mb30" height="400" width="950"></canvas>
+
+
+				<!--汇总-->
+				<div class="tableInfo">
+					<div class="item"><h2>网站UV访问量(最近30天)</h2><span id="totalUV"></span></div>
+					<div class="item"><h2>平均UV值</h2><span id="averageUV"></span></div>
+				</div>
+
+				<canvas id="uvCanvas" class="mb30" height="400" width="950"></canvas>
+
+				<!--汇总-->
+				<div class="tableInfo">
+					<div class="item"><h2>用户主要城市分布</h2></div>
+				</div>
+
+				<div class="cityChart">
+					<canvas id="cityCanvas" height="300" width="400"></canvas>
+					<div class="info" id="cityInfo"></div>
+				</div>
+
+
+			</div>
+		</div>
+		<!--main end-->
+
+	</div>
+	<!--container end-->
+
+
+
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/chart.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+
+	<script type="text/javascript">
+
+		var chartPv = {
+			id: "pvCanvas",
+			total: "totalPV",
+			average: "averagePV",
+			data: ["3/1","3/2","3/3","3/4","3/5","3/6","3/7","3/8","3/9","3/10","3/11","3/12","3/13","3/14","3/15","3/16","3/17","3/18","3/19","3/20","3/21","3/22","3/23","3/24","3/25","3/26","3/27","3/28","3/29","3/30"],
+			period: 30,
+			c: [21,88,10,122,35,140,19,55,120,55,21,88,10,199,35,140,19,55,120,55,21,88,10,122,35,140,19,55,120,19,55]
+		}
+		$.chart.setUvPv(chartPv);
+
+		var chartUv = {
+			id: "uvCanvas",
+			total: "totalUV",
+			average: "averageUV",
+			data: ["3/1","3/2","3/3","3/4","3/5","3/6","3/7","3/8","3/9","3/10","3/11","3/12","3/13","3/14","3/15","3/16","3/17","3/18","3/19","3/20","3/21","3/22","3/23","3/24","3/25","3/26","3/27","3/28","3/29","3/30"],
+			period: 30,
+			c: [1,59,20,81,56,107,150,88,150,18,29,20,81,56,107,150,88,150,91,59,20,81,56,107,150,88,150,188,59,20,81,56]
+		}
+		$.chart.setUvPv(chartUv);
+
+		var city = {
+			id: "cityCanvas",
+			html: "cityInfo",
+			data: ["上海", "北京", "广州", "深圳", "南京", "上海", "杭州", "福建", "宁波", "其他"],
+			c: [270,231,220,195,142,111,95,78,45,20]
+		}
+		$.chart.doug(city);
+
+	</script>
+
+
+
+
+</body>
+</html>
