@@ -68,4 +68,27 @@ class VoteController extends ComController {
            // echo '';
             exit;
     }
+    
+    public function test(){
+        $url = 'http://m2.nadoo.cn/p/zyw?index.php&m=Home&c=Vote&a=voting';
+        $data = array('opid'=>'dc6e753bc18d9928773f7c30eee6ddbe','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
+       $a =  $this->htcurl($url,$data);
+       var_dump($a);
+    }
+     public function htcurl($url,$data){
+    	 $url = $url;
+    	 $post_data = $data;
+    	 $ch = curl_init();
+    	 curl_setopt($ch, CURLOPT_URL, $url);
+    	 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    	 // post数据
+    	 curl_setopt($ch, CURLOPT_POST, 1);
+    	 // post的变量
+    	 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+    	 $output = curl_exec($ch);
+    	 curl_close($ch);
+    	 //打印获得的数据
+    	 print_r($output);
+    }
+    
 }

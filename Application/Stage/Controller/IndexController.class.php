@@ -3,9 +3,8 @@ namespace Stage\Controller;
 use Think\Controller;
 //首页类
 class IndexController extends ComController {
+    //登陆 zyw916
     public function index (){
-        
-
         $submit= I('post.submit');
         if(empty($submit)){
             
@@ -17,9 +16,7 @@ class IndexController extends ComController {
             if($a){
                 $data['name']= I('post.user');
                 $data['passwd']=md5(I('post.pw'));
-                
                 $user=M('admin');
-           
                 $a=$user->where($data)->select();
                 //echo $user->getlastsql();die();
                 if($a){
@@ -43,11 +40,11 @@ class IndexController extends ComController {
         $Verify = new \Think\Verify();
         $Verify->entry();
     }
-
     function check_verify($code){  
     $verify = new \Think\Verify();   
     return $verify->check($code);
     }
+    //首页显示
     public function show(){
         $this->vercklogin();
         $this->display('index');
