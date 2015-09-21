@@ -47,6 +47,8 @@ class IndexController extends ComController {
     //首页显示
     public function show(){
         $this->vercklogin();
+        $user = M('user');
+        $user->select();
         $this->display('index');
         //echo md5('xxxzyw916');        
     }

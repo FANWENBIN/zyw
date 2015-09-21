@@ -51,4 +51,26 @@
 	    return in_array($ip, $valid);
 	}
 
+
+	function group($groupid){
+		switch ($groupid) {
+			case '1':
+				return '红组';
+			
+			case '2':
+				return '蓝组';
+			case '3':
+				return '绿组';
+		}
+	}
+	function sexval($id){
+		switch ($id) {
+			case '1':
+				return '男';
+			case '2':
+				return '女';
+			
+		}
+	}
+
 ?>
