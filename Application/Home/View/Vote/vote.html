@@ -278,46 +278,19 @@
                             <a href="#" class="result">查看投票结果</a>
                         </div>
                         <div class="in clearFix">
+                        <volist name='list' id='vos'>
                             <div class="item item1">
                                 <div class="vote hover">
                                     <p>扫描二维码投票</p>
-                                    <img src="__PUBLIC__/statics/images/actorQr/e1.png" />
+                                    <img src="{:U('Vote/code?opid='.$vos['opid'])}" />
                                 </div>
-                                <div class="head"><span></span><img src="__PUBLIC__/statics/images/p/d1.jpg" /></div>
-                                <h6>于荣光</h6>
+                                <div class="head"><span></span><img src="__PUBLIC__/{$vos.headimg}" /></div>
+                                <h6>{$vos.name}</h6>
                                 <span>总票数</span>
-                                <strong>688万</strong>
+                                <strong>{$vos.votes}</strong>
                             </div>
-                            <div class="item item2">
-                                <div class="vote hover">
-                                    <p>扫描二维码投票</p>
-                                    <img src="__PUBLIC__/statics/images/actorQr/e2.png" />
-                                </div>
-                                <div class="head"><span></span><img src="__PUBLIC__/statics/images/p/d2.jpg" /></div>
-                                <h6>王馥荔</h6>
-                                <span>总票数</span>
-                                <strong>486万</strong>
-                            </div>
-                            <div class="item item3">
-                                <div class="vote hover">
-                                    <p>扫描二维码投票</p>
-                                    <img src="__PUBLIC__/statics/images/actorQr/e3.png" />
-                                </div>
-                                <div class="head"><span></span><img src="__PUBLIC__/statics/images/p/d3.jpg" /></div>
-                                <h6>于和伟</h6>
-                                <span>总票数</span>
-                                <strong>331万</strong>
-                            </div>
-                            <div class="item item4">
-                                <div class="vote hover">
-                                    <p>扫描二维码投票</p>
-                                    <img src="__PUBLIC__/statics/images/actorQr/e4.png" />
-                                </div>
-                                <div class="head"><span></span><img src="__PUBLIC__/statics/images/p/d4.jpg" /></div>
-                                <h6>丁柳元</h6>
-                                <span>总票数</span>
-                                <strong>223万</strong>
-                            </div>
+                        </volist>
+
                         </div>
                     </div>
                 </div>
@@ -403,95 +376,23 @@
                 <h2>中国电视好演员评选</h2>
                 <a href="#" class="more">更多</a>
             </div>
+
             <div class="inner clearFix">
+            <volist name="actors" id="vo">
+          
                 <div class="item">
                     <div class="vote hover">
                         <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e1.png" />
+                       <img src="{:U('Vote/code?opid='.$vo['opid'])}" />
                     </div>
                     <div class="txt">
-                        <p>于荣光</p>
-                        <span>当前票数：84567</span>
+                        <p>{$vo.name}</p>
+                        <span>当前票数：{$vo.votes}</span>
                     </div>
-                    <img src="__PUBLIC__/statics/images/p/c1.jpg" />
+                    <img src="__PUBLIC__/{$vo.headimg}" />
                 </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e2.png" />
-                    </div>
-                    <div class="txt">
-                        <p>王馥荔</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c2.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e3.png" />
-                    </div>
-                    <div class="txt">
-                        <p>于和伟</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c3.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e4.png" />
-                    </div>
-                    <div class="txt">
-                        <p>丁柳元</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c4.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e5.png" />
-                    </div>
-                    <div class="txt">
-                        <p>马天宇</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c5.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e6.png" />
-                    </div>
-                    <div class="txt">
-                        <p>王宝强</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c6.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e7.png" />
-                    </div>
-                    <div class="txt">
-                        <p>于明加</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c7.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e8.png" />
-                    </div>
-                    <div class="txt">
-                        <p>万茜</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c8.jpg" />
-                </div>
+            </volist>
+                
             </div>
         </div>
 

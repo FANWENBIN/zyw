@@ -4,6 +4,15 @@ namespace Home\Controller;
 use Think\Controller;
 class VoteController extends ComController {
     public function index(){
+        $actors = M('actors');
+        //好演员评选
+        $actorsval = $actors->order('votes desc')->limit('0,8')->select();
+        $this->assign('actors',$actorsval);
+
+        //形象指数
+        $actorsvalue = $actors->order('votes desc')->limit('0,4')->select();
+        $this->assign('list',$actorsvalue);
+
 		$this->display('vote');
 		//echo $ip = get_client_ip();
     }
@@ -59,7 +68,7 @@ class VoteController extends ComController {
             // 纠错级别：L、M、Q、H
             $level = 'L';
             // 点的大小：1到10,用于手机端4就可以了
-            $size = 4;
+            $size = 2;
             // 下面注释了把二维码图片保存到本地的代码,如果要保存图片,用$fileName替换第二个参数false
            // $path = __PUBLIC__."/images/";
             // 生成的文件名
