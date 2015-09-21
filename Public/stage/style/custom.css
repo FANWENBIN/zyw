@@ -6,6 +6,7 @@
 .pop-alert .pop .bd .p { line-height: 24px; text-align: center; padding: 50px 0 40px 0; font-size: 14px; color: #525f67;}
 .pop-alert .pop .btn { height: 42px; padding: 10px 0 25px 0;}
 .pop-alert .pop .btn a { margin: 0 auto; height: 40px; line-height: 40px; width: 130px;}
+.pop-alert .pop .btn input { margin: 0 auto; height: 40px; line-height: 40px; width: 130px;background-color: #5cacdf}
 .pop-alert .pop .btnNY { padding-left: 88px;}
 .pop-alert .pop .btnNY a { margin: 0 10px; float: left;}
 .pop-alert input{background: #fff; display: inline-block;}
