@@ -55,3 +55,8 @@
 .slt.active{
   background: #ffa10e;
 }
+
+.pagers .first{display: none}
+.pagers .end{display: none}
+.pagers .num{display: inline-block; width: 30px;}
+.pagers .current{display: inline-block; width: 30px;color: red}
