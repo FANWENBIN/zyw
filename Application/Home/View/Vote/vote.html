@@ -403,95 +403,23 @@
                 <h2>中国电视好演员评选</h2>
                 <a href="#" class="more">更多</a>
             </div>
+
             <div class="inner clearFix">
+            <volist name="actors" id="vo">
+          
                 <div class="item">
                     <div class="vote hover">
                         <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e1.png" />
+                       <img src="{:U('Vote/code?opid='.$vo['opid'])}" />
                     </div>
                     <div class="txt">
-                        <p>于荣光</p>
-                        <span>当前票数：84567</span>
+                        <p>{$vo.name}</p>
+                        <span>当前票数：{$vo.votes}</span>
                     </div>
-                    <img src="__PUBLIC__/statics/images/p/c1.jpg" />
+                    <img src="__PUBLIC__/{$vo.headimg}" />
                 </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e2.png" />
-                    </div>
-                    <div class="txt">
-                        <p>王馥荔</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c2.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e3.png" />
-                    </div>
-                    <div class="txt">
-                        <p>于和伟</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c3.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e4.png" />
-                    </div>
-                    <div class="txt">
-                        <p>丁柳元</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c4.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e5.png" />
-                    </div>
-                    <div class="txt">
-                        <p>马天宇</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c5.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e6.png" />
-                    </div>
-                    <div class="txt">
-                        <p>王宝强</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c6.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e7.png" />
-                    </div>
-                    <div class="txt">
-                        <p>于明加</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c7.jpg" />
-                </div>
-                <div class="item">
-                    <div class="vote hover">
-                        <p>扫描二维码投票</p>
-                        <img src="__PUBLIC__/statics/images/actorQr/e8.png" />
-                    </div>
-                    <div class="txt">
-                        <p>万茜</p>
-                        <span>当前票数：84567</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/c8.jpg" />
-                </div>
+            </volist>
+                
             </div>
         </div>
 

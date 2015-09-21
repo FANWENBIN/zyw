@@ -4,6 +4,9 @@ namespace Home\Controller;
 use Think\Controller;
 class VoteController extends ComController {
     public function index(){
+        $actors = M('actors');
+        $actorsval = $actors->order('votes desc')->limit('0,8')->select();
+        $this->assign('actors',$actorsval);
 		$this->display('vote');
 		//echo $ip = get_client_ip();
     }
