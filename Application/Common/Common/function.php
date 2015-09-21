@@ -28,7 +28,7 @@
 	}
 
 
-	function get_client_ip(){
+	function get_client_ip1(){
 	    $type       =  $type ? 1 : 0;
 	    static $ip  =   NULL;
 	    if ($ip !== NULL) return $ip[$type];
