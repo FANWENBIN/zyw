@@ -59,4 +59,4 @@
 .first{display: none}
 .end{display: none}
 .num{display: inline-block; width: 30px;}
-.current{display: inline-block; width: 30px;}
+.current{display: inline-block; width: 30px;color: red}
