@@ -23,8 +23,8 @@
 
 
 
-	function errReturn($errCode){
-	    ajaxReturn($errCode, Errorcode::getErrorMsg($errCode));
+	function errReturn($errCode,$msg){
+	    ajaxReturn($errCode,$msg);
 	}
 
 

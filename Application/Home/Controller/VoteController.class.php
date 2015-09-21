@@ -44,7 +44,7 @@ class VoteController extends ComController {
 		        }
 		        
 		    }else{
-		        errReturn(Errorcode::$DAYS_VOTE_OUT_LIMIT);
+		        errReturn(106,'今日投票次数已达上限');
 		    }
 		    
 		}
@@ -70,7 +70,7 @@ class VoteController extends ComController {
     }
     
     public function test(){
-        echo 123;die();
+
         $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=voting';
         $data = array('opid'=>'dc6e753bc18d9928773f7c30eee6ddbe','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
        $a =  $this->htcurl($url,$data);
