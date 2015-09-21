@@ -22,9 +22,9 @@ class VoteController extends ComController {
     	$opid = trim($_POST['opid']);
 		$openid = addslashes(trim($_POST['wxopenid']));
 		$ip = get_client_ip();
-		if(!checkApiServerIp()){
+		/*if(!checkApiServerIp()){
 		    errReturn(Errorcode::$CLIENTIP_INVALID);
-		}
+		}*/
 		if(preg_match("/^[a-f\d]{32}$/",$opid)){
 		    //查询该openid是否投过票
 		    $query = mysql_query('select id from zyw_votelog where wxopenid="'.$openid.'" and insdate="'.date('Y-m-d').'"');
