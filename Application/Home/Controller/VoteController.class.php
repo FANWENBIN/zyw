@@ -65,7 +65,6 @@ class VoteController extends ComController {
             // 生成的文件名
             //$fileName = $path.$size.'.png';
             \QRcode::png($data, false, $level, $size);
-           // echo '';
             exit;
     }
     
@@ -74,7 +73,7 @@ class VoteController extends ComController {
         $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=voting';
         $data = array('opid'=>'dc6e753bc18d9928773f7c30eee6ddbe','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
        $a =  $this->htcurl($url,$data);
-       var_dump($a);
+      //var_dump($a);
     }
      public function htcurl($url,$data){
     	 $url = $url;

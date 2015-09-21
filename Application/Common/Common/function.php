@@ -20,9 +20,6 @@
 	    return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 'xmlhttprequest' == strtolower($_SERVER['HTTP_X_REQUESTED_WITH']);
 	}
 
-
-
-
 	function errReturn($errCode,$msg){
 	    ajaxReturn($errCode,$msg);
 	}

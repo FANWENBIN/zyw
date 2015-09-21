@@ -97,7 +97,7 @@ a.important	{color:#98a1ab;}
 
 /*table*/
 .table { width: 100%; background: #fff; border-collapse: collapse;}
-.table tr td { border-bottom: 1px solid #e9efef; line-height: 20px; padding: 15px 0; color: #525f67; font-size: 12px; overflow: hidden; vertical-align: middle; word-wrap: break-word; word-break: break-all;}
+.table tr td {width: 80px; border-bottom: 1px solid #e9efef; line-height: 20px; padding: 15px 0; color: #525f67; font-size: 12px; overflow: hidden; vertical-align: middle; word-wrap: break-word; word-break: break-all;}
 .table thead tr td { background: #f7f8fa; color: #525f67; font-size: 14px; padding: 5px 0; line-height: 40px; border-top: 1px solid #e9efef;}
 .table thead tr td .btnB { width: 60px; height: 28px; line-height: 28px; font-size: 12px; margin: 0 auto; display: block; float: none !important;}
 .table tfoot tr td { background: #fdfdfd; padding: 10px 0;}
@@ -879,7 +879,7 @@ input.btnSmall { height: 36px; line-height: normal; width: 120px;}
 .ieOld .webContainer { border: 1px solid #e9efef;}
 .ieOld .btnSmall { line-height: 32px;}
 .ieOld input.btnSmall { line-height: normal;}
-.ieOld #pop-alert { background:url(../images/ui/space.png) 0 0 repeat; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#BF000000,endColorstr=#BF000000);}}
+.ieOld #pop-alert { background:url(../images/ui/space.png) 0 0 repeat; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#BF000000,endColorstr=#BF000000);}
 .ieOld #_loading_ { filter:alpha(opacity=50);}
 .ieOld .pop-alert-assetsList .pop .bd .p .assetsList .loading,
 .ieOld .pop-alert-photoList .pop .bd .p .photoList .loading,

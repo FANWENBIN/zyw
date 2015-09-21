@@ -4,7 +4,7 @@ var imgUploadServer = "http://192.168.1.2/php/img.php";
 var imgUploadFile = "http://192.168.1.2/php/";
 var mp3UploadServer = "http://192.168.1.2/php/mp3.php";
 var mp3UploadFile = "http://192.168.1.2/php/uploads/";
-var swfUrl = "http://192.168.1.2/swf/";
+var swfUrl = "./swf/";
 
 
 ;(function($) {

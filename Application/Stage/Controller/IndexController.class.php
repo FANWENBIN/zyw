@@ -50,5 +50,9 @@ class IndexController extends ComController {
         $this->display('index');
         //echo md5('xxxzyw916');        
     }
+    public function starmanage(){
+        $this->display();
+    }
+    
 
 }
