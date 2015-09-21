@@ -55,3 +55,8 @@
 .slt.active{
   background: #ffa10e;
 }
+
+.first{display: none}
+.end{display: none}
+.num{display: inline-block; width: 30px;}
+.current{display: inline-block; width: 30px;}
