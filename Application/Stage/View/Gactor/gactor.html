@@ -101,48 +101,38 @@
           <tr>
             <td class="t1">编号</td>
             <td class="t2">头像</td>
-            <td class="t3">用户名</td>
-
-            <td class="t6">创建时间</td>
-            <td class="t7">操作</td>
+            <td class="t3">姓名</td>
+            <td class="t6">票数</td>
+            <td class="t7">分组</td>
+            <td class="t8">性别</td>
+            <td class="t9">操作</td>
           </tr>
           </thead>
           <tbody>
+          <volist name="actors" id='vo'>
           <tr>
-            <td class="t1">2</td>
-            <td class="t2"><img src="__PUBLIC__/stage/images/head.jpg" width="50" height="50"></td>
-            <td class="t3">username</td>
+            <td class="t1">{$i}</td>
+            <td class="t2"><img src="__PUBLIC__/{$vo.headimg}" width="50" height="50"></td>
+            <td class="t3">{$vo.name}</td>
 
-            <td class="t6">2013-12-22 17:50</td>
-            <td class="t7">
+            <td class="t6">{$vo.votes}</td>
+            <td class="t7">{:group($vo['groupid'])}</td>
+            <td class="t8">{:sexval($vo['sex'])}</td>
+            <td class="t9">
               <p class="console">
                 <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
               </p>
             </td>
           </tr>
-          <tr>
-            <td class="t1">3</td>
-            <td class="t2"><img src="__PUBLIC__/stage/images/head.jpg" width="50" height="50"></td>
-            <td class="t3">username</td>
+		</volist>
 
-            <td class="t6">2013-12-22 17:50</td>
-            <td class="t7">
-              <p class="console">
-                <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
-              </p>
-            </td>
-          </tr>
           </tbody>
           <tfoot>
           <tr>
             <td colspan="7">
               <div class="pagers">
                 <ul class="clearFix">
-                  <li><a class="disabled prev" href="#">上一页</a></li>
-                  <li><p><span class="c">1</span><span>/</span><span>5</span></p></li>
-                  <li><a class="next" href="#">下一页</a></li>
-                  <li class="in"><input type="text"></li>
-                  <li><a href="javascript:void(0)">跳转</a></li>
+                  {$page}
                 </ul>
               </div>
             </td>
