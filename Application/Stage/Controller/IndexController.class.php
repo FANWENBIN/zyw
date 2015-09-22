@@ -48,8 +48,9 @@ class IndexController extends ComController {
         $this->vercklogin();
         $user = M('user');
         $user->select();
-        $this->display('index');
-        //echo md5('xxxzyw916');        
+        echo 123;
+        //$this->display('index');
+            
     }
     public function starmanage(){
         $this->display();
