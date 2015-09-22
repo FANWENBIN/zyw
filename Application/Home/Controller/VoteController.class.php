@@ -56,9 +56,11 @@ class VoteController extends ComController {
 		        errReturn(106,'今日投票次数已达上限');
 		    }
 		    
-		}
+		}else{
+            errReturn(101,'请输入有效参数');
+        }
     }
-    //明星详情
+    //演员详情
     public function actorinfo(){
         $opid = trim($_POST['opid']);
         $ip = get_client_ip();
@@ -70,9 +72,53 @@ class VoteController extends ComController {
             if(!empty($row)){
                 ajaxReturn(0,'', $row);
             }    
+        }else{
+            errReturn(101,'请输入有效参数');
         }
     }
+    //演员列表
+    public function actorlist(){
+         $path = C('DOMAIN_PATH');
+        $sign = trim($_POST['sign']);
+        list($sign, $time) = explode('.', $sign);
+        if(md5('55f0fa9121e1f'.$time.'55f0fac500259') !== $sign || abs(time() - $time) > 600){
+           errReturn(102,'签名错误');
+        }
+        $offset = isset($_POST['offset']) ? max(0,intval($_POST['offset'])) : 0;
+        $count = isset($_POST['count']) ? min(1000,max(1,intval($_POST['count']))) : 10;
+        $orderby = isset($_POST['orderby']) ? trim($_POST['orderby']) : '';
+        $ordertype = isset($_POST['ordertype']) && $_POST['ordertype'] == 'desc' ? 'desc' : 'asc';
+        $groupid = isset($_POST['groupid']) ? intval($_POST['groupid']) : 0;
+        $sex = isset($_POST['sex']) ? intval($_POST['sex']) : 0;
 
+        if(!in_array($orderby, array('name', 'votes', ''))){
+            ajaxReturn(1,'orderby 参数不合法');
+        }
+
+        if(!$orderby) $orderby = 'id';
+
+
+       
+
+        $where = array();
+        if($groupid > 0){
+            $where[] = 'groupid='.$groupid;
+        }
+        if($sex > 0){
+            $where[] = 'sex='.$sex;
+        }
+        if(!empty($where)){
+            $where = ' where '.implode(' and ', $where);
+        }else{
+            $where = '';
+        }
+        $actors = M('actors');
+        $data = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes,groupid,sex from zyw_actors '.$where.' order by '.$orderby.' '.$ordertype.' limit '.$offset.','.$count);
+        $row = $actors->query('select count(id) as c from zyw_actors'.$where);
+        echo $actors->getlastsql();
+        var_dump($row);
+        ajaxReturn(0,'', array('total'=>intval($row[0]['c']), 'list'=>$data));
+    }
 //=====================================中演网接口END===========================================//
 
 
@@ -97,7 +143,7 @@ class VoteController extends ComController {
     public function test(){
 
         $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=actorinfo';
-        $data = array('opid'=>'dc6e753bc18d9928773f7c30eee6ddbe','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
+        $data = array('opid'=>'3099502f8652e48cd2d15e49bb5bf67f','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
        $a =  $this->htcurl($url,$data);
       //var_dump($a);
     }

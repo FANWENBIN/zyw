@@ -24,6 +24,15 @@ class GactorController extends ComController {
         //echo md5('xxxzyw916');        
     }
 
-    
+    public function addactor(){
+        $data['name'] = I('post.name');
+        $data['face'] = I('post.face');
+        $data['sex']  = I('post.sex');
+        $data['group']= I('post.group');
+        $a = $this->checkDump($data);
+        if(!$a){
+            $this->error('添加失败，不可有空数据！',U('Gactor/index'));
+        }
 
+    }
 }

@@ -14,4 +14,13 @@ class ComController extends Controller {
     		  $this->success('请登陆',U('Index/index'),5);
     	}
     }
+
+    public function checkDump($data){
+    	foreach($data as $key=>$val){
+    		if(empty($val){
+    			return 0;
+    		}
+    	}
+    	return 1;
+    }
 }
