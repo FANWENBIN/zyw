@@ -65,10 +65,10 @@ class VoteController extends ComController {
         if(preg_match("/^[a-f\d]{32}$/",$opid)){
             $actors = M('actors');
             $path = C('DOMAIN_PATH');
-            echo $path;
+          //  echo $path;
             $row = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes from zyw_actors where opid="'.$opid.'"');
             if(!empty($row)){
-            //    ajaxReturn(0,'', $row);
+                ajaxReturn(0,'', $row);
             }    
         }
     }
