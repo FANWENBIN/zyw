@@ -44,12 +44,12 @@ class IndexController extends ComController {
     }
     //首页显示
     public function show(){
-       
-        $this->vercklogin();
+        
+        $this->vercklogin();  
         $user = M('user');
         $user->select();
-        echo 123;
-        //$this->display('index');
+   
+        $this->display('index');
             
     }
     public function starmanage(){
