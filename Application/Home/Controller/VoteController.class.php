@@ -17,6 +17,17 @@ class VoteController extends ComController {
 		//echo $ip = get_client_ip();
     }
 
+    //全部演员数据接口
+    public function(){
+        $actors = M('actors');
+        $groupid = I('get.groupid');
+        if(!empty($groupid)){
+            $data['groupid'] = $groupid;
+        }
+        $actors = 
+    }
+
+
 //==============================中演网接口
 	/*投票接口*/
     public function voting(){

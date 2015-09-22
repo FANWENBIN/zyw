@@ -26,6 +26,7 @@ class GactorController extends ComController {
 
     public function addactor(){
         $data['name']    = I('post.name');
+
         $data['headimg'] = I('post.face');
         $data['sex']     = I('post.sex');
         $data['groupid'] = I('post.group');
@@ -34,8 +35,13 @@ class GactorController extends ComController {
         if(!$a){
             $this->error('添加失败，不可有空数据！',U('Gactor/index'));
         }
+        $sur = mb_substr($data['name'],0,1,'utf-8') 
         $data['opid']    = md5(date('YmdHis',time()));
         $data['instime'] = time();
+        $t_hz = M('t_hz');
+        $thzval = $t_hz->where('chinese='.$sur)->find();
+        $data['chinese_sum'] = $thzval['sum'];
+
         $actors = M('actors');
         $sign = $actors->add($data);
         if($sign){
