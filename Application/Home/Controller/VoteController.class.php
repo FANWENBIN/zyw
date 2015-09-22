@@ -17,7 +17,7 @@ class VoteController extends ComController {
 		//echo $ip = get_client_ip();
     }
 
-
+//==============================中演网接口
 	/*投票接口*/
     public function voting(){
     	define('DB_HOST','121.41.101.8');
@@ -58,6 +58,20 @@ class VoteController extends ComController {
 		    
 		}
     }
+    public function actorinfo(){
+        $opid = trim($_POST['opid']);
+        $ip = get_client_ip();
+        if(preg_match("/^[a-f\d]{32}$/",$opid)){
+            $actors = M('actors');
+            $row = $actors->query('select name,concat("'.DOMAIN_PATH.'",headimg) as headimg,concat("'.DOMAIN_PATH.'",img) as img,votes from zyw_actors where opid="'.$opid.'"');
+            if(!empty($row)){
+                ajaxReturn(0,'', $row);
+            }    
+        }
+    }
+
+//=====================================中演网接口END===========================================//
+
 
 	/*二维码生成*/
     public function code(){
@@ -79,7 +93,7 @@ class VoteController extends ComController {
     
     public function test(){
 
-        $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=voting';
+        $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=actorinfo';
         $data = array('opid'=>'dc6e753bc18d9928773f7c30eee6ddbe','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
        $a =  $this->htcurl($url,$data);
       //var_dump($a);
