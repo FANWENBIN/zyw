@@ -44,7 +44,7 @@ class IndexController extends ComController {
     }
     //首页显示
     public function show(){
-        echo date('Y-m-d H:i:s',1442764800);
+       
         $this->vercklogin();
         $user = M('user');
         $user->select();
