@@ -17,10 +17,11 @@ class ComController extends Controller {
 
     public function checkDump($data){
     	foreach($data as $key=>$val){
-    		if(empty($val){
+    		if(empty($val)){
     			return 0;
     		}
     	}
     	return 1;
     }
 }
+?>

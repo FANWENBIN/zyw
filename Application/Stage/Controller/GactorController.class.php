@@ -25,14 +25,23 @@ class GactorController extends ComController {
     }
 
     public function addactor(){
-        $data['name'] = I('post.name');
-        $data['face'] = I('post.face');
-        $data['sex']  = I('post.sex');
-        $data['group']= I('post.group');
+        $data['name']    = I('post.name');
+        $data['headimg'] = I('post.face');
+        $data['sex']     = I('post.sex');
+        $data['groupid'] = I('post.group');
+        $data['img']     = I('post.photo');
         $a = $this->checkDump($data);
         if(!$a){
             $this->error('添加失败，不可有空数据！',U('Gactor/index'));
         }
-
+        $data['opid']    = md5(date('YmdHis',time()));
+        $data['instime'] = time();
+        $actors = M('actors');
+        $sign = $actors->add($data);
+        if($sign){
+            $this->success('添加成功',U('Gactor/index'));
+        }else{
+             $this->error('添加失败',U('Gactor/index'));
+        }
     }
 }
