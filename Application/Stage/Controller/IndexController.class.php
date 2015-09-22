@@ -7,7 +7,6 @@ class IndexController extends ComController {
     public function index (){
         $submit= I('post.submit');
         if(empty($submit)){
-            
             $this->assign('verify',$verify);
             $this->display('login');
         }else{
@@ -27,7 +26,6 @@ class IndexController extends ComController {
                 }else{
                     $this->error('登陆失败',U('Index/index'),5);
                 }
-                
             }else{
                 $this->error('验证码输入错误',U('Index/index'),5);
             }

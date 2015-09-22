@@ -13,6 +13,7 @@ class ComController extends Controller {
 
     		  $this->success('请登陆',U('Index/index'),5);
     	}
+        exit;
     }
 
     public function checkDump($data){
