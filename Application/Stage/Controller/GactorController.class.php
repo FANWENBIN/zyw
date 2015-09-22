@@ -19,7 +19,7 @@ class GactorController extends ComController {
 		$this->assign('actors',$actorsval);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
 
-    	
+    
         $this->display('gactor');
         //echo md5('xxxzyw916');        
     }
@@ -39,11 +39,12 @@ class GactorController extends ComController {
         $data['opid']    = md5(date('YmdHis',time()));
         $data['instime'] = time();
         $t_hz = M('t_hz');
-        $thzval = $t_hz->where('chinese='.$sur)->find();
+        $thzval = $t_hz->where("chinese='".$sur."'")->find();
         $data['chinese_sum'] = $thzval['sum'];
-
+      
         $actors = M('actors');
         $sign = $actors->add($data);
+
         if($sign){
             $this->success('添加成功',U('Gactor/index'));
         }else{
