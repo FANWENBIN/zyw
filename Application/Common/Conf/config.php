@@ -13,4 +13,6 @@ return array(
 		'DB_PWD'    => 'nadoom2db#!^',    // 密码
 		'DB_PORT'   => '3306', 		     // 端口
 		'DB_PREFIX' => 'zyw_', 		 // 数据库表前缀
+
+	'DOMAIN_PATH'=>'http://m2.nadoo.cn/p/zyw/'
 );

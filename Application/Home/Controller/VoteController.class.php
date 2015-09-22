@@ -58,14 +58,17 @@ class VoteController extends ComController {
 		    
 		}
     }
+    //明星详情
     public function actorinfo(){
         $opid = trim($_POST['opid']);
         $ip = get_client_ip();
         if(preg_match("/^[a-f\d]{32}$/",$opid)){
             $actors = M('actors');
-            $row = $actors->query('select name,concat("'.DOMAIN_PATH.'",headimg) as headimg,concat("'.DOMAIN_PATH.'",img) as img,votes from zyw_actors where opid="'.$opid.'"');
+            $path = C('DOMAIN_PATH');
+            echo $path;
+            $row = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes from zyw_actors where opid="'.$opid.'"');
             if(!empty($row)){
-                ajaxReturn(0,'', $row);
+            //    ajaxReturn(0,'', $row);
             }    
         }
     }
