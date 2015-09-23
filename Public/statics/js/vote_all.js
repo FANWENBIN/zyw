@@ -3,11 +3,15 @@ $(function(){
 
 	var page = {
 		init: function(){
-      $("#J_ConStars .inner .list a").hover(page.hover);
+			$("#J_ConStars .inner .item").hover(page.hover);
 			$("#J_ConRule .inner .content1 .item").hover(page.hover);
 			$("#J_ConVote .inner .item").hover(page.voteHover);
 			$("#J_CommentSendbox .submit").on("click", page.commentSendClick);
 			$("#J_ConRule .tab a").on("click", page.ruleTabClick);
+      $("#J_groupList .all").on("click",page.tabAll)
+      $("#J_groupList .red").on("click",page.tabRed)
+      $("#J_groupList .blue").on("click",page.tabBlue)
+      $("#J_groupList .green").on("click",page.tabGreen)
 		},
 		ruleTabClick: function(){
 			var i = $(this).data("i");
@@ -16,22 +20,46 @@ $(function(){
 			$("#J_ConRule .tab a.c").removeClass("c");
 			$(this).addClass("c");
 		},
-    hover: function(e){
-      if (e.type == "mouseenter"){
-        $(this).find(".hover").stop(true,true).fadeIn(100);
-      } else {
-        $(this).find(".hover").stop(true,true).fadeOut(100);
-      }
-    },
+		hover: function(e){
+			if (e.type == "mouseenter"){
+				$(this).find(".hover").stop(true,true).fadeIn(300);
+        $(this).find(".txt").stop(true,true).fadeOut(300)
+			} else {
+				$(this).find(".hover").stop(true,true).fadeOut(300);
+        $(this).find(".txt").stop(true,true).fadeIn(300)
+			}
+		},
 		voteHover: function(e){
 			if (e.type == "mouseenter"){
 				$(this).find(".hover").stop(true,true).fadeIn(300);
-				$(this).find(".txt").stop(true,true).fadeOut(100);
+				$(this).find(".txt").stop(true,true).fadeOut(300);
 			} else {
-				$(this).find(".hover").stop(true,true).fadeOut(100);
-				$(this).find(".txt").stop(true,true).fadeIn(100);
+				$(this).find(".hover").stop(true,true).fadeOut(300);
+				$(this).find(".txt").stop(true,true).fadeIn(300);
 			}
 		},
+    tabAll: function(){
+      $("#J_groupList li").removeClass("active");
+      $(this).addClass("active")
+    },
+
+
+
+
+    tabRed: function(){
+      $("#J_groupList li").removeClass("active");
+      $(this).addClass("active")
+    },
+
+    tabBlue: function(){
+      $("#J_groupList li").removeClass("active");
+      $(this).addClass("active")
+    },
+
+    tabGreen: function(){
+      $("#J_groupList li").removeClass("active");
+      $(this).addClass("active")
+    },
 		commentSendClick: function(e){
 			var text = $.trim($("#J_CommentSendbox textarea").val());
 			if (text == ""){
