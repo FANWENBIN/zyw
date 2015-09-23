@@ -112,14 +112,11 @@ class VoteController extends ComController {
         $groupid = isset($_POST['groupid']) ? intval($_POST['groupid']) : 0;
         $sex = isset($_POST['sex']) ? intval($_POST['sex']) : 0;
 
-        if(!in_array($orderby, array('name', 'votes', ''))){
+        if(!in_array($orderby, array('name','votes',''))){
             ajaxReturn(1,'orderby 参数不合法');
         }
 
         if(!$orderby) $orderby = 'id';
-
-
-       
 
         $where = array();
         if($groupid > 0){
