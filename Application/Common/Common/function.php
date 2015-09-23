@@ -10,7 +10,7 @@
 	//ajax返回
 	function ajaxReturn($errcode = 0, $msg = '', $data = array()){
 	        $data = array('status'=>$errcode, 'msg'=>$msg, 'data'=>$data);
-	        exit(json_encode($data));
+	        exit(json_encode($data,JSON_UNESCAPED_UNICODE));
 	    }
 		//微信
 		function is_weixin(){   
