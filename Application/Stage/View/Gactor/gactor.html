@@ -1,6 +1,9 @@
 <extend name="Header/header" />
 <block name='content'>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2f9eaadaee44f25fde3f9c574cd9edf1bde66219
 <!--container-->
 <div class="webContainer clearFix containerWcBind" id="webContainer">
 
@@ -191,26 +194,30 @@
     <!--container end-->
 <div class="pop-alert popforstarbox  pop-alert-swf-upload">
   <div class="pop popforstar">
-    <form action="4.html">
+    <form action="{:U('Gactor/addactor')}" method="post">
       <div>
         <li>
-          <label for="name">姓名</label><input type="text" id="name" value="王菲">
+          <label for="name">姓名</label><input type="text" id="name" value="王菲" name='name'>
         </li>
         <li>
-          <label for="face">头像</label><input type="text" id="face" value="./face/wangfei.gif">
+          <label for="face">头像</label><input type="text" id="face" value="statics/images/p/d1.jpg" name='face'>
         </li>
         <li>
-          <label for="sex">性别</label><select name="" id="sex">
-          <option value="男">男</option>
-          <option value="女">女</option>
+          <label for="photo">照片</label>
+          <input type="text" id="photo" value="statics/images/p/d1.jpg" name='photo'>
+        </li>
+        <li>
+          <label for="sex">性别</label><select name="sex" id="sex">
+          <option value="1">男</option>
+          <option value="2">女</option>
         </select>
         </li>
         <li>
           <label for="group">分组</label>
-          <select name="" id="group">
-            <option value="红组">红组</option>
-            <option value="蓝组">蓝组</option>
-            <option value="绿组">绿组</option>
+          <select name="group" id="group">
+            <option value="1">红组</option>
+            <option value="2">蓝组</option>
+            <option value="3">绿组</option>
           </select>
         </li>
       </div>
@@ -245,4 +252,8 @@
 
 </body>
 </html>
+<<<<<<< HEAD
   </block>
+=======
+</block>
+>>>>>>> 2f9eaadaee44f25fde3f9c574cd9edf1bde66219

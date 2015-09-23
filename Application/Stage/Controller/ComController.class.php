@@ -12,6 +12,18 @@ class ComController extends Controller {
     	if($sign != 'f8e4b89ebe09b7e060d30faf3f0b3047'){
 
     		  $this->success('请登陆',U('Index/index'),5);
+              exit;
     	}
+
+    }
+
+    public function checkDump($data){
+    	foreach($data as $key=>$val){
+    		if(empty($val)){
+    			return 0;
+    		}
+    	}
+    	return 1;
     }
 }
+?>
