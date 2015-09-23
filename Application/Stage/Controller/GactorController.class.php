@@ -22,14 +22,13 @@ class GactorController extends ComController {
     //评委分页
         $recommend = M('recommend');
         $recount = $recommend->count();// 查询满足要求的总记录数
-        $rePage  = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $rePage  = new \Think\Page($recount,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $reshow  = $rePage->show();// 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $recommendval  = $recommend
                 ->limit($Page->firstRow.','.$Page->listRows)->select();
 
         $this->assign('recommend',$recommendval);// 赋值数据集
         $this->assign('repage',$reshow);// 赋值分页输出
-
 
         $this->display('gactor');
         //echo md5('xxxzyw916');        

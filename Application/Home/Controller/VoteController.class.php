@@ -13,6 +13,19 @@ class VoteController extends ComController {
         $actorsvalue = $actors->order('votes desc')->limit('0,4')->select();
         $this->assign('list',$actorsvalue);
 
+        $recommend = M('recommend');
+        //当代艺术家
+        $artists   = $recommend->where('type=1')->select();
+        $this->assign('artists',$artists);
+        //导演
+        $director  = $recommend->where('type=2')->select();
+        $this->assign('director',$director);
+        //制作人
+        $producer  = $recommend->where('type=3')->select();
+        $this->assign('producer',$producer);
+        //编剧
+        $scriptwriter = $recommend->where('type=4')->select();
+        $this->assign('scriptwriter',$scriptwriter);
 		$this->display('vote');
 		//echo $ip = get_client_ip();
     }
@@ -58,7 +71,7 @@ class VoteController extends ComController {
 		if(preg_match("/^[a-f\d]{32}$/",$opid)){
 		    //查询该openid是否投过票
 		    $query = mysql_query('select id from zyw_votelog where wxopenid="'.$openid.'" and insdate="'.date('Y-m-d').'"');
-		    if(mysql_num_rows($query) == 0){
+		    if(mysql_num_rows($query) != 0){
 		        mysql_query('update zyw_actors set votes=votes+1 where opid="'.$opid.'"');
 		        if(mysql_affected_rows()){
 		            $query = mysql_query('insert into zyw_votelog (actor_opid,wxopenid,ip,instime,insdate) values ("'.$opid.'","'.$openid.'","'.$ip.'",'.time().',"'.date('Y-m-d').'")');
