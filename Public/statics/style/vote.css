@@ -2,7 +2,7 @@
 
 .webmain .con { margin-bottom: 45px;}
 .webmain .con .title { height: 60px; overflow: hidden; background: url(../images/line_contitle.gif) center center repeat-x; margin-bottom: 15px; position: relative;}
-.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 15px; background: url(../images/more_contitle.gif); width: 130px; height: 30px; text-indent: -99em; overflow: hidden;}
+.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 16px; background: url(../images/more_contitle.gif); width: 130px; height: 30px; text-indent: -99em; overflow: hidden;}
 .webmain .con .title h2 { display: block; width: 100px; height: 60px; background-image: url(../images/txt_contitle.gif); background-repeat: no-repeat; text-indent: -99em; overflow: hidden; float: left;}
 .webmain .con .title ul { float: left; height: 26px; background: #fff; padding: 17px 5px 17px 5px;}
 .webmain .con .title ul li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px;}
@@ -58,7 +58,7 @@
 .webmain .conRule .inner .content1 .l p { display: block; line-height: 20px; font-size: 14px; height: 228px; overflow: auto;}
 .webmain .conRule .inner .content1 .r { float: left; width: 830px;}
 .webmain .conRule .inner .content1 .r .title h2 { width: 170px; background-position: 0 -600px;}
-.webmain .conRule .inner .content1 .r .title a.result { display: block; position: absolute; right: 0; top: 15px; background: url(../images/btn_vote_result.gif); width: 190px; height: 30px; text-indent: -99em; overflow: hidden;}
+.webmain .conRule .inner .content1 .r .title a.result { display: block; position: absolute; right: 0; top: 16px; background: url(../images/btn_vote_result.gif); width: 190px; height: 30px; text-indent: -99em; overflow: hidden;}
 .webmain .conRule .inner .content1 .r .in {}
 .webmain .conRule .inner .content1 .r .in .item { float: left; width: 183px; margin-left: 30px; border-left: 1px solid #dfdfdf; border-right: 1px solid #dfdfdf; height: 222px; padding-top: 8px; position: relative;}
 .webmain .conRule .inner .content1 .r .in .item .head { width: 88px; height: 88px; position: relative; padding: 6px; margin: 0 auto 16px auto;}
