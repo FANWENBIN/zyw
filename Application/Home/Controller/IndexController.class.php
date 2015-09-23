@@ -8,17 +8,50 @@ class IndexController extends ComController {
 		$this->display();
     }
 
+//===========首页分组请求演员数据接口start
+    public function redgroup(){
+        $sex = I('get.sex');
+        $actors = M('actors');
+        if(!empty($sex)){
+            $where['sex'] = $sex;
+            $where['groupid'] = 1;
 
-   /* public function test(){
-        define('DB_HOST','121.41.101.8');
-        define('DB_USER','nadoocomp');
-        define('DB_PSWD','nadoom2db#!^');
-        define('DB_NAME','zyw');
-        define('DB_PORT','3306');
-        mysql_connect(DB_HOST, DB_USER, DB_PSWD, DB_PORT) or die('mysql connect fail');
-        mysql_select_db(DB_NAME);
-        mysql_query('set names utf8');
-        $result = mysql_query('select * from zyw_admin');
-       var_dump(mysql_fetch_array($result));
-    }*/
+        }
+        $val = $actors->where($where)->order('chinese_sum asc')->select();
+        if($val){
+            ajaxReturn(0,'',$val);
+        }else{
+            ajaxReturn(1,'系统错误','');
+        }
+
+    }
+    public function bluegroup(){
+        $sex = I('get.sex');
+        $actors = M('actors');
+        if(!empty($sex)){
+            $where['sex'] = $sex;
+            $where['groupid'] = 2;
+        }
+        $val = $actors->where($where)->order('chinese_sum asc')->select();
+        if($val){
+            ajaxReturn(0,'',$val);
+        }else{
+            ajaxReturn(1,'系统错误','');
+        }
+    }
+    public function greegroup(){
+        $sex = I('get.sex');
+        $actors = M('actors');
+        if(!empty($sex)){
+            $where['sex'] = $sex;
+            $where['groupid'] = 3;
+        }
+        $val = $actors->where($where)->order('chinese_sum asc')->select();
+        if($val){
+            ajaxReturn(0,'',$val);
+        }else{
+            ajaxReturn(1,'系统错误','');
+        }
+    }
+//====================END
 }
