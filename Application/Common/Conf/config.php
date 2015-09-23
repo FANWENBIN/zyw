@@ -14,5 +14,5 @@ return array(
 		'DB_PORT'   => '3306', 		     // 端口
 		'DB_PREFIX' => 'zyw_', 		 // 数据库表前缀
 
-	'DOMAIN_PATH'=>'http://m2.nadoo.cn/p/zyw/'
+	'DOMAIN_PATH'=>'http://m2.nadoo.cn/p/zyw'
 );
