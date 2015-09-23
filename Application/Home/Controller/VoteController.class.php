@@ -103,7 +103,7 @@ class VoteController extends ComController {
         $sign = trim($_POST['sign']);
         list($sign, $time) = explode('.', $sign);
         if(md5('55f0fa9121e1f'.$time.'55f0fac500259') !== $sign || abs(time() - $time) > 600){
-           errReturn(102,'签名错误');
+          // errReturn(102,'签名错误');
         }
         $offset = isset($_POST['offset']) ? max(0,intval($_POST['offset'])) : 0;
         $count = isset($_POST['count']) ? min(1000,max(1,intval($_POST['count']))) : 10;
