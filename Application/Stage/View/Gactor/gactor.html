@@ -72,7 +72,7 @@
             <volist name="actors" id='vo'>
               <tr>
                 <td class="t1">{$i}</td>
-                <td class="t2"><img src="__PUBLIC__/{$vo.headimg}" width="50" height="50"></td>
+                <td class="t2"><img src="./Uploads{$vo.headimg}" width="50" height="50"></td>
                 <td class="t3">{$vo.name}</td>
 
                 <td class="t6">{$vo.votes}</td>
@@ -191,23 +191,23 @@
   <!--container end-->
   <div class="pop-alert popforstarbox  pop-alert-swf-upload">
     <div class="pop popforstar">
-      <form action="{:U('Gactor/addactor')}" method="post">
+      <form action="{:U('Gactor/addactor')}" method="post" enctype="multipart/form-data">
         <div>
           <li>
             <label for="name">姓名</label><input type="text" id="name" value="王菲" name='name'>
           </li>
           <li>
-            <label for="face">头像</label><input type="text" id="face" value="statics/images/p/d1.jpg" name='face'>
+            <label for="face">头像</label>
+            <input type="file" id="face"  name='photo1'>
           </li>
           <li>
             <label for="photo">照片</label>
-            <input type="text" id="photo" value="statics/images/p/d1.jpg" name='photo'>
+            <input type="file" id="photo"  name='photo2'>
           </li>
           <li>
             <label for="sex">性别</label><select name="sex" id="sex">
             <option value="1">男</option>
             <option value="2">女</option>
-
           </select>
           </li>
           <li>
@@ -232,16 +232,16 @@
       <form action="4.html">
         <div>
           <li>
-            <label for="name">姓名</label><input type="text" id="name" value="王菲">
+            <label for="name">姓名</label>
+            <input type="text" id="name" value="王菲">
           </li>
           <li>
-            <label for="face">头像</label><input type="text" id="face" value="./face/wangfei.gif">
+            <label for="face">头像</label>
+            <input type="text" id="face" value="./face/wangfei.gif">
           </li>
-
         </div>
-        <div class="btn btnNY"><a href="javascript:void(0)" class="btnD" data-t="n">取消</a><input type="submit"
-                                                                                                 class="btnA "
-                                                                                                 data-t="y" value="确定">
+        <div class="btn btnNY"><a href="javascript:void(0)" class="btnD" data-t="n">取消</a>
+        <input type="submit"class="btnA "data-t="y" value="确定">
         </div>
       </form>
 

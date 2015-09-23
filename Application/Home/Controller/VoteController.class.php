@@ -87,7 +87,7 @@ class VoteController extends ComController {
         $ip = get_client_ip();
         if(preg_match("/^[a-f\d]{32}$/",$opid)){
             $actors = M('actors');
-            $path = C('DOMAIN_PATH');
+            $path = C('DOMAIN_PATH').'/Uploads';
           //  echo $path;
             $row = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes from zyw_actors where opid="'.$opid.'"');
             if(!empty($row)){
@@ -99,11 +99,11 @@ class VoteController extends ComController {
     }
     //演员列表
     public function actorlist(){
-         $path = C('DOMAIN_PATH');
+         $path = C('DOMAIN_PATH').'/Uploads';
         $sign = trim($_POST['sign']);
         list($sign, $time) = explode('.', $sign);
         if(md5('55f0fa9121e1f'.$time.'55f0fac500259') !== $sign || abs(time() - $time) > 600){
-          // errReturn(102,'签名错误');
+           errReturn(102,'签名错误');
         }
         $offset = isset($_POST['offset']) ? max(0,intval($_POST['offset'])) : 0;
         $count = isset($_POST['count']) ? min(1000,max(1,intval($_POST['count']))) : 10;
@@ -112,14 +112,11 @@ class VoteController extends ComController {
         $groupid = isset($_POST['groupid']) ? intval($_POST['groupid']) : 0;
         $sex = isset($_POST['sex']) ? intval($_POST['sex']) : 0;
 
-        if(!in_array($orderby, array('name', 'votes', ''))){
-            ajaxReturn(1,'orderby 参数不合法');
+        if(!in_array($orderby, array('name','votes',''))){
+            //ajaxReturn(1,'orderby 参数不合法');
         }
 
         if(!$orderby) $orderby = 'id';
-
-
-       
 
         $where = array();
         if($groupid > 0){
@@ -137,10 +134,10 @@ class VoteController extends ComController {
         $data = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes,groupid,sex from zyw_actors '.$where.' order by '.$orderby.' '.$ordertype.' limit '.$offset.','.$count);
         $row = $actors->query('select count(id) as c from zyw_actors'.$where);
         //echo $actors->getlastsql();
-        //var_dump($row);
+        //var_dump($data);
         $ren['total'] = intval($row[0]['c']);
         $ren['list'] = $data;
-        ajaxReturn(0,'', $ren);
+        ajaxReturn(0,'',$ren);
     }
 //=====================================中演网接口END===========================================//
 
