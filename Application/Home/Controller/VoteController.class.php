@@ -136,8 +136,8 @@ class VoteController extends ComController {
         $actors = M('actors');
         $data = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes,groupid,sex from zyw_actors '.$where.' order by '.$orderby.' '.$ordertype.' limit '.$offset.','.$count);
         $row = $actors->query('select count(id) as c from zyw_actors'.$where);
-        echo $actors->getlastsql();
-        var_dump($row);
+        //echo $actors->getlastsql();
+        //var_dump($row);
         ajaxReturn(0,'', array('total'=>intval($row[0]['c']), 'list'=>$data));
     }
 //=====================================中演网接口END===========================================//
