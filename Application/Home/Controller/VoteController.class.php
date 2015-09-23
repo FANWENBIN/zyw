@@ -87,7 +87,7 @@ class VoteController extends ComController {
         $ip = get_client_ip();
         if(preg_match("/^[a-f\d]{32}$/",$opid)){
             $actors = M('actors');
-            $path = C('DOMAIN_PATH');
+            $path = C('DOMAIN_PATH').'/Uploads';
           //  echo $path;
             $row = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes from zyw_actors where opid="'.$opid.'"');
             if(!empty($row)){
