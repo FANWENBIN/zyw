@@ -24,9 +24,9 @@ class VoteController extends ComController {
         if(!empty($groupid)){
             $data['groupid'] = $groupid;
         }
-        
+
         $count      = $User->where($data)->order('chinese_sum asc')->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page($count,8);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = $User->where($data)->order('chinese_sum asc')->limit($Page->firstRow.','.$Page->listRows)->select();

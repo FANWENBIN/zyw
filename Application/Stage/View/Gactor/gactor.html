@@ -190,13 +190,15 @@
     <!--container end-->
 <div class="pop-alert popforstarbox  pop-alert-swf-upload">
   <div class="pop popforstar">
-    <form action="{:U('Gactor/addactor')}" method="post">
+    <form action="{:U('Gactor/addactor')}" method="post" enctype="multipart/form-data">
       <div>
         <li>
           <label for="name">姓名</label><input type="text" id="name" value="王菲" name='name'>
         </li>
         <li>
-          <label for="face">头像</label><input type="text" id="face" value="statics/images/p/d1.jpg" name='face'>
+          <label for="face">头像</label>
+          <input type="text" id="face" value="statics/images/p/d1.jpg" name='face'>
+            <input type='file'  name='photo1'>
         </li>
         <li>
           <label for="photo">照片</label>

@@ -35,6 +35,26 @@ class GactorController extends ComController {
         if(!$a){
             $this->error('添加失败，不可有空数据！',U('Gactor/index'));
         }
+
+
+        $upload = new \Think\Upload();// 实例化上传类   
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小   
+        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
+        $upload->savePath  =      __PUBLIC__.'/images/'; // 设置附件上传目录    // 上传文件   
+        $info   =   $upload->upload();    
+        if(!$info) {// 上传错误提示错误信息      
+            $this->error($upload->getError());   
+        }else{// 上传成功      
+            $this->success('上传成功！');    
+        }
+
+
+
+
+
+
+
+
         $sur = mb_substr($data['name'],0,1,'utf-8');
         $data['opid']    = md5(date('YmdHis',time()));
         $data['instime'] = time();
