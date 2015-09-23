@@ -99,7 +99,7 @@ class VoteController extends ComController {
     }
     //演员列表
     public function actorlist(){
-         $path = C('DOMAIN_PATH').'Uploads';
+         $path = C('DOMAIN_PATH').'/Uploads';
         $sign = trim($_POST['sign']);
         list($sign, $time) = explode('.', $sign);
         if(md5('55f0fa9121e1f'.$time.'55f0fac500259') !== $sign || abs(time() - $time) > 600){
