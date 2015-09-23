@@ -1,0 +1,107 @@
+<extend name="Header/header"/>
+<block name='content'>
+
+  <!--container-->
+  <div class="webContainer clearFix containerWcBind" id="webContainer">
+
+    <!--aside-->
+    <div class="webAside">
+      <div class="menu">
+
+        <dl class="ft">
+          <dt><span></span>基本元素</dt>
+          <dd>
+            <ul>
+              <li><a href="{:U('Index/show')}">粉丝用户管理</a></li>
+              <li><a href="{:U('Index/starmanage')}">明星用户管理</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt><span></span>信息发布</dt>
+          <dd>
+            <ul>
+              <li><a href="1.html">咨询</a></li>
+              <li><a href="2.html">活动</a></li>
+              <li><a href="3.html">演工委之声</a></li>
+              <li class="current"><a href="{:U('Gactor/index')}">好演员评选</a></li>
+              <li><a href="5.html">饭团</a></li>
+              <li><a href="6.html">星站</a></li>
+              <li><a href="7.html">明日之星</a></li>
+              <li><a href="8.html">stage</a></li>
+              <li><a href="9.html">演艺库</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+
+      </div>
+    </div>
+    <!--aside end-->
+
+    <!--main-->
+    <div class="webMain">
+      
+   
+    <div class="pop popforstar">
+      <form action="{:U('Gactor/upgactor')}" method="post" enctype="multipart/form-data">
+        <div>
+          <li>
+          <input type="hidden" value="{$actors.id}" name="actorid">
+            <label for="name">姓名</label>
+            <input type="text" id="name" value="{$actors.name}" placeholder="请填入候选演员名字" name='name'>
+          </li>
+          <li>
+            <label for="face">头像</label>
+            <img src="./Uploads{$actors.headimg}" style="width:100px;height:100px;">
+            <input type="file" id="face"  name='photo1'>
+          </li>
+          <li>
+            <label for="photo">照片</label>
+             <img src="./Uploads{$actors.img}" style="width:100px;height:100px;">
+            <input type="file" id="photo"  name='photo2'>
+          </li>
+          <li>
+            <label for="choose">好演员评选</label>
+            <select name="promotion" id="choose">
+              <option value="0" <if condition="($actors.promotion eq 0) ">selected</if>>预选</option>
+              <option value="36" <if condition="($actors.promotion eq 36) ">selected</if>>36强</option>
+              <option value="6" <if condition="($actors.promotion eq 6) ">selected</if>>6强</option>
+            </select>
+          </li>
+          <li>
+            <label for="sex">性别</label><select name="sex" id="sex">
+            <option value="1" <if condition="($actors.sex eq 1) ">selected</if>>男</option>
+            <option value="2" <if condition="($actors.sex eq 2) ">selected</if>>女</option>
+          </select>
+          </li>
+          <li>
+            <label for="group">分组</label>
+            <select name="group" id="group">
+              <option value="1" <if condition="($actors.groupid eq 1) ">selected</if> >红组</option>
+              <option value="2" <if condition="($actors.groupid eq 2) ">selected</if> >蓝组</option>
+              <option value="3" <if condition="($actors.groupid eq 3) ">selected</if> >绿组</option>
+            </select>
+          </li>
+        </div>
+        <div class="btn btnNY">
+        <a href="javascript:history.go(-1)" class="btnD" data-t="n" style="float: left;">取消</a>
+        <input type="submit" class="btnA " data-t="y" value="确定" name="submit" style="background:#5cacdf;">
+        </div>
+      </form>
+
+  
+  </div>
+  </div>
+
+
+
+
+  <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/stage/js/custom.js"></script>
+
+  </body>
+  </html>
+</block>

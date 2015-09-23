@@ -85,12 +85,58 @@ class GactorController extends ComController {
     autor：winter
     date：2015年9月23日15:58:17
     */
-    public function upactor(){
-        $id = I('get.id');
+    public function upgactor(){
+        $submit = I('post.submit');
         $actors = M('actors');
-        $actorsval = $actors->where('id='.$id)->find();
-        $this->assign('actors',$actorsval);
-        $this->display('upgactor');
+        if(empty($submit)){
+            $id = I('get.id');
+            $actorsval = $actors->where('id='.$id)->find();
+            $this->assign('actors',$actorsval);
+            $this->display('upgactor');
+        }else{
+            $data['name']      = I('post.name');
+            $data['promotion'] = I('post.promotion');
+            $data['sex']       = I('post.sex');
+            $data['groupid']   = I('post.group');
+            $id = I('post.actorid');
+            $this->checkDump($data);
+            $upload = new \Think\Upload();// 实例化上传类   
+            $upload->maxSize   =     3145728 ;// 设置附件上传大小   
+            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
+            $upload->savePath  =      '/stage/'; // 设置附件上传目录    
+            // 上传文件   
+            $info   =   $upload->upload();    
+            if(!$info) {// 上传错误提示错误信息 
+                
+
+                $sign = $actors->where('id='.$id)->save($data);
+                echo $actors->getlastsql();
+                if($sign){
+                    $this->success('修改成功',U('Gactor/index'));
+                }else{
+                    $this->error('没做任何修改');
+                }
+                
+
+            }else{
+
+                if(isset($info['photo1'])){
+                    $data['headimg'] = $info['photo1']['savepath'].$info['photo1']['savename']; 
+                }
+                if(isset($info['photo2'])){
+                    $data['img']     = $info['photo2']['savepath'].$info['photo2']['savename'];
+                }
+
+                $sign = $actors->where('id='.$id)->save($data);
+                if($sign){
+                    $this->success('修改成功',U('Gactor/index'));
+                }else{
+                    $this->error('没做任何修改');
+                }
+            }
+
+        }
+        
     }
 
     /*新增评委
@@ -151,7 +197,7 @@ class GactorController extends ComController {
                 if($sign){
                     $this->success('修改成功',U('Gactor/index'));
                 }else{
-                    $this->error('修改失败');
+                    $this->error('没做任何修改');
                 }
 
             }else{
@@ -160,7 +206,7 @@ class GactorController extends ComController {
                 if($sign){
                     $this->success('修改成功',U('Gactor/index'));
                 }else{
-                    $this->error('修改失败');
+                    $this->error('没做任何修改');
                 }
             }
         }
@@ -168,7 +214,14 @@ class GactorController extends ComController {
     }
     //删除评委
     public function delcommend(){
-        
+        $id = I('get.id');
+        $recommend = M('recommend');
+        $sign = $recommend->delete($id);
+        if($sign){
+            $this->success('删除成功',U('Gactor/index'));
+        }else{
+            $this->error('未删除');
+        }
     }
 
 
