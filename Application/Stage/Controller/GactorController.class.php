@@ -8,7 +8,7 @@ class GactorController extends ComController {
         $this->vercklogin();
         $actors = M('actors');
 
-    	//分页
+    	//好演员分页
 
 		$count = $actors->order('votes desc')->count();// 查询满足要求的总记录数
 		$Page  = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
@@ -19,11 +19,25 @@ class GactorController extends ComController {
 		$this->assign('actors',$actorsval);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
 
-    
+    //评委分页
+        $recommend = M('recommend');
+        $recount = $recommend->count();// 查询满足要求的总记录数
+        $rePage  = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $reshow  = $rePage->show();// 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $recommendval  = $recommend
+                ->limit($Page->firstRow.','.$Page->listRows)->select();
+
+        $this->assign('recommend',$recommendval);// 赋值数据集
+        $this->assign('repage',$reshow);// 赋值分页输出
+
+
         $this->display('gactor');
         //echo md5('xxxzyw916');        
     }
-
+    /*新增演员
+    autor：winter
+    date：2015年9月23日15:58:17
+    */
     public function addactor(){
         $data['name']    = I('post.name');
 
@@ -65,4 +79,33 @@ class GactorController extends ComController {
             }
         }
     }
+    /*新增评委
+    autor：winter
+    date：2015年9月23日15:58:17
+    */
+    public function addcommend(){
+        $data['type'] = I('judge');
+        $data['name'] = I('name');
+        $this->checkDump($data);//检查数据
+        $upload = new \Think\Upload();// 实例化上传类   
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小   
+        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
+        $upload->savePath  =      '/commend/'; // 设置附件上传目录    
+        // 上传文件   
+        $info   =   $upload->upload();    
+        if(!$info) {// 上传错误提示错误信息      
+            $this->error($upload->getError()); 
+            exit;  
+        }else{// 上传成功  
+            $data['img'] = $info['photo']['savepath'].$info['photo']['savename'];
+            $commend = M('recommend');
+            $sign = $commend->add($data);
+            if($sign){
+                $this->success('添加成功',U('Gactor/index'));
+            }else{
+                $this->error('添加失败');
+            }
+        }
+    }
+
 }

@@ -72,5 +72,17 @@
 			
 		}
 	}
+	function comtype($id){
+		switch ($id) {
+			case '1':
+				return '艺术家';
+			case '2':
+				return '导演';
+			case '3':
+				return '制片人';
+			case '4':
+				return '编剧';
+		}
+	}
 
 ?>
