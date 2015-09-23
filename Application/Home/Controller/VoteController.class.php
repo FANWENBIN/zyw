@@ -140,7 +140,7 @@ class VoteController extends ComController {
         //var_dump($row);
         $ren['total'] = intval($row[0]['c']);
         $ren['list'] = $data;
-        ajaxReturn(0,'', $ren);
+        ajaxReturn(0,'',$ren);
     }
 //=====================================中演网接口END===========================================//
 
