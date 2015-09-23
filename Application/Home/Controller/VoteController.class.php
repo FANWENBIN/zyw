@@ -113,7 +113,7 @@ class VoteController extends ComController {
         $sex = isset($_POST['sex']) ? intval($_POST['sex']) : 0;
 
         if(!in_array($orderby, array('name','votes',''))){
-            ajaxReturn(1,'orderby 参数不合法');
+            //ajaxReturn(1,'orderby 参数不合法');
         }
 
         if(!$orderby) $orderby = 'id';
