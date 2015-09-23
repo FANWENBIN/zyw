@@ -138,7 +138,9 @@ class VoteController extends ComController {
         $row = $actors->query('select count(id) as c from zyw_actors'.$where);
         //echo $actors->getlastsql();
         //var_dump($row);
-        ajaxReturn(0,'', array('total'=>intval($row[0]['c']), 'list'=>$data));
+        $ren['total'] = intval($row[0]['c']);
+        $ren['list'] = $data;
+        ajaxReturn(0,'', $ren);
     }
 //=====================================中演网接口END===========================================//
 
