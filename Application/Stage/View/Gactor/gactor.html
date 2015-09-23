@@ -44,17 +44,16 @@
     <div class="webMain">
       <div class="slt slt1 active">演员管理</div>
       <div class="slt slt2">推荐团管理</div>
+      <div class="slt slt3">36强管理</div>
+      <div class="slt slt4">6强管理</div>
 
 
-      <div class="mainBody actors">
+      <div class="mainBody actors actorsall">
 
         <!--筛选-->
         <div class="tableTools clearFix mb30">
 
-
           <hr>
-
-
           <!--表格-->
           <table class="table">
             <thead>
@@ -80,8 +79,12 @@
                 <td class="t8">{:sexval($vo['sex'])}</td>
                 <td class="t9">
                   <p class="console">
-                    <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
+                    <span>36强</span><a href="#" class="setting 36in">设置</a><a href="javascript:void(0)" class="delete">取消</a>
                   </p>
+                  <p class="console">
+                    <span>6强</span><a href="#" class="setting 6in">设置</a><a href="javascript:void(0)" class="delete">取消</a>
+                  </p>
+                  <a>删除演员</a>
                 </td>
               </tr>
             </volist>
@@ -108,7 +111,7 @@
 
         </div>
       </div>
-      <!--main end-->
+
       <div class="mainBody judge">
 
         <!--筛选-->
@@ -126,7 +129,7 @@
               <td class="t2">头像</td>
               <td class="t3">用户名</td>
 
-              <td class="t6">创建时间</td>
+              <td class="t6">推荐团分组</td>
               <td class="t7">操作</td>
             </tr>
             </thead>
@@ -136,25 +139,14 @@
               <td class="t2"><img src="__PUBLIC__/stage/images/head.jpg" width="50" height="50"></td>
               <td class="t3">username</td>
 
-              <td class="t6">2013-12-22 17:50</td>
+              <td class="t6">艺术家</td>
               <td class="t7">
                 <p class="console">
-                  <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
+                  <a href="javascript:void(0)" class="delete">删除</a>
                 </p>
               </td>
             </tr>
-            <tr>
-              <td class="t1">3</td>
-              <td class="t2"><img src="__PUBLIC__/stage/images/head.jpg" width="50" height="50"></td>
-              <td class="t3">username</td>
 
-              <td class="t6">2013-12-22 17:50</td>
-              <td class="t7">
-                <p class="console">
-                  <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
-                </p>
-              </td>
-            </tr>
             </tbody>
             <tfoot>
             <tr>
@@ -181,11 +173,127 @@
 
         </div>
       </div>
-      <!--main-->
+
+      <div class="mainBody actors actors36">
+
+        <!--筛选-->
+        <div class="tableTools clearFix mb30">
+
+          <hr>
+          <!--表格-->
+          <table class="table">
+            <thead>
+            <tr>
+              <td class="t1">编号</td>
+              <td class="t2">头像</td>
+              <td class="t3">姓名</td>
+              <td class="t6">票数</td>
+              <td class="t7">分组</td>
+              <td class="t8">性别</td>
+              <td class="t9">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="actors" id='vo'>
+              <tr>
+                <td class="t1">{$i}</td>
+                <td class="t2"><img src="./Uploads{$vo.headimg}" width="50" height="50"></td>
+                <td class="t3">{$vo.name}</td>
+
+                <td class="t6">{$vo.votes}</td>
+                <td class="t7">{:group($vo['groupid'])}</td>
+                <td class="t8">{:sexval($vo['sex'])}</td>
+                <td class="t9">
+                  <p class="console">
+                    <span>36强</span><a href="#" class="setting 36in">设置</a><a href="javascript:void(0)" class="delete">取消</a>
+                  </p>
+                  <p class="console">
+                    <span>6强</span><a href="#" class="setting 6in">设置</a><a href="javascript:void(0)" class="delete">取消</a>
+                  </p>
+                </td>
+              </tr>
+            </volist>
+
+            </tbody>
+            <tfoot>
+            <tr>
+              <td colspan="7">
+                <div class="pagers">
+                  <ul class="clearFix">
+                    {$page}
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+
+          <!--主提交按钮-->
 
 
-      <!--main end-->
 
+        </div>
+      </div>
+
+      <div class="mainBody actors actors6">
+
+        <!--筛选-->
+        <div class="tableTools clearFix mb30">
+
+          <hr>
+          <!--表格-->
+          <table class="table">
+            <thead>
+            <tr>
+              <td class="t1">编号</td>
+              <td class="t2">头像</td>
+              <td class="t3">姓名</td>
+              <td class="t6">票数</td>
+              <td class="t7">分组</td>
+              <td class="t8">性别</td>
+              <td class="t9">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="actors" id='vo'>
+              <tr>
+                <td class="t1">{$i}</td>
+                <td class="t2"><img src="./Uploads{$vo.headimg}" width="50" height="50"></td>
+                <td class="t3">{$vo.name}</td>
+
+                <td class="t6">{$vo.votes}</td>
+                <td class="t7">{:group($vo['groupid'])}</td>
+                <td class="t8">{:sexval($vo['sex'])}</td>
+                <td class="t9">
+                  <p class="console">
+                    <span>36强</span><a href="#" class="setting 36in">设置</a><a href="javascript:void(0)" class="delete">取消</a>
+                  </p>
+                  <p class="console">
+                    <span>6强</span><a href="#" class="setting 6in">设置</a><a href="javascript:void(0)" class="delete">取消</a>
+                  </p>
+                </td>
+              </tr>
+            </volist>
+
+            </tbody>
+            <tfoot>
+            <tr>
+              <td colspan="7">
+                <div class="pagers">
+                  <ul class="clearFix">
+                    {$page}
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+
+          <!--主提交按钮-->
+
+
+        </div>
+      </div>
     </div>
   </div>
   <!--container end-->
@@ -194,7 +302,7 @@
       <form action="{:U('Gactor/addactor')}" method="post" enctype="multipart/form-data">
         <div>
           <li>
-            <label for="name">姓名</label><input type="text" id="name" value="王菲" name='name'>
+            <label for="name">姓名</label><input type="text" id="name" value="" placeholder="请填入候选演员名字" name='name'>
           </li>
           <li>
             <label for="face">头像</label>
@@ -219,9 +327,7 @@
             </select>
           </li>
         </div>
-        <div class="btn btnNY"><a href="javascript:void(0)" class="btnD" data-t="n">取消</a><input type="submit"
-                                                                                                 class="btnA "
-                                                                                                 data-t="y" value="确定">
+        <div class="btn btnNY"><a href="javascript:void(0)" class="btnD" data-t="n">取消</a><input type="submit" class="btnA " data-t="y" value="确定">
         </div>
       </form>
 
@@ -233,12 +339,22 @@
         <div>
           <li>
             <label for="name">姓名</label>
-            <input type="text" id="name" value="王菲">
+            <input type="text" id="name" value="" placeholder="请输入评委姓名">
           </li>
           <li>
-            <label for="face">头像</label>
-            <input type="text" id="face" value="./face/wangfei.gif">
+            <label for="photo">头像</label>
+            <input type="file" id="photo" value="" name="photo">
           </li>
+          <li>
+            <label for="judge">代表分组</label>
+            <select name="judge" id="judge">
+              <option value="艺术家">艺术家</option>
+              <option value="导演">导演</option>
+              <option value="制片人">制片人</option>
+              <option value="编剧">编剧</option>
+            </select>
+          </li>
+          
         </div>
         <div class="btn btnNY"><a href="javascript:void(0)" class="btnD" data-t="n">取消</a>
         <input type="submit"class="btnA "data-t="y" value="确定">

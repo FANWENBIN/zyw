@@ -21,7 +21,9 @@ $(function(){
   $(".slt1").click(function(){
     $(".slt").removeClass("active");
     $(this).addClass("active");
-    $(".actors").show();
+
+    $(".actors").hide();
+    $(".actorsall").show();
     $(".judge").hide() ;
   })
   $(".slt2").click(function(){
@@ -29,5 +31,19 @@ $(function(){
     $(this).addClass("active");
     $(".actors").hide();
     $(".judge").show() ;
+  });
+  $(".slt3").click(function(){
+    $(".slt").removeClass("active");
+    $(this).addClass("active");
+    $(".actors").hide();
+    $(".judge").hide() ;
+    $(".actors36").show();
+  })
+  $(".slt4").click(function(){
+    $(".slt").removeClass("active");
+    $(this).addClass("active");
+    $(".actors").hide();
+    $(".judge").hide() ;
+    $(".actors6").show();
   })
 })

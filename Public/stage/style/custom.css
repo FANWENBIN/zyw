@@ -10,14 +10,16 @@
 .pop-alert .pop .btnNY { padding-left: 88px;}
 .pop-alert .pop .btnNY a { margin: 0 10px; float: left;}
 .pop-alert input{background: #fff; display: inline-block;}
-.pop-alert select{background: #fff; display: inline-block;}
+.pop-alert select{background: #ccc; display: inline-block; width: 300px;}
 
 .popforstar select{
 	display: inline-block;
-	background: #fff
+  width: 400px;
+	background: #ccc
 }
 
 .popforstar input{
+  width: 300px;
 	display: inline-block;
 	background: #fff
 }
@@ -60,3 +62,12 @@
 .pagers .end{display: none}
 .pagers .num{display: inline-block; width: 30px;}
 .pagers .current{display: inline-block; width: 30px;color: red}
+
+.actors36{
+  display: none;
+
+}
+.actors6{
+   display: none;
+
+ }
