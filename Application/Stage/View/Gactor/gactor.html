@@ -79,7 +79,7 @@
                 <td class="t8">{:sexval($vo['sex'])}</td>
                 <td class="t9">
                   <p class="console">
-                    <a href="#" class="setting">设置</a>
+                    <a href="{:U('Gactor/upactor')}">设置</a>
                   </p>
                   <a href="{:U('Gactor/delactor?id='.$vo['id'])}">删除演员</a>
                 </td>
@@ -132,7 +132,7 @@
             </thead>
             <tbody>
             <volist name="recommend" id='vo'>
-            <tr>
+            <tr data-id="{$vo.id}">
               <td class="t1">{$i}</td>
               <td class="t2"><img src="./Uploads{$vo.img}" width="50" height="50"></td>
               <td class="t3">{$vo.name}</td>
@@ -140,7 +140,8 @@
               <td class="t6">{:comtype($vo['type'])}</td>
               <td class="t7">
                 <p class="console">
-                  <a href="javascript:void(0)" class="modi">修改</a>
+                  <!--<a href="javascript:void(0)" class="modi">修改</a>-->
+                  <a href="{:U('Gactor/upcommend?id='.$vo['id'])}">修改</a>
                   <a href="javascript:void(0)" class="delete">删除</a>
                 </p>
               </td>
@@ -339,50 +340,7 @@
     </div>
   </div>
 
-  <div class="pop-alert popforstarboxmodi  pop-alert-swf-upload">
-    <div class="pop popforstar">
-      <form action="{:U('Gactor/addactor')}" method="post" enctype="multipart/form-data">
-        <div>
-          <li>
-            <label for="name">姓名</label><input type="text" id="name" value="" placeholder="请填入候选演员名字" name='name'>
-          </li>
-          <li>
-            <label for="face">头像</label>
-            <input type="file" id="face"  name='photo1'>
-          </li>
-          <li>
-            <label for="photo">照片</label>
-            <input type="file" id="photo"  name='photo2'>
-          </li>
-          <li>
-            <label for="choose">好演员评选</label>
-            <select name="group" id="choose">
-              <option value="1">预选</option>
-              <option value="2">36强</option>
-              <option value="3">6强</option>
-            </select>
-          </li>
-          <li>
-            <label for="sex">性别</label><select name="sex" id="sex">
-            <option value="1">男</option>
-            <option value="2">女</option>
-          </select>
-          </li>
-          <li>
-            <label for="group">分组</label>
-            <select name="group" id="group">
-              <option value="1">红组</option>
-              <option value="2">蓝组</option>
-              <option value="3">绿组</option>
-            </select>
-          </li>
-        </div>
-        <div class="btn btnNY"><a href="javascript:void(0)" class="btnD" data-t="n">取消</a><input type="submit" class="btnA " data-t="y" value="确定">
-        </div>
-      </form>
-
-    </div>
-  </div>
+  
 
   <div class="pop-alert popforjudgebox pop-alert-swf-upload">
     <div class="pop popforjudge">
@@ -416,37 +374,8 @@
   </div>
 
 
-
-  <div class="pop-alert popforjudgeboxmodi pop-alert-swf-upload">
-    <div class="pop popforjudge">
-      <form action="4.html">
-        <div>
-          <li>
-            <label for="name">姓名</label>
-            <input type="text" id="name" value="" placeholder="请输入评委姓名">
-          </li>
-          <li>
-            <label for="photo">头像</label>
-            <input type="file" id="photo" value="" name="photo">
-          </li>
-          <li>
-            <label for="judge">代表分组</label>
-            <select name="judge" id="judge">
-              <option value="艺术家">艺术家</option>
-              <option value="导演">导演</option>
-              <option value="制片人">制片人</option>
-              <option value="编剧">编剧</option>
-            </select>
-          </li>
-
-        </div>
-        <div class="btn btnNY"><a href="javascript:void(0)" class="btnD" data-t="n">取消</a>
-          <input type="submit"class="btnA "data-t="y" value="确定">
-        </div>
-      </form>
-
-    </div>
-  </div>
+<!--评委修改-->
+  
 
 
 

@@ -79,6 +79,20 @@ class GactorController extends ComController {
             }
         }
     }
+
+
+    /*修改演员
+    autor：winter
+    date：2015年9月23日15:58:17
+    */
+    public function upactor(){
+        $id = I('get.id');
+        $actors = M('actors');
+        $actorsval = $actors->where('id='.$id)->find();
+        $this->assign('actors',$actorsval);
+        $this->display('upgactor');
+    }
+
     /*新增评委
     autor：winter
     date：2015年9月23日15:58:17
@@ -107,5 +121,55 @@ class GactorController extends ComController {
             }
         }
     }
+    /*修改评委
+    author：witner
+    date：2015年9月23日17:02:05
+    */
+    public function upcommend(){
+        $submit = I('post.submit');
+        $commend = M('recommend');
+        if(empty($submit)){
+            $id = I('get.id');
+            
+            $commendval = $commend->where('id='.$id)->find();
+            $this->assign('commendval',$commendval);
+            $this->display();
+        }else{
+            $data['name'] = I('post.name');
+            $data['type'] = I('post.judge');
+            $id     = I('post.recommendid');
+            $this->checkDump($data);
+            $upload = new \Think\Upload();// 实例化上传类   
+            $upload->maxSize   =     3145728 ;// 设置附件上传大小   
+            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
+            $upload->savePath  =      '/stage/images/'; // 设置附件上传目录    
+            // 上传文件   
+            $info   =   $upload->upload();    
+            if(!$info) {// 上传错误提示错误信息      
+               
+                $sign = $commend->where('id='.$id)->save($data);
+                if($sign){
+                    $this->success('修改成功',U('Gactor/index'));
+                }else{
+                    $this->error('修改失败');
+                }
+
+            }else{
+                $data['img'] =  $info['photo']['savepath'].$info['photo']['savename'];
+                $sign = $commend->where('id='.$id)->save($data);
+                if($sign){
+                    $this->success('修改成功',U('Gactor/index'));
+                }else{
+                    $this->error('修改失败');
+                }
+            }
+        }
+        
+    }
+    //删除评委
+    public function delcommend(){
+        
+    }
+
 
 }
