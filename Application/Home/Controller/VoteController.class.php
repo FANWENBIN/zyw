@@ -71,7 +71,7 @@ class VoteController extends ComController {
 		if(preg_match("/^[a-f\d]{32}$/",$opid)){
 		    //查询该openid是否投过票
 		    $query = mysql_query('select id from zyw_votelog where wxopenid="'.$openid.'" and insdate="'.date('Y-m-d').'"');
-		    if(mysql_num_rows($query) != 0){
+		    if(mysql_num_rows($query) == 0){
 		        mysql_query('update zyw_actors set votes=votes+1 where opid="'.$opid.'"');
 		        if(mysql_affected_rows()){
 		            $query = mysql_query('insert into zyw_votelog (actor_opid,wxopenid,ip,instime,insdate) values ("'.$opid.'","'.$openid.'","'.$ip.'",'.time().',"'.date('Y-m-d').'")');
