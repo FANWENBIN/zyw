@@ -1,0 +1,103 @@
+.banner p{
+  height: 40px;
+  display: -webkit-box;
+  -webkit-box-align: center;
+}
+.banner .title{
+  font-size: 16px;
+  text-indent: 5px;
+  margin-left: 15px;
+}
+.banner .digest{
+  font-size: 12px;
+  color: #6c6c6c;
+}
+.banner .padding{
+  padding: 0 15px;
+}
+.news{
+  padding: 0 15px;
+}
+.news li{
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  margin-bottom: 20px;
+}
+.news li div{
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  -webkit-box-orient: vertical;
+}
+.news li p{
+  font-size: 10px;
+  color: #8d8d8d;
+}
+.news li h2{
+  font-size: 14px;
+}
+.news li .bottom-info{
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  -webkit-box-orient: horizontal;
+}
+
+.news li .date{
+  font-size: 9px;
+  color: #000;
+}
+.news li .recommend{
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: url("../img/icon_recommend_news.jpg") 50% no-repeat;
+  background-size: cover;
+}
+
+.popUpWin{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.selectBox{
+  background-color: #fff;
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+.selectBox li{
+  display: -webkit-box;
+  -webkit-box-align: center;
+  height: 50px;
+  /*border-bottom: 1px solid #ccc ;*/
+  padding-left: 30px;
+}
+
+.selectBox li .dot{
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+.selectBox li .text{
+  padding-left: 15px;
+}
+.myFocus{
+  display: block;
+  text-indent: 6px;
+  color: #ccc;
+}
+.selectBox li .hot{
+  display: block;
+  width: 30px;
+  height: 16px;
+  margin-left: 15px;
+  background: url("../img/icon_hot_popupwin.jpg") 50% no-repeat;
+  background-size: cover;
+}
