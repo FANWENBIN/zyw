@@ -1535,11 +1535,12 @@ $(function(){
 				    var oldp = $.trim(old.val());
                     var newp = $.trim(n.val());
 					$.ajaxSubmit({
-						url: webPath+"_editpaswd.php",
+						url: "/index.php?m=Stage&c=Index&a=uppasswd",
 						data: {oldp: oldp, newp: newp},
 						success: function(d){
 							if (d.status == 0){
-                                window.location = webPath+'login.php';
+                                location.reload();
+                                //window.location = '/index.php?m=Stage&';
 							} else {
 								$.tips.error(d.msg);
 							}

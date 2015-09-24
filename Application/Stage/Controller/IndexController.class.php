@@ -21,6 +21,7 @@ class IndexController extends ComController {
                 if($a){
                     $uid = md5('xxxzyw916');
                     session('uid',$uid);
+                    session('name',$data['name']);
                     $this->success('登陆成功',U('Index/show'),5);
                     //$this->redirect('New/category', array('cate_id' => 2), 5, '页面跳转中...');
                 }else{
@@ -31,6 +32,15 @@ class IndexController extends ComController {
             }
             
         }
+        
+    }
+    //退出
+    public function loginout(){
+       session(null);
+       $this->success('安全退出',U('Index/index'));
+    }
+    //修改密码
+    public function uppasswd(){
         
     }
     //验证码

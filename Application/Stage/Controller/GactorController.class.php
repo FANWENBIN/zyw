@@ -95,6 +95,7 @@ class GactorController extends ComController {
     date：2015年9月23日15:58:17
     */
     public function upgactor(){
+        //strtotime(I('post.timet'))
         $submit = I('post.submit');
         $actors = M('actors');
         if(empty($submit)){
