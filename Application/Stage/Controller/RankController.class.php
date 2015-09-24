@@ -20,7 +20,6 @@ class RankController extends ComController {
 				$sign = $actors->where('id='.$id)->save($data);
           	}
           	if(!$sign){
-          		
           		$actors->rollback();
           		$fall = false;
           	}
