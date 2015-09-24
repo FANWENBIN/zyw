@@ -52,7 +52,7 @@ class VoteController extends ComController {
     }
 
 
-//==============================中演网接口
+//==============================中演网对外接口
 	/*投票接口*/
     public function voting(){
     	define('DB_HOST','121.41.101.8');

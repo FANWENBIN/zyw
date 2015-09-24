@@ -12,7 +12,7 @@ class IndexController extends ComController {
     public function redgroup(){
         $sex = I('get.sex');
         $actors = M('actors');
-        if(!empty($sex)){
+        if($sex){
             $where['sex'] = $sex;
         }
         $where['groupid'] = 1;
@@ -31,7 +31,7 @@ class IndexController extends ComController {
     public function bluegroup(){
         $sex = I('get.sex');
         $actors = M('actors');
-        if(!empty($sex)){
+        if($sex){
             $where['sex'] = $sex;
         }
         $where['groupid'] = 2;
@@ -48,7 +48,7 @@ class IndexController extends ComController {
     public function greegroup(){
         $sex = I('get.sex');
         $actors = M('actors');
-        if(!empty($sex)){
+        if($sex){
             $where['sex'] = $sex; 
         }
         $where['groupid'] = 3;
