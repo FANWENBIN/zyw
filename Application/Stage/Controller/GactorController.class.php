@@ -117,8 +117,6 @@ class GactorController extends ComController {
             // 上传文件   
             $info   =   $upload->upload();    
             if(!$info) {// 上传错误提示错误信息 
-                
-
                 $sign = $actors->where('id='.$id)->save($data);
                 echo $actors->getlastsql();
                 if($sign){

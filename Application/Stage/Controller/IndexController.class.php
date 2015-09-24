@@ -41,7 +41,26 @@ class IndexController extends ComController {
     }
     //修改密码
     public function uppasswd(){
-        
+        $oldp = I('get.oldp');
+        $data['newp'] = I('get.newp','','md5');
+        $admin = M('admin');
+        $where = array(
+            'name'   =>session('name'),
+            'passwd' =>$oldp
+            );
+        $adminval = $admin->where($where)->find();
+        if($adminval){
+            $sign = $admin->where('id='.$adminval['id'])->save($data);
+            if($sign){
+                ajaxReturn(0,'修改成功','');
+            }else{
+                ajaxReturn(1,'未修改成功','');
+            }
+            
+        }else{
+            ajaxReturn(102,'旧密码不正确','');
+        }
+
     }
     //验证码
     public function verify(){

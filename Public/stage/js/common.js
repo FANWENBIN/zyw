@@ -1538,9 +1538,10 @@ $(function(){
 						url: "/index.php?m=Stage&c=Index&a=uppasswd",
 						data: {oldp: oldp, newp: newp},
 						success: function(d){
+							alert(d);
 							if (d.status == 0){
                                 location.reload();
-                                //window.location = '/index.php?m=Stage&';
+                                
 							} else {
 								$.tips.error(d.msg);
 							}
