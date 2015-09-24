@@ -18,6 +18,7 @@ class RankController extends ComController {
 				$sign = $actors->where('id='.$id)->save($data);
           	}
           	if(!$sign){
+          		echo $actors->getlastsql();die();
           		$actors->rollback();
           		$fall = false;
           	}
