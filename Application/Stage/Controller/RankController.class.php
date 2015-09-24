@@ -14,7 +14,7 @@ class RankController extends ComController {
           	$data['rank']    = $key+1;
           	$id = $val['id'];
           	$rank = $key+1;
-          	if($rank != $data['rank'] || $val['rank'] != $val['oldrank']){  //如果没有改变就不做改变
+          	if($rank != $data['rank'] || $val['rank'] != $val['oldrank']){  //如果没有改变就不做改变 
 				$sign = $actors->where('id='.$id)->save($data);
           	}
           	if(!$sign){
@@ -25,8 +25,10 @@ class RankController extends ComController {
          if($fall){
          	$actors->commit();
          	echo '修改成功';
+         	xxxLog('同步名次成功');
          }else{
          	echo '修改失败';
+         	xxxLog('同步名次失败');
          }
          
     }
