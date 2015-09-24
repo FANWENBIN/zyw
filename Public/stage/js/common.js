@@ -1568,6 +1568,30 @@ $(function(){
 			window.location.href = url + num;
 		}
 	});
+    
+    //删除
+	$('.delete').click(function(){
+		var id=$(this).data('id');
+		$.alert({
+			title: "提示",
+			txt: '确定删除此数据吗',
+			btnY: "确定",
+			btnN: "取消",
+			css: "pop-alert-appendWechatUserTeam",
+			callbackY: function(){
+				$.post(delete_url,{id:id},function(data){
+					if(data.status){
+						location.reload();
+					}else{
+						$.alert({
+							title: "提示!",
+							txt: data.info,
+						});
+					}
+				},'json');
+			}
+		});
+	});
 
 
 
