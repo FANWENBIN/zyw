@@ -72,5 +72,31 @@
 			
 		}
 	}
+    /**
+     * 获取文件路径
+     * @author huqinlou
+     * @version 2015年6月9日 下午5:04:35
+     */
+    function get_attach_path($path){
+        return 'http://'.$_SERVER['HTTP_HOST'].__ROOT__.$path;
+    }
+    /**
+     * 简单格式化时间
+     * @param int $time 时间戳
+     * @author 胡勤楼
+     * 2014-7-31 下午6:32:08
+     */
+    function hql_date($time){
+    	empty($time)&&($time=time());
+    	return date('Y-m-d H:i',$time);
+    }
+    /**
+     * 获取文件相对路径
+     * @author hxf
+     * @version 2015年8月21日 14:39:55
+     */
+    function get_relative_path($path){
+        return substr($path,strlen('http://'.$_SERVER['HTTP_HOST'].__ROOT__));
+    }
 
 ?>

@@ -1,0 +1,98 @@
+<extend name="Header/header"/>
+<block name='content'>
+<!--container-->
+<div class="webContainer clearFix" id="webContainer">
+
+  <!--aside-->
+  <div class="webAside">
+    <div class="menu">
+
+      <dl class="ft">
+        <dt><span></span>基本元素</dt>
+        <dd>
+          <ul>
+            <li class="current"><a href="{:U('Index/show')}">普通用户管理</a></li>
+            <li><a href="{:U('Index/starmanage')}">明星用户管理</a></li>
+          </ul>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><span></span>信息发布</dt>
+        <dd>
+          <ul>
+            <li><a href="1.html">咨询</a></li>
+            <li><a href="2.html">活动</a></li>
+            <li><a href="3.html">演工委之声</a></li>
+            <li><a href="{:U('Gactor/index')}">好演员评选</a></li>
+            <li><a href="5.html">饭团</a></li>
+            <li><a href="6.html">星站</a></li>
+            <li><a href="7.html">明日之星</a></li>
+            <li><a href="8.html">stage</a></li>
+            <li><a href="9.html">演艺库</a></li>
+          </ul>
+        </dd>
+      </dl>
+
+
+    </div>
+  </div>
+  <!--aside end-->
+
+  <!--main-->
+  <div class="webMain" style="">
+    <div class="mainHeader">
+      <h1>用户编辑</h1>
+
+        
+    </div>
+    <div class="mainBody">
+        <!--表单-->
+		<div class="form">
+			<form action="{:U('edit')}" method="post">
+				<div class="l">
+					<div class="i">
+						<p class=" mr20">昵称: </p><input type="text" class="input w150" value="{$user['nickname']}" name="nickname"/>
+						<p class="w80 tr mr10">性别: </p>
+                        <input type="radio" name="sex" value="1" data-val="男" data-css="r1" <eq name="user['sex']" value="1"> checked="checked"</eq> />
+						<input type="radio" name="sex" value="0" data-val="女" data-css="r1"  <eq name="user['sex']" value="0"> checked="checked"</eq>/>
+					</div>
+				</div>
+                <div class="l">
+					<div class="i">
+							<p class="mr10">手机号: </p><input type="text" class="input w150" value="{$user['mobile']}" name="mobile"/>
+                            <p class="w70 tr mr10">邮箱: </p><input type="text" class="input w150" value="{$user['mobile']}" name="email"/>
+					</div>
+				</div>
+                <div class="l">
+					<div class="i">
+							<p class="mr10">所在地:</p><input type="text" class="input w150" value="{$user['address']}" name="address"/>         
+					</div>
+				</div>
+                <div class="l">
+					<div class="i">
+							<p class="mr20">生日: </p><input type="text" class="js_date" data-time="true" value="{:date('Y-m-d|H:i',$user['birthday'])}" name="birthday"/>
+					</div>
+				</div>
+            <!--主提交按钮-->
+			<div class="btnCon btnCon2">
+				<input type="submit" class="btnA" value="提交" />
+                <a href="{:U('index')}" class="btnD">取消</a>
+			</div>
+			</form>
+		</div>
+    </div>
+  </div>
+  <!--main end-->
+
+</div>
+<!--container end-->
+
+
+<script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
+
+
+</body>
+</html>
+</block>
