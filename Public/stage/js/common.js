@@ -1,5 +1,5 @@
 
-var webPath = "";
+var webPath = "http://m2.nadoo.cn/p/zyw";
 var imgUploadServer = "http://192.168.1.2/php/img.php";
 var imgUploadFile = "http://192.168.1.2/php/";
 var mp3UploadServer = "http://192.168.1.2/php/mp3.php";
@@ -1535,7 +1535,7 @@ $(function(){
 				    var oldp = $.trim(old.val());
                     var newp = $.trim(n.val());
 					$.ajaxSubmit({
-						url: "/index.php?m=Stage&c=Index&a=uppasswd",
+						url: webPath+"/index.php?m=Stage&c=Index&a=uppasswd",
 						data: {oldp: oldp, newp: newp},
 						success: function(d){
 							alert(d);
