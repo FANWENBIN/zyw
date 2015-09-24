@@ -1538,7 +1538,7 @@ $(function(){
 						url: webPath+"/index.php?m=Stage&c=Index&a=uppasswd",
 						data: {oldp: oldp, newp: newp},
 						success: function(d){
-							alert(d);
+							alert(d.data);
 							if (d.status == 0){
                                 location.reload();
                                 

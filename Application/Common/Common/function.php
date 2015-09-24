@@ -51,7 +51,7 @@
 	    return in_array($ip, $valid);
 	}
 
-
+	
 	function group($groupid){
 		switch ($groupid) {
 			case '1':
