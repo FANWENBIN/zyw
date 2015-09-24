@@ -51,10 +51,11 @@ class IndexController extends ComController {
         $adminval = $admin->where($where)->find();
         if($adminval){
             $sign = $admin->where('id='.$adminval['id'])->save($data);
+
             if($sign){
                 ajaxReturn(0,'修改成功','');
             }else{
-                ajaxReturn(1,'未修改成功','');
+                ajaxReturn(1,'未修改成功',$admin->getlastsql());
             }
             
         }else{
