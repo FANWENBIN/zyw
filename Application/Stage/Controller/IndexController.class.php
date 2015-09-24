@@ -42,7 +42,7 @@ class IndexController extends ComController {
     //修改密码
     public function uppasswd(){
         $oldp = I('post.oldp','','md5');
-        $data['newp'] = I('post.newp','','md5');
+        $data['passwd'] = I('post.newp','','md5');
         $admin = M('admin');
         $where = array(
             'name'   =>session('name'),
@@ -59,7 +59,7 @@ class IndexController extends ComController {
             }
             
         }else{
-            ajaxReturn(102,'旧密码不正确',$data['newp']);
+            ajaxReturn(102,'旧密码不正确','');
         }
 
     }
