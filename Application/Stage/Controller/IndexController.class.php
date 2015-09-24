@@ -42,7 +42,7 @@ class IndexController extends ComController {
     //修改密码
     public function uppasswd(){
         $oldp = I('get.oldp','','md5');
-        $data['newp'] = I('get.newp');
+        $data['newp'] = I('post.newp');
         $admin = M('admin');
         $where = array(
             'name'   =>session('name'),
