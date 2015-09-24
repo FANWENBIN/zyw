@@ -104,7 +104,7 @@ a.important	{color:#98a1ab;}
 .table tbody tr td a { color: #525f67;}
 .table tbody tr td a:hover { color: #5cacdf;}
 .table tbody tr:hover td { background: #fffff1;}
-.table tbody tr td .console { text-align: center; display: block; float: none !important; line-height: 20px !important; padding: 0 !important; font-size: 12px !important;}
+.table tbody tr td .console { ; display: block; float: none !important; line-height: 20px !important; padding: 0 !important; font-size: 12px !important;}
 .table tbody tr td .console a { margin: 0 3px; color: #5cacdf;}
 .table tbody tr td .console a:hover { color: #ee6940;}
 .table tbody tr:hover td .console { display: block;}

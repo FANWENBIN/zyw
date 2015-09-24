@@ -1,0 +1,185 @@
+<extend name="Header/header"/>
+<block name='content'>
+
+  <!--container-->
+  <div class="webContainer clearFix containerWcBind" id="webContainer">
+
+    <!--aside-->
+    <div class="webAside">
+      <div class="menu">
+
+        <dl class="ft">
+          <dt><span></span>基本元素</dt>
+          <dd>
+            <ul>
+              <li><a href="{:U('Index/show')}">粉丝用户管理</a></li>
+              <li><a href="{:U('Index/starmanage')}">明星用户管理</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt><span></span>信息发布</dt>
+          <dd>
+            <ul>
+              <li><a href="1.html">咨询</a></li>
+              <li><a href="2.html">活动</a></li>
+              <li><a href="3.html">演工委之声</a></li>
+              <li class="current"><a href="{:U('Gactor/index')}">好演员评选</a></li>
+              <li><a href="5.html">饭团</a></li>
+              <li><a href="6.html">星站</a></li>
+              <li><a href="7.html">明日之星</a></li>
+              <li><a href="8.html">stage</a></li>
+              <li><a href="9.html">演艺库</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+
+      </div>
+    </div>
+    <!--aside end-->
+
+    <!--main-->
+    <div class="webMain">
+      
+   
+    <div class="pop popforstar">
+      <form action="{:U('Gactor/upgactor')}" method="post" enctype="multipart/form-data">
+        <div>
+          <div class="clearFix">
+            <li class="item" style="float: left">
+              <label for="face">头像</label>
+              <img src="./Uploads{$actors.headimg}" style="width:100px;height:100px;">
+              <input type="file" id="face"  name='photo1'>
+            </li>
+            <li class="item clearFix" style="float: left">
+              <label for="photo">照片</label>
+              <img src="./Uploads{$actors.img}" style="width:100px;height:100px;">
+              <input type="file" id="photo"  name='photo2'>
+            </li>
+          </div>
+          <div class="details clearFix">
+
+
+          <li class="item">
+          <input type="hidden" value="{$actors.id}" name="actorid">
+            <label for="name">姓名</label>
+              <input type="text" id="name" value="{$actors.name}" placeholder="请填入候选演员名字" name='name'>
+          </li>
+
+          <li class="item">
+            <label for="choose">好演员评选</label>
+            <select name="promotion" id="choose">
+              <option value="0" <if condition="($actors.promotion eq 0) ">selected</if>>预选</option>
+              <option value="36" <if condition="($actors.promotion eq 36) ">selected</if>>36强</option>
+              <option value="6" <if condition="($actors.promotion eq 6) ">selected</if>>6强</option>
+            </select>
+          </li>
+          <li class="item">
+            <label for="sex">性别</label><select name="sex" id="sex">
+            <option value="1" <if condition="($actors.sex eq 1) ">selected</if>>男</option>
+            <option value="2" <if condition="($actors.sex eq 2) ">selected</if>>女</option>
+          </select>
+          </li>
+          <li class="item">
+            <label for="group">分组</label>
+            <select name="group" id="group">
+              <option value="1" <if condition="($actors.groupid eq 1) ">selected</if> >红组</option>
+              <option value="2" <if condition="($actors.groupid eq 2) ">selected</if> >蓝组</option>
+              <option value="3" <if condition="($actors.groupid eq 3) ">selected</if> >绿组</option>
+            </select>
+          </li>
+
+          <li class="item">
+            <label for="borndate">出生日期</label>
+            <input type="text" id="borndate"/>
+          </li>
+          <li class="item">
+            <label for="bornaddress">出生地址</label>
+            <input type="text" id="bornaddress"/>
+          </li>
+          <li class="item">
+            <label for="national">国籍</label>
+            <input type="text" id="national"/>
+          </li>
+          <li class="item">
+            <label for="anothername">别名</label>
+            <input type="text" id="anothername"/>
+          </li>
+          <li class="item">
+            <label for="volk">民族</label>
+            <input type="text" id="volk"/>
+          </li>
+          <li class="item">
+            <label for="horoscope">星座</label>
+            <input type="text" id="horoscope"/>
+          </li>
+          <li class="item">
+            <label for="blood">血型</label>
+            <input type="text" id="blood"/>
+          </li>
+          <li class="item">
+            <label for="height">身高</label>
+            <input type="text" id="height"/>
+          </li>
+          <li class="item">
+            <label for="weight">体重</label>
+            <input type="text" id="weight"/>
+          </li>
+          <li class="item">
+            <label for="career">职业</label>
+            <input type="text" id="career"/>
+          </li>
+          <li class="item">
+            <label for="school">毕业院校</label>
+            <input type="text" id="school"/>
+          </li>
+          <li class="item">
+            <label for="com">经纪公司</label>
+            <input type="text" id="com"/>
+          </li>
+          <li class="item">
+            <label for="work">代表作品</label>
+            <input type="text" id="work"/>
+          </li>
+          <li class="item">
+            <label for="achieve">主要成就</label>
+            <input type="text" id="achieve"/>
+          </li>
+
+          <li class="item">
+            <label for="achieve">粉丝</label>
+            <input type="text" id="achieve"/>
+          </li>
+            <li class="item">
+              <label for="bref">简介</label>
+              <textarea name="bref" id="bref" cols="100" rows="10"></textarea>
+            </li>
+          </div>
+
+        </div>
+        <div class="btn btnNY">
+        <a href="javascript:history.go(-1)" class="btnD" data-t="n" style="float: left;">取消</a>
+        <input type="submit" class="btnA " data-t="y" value="确定" name="submit" style="background:#5cacdf;">
+        </div>
+      </form>
+
+  
+  </div>
+  </div>
+
+
+    <style>
+      .details li{
+        float: left;
+      }
+
+    </style>
+  <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/stage/js/custom.js"></script>
+
+  </body>
+  </html>
+</block>

@@ -11,13 +11,26 @@ $(function(){
 	$(".popforstar .btnA").click(function(){
 		$(".popforstarbox").hide();
 	})
+  $(".popforstarboxmodi .btnD").click(function(){
+    $(".popforstarboxmodi").hide();
+  })
+  $(".popforstarboxmodi .btnA").click(function(){
+    $(".popforstarboxmodi").hide();
+  })
 
-	$(".popforjudge .btnD").click(function(){
+	$(".popforjudgebox .btnD").click(function(){
 		$(".popforjudgebox").hide();
 	})
-	$(".popforjudge .btnA").click(function(){
+	$(".popforjudgebox .btnA").click(function(){
 		$(".popforjudgebox").hide() ;
 	})
+  $(".popforjudgeboxmodi .btnD").click(function(){
+    $(".popforjudgeboxmodi").hide();
+  })
+  $(".popforjudgeboxmodi .btnA").click(function(){
+    $(".popforjudgeboxmodi").hide() ;
+  })
+
   $(".slt1").click(function(){
     $(".slt").removeClass("active");
     $(this).addClass("active");
@@ -46,4 +59,12 @@ $(function(){
     $(".judge").hide() ;
     $(".actors6").show();
   })
+  $(".setting").click(function(){
+    $(".popforstarboxmodi").show();
+  })
+  $(".modi").click(function(){
+
+    $(".popforjudgeboxmodi").show();
+  })
+
 })

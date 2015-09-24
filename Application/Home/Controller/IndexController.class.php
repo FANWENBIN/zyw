@@ -14,12 +14,15 @@ class IndexController extends ComController {
         $actors = M('actors');
         if(!empty($sex)){
             $where['sex'] = $sex;
-            $where['groupid'] = 1;
-
         }
-        $val = $actors->where($where)->order('chinese_sum asc')->select();
-        if($val){
-            ajaxReturn(0,'',$val);
+        $where['groupid'] = 1;
+        $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
+        foreach($actorsval as $key=>$val){
+            $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
+        }
+        
+        if($actorsval){
+            ajaxReturn(0,'',$actorsval);
         }else{
             ajaxReturn(1,'系统错误','');
         }
@@ -30,11 +33,14 @@ class IndexController extends ComController {
         $actors = M('actors');
         if(!empty($sex)){
             $where['sex'] = $sex;
-            $where['groupid'] = 2;
         }
-        $val = $actors->where($where)->order('chinese_sum asc')->select();
-        if($val){
-            ajaxReturn(0,'',$val);
+        $where['groupid'] = 2;
+        $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
+        foreach($actorsval as $key=>$val){
+            $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
+        }
+        if($actorsval){
+            ajaxReturn(0,'',$actorsval);
         }else{
             ajaxReturn(1,'系统错误','');
         }
@@ -43,12 +49,15 @@ class IndexController extends ComController {
         $sex = I('get.sex');
         $actors = M('actors');
         if(!empty($sex)){
-            $where['sex'] = $sex;
-            $where['groupid'] = 3;
+            $where['sex'] = $sex; 
         }
-        $val = $actors->where($where)->order('chinese_sum asc')->select();
-        if($val){
-            ajaxReturn(0,'',$val);
+        $where['groupid'] = 3;
+        $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
+        foreach($actorsval as $key=>$val){
+            $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
+        }
+        if($actorsval){
+            ajaxReturn(0,'',$actorsval);
         }else{
             ajaxReturn(1,'系统错误','');
         }
