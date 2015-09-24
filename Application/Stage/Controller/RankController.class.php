@@ -7,8 +7,10 @@ class RankController extends ComController {
     public function index(){
           $actors = M('actors');  
           $actorsval = $actors->order('votes desc')->select();
+
           $actors->startTrans();
 		  $fall = true;
+		  $sign = 1;
           foreach($actorsval as $key=>$val){
           	$data['oldrank'] = $val['rank'];
           	$data['rank']    = $key+1;
@@ -18,7 +20,7 @@ class RankController extends ComController {
 				$sign = $actors->where('id='.$id)->save($data);
           	}
           	if(!$sign){
-          		echo $actors->getlastsql();die();
+          		
           		$actors->rollback();
           		$fall = false;
           	}
