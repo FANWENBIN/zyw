@@ -58,7 +58,7 @@ class IndexController extends ComController {
             }
             
         }else{
-            ajaxReturn(102,'旧密码不正确','');
+            ajaxReturn(102,'旧密码不正确',$data['newp']);
         }
 
     }
