@@ -8,7 +8,7 @@ class IndexController extends ComController {
 		$this->display();
     }
 
-//===========首页分组请求演员数据接口start
+//===========首页分组请求按照名次演员数据接口start
     public function redgroup(){
         $sex = I('get.sex');
         $actors = M('actors');

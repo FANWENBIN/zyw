@@ -117,7 +117,7 @@ class VoteController extends ComController {
         $sign = trim($_POST['sign']);
         list($sign, $time) = explode('.', $sign);
         if(md5('55f0fa9121e1f'.$time.'55f0fac500259') !== $sign || abs(time() - $time) > 600){
-          // errReturn(102,'签名错误');
+           errReturn(102,'签名错误');
         }
         $offset = isset($_POST['offset']) ? max(0,intval($_POST['offset'])) : 0;
         $count = isset($_POST['count']) ? min(1000,max(1,intval($_POST['count']))) : 10;
@@ -176,27 +176,6 @@ class VoteController extends ComController {
             exit;
     }
     
-    public function test(){
-
-        $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=actorinfo';
-        $data = array('opid'=>'3099502f8652e48cd2d15e49bb5bf67f','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
-       $a =  $this->htcurl($url,$data);
-      //var_dump($a);
-    }
-     public function htcurl($url,$data){
-    	 $url = $url;
-    	 $post_data = $data;
-    	 $ch = curl_init();
-    	 curl_setopt($ch, CURLOPT_URL, $url);
-    	 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    	 // post数据
-    	 curl_setopt($ch, CURLOPT_POST, 1);
-    	 // post的变量
-    	 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-    	 $output = curl_exec($ch);
-    	 curl_close($ch);
-    	 //打印获得的数据
-    	 print_r($output);
-    }
+   
     
 }
