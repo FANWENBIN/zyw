@@ -33,13 +33,22 @@ class GactorController extends ComController {
         $this->display('gactor');
         //echo md5('xxxzyw916');        
     }
+    public function recommend(){
+        $this->display();
+    }
+    public function sixstrong(){
+         $this->display();
+    }
+    public function threestrong(){
+         $this->display();
+    }
     /*新增演员
     autor：winter
     date：2015年9月23日15:58:17
     */
     public function addactor(){
         $data['name']    = I('post.name');
-
+        $actors = M('actors');
         
         $data['sex']     = I('post.sex');
         $data['groupid'] = I('post.group');
@@ -48,8 +57,9 @@ class GactorController extends ComController {
         if(!$a){
             //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
         }
-
-
+        $counts = $actors->count();
+        $data['rank']    = $counts+1;   //名次
+        $data['oldrank'] = $data['rank'];
         $upload = new \Think\Upload();// 实例化上传类   
         $upload->maxSize   =     3145728 ;// 设置附件上传大小   
         $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
@@ -68,7 +78,7 @@ class GactorController extends ComController {
             $t_hz = M('t_hz');
             $thzval = $t_hz->where("chinese='".$sur."'")->find();
             $data['chinese_sum'] = $thzval['sum'];
-            $actors = M('actors');
+            
             $sign = $actors->add($data);
 
             if($sign){
