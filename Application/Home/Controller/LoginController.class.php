@@ -19,7 +19,7 @@ class LoginController extends Controller {
         $account = I('get.account');
         $passwd  = I('get.passwd');
         (empty($account)||empty($passwd))&&$this->ajaxReturn(array('status'=>'1000','msg'=>'帐号密码输入不正确','data'=>null));
-        $user = M("User")->where('(mobile='.$account.' or email='.$account.')')->find();
+        $user = M("User")->where("mobile='".$account."' or email='".$account."'")->find();
         $user||$this->ajaxReturn(array('status'=>'1001','msg'=>'帐号或密码输入错误！','data'=>null));
         if($user['status']!=1){
             $this->ajaxReturn(array('status'=>'1002','msg'=>'帐号已锁定！','data'=>null));
