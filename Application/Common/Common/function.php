@@ -11,13 +11,13 @@
 	function ajaxReturn($errcode = 0, $msg = '', $data = array()){
 	        $data = array('status'=>$errcode, 'msg'=>$msg, 'data'=>$data);
 	        exit(json_encode($data,JSON_UNESCAPED_UNICODE));
-	    }
-		//微信
-		function is_weixin(){   
-			return strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false;
-		}
-		function isAjax() {
-	    return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 'xmlhttprequest' == strtolower($_SERVER['HTTP_X_REQUESTED_WITH']);
+	}
+	//微信
+	function is_weixin(){   
+		return strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false;
+	}
+	function isAjax() {
+    	return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 'xmlhttprequest' == strtolower($_SERVER['HTTP_X_REQUESTED_WITH']);
 	}
 
 	function errReturn($errCode,$msg){

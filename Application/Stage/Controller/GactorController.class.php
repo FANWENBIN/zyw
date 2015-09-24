@@ -95,6 +95,7 @@ class GactorController extends ComController {
     date：2015年9月23日15:58:17
     */
     public function upgactor(){
+        //strtotime(I('post.timet'))
         $submit = I('post.submit');
         $actors = M('actors');
         if(empty($submit)){
@@ -116,8 +117,6 @@ class GactorController extends ComController {
             // 上传文件   
             $info   =   $upload->upload();    
             if(!$info) {// 上传错误提示错误信息 
-                
-
                 $sign = $actors->where('id='.$id)->save($data);
                 echo $actors->getlastsql();
                 if($sign){
