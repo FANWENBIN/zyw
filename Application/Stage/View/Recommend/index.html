@@ -143,7 +143,7 @@
               <td class="t5"><p>{:comtype($vo['type'])}</p></td>
               <td class="t7">
                 <p class="console">
-                  <a href="{:U('Recommend/upcommend?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" class="delete" data-id="{$vo.id}">删除</a>
+                  <a href="{:U('Recommend/upcommend?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" class="delete" id="J_Table" data-id="{$vo.id}">删除</a>
                 </p>
               </td>
             </tr>
@@ -211,7 +211,8 @@
       btnN: "取消",
       txt:'删除请确认',
       callbackY: function(){
-        window.location = webPath+"/index.php?m=Stage&c=Recommend&a=delcommend&id="+id;
+        alert(id);
+       // window.location = webPath+"/index.php?m=Stage&c=Recommend&a=delcommend&id="+id;
       }
         })
       });
