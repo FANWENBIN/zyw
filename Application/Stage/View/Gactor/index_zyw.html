@@ -126,7 +126,7 @@
 				<!--</div>-->
 
 				<!--表格-->
-				<table class="table">
+				<table class="table" id="J_Table">
 					<thead>
 						<tr>
 							<td class="t1">编号</td>
@@ -150,7 +150,7 @@
 							<td class="t6">{:sexval($vo['sex'])}</td>
 							<td class="t7">
 								<p class="console">
-									<a href="{:U('Gactor/upgactor?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
+									<a href="{:U('Gactor/upgactor?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" data-id="{$vo.id}" class="delete">删除</a>
 								</p>
 							</td>
 						</tr>
@@ -171,7 +171,7 @@
 
 				<!--主提交按钮-->
 				<div class="btnCon">
-					<input type="button" id="showAlert" class="btnA" value="新增" />
+					<a href="{:U('Gactor/addactor')}" class="btnA">新增</a>
 				</div>
 
 
@@ -199,10 +199,24 @@
 
   <script>
     $(function(){
-      $("body").on("click","#showAlert",function(){
-        window.location.href = webPath+"/index.php?m=Stage&c=Gactor&a=addactor"
-      })
+      
+
+      $("#J_Table").on("click",".delete",function(str){
+      	var id = $(this).data("id");
+
+      	$.alert({
+      		btnY: "确认",
+			btnN: "取消",
+			txt:'删除请确认',
+			callbackY: function(){
+				window.location = webPath+"/index.php?m=Stage&c=Gactor&a=delactor&id="+id;
+			}
+      	})
+      });
+
     })
+
+
   </script>
 </body>
 </html>
