@@ -84,7 +84,7 @@ class RecommendController extends ComController {
             // 上传文件   
             $info   =   $upload->upload();   
 
-           
+           var_dump($info);die();
             if(!$info) {// 上传错误提示错误信息      
                
                 $sign = $commend->where('id='.$id)->save($data);
