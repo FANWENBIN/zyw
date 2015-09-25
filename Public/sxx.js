@@ -11,9 +11,9 @@ $(function(){
 	$("#tabList").click("li",addClass)
 	function addClass(){
 	console.log($("#tabList"));
-		setTimeout(function(){
+		//setTimeout(function(){
 			$("#tabList").find("li").removeClass("current");
 			$(this).addClass("current")
-		},30)
+		//},30)
 	}
 })
