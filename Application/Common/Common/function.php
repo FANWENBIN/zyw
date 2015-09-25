@@ -122,6 +122,11 @@
 	摩羯座：12月22日～1月20日 (Capricorn)
 	水瓶座：1月21日～2月19日 (Aquarius)
 	双鱼座：2月20日～3月20日 (Pisces)*/
-
+// 检测输入的验证码是否正确，$code为用户输入的验证码字符串
+    function check_verify($code, $id = '')
+    {    
+        $verify = new \Think\Verify();    
+        return $verify->check($code, $id);
+    }
 
 ?>
