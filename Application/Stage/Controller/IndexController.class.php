@@ -49,7 +49,7 @@ class IndexController extends ComController {
             'passwd' =>$oldp
             );
         $adminval = $admin->where($where)->find();
-        var_dump($adminval);die();
+       
         if($adminval){
             $sign = $admin->where('id='.$adminval['id'])->save($data);
 

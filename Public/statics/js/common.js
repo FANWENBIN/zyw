@@ -9,6 +9,7 @@ define(function(require, exports, module){
 
 	// input验证部分
 	(function($){
+		webPath = 'http://m2.nadoo.cn/p/zyw'
 		var errorTimeout;
 		$.fn.inputError = function(t) {
 			if ($(this).length) {
