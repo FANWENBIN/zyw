@@ -255,8 +255,9 @@ define(function(require, exports, module){
 							url: webPath+"/index.php?m=Stage&c=Index&a=uppasswd",
 							data: {oldp: oldp, newp: newp},
 							success: function(d){
+								console.log(d);
 								if (d.status == 0){
-	                                window.location = webPath+'/index.php?m=Stage&c=Index&a=uppasswd';
+	                                location.reload();
 								} else {
 									$.tips.error(d.msg);
 								}
