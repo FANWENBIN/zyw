@@ -252,7 +252,7 @@ define(function(require, exports, module){
 					    var oldp = $.trim(old.val());
 	                    var newp = $.trim(n.val());
 						$.ajaxSubmit({
-							url: webPath+"_editpaswd.php",
+							url: webPath+"/index.php?m=Stage&c=Index&a=uppasswd",
 							data: {oldp: oldp, newp: newp},
 							success: function(d){
 								if (d.status == 0){
