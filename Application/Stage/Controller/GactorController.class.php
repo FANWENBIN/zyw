@@ -30,7 +30,7 @@ class GactorController extends ComController {
         $this->assign('recommend',$recommendval);// 赋值数据集
         $this->assign('repage',$reshow);// 赋值分页输出
 
-        $this->display('gactor');
+        $this->display('index_zyw');
         //echo md5('xxxzyw916');        
     }
     public function recommend(){
@@ -47,44 +47,63 @@ class GactorController extends ComController {
     date：2015年9月23日15:58:17
     */
     public function addactor(){
-        $data['name']    = I('post.name');
-        $actors = M('actors');
-        
-        $data['sex']     = I('post.sex');
-        $data['groupid'] = I('post.group');
-       
-        $a = $this->checkDump($data);
-        if(!$a){
-            //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
-        }
-        $counts = $actors->count();
-        $data['rank']    = $counts+1;   //名次
-        $data['oldrank'] = $data['rank'];
-        $upload = new \Think\Upload();// 实例化上传类   
-        $upload->maxSize   =     3145728 ;// 设置附件上传大小   
-        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
-        $upload->savePath  =      '/stage/images/'; // 设置附件上传目录    
-        // 上传文件   
-        $info   =   $upload->upload();    
-        if(!$info) {// 上传错误提示错误信息      
-            $this->error($upload->getError()); 
-            exit;  
-        }else{// 上传成功      
-            $data['headimg'] = $info['photo1']['savepath'].$info['photo1']['savename']; 
-            $data['img']     = $info['photo2']['savepath'].$info['photo2']['savename'];
-            $sur = mb_substr($data['name'],0,1,'utf-8');
-            $data['opid']    = md5(date('YmdHis',time()));
-            $data['instime'] = time();
-            $t_hz = M('t_hz');
-            $thzval = $t_hz->where("chinese='".$sur."'")->find();
-            $data['chinese_sum'] = $thzval['sum'];
+        $submit = I('post.submit');
+        if(empty($submit)){
+            $this->display();
+        }else{
+            $data['name']    = I('post.name');
+            $actors = M('actors');
             
-            $sign = $actors->add($data);
+            $data['sex']     = I('post.sex');
+         
+           
+            $a = $this->checkDump($data);
+            $data['birthday']  = strtotime(I('post.birthday'));
+                                //strtotime(I('post.timet'))
+            $data['national']  = I('post.national');
+            $data['address']   = I('post.address');
+            $data['nation']    = I('post.nation');
+            $data['alias']     = I('post.alias');
+            $data['constellation'] = I('post.constellation');
+            $data['blood']     = I('post.blood');
+            $data['height']    = I('post.height');
+            $data['weight']    = I('post.weight');
+            $data['talent']    = I('post.talent');
+            $data['about']     = I('post.about');
+            $data['promotion'] = I('post.promotion');
+            $data['groupid']   = I('post.groupid');
+            if(!$a){
+                //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
+            }
+            $counts = $actors->count();
+            $data['rank']    = $counts+1;   //名次
+            $data['oldrank'] = $data['rank'];
+            $upload = new \Think\Upload();// 实例化上传类   
+            $upload->maxSize   =     3145728 ;// 设置附件上传大小   
+            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
+            $upload->savePath  =      '/stage/images/'; // 设置附件上传目录    
+            // 上传文件   
+            $info   =   $upload->upload();    
+            if(!$info) {// 上传错误提示错误信息      
+                $this->error($upload->getError()); 
+                exit;  
+            }else{// 上传成功      
+                $data['headimg'] = $info['photo1']['savepath'].$info['photo1']['savename']; 
+                $data['img']     = $info['photo2']['savepath'].$info['photo2']['savename'];
+                $sur = mb_substr($data['name'],0,1,'utf-8');
+                $data['opid']    = md5(date('YmdHis',time()));
+                $data['instime'] = time();
+                $t_hz = M('t_hz');
+                $thzval = $t_hz->where("chinese='".$sur."'")->find();
+                $data['chinese_sum'] = $thzval['sum'];
+                
+                $sign = $actors->add($data);
 
-            if($sign){
-                $this->success('添加成功',U('Gactor/index'));
-            }else{
-                 $this->error('添加失败',U('Gactor/index'));
+                if($sign){
+                    $this->success('添加成功',U('Gactor/index'));
+                }else{
+                     $this->error('添加失败',U('Gactor/index'));
+                }
             }
         }
     }
@@ -95,7 +114,7 @@ class GactorController extends ComController {
     date：2015年9月23日15:58:17
     */
     public function upgactor(){
-        //strtotime(I('post.timet'))
+        //
         $submit = I('post.submit');
         $actors = M('actors');
         if(empty($submit)){
@@ -108,8 +127,24 @@ class GactorController extends ComController {
             $data['promotion'] = I('post.promotion');
             $data['sex']       = I('post.sex');
             $data['groupid']   = I('post.group');
+
             $id = I('post.actorid');
             $this->checkDump($data);
+            $data['birthday']  = strtotime(I('post.birthday'));
+                                //strtotime(I('post.timet'))
+            $data['national']  = I('post.national');
+            $data['address']   = I('post.address');
+            $data['nation']    = I('post.nation');
+            $data['alias']     = I('post.alias');
+            $data['constellation'] = I('post.constellation');
+            $data['blood']     = I('post.blood');
+            $data['height']    = I('post.height');
+            $data['weight']    = I('post.weight');
+            $data['talent']    = I('post.talent');
+            $data['about']     = I('post.about');
+            $data['promotion'] = I('post.promotion');
+            $data['groupid']   = I('post.groupid');
+
             $upload = new \Think\Upload();// 实例化上传类   
             $upload->maxSize   =     3145728 ;// 设置附件上传大小   
             $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
@@ -118,7 +153,7 @@ class GactorController extends ComController {
             $info   =   $upload->upload();    
             if(!$info) {// 上传错误提示错误信息 
                 $sign = $actors->where('id='.$id)->save($data);
-                echo $actors->getlastsql();
+               
                 if($sign){
                     $this->success('修改成功',U('Gactor/index'));
                 }else{

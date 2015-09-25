@@ -22,7 +22,7 @@ class IndexController extends ComController {
                     $uid = md5('xxxzyw916');
                     session('uid',$uid);
                     session('name',$data['name']);
-                    $this->success('登陆成功',U('Index/show'),5);
+                    $this->success('登陆成功',U('Gactor/index'),5);
                     //$this->redirect('New/category', array('cate_id' => 2), 5, '页面跳转中...');
                 }else{
                     $this->error('登陆失败',U('Index/index'),5);
