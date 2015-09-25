@@ -1,0 +1,131 @@
+<extend name="Header/header"/>
+<block name='content'>
+<!--container-->
+<div class="webContainer clearFix" id="webContainer">
+
+  <!--aside-->
+  <div class="webAside">
+    <div class="menu">
+
+      <dl class="ft">
+        <dt><span></span>基本元素</dt>
+        <dd>
+          <ul>
+            <li class="current"><a href="{:U('Index/show')}">普通用户管理</a></li>
+            <li><a href="{:U('Index/starmanage')}">明星用户管理</a></li>
+          </ul>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt><span></span>信息发布</dt>
+        <dd>
+          <ul>
+            <li><a href="1.html">咨询</a></li>
+            <li><a href="2.html">活动</a></li>
+            <li><a href="3.html">演工委之声</a></li>
+            <li><a href="{:U('Gactor/index')}">好演员评选</a></li>
+            <li><a href="5.html">饭团</a></li>
+            <li><a href="6.html">星站</a></li>
+            <li><a href="7.html">明日之星</a></li>
+            <li><a href="8.html">stage</a></li>
+            <li><a href="9.html">演艺库</a></li>
+          </ul>
+        </dd>
+      </dl>
+
+
+    </div>
+  </div>
+  <!--aside end-->
+
+  <!--main-->
+  <div class="webMain" style="">
+    <div class="mainHeader">
+      <h1>用户管理</h1>
+
+
+    </div>
+    <div class="mainBody">
+
+      <!--筛选-->
+      <!--div class="tableTools clearFix mb30">
+
+
+        <hr>
+
+
+        <h6 class="w100 tr">关键字：</h6>
+
+        <div class="i mr20"><input type="text" class="input w180"></div>
+        <div class="i"><a href="javascript:void(0)" class="btnB btnSmall">查找</a></div>
+      </div-->
+
+
+
+      <!--表格-->
+      <table class="table">
+        <thead>
+        <tr>
+          <td class="t1">编号</td>
+          <td class="t2">头像</td>
+          <td class="t3">昵称</td>
+          <td class="t4">性别</td>
+          <td class="t6">创建时间</td>
+          <td class="t7">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <foreach name="list" item="v">
+        <tr>
+          <td class="t1">{$v['id']}</td>
+          <td class="t2"><notempty name="v['headpic']"><img src="{:get_attach_path($v['headpic'])}" width="50" height="50" /></notempty></td>
+          <td class="t3">{$v['nickname']}</td>
+          <td class="t4"><eq name="v['sex']" value="1">男<else/>女</eq></td>
+          <td class="t6">{:hql_date($v['createtime'])}</td>
+          <td class="t7">
+            <p class="console">
+              <a href="{:U('look',array('id'=>$v['id']))}" class="setting">查看</a>
+              <a href="{:U('edit',array('id'=>$v['id']))}" class="setting">编辑</a>
+              <a data-id="{$v['id']}" href="javascript:void(0)" class="delete">删除</a>
+            </p>
+          </td>
+        </tr>
+        </foreach>
+        
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="7">
+          {$page}
+            <!--div class="pagers">
+              <ul class="clearFix">
+                <li><a class="disabled prev" href="#">上一页</a></li>
+                <li><p><span class="c">1</span><span>/</span><span>5</span></p></li>
+                <li><a class="next" href="#">下一页</a></li>
+                <li class="in"><input type="text"></li>
+                <li><a href="javascript:void(0)">跳转</a></li>
+              </ul>
+            </div-->
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+
+    </div>
+  </div>
+  <!--main end-->
+
+</div>
+<!--container end-->
+
+
+<script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
+<script>
+    var delete_url='{:U("delete")}';/*删除*/
+</script>
+
+</body>
+</html>
+</block>

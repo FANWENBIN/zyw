@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/*form*/
+.form .formHeader { background: #f7f8fa; padding: 5px 0; border: 1px solid #e9efef; height: 40px; overflow: hidden; position: relative;}
+.form .formHeader h1 { font-size: 14px; color: #525f67; font-size: 14px; line-height: 40px; padding-left: 20px;}
+.form .formHeader .btnSmall { position: absolute; right: 11px; top: 11px; height: 26px; line-height: 26px; font-size: 12px; width: 80px;}
+.form  { width: 948px; border-bottom: 1px solid #e9efef;border-top: 1px solid #e9efef; }
+.form  div.l { line-height: 36px; padding: 10px 0; overflow: visible; zoom:1;  }
+.form  div.l h6 { font-size: 14px; color: #89939c; float: left; padding-right: 18px; margin-right: 10px; text-align: right; width: 130px;}
+.form  div.l div.i { line-height: 36px; float: left; display: block; zoom:1; height: auto; width: 780px; margin-right: 10px;}
+.form  div.l:after,
+.form  div.l div.i:after { content:"\0020"; display:block; height:0; clear:both; visibility:hidden;}
+.form  div.l div.i .js_radio,
+.form  div.l div.i .js_checkbox,
+.form  div.l div.i .js_dateinput,
+.form  div.l div.i p,
+.form  div.l div.i .input,
+.form  div.l div.i .btnA,
+.form  div.l div.i .btnB,
+.form  div.l div.i .btnC,
+.form  div.l div.i .btnD { float: left;}
+.form  div.l div.i p { line-height: 24px; font-size: 14px; padding: 6px 5px 6px 5px; color: #525f67;}
+.form  div.l  p { line-height: 24px; font-size: 14px; padding: 6px 5px 6px 5px; color: #525f67;}
+.form  div.l div.i p.yes {color: #41a82c;}
+.form  div.l div.i p.no {color: #ff6363;}
+.form  div.l div.i input.input { width: 758px;}
+.form  div.l div.i textarea.input { width: 762px;}
+.form  hr {margin-bottom: 10px; zoom:1; clear: both; height: 0; width: 100%; display: block; overflow: hidden; background: none; border-top: 1px solid #e9efef;}
+.borderTop{border-top: 1px solid #e9efef;}
+td img{display: inline;}
+#label_img{display:none}
+.form  div.l div.i p.required{color: #ff6363;font-size: 14px;}
+.form  div.l p.required{color: #ff6363;font-size: 14px;}
+
+.appsitedata_table>tbody>tr>td:first-child{
+	text-align:right;
+	padding-right:40px;
+	width:40%;
+}

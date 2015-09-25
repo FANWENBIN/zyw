@@ -16,6 +16,7 @@
   <link href="__PUBLIC__/stage/style/base.css" rel="stylesheet" type="text/css"/>
   <link href="__PUBLIC__/stage/style/page.css" rel="stylesheet" type="text/css"/>
   <link href="__PUBLIC__/stage/style/custom.css" rel="stylesheet" type="text/css"/>
+  <link href="__PUBLIC__/stage/style/hxf_reset.css" rel="stylesheet" type="text/css"/>
 
 </head>
 
@@ -29,11 +30,11 @@
     <div class="userInfo">
       <div class="head"><img src="__PUBLIC__/stage/images/head.jpg"/></div>
       <div class="info">
-        <h2>您好，<span>useradmin</span>！</h2>
+        <h2>您好，<span>{$Think.session.name}</span>！</h2>
         <ul class="tools">
           <li><a href="javascript:void(0)" class="msg"><span>195</span>消息通知</a></li>
           <li><a href="javascript:void(0)" class="chagepw">修改密码</a></li>
-          <li><a href="login.html">安全退出</a></li>
+          <li><a href="{:U('Index/loginout')}">安全退出</a></li>
         </ul>
       </div>
     </div>

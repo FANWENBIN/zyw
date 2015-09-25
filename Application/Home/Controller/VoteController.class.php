@@ -6,11 +6,12 @@ class VoteController extends ComController {
     public function index(){
         $actors = M('actors');
         //好演员评选
-        $actorsval = $actors->order('votes desc')->limit('0,8')->select();
+        $where['status']=1;
+        $actorsval = $actors->where($where)->order('votes desc')->limit('0,8')->select();
         $this->assign('actors',$actorsval);
 
         //形象指数
-        $actorsvalue = $actors->order('votes desc')->limit('0,4')->select();
+        $actorsvalue = $actors->where($where)->order('votes desc')->limit('0,4')->select();
         $this->assign('list',$actorsvalue);
 
         $recommend = M('recommend');
@@ -37,12 +38,12 @@ class VoteController extends ComController {
         if(!empty($groupid)){
             $data['groupid'] = $groupid;
         }
-
-        $count      = $User->where($data)->order('chinese_sum asc')->count();// 查询满足要求的总记录数
+        $data['status']=1;
+        $count      = $actors->where($data)->order('chinese_sum asc')->count();// 查询满足要求的总记录数
         $Page       = new \Think\Page($count,8);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $list = $User->where($data)->order('chinese_sum asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $list = $actors->where($data)->order('chinese_sum asc')->limit($Page->firstRow.','.$Page->listRows)->select();
        // $this->assign('list',$list);// 赋值数据集
        // $this->assign('page',$show);
         $result[] = $list;
@@ -51,7 +52,7 @@ class VoteController extends ComController {
     }
 
 
-//==============================中演网接口
+//==============================中演网对外接口
 	/*投票接口*/
     public function voting(){
     	define('DB_HOST','121.41.101.8');
@@ -138,11 +139,13 @@ class VoteController extends ComController {
         if($sex > 0){
             $where[] = 'sex='.$sex;
         }
+        $where[]= 'status=1';
         if(!empty($where)){
             $where = ' where '.implode(' and ', $where);
         }else{
             $where = '';
         }
+
         $actors = M('actors');
         $data = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes,groupid,sex from zyw_actors '.$where.' order by '.$orderby.' '.$ordertype.' limit '.$offset.','.$count);
         $row = $actors->query('select count(id) as c from zyw_actors'.$where);
@@ -173,27 +176,6 @@ class VoteController extends ComController {
             exit;
     }
     
-    public function test(){
-
-        $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=actorinfo';
-        $data = array('opid'=>'3099502f8652e48cd2d15e49bb5bf67f','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
-       $a =  $this->htcurl($url,$data);
-      //var_dump($a);
-    }
-     public function htcurl($url,$data){
-    	 $url = $url;
-    	 $post_data = $data;
-    	 $ch = curl_init();
-    	 curl_setopt($ch, CURLOPT_URL, $url);
-    	 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    	 // post数据
-    	 curl_setopt($ch, CURLOPT_POST, 1);
-    	 // post的变量
-    	 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-    	 $output = curl_exec($ch);
-    	 curl_close($ch);
-    	 //打印获得的数据
-    	 print_r($output);
-    }
+   
     
 }
