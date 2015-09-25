@@ -256,7 +256,7 @@ define(function(require, exports, module){
 							data: {oldp: oldp, newp: newp},
 							success: function(d){
 								if (d.status == 0){
-	                                window.location = webPath+'login.php';
+	                                window.location = webPath+'/index.php?m=Stage&c=Index&a=uppasswd';
 								} else {
 									$.tips.error(d.msg);
 								}
