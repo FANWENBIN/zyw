@@ -1,0 +1,130 @@
+header{
+  border-bottom: 1px solid #cdcdcd;
+  position: relative;
+}
+header ul{
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 30px;
+  width: 160px;
+}
+header ul li{
+  display: inline-block;
+  height: 30px;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 30px;
+  width: 80px;
+
+}
+header ul li.active{
+  color: #fff;
+  background-color: #000;
+}
+.group{
+  height: 40px;
+  border-bottom: 1px solid #cdcdcd;
+  display: -webkit-box;
+  -webkit-box-align: stretch;
+}
+.group li{
+  display: block;
+  position: relative;
+  -webkit-box-flex: 1;
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
+  border-bottom: 2px solid #fff;
+}
+.group li.active{
+
+  border-bottom: 2px solid #000;
+}
+.blue::after{
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 0;
+  display: block;
+  border-left: 1px solid #cdcdcd;
+  border-right: 1px solid #cdcdcd;
+  width: 100%;
+  height: 80%;
+}
+.group li::before{
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  display: block;
+  height: 30%;
+}
+.blue::before{
+  border-right: 3px solid #27a4f3;
+}
+.red::before{
+   border-right: 3px solid #f25e5e;
+ }
+.green::before{
+  border-right: 3px solid #7bca35;
+}
+.content{
+    padding: 5px 15px;
+}
+.content .r{
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+  height: 60px;
+}
+.content .r .no{
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+.content .r .no .de{
+    display: block;
+    width: 12px;
+    height: 21px;
+    background: url("../img/num/num_0_.jpg") 50% no-repeat;
+    background-size: cover;
+}
+.content .r .no .sig{
+    display: block;
+    width: 12px;
+    height: 21px;
+    background: url("../img/num/num_0_.jpg") 50% no-repeat;
+    background-size: cover;
+}
+.content .r .face{
+    display: block;
+    width: 46px;
+    height: 46px;
+    background: url("../img/face.jpg") 50% no-repeat;
+    background-size: cover;
+}
+.content .r .name{
+    display: block;
+    font-size: 13px;
+}
+.content .r .hot{
+    display: block;
+    font-size: 10px;
+    color: #9c9c9c;
+}
+.content .r .ranking{
+    display: -webkit-box;
+    -webkit-box-align: center;
+}
+.content .r .rankIcon{
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: url("../img/icon_increase.jpg") 50% no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+/* 微信自定义菜单 */
+.mainBody .wcMenu { border: 1px solid #e9efef; overflow: hidden;}
+.mainBody .wcMenu .l { float: left; width: 240px; border-right: 1px solid #e9efef; min-height: 500px; margin-bottom:-10000px; padding-bottom:10000px;}
+.mainBody .wcMenu .r { float: left; width: 707px; min-height: 500px;}
+.mainBody .wcMenu .l .header,
+.mainBody .wcMenu .r .header { background: #f7f8fa; height: 40px; overflow: hidden; position: relative;}
+.mainBody .wcMenu .r .header { border-bottom: 1px solid #e9efef;}
+.mainBody .wcMenu .l .header h6,
+.mainBody .wcMenu .r .header h6 { color: #525f67; font-size: 14px; line-height: 40px; padding-left: 15px;}
+
+.mainBody .wcMenu .l .header { position: relative;}
+.mainBody .wcMenu .l .header a.add { position: absolute; right: 12px; top: 10px; width: 18px; height: 18px; overflow: hidden; display: block; background: url(../../../statics/images/ui/iconWechatMenu.png) -18px 0 no-repeat;}
+.mainBody .wcMenu .l .header a.add:hover { background: url(../../../statics/images/ui/iconWechatMenu.png) 0 0 no-repeat;}
+.mainBody .wcMenu .l .bd .menu { border-top: 1px solid #e9efef;}
+.mainBody .wcMenu .l .bd .menu .item { height: 32px; overflow: hidden; position: relative;}
+.mainBody .wcMenu .l .bd .menu .item a { height: 32px; line-height: 32px; font-size: 13px; display: block; overflow: hidden; padding-left: 15px; color: #525f67;}
+.mainBody .wcMenu .l .bd .menu dt.item,
+.mainBody .wcMenu .l .bd .menu dt.item .tools { height: 36px;}
+.mainBody .wcMenu .l .bd .menu dt.item a { height: 36px; line-height: 36px;}
+.mainBody .wcMenu .l .bd .menu dd.item a { padding-left: 30px; color: #87949d; background: url(../../../statics/images/ui/wcMenuDot.png) 18px center no-repeat;}
+.mainBody .wcMenu .l .bd .menu .itemHover a,
+.mainBody .wcMenu .l .bd .menu .current a { background: #f7f8fa; color: #536068;}
+
+.mainBody .wcMenu .l .bd .menu dd.itemHover a,
+.mainBody .wcMenu .l .bd .menu dd.current a {  background: url(../../../statics/images/ui/wcMenuDot.png) 18px center no-repeat #f7f8fa; color: #525f67;}
+.mainBody .wcMenu .l .bd .menu .item .tools { position: absolute; right: 0; top: 0; width: 93px; height: 32px; display: none; overflow: hidden;}
+.mainBody .wcMenu .l .bd .menu .item .tools a { display: block; width: 18px; height: 18px; margin: 9px 5px; background-image: url(../../../statics/images/ui/iconWechatMenu.png); float: left; padding: 0;}
+.mainBody .wcMenu .l .bd .menu .item .tools a.add { background-position: -18px 0;}
+.mainBody .wcMenu .l .bd .menu .item .tools a.edit { background-position: -18px -18px;}
+.mainBody .wcMenu .l .bd .menu .item .tools a.del { background-position: -18px -36px;}
+.mainBody .wcMenu .l .bd .menu .item .tools a.add:hover { background-position: 0 0;}
+.mainBody .wcMenu .l .bd .menu .item .tools a.edit:hover { background-position: 0 -18px;}
+.mainBody .wcMenu .l .bd .menu .item .tools a.del:hover { background-position: 0 -36px;}
+.mainBody .wcMenu .l .bd .menu .current .tools { display: block !important;}
+.mainBody .wcMenu .l .bd .menu dd.item .tools { width: 63px;}
+.mainBody .wcMenu .l .bd .menu dd.item .tools a { margin: 7px 5px;}
+.mainBody .wcMenu .r .bd p.tips { text-align: center; font-size: 14px; color: #87949d; height: 479px; line-height: 479px; overflow: hidden;}
+
+.mainBody .wcMenu .r .header .status { position: absolute; right: 6px; top: 6px; width: 80px; height: 26px; line-height: 26px; font-size: 12px;}
+.mainBody .wcMenu .r .bd .edit { padding: 10px;}
+.mainBody .wcMenu .r .bd .edit .wcInputs { margin-bottom: 10px;}
+.mainBody .wcMenu .r .bd .edit .wcInputs .hd a { width: 113px;}
+.mainBody .wcMenu .r .bd .edit .wcInputs .hd a.event { width: 115px; border-right: 0;}
+.mainBody .wcMenu .r .bd .edit .wcInputs .bd .bdlink .input { width: 603px !important;}
+.mainBody .wcMenu .r .bd .edit .wcInputs .bd .bdtxt textarea { width: 665px;} 
+
+.mainBody .wcMenu .r .bd .saved { padding: 10px;}
+.mainBody .wcMenu .r .bd .saved h1.title { line-height: 36px; height: 36px; font-size: 14px; color: #525f67; padding-left: 5px;}
+.mainBody .wcMenu .r .bd .saved .content { margin-bottom: 10px;}
+.mainBody .wcMenu .r .bd .saved .content .txt { border: 1px solid #e9efef; padding: 10px; color: #87949d; line-height: 24px; font-size: 14px;}
+.mainBody .wcMenu .r .bd .saved .content .txt img { display: inline-block; vertical-align: middle; width: 24px; height: 24px;}
+
+.mainBody .wcMenu .r .bd .saved .content .article { height: auto;}
+.mainBody .wcMenu .r .bd .saved .content .article .item .mask { display: none !important;}
+
+.mainBody .wcMenu .r .bd .saved .content .img { height: auto;}
+.mainBody .wcMenu .r .bd .saved .content .img .item { border: 1px solid #e9efef; padding: 8px; width: 271px; overflow: hidden; background: #fff; display: block; position: relative;}
+.mainBody .wcMenu .r .bd .saved .content .img .item img { display: block; width: 271px;}
+
+.mainBody .wcMenu .r .bd .saved .content .audio { height: auto;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item { border: 1px solid #e9efef; padding: 10px 10px 10px 10px; width: 267px; overflow: hidden; background: #fff;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item h2 { color: #525f67; height: 24px; overflow: hidden; font-size: 14px; display: block; line-height: 24px; padding: 0 0 6px 0;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info { height: 84px; width: 100%; overflow: hidden;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .play { width: 84px; height: 84px; overflow: hidden; background: #f7f8fa; position: relative; display: block; float: left; margin-right: 10px;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .play span { position: absolute; right: 0; bottom: 0; line-height: 20px; padding-right: 3px; color: #bdc5c8;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .play sub { position: absolute; left: 50%; top: 50%; display: block; width: 16px; height: 16px; background: url(../../../statics/images/ui/iconAudioPlay.png) -16px -16px; margin: -8px 0 0 -8px;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .play:hover { background: #efeff3;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .play:hover sub { background: url(../../../statics/images/ui/iconAudioPlay.png) 0 -16px;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .pause sub { background: url(../../../statics/images/ui/iconAudioPlay.png) -16px 0;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .pause:hover sub { background: url(../../../statics/images/ui/iconAudioPlay.png) 0 0;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .r { float: left; width: 173px !important; height: 84px !important; overflow: hidden; position: relative; min-height: 0px !important;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .r span { display: block; height: 20px; line-height: 20px; overflow: hidden; color: #cccccc;}
+.mainBody .wcMenu .r .bd .saved .content .audio .item .info .r a.change { display: none;}
+
+.mainBody .wcMenu .r .bd .saved .content .link { border: 1px solid #e9efef; padding: 10px; color: #87949d; line-height: 24px; font-size: 14px;}
+
+/*微信菜单弹框*/
+.pop-alert-appendWechatMenu .pop .bd p { padding: 10px; text-align: center;}
+.pop-alert-appendWechatMenu .pop .bd .input { width: 260px; margin: 0 auto;}
+
+.pop-alert-appendWechatSubMenu .pop .bd p { padding: 10px; text-align: center;}
+.pop-alert-appendWechatSubMenu .pop .bd .input { width: 260px; margin: 0 auto;}
+
+.pop-alert-editWechatMenu .pop .bd p { padding: 10px; text-align: center;}
+.pop-alert-editWechatMenu .pop .bd .input { width: 260px; margin: 0 auto;}

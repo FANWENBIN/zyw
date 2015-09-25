@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+/*微信图片素材列表*/
+.mainBody .itemList { background: #fff; position: relative; width: 928px; overflow: hidden; margin: 0 auto; padding-bottom: 20px; visibility: hidden;}
+.mainBody .itemList .item { position: absolute; border: 1px solid #e9efef; padding: 8px 8px 46px 8px; width: 195px; overflow: hidden; background: #fff;}
+.mainBody .itemList .item .img { width: 195px; overflow: hidden;}
+.mainBody .itemList .item .img img { display: block; width: 100%;}
+.mainBody .itemList .item .name { padding-top: 4px;}
+.mainBody .itemList .item .name h6 { line-height: 16px; color: #87949d; display: block; height: 16px; overflow: hidden;}
+.mainBody .itemList .item .tools { height: 38px; background: #f7f8fa; border-top: 1px solid #e9efef; position: absolute; left: 0; bottom: 0; width: 100%; z-index: 2;}
+.mainBody .itemList .item .tools a { float: left; display: block; width: 105px; height: 38px; background-image: url(../../../statics/images/ui/iconWechatAssets.png); background-repeat: no-repeat; position: relative; border-right: 1px solid #e9edee;}
+
+.mainBody .itemList .item .tools a.edit { background-position: center -38px;}
+.mainBody .itemList .item .tools a.edit:hover { background-position: center 0;}
+
+.mainBody .itemList .item .tools a.group { background-position: center -266px; display: none;}
+.mainBody .itemList .item .tools a.group:hover { background-position: center -228px;}
+
+.mainBody .itemList .item .tools a.del { background-position: center -114px; border-right: none;}
+.mainBody .itemList .item .tools a.del:hover { background-position: center -76px;}
+
+.mainBody .groupList { float: left; margin: 15px; border: 1px solid #e9efef; width: 181px; padding-bottom: 5px;}
+.mainBody .groupList ul { border-bottom: 1px solid #e9efef; margin-bottom: 5px;}
+.mainBody .groupList ul li { height: 36px; line-height: 36px;}
+.mainBody .groupList ul li a { height: 36px; line-height: 36px; display: block; padding-left: 10px; font-size: 12px; color: #89949a;}
+.mainBody .groupList ul li a span { padding-left: 5px; color: #bdc5c8;}
+.mainBody .groupList ul li a.current,
+.mainBody .groupList ul li a:hover { background: #f7f8fa; color: #525f67;}
+.mainBody .groupList .btnB { margin: 0 auto;}
+
+.mainBody .pagers { border-top: 1px solid #e9efef; padding-top: 10px;}
+.mainBody .itemList p.none { text-align: center; height: 250px; margin: 0; line-height: 250px; width: 100%; border: none; padding-bottom: 15px; color: #ccd3d5;}
+
+.pop-alert-photoAssetsItemRename .pop .bd p { padding: 10px; text-align: center;}
+.pop-alert-photoAssetsItemRename .pop .bd .input { width: 260px; margin: 0 auto;}
