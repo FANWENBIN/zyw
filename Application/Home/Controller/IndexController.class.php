@@ -16,7 +16,7 @@ class IndexController extends ComController {
             $where['sex'] = $sex;
         }
         $where['groupid'] = 1;
-        $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
+        $actorsval = $actors->where($where)->order('votes asc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
@@ -35,7 +35,7 @@ class IndexController extends ComController {
             $where['sex'] = $sex;
         }
         $where['groupid'] = 2;
-        $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
+        $actorsval = $actors->where($where)->order('votes asc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
@@ -52,7 +52,7 @@ class IndexController extends ComController {
             $where['sex'] = $sex; 
         }
         $where['groupid'] = 3;
-        $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
+        $actorsval = $actors->where($where)->order('votes asc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
