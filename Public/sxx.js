@@ -8,7 +8,7 @@ var mp3UploadFile = ""; // mp3上传后的文件夹目录
 
 $(function(){
 
-	$("#tabList").click("li",get)
+	$("#tabList").click("li",addClass)
 	function addClass(){
 	$("#tabList").find("li").removeClass("current")
 		$(this).addClass("current")
