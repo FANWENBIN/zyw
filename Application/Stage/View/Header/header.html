@@ -25,9 +25,9 @@
           <dt><span></span>基本元素</dt>
           <dd>
             <ul id="tabList">
-              <li><a href="index.html">Table表格</a></li>
-              <li class="current"><a href="{:U('Gactor/index')}">演员管理</a></li>
-              <li><a href="{:U('Recommend/index')}">推荐团管理<sub>192</sub></a></li>
+              <li <if condition="$cur eq 1">class = "current"</li> ><a href="index.html">Table表格</a></li>
+              <li <if condition="$cur eq 2">class = "current"</li>><a href="{:U('Gactor/index')}">演员管理</a></li>
+              <li <if condition="$cur eq 3">class = "current"</li>><a href="{:U('Recommend/index')}">推荐团管理<sub>192</sub></a></li>
             </ul>
           </dd>
         </dl>

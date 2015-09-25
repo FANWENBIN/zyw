@@ -19,7 +19,8 @@ class GactorController extends ComController {
 		$this->assign('actors',$actorsval);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
 
-    
+
+        $this->assign('cur',2);
         $this->display('index_zyw');
         //echo md5('xxxzyw916');        
     }
