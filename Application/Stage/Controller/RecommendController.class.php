@@ -19,6 +19,7 @@ class RecommendController extends ComController {
         $this->assign('recommend',$recommendval);// 赋值数据集
         $this->assign('repage',$reshow);// 赋值分页输出
 
+        $this->assign('cur',3);
         $this->display();
           
     }
