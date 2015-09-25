@@ -8,12 +8,11 @@ var mp3UploadFile = ""; // mp3上传后的文件夹目录
 
 $(function(){
 
-	$("#tabList").click("li",addClass)
-	function addClass(){
-	console.log($("#tabList"));
-		//setTimeout(function(){
-			$("#tabList").find("li").removeClass("current");
-			$(this).addClass("current")
-		//},30)
+	$("#tabList").click("li",changeCurrentTab);
+	
+	//xxx
+	function changeCurrentTab(){
+		$("#tabList").find("li").removeClass("current");
+		$(this).addClass("current");
 	}
 })
