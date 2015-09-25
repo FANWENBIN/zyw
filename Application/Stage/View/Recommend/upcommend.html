@@ -44,8 +44,9 @@
           <div class="formHeader">
             <h1>请填写基本信息</h1>
           </div>
-          <form method="post" action="{:U('Recommend/upcommend')}">
+          <form method="post" action="{:U('Recommend/upcommend')}" enctype="multipart/form-data">
             <fieldset>
+            <input type="hidden" name="recommendid" value="{$commendval.id}">
               <!-- 姓名-->
               <div class="l">
                 <h6>姓名</h6>
