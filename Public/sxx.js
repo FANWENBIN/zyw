@@ -10,7 +10,9 @@ $(function(){
 
 	$("#tabList").click("li",addClass)
 	function addClass(){
+	setTimeout(function(){
 	$("#tabList").find("li").removeClass("current")
 		$(this).addClass("current")
 	}
+	},30)
 })
