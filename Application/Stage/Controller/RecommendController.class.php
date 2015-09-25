@@ -83,7 +83,7 @@ class RecommendController extends ComController {
             $upload->savePath  =      '/commend/images/'; // 设置附件上传目录    
             // 上传文件   
             $info   =   $upload->upload();   
-
+$this->error($upload->getError()); 
            var_dump($info);die();
             if(!$info) {// 上传错误提示错误信息      
                
