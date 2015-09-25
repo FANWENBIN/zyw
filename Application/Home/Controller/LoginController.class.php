@@ -13,6 +13,8 @@ class LoginController extends Controller {
     /**
      * 登录
      * @author hxf
+     * @param string account 账号
+     * @param string passwd  密码
      * @version 2015年9月24日16:41:57
      */
     public function login(){
