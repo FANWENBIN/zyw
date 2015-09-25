@@ -113,7 +113,7 @@ class RecommendController extends ComController {
         $recommend = M('recommend');
         $sign = $recommend->delete($id);
         if($sign){
-            $this->success('删除成功',U('Gactor/index'));
+            $this->success('删除成功',U('Recommend/index'));
         }else{
             $this->error('未删除');
         }
