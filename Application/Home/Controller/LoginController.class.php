@@ -48,7 +48,7 @@ class LoginController extends Controller {
      * @version 2015年9月24日16:41:57
      */
     public function register(){
-        //(check_verify(I('get.code'))) || $this->error('验证码输入错误！');
+        (check_verify(I('get.code'))) || $this->error('验证码输入错误！');
         $type                = I('get.type'); 
         //注册类型
         switch ($type)
