@@ -14,6 +14,7 @@ $(function(){
 			$("#J_ConVideo .inner .cover").hover(page.hover);
 			$("#J_ConYoulike .inner .l").hover(page.hover);
 			$("#J_ConYoulike .inner .item").hover(page.hover);
+            $("#J_conTopStars .select a").hover(page.hoverTopStars,function(){});
 		},
 		hover: function(e){
 			if (e.type == "mouseenter"){
@@ -21,7 +22,13 @@ $(function(){
 			} else {
 				$(this).find(".hover").stop(true,true).fadeOut(100);
 			}
-		}
+		},
+        hoverTopStars: function(){
+            $(this).parent().find("a").removeClass("c");
+            $(this).addClass("c");
+            $(this).parents(".group").find(".list").hide()
+            $(this).parents(".group").find(".list").eq($(this).index()).show()
+        }
 	};
 	page.init();
 
