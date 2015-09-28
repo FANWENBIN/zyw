@@ -94,12 +94,14 @@ $(function () {
         initStar: function(){
             $.ajax({
                 type: "get",
+                dataType: "json",
                 data: {
                     url: "/index.php?m=Home&c=Index&",
                     a: "redgroup",
                     sex: "2"
                 },
                 success: function(json){
+                    console.log(json)
                     if(json.status == 0){
                         var _html = "";
                         for(var i = 0; i < json.data.length; i++ ){
