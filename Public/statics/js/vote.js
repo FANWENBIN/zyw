@@ -68,20 +68,19 @@ $(function () {
                     sex: _sex
                 },
                 success: function(json){
-                    console.log(json.status)
                     if(json.status == "0"){
                         var _html = "";
                         for(var i = 0; i < json.data.length; i++ ){
                             _html += '<div class="item">\
                             <div class="vote hover">\
                                 <p>扫描二维码投票</p>\
-                                <img src="'+ json.data.codeimg +'"/>\
+                                <img src="'+ json.data[i].codeimg +'"/>\
                                 </div>\
                                 <div class="txt">\
-                                <p>'+ json.data.name +'</p>\
-                        <span>当前票数：'+ json.data.votes +'</span>\
+                                <p>'+ json.data[i].name +'</p>\
+                        <span>当前票数：'+ json.data[i].votes +'</span>\
                         </div>\
-                        <img src="./Uploads'+ json.data.headimg +'"/>\
+                        <img src="./Uploads'+ json.data[i].headimg +'"/>\
                             </div>'
                         }
                         $("#insertgroup").html(_html)
@@ -102,7 +101,6 @@ $(function () {
                     sex: "2"
                 },
                 success: function(json){
-                    console.log(json)
                     if(json.status == 0){
                         var _html = "";
                         for(var i = 0; i < json.data.length; i++ ){
