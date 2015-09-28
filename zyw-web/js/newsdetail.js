@@ -3,8 +3,9 @@
  */
 
 define(function (require, exports, module) {
-    var app = require("./app");
-    var nd = app.nd;
+    var nd = require("unit/nd.base");
+    require("unit/jq.$touch");
+    require("unit/jq.$pageTo");
 
     $(function () {
         var scope = {};
@@ -17,21 +18,15 @@ define(function (require, exports, module) {
                 $(".menu").touchend(function () {
                     var $mask = $(".mask");
 
-
                     $mask.addClass("active");
                     $(".popUpWin").addClass("active")
                 });
                 $(".mask").touchend(function(){
                     $(this).removeClass("active");
                     $(".popUpWin").removeClass("active")
-                });
-                $(".news").touchend("li",page.linkToDetail)
-
-            },
-            linkToDetail: function(){
-                window.location.href= "./newsdetail.html"
+                })
             }
-        }
+        };
 
         page.init()
 
