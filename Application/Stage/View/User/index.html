@@ -77,7 +77,8 @@
         <foreach name="list" item="v">
         <tr>
           <td class="t1">{$v['id']}</td>
-          <td class="t2"><notempty name="v['headpic']"><img src="{:get_attach_path($v['headpic'])}" width="50" height="50" /></notempty></td>
+          <td class="t2">
+          <notempty name="v['headpic']"><img src="{:get_attach_path($v['headpic'])}" width="50" height="50" /></notempty></td>
           <td class="t3">{$v['nickname']}</td>
           <td class="t4"><eq name="v['sex']" value="1">男<else/>女</eq></td>
           <td class="t6">{:hql_date($v['createtime'])}</td>
