@@ -5,7 +5,7 @@ $(function () {
         init: function () {
             $("#J_ConStars .inner .list a").hover(page.hover);
             $("#J_ConRule .inner .content1 .item").hover(page.hover);
-            $("#J_ConVote .inner").hover(".item",page.voteHover);
+
             $("#J_CommentSendbox .submit").on("click", page.commentSendClick);
             $("#J_ConRule .tab a").on("click", page.ruleTabClick);
             $("#groupColorList").on("click","li",page.loadStar);
@@ -28,15 +28,13 @@ $(function () {
                 $(this).find(".hover").stop(true, true).fadeOut(100);
             }
         },
-        voteHover: function (e) {
-            alert();
-            if (e.type == "mouseenter") {
-                $(this).find(".hover").stop(true, true).fadeIn(300);
-                $(this).find(".txt").stop(true, true).fadeOut(100);
-            } else {
-                $(this).find(".hover").stop(true, true).fadeOut(100);
-                $(this).find(".txt").stop(true, true).fadeIn(100);
-            }
+        voteIn: function () {
+            $(this).find(".hover").stop(true, true).fadeIn(300);
+            $(this).find(".txt").stop(true, true).fadeOut(100);
+        },
+        voteOut: function () {
+            $(this).find(".hover").stop(true, true).fadeOut(100);
+            $(this).find(".txt").stop(true, true).fadeIn(100);
         },
         commentSendClick: function (e) {
             var text = $.trim($("#J_CommentSendbox textarea").val());
@@ -117,7 +115,9 @@ $(function () {
                         <img src="./Uploads'+ json.data[i].headimg +'"/>\
                             </div>'
                         }
-                        $("#insertgroup").html(_html)
+                        $("#insertgroup").html(_html);
+
+                        $("#J_ConVote .inner .item").off().hover(page.voteIn, page.voteOut);
 
                     }else{
                         alert(json.msg)
