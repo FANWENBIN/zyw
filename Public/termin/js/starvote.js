@@ -32,7 +32,7 @@ define(function (require, exports, module) {
             },
             getRenew: function (_sex, _color) {
                 nd.ajax({
-                    url: "/index.php?m=Home&c=Index",
+                    url: "./index.php?m=Home&c=Index",
                     type: "get",
                     dataType: "json",
                     data: {
