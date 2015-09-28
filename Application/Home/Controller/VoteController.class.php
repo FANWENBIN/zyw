@@ -177,6 +177,8 @@ class VoteController extends ComController {
     }
     //投票页，按照姓氏排名
     public function redgroup(){
+        
+        $url = C('DOMAIN_PATH')."/index.php?m=Home&c=Vote&a=code";
         $sex = I('get.sex');
         $actors = M('actors');
         if($sex){
@@ -186,6 +188,7 @@ class VoteController extends ComController {
         $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
+            $actorsval[$key]['codeimg'] = $url.="&opid=".$val['opid'];
         }
         
         if($actorsval){
@@ -196,6 +199,7 @@ class VoteController extends ComController {
 
     }
     public function bluegroup(){
+        $url = C('DOMAIN_PATH')."/index.php?m=Home&c=Vote&a=code";
         $sex = I('get.sex');
         $actors = M('actors');
         if($sex){
@@ -205,6 +209,7 @@ class VoteController extends ComController {
         $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
+            $actorsval[$key]['codeimg'] = $url.="&opid=".$val['opid'];
         }
         if($actorsval){
             ajaxReturn(0,'',$actorsval);
@@ -213,6 +218,7 @@ class VoteController extends ComController {
         }
     }
     public function greegroup(){
+        $url = C('DOMAIN_PATH')."/index.php?m=Home&c=Vote&a=code";
         $sex = I('get.sex');
         $actors = M('actors');
         if($sex){
@@ -222,6 +228,7 @@ class VoteController extends ComController {
         $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
+            $actorsval[$key]['codeimg'] = $url.="&opid=".$val['opid'];
         }
         if($actorsval){
             ajaxReturn(0,'',$actorsval);
