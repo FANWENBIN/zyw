@@ -11,7 +11,7 @@ $(function () {
             $("#groupColorList").on("click","li",page.loadStar);
             $("#groupSexList").on("click","li",page.loadStar);
 
-            $("#conStarGroup").on("click","li",page.swtichTab)
+            $("#conStarGroup").on("click","li",page.swtichTab);
             page.initStar()
         },
         ruleTabClick: function () {
@@ -53,6 +53,7 @@ $(function () {
             $("#starGroups").find(".group").hide();
             $("#starGroups").find(".group").eq(_index).show();
         },
+        //每次点击后加载 列表
         loadStar: function(){
             $(this).parent().find("li").removeClass("active");
             $(this).addClass("active");
@@ -82,7 +83,9 @@ $(function () {
                         <img src="./Uploads'+ json.data[i].headimg +'"/>\
                             </div>'
                         }
-                        $("#insertgroup").html(_html)
+                        $("#insertgroup").html(_html);
+
+                        $("#J_ConVote .inner .item").off().hover(page.voteIn, page.voteOut);
 
                     }else{
                         alert(json.msg)
@@ -90,6 +93,7 @@ $(function () {
                 }
             })
         },
+        //初始化加载 明星列表
         initStar: function(){
             $.ajax({
                 type: "get",
