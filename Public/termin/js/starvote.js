@@ -49,7 +49,7 @@ define(function (require, exports, module) {
                                 }
                                 var _deNum = Math.floor(i/10);
                                 var _tempSig = ""+ i;
-                                var _sigNum = _tempSig.charAt(_tempSig.length -1) + 1;
+                                var _sigNum = parseInt(_tempSig.charAt(_tempSig.length -1)) + 1;
                                 console.log(_deNum,_sigNum);
                                 var _deStyle = 'background: url("../img/num/num_'+ _deNum +'.jpg") 50% no-repeat; background-size: cover';
                                 var _sigStyle = 'background: url("../img/num/num_'+ _sigNum +'.jpg") 50% no-repeat; background-size: cover';
