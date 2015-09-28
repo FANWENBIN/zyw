@@ -112,7 +112,7 @@ $(function () {
                                 <img src="'+ json.data[i].codeimg +'"/>\
                                 </div>\
                                 <div class="txt">\
-                                <p>'+ json.data.name[i] +'</p>\
+                                <p>'+ json.data[i].name +'</p>\
                         <span>当前票数：'+ json.data[i].votes +'</span>\
                         </div>\
                         <img src="./Uploads'+ json.data[i].headimg +'"/>\
