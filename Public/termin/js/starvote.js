@@ -42,10 +42,15 @@ define(function (require, exports, module) {
                     success: function (json) {
                         if (json.status == 0) {
                             var _html = "";
+                            var _rankimgStyle;
                             for (var i = 0; i < json.data.length; i++) {
-                                if(json.data.lifting == 0){
-                                    json.data.lifting = "";
-                                    var _rankimgStyle = 'background: url(\"\.\.\/img\/icon_increase.jpg\") 50% no-repeat; background-size: cover'
+                                if(json.data[i].lifting == 0){
+                                    json.data[i].lifting = "";
+                                    _rankimgStyle = 'background: url('+ app.ImgUrl +'/img/icon_duce.jpg) 50% no-repeat; background-size: cover'
+                                }else if(json.data.lifting > 0){
+                                    _rankimgStyle = 'background: url('+ app.ImgUrl +'/img/icon_increase.jpg) 50% no-repeat; background-size: cover'
+                                }else{
+                                    _rankimgStyle = 'background: url('+ app.ImgUrl +'/img/icon_decrease.jpg) 50% no-repeat; background-size: cover'
                                 }
                                 var _deNum = Math.floor(i/10);
                                 var _tempSig = ""+ i;
