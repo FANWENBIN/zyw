@@ -43,46 +43,7 @@
        
       </div>
       <div class="mainBody">
-
-        <!--表格-->
-        <table class="table" id="J_Table" >
-          <thead>
-            <tr>
-              <td class="t1">编号</td>
-              <td class="t2">头像</td>
-              <td class="t3">用户名</td>
-              <td class="t5">分组</td>
-              <td class="t7">操作</td>
-            </tr>
-          </thead>
-          <tbody>
-            <volist name="recommend" id= "vo">
-            <tr>
-              <td class="t1">{$i}</td>
-              <td class="t2"><img src="./Uploads{$vo.img}" width="50" height="50" /></td>
-              <td class="t3">{$vo.name}</td>
-              <td class="t5"><p>{:comtype($vo['type'])}</p></td>
-              <td class="t7">
-                <p class="console">
-                  <a href="{:U('Recommend/upcommend?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" class="delete" data-id="{$vo.id}">删除</a>
-                </p>
-              </td>
-            </tr>
-            </volist>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="7">
-                <div class="pagers">
-                  <ul class="clearFix">
-                    {$repage}
-                  </ul>
-                </div>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
-
+        <input type="text" class="">
         <!--主提交按钮-->
         <div class="btnCon">
           <input type="button" id="showAlert" class="btnA" value="保存" />
@@ -115,7 +76,7 @@
   <script>
     $(function(){
       $("body").on("click","#showAlert",function(){
-        window.location.href = webPath+"/index.php?m=Stage&c=Recommend&a=addcommend"
+        window.location.href = webPath+"/index.php?m=Stage&c=Banner&a=Index"
       })
     })
   </script>
