@@ -27,7 +27,7 @@ define(function (require, exports, module) {
                 var _sex = $groupS.find("active").data("sex");
                 var _color = $groupS.find("active").data("color");
                 //获取明星列表
-                page.getRenew()
+                page.getRenew(_sex, _color)
 
             },
             getRenew: function (_sex, _color) {
