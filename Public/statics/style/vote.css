@@ -121,7 +121,7 @@
 .webmain .conVote {}
 .webmain .conVote .title h2 { width: 300px; background-position: 0 -480px;}
 .webmain .conVote .inner { width: 1230px; height: auto; overflow: hidden; margin-left: -30px;}
-.webmain .conVote .inner .item { float: left; width: 277px; overflow: hidden; height: 310px; margin: 0 0 30px 30px; position: relative; display: block;}
+.webmain .conVote .inner .item { float: left; width: 280px; overflow: hidden; height: 310px; margin: 0 0 30px 25px; position: relative; display: block;}
 .webmain .conVote .inner .item img { display: block; width: 277px; height: 310px;}
 .webmain .conVote .inner .item .txt { position: absolute; left: 0; bottom: 0; background: rgba(0,0,0,0.6); width: 100%; padding: 12px 0 10px 0;}
 .webmain .conVote .inner .item .txt p { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal; text-align: center;}
