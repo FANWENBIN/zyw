@@ -60,7 +60,7 @@ define(function (require, exports, module) {
                                 '<span class="face" style="background: url(./Uploads'+ json.data[i].headimg +') 50% no-repeat; background-size: cover;"></span>'+
                                     '<span class="name">'+ json.data[i].name +'</span>'+
                                     '<span class="hot">热度：'+ json.data[i].votes +'</span>'+
-                                '<div class="ranking"><span class="rankIcon" style="'+ _rankimgStyle +'"></span><span>'+ json.data.lifting +'</span></div>'+
+                                '<div class="ranking"><span class="rankIcon" style="'+ _rankimgStyle +'"></span><span>'+ json.data[i].lifting +'</span></div>'+
                                 '</li>'
 
 
