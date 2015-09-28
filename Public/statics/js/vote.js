@@ -100,7 +100,7 @@ $(function () {
                 type: "get",
                 dataType: "json",
                 data: {
-                    url: "/index.php?m=Home&c=Index&",
+                    url: "/index.php?m=Home&c=Vote&",
                     a: "redgroup",
                     sex: "2"
                 },

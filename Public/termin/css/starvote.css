@@ -105,6 +105,7 @@ header ul li.active{
     display: block;
     width: 46px;
     height: 46px;
+    border-radius: 50%;
     background: url("../img/face.jpg") 50% no-repeat;
     background-size: cover;
 }
@@ -127,4 +128,9 @@ header ul li.active{
     height: 10px;
     background: url("../img/icon_increase.jpg") 50% no-repeat;
     background-size: cover;
+}
+
+.lift{
+    display: block;
+    width: 20px;
 }

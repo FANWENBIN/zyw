@@ -7,8 +7,8 @@ define(function (require, exports, module) {
     require("unit/jq.$touch");
     require("unit/jq.$pageTo");
     $(function () {
-
     })
     exports.nd = nd;
-    exports.url = 'm2.nadoo.cn/p/zyw';
+    exports.url = 'http://m2.nadoo.cn/p/zyw';
+    exports.ImgUrl = "http://m2.nadoo.cn/p/zyw/Public/termin"
 });
