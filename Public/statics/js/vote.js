@@ -100,7 +100,7 @@ $(function () {
                     sex: "2"
                 },
                 success: function(json){
-                    if(json.status == "0"){
+                    if(json.status == 0){
                         var _html = "";
                         for(var i = 0; i < json.data.length; i++ ){
                             _html += '<div class="item">\
