@@ -50,6 +50,7 @@ define(function (require, exports, module) {
                                 }else if(json.data.lifting > 0){
                                     _rankimgStyle = 'background: url('+ app.ImgUrl +'/img/icon_increase.jpg) 50% no-repeat; background-size: cover'
                                 }else{
+                                    json.data[i].lifting = -json.data[i].lifting;
                                     _rankimgStyle = 'background: url('+ app.ImgUrl +'/img/icon_decrease.jpg) 50% no-repeat; background-size: cover'
                                 }
                                 var _deNum = Math.floor(i/10);
