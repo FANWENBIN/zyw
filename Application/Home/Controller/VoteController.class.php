@@ -191,10 +191,10 @@ class VoteController extends ComController {
             $actorsval[$key]['codeimg'] = $url.="&opid=".$val['opid'];
         }
         
-        if($actorsval != false){
-            ajaxReturn(0,'',$actorsval);
+        if($actorsval === false){
+            ajaxReturn(1,'系统错误','');
         }else{
-            ajaxReturn(1,'暂无数据','');
+            ajaxReturn(0,'',$actorsval);
         }
 
     }
@@ -211,10 +211,10 @@ class VoteController extends ComController {
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
             $actorsval[$key]['codeimg'] = $url.="&opid=".$val['opid'];
         }
-        if($actorsval){
-            ajaxReturn(0,'',$actorsval);
+        if($actorsval === false){
+            ajaxReturn(1,'系统错误','');
         }else{
-            ajaxReturn(1,'暂无数据','');
+            ajaxReturn(0,'',$actorsval);
         }
     }
     public function greegroup(){
@@ -230,10 +230,10 @@ class VoteController extends ComController {
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
             $actorsval[$key]['codeimg'] = $url.="&opid=".$val['opid'];
         }
-        if($actorsval){
-            ajaxReturn(0,'',$actorsval);
+        if($actorsval === false){
+            ajaxReturn(1,'系统错误','');
         }else{
-            ajaxReturn(1,'暂无数据','');
+            ajaxReturn(0,'',$actorsval);
         }
     }
     //=================END

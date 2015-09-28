@@ -20,11 +20,11 @@ class IndexController extends ComController {
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
-        
-        if($actorsval){
-            ajaxReturn(0,'',$actorsval);
-        }else{
+       
+        if($actorsval === false){
             ajaxReturn(1,'系统错误','');
+        }else{
+            ajaxReturn(0,'',$actorsval);
         }
 
     }
@@ -39,10 +39,11 @@ class IndexController extends ComController {
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
-        if($actorsval){
-            ajaxReturn(0,'',$actorsval);
-        }else{
+        
+        if($actorsval === false){
             ajaxReturn(1,'系统错误','');
+        }else{
+            ajaxReturn(0,'',$actorsval);
         }
     }
     public function greegroup(){
@@ -56,10 +57,10 @@ class IndexController extends ComController {
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
-        if($actorsval){
-            ajaxReturn(0,'',$actorsval);
-        }else{
+        if($actorsval === false){
             ajaxReturn(1,'系统错误','');
+        }else{
+            ajaxReturn(0,'',$actorsval);
         }
     }
 //====================END
