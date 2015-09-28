@@ -5,7 +5,7 @@ $(function () {
         init: function () {
             $("#J_ConStars .inner .list a").hover(page.hover);
             $("#J_ConRule .inner .content1 .item").hover(page.hover);
-            $("#J_ConVote .inner .item").hover(page.voteHover);
+            $("#J_ConVote .inner").hover(".item",page.voteHover);
             $("#J_CommentSendbox .submit").on("click", page.commentSendClick);
             $("#J_ConRule .tab a").on("click", page.ruleTabClick);
             $("#groupColorList").on("click","li",page.loadStar);
