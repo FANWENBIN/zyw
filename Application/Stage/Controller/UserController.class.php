@@ -22,6 +22,7 @@ class UserController extends ComController {
         $this->page= $Page->show();
         //用户列表
         $this->list = $user->where(array('status'=>'1'))->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('cur',1);
         $this->display();
     }
     

@@ -175,7 +175,61 @@ class VoteController extends ComController {
             \QRcode::png($data, false, $level, $size);
             exit;
     }
-    
+    //投票页，按照姓氏排名
+    public function redgroup(){
+        $sex = I('get.sex');
+        $actors = M('actors');
+        if($sex){
+            $where['sex'] = $sex;
+        }
+        $where['groupid'] = 1;
+        $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
+        foreach($actorsval as $key=>$val){
+            $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
+        }
+        
+        if($actorsval){
+            ajaxReturn(0,'',$actorsval);
+        }else{
+            ajaxReturn(1,'系统错误','');
+        }
+
+    }
+    public function bluegroup(){
+        $sex = I('get.sex');
+        $actors = M('actors');
+        if($sex){
+            $where['sex'] = $sex;
+        }
+        $where['groupid'] = 2;
+        $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
+        foreach($actorsval as $key=>$val){
+            $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
+        }
+        if($actorsval){
+            ajaxReturn(0,'',$actorsval);
+        }else{
+            ajaxReturn(1,'系统错误','');
+        }
+    }
+    public function greegroup(){
+        $sex = I('get.sex');
+        $actors = M('actors');
+        if($sex){
+            $where['sex'] = $sex; 
+        }
+        $where['groupid'] = 3;
+        $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
+        foreach($actorsval as $key=>$val){
+            $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
+        }
+        if($actorsval){
+            ajaxReturn(0,'',$actorsval);
+        }else{
+            ajaxReturn(1,'系统错误','');
+        }
+    }
+    //=================END
    
     
 }

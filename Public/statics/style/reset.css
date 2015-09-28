@@ -1,71 +1,34 @@
 @charset "utf-8";
-/*
-KISSY CSS Reset
-理念：清除和重置是紧密不可分的
-特色：1.适应中文 2.基于最新主流浏览器
-维护：玉伯(lifesinger@gmail.com), 正淳(ragecarrier@gmail.com)
-*/
+/*-Standard Definitions----------------------------------------*/
+html{overflow-y:scroll;}
+body{-webkit-text-size-adjust:none;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dd,dl,dt,li,ol,ul,fieldset,form,textarea,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{
+margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-family:inherit; font-size:100%; text-align:left; vertical-align: baseline; font-family:\5FAE\8F6F\96C5\9ED1, \5B8B\4F53, Verdana, Arial, Helvetica, sans-serif;}
+table{border-spacing:0;}
+table {border-collapse:;[color:;border-collapse:collapse;]border-collapse:collapse;}
+fieldset,img{border:0; display:block;}
+legend{ display:none;}
+label {cursor:pointer}
+textarea {overflow:auto; resize:none; overflow-y:scroll;}
+address,caption,cite,code,dfn,em,th,var{font-weight:normal;font-style:normal}
+strong, b{ font-weight: bold; }
+ol,ul,li{list-style:none;}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:100%;}
+p{ line-height:1.5em;}
+q:before,q:after,blockquote:before,blockquote:after {content: "";}
+blockquote{color:#666;font-style:italic;}
+abbr,acronym{border:0}
+hr {margin: 0;padding: 0;border: 0;color: #CDCDCD;background-color: #CDCDCD;height: 1px}
+sup,sub{line-height:0}
+abbr,acronym{border-bottom:1px dotted #666}
+pre{white-space:pre;}
+pre,code,tt{font:12px 'andale mono', 'lucida console', monospace;line-height:1.5em}
+embed{ display:block;}
 
-/* 清除内外边距 */
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
-dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
-pre, /* text formatting elements 文本格式元素 */
-fieldset, legend, button, input, textarea, /* form elements 表单元素 */
-th, td { /* table elements 表格元素 */
-    margin: 0;
-    padding: 0;
-}
+input, select{ outline:none;}
 
-/* 设置默认字体 */
-body,
-button, input, select, textarea { /* for ie */
-    /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
-    font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
-}
-
-h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
-h2 { font-size: 16px; }
-h3 { font-size: 14px; }
-h4, h5, h6 { font-size: 100%; }
-
-address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
-code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 统一等宽字体 */
-small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
-
-/* 重置列表元素 */
-ul, ol { list-style: none; }
-
-/* 重置文本格式元素 */
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
-    border-bottom: 1px dotted;
-    cursor: help;
-}
-
-q:before, q:after { content: ''; }
-
-/* 重置表单元素 */
-legend { color: #000; } /* for ie6 */
-fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
-/* 注：optgroup 无法扶正 */
-button, input, select, textarea {
-    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
-}
-
-/* 重置表格元素 */
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/* 重置 hr */
-hr {
-    border: none;
-    height: 1px;
-}
-
-/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
-html { overflow-y: scroll; }
-
+/*reset input*/
+input, select { -webkit-appearance: none; border: none; background: rgba(0,0,0,0.3); border-radius: 0;}
+textarea { border: none; background: rgba(0,0,0,0.3); border-radius: 0;}
+input[type="file"] { background: rgba(0,0,0,0); width: 100px;}
