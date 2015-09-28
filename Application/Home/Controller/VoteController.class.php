@@ -191,7 +191,7 @@ class VoteController extends ComController {
             $actorsval[$key]['codeimg'] = $url.="&opid=".$val['opid'];
         }
         
-        if($actorsval){
+        if($actorsval != false){
             ajaxReturn(0,'',$actorsval);
         }else{
             ajaxReturn(1,'暂无数据','');
