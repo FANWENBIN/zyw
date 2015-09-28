@@ -69,7 +69,6 @@ $(function () {
                 success: function(json){
                     if(json.status == "0"){
                         var _html = "";
-                        json.data
                         for(var i = 0; i < json.data.length; i++ ){
                             _html += '<div class="item">\
                             <div class="vote hover">\
