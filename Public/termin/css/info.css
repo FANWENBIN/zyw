@@ -148,3 +148,7 @@
     opacity: 1;
     /*background: rgba(0, 0, 0, 0.7);*/
 }
+.lift{
+    display: block;
+    width: 20px;
+}
