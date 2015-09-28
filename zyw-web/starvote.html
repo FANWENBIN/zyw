@@ -18,14 +18,14 @@
 <body>
 <div class="wrapper">
   <header>
-    <a href="javascript:void (0);" class="back" id="topBack"></a><ul id="groupSex"><li class="male active">男演员</li><li class="female">女演员</li></ul>
+    <a href="javascript:void (0);" class="back" id="topBack"></a><ul id="groupSex"><li class="male active" data-sex="1">男演员</li><li class="female" data-sex="2">女演员</li></ul>
   </header>
   <ul class="group" id="groupColor">
-    <li class="active red">红组</li>
-    <li class="blue">蓝组</li>
-    <li class="green">绿组</li>
+    <li class="active red" data-color="redgroup">红组</li>
+    <li class="blue" data-color="bluegroup">蓝组</li>
+    <li class="green" data-color="greegroup">绿组</li>
   </ul>
-  <ul class="content">
+  <ul class="content" id="outerHtml">
     <li class="r">
       <div class="no"><span class="de"></span><span class="sig"></span></div>
       <span class="face"></span>
