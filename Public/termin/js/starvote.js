@@ -45,7 +45,7 @@ define(function (require, exports, module) {
                             for (var i = 0; i < json.data.length; i++) {
                                 if(json.data.lifting == 0){
                                     json.data.lifting = "";
-                                    var _rankimgStyle = 'background: url(\.\.\/img\/icon_increase.jpg) 50% no-repeat; background-size: cover'
+                                    var _rankimgStyle = 'background: url(\"\.\.\/img\/icon_increase.jpg\") 50% no-repeat; background-size: cover'
                                 }
                                 var _deNum = Math.floor(i/10);
                                 var _tempSig = ""+ i;
