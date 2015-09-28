@@ -61,6 +61,7 @@ $(function () {
             var _sex = $("#groupSexList").find(".active").data("sex");
             $.ajax({
                 type: "get",
+                dateType: "json",
                 data: {
                     url: "/index.php?m=Home&c=Index&",
                     a: _color,
@@ -108,13 +109,13 @@ $(function () {
                             _html += '<div class="item">\
                             <div class="vote hover">\
                                 <p>扫描二维码投票</p>\
-                                <img src="'+ json.data.codeimg +'"/>\
+                                <img src="'+ json.data[i].codeimg +'"/>\
                                 </div>\
                                 <div class="txt">\
-                                <p>'+ json.data.name +'</p>\
-                        <span>当前票数：'+ json.data.votes +'</span>\
+                                <p>'+ json.data.name[i] +'</p>\
+                        <span>当前票数：'+ json.data[i].votes +'</span>\
                         </div>\
-                        <img src="./Uploads'+ json.data.headimg +'"/>\
+                        <img src="./Uploads'+ json.data[i].headimg +'"/>\
                             </div>'
                         }
                         $("#insertgroup").html(_html)
