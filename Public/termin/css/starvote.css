@@ -129,3 +129,8 @@ header ul li.active{
     background: url("../img/icon_increase.jpg") 50% no-repeat;
     background-size: cover;
 }
+
+.lift{
+    display: block;
+    width: 20px;
+}
