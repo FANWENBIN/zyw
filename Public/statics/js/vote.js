@@ -61,7 +61,7 @@ $(function () {
             var _sex = $("#groupSexList").find(".active").data("sex");
             $.ajax({
                 type: "get",
-                dateType: "json",
+                dataType: "json",
                 data: {
                     url: "/index.php?m=Home&c=Index&",
                     a: _color,
