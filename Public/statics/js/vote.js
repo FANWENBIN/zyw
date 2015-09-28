@@ -29,6 +29,7 @@ $(function () {
             }
         },
         voteHover: function (e) {
+            alert();
             if (e.type == "mouseenter") {
                 $(this).find(".hover").stop(true, true).fadeIn(300);
                 $(this).find(".txt").stop(true, true).fadeOut(100);
