@@ -67,7 +67,7 @@ define(function (require, exports, module) {
                                     _deStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _deNum +'_2nd.jpg) 50% no-repeat; background-size: cover';
                                     _sigStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _sigNum +'_2nd.jpg) 50% no-repeat; background-size: cover';
                                 }
-                                if(i == 3){
+                                if(i == 2){
                                     _deStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _deNum +'_3rd.jpg) 50% no-repeat; background-size: cover';
                                     _sigStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _sigNum +'_3rd.jpg) 50% no-repeat; background-size: cover';
                                 }
