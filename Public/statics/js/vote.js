@@ -67,6 +67,7 @@ $(function () {
                     sex: _sex
                 },
                 success: function(json){
+                    console.log(json.status)
                     if(json.status == "0"){
                         var _html = "";
                         for(var i = 0; i < json.data.length; i++ ){
