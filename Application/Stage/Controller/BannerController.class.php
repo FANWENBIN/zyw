@@ -7,6 +7,6 @@ class BannerController extends ComController {
     public function index(){
         $this->vercklogin();
         $this->assign('cur',4);
-        $this->display();    
+        $this->display();
     }
 }
