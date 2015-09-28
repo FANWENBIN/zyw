@@ -56,7 +56,7 @@ define(function (require, exports, module) {
                                 _html += '' +
                                     '<li class="r">'+
                                     '<div class="no"><span class="de" style="'+ _deStyle +'"></span><span class="sig" style="'+ _sigStyle +'"></span></div>'+
-                                '<span class="face" style="background: url('+ json.data[i].headimg +')"></span>'+
+                                '<span class="face" style="background: url(./Uploads'+ json.data[i].headimg +')"></span>'+
                                     '<span class="name">'+ json.data[i].name +'</span>'+
                                     '<span class="hot">热度：'+ json.data[i].votes +'</span>'+
                                 '<div class="ranking"><span class="rankIcon" style="'+ _rankimgStyle +'"></span><span>'+ json.data.lifting +'</span></div>'+
