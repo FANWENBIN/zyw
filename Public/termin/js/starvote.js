@@ -24,8 +24,8 @@ define(function (require, exports, module) {
                 var $groupC = $("#groupColor");
                 $(this).parent().find("li").removeClass("active");
                 $(this).addClass("active");
-                var _sex = $groupS.find("active").data("sex");
-                var _color = $groupC.find("active").data("color");
+                var _sex = $groupS.find(".active").data("sex");
+                var _color = $groupC.find(".active").data("color");
                 //获取明星列表
                 page.getRenew(_sex, _color)
 
