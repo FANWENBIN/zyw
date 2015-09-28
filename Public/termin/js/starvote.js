@@ -53,7 +53,7 @@ define(function (require, exports, module) {
                                     json.data[i].lifting = -(json.data[i].lifting);
                                     _rankimgStyle = 'background: url('+ app.ImgUrl +'/img/icon_decrease.jpg) 50% no-repeat; background-size: cover'
                                 }
-                                var _deNum = Math.floor(i/10);
+                                var _deNum = Math.floor(i/9);
                                 var _tempSig = ""+ i;
                                 var _sigNum = parseInt(_tempSig.charAt(_tempSig.length -1)) + 1;
                                 console.log(_deNum,_sigNum);
