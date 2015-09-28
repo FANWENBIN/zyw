@@ -5,13 +5,13 @@ $(function () {
         init: function () {
             $("#J_ConStars .inner .list a").hover(page.hover);
             $("#J_ConRule .inner .content1 .item").hover(page.hover);
-            $("#J_ConVote .inner .item").hover(page.voteHover);
+
             $("#J_CommentSendbox .submit").on("click", page.commentSendClick);
             $("#J_ConRule .tab a").on("click", page.ruleTabClick);
             $("#groupColorList").on("click","li",page.loadStar);
             $("#groupSexList").on("click","li",page.loadStar);
 
-            $("#conStarGroup").on("click","li",page.swtichTab)
+            $("#conStarGroup").on("click","li",page.swtichTab);
             page.initStar()
         },
         ruleTabClick: function () {
@@ -28,14 +28,13 @@ $(function () {
                 $(this).find(".hover").stop(true, true).fadeOut(100);
             }
         },
-        voteHover: function (e) {
-            if (e.type == "mouseenter") {
-                $(this).find(".hover").stop(true, true).fadeIn(300);
-                $(this).find(".txt").stop(true, true).fadeOut(100);
-            } else {
-                $(this).find(".hover").stop(true, true).fadeOut(100);
-                $(this).find(".txt").stop(true, true).fadeIn(100);
-            }
+        voteIn: function () {
+            $(this).find(".hover").stop(true, true).fadeIn(300);
+            $(this).find(".txt").stop(true, true).fadeOut(100);
+        },
+        voteOut: function () {
+            $(this).find(".hover").stop(true, true).fadeOut(100);
+            $(this).find(".txt").stop(true, true).fadeIn(100);
         },
         commentSendClick: function (e) {
             var text = $.trim($("#J_CommentSendbox textarea").val());
@@ -54,6 +53,7 @@ $(function () {
             $("#starGroups").find(".group").hide();
             $("#starGroups").find(".group").eq(_index).show();
         },
+        //每次点击后加载 列表
         loadStar: function(){
             $(this).parent().find("li").removeClass("active");
             $(this).addClass("active");
@@ -61,14 +61,15 @@ $(function () {
             var _sex = $("#groupSexList").find(".active").data("sex");
             $.ajax({
                 type: "get",
-                dateType: "json",
+                dataType: "json",
                 data: {
                     url: "/index.php?m=Home&c=Index&",
                     a: _color,
                     sex: _sex
                 },
                 success: function(json){
-                    if(json.status == "0"){
+                    //alert(json.status)
+                    if(json.status == 0){
                         var _html = "";
                         for(var i = 0; i < json.data.length; i++ ){
                             _html += '<div class="item">\
@@ -83,14 +84,17 @@ $(function () {
                         <img src="./Uploads'+ json.data[i].headimg +'"/>\
                             </div>'
                         }
-                        $("#insertgroup").html(_html)
+                        $("#insertgroup").html(_html);
+
+                        $("#J_ConVote .inner .item").off().hover(page.voteIn, page.voteOut);
 
                     }else{
-                        alert(json.msg)
+                        //alert(json.msg)
                     }
                 }
             })
         },
+        //初始化加载 明星列表
         initStar: function(){
             $.ajax({
                 type: "get",
@@ -116,7 +120,9 @@ $(function () {
                         <img src="./Uploads'+ json.data[i].headimg +'"/>\
                             </div>'
                         }
-                        $("#insertgroup").html(_html)
+                        $("#insertgroup").html(_html);
+
+                        $("#J_ConVote .inner .item").off().hover(page.voteIn, page.voteOut);
 
                     }else{
                         alert(json.msg)
