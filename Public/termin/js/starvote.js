@@ -47,7 +47,7 @@ define(function (require, exports, module) {
                                 if(json.data[i].lifting == 0){
                                     json.data[i].lifting = "";
                                     _rankimgStyle = 'background: url('+ app.ImgUrl +'/img/icon_duce.jpg) 50% no-repeat; background-size: cover'
-                                }else if(json.data.lifting > 0){
+                                }else if(json.data[i].lifting > 0){
                                     _rankimgStyle = 'background: url('+ app.ImgUrl +'/img/icon_increase.jpg) 50% no-repeat; background-size: cover'
                                 }else{
                                     json.data[i].lifting = -(json.data[i].lifting);
