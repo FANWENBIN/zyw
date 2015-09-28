@@ -51,7 +51,7 @@ define(function (require, exports, module) {
                                 var _tempSig = ""+ i;
                                 var _sigNum = parseInt(_tempSig.charAt(_tempSig.length -1)) + 1;
                                 console.log(_deNum,_sigNum);
-                                var _deStyle = 'background: url(../img/num/num_'+ _deNum +'_.jpg) 50% no-repeat; background-size: cover';
+                                var _deStyle = 'background: url(img/num/num_'+ _deNum +'_.jpg) 50% no-repeat; background-size: cover';
                                 var _sigStyle = 'background: url(../img/num/num_'+ _sigNum +'.jpg) 50% no-repeat; background-size: cover';
 
                                 _html += '' +
