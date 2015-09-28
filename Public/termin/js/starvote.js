@@ -59,7 +59,18 @@ define(function (require, exports, module) {
                                 console.log(_deNum,_sigNum);
                                 var _deStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _deNum +'.jpg) 50% no-repeat; background-size: cover';
                                 var _sigStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _sigNum +'.jpg) 50% no-repeat; background-size: cover';
-
+                                if(i == 0){
+                                    _deStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _deNum +'_1st.jpg) 50% no-repeat; background-size: cover';
+                                    _sigStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _sigNum +'_1st.jpg) 50% no-repeat; background-size: cover';
+                                }
+                                if(i == 1){
+                                    _deStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _deNum +'_2nd.jpg) 50% no-repeat; background-size: cover';
+                                    _sigStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _sigNum +'_2nd.jpg) 50% no-repeat; background-size: cover';
+                                }
+                                if(i == 3){
+                                    _deStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _deNum +'_3rd.jpg) 50% no-repeat; background-size: cover';
+                                    _sigStyle = 'background: url('+ app.ImgUrl +'/img/num/num_'+ _sigNum +'_3rd.jpg) 50% no-repeat; background-size: cover';
+                                }
                                 _html += '' +
                                     '<li class="r">'+
                                     '<div class="no"><span class="de" style="'+ _deStyle +'"></span><span class="sig" style="'+ _sigStyle +'"></span></div>'+
