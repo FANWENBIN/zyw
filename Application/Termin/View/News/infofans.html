@@ -10,21 +10,22 @@
 
   <title>首页</title>
   <!-- css initialize -->
-  <link href="css/reset_h5.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/termin/css/reset_h5.css" rel="stylesheet" type="text/css" />
   <!--related css-->
-  <link href="css/app.css" rel="stylesheet" type="text/css" />
-  <link href="css/info.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/termin/css/app.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/termin/css/info.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/termin/css/info_list.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="wrapper">
   <header>
-    <a href="javascript:void (0);" class="back"></a><span>新闻资讯</span><a href="javascript:void(0);" class="menu"></a>
+    <a href="javascript:void (0);" class="back"></a><span>粉丝焦点</span><a href="javascript:void(0);" class="menu"></a>
   </header>
   <div class="content">
     <div class="banner">
-      <img src="img/pic_news_big.jpg" alt=""/>
+      <img src="__PUBLIC__/termin/img/pic_news_big.jpg" alt=""/>
       <div class="padding">
-        <p><img src="img/icon_hot_news.jpg" width="25" height="16" alt=""/><span class="title">"大黑牛"李晨演喜剧偷师啥一圈里</span></p>
+        <p><img src="__PUBLIC__/termin/img/icon_hot_news.jpg" width="25" height="16" alt=""/><span class="title">"大黑牛"李晨演喜剧偷师啥一圈里</span></p>
         <span class="digest">新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要</span>
         <p>2015-9-20 15:30 </p>
       </div>
@@ -34,69 +35,63 @@
 
 
       <li>
-        <img src="img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
         <div>
-          <p>粉丝焦点</p>
           <h2>李冰冰解密贫困女星奋斗史</h2>
           <div class="bottom-info">
             <p class="date">2015-9-20</p><span class="recommend"></span>
           </div>
         </div>
+        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
       </li>
 
       <li>
-        <img src="img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
         <div>
-          <p>粉丝焦点</p>
           <h2>李冰冰解密贫困女星奋斗史</h2>
           <div class="bottom-info">
             <p class="date">2015-9-20</p><span class="recommend"></span>
           </div>
         </div>
+        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
       </li>
 
       <li>
-        <img src="img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
         <div>
-          <p>粉丝焦点</p>
           <h2>李冰冰解密贫困女星奋斗史</h2>
           <div class="bottom-info">
             <p class="date">2015-9-20</p><span class="recommend"></span>
           </div>
         </div>
+        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
       </li>
 
       <li>
-        <img src="img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
         <div>
-          <p>粉丝焦点</p>
           <h2>李冰冰解密贫困女星奋斗史</h2>
           <div class="bottom-info">
             <p class="date">2015-9-20</p><span class="recommend"></span>
           </div>
         </div>
+        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
       </li>
 
       <li>
-        <img src="img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
         <div>
-          <p>粉丝焦点</p>
           <h2>李冰冰解密贫困女星奋斗史</h2>
           <div class="bottom-info">
             <p class="date">2015-9-20</p><span class="recommend"></span>
           </div>
         </div>
+        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
       </li>
 
       <li>
-        <img src="img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
         <div>
-          <p>粉丝焦点</p>
           <h2>李冰冰解密贫困女星奋斗史</h2>
           <div class="bottom-info">
             <p class="date">2015-9-20</p><span class="recommend"></span>
           </div>
         </div>
+        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
       </li>
 
     </ul>
@@ -104,20 +99,20 @@
   <div class="popUpWin">
     <ul class="selectBox">
       <li>
-        <span class="dot"></span><a class="text" href="info_fans.html">粉丝焦点</a>
+        <span class="dot"></span><a class="text" href="{:U('News/infofans')}">粉丝焦点</a>
       </li>
       <li>
-        <span class="dot"></span><a href="info_star.html" class="text">星闻动向</a><span class="hot"></span>
+        <span class="dot"></span><a href="{:U('News/infostar')}" class="text">星闻动向</a><span class="hot"></span>
       </li>
       <li>
         <span class="text myFocus">我的订阅</span>
       </li>
       <li>
-        <span class="dot"></span><a href="info_dream.html" class="text">艺术中国梦</a>
+        <span class="dot"></span><a href="{:U('News/infodream')}" class="text">艺术中国梦</a>
       </li>
     </ul>
   </div>
-
+  <div class="mask"></div>
 </div>
 
 
@@ -128,8 +123,7 @@
 <script type="text/javascript" src="http://m.nadoo.cn/common/js/sea.css.js"></script>
 <!-- related js -->
 <script>
-  seajs.use("./js/app");
-  seajs.use("./js/info");
+  seajs.use("__PUBLIC__/termin//js/info");
 </script>
 
 </body>
