@@ -214,7 +214,7 @@ class VoteController extends ComController {
         if($actorsval){
             ajaxReturn(0,'',$actorsval);
         }else{
-            ajaxReturn(1,'系统错误','');
+            ajaxReturn(1,'暂无数据','');
         }
     }
     public function greegroup(){
@@ -233,7 +233,7 @@ class VoteController extends ComController {
         if($actorsval){
             ajaxReturn(0,'',$actorsval);
         }else{
-            ajaxReturn(1,'系统错误','');
+            ajaxReturn(1,'暂无数据','');
         }
     }
     //=================END
