@@ -68,6 +68,7 @@ $(function () {
                     sex: _sex
                 },
                 success: function(json){
+                    //alert(json.status)
                     if(json.status == 0){
                         var _html = "";
                         for(var i = 0; i < json.data.length; i++ ){
@@ -88,7 +89,7 @@ $(function () {
                         $("#J_ConVote .inner .item").off().hover(page.voteIn, page.voteOut);
 
                     }else{
-                        alert(json.msg)
+                        //alert(json.msg)
                     }
                 }
             })
