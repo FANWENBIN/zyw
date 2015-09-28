@@ -1,0 +1,39 @@
+html{
+  font-size: 12px;
+}
+html, body{
+  height: 100%;
+}
+
+.wrapper{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  width: 100% ;
+}
+
+header{
+  height: 45px;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+}
+header .back{
+  display: block;
+  width: 45px;
+  height: 45px;
+  background: url("../img/icon_back.jpg") 50% no-repeat;
+  background-size: 50%;
+}
+header .menu{
+  display: block;
+  width: 45px;
+  height: 45px;
+  background: url("../img/icon_menu.jpg") 50% no-repeat;
+  background-size: 50%;
+}
+
+.content{
+  -webkit-box-flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
