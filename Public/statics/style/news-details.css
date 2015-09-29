@@ -1,0 +1,176 @@
+@charset "utf-8";
+
+.webmain .con { margin-bottom: 45px;}
+.webmain .con .title { height: 60px; overflow: hidden; background: url(../images/line_contitle.gif) center center repeat-x; margin-bottom: 15px; position: relative;}
+.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 15px; background: url(../images/more_contitle.gif); width: 130px; height: 30px; text-indent: -99em; overflow: hidden;}
+.webmain .con .title h2 { display: block; width: 100px; height: 60px; background-image: url(../images/txt_contitle.gif); background-repeat: no-repeat; text-indent: -99em; overflow: hidden; float: left;}
+.webmain .con .title ul { float: left; height: 26px; background: #fff; padding: 17px 5px 17px 5px;}
+.webmain .con .title ul li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px;}
+.webmain .con .title ul li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px;}
+.webmain .con .title ul li.c a { background: #000; color: #fff;}
+
+/*导航栏*/
+.navTitle{color: #ccc; position: relative;}
+.navTitle a{color: inherit}
+.navTitle a:hover{color: red}
+.navTitle .loginfo{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 30px;
+    margin-right: 15px;
+}
+.navTitle .loginfo .face{
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    background: url("../images/icon-logface.jpg") 50% no-repeat;
+}
+.navTitle .loginfo .name{
+    display: inline-block;
+    float: left;
+    height: 20px;
+    margin-top: 5px;
+    margin-left: 15px;
+    line-height: 20px;
+    cursor: pointer;
+}
+.navTitle .loginfo .name::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    border-top: 6px solid #000;
+    border-right: 6px solid #fff;
+    border-left: 6px solid #fff;
+}
+
+.tabctrl {
+    position: absolute;
+    bottom: 15px;
+    left: 100px;
+    width: 986px;
+    height: 62px;
+    background: url("../images/space.png") 0 0 repeat;
+    background: rgba(0,0,0,0.5);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+}
+
+.tabctrl .text{
+    display: inline-block;
+    float: left;
+    margin-top: 5px;
+    width: 250px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 25px;
+    padding-left: 20px;
+}
+
+.bannerlist{
+    position: relative;
+    float: left;
+    width: 650px;
+    height: 50px;
+    margin-top: 6px;
+    margin-left: 50px;
+    /*list-style: none;*/
+}
+.bannerlist li{
+    display: inline-block;
+    float: left;
+    margin-right: 6px;
+    position: relative;
+}
+.webmain .conTopbanner .bannerlist li img{
+    width: 84px;
+    height: 50px;
+}
+.webmain .conTopbanner .bannerlist li.active{
+    /*border: 4px solid #b162e4;*/
+}
+.webmain .conTopbanner .bannerlist .frame{
+    display: none;
+    position: absolute;
+    width: 76px;
+    height: 42px;
+    top: 0;
+    left: 0;
+    border: 4px solid #b162e4;
+}
+
+.webmain .conTopbanner {
+    position: relative;
+}
+.webmain .conTopbanner { height: 470px; overflow: hidden;}
+.webmain .conTopbanner img { display: block; width: 100%; height: 470px;}
+.webmain .content {
+    width: 820px;
+    height: 1000px;
+    float: left;
+}
+.webmain .rightCol {
+    float: left;
+    background: #eee;
+    width: 380px;
+    height: 2000px;
+}
+.webmain .con .title h2{
+    background: url("../images/favnews.jpg") 50% no-repeat;
+    width: 200px; background-position: 0 5px;
+}
+.webmain .con .item{
+    display: block;
+    position: relative;
+    float: left;
+    width: 380px;
+    height: 250px;
+    margin-bottom: 30px;
+}
+.webmain .con .item .txt{
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    display: block;
+    height: 60px;
+    padding-left: 15px;
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    color: #fff;
+}
+.webmain .con .item .txt h3{
+    line-height: 30px;
+}
+.webmain .con .item .hover{
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0);
+}
+.webmain .con .item .hover:hover{
+    background: rgba(0,0,0,0.34);
+}
+.webmain .con .newsList{
+    float: left;
+    width: 100%;
+}
+.webmain .con .newsList li{
+    display: block;
+    line-height: 30px;
+    height: 30px;
+    font-size: 12px;
+}
+
+.webmain .con .newsList li .time{
+    color: #ccc;
+    float: right;
+}
+
+
+
