@@ -12,26 +12,28 @@
 
 .webmain .conTop .l { width: 790px; height: 530px; overflow: hidden; float: left; margin-right: 30px; position: relative; display: block;}
 .webmain .conTop .l img { display: block; width: 790px; height: 530px;}
-.webmain .conTop .l .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 22px 20px 20px 20px; background: rgba(0,0,0,0.34); width: 750px;}
+.webmain .conTop .l .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 22px 20px 20px 20px;background: rgb(0,0,0); background: rgba(0,0,0,0.34); width: 750px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
 .webmain .conTop .l .txt h3 { color: #fff; font-size: 22px; line-height: 24px; font-weight: normal; margin-bottom: 8px;}
 .webmain .conTop .l .txt span { color: #fff; font-size: 14px; line-height: 18px; opacity: 0.7;}
-.webmain .conTop .l .play { width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: rgba(0,0,0,0.34); display: none;}
+.webmain .conTop .l .play { width: 100%; height: 100%;   position: absolute; left: 0; top: 0; background: rgba(0, 0, 0, 0);  background: url("../images/space.png") 0 0 repeat; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000,endColorstr=#00000000); }
+.webmain .conTop .l .play:hover{background: url("../images/space.png") 0 0 repeat; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000); background: rgba(0, 0, 0, 0.34);}
 .webmain .conTop .l .play span { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; margin: -30px 0 0 -30px; background: url(../images/icon_playvideo.png);}
 .webmain .conTop .r { width: 380px; height: 530px; overflow: hidden; float: left;}
 .webmain .conTop .r .item { width: 380px; height: 250px; overflow: hidden; position: relative; display: block;}
 .webmain .conTop .r .item img { display: block; width: 380px; height: 250px;}
-.webmain .conTop .r .item .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 12px 10px 10px 10px; background: rgba(0,0,0,0.68); width: 360px;}
+.webmain .conTop .r .item .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 12px 10px 10px 10px;background: rgb(0,0,0); background: rgba(0,0,0,0.68); width: 360px; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#AE000000,endColorstr=#AE000000);}
 .webmain .conTop .r .item .txt h3 { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal;}
 .webmain .conTop .r .item .txt span { color: #fff; font-size: 12px; line-height: 18px; opacity: 0.7;}
 .webmain .conTop .r .t { margin-bottom: 30px;}
-.webmain .conTop .r .item .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
-
+.webmain .conTop .r .item .hover { position: absolute; left: 0; top: 0; width: 100%; height: 100%;  background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000,endColorstr=#00000000); }
+.webmain .conTop .r .item .hover:hover { position: absolute; left: 0; top: 0; width: 100%; height: 100%;  background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000); }
 .webmain .conFocus {}
 .webmain .conFocus .title h2 { width: 166px;}
 .webmain .conFocus .inner .group { float: left; width: 380px; overflow: hidden; margin-left: 30px;}
 .webmain .conFocus .inner .group.first { margin-left: 0;}
 .webmain .conFocus .inner .group .cover { margin-bottom: 10px; width: 380px; height: 250px; overflow: hidden; position: relative; display: block;}
-.webmain .conFocus .inner .group .cover .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+.webmain .conFocus .inner .group .cover .hover { ; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0);}
+.webmain .conFocus .inner .group .cover .hover:hover{background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
 .webmain .conFocus .inner .group .cover img { display: block; width: 380px; height: 250px;}
 .webmain .conFocus .inner .group .cover .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 12px 10px 10px 10px; background: rgba(0,0,0,0.68); width: 360px;}
 .webmain .conFocus .inner .group .cover .txt h3 { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal;}
@@ -46,14 +48,16 @@
 .webmain .conEvent .inner .l img { display: block; width: 380px; height: 430px;}
 .webmain .conEvent .inner .l p { height: 30px; background: rgba(0,0,0,0.8); color: #fff; font-size: 12px; line-height: 30px; padding: 0 12px; position: absolute; right: 0; top: 0; z-index: 2;}
 .webmain .conEvent .inner .l p span { color: #c3c3c3; padding-left: 2px;}
-.webmain .conEvent .inner .l .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+.webmain .conEvent .inner .l .hover {position: absolute; left: 0; top: 0; width: 100%; height: 100%;background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0);}
+.webmain .conEvent .inner .l .hover:hover{background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
 .webmain .conEvent .inner .r { float: left; width: 820px; height: 430px; overflow: hidden;}
 .webmain .conEvent .inner .r .item { width: 175px; height: 200px; float: left; margin: 0 0 30px 30px; overflow: hidden; position: relative;}
 .webmain .conEvent .inner .r .item img { display: block; width: 175px; height: 200px;}
-.webmain .conEvent .inner .r .item .txt { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); color: #fff; display: none;}
+.webmain .conEvent .inner .r .item .txt { position: absolute; left: 0; top: 0; width: 100%; height: 100%;background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0); color: #fff;opacity:0 ;overflow: hidden;filter: alpha(opacity=0) progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
+.webmain .conEvent .inner .r .item .txt:hover{background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0.6);opacity: 1;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
 .webmain .conEvent .inner .r .item .txt p { display: block; width: 155px; line-height: 18px; text-align: center; font-size: 14px; overflow: hidden; padding: 45px 10px 3px 10px;}
 .webmain .conEvent .inner .r .item .txt span { display: block; width: 100%; height: 20px; line-height: 20px; text-align: center; font-size: 12px;}
-.webmain .conEvent .inner .r .item .txt a { display: block; width: 80px; height: 28px; line-height: 28px; text-align: center; font-size: 12px; border: 1px solid #ffffff; color: #fff; font-size: 12px; position: absolute; left: 50%; bottom: 42px; margin-left: -41px;}
+.webmain .conEvent .inner .r .item .txt a { display: block; width: 80px; height: 28px; line-height: 28px; text-align: center; font-size: 12px; border: 1px solid #ffffff; color: #fff; font-size: 12px; bottom: 42px; margin: 42px auto;}
 .webmain .conEvent .inner .r .item .txt a:hover { background: rgba(255,255,255,0.2);}
 
 .webmain .conTopStars {}
@@ -69,7 +73,7 @@
 .webmain .conTopStars .inner .group .item .head { float: left; width: 60px; height: 60px; overflow: hidden; padding: 10px; margin-right: 5px; display: block; position: relative;}
 .webmain .conTopStars .inner .group .item .head span { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 2; background: url(../images/mask_index_starhead.png);}
 .webmain .conTopStars .inner .group .item .head img { display: block; width: 60px; height: 60px;}
-.webmain .conTopStars .inner .group .item .head:hover img { opacity: 0.7;}
+.webmain .conTopStars .inner .group .item .head:hover img { opacity: 0.7;filter: alpha(opacity=70)}
 .webmain .conTopStars .inner .group .item .info { float: left; height: 36px; width: 190px; padding: 22px 0;}
 .webmain .conTopStars .inner .group .item .info h6 { font-size: 16px; height: 18px; line-height: 18px; color: #000;}
 .webmain .conTopStars .inner .group .item .info span { font-size: 12px; height: 18px; line-height: 18px; color: #9c9c9c;}
