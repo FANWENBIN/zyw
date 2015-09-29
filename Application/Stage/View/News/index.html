@@ -1,31 +1,28 @@
-<extend name="Header/header" />
+<extend name="Header/header"/>
 <block name='content'>
-
 <!--container-->
-<div class="webContainer clearFix containerWcBind" id="webContainer">
+<div class="webContainer clearFix" id="webContainer">
 
   <!--aside-->
   <div class="webAside">
     <div class="menu">
-
       <dl class="ft">
-        <dt><span></span>基本元素</dt>
+        <dt><span></span>资讯</dt>
         <dd>
           <ul>
-             <li><a href="{:U('Index/show')}">粉丝用户管理</a></li>
+            <li><a href="{:U('Index/show')}">普通用户管理</a></li>
             <li><a href="{:U('Index/starmanage')}">明星用户管理</a></li>
           </ul>
         </dd>
       </dl>
-
       <dl>
         <dt><span></span>信息发布</dt>
         <dd>
           <ul>
-            <li><a href="1.html">咨询</a></li>
+            <li class="current"><a href="{:U('News/index')}">资讯</a></li>
             <li><a href="2.html">活动</a></li>
             <li><a href="3.html">演工委之声</a></li>
-            <li class="current"><a href="{:U('Gactor/index')}">好演员评选</a></li>
+            <li><a href="{:U('Gactor/index')}">好演员评选</a></li>
             <li><a href="5.html">饭团</a></li>
             <li><a href="6.html">星站</a></li>
             <li><a href="7.html">明日之星</a></li>
@@ -34,222 +31,85 @@
           </ul>
         </dd>
       </dl>
-
-
     </div>
   </div>
   <!--aside end-->
 
   <!--main-->
-  <div class="webMain">
-    <div class="slt slt1 active">演员管理</div>
-    <div class="slt slt2">推荐团管理</div>
-
-
-    <div class="mainBody actors">
-
+  <div class="webMain" style="">
+    <div class="mainHeader">
+      <h1>新闻资讯</h1>
+    </div>
+    <div class="mainBody">
       <!--筛选-->
       <div class="tableTools clearFix mb30">
-
-
         <hr>
-
-
-        <!--表格-->
-        <table class="table">
-          <thead>
-          <tr>
-            <td class="t1">编号</td>
-            <td class="t2">头像</td>
-            <td class="t3">姓名</td>
-            <td class="t6">票数</td>
-            <td class="t7">分组</td>
-            <td class="t8">性别</td>
-            <td class="t9">操作</td>
-          </tr>
-          </thead>
-          <tbody>
-          <volist name="actors" id='vo'>
-          <tr>
-            <td class="t1">{$i}</td>
-            <td class="t2"><img src="__PUBLIC__/{$vo.headimg}" width="50" height="50"></td>
-            <td class="t3">{$vo.name}</td>
-
-            <td class="t6">{$vo.votes}</td>
-            <td class="t7">{:group($vo['groupid'])}</td>
-            <td class="t8">{:sexval($vo['sex'])}</td>
-            <td class="t9">
-              <p class="console">
-                <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
-              </p>
-            </td>
-          </tr>
+        <h6 class="w100 tr">关键字：</h6>
+        <div class="i mr20"><input type="text" name="keywords" value="" class="input w180"></div>
+        <div class="i"><a href="javascript:void(0)" class="btnB btnSmall">查找</a></div>
+		 <div class="btnCon">
+        <a href="{:U('News/add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
+      </div>
+      </div>
+      <div class="tableInfo">
+        <div class="item"><h2>总管理员数</h2><span>195</span></div>
+        <div class="item"><h2>总用户数</h2><span>17855</span></div>
+        <div class="item"><h2>第三个参数</h2><span>19%</span></div>
+      </div>
+      <!--表格-->
+      <table class="table">
+        <thead>
+        <tr>
+          <td class="t1">编号</td>
+          <td class="t2">标题</td>
+          <td class="t3">封面</td>
+          <td class="t4">类型</td>
+          <td class="t5">创建时间</td>
+          <td class="t6">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+		<volist name="result" id="vo">
+        <tr>
+          <td class="t1">{$vo['id']}</td> 
+          <td class="t3">{$vo['title']}</td>
+		   <td class="t2"><img src="./Uploads{$vo.imgpath}" width="50" height="50"></td>
+          <td class="t4">{$vo['type']==1?"形象指数":""}{$vo['type']==2?"星闻动向":""}{$vo['type']==3?"艺术中国梦":""}</td>
+          <td class="t6">{$vo['instime']|date='Y-m-d',###}</td>
+          <td class="t7">
+            <p class="console">
+              <a href="{:U('News/add?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
+            </p>
+          </td>
+        </tr>
 		</volist>
-
-          </tbody>
-          <tfoot>
-          <tr>
-            <td colspan="7">
-              <div class="pagers">
-                <ul class="clearFix">
-                  {$page}
-                </ul>
-              </div>
-            </td>
-          </tr>
-          </tfoot>
-        </table>
-
-        <!--主提交按钮-->
-        <div class="btnCon">
-          <input type="button" id="showAlert1" class="btnA" value="新增演员">
-        </div>
-
-
-      </div>
-    </div>
-    <!--main end-->
-    <div class="mainBody judge">
-
-      <!--筛选-->
-      <div class="tableTools clearFix mb30">
-
-
-        <hr>
-
-
-        <!--表格-->
-        <table class="table">
-          <thead>
-          <tr>
-            <td class="t1">编号</td>
-            <td class="t2">头像</td>
-            <td class="t3">用户名</td>
-
-            <td class="t6">创建时间</td>
-            <td class="t7">操作</td>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td class="t1">2</td>
-            <td class="t2"><img src="__PUBLIC__/stage/images/head.jpg" width="50" height="50"></td>
-            <td class="t3">username</td>
-
-            <td class="t6">2013-12-22 17:50</td>
-            <td class="t7">
-              <p class="console">
-                <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td class="t1">3</td>
-            <td class="t2"><img src="__PUBLIC__/stage/images/head.jpg" width="50" height="50"></td>
-            <td class="t3">username</td>
-
-            <td class="t6">2013-12-22 17:50</td>
-            <td class="t7">
-              <p class="console">
-                <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
-              </p>
-            </td>
-          </tr>
-          </tbody>
-          <tfoot>
-          <tr>
-            <td colspan="7">
-              <div class="pagers">
-                <ul class="clearFix">
-                  <li><a class="disabled prev" href="#">上一页</a></li>
-                  <li><p><span class="c">1</span><span>/</span><span>5</span></p></li>
-                  <li><a class="next" href="#">下一页</a></li>
-                  <li class="in"><input type="text"></li>
-                  <li><a href="javascript:void(0)">跳转</a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          </tfoot>
-        </table>
-
-        <!--主提交按钮-->
-        <div class="btnCon">
-          <input type="button" id="showAlert2" class="btnA" value="新增评委">
-        </div>
-
-
-      </div>
-    </div>
-    <!--main-->
-
-
-      <!--main end-->
-
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="7">
+            <div class="pagers">
+              <ul class="clearFix">
+                <li><a class="disabled prev" href="#">上一页</a></li>
+                <li><p><span class="c">1</span><span>/</span><span>5</span></p></li>
+                <li><a class="next" href="#">下一页</a></li>
+                <li class="in"><input type="text"></li>
+                <li><a href="javascript:void(0)">跳转</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+      <!--主提交按钮-->
     </div>
   </div>
-    <!--container end-->
-<div class="pop-alert popforstarbox  pop-alert-swf-upload">
-  <div class="pop popforstar">
-    <form action="{:U('Gactor/addactor')}" method="post" enctype="multipart/form-data">
-      <div>
-        <li>
-          <label for="name">姓名</label><input type="text" id="name" value="王菲" name='name'>
-        </li>
-        <li>
-          <label for="face">头像</label>
-          <input type="text" id="face" value="statics/images/p/d1.jpg" name='face'>
-            <input type='file'  name='photo1'>
-        </li>
-        <li>
-          <label for="photo">照片</label>
-          <input type="text" id="photo" value="statics/images/p/d1.jpg" name='photo'>
-        </li>
-        <li>
-          <label for="sex">性别</label><select name="sex" id="sex">
-          <option value="1">男</option>
-          <option value="2">女</option>
-        </select>
-        </li>
-        <li>
-          <label for="group">分组</label>
-          <select name="group" id="group">
-            <option value="1">红组</option>
-            <option value="2">蓝组</option>
-            <option value="3">绿组</option>
-          </select>
-        </li>
-      </div>
-      <div class="btn btnNY"><a href="javascript:void(0)" class="btnD" data-t="n">取消</a><input type="submit" class="btnA " data-t="y" value="确定"></div>
-    </form>
-
-  </div>
+  <!--main end-->
 </div>
-<div class="pop-alert popforjudgebox pop-alert-swf-upload">
-  <div class="pop popforjudge">
-    <form action="4.html">
-      <div>
-        <li>
-          <label for="name">姓名</label><input type="text" id="name" value="王菲">
-        </li>
-        <li>
-          <label for="face">头像</label><input type="text" id="face" value="./face/wangfei.gif">
-        </li>
+<!--container end-->
+<script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
 
-      </div>
-      <div class="btn btnNY"><a href="javascript:void(0)" class="btnD" data-t="n">取消</a><input type="submit" class="btnA " data-t="y" value="确定"></div>
-    </form>
-
-  </div>
-</div>
-
-
-
-    <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/stage/js/custom.js"></script>
 
 </body>
 </html>
-  </block>
 </block>
