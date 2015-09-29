@@ -36,7 +36,7 @@ class UploadController extends Controller{
                                 )
                             );
         }else{
-            $this->ajaxReturn(array('status'=>1,'msg'=>$img));
+            $this->ajaxReturn(array('status'=>1,'msg'=>$path));
         }
     }
     
