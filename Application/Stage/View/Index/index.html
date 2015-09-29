@@ -1,149 +1,131 @@
 <extend name="Header/header"/>
-<block name='content'>
-<!--container-->
-<div class="webContainer clearFix" id="webContainer">
+<block name='header'>
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中演网管理平台</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css" />
+<!--每个页面独立的样式文件-->
+<style type="text/css">
+.table .t1 { text-align: center; width: 80px;}
+.table .t2 { text-align: center; width: 100px;}
+.table .t2 img { display: block; margin: 0 auto;}
+.table .t3 { text-align: center; width: 100px;}
+.table .t4 { text-align: center; width: 150px;}
+.table .t5 { text-align: center; width: 100px;}
+.table .t5 p { text-align: center; color: #41a82c;}
+.table .t5 p.cease { color: #ff6363;}
+.table .t6 { text-align: center;}
+.table .t7 { text-align: center; width: 120px;}
+</style>
+</head>
 
-  <!--aside-->
-  <div class="webAside">
-    <div class="menu">
-
-      <dl class="ft">
-        <dt><span></span>基本元素</dt>
-        <dd>
-          <ul>
-            <li class="current"><a href="{:U('Index/show')}">普通用户管理</a></li>
-            <li><a href="{:U('Index/starmanage')}">明星用户管理</a></li>
-          </ul>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt><span></span>信息发布</dt>
-        <dd>
-          <ul>
-            <li><a href="{:U('News/index')}"">资讯</a></li>
-            <li><a href="2.html">活动</a></li>
-            <li><a href="3.html">演工委之声</a></li>
-            <li><a href="{:U('Gactor/index')}">好演员评选</a></li>
-            <li><a href="5.html">饭团</a></li>
-            <li><a href="6.html">星站</a></li>
-            <li><a href="7.html">明日之星</a></li>
-            <li><a href="8.html">stage</a></li>
-            <li><a href="9.html">演艺库</a></li>
-          </ul>
-        </dd>
-      </dl>
-
-
-    </div>
-  </div>
-  <!--aside end-->
+<body>
+</block>
+<block name="div">
+	<!--container-->
+	<div class="webContainer clearFix" id="webContainer">
+</block>
+<block name="content">
+  
 
   <!--main-->
   <div class="webMain" style="">
     <div class="mainHeader">
-      <h1>Table表格</h1>
-
-
+      <h1>新闻资讯</h1>
     </div>
     <div class="mainBody">
-
       <!--筛选-->
       <div class="tableTools clearFix mb30">
-
-
         <hr>
-
-
         <h6 class="w100 tr">关键字：</h6>
-
-        <div class="i mr20"><input type="text" class="input w180"></div>
-        <div class="i"><a href="javascript:void(0)" class="btnB btnSmall">查找</a></div>
+       <form action="" method="post"><div class="i mr20"><input type="text" name="keywords" value="{$Think.session.condition}" class="input w180"></div>
+        <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
+		</form> 
+		
       </div>
-
-
-      <div class="tableInfo">
+      <!--<div class="tableInfo">
         <div class="item"><h2>总管理员数</h2><span>195</span></div>
         <div class="item"><h2>总用户数</h2><span>17855</span></div>
         <div class="item"><h2>第三个参数</h2><span>19%</span></div>
-      </div>
-
+      </div>-->
       <!--表格-->
-      <table class="table">
+      <table class="table" id="J_Table">
         <thead>
         <tr>
           <td class="t1">编号</td>
-          <td class="t2">头像</td>
-          <td class="t3">用户名</td>
-          <td class="t4">用户量</td>
-          <td class="t5">状态</td>
-          <td class="t6">创建时间</td>
-          <td class="t7">操作</td>
+          <td class="t2">标题</td>
+          <td class="t3">封面</td>
+          <td class="t4">类型</td>
+          <td class="t5">创建时间</td>
+          <td class="t6">操作</td>
         </tr>
         </thead>
         <tbody>
+		<volist name="result" id="vo">
         <tr>
-          <td class="t1">2</td>
-          <td class="t2"><img src="__PUBLIC__/stage/images/head.jpg" width="50" height="50"></td>
-          <td class="t3">username</td>
-          <td class="t4">4/50</td>
-          <td class="t5"><p>启用</p></td>
-          <td class="t6">2013-12-22 17:50</td>
+          <td class="t1">{$vo['id']}</td> 
+          <td class="t3">{$vo['title']}</td>
+		   <td class="t2"><img src="./Uploads{$vo.imgpath}" width="50" height="50"></td>
+          <td class="t4">{$vo['type']==1?"形象指数":""}{$vo['type']==2?"星闻动向":""}{$vo['type']==3?"艺术中国梦":""}</td>
+          <td class="t6">{$vo['instime']|date='Y-m-d',###}</td>
           <td class="t7">
             <p class="console">
-              <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
+              <a href="{:U('News/add?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" data-id="{$vo['id']}" class="delete">删除</a>
             </p>
           </td>
         </tr>
-        <tr>
-          <td class="t1">3</td>
-          <td class="t2"><img src="__PUBLIC__/stage/images/head.jpg" width="50" height="50"></td>
-          <td class="t3">username</td>
-          <td class="t4">0/50</td>
-          <td class="t5"><p class="cease">停用</p></td>
-          <td class="t6">2013-12-22 17:50</td>
-          <td class="t7">
-            <p class="console">
-              <a href="#" class="setting">设置</a><a href="javascript:void(0)" class="delete">删除</a>
-            </p>
-          </td>
-        </tr>
+		</volist>
         </tbody>
         <tfoot>
         <tr>
           <td colspan="7">
             <div class="pagers">
               <ul class="clearFix">
-                <li><a class="disabled prev" href="#">上一页</a></li>
-                <li><p><span class="c">1</span><span>/</span><span>5</span></p></li>
-                <li><a class="next" href="#">下一页</a></li>
-                <li class="in"><input type="text"></li>
-                <li><a href="javascript:void(0)">跳转11111</a></li>
+                {$page}
               </ul>
             </div>
           </td>
         </tr>
         </tfoot>
       </table>
-
+	  
       <!--主提交按钮-->
-      <div class="btnCon">
-        <input type="button" id="showAlert" class="btnA" value="新增">
+	  <div class="btnCon">
+		
+        <a href="{:U('News/add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
       </div>
-
-
     </div>
   </div>
   <!--main end-->
-
 </div>
 <!--container end-->
-
-
 <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
 
+<script>
+    $(function(){
+      $("#J_Table").on("click",".delete",function(str){
+      	var id = $(this).data("id");
 
+      	$.alert({
+      		btnY: "确认",
+			btnN: "取消",
+			txt:'删除请确认',
+			callbackY: function(){
+				window.location = '{:U('News/delete?id='.$vo['id'])}';
+			}
+      	})
+      });
+    })
+  </script>
 </body>
 </html>
 </block>
