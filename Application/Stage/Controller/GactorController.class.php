@@ -38,8 +38,6 @@ class GactorController extends ComController {
             $actors = M('actors');
             
             $data['sex']     = I('post.sex');
-         
-           
             $a = $this->checkDump($data);
             $data['birthday']  = strtotime(I('post.birthday'));
                                 //strtotime(I('post.timet'))
@@ -152,14 +150,14 @@ class GactorController extends ComController {
             //     if(isset($info['photo2'])){
             //         $data['img']     = $info['photo2']['savepath'].$info['photo2']['savename'];
             //     }
-                $data['headimg'] = I('post.photo1');
-                $data['img']     = I('post.photo2');
-                $sign = $actors->where('id='.$id)->save($data);
-                if($sign){
-                    $this->success('修改成功',U('Gactor/index'));
-                }else{
-                    $this->error('没做任何修改');
-                }
+            $data['headimg'] = I('post.photo1');
+            $data['img']     = I('post.photo2');
+            $sign = $actors->where('id='.$id)->save($data);
+            if($sign){
+                $this->success('修改成功',U('Gactor/index'));
+            }else{
+                $this->error('没做任何修改');
+            }
            // }
 
         }
@@ -171,7 +169,7 @@ class GactorController extends ComController {
     public function delactor(){
         $id     = I('get.id');
         $actors = M('actors');
-        $sign = $actors->delete($id);
+        $sign   = $actors->delete($id);
         if($sign){
             $this->success('删除成功',U('Gactor/index'));
         }else{
