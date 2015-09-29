@@ -27,6 +27,7 @@ class UploadController extends Controller{
         }
         $img = file_get_contents('php://input', 'r');
         file_put_contents($path, $img);
+        echo $path;
         if(is_file($path)){
             $path=trim($path,'.');
             $this->ajaxReturn(array('status' => 0,
