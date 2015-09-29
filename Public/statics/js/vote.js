@@ -3,8 +3,8 @@ $(function () {
 
     var page = {
         init: function () {
-            $("#J_ConStars .inner .list a").hover(page.hover);
-            $("#J_ConRule .inner .content1 .item").hover(page.hover);
+            //$("#J_ConStars .inner .list a").hover(page.hover);
+            //$("#J_ConRule .inner .content1 .item").hover(page.hover);
 
             $("#J_CommentSendbox .submit").on("click", page.commentSendClick);
             $("#J_ConRule .tab a").on("click", page.ruleTabClick);

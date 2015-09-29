@@ -3,11 +3,15 @@ $(function(){
 
 	var page = {
 		init: function(){
-			$("#J_ConFansFocus .inner .item").hover(page.hover);
-			$("#J_ConStarsNews .inner .l").hover(page.hover);
-			$("#J_ConStarsNews .inner .item").hover(page.hover);
-			$("#J_ConChinaDream .inner .item").hover(page.hover);
-            $("#bannerList li").hover(page.hoverIn,function(){});
+            //$("#J_ConFansFocus .inner .item").mouseenter(page.hover);
+            //$("#J_ConFansFocus .inner .item").mouseleave(page.hover);
+            //$("#J_ConStarsNews .inner .l").mouseenter(page.hover);
+            //$("#J_ConStarsNews .inner .l").mouseleave(page.hover);
+            //$("#J_ConStarsNews .inner .item").mouseenter(page.hover);
+            //$("#J_ConStarsNews .inner .item").mouseleave(page.hover);
+            //$("#J_ConChinaDream .inner .item").mouseenter(page.hover);
+            //$("#J_ConChinaDream .inner .item").mouseleave(page.hover);
+            $("#bannerList li").mouseenter(page.hoverIn);
             $("#bannerList li:nth-child(1)").find(".frame").show()
 
 		},
