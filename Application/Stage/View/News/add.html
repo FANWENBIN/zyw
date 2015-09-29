@@ -44,6 +44,9 @@
 				<!--摘要提示等-->
 				<!--表单-->
 				<div class="form">
+					<div class="formHeader">
+						<h1>新闻资讯</h1>
+					</div>
 					<form action="" method="post" enctype="multipart/form-data">
 						<fieldset>
 							<div class="l">
@@ -61,7 +64,11 @@
 							<div class="l">
 								<h6>封面</h6>
 								<div class="i">
+<<<<<<< HEAD
 				<input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" name="file"/>
+=======
+									<input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" name="file"/>
+>>>>>>> c8d8a07358599ca096b1f935e1d70c982948bb46
 								</div>
 							</div>
 							<div class="l">
@@ -88,15 +95,19 @@
 </div>
 <!--container end-->
 <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/swfobject.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.css.js"></script>
 <!--富文本编辑器-->
 	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.all.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/lang/zh-cn/zh-cn.js"></script>
 <!--富文本编辑器 end-->
-<script type="text/javascript" src="__PUBLIC__/statics/js/swfobject.js"></script>
-<script type="text/javascript" src="__PUBLIC__/statics/js/sea.js"></script>
-<script type="text/javascript" src="__PUBLIC__/statics/js/sea.css.js"></script>
+<script type="text/javascript">
+    seajs.use("__PUBLIC__/statics/statics/js/form.js");
+</script>
+<script type="text/javascript" src="__PUBLIC__/sxx.js">
+</script>
 <script>
 	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=news"))}";
 	var imgUploadFile = '__ROOT__/Uploads';
