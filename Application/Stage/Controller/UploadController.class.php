@@ -25,6 +25,7 @@ class UploadController extends Controller{
         if(!is_dir(dirname($path))){
             mkdir(dirname($path),0777,true);
         }
+
         $img = file_get_contents('php://input', 'r');
         file_put_contents($path, $img);
         
@@ -36,7 +37,7 @@ class UploadController extends Controller{
                                 )
                             );
         }else{
-            $this->ajaxReturn(array('status'=>1,'msg'=>$path));
+            $this->ajaxReturn(array('status'=>1,'msg'=>dirname($path));
         }
     }
     
