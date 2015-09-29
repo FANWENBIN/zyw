@@ -9,14 +9,106 @@
 .webmain .con .title ul li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px;}
 .webmain .con .title ul li.c a { background: #000; color: #fff;}
 
+/*导航栏*/
+.navTitle{color: #ccc; position: relative;}
+.navTitle a{color: inherit}
+.navTitle a:hover{color: red}
+.navTitle .loginfo{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 30px;
+    margin-right: 15px;
+}
+.navTitle .loginfo .face{
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    background: url("../images/icon-logface.jpg") 50% no-repeat;
+}
+.navTitle .loginfo .name{
+    display: inline-block;
+    float: left;
+    height: 20px;
+    margin-top: 5px;
+    margin-left: 15px;
+    line-height: 20px;
+    cursor: pointer;
+}
+.navTitle .loginfo .name::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    border-top: 6px solid #000;
+    border-right: 6px solid #fff;
+    border-left: 6px solid #fff;
+}
 
-.webmain .conTopbanner {}
+.tabctrl {
+    position: absolute;
+    bottom: 15px;
+    left: 100px;
+    width: 986px;
+    height: 62px;
+    background: rgba(0,0,0,0.5);
+}
+
+.tabctrl .text{
+    display: inline-block;
+    float: left;
+    margin-top: 5px;
+    width: 250px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 25px;
+}
+
+.bannerlist{
+    position: relative;
+    float: left;
+    width: 650px;
+    height: 50px;
+    margin-top: 6px;
+    margin-left: 50px;
+    /*list-style: none;*/
+}
+.bannerlist li{
+    display: inline-block;
+    float: left;
+    margin-right: 6px;
+    position: relative;
+}
+.webmain .conTopbanner .bannerlist li img{
+    width: 84px;
+    height: 50px;
+}
+.webmain .conTopbanner .bannerlist li.active{
+    /*border: 4px solid #b162e4;*/
+}
+.webmain .conTopbanner .bannerlist .frame{
+    display: none;
+    position: absolute;
+    width: 76px;
+    height: 42px;
+    top: 0;
+    left: 0;
+    border: 4px solid #b162e4;
+}
+
+.webmain .conTopbanner {
+    position: relative;
+}
 .webmain .conTopbanner { height: 470px; overflow: hidden;}
 .webmain .conTopbanner img { display: block; width: 100%; height: 470px;}
 
 
 .webmain .conFansFocus {}
-.webmain .conFansFocus .title h2 { width: 166px; background-position: 0 -600px;}
+.webmain .conFansFocus .title h2 { width: 166px; background-position: 0 -780px;}
 .webmain .conFansFocus .inner { width: 1230px; margin-left: -30px; height: 530px; overflow: hidden;}
 .webmain .conFansFocus .inner .item { width: 380px; height: 250px; overflow: hidden; position: relative; display: block; float: left; margin: 0 0 30px 30px;}
 .webmain .conFansFocus .inner .item img { display: block; width: 380px; height: 250px;}

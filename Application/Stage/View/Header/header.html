@@ -1,43 +1,64 @@
-<!DOCTYPE HTML>
-<!--[if lt IE 7 ]>
-<html class="ie6 ieOld"><![endif]-->
-<!--[if IE 7 ]>
-<html class="ie7 ieOld"><![endif]-->
-<!--[if IE 8 ]>
-<html class="ie8 ieOld"><![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html><!--<![endif]-->
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>首页</title>
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <link href="__PUBLIC__/stage/style/reset.css" rel="stylesheet" type="text/css"/>
-  <link href="__PUBLIC__/stage/style/base.css" rel="stylesheet" type="text/css"/>
-  <link href="__PUBLIC__/stage/style/page.css" rel="stylesheet" type="text/css"/>
-  <link href="__PUBLIC__/stage/style/custom.css" rel="stylesheet" type="text/css"/>
-
-</head>
-
-<body>
-
+<block name="header"></block>
 <!--header-->
-<div class="webHeader" id="webHeader">
-  <div class="inner">
-    <h1 class="logo">公众号管理平台</h1>
-
-    <div class="userInfo">
-      <div class="head"><img src="__PUBLIC__/stage/images/head.jpg"/></div>
-      <div class="info">
-        <h2>您好，<span>useradmin</span>！</h2>
-        <ul class="tools">
-          <li><a href="javascript:void(0)" class="msg"><span>195</span>消息通知</a></li>
-          <li><a href="javascript:void(0)" class="chagepw">修改密码</a></li>
-          <li><a href="login.html">安全退出</a></li>
-        </ul>
+  <div class="webHeader" id="webHeader">
+    <div class="inner">
+      <h1 class="logo">中演网管理平台</h1>
+      <div class="userInfo">
+        <div class="head"><img src="__PUBLIC__/statics/images/yggxwxlogo.jpg" /></div>
+        <div class="info">
+          <h2>您好，<span>{$Think.session.name}</span>！</h2>
+          <ul class="tools">
+            <li><a href="javascript:void(0)" class="chagepw">修改密码</a></li>
+            <li><a href="{:U('Index/loginout')}">安全退出</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!--header end-->
-<block name='content'></block>
+  <!--header end-->
+<block name="div"></block>
+<!--aside-->
+    <div class="webAside">
+      <div class="menu">
+
+        <dl class="ft">
+          <dt><span></span>基本元素</dt>
+          <dd>
+            <ul id="tabList">
+             <li <if condition="$cur eq 1">class = "current"</if> ><a href="{:U('User/index')}">用户管理</a></li>
+              <li <if condition="$cur eq 2">class = "current"</if> ><a href="{:U('Gactor/index')}">演员管理</a></li>
+              <li <if condition="$cur eq 3">class = "current"</if> ><a href="{:U('Recommend/index')}">推荐团管理<sub></sub></a></li>
+              <li <if condition="$cur eq 4">class = "current"</if> ><a href="{:U('Banner/index')}">Banner设置</a></li>
+			  <li <if condition="$cur eq 5">class = "current"</if> ><a href="{:U('News/index')}">新闻管理</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+        <!-- <dl>
+          <dt><span></span>第二类</dt>
+          <dd>
+            <ul>
+              <li><a href="#">子菜单1</a></li>
+              <li><a href="#">子菜单2</a></li>
+              <li><a href="#">子菜单3</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt><span></span>第三类</dt>
+          <dd>
+            <ul>
+              <li><a href="#">子菜单1</a></li>
+              <li><a href="#">子菜单2</a></li>
+              <li><a href="#">子菜单3</a></li>
+            </ul>
+          </dd>
+        </dl> -->
+
+
+      </div>
+    </div>
+    <!--aside end-->
+    <block name='content'></block>
+

@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信公众号管理平台</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="../statics/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="../statics/style/base.css" rel="stylesheet" type="text/css" />
+<!--每个页面独立的样式文件-->
+<link href="./statics/style/imagelist.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    
+
+	<!--header-->
+	<div class="webHeader" id="webHeader">
+		<div class="inner">
+			<h1 class="logo">公众号管理平台</h1>
+			<div class="userInfo">
+				<div class="head"><img src="../statics/images/yggxwxlogo.jpg" /></div>
+				<div class="info">
+					<h2>您好，<span>admin</span>！</h2>
+					<ul class="tools">
+						<li><a href="javascript:void(0)" class="chagepw">修改密码</a></li>
+						<li><a href="#">安全退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--header end-->
+
+	<!--container-->
+	<div class="webContainer clearFix" id="webContainer">
+
+		<!--aside-->
+		<div class="webAside">
+			<div class="menu">
+
+				<dl class="ft">
+					<dt><span></span>微信设置</dt>
+					<dd>
+						<ul>
+							<li><a href="../menu/index.html">自定义菜单</a></li>
+							<li><a href="../message/index.html">自定义回复</a></li>
+						</ul>
+					</dd>
+				</dl>
+
+				<dl>
+					<dt><span></span>微信管理</dt>
+					<dd>
+						<ul>
+							<li><a href="../fans/index.html">粉丝管理</a></li>
+							<li class="current"><a href="../media/index.html">素材管理</a></li>
+							<li><a href="../groupmsg/index.html">高级群发</a></li>
+						</ul>
+					</dd>
+				</dl>
+		        
+			</div>
+		</div>
+		<!--aside end-->
+
+		<!--main-->
+		<div class="webMain">
+			<div class="mainHeader">
+				<h1>素材管理</h1>
+				<ul class="menu clearFix">
+					<li><a href="index.html">图文消息</a></li>
+					<li class="current"><a href="imagelist.html">图片</a></li>
+					<li><a href="voicelist.html">语音</a></li>
+				</ul>
+				<div class="toolbtns">
+					<a href="javascript:void(0)" id="flashupload" class="btnA btnSmall w150">添加图片素材</a>
+				</div>
+			</div>
+			<div class="mainBody">
+
+				<div id="wechatPhotoAssetsList" class="clearFix">
+					<div class="itemList clearFix">
+
+	                    <div class="item">
+							<div class="img"><img src="http://img5.douban.com/view/photo/photo/public/p2237110306.jpg" /></div>
+							<div class="name"><h6>速度与激情7</h6></div>
+							<div class="tools">
+								<a href="javascript:void(0)" class="edit" data-id="1"><span class="alt">编辑</span></a>
+								<a href="javascript:void(0)" class="del" data-id="1"><span class="alt">删除</span></a>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="img"><img src="http://img3.douban.com/view/photo/photo/public/p2236187792.jpg" /></div>
+							<div class="name"><h6>速度与激情7</h6></div>
+							<div class="tools">
+								<a href="javascript:void(0)" class="edit" data-id="1"><span class="alt">编辑</span></a>
+								<a href="javascript:void(0)" class="del" data-id="1"><span class="alt">删除</span></a>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="img"><img src="http://img5.douban.com/view/photo/photo/public/p2236435046.jpg" /></div>
+							<div class="name"><h6>速度与激情7</h6></div>
+							<div class="tools">
+								<a href="javascript:void(0)" class="edit" data-id="1"><span class="alt">编辑</span></a>
+								<a href="javascript:void(0)" class="del" data-id="1"><span class="alt">删除</span></a>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="img"><img src="http://img3.douban.com/view/photo/photo/public/p2236937844.jpg" /></div>
+							<div class="name"><h6>速度与激情7</h6></div>
+							<div class="tools">
+								<a href="javascript:void(0)" class="edit" data-id="1"><span class="alt">编辑</span></a>
+								<a href="javascript:void(0)" class="del" data-id="1"><span class="alt">删除</span></a>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="img"><img src="http://img3.douban.com/view/photo/photo/public/p2236435124.jpg" /></div>
+							<div class="name"><h6>速度与激情7</h6></div>
+							<div class="tools">
+								<a href="javascript:void(0)" class="edit" data-id="1"><span class="alt">编辑</span></a>
+								<a href="javascript:void(0)" class="del" data-id="1"><span class="alt">删除</span></a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="pagers" id="js_pagers">
+					<ul class="clearFix">
+						<li><a class="disabled prev" href="javascript:void(0);">上一页</a></li>
+						<li><p><span class="c">1</span><span>/</span><span>5</span></p></li>
+						<li><a class="next" href="2">下一页</a></li>
+						<li class="in"><input type="text" class="num" /></li>
+						<li><a href="javascript:void(0)" class="jump" data-url="imagelist.html?page=" data-max="5">跳转</a></li>
+					</ul>
+				</div>
+				
+				
+
+
+			</div>
+		</div>
+		<!--main end-->
+
+	</div>
+	<!--container end-->
+
+<script type="text/javascript">
+var webPath = "";
+var imgUploadFile = ""; // 图片上传后的文件夹目录
+var imgUploadServer = ""; // 图片上传接口地址
+var swfUrl = "../statics/swf"; // flash文件夹目录
+var mp3UploadServer = ""; // mp3上传接口地址
+var mp3UploadFile = ""; // mp3上传后的文件夹目录
+</script>
+<script type="text/javascript" src="../statics/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../statics/js/swfobject.js"></script>
+<script type="text/javascript" src="../statics/js/sea.js"></script>
+<script type="text/javascript" src="../statics/js/sea.css.js"></script>
+<script type="text/javascript">
+    seajs.use("./statics/js/imagelist.js");
+</script>
+
+
+
+
+</body>
+</html>

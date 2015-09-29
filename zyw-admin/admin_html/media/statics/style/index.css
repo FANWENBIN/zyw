@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+/*微信图文消息列表*/
+.mainBody .itemList { background: #fff; position: relative; width: 928px; overflow: hidden; margin: 0 auto; padding-bottom: 20px; visibility: hidden;}
+.mainBody .itemList .item { padding-bottom: 48px !important; position: absolute !important;}
+.mainBody .itemList .wxMediaMulti { padding-bottom: 38px !important;}
+.mainBody .itemList .item .tools { height: 38px; background: #f7f8fa; border-top: 1px solid #e9efef; position: absolute; left: 0; bottom: 0; width: 100%; z-index: 2;}
+.mainBody .itemList .item .tools a { float: left; display: block; width: 143px; height: 38px; background-image: url(../../../statics/images/ui/iconWechatAssets.png); background-repeat: no-repeat; position: relative;}
+.mainBody .itemList .item .tools a.edit { border-right: 1px solid #e9edee; background-position: center -38px;}
+.mainBody .itemList .item .tools a.edit:hover { background-position: center 0;}
+.mainBody .itemList .item .tools a.del { background-position: center -114px;}
+.mainBody .itemList .item .tools a.del:hover { background-position: center -76px;}
+
+.mainBody .pagers { border-top: 1px solid #e9efef; padding-top: 10px;}
+.mainBody .itemList p.none { text-align: center; height: 250px; margin: 0; line-height: 250px; width: 100%; border: none; padding: 15px 0 15px 0; color: #ccd3d5;}

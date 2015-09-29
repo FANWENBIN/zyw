@@ -14,8 +14,6 @@
 
 .popforstar select{
 	display: inline-block;
-  width: 400px;
-	background: #ccc
 }
 
 .popforstar input{
@@ -71,3 +69,42 @@
    display: none;
 
  }
+
+input[type=text]{
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  height: 28px;
+  padding: 0 0 0 2px;
+  vertical-align: middle;
+  color: #808080;
+  -webkit-box-shadow: 0px 1px 1px 0px #eaeaea inset;
+  -moz-box-shadow: 0px 1px 1px 0px #eaeaea inset;
+  box-shadow: 0px 1px 1px 0px #eaeaea inset;
+}
+select{
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #fff;
+  height: 28px;
+  width: 300px;
+  padding: 0 0 0 2px;
+  vertical-align: middle;
+  color: #808080;
+  -webkit-box-shadow: 0px 1px 1px 0px #eaeaea inset;
+  -moz-box-shadow: 0px 1px 1px 0px #eaeaea inset;
+  box-shadow: 0px 1px 1px 0px #eaeaea inset;
+}
+
+textarea{
+  width: 300px; display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: #fff;
+  padding: 0 0 0 2px;
+  vertical-align: middle;
+  color: #808080;
+  -webkit-box-shadow: 0px 1px 1px 0px #eaeaea inset;
+  -moz-box-shadow: 0px 1px 1px 0px #eaeaea inset;
+  box-shadow: 0px 1px 1px 0px #eaeaea inset;
+}

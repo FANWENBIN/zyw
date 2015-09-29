@@ -21,7 +21,8 @@ class IndexController extends ComController {
                 if($a){
                     $uid = md5('xxxzyw916');
                     session('uid',$uid);
-                    $this->success('登陆成功',U('Index/show'),5);
+                    session('name',$data['name']);
+                    $this->success('登陆成功',U('Gactor/index'),5);
                     //$this->redirect('New/category', array('cate_id' => 2), 5, '页面跳转中...');
                 }else{
                     $this->error('登陆失败',U('Index/index'),5);
@@ -32,6 +33,36 @@ class IndexController extends ComController {
             
         }
         
+    }
+    //退出
+    public function loginout(){
+       session(null);
+       $this->success('安全退出',U('Index/index'));
+    }
+    //修改密码
+    public function uppasswd(){
+        $oldp = I('post.oldp','','md5');
+        $data['passwd'] = I('post.newp','','md5');
+        $admin = M('admin');
+        $where = array(
+            'name'   =>session('name'),
+            'passwd' =>$oldp
+            );
+        $adminval = $admin->where($where)->find();
+       
+        if($adminval){
+            $sign = $admin->where('id='.$adminval['id'])->save($data);
+
+            if($sign){
+                ajaxReturn(0,'修改成功','');
+            }else{
+                ajaxReturn(1,'未修改成功',$admin->getlastsql());
+            }
+            
+        }else{
+            ajaxReturn(102,'旧密码不正确','');
+        }
+
     }
     //验证码
     public function verify(){

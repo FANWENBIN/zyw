@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/*添加/修改多图文*/
+.mainBody .itemMulit { border: 1px solid #e9efef; width: 310px; overflow: hidden; position: static; background: #fff; float: left; margin-bottom: 40px;}
+.mainBody .itemMulit .cover { padding: 10px;}
+.mainBody .itemMulit .cover .img { width: 290px; height: 160px; overflow: hidden; position: relative;}
+.mainBody .itemMulit .cover .img .p { display: block; width: 290px; height: 160px; background: #f7f8fa; color: #bdc5c8; line-height: 160px; text-align: center; font-size: 14px;}
+.mainBody .itemMulit .cover .img .p img { display: block; width: 290px;}
+.mainBody .itemMulit .cover .img p { position: absolute; left: 0; bottom: 0; background: rgba(0,0,0,0.6); width: 100%; height: 40px; line-height: 40px; overflow: hidden;}
+.mainBody .itemMulit .cover .img p a { display: block; color: #fff; padding: 0 10px; font-size: 12px;}
+.mainBody .itemMulit .cover .img p a:hover { color: #ddd; text-decoration: underline;}
+.mainBody .itemMulit .sub { border-top: 1px solid #e9efef; padding: 10px; position: relative; height: 79px; overflow: hidden;}
+.mainBody .itemMulit .sub p { float: left; width: 202px; line-height: 24px; height: 48px; overflow: hidden; font-size: 14px;}
+.mainBody .itemMulit .sub p a { color: #525f67;}
+.mainBody .itemMulit .sub p a:hover { text-decoration: underline;}
+.mainBody .itemMulit .sub .img { width: 78px; height: 78px; display: block; float: right; background: #f7f8fa; color: #bdc5c8; line-height: 78px; text-align: center; font-size: 14px;}
+.mainBody .itemMulit .sub .img img { display: block; width: 78px; height: 78px;}
+.mainBody .itemMulit .append { border-top: 1px solid #e9efef; padding: 5px;}
+.mainBody .itemMulit .append a { margin: 0 auto;}
+
+.mainBody .itemMulit .tools { position: absolute; left: 0; top: 0; width: 100%; height: 99px; background: rgba(255,255,255,0.9); z-index: 99; display: none;}
+.mainBody .itemMulit .tools a { width: 38px; height: 38px; display: block; overflow: hidden; position: absolute;}
+.mainBody .itemMulit .tools a.edit { background: url(../../../statics/images/ui/iconWechatAssets.png) 0 0; left: 50%; top: 50%; margin: -19px 0 0 -48px;}
+.mainBody .itemMulit .tools a.edit:hover { background: url(../../../statics/images/ui/iconWechatAssets.png) 0 -38px;}
+.mainBody .itemMulit .tools a.del { background: url(../../../statics/images/ui/iconWechatAssets.png) 0 -76px; left: 50%; top: 50%; margin: -19px 0 0 10px;}
+.mainBody .itemMulit .tools a.del:hover { background: url(../../../statics/images/ui/iconWechatAssets.png) 0 -114px;}
+.mainBody .itemMulit .cover .tools { height: 160px;}
+.mainBody .itemMulit .cover .tools a.edit { margin-left: -19px;}
+
+.mainBody .form { float: right; width: 613px; margin-left: 15px; margin-bottom: 40px; position: relative;}
+.mainBody .form fieldset { width: 581px; background: #f7f8fa; border: 1px solid #e9efef; padding: 5px 15px 15px 15px;}
+.mainBody .form fieldset div.l { border: 0; padding: 0;}
+.mainBody .form fieldset div.l h6 { width: auto; float: none; text-align: left; margin: 0; padding: 8px 0 0 0; height: 26px; line-height: 26px;}
+.mainBody .form fieldset div.l h6 span { color: #bcc3c9;}
+.mainBody .form fieldset div.l div.i { width: 581px; float: none; margin: 0;}
+.mainBody .form fieldset div.l div.i .input { width: 559px;}
+.mainBody .form fieldset div.l div.i textarea.input { width: 563px;}
+.mainBody .form fieldset div.cover .up { width: 360px; float: left;}
+.mainBody .form fieldset div.cover .cb { width: 220px; float: left;}
+.mainBody .form .point { position: absolute; left: -9px; top: 48px; width: 10px; height: 19px; background: url(../../../statics/images/ui/pointWechatAssets.png);}
+
+.mainBody .form_t1 { padding-top: 181px;}
+.mainBody .form_t1 .point { top: 229px;}
+.mainBody .form_t2 { padding-top: 281px;}
+.mainBody .form_t2 .point { top: 329px;}
+.mainBody .form_t3 { padding-top: 381px;}
+.mainBody .form_t3 .point { top: 429px;}
+.mainBody .form_t4 { padding-top: 481px;}
+.mainBody .form_t4 .point { top: 529px;}
+.mainBody .form_t5 { padding-top: 481px;}
+.mainBody .form_t5 .point { top: 629px;}
+.mainBody .form_t6 { padding-top: 481px;}
+.mainBody .form_t6 .point { top: 729px;}
+.mainBody .form_t7 { padding-top: 481px;}
+.mainBody .form_t7 .point { top: 829px;}
+
+.mainBody .btnCon { clear: both; padding-top: 30px; border-top: 1px solid #e9efef;}

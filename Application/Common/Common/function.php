@@ -11,13 +11,13 @@
 	function ajaxReturn($errcode = 0, $msg = '', $data = array()){
 	        $data = array('status'=>$errcode, 'msg'=>$msg, 'data'=>$data);
 	        exit(json_encode($data,JSON_UNESCAPED_UNICODE));
-	    }
-		//微信
-		function is_weixin(){   
-			return strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false;
-		}
-		function isAjax() {
-	    return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 'xmlhttprequest' == strtolower($_SERVER['HTTP_X_REQUESTED_WITH']);
+	}
+	//微信
+	function is_weixin(){   
+		return strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false;
+	}
+	function isAjax() {
+    	return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 'xmlhttprequest' == strtolower($_SERVER['HTTP_X_REQUESTED_WITH']);
 	}
 
 	function errReturn($errCode,$msg){
@@ -72,6 +72,42 @@
 			
 		}
 	}
+    /**
+     * 获取文件路径
+     * @author huqinlou
+     * @version 2015年6月9日 下午5:04:35
+     */
+    function get_attach_path($path){
+        return 'http://'.$_SERVER['HTTP_HOST'].__ROOT__.$path;
+    }
+    /**
+     * 简单格式化时间
+     * @param int $time 时间戳
+     * @author 胡勤楼
+     * 2014-7-31 下午6:32:08
+     */
+    function hql_date($time){
+    	empty($time)&&($time=time());
+    	return date('Y-m-d H:i',$time);
+    }
+    /**
+     * 简单格式化年月日
+     * param ： int $time 时间戳
+     * author： winter
+     * date  :2015年9月25日14:00:51
+     */
+    function winter_date($time){
+    	empty($time)&&($time=time());
+    	return date('Y-m-d',$time);
+    }
+    /**
+     * 获取文件相对路径
+     * @author hxf
+     * @version 2015年8月21日 14:39:55
+     */
+    function get_relative_path($path){
+        return substr($path,strlen('http://'.$_SERVER['HTTP_HOST'].__ROOT__));
+    }
 	function comtype($id){
 		switch ($id) {
 			case '1':
@@ -84,5 +120,22 @@
 				return '编剧';
 		}
 	}
+	
+// 检测输入的验证码是否正确，$code为用户输入的验证码字符串
+    function check_verify($code, $id = '')
+    {    
+        $verify = new \Think\Verify();    
+        return $verify->check($code, $id);
+    }
+    //处理名次上升下降
+    function ranking($num){
+    	if($num > 0){
+    		return "<sup>".abs($num)."</sup>";
+    	}elseif ($num == 0) {
+    		return "<span></span>";
+    	}elseif ($num < 0) {
+    		return "<sub>".abs($num)."</sub>";
+    	}
+    }
 
 ?>

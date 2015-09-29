@@ -58,6 +58,7 @@
 
 .webmain .conTopStars {}
 .webmain .conTopStars .title h2 { width: 358px; background-position: 0 -120px;}
+.webmain .conTopStars .inner{height: 845px;}
 .webmain .conTopStars .inner .group { width: 399px; float: left; border-left: 1px solid #dfdfdf;}
 .webmain .conTopStars .inner .group .tools h2 { font-size: 18px; line-height: 22px; height: 22px; overflow: hidden; display: block; margin: 0 40px 20px 20px; float: left;}
 .webmain .conTopStars .inner .group .tools h2 span { display: inline-block; width: 3px; height: 17px; background: #7865f0; position: relative; margin-right: 4px; top: 2px;}
@@ -91,6 +92,10 @@
 .webmain .conTopStars .inner .group1 .tools h2 span { background: #f25e5e;}
 .webmain .conTopStars .inner .group2 .tools h2 span { background: #27a4f3;}
 .webmain .conTopStars .inner .group3 .tools h2 span { background: #7bca35;}
+.webmain .conTopStars .list2{display: none}
+.webmain .conTopStars .list3{display: none}
+
+
 
 .webmain .conStars {}
 .webmain .conStars .title h2 { width: 146px; background-position: 0 -180px;}

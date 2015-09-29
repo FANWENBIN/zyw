@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- initialize -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <title>首页</title>
+  <!-- css initialize -->
+  <link href="__PUBLIC__/termin/css/reset_h5.css" rel="stylesheet" type="text/css" />
+  <!--related css-->
+  <link href="__PUBLIC__/termin/css/app.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/termin/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrapper">
+  <div class="content">
+    <div class="banner">
+      <ul><li><img src="__PUBLIC__/termin/img/bar1.jpg" alt=""/></li></ul>
+      <div class="tabdot"><ul><li class="dot active"></li><li class="dot"></li><li class="dot"></li></ul></div>
+    </div>
+    <div class="r">
+      <a href="{:U('News/index')}" class="item"><span class="icon icon1"></span><h6>新闻资讯</h6></a>
+      <a href="{:U('Vote/index')}" class="item"><span class="icon icon2"></span><h6>候选演员</h6></a>
+      <div class="item"><span class="icon icon3"></span><h6>签到摇奖</h6></div>
+    </div>
+
+    <div class="r">
+      <div class="item"><span class="icon icon4"></span><h6>推荐团</h6></div>
+      <div class="item"><span class="icon icon5"></span><h6>专辑活动</h6></div>
+      <div class="item"><span class="icon icon6"></span><h6>粉丝团</h6></div>
+    </div>
+
+  </div>
+  <footer>
+    <span class="footerLogo"></span>
+    <div class="descript">
+      <h3>©2015 TVstars.cn中国电视艺术家歇会</h3>
+      <h3>扬州广播电视传媒集团(总台)版权所有</h3>
+      <h3>全媒体中心提供技术支持 苏ICP备10220185号</h3>
+    </div>
+  </footer>
+
+</div>
+
+
+<!-- jQ -->
+<script type="text/javascript" src="http://m.nadoo.cn/common/js/jquery-2.1.3.min.js"></script>
+<!-- seajs -->
+<script type="text/javascript" src="http://m.nadoo.cn/common/js/sea.js"></script>
+<script type="text/javascript" src="http://m.nadoo.cn/common/js/sea.css.js"></script>
+<!-- related js -->
+<script>
+  seajs.use("__PUBLIC__/termin//js/app");
+  seajs.use("__PUBLIC__/termin//js/index");
+</script>
+
+</body>
+</html>

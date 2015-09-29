@@ -8,6 +8,7 @@ class NewsController extends ComController {
 		$news=  M('news');
 		$result=$news->select();
 		$this->assign('result',$result);
+		$this->assign('cur',5);
         $this->display();   
     }
 	public function add(){

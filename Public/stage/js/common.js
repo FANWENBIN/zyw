@@ -1,5 +1,5 @@
 
-var webPath = "";
+var webPath = "http://m2.nadoo.cn/p/zyw";
 var imgUploadServer = "http://192.168.1.2/php/img.php";
 var imgUploadFile = "http://192.168.1.2/php/";
 var mp3UploadServer = "http://192.168.1.2/php/mp3.php";
@@ -1535,11 +1535,12 @@ $(function(){
 				    var oldp = $.trim(old.val());
                     var newp = $.trim(n.val());
 					$.ajaxSubmit({
-						url: webPath+"_editpaswd.php",
+						url: webPath+"/index.php?m=Stage&c=Index&a=uppasswd",
 						data: {oldp: oldp, newp: newp},
 						success: function(d){
+							
 							if (d.status == 0){
-                                window.location = webPath+'login.php';
+                                location.reload();
 							} else {
 								$.tips.error(d.msg);
 							}
@@ -1566,6 +1567,30 @@ $(function(){
 		} else {
 			window.location.href = url + num;
 		}
+	});
+    
+    //删除
+	$('.delete').click(function(){
+		var id=$(this).data('id');
+		$.alert({
+			title: "提示",
+			txt: '确定删除此数据吗',
+			btnY: "确定",
+			btnN: "取消",
+			css: "pop-alert-appendWechatUserTeam",
+			callbackY: function(){
+				$.post(delete_url,{id:id},function(data){
+					if(data.status){
+						location.reload();
+					}else{
+						$.alert({
+							title: "提示!",
+							txt: data.info,
+						});
+					}
+				},'json');
+			}
+		});
 	});
 
 
