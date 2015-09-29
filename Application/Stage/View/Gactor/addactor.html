@@ -56,17 +56,14 @@
                 <h6>头像</h6>
                 <div class="i">
                 <!--input type="file" class="input w200" name="photo1" value="" placeholder="" /-->
-				
-				       <input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" />
-							
-				
+				       <input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" name="photo1"/>
               </div>
 
               </div>
               <!-- 照片-->
               <div class="l">
                 <h6>照片</h6>
-                <div class="i"><input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" />
+                <div class="i"><input type="text" name="photo2" value="" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" />
                </div>
               </div>
 
@@ -207,7 +204,7 @@
 <!--富文本编辑器 end-->
 <script>
 	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=stage"))}";
-	var imgUploadFile = '__ROOT__';
+	var imgUploadFile = '__ROOT__/Uploads';
 	var swfUrl = "__ROOT__/Public/stage/swf";
 </script>
 	

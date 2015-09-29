@@ -245,106 +245,19 @@
                         </div>
                     </div>
                     <div class="list list1">
-                        <div class="item top1">
+                    <volist name="redgroup" id = "vo">
+                        <div class="item top{$i}">
                             <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a1.jpeg" /></a>
                             <div class="info">
-                                <h6><a href="#">邓紫棋</a></h6>
-                                <span>热度: 321231</span>
+                                <h6><a href="#">{$vo.name}</a></h6>
+                                <span>热度: {$vo.votes}</span>
                             </div>
                             <div class="status">
-                                <span></span>
+                                {:randing($vo['lifting'])}
                             </div>
                         </div>
-                        <div class="item top2">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a2.jpeg" /></a>
-                            <div class="info">
-                                <h6><a href="#">李易峰</a></h6>
-                                <span>热度: 321231</span>
-                            </div>
-                            <div class="status">
-                                <sup>1</sup>
-                            </div>
-                        </div>
-                        <div class="item top3">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a3.jpeg" /></a>
-                            <div class="info">
-                                <h6><a href="#">范冰冰</a></h6>
-                                <span>热度: 321231</span>
-                            </div>
-                            <div class="status">
-                                <sub>1</sub>
-                            </div>
-                        </div>
-                        <div class="item top4">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a4.jpeg" /></a>
-                            <div class="info">
-                                <h6><a href="#">杨幂</a></h6>
-                                <span>热度: 321231</span>
-                            </div>
-                            <div class="status">
-                                <sub>1</sub>
-                            </div>
-                        </div>
-                        <div class="item top5">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a5.jpeg" /></a>
-                            <div class="info">
-                                <h6><a href="#">angelababy</a></h6>
-                                <span>热度: 321231</span>
-                            </div>
-                            <div class="status">
-                                <sub>1</sub>
-                            </div>
-                        </div>
-                        <div class="item top6">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a6.jpeg" /></a>
-                            <div class="info">
-                                <h6><a href="#">唐嫣</a></h6>
-                                <span>热度: 321231</span>
-                            </div>
-                            <div class="status">
-                                <sub>1</sub>
-                            </div>
-                        </div>
-                        <div class="item top7">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a7.jpeg" /></a>
-                            <div class="info">
-                                <h6><a href="#">吴亦凡</a></h6>
-                                <span>热度: 321231</span>
-                            </div>
-                            <div class="status">
-                                <sub>1</sub>
-                            </div>
-                        </div>
-                        <div class="item top8">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a8.jpeg" /></a>
-                            <div class="info">
-                                <h6><a href="#">刘诗诗</a></h6>
-                                <span>热度: 321231</span>
-                            </div>
-                            <div class="status">
-                                <sub>1</sub>
-                            </div>
-                        </div>
-                        <div class="item top9">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a9.jpeg" /></a>
-                            <div class="info">
-                                <h6><a href="#">周星驰</a></h6>
-                                <span>热度: 321231</span>
-                            </div>
-                            <div class="status">
-                                <sub>1</sub>
-                            </div>
-                        </div>
-                        <div class="item top10">
-                            <a href="#" class="head"><span></span><img src="__PUBLIC__/statics/images/p/a10.jpeg" /></a>
-                            <div class="info">
-                                <h6><a href="#">李小璐</a></h6>
-                                <span>热度: 321231</span>
-                            </div>
-                            <div class="status">
-                                <sub>1</sub>
-                            </div>
-                        </div>
+                    </volist>
+
                     </div>
                     <div class="list list2">
                         <div class="item top1">

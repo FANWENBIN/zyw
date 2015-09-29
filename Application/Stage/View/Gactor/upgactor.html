@@ -56,14 +56,14 @@
               <!-- 头像-->
               <div class="l">
                 <h6>头像</h6>
-                <div class="i"><input type="file" class="input w200" value="" placeholder="" name='photo1'/>
-                <img src="./Uploads{$actors.headimg}" width="100" height="100" alt=""/></div>
+                <div class="i"> <input type="text" value="{$actors.headimg}" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" name="photo1"/>
+                </div>
               </div>
               <!-- 照片-->
               <div class="l">
                 <h6>照片</h6>
-                <div class="i"><input type="file" class="input w200" value="" placeholder="" name='photo2'/>
-                <img src="./Uploads{$actors.img}" width="100" height="100" alt=""/></div>
+                <div class="i"> <input type="text" value="{$actors.img}" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" name="photo2"/>
+                </div>
               </div>
 
 
@@ -200,9 +200,9 @@
 
 <script type="text/javascript">
 var webPath = "";
-var imgUploadFile = ""; // 图片上传后的文件夹目录
-var imgUploadServer = ""; // 图片上传接口地址
-var swfUrl = "__PUBLIC__/statics/swf"; // flash文件夹目录
+var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=stage"))}";
+var imgUploadFile = '__ROOT__/Uploads';
+var swfUrl = "__ROOT__/Public/stage/swf";
 var mp3UploadServer = ""; // mp3上传接口地址
 var mp3UploadFile = ""; // mp3上传后的文件夹目录
 </script>

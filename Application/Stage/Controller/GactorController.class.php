@@ -61,18 +61,18 @@ class GactorController extends ComController {
             $counts = $actors->count();
             $data['rank']    = $counts+1;   //名次
             $data['oldrank'] = $data['rank'];
-            $upload = new \Think\Upload();// 实例化上传类   
-            $upload->maxSize   =     3145728 ;// 设置附件上传大小   
-            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
-            $upload->savePath  =      '/stage/images/'; // 设置附件上传目录    
-            // 上传文件   
-            $info   =   $upload->upload();    
-            if(!$info) {// 上传错误提示错误信息      
-                $this->error($upload->getError()); 
-                exit;  
-            }else{// 上传成功      
-                $data['headimg'] = $info['photo1']['savepath'].$info['photo1']['savename']; 
-                $data['img']     = $info['photo2']['savepath'].$info['photo2']['savename'];
+            // $upload = new \Think\Upload();// 实例化上传类   
+            // $upload->maxSize   =     3145728 ;// 设置附件上传大小   
+            // $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
+            // $upload->savePath  =      '/stage/images/'; // 设置附件上传目录    
+            // // 上传文件   
+            // $info   =   $upload->upload();    
+            // if(!$info) {// 上传错误提示错误信息      
+            //     $this->error($upload->getError()); 
+            //     exit;  
+            // }else{// 上传成功      
+                $data['headimg'] = I("post.photo1");
+                $data['img']     = I("post.photo2");
                 $sur = mb_substr($data['name'],0,1,'utf-8');
                 $data['opid']    = md5(date('YmdHis',time()));
                 $data['instime'] = time();
@@ -87,7 +87,7 @@ class GactorController extends ComController {
                 }else{
                      $this->error('添加失败',U('Gactor/index'));
                 }
-            }
+            
         }
     }
 
@@ -128,38 +128,39 @@ class GactorController extends ComController {
             $data['promotion'] = I('post.promotion');
             $data['groupid']   = I('post.groupid');
 
-            $upload = new \Think\Upload();// 实例化上传类   
-            $upload->maxSize   =     3145728 ;// 设置附件上传大小   
-            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
-            $upload->savePath  =      '/stage/'; // 设置附件上传目录    
-            // 上传文件   
-            $info   =   $upload->upload();    
-            if(!$info) {// 上传错误提示错误信息 
-                $sign = $actors->where('id='.$id)->save($data);
+            // $upload = new \Think\Upload();// 实例化上传类   
+            // $upload->maxSize   =     3145728 ;// 设置附件上传大小   
+            // $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
+            // $upload->savePath  =      '/stage/'; // 设置附件上传目录    
+            // // 上传文件   
+            // $info   =   $upload->upload();    
+            // if(!$info) {// 上传错误提示错误信息 
+            //     $sign = $actors->where('id='.$id)->save($data);
                
-                if($sign){
-                    $this->success('修改成功',U('Gactor/index'));
-                }else{
-                    $this->error('没做任何修改');
-                }
+            //     if($sign){
+            //         $this->success('修改成功',U('Gactor/index'));
+            //     }else{
+            //         $this->error('没做任何修改');
+            //     }
                 
 
-            }else{
+            // }else{
 
-                if(isset($info['photo1'])){
-                    $data['headimg'] = $info['photo1']['savepath'].$info['photo1']['savename']; 
-                }
-                if(isset($info['photo2'])){
-                    $data['img']     = $info['photo2']['savepath'].$info['photo2']['savename'];
-                }
-
+            //     if(isset($info['photo1'])){
+            //         $data['headimg'] = $info['photo1']['savepath'].$info['photo1']['savename']; 
+            //     }
+            //     if(isset($info['photo2'])){
+            //         $data['img']     = $info['photo2']['savepath'].$info['photo2']['savename'];
+            //     }
+                $data['headimg'] = I('post.photo1');
+                $data['img']     = I('post.photo2');
                 $sign = $actors->where('id='.$id)->save($data);
                 if($sign){
                     $this->success('修改成功',U('Gactor/index'));
                 }else{
                     $this->error('没做任何修改');
                 }
-            }
+           // }
 
         }
         
