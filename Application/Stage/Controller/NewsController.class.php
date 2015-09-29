@@ -10,21 +10,17 @@ class NewsController extends ComController {
 			$keywords=$_POST['keywords'];
 			$map['keywords|title|content']=array('like','%'.$keywords.'%');
 			
-			session('condition',$map);
+			session('condition',$map);   //分页记录条件
 			if($keywords){
-				session('key',$keywords);
+				session('key',$keywords);   //回显搜索条件
 			}else{
 				session('key',null);
 			}
-				
-			
-
 		}
 		
 
 	//	$result=$news->where($map)->select();
 		//分页显示
-		
 		$count      = $news->where(session('condition'))->count();// 查询满足要求的总记录数
 		$Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$show       = $Page->show();// 分页显示输出
