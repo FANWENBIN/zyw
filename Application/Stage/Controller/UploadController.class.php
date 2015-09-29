@@ -29,10 +29,9 @@ class UploadController extends Controller{
         file_put_contents($path, $img);
         if(is_file($path)){
             $path=trim($path,'.');
-            $this->ajaxReturn(array('status'=>0,'msg'=>'',
-                                    'data'=>array('name'=>$name,
-                                            
-                                            )
+            $this->ajaxReturn(array('status' => 0,
+                                    'msg'    =>'',
+                                    'data'   => array('name'=>$name)
                                 )
                             );
         }else{
