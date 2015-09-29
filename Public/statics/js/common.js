@@ -7,9 +7,12 @@ define(function(require, exports, module){
 	require("com/wx_media"); // 微信回复与菜单
 
 
+	window.webPath = "http://m2.nadoo.cn/p/zyw";
+	
+	//window.swfUrl = "__PUBLIC__/statics/swf"; // flash文件夹目录
+
 	// input验证部分
 	(function($){
-		webPath = 'http://m2.nadoo.cn/p/zyw'
 		var errorTimeout;
 		$.fn.inputError = function(t) {
 			if ($(this).length) {

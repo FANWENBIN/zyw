@@ -45,6 +45,7 @@ define(function(require, exports, module){
 	                            id: _in.attr("id"),
 	                            root: root,
 								complete: function(d){
+									console.log(d)
 									if (d.status == 0){
 										_in.imgUploadSetVal(d.data.name);
 									} else {
