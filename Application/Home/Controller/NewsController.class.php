@@ -4,8 +4,8 @@ use Think\Controller;
 class NewsController extends ComController {
     public function index(){
 		$news=  M('news');
-		echo $_SERVER['DOCUMENT_ROOT'];
-		var_dump($_SERVER);
+		//echo $_SERVER['DOCUMENT_ROOT'];
+		//var_dump($_SERVER);
 		//形象指数
 		$resultX=$news->where('type=1 and status=1')->limit('0,13')->order("instime desc")->select();
 		//var_dump($resultX);
