@@ -49,9 +49,10 @@
                         <div class="l">
                             <h6>头像</h6>
                             <div class="i">
-                                <input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="280" height="310" name="photo1"/>
+                                <input type="text" value="{$commendval.img}" class="js_imgupload" id="imgurl99" cut="true" width="280" height="310" name="photo1"/>
                             </div>
                         </div>
+
                         <!-- 姓名-->
                         <div class="l">
                             <h6>姓名</h6>
@@ -190,6 +191,11 @@
     <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/lang/zh-cn/zh-cn.js"></script>
     <!--富文本编辑器 end-->
     <script>
+
+
+        var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=stage"))}";
+        var imgUploadFile = '__ROOT__/Uploads';
+        var swfUrl = "__ROOT__/Public/stage/swf";
 
         $(function(){
             $(".worksList").on("click",".del",function(){
