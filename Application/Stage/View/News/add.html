@@ -1,0 +1,100 @@
+<extend name="Header/header"/>
+<block name='content'>
+<!--container-->
+<div class="webContainer clearFix" id="webContainer">
+
+  <!--aside-->
+  <div class="webAside">
+    <div class="menu">
+      <dl class="ft">
+        <dt><span></span>资讯</dt>
+        <dd>
+          <ul>
+            <li><a href="{:U('Index/show')}">普通用户管理</a></li>
+            <li><a href="{:U('Index/starmanage')}">明星用户管理</a></li>
+          </ul>
+        </dd>
+      </dl>
+      <dl>
+        <dt><span></span>信息发布</dt>
+        <dd>
+          <ul>
+            <li class="current"><a href="{:U('News/index')}">资讯</a></li>
+            <li><a href="2.html">活动</a></li>
+            <li><a href="3.html">演工委之声</a></li>
+            <li><a href="{:U('Gactor/index')}">好演员评选</a></li>
+            <li><a href="5.html">饭团</a></li>
+            <li><a href="6.html">星站</a></li>
+            <li><a href="7.html">明日之星</a></li>
+            <li><a href="8.html">stage</a></li>
+            <li><a href="9.html">演艺库</a></li>
+          </ul>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <!--aside end-->
+  <!--main-->
+		<div class="webMain">
+			<div class="mainHeader">
+				<h1>新闻资讯</h1>
+			</div>
+			<div class="mainBody">
+				<!--摘要提示等-->
+				<!--表单-->
+				<div class="form">
+					<form action="" method="post" enctype="multipart/form-data">
+						<fieldset>
+							<div class="l">
+								<h6>标题</h6>
+								<div class="i"><input type="text" name="title" class="input" value="{$data.title}" /></div>
+							</div>
+							<div class="l">
+								<h6>类型</h6>
+								<div class="i">
+									<input type="radio" name="type" value="1" data-val="形象指数" data-css="r1"  checked="checked" />
+									<input type="radio" name="type" value="2" data-val="星闻动向" data-css="r1" <if condition="($data.type eq 2)">checked="checked"</if> />
+									<input type="radio" name="type" value="3" data-val="艺术中国梦" data-css="r1" <if condition="($data.type eq 3)">checked="checked"</if>/>
+								</div>
+							</div>
+							<div class="l">
+								<h6>封面</h6>
+								<div class="i">
+									<input type="file" name="imgpath" class="input" value=""/>
+								</div>
+							</div>
+							<div class="l">
+								<h6>相关明星</h6>
+								<div class="i"><textarea class="input" name="keywords"><if condition="($data.keywords neq '')">{$data.keywords}<else/>多个关键词请用、隔开（例如：张靓颖、演唱会）</if></textarea></div>
+							</div>
+							<div class="l">
+								<h6>正文</h6>
+								<div class="i"><script id="container" name="content" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($data['content'])?></script></div>
+							</div>
+						</fieldset>
+						<div class="btnCon btnCon2">
+							<input type="hidden" name="hid_id" class="btnA" value="{$data.id}" />
+							<input type="submit" class="btnA" name="submit" value="提交" />
+						</div>
+					</form>
+					
+				</div>
+
+				<!--主提交按钮-->
+			</div>
+		</div>
+		<!--main end-->
+</div>
+<!--container end-->
+<script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
+<!--富文本编辑器-->
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!--富文本编辑器 end-->
+
+</body>
+</html>
+
+</block>
