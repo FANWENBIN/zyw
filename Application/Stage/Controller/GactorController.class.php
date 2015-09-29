@@ -38,8 +38,6 @@ class GactorController extends ComController {
             $actors = M('actors');
             
             $data['sex']     = I('post.sex');
-         
-           
             $a = $this->checkDump($data);
             $data['birthday']  = strtotime(I('post.birthday'));
                                 //strtotime(I('post.timet'))
@@ -69,24 +67,24 @@ class GactorController extends ComController {
             // $info   =   $upload->upload();    
             // if(!$info) {// 上传错误提示错误信息      
             //     $this->error($upload->getError()); 
-            //     exit;  
+            //     exit;
             // }else{// 上传成功      
-                $data['headimg'] = I("post.photo1");
-                $data['img']     = I("post.photo2");
-                $sur = mb_substr($data['name'],0,1,'utf-8');
-                $data['opid']    = md5(date('YmdHis',time()));
-                $data['instime'] = time();
-                $t_hz = M('t_hz');
-                $thzval = $t_hz->where("chinese='".$sur."'")->find();
-                $data['chinese_sum'] = $thzval['sum'];
-                
-                $sign = $actors->add($data);
+            $data['headimg'] = I("post.photo1");
+            $data['img']     = I("post.photo2");
+            $sur = mb_substr($data['name'],0,1,'utf-8');
+            $data['opid']    = md5(date('YmdHis',time()));
+            $data['instime'] = time();
+            $t_hz = M('t_hz');
+            $thzval = $t_hz->where("chinese='".$sur."'")->find();
+            $data['chinese_sum'] = $thzval['sum'];
+            
+            $sign = $actors->add($data);
 
-                if($sign){
-                    $this->success('添加成功',U('Gactor/index'));
-                }else{
-                     $this->error('添加失败',U('Gactor/index'));
-                }
+            if($sign){
+                $this->success('添加成功',U('Gactor/index'));
+            }else{
+                 $this->error('添加失败',U('Gactor/index'));
+            }
             
         }
     }
@@ -152,14 +150,14 @@ class GactorController extends ComController {
             //     if(isset($info['photo2'])){
             //         $data['img']     = $info['photo2']['savepath'].$info['photo2']['savename'];
             //     }
-                $data['headimg'] = I('post.photo1');
-                $data['img']     = I('post.photo2');
-                $sign = $actors->where('id='.$id)->save($data);
-                if($sign){
-                    $this->success('修改成功',U('Gactor/index'));
-                }else{
-                    $this->error('没做任何修改');
-                }
+            $data['headimg'] = I('post.photo1');
+            $data['img']     = I('post.photo2');
+            $sign = $actors->where('id='.$id)->save($data);
+            if($sign){
+                $this->success('修改成功',U('Gactor/index'));
+            }else{
+                $this->error('没做任何修改');
+            }
            // }
 
         }
@@ -171,7 +169,7 @@ class GactorController extends ComController {
     public function delactor(){
         $id     = I('get.id');
         $actors = M('actors');
-        $sign = $actors->delete($id);
+        $sign   = $actors->delete($id);
         if($sign){
             $this->success('删除成功',U('Gactor/index'));
         }else{
