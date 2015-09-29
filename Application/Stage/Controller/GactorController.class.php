@@ -67,24 +67,24 @@ class GactorController extends ComController {
             // $info   =   $upload->upload();    
             // if(!$info) {// 上传错误提示错误信息      
             //     $this->error($upload->getError()); 
-            //     exit;  
+            //     exit;
             // }else{// 上传成功      
-                $data['headimg'] = I("post.photo1");
-                $data['img']     = I("post.photo2");
-                $sur = mb_substr($data['name'],0,1,'utf-8');
-                $data['opid']    = md5(date('YmdHis',time()));
-                $data['instime'] = time();
-                $t_hz = M('t_hz');
-                $thzval = $t_hz->where("chinese='".$sur."'")->find();
-                $data['chinese_sum'] = $thzval['sum'];
-                
-                $sign = $actors->add($data);
+            $data['headimg'] = I("post.photo1");
+            $data['img']     = I("post.photo2");
+            $sur = mb_substr($data['name'],0,1,'utf-8');
+            $data['opid']    = md5(date('YmdHis',time()));
+            $data['instime'] = time();
+            $t_hz = M('t_hz');
+            $thzval = $t_hz->where("chinese='".$sur."'")->find();
+            $data['chinese_sum'] = $thzval['sum'];
+            
+            $sign = $actors->add($data);
 
-                if($sign){
-                    $this->success('添加成功',U('Gactor/index'));
-                }else{
-                     $this->error('添加失败',U('Gactor/index'));
-                }
+            if($sign){
+                $this->success('添加成功',U('Gactor/index'));
+            }else{
+                 $this->error('添加失败',U('Gactor/index'));
+            }
             
         }
     }
