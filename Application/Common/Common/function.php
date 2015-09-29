@@ -128,13 +128,13 @@
         return $verify->check($code, $id);
     }
     //处理名次上升下降
-    public function ranking($num){
+    function ranking($num){
     	if($num > 0){
-    		return "<sub>".abs($num)."</sub>";
+    		return "<sup>".abs($num)."</sup>";
     	}elseif ($num == 0) {
     		return "<span></span>";
     	}elseif ($num < 0) {
-    		return "<sup>".abs($num)."</sup>";
+    		return "<sub>".abs($num)."</sub>";
     	}
     }
 
