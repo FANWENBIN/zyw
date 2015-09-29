@@ -9,13 +9,18 @@ class NewsController extends ComController {
 		if(isset($_POST['sousuo'])){
 			$keywords=$_POST['keywords'];
 			$map['keywords|title|content']=array('like','%'.$keywords.'%');
+			
+			session('condition',$map);
+			if($keywords){
+				session('key',$keywords);
+			}else{
+				session('key',null);
+			}
+				
+			
 
 		}
-		if(!empty($map)){
-			session('condition',$map);
-		}else{
-			session('condition','');
-		}
+		
 
 	//	$result=$news->where($map)->select();
 		//分页显示
