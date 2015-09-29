@@ -11,8 +11,8 @@ class RecommendController extends ComController {
     //评委分页
         $recommend = M('recommend');
         $recount = $recommend->count();// 查询满足要求的总记录数
-        $rePage  = new \Think\Page($recount,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
-        $reshow  = $rePage->show();// 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $rePage = new \Think\Page($recount,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $reshow = $rePage->show();// 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $recommendval  = $recommend
                 ->limit($rePage->firstRow.','.$rePage->listRows)->select();
 
@@ -21,9 +21,9 @@ class RecommendController extends ComController {
 
         $this->assign('cur',3);
         $this->display();
-          
+    
     }
-   
+    
     /*新增评委
     autor：winter
     date：2015年9月23日15:58:17
@@ -48,7 +48,6 @@ class RecommendController extends ComController {
             }else{// 上传成功  
                 $data['img'] = $info['photo']['savepath'].$info['photo']['savename'];
                 $commend = M('recommend');
-
                 $sign = $commend->add($data);
                 if($sign){
                     $this->success('添加成功',U('Recommend/index'));
@@ -67,17 +66,15 @@ class RecommendController extends ComController {
         $commend = M('recommend');
         if(empty($submit)){
             $id = I('get.id');
-            
             $commendval = $commend->where('id='.$id)->find();
             $this->assign('commendval',$commendval);
+            //var_dump($commendval);
             $this->display();
         }else{
             $data['name'] = I('post.name');
             $data['type'] = I('post.type');
             $id     = I('post.recommendid');
-
             $this->checkDump($data);
-
             $upload = new \Think\Upload();// 实例化上传类   
             $upload->maxSize   =     3145728 ;// 设置附件上传大小   
             $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
@@ -95,7 +92,6 @@ class RecommendController extends ComController {
                 }else{
                     $this->error('没做任何修改');
                 }
-
             }else{
                 $data['img'] =  $info['photo']['savepath'].$info['photo']['savename'];
                 $sign = $commend->where('id='.$id)->save($data);
