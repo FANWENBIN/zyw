@@ -73,7 +73,7 @@
         <tbody>
 		<volist name="result" id="vo">
         <tr>
-          <td class="t1">{$vo['id']}</td> 
+          <td class="t1">{$i}</td> 
           <td class="t3">{$vo['title']}</td>
 		   <td class="t2"><img src="./Uploads{$vo.imgpath}" width="50" height="50"></td>
           <td class="t4">{$vo['type']==1?"形象指数":""}{$vo['type']==2?"星闻动向":""}{$vo['type']==3?"艺术中国梦":""}</td>
@@ -91,11 +91,7 @@
           <td colspan="7">
             <div class="pagers">
               <ul class="clearFix">
-                <li><a class="disabled prev" href="#">上一页</a></li>
-                <li><p><span class="c">1</span><span>/</span><span>5</span></p></li>
-                <li><a class="next" href="#">下一页</a></li>
-                <li class="in"><input type="text"></li>
-                <li><a href="javascript:void(0)">跳转</a></li>
+                {$page}
               </ul>
             </div>
           </td>
