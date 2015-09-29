@@ -54,12 +54,20 @@
               <!-- 头像-->
               <div class="l">
                 <h6>头像</h6>
-                <div class="i"><input type="file" class="input w200" name="photo1" value="" placeholder="" /><img src="" width="100" height="100" alt=""/></div>
+                <div class="i">
+                <!--input type="file" class="input w200" name="photo1" value="" placeholder="" /-->
+				
+				       <input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" />
+							
+				
+              </div>
+
               </div>
               <!-- 照片-->
               <div class="l">
                 <h6>照片</h6>
-                <div class="i"><input type="file" class="input w200" value="" placeholder="" name="photo2" /><img src="" width="100" height="100" alt=""/></div>
+                <div class="i"><input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="400" height="400" />
+               </div>
               </div>
 
 
@@ -197,7 +205,11 @@
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/ueditor.all.min.js"> </script>
 <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/lang/zh-cn/zh-cn.js"></script>
 <!--富文本编辑器 end-->
-
+<script>
+	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=stage"))}";
+	var imgUploadFile = '__ROOT__';
+	var swfUrl = "__ROOT__/Public/stage/swf";
+</script>
 	
 
 
