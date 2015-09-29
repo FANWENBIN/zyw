@@ -1,0 +1,152 @@
+<extend name="Header/header"/>
+<block name='content'>
+
+  <!--container-->
+  <div class="webContainer clearFix containerWcBind" id="webContainer">
+
+    <!--aside-->
+    <div class="webAside">
+      <div class="menu">
+
+        <dl class="ft">
+          <dt><span></span>基本元素</dt>
+          <dd>
+            <ul>
+              <li><a href="{:U('Index/show')}">粉丝用户管理</a></li>
+              <li><a href="{:U('Index/starmanage')}">明星用户管理</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt><span></span>信息发布</dt>
+          <dd>
+            <ul>
+              <li><a href="1.html">咨询</a></li>
+              <li><a href="2.html">活动</a></li>
+              <li><a href="3.html">演工委之声</a></li>
+              <li class="current"><a href="{:U('Gactor/index')}">好演员评选</a></li>
+              <li><a href="5.html">饭团</a></li>
+              <li><a href="6.html">星站</a></li>
+              <li><a href="7.html">明日之星</a></li>
+              <li><a href="8.html">stage</a></li>
+              <li><a href="9.html">演艺库</a></li>
+            </ul>
+          </dd>
+        </dl>
+
+
+      </div>
+    </div>
+    <!--aside end-->
+
+    <!--main-->
+    <div class="webMain">
+      
+      <div class="pop popforjudge">
+        <form action="{:U('Gactor/upcommend')}" method="post" enctype="multipart/form-data">
+          <ul>
+              <!-- 头像-->
+            <li>
+              <label for="photo">头像</label>
+              <img src="./Uploads{$commendval.img}" style="width:100px;height:100px;">
+              <input type="file" id="photo" value="" name="photo">
+            </li>
+              <!-- 姓名-->
+            <li>
+            <input type='hidden' value="{$commendval.id}" name="recommendid">
+              <label for="name">姓名</label>
+              <input type="text" id="name" value="{$commendval.name}" placeholder="请输入评委姓名" name="name">
+            </li>
+              <!-- 分组-->
+            <li>
+              <label for="judge">代表分组</label>
+              <select name="judge" id="judge">
+                <option value="1" <if condition="($commendval.type eq 1) ">selected</if> >艺术家</option>
+                <option value="2" <if condition="($commendval.type eq 2) ">selected</if>>导演</option>
+                <option value="3" <if condition="($commendval.type eq 3) ">selected</if>>制片人</option>
+                <option value="4" <if condition="($commendval.type eq 4) ">selected</if>>编剧</option>
+              </select>
+            </li>
+              <!-- 国籍-->
+            <li class="l">
+                  <h6>国籍</h6>
+                  <div class="i"><input type="text" class="input w200" value="" name="national" placeholder="请输入国籍" /></div>
+              </li>
+              <!-- 民族-->
+              <li class="l">
+                  <h6>民族</h6>
+                  <div class="i"><input type="text" class="input w200" name="nation" value="" placeholder="请输入民族" /></div>
+              </li>
+              <!-- 身高-->
+              <li class="l">
+                  <h6>身高</h6>
+                  <div class="i"><input type="text" class="input w200" name="height" value="" placeholder="请输入身高，如180" />CM</div>
+              </li>
+              <!-- 体重-->
+              <li class="l">
+                  <h6>体重</h6>
+                  <div class="i"><input type="text" class="input w200" name="weight" value="" placeholder="请输入体重，如50" />KG</div>
+              </li>
+              <!-- 出生地址-->
+              <li class="l">
+                  <h6>出生地址</h6>
+                  <div class="i"><input type="text" class="input" value="" name="address" placeholder="请输入地址" /></div>
+              </li>
+              <!-- 出生年月-->
+              <li class="l">
+                  <h6>出生年月</h6>
+                  <div class="i w200">
+                      <input type="text" class="js_date" data-time="f alse" value="1990-2-20|23:15" name="birthday"/>
+                  </div>
+              </li>
+              <!-- 职业-->
+              <li class="l">
+                  <h6>职业</h6>
+                  <div class="i"><input type="text" class="input w200" name="alias" value="" placeholder="请输入职业" /></div>
+              </li>
+              <!-- 毕业院校-->
+              <li class="l">
+                  <h6>毕业院校</h6>
+                  <div class="i"><input type="text" class="input w300" name="alias" value="" placeholder="请输入毕业院校" /></div>
+              </li>
+              <!-- 代表作品-->
+              <li class="l">
+                  <h6>代表作品</h6>
+                  <div class="i"><input type="text" class="input w400" name="alias" value="" placeholder="请输入代表作品" /></div>
+              </li>
+              <!-- 主要成就-->
+              <li class="l">
+                  <h6>主要成就</h6>
+                  <div class="i"><input type="text" class="input w400" name="alias" value="" placeholder="请输入主要成就" /></div>
+              </li>
+
+
+
+
+
+          </ul>
+          <div class="btn btnNY"><a href="javascript:history.go(-1);" class="btnD" data-t="n" style="float: left;">取消</a>
+            <input type="submit"class="btnA "data-t="y" value="确定" style="background:#5cacdf;" name='submit'>
+          </div>
+        </form>
+
+     
+    </div>
+  </div>
+
+
+    <style>
+      #judge{
+        display: inline-block;
+        width: 300px;;
+      }
+    </style>
+
+  <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/stage/js/custom.js"></script>
+
+  </body>
+  </html>
+</block>
