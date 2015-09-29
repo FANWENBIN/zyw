@@ -37,7 +37,8 @@ class UploadController extends Controller{
                                 )
                             );
         }else{
-            $this->ajaxReturn(array('status'=>1,'msg'=>dirname($path));
+            $a = dirname($path)
+            $this->ajaxReturn(array('status'=>1,'msg'=>$a);
         }
     }
     
