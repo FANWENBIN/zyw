@@ -58,14 +58,14 @@ class IndexController extends ComController {
         }
         $this->assign('greengroup',$greengroup); 
         //红组男演员
-        $where2['sex'] = 1;
+        $where3['sex'] = 1;
         $mangreengroup   = $actors->where($where3)->select();
         foreach($mangreengroup as $key=>$val){
             $mangreengroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
         $this->assign('mangreengroup',$mangreengroup); 
         //红组女演员
-        $where2['sex'] = 2;
+        $where3['sex'] = 2;
         $mengreengroup   = $actors->where($where3)->select();
         foreach($mengreengroup as $key=>$val){
             $mengreengroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
