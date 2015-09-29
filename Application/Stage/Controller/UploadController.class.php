@@ -25,18 +25,20 @@ class UploadController extends Controller{
         if(!is_dir(dirname($path))){
             mkdir(dirname($path),0777,true);
         }
+
         $img = file_get_contents('php://input', 'r');
         file_put_contents($path, $img);
+        
         if(is_file($path)){
             $path=trim($path,'.');
-            $this->ajaxReturn(array('status'=>0,'msg'=>'',
-                                    'data'=>array('name'=>$name,
-                                            
-                                            )
+            $this->ajaxReturn(array('status' => 0,
+                                    'msg'    =>'',
+                                    'data'   => array('name'=>$name)
                                 )
                             );
         }else{
-            $this->ajaxReturn(array('status'=>1,'msg'=>'上传失败'));
+            $a = dirname($path);
+            $this->ajaxReturn(array('status'=>1,'msg'=>$a));
         }
     }
     
