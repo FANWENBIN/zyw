@@ -27,9 +27,6 @@ class NewsController extends ComController {
 		$result = $news->where(session('condition'))->limit($Page->firstRow.','.$Page->listRows)->select();
 		$this->assign('result',$result);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
-
-
-
 		$this->assign('cur',5);
         $this->display();   
     }
