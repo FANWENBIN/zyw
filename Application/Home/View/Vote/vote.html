@@ -138,7 +138,7 @@
                 <span></span>
             </a>
             <a href="javascript:void(0);" data-i="3" class="t3">
-                <p>项目设置</p>
+                <p>出奖结果</p>
 
                 <div class="p1"></div>
                 <div class="p2"></div>
@@ -182,6 +182,44 @@
                         </volist>
                     </div>
                 </div>
+
+                <!-- 好演员-->
+                <div class="con conVote" id="J_ConVote">
+                    <div class="title">
+                        <h2>中国电视好演员评选</h2>
+                        <ul class="groupColorList" id="groupColorList">
+                            <li class="red active" data-color="redgroup">红组</li>
+                            <li class="blue" data-color="bluegroup">蓝组</li>
+                            <li class="green" data-color="greegroup">绿组</li>
+                        </ul>
+                        <ul class="groupSexList" id="groupSexList">
+                            <li class="active female" data-sex="2">女演员</li>
+                            <li class="male" data-sex="1">男演员</li>
+                        </ul>
+                    </div>
+
+
+                    <!--好演员评选-->
+                    <div class="inner clearFix" id="insertgroup">
+                        <!--<volist name="actors" id="vo">-->
+
+                        <!--<div class="item">-->
+                        <!--<div class="vote hover">-->
+                        <!--<p>扫描二维码投票</p>-->
+                        <!--<img src="{:U('Vote/code?opid='.$vo['opid'])}"/>-->
+                        <!--</div>-->
+                        <!--<div class="txt">-->
+                        <!--<p>{$vo.name}</p>-->
+                        <!--<span>当前票数：{$vo.votes}</span>-->
+                        <!--</div>-->
+                        <!--<img src="./Uploads{$vo.headimg}"/>-->
+                        <!--</div>-->
+
+
+                        <!--</volist>-->
+
+                    </div>
+                </div>
             </div>
             <div class="content content2 clearFix" style="display:none;">
                 <div class="txt">
@@ -191,112 +229,72 @@
             </div>
             <div class="content content3 clearFix" style="display:none;">
                 <div class="box">
-                    <span class="point"></span>
-
-                    <h2>中国唯一为演员专设的国家级奖项</h2>
-                    <h6>China's only national level award for the actors.</h6>
-                    <span class="line"></span>
-
-                    <div class="list clearFix">
-                        <div class="item item1">
-                            <h3>中国电视好演员(红组) </h3>
-                            <span class="l"></span>
-
-                            <p>红组候选人年龄段为55岁左右男女演员各六名<br/>中国电视好演员男女演员各一名从中产生</p>
-                        </div>
-                        <div class="item item2">
-                            <h3>中国电视好演员(蓝组)</h3>
-                            <span class="l"></span>
-
-                            <p>蓝组候选人年龄段为40岁左右男女演员各六名<br/>中国电视好演员男女演员各一名从中产生</p>
-                        </div>
-                        <div class="item item3">
-                            <h3>中国电视好演员(绿组)</h3>
-                            <span class="l"></span>
-
-                            <p>绿组候选人年龄段为18至39岁左右男女演员各六名<br/>中国电视好演员男女演员各一名从中产生</p>
-                        </div>
-                    </div>
+                    <h2>投票结果将于指定日期内公布</h2>
+                    <p>尽请期待</p>
                 </div>
             </div>
             <div class="content content4 clearFix" style="display:none;">
-                <div class="txt">
-                    <p>本年度《中国电视好演员》推选方式：联合推荐、网上公示、观众投票、评审团票决、现场揭晓，确保最大限度的公平、公正、公开,推选出众望所归的中国电视好演员！ <br/>本次中国电视好演员推选方案及推选过程，由北京市公证处全程监督，专员公正！<br/>具体步骤如下：
-                    </p>
-                    <span></span>
-                </div>
-                <div class="list clearFix">
-                    <a href="javascript:void(0);" class="item item1">
-                        <h2>联合推荐</h2>
+                <ul class="judgeRuleName clearFix" id="judgeRuleName">
+                    <li class="active">项目设置</li>
+                    <li>推选标准</li>
+                    <li>投票规则</li>
+                    <li>评选方式</li>
+                </ul>
+                <ul class="judgeRuleContent" id="judgeRuleContent">
+                    <li>
+                        <h1>中国电视好演员(红组:男女演员各一名）</h1>
+                        <p>红组候选人年龄段为55岁左右男女演员各六名,中国电视好演员男女演员各一名从中产生。</p>
 
-                        <p>“中国电视好演员”候选人将由本届《中国电视好演员推荐团》（中国十六位演员、八位导演、六位制片人、二位编剧）联合举荐；每位推荐团成员，可推荐各项候选人男女演员各一名；<br/>经《中国电视好演员》推选表彰活动组委会对推荐的人员进行汇集、审核后,形成中国电视好演员候选人名单；
-                        </p>
-                    </a>
-                    <a href="javascript:void(0);" class="item item2">
-                        <h2>网络公示</h2>
+                        <h1>中国电视好演员(蓝组:男女演员各一名） </h1>
+                        <p>蓝组候选人年龄段为40岁左右男女演员各六名，中国电视好演员男女演员各一名从中产生。</p>
+                        <h1>中国电视好演员(绿组:男女演员各一名） </h1>
+                        <p>绿组候选人年龄段为18至39岁左右男女演员各六名，中国电视好演员男女演员各一名从中产生。</p>
+                        <h1>中国电视好演员提名（三组别,男女演员共计36名）</h1>
+                        <p>入围候选人设为红绿蓝三个组别,各组别候选男女演员各六名，共计36名中国电视好演员提名荣誉获得者。
+                            <br/>从以上36名中国电视好演员提名入围者之中，最终产生本届六名中国电视好演员称号获得者。 </p>
 
-                        <p>本届《中国电视好演员推荐团》成员名单、中国电视好演员候选人名单，将由新浪网、中国电视好演员官方网站张榜公示；</p>
-                    </a>
-                    <a href="javascript:void(0);" class="item item3">
-                        <h2>观众投票</h2>
 
-                        <p>
-                            投票主体为影视界专业人士及广大电视观众，可在网络公示的三组全部候选人名单中，投票推选自己心仪的演员，每位观众可票选各组候选人男女演员各一名；按各项候选人得票多少排序，各取前六名进入最终候选名单（男女演员各6名共计36人）；<br/>进入各项前六名者，均成为中国电视好演员提名荣誉获得者。
-                        </p>
-                    </a>
-                    <a href="javascript:void(0);" class="item item4">
-                        <h2>最终票决</h2>
 
-                        <p>进入终评的中国电视好演员入围（提名荣誉获得者）候选人，由本届《中国电视好演员评审团》成员记名票决；票决出的各组别第一名为最终结局；<br/>每位评审团成员，应在中国电视好演员候选人名单中,票选各组别候选人男女演员各一名；各取头名
-                            (男女演员各三名) 共计6人。</p>
-                    </a>
-                    <a href="javascript:void(0);" class="item item5">
-                        <h2>现场揭晓</h2>
+                    </li>
+                    <li>
+                        <p>所有候选演员，均应具备做好人、演好戏、表演技能出众、职业道德良好、积极传播优秀文化等基本素质;其2014至2015年度代表作应于我国上星台播出过。<br/>
+                            中国电视好演员(红组) <br/>
+                            该演员在业界及社会德高望重，具有强烈的社会责任感，表演艺术成就突出、表演功力超群，深受广大电视观众喜爱，对我国电视艺术事业做出了较大贡献。<br/>
+                            中国电视好演员(蓝组)<br/>
+                            推要求演员具有良好的道德修养、职业素养、社会涵养，表演艺术成就突出，塑造的荧屏人物形象真实生动，受到业界及广大电视观众的肯定与赞誉。<br/>
+                            中国电视好演员(绿组) <br/>
+                            要求演员热爱生活、热爱人民、热爱时代，认真演戏、充满创新活力，所塑造的屏幕形象深受广大观众喜爱及业内好评；尊师爱友、崇尚真诚、无负面影响，具有良好的职业道德与社会涵养说明 <br/>
+                            1、凡中国电视好演员称号获得者（注：含首届《中国电视演员形象榜》金榜获得者13名：吕  中、于  洋；孙  俪、奚美娟、李雪健；倪  萍、濮存昕； 陈  好、卢  奇；佟丽娅、邓  超；归亚蕾、李立群。）均应事隔两届后具有再次参评资格。
+                            <br/>
+                            2、中国香港、澳门、台湾地区演员均按上述组别及统一标准推选参评，不另设奖项。 </p>
+                    </li>
 
-                        <p>评审团成员对票决各项提名负有保密责任，选票结果由公证员监督统计、密封保存，直到颁奖典礼现场提供其最终结果,由颁奖嘉宾现场宣读获奖者名单时，方才即时揭晓。</p>
-                    </a>
-                </div>
+                    <li>
+                       <p>  电视观众可在中国电视好演员官网网络公示的六大项全部候选人名单中，投票推选自己心仪的演员。 <br/>
+                           每位观众可票选各项候选人男女演员各一名；各榜单得票数前六名将进入最终候选名单（共计36人），获得中国电视好演员优秀演员金榜题名。</p>
+                    </li>
+
+                    <li>
+                        <p>联合推荐：“中国电视好演员”候选人将由本届《中国电视好演员推荐团》（中国十六位演员、八位导演、六位制片人、二位编剧）联合举荐；每位推荐团成员，可推荐各项候选人男女演员各一名；<br/>
+                            经《中国电视好演员》推选表彰活动组委会对推荐的人员进行汇集、审核后,形成中国电视好演员候选人名单；<br/>
+                            网上公示：本届《中国电视好演员推荐团》成员名单、中国电视好演员候选人名单，将由新浪网、中国电视好演员官方网站张榜公示；<br/>
+                            观众投票：投票主体为影视界专业人士及广大电视观众，可在网络公示的三组全部候选人名单中，投票推选自己心仪的演员，每位观众可票选各组候选人男女演员各一名；按各项候选人得票多少排序，各取前六名进入最终候选名单（男女演员各6名共计36人）；<br/>
+                            进入各项前六名者，均成为中国电视好演员提名荣誉获得者。<br/>
+                            最终票决: 进入终评的中国电视好演员入围（提名荣誉获得者）候选人，由本届《中国电视好演员评审团》成员记名票决；票决出的各组别第一名为最终结局；<br/>
+                            每位评审团成员，应在中国电视好演员候选人名单中,票选各组别候选人男女演员各一名；各取头名 (男女演员各三名) 共计6人。<br/>
+                            现场揭晓：评审团成员对票决各项提名负有保密责任，选票结果由公证员监督统计、密封保存，直到颁奖典礼现场提供其最终结果,由颁奖嘉宾现场宣读获奖者名单时，方才即时揭晓。</p>
+                    </li>
+
+
+
+
+                </ul>
             </div>
         </div>
     </div>
 
 
-    <div class="con conVote" id="J_ConVote">
-        <div class="title">
-            <h2>中国电视好演员评选</h2>
-            <ul class="groupColorList" id="groupColorList">
-                <li class="red active" data-color="redgroup">红组</li>
-                <li class="blue" data-color="bluegroup">蓝组</li>
-                <li class="green" data-color="greegroup">绿组</li>
-            </ul>
-            <ul class="groupSexList" id="groupSexList">
-                <li class="active female" data-sex="2">女演员</li>
-                <li class="male" data-sex="1">男演员</li>
-            </ul>
-        </div>
 
-
-        <!--好演员评选-->
-        <div class="inner clearFix" id="insertgroup">
-            <!--<volist name="actors" id="vo">-->
-
-            <!--<div class="item">-->
-            <!--<div class="vote hover">-->
-            <!--<p>扫描二维码投票</p>-->
-            <!--<img src="{:U('Vote/code?opid='.$vo['opid'])}"/>-->
-            <!--</div>-->
-            <!--<div class="txt">-->
-            <!--<p>{$vo.name}</p>-->
-            <!--<span>当前票数：{$vo.votes}</span>-->
-            <!--</div>-->
-            <!--<img src="./Uploads{$vo.headimg}"/>-->
-            <!--</div>-->
-
-
-            <!--</volist>-->
-
-        </div>
-    </div>
 
 
     <!--<div class="con conComment">-->
