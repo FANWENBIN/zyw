@@ -12,13 +12,17 @@ class NewsController extends ComController {
 			$map['keywords|title|content']=array('like','%'.$keywords.'%');
 
 		}
+		if(isset($_GET['type'])){
+			$map['type']=intval($_GET['type']);
+		}
 		if(!empty($map)){
 			session('condition',$map);
 		}else{
 			session('condition','');
 		}
 
-	//	$result=$news->where($map)->select();
+		$resultgroup=$news->field('count(*),type')->group('type')->order('type asc')->select();
+		$this->assign('group',$resultgroup);
 		//分页显示
 		
 		$count      = $news->where(session('condition'))->count();// 查询满足要求的总记录数
