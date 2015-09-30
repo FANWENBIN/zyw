@@ -9,7 +9,9 @@
     text-indent: 5px;
     margin-left: 15px;
 }
-
+.banner>a>img{
+    width: 100%;
+}
 .banner .digest {
     font-size: 12px;
     color: #6c6c6c;
