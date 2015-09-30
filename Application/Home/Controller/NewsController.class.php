@@ -34,7 +34,7 @@ class NewsController extends ComController {
 		 $result=$news->where('id ='.$id)->find();
 		 $this->assign('result',$result);
 		 //热点
-		 $hotnews=$news->limit('0,5')->order("instime desc")->select();
+		 $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
 		 $this->assign('hotnews',$hotnews);
 		 $this->display('news_details');
 	 }
