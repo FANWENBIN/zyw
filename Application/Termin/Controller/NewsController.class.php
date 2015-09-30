@@ -18,6 +18,8 @@ class NewsController extends ComController {
         $this->assign('news',$newsval);
         
         $this->assign('topnews',$topnews);
+        
+
         $this->display();
         
     }
