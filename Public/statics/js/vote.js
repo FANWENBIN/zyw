@@ -4,7 +4,7 @@ $(function () {
     var page = {
         init: function () {
             //$("#J_ConStars .inner .list a").hover(page.hover);
-            //$("#J_ConRule .inner .content1 .item").hover(page.hover);
+            $("#J_ConRule .inner .content1 .item").hover(page.hover);
 
             $("#J_CommentSendbox .submit").on("click", page.commentSendClick);
             $("#J_ConRule .tab a").on("click", page.ruleTabClick);
@@ -12,6 +12,7 @@ $(function () {
             $("#groupSexList").on("click","li",page.loadStar);
 
             $("#conStarGroup").on("click","li",page.swtichTab);
+            $("#judgeRuleName").on("click","li",page.swtichRule);
             page.initStar()
         },
         ruleTabClick: function () {
@@ -20,6 +21,13 @@ $(function () {
             $("#J_ConRule .inner .content" + i).show();
             $("#J_ConRule .tab a.c").removeClass("c");
             $(this).addClass("c");
+        },
+        swtichRule: function(){
+            $("#judgeRuleName").find("li").removeClass("active");
+            $(this).addClass("active");
+            var _index = $(this).index();
+            $("#judgeRuleContent").find("li").hide();
+            $("#judgeRuleContent").find("li").eq(_index).show()
         },
         hover: function (e) {
             if (e.type == "mouseenter") {
