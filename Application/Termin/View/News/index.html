@@ -33,7 +33,8 @@
     <ul class="news">
 
     <volist name="news" id="vo">
-      <li data-para="1">
+  
+      <li data-para="{$vo.id}">
         <img src="./Uploads{$vo.phoneimg}" width = 130 height= 95 alt=""/>
         <div>
           <p>{:newtype($vo.type)}</p>
@@ -44,6 +45,7 @@
           </div>
         </div>
       </li>
+
     </volist>
 
 

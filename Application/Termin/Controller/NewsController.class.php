@@ -47,6 +47,11 @@ class NewsController extends ComController {
 	date:2015年9月28日14:18:16
     */
     public function newsdetail(){
+        $id   = I('get.newid','','trim');
+        $news = M('news');
+        $newsinfo = $news->where('id='.$id)->find();
+        $newsinfo['content'] =html_entity_decode($newsinfo['content']);
+        $this->assign('newsval',$newsinfo);
     	$this->display();
     }
 
