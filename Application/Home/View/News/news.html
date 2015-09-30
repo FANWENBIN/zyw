@@ -54,18 +54,58 @@
 
 
     <div class="con conTopbanner">
-        <img src="__PUBLIC__/statics/images/banner-news.jpg" id="imgBanner" />
+        <div class="imgList" id="imgList">
+            <div class="img">
+                <img src="__PUBLIC__/statics/images/banner-news.jpg"/>
+            </div>
+            <div class="img">
+                <img src="__PUBLIC__/statics/images/banner-news.jpg"/>
+            </div>
+            <div class="img">
+                <img src="__PUBLIC__/statics/images/banner-news.jpg"/>
+            </div>
+            <div class="img">
+                <img src="__PUBLIC__/statics/images/banner-news.jpg"/>
+            </div>
+        </div>
+
+
         <div class="tabctrl">
             <span class="text">大黑牛大黑牛大黑牛牛牛大黑牛大黑牛大黑牛大黑牛大黑牛 </span>
+
+<<<<<<< HEAD
             <div class="bannerlist" id="bannerList">
-            <ul class="inner">
+                <ul class="inner">
+                    <li class="active first"><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/>
+
+                        <div class="frame"></div>
+                    </li>
+                    <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/>
+
+                        <div class="frame"></div>
+                    </li>
+                    <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/>
+
+                        <div class="frame"></div>
+                    </li>
+                    <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/>
+
+                        <div class="frame"></div>
+                    </li>
+                    <!--<li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>-->
+                </ul>
+            </div>
+=======
+            <ul class="bannerlist" id="bannerList">
                 <li class="active first"><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>
                 <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>
                 <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>
                 <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>
-                <!--<li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>-->
+                <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>
+                <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>
+                <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>
             </ul>
-            </div>
+>>>>>>> 2ad15c893d2f04bfd41602418663882190074897
 
         </div>
 	</div>
@@ -81,7 +121,7 @@
             <div class="inner clearFix">
 			<volist name="resultX" id="xlist" key="k" offset="0" length="5" empty="暂时没有数据">
 			
-				<a href="#" class="item cover">
+				<a href="{:U('News/news_details?id='.$xlist['id'])}" class="item cover">
                     <div class="txt">
                         <h3><?php echo strlen($xlist['title'])>30?mb_substr($xlist['title'],0,24,'utf-8').'......':$xlist['title'] ?></h3>
                         <span>{$xlist['title']|date='Y-m-d H:i:s',###}</span>
@@ -94,7 +134,7 @@
 			<div class="item more">
 				<ul>
 					<volist name="resultX" id="xlist" key="k" offset="5" length="8"  empty="暂时没有数据">
-						<li><a href="#"><?php echo strlen($xlist['title'])>30?mb_substr($xlist['title'],0,24,'utf-8').'......':$xlist['title'] ?></a><span><?php echo floor((time()-$xlist['instime'])/3600)?>小时前</span></li>
+						<li><a href="{:U('News/news_details?id='.$xlist['id'])}"><?php echo strlen($xlist['title'])>30?mb_substr($xlist['title'],0,24,'utf-8').'......':$xlist['title'] ?></a><span><?php echo floor((time()-$xlist['instime'])/3600)?>小时前</span></li>
 					</volist>
 				</ul>
 			</div>
@@ -109,7 +149,7 @@
             </div>
             <div class="inner clearFix">
 				<volist name="resultD" id="dlist" key="k" offset="0" length="1"  empty="暂时没有数据">
-					<a href="#" class="l">
+					<a href="{:U('News/news_details?id='.$dlist['id'])}" class="l">
 						<p><?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></p>
 						<img  src="./Uploads{$dlist.imgpath}" />
 						<sub class="hover"></sub>
@@ -118,7 +158,7 @@
                 
                 <div class="r clearFix">
 					<volist name="resultD" id="dlist" key="k" offset="1" length="8" >
-						<a href="#" class="item">
+						<a href="{:U('News/news_details?id='.$dlist['id'])}" class="item">
 							<p><?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></p>
 							<img  src="./Uploads{$dlist.imgpath}" />
 							<sub class="hover"></sub>
@@ -134,10 +174,10 @@
             </div>
             <div class="inner clearFix">
 				<volist name="resultM" id="mlist" key="k" offset="0" length="3"  empty="暂时没有数据">
-					<a href="#" class="item cover">
+					<a href="{:U('News/news_details?id='.$mlist['id'])}" class="item cover">
 						<div class="txt">
 							<h3><?php echo strlen($mlist['title'])>30?mb_substr($mlist['title'],0,24,'utf-8').'......':$mlist['title'] ?></h3>
-							<span>{$mlist['title']|date='Y-m-d H:i:s',###}</span>
+							<span>{$mlist['instime']|date='Y-m-d H:i:s',###}</span>
 						</div>
 						<img  src="./Uploads{$mlist.imgpath}" />
 						<sub class="hover"></sub>
@@ -145,7 +185,6 @@
 				</volist>
 
 		</div>
-
 
 </div>
 <!--webmain end-->

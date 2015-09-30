@@ -27,7 +27,15 @@ class NewsController extends ComController {
 		//艺术中国梦end
 		$this->display('news');
     }
-	 public function details(){
-		 $this->display('news-details');
+	 public function news_details(){
+		 //内容
+		 $id=intval($_GET['id']);
+		 $news=  M('news');
+		 $result=$news->where('id ='.$id)->find();
+		 $this->assign('result',$result);
+		 //热点
+		 $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
+		 $this->assign('hotnews',$hotnews);
+		 $this->display('news_details');
 	 }
 }
