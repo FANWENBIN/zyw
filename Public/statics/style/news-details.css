@@ -110,7 +110,6 @@
 .webmain .conTopbanner img { display: block; width: 100%; height: 470px;}
 .webmain .content {
     width: 770px;
-    height: 1000px;
     float: left;
     word-wrap: break-word;
     overflow: hidden;
@@ -119,7 +118,6 @@
     float: left;
     /*background: #eee;*/
     width: 380px;
-    height: 2000px;
 }
 .webmain .con .title{
     float: left;
