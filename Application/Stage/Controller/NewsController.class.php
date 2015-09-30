@@ -12,20 +12,24 @@ class NewsController extends ComController {
 			$map['keywords|title|content']=array('like','%'.$keywords.'%');
 
 		}
+		if(isset($_GET['type'])){
+			$map['type']=intval($_GET['type']);
+		}
 		if(!empty($map)){
 			session('condition',$map);
 		}else{
 			session('condition','');
 		}
 
-	//	$result=$news->where($map)->select();
+		$resultgroup=$news->field('count(*),type')->group('type')->order('type asc')->select();
+		$this->assign('group',$resultgroup);
 		//分页显示
 		
 		$count      = $news->where(session('condition'))->count();// 查询满足要求的总记录数
 		$Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$show       = $Page->show();// 分页显示输出
 		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-		$result = $news->where(session('condition'))->limit($Page->firstRow.','.$Page->listRows)->order('instime desc')->select();
+		$result = $news->where(session('condition'))->limit($Page->firstRow.','.$Page->listRows)->order(array('order'=>'desc','instime'=>'desc'))->select();
 		$this->assign('result',$result);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
 		$this->assign('cur',5);
@@ -33,7 +37,6 @@ class NewsController extends ComController {
     }
 	public function add(){
 		$news=  M('news');
-		$_POST['instime']=time();
 		if($_GET['id']>0){
 			$id=$_GET['id'];
 			$data=$news->where('id ='.$id)->find();
@@ -45,6 +48,7 @@ class NewsController extends ComController {
 					$id=intval($_POST['hid_id']);
 					$result=$news->where('id ='.$id)->save();	
 				}else{
+					$_POST['instime']=time();
 					$result=$news->add();	
 				}
 				if($result){

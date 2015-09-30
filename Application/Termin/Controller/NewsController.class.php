@@ -13,7 +13,7 @@ class NewsController extends ComController {
         $newsval    = $news->where('`status` = 1 and `order` != 2')->order('`order` desc,instime desc')->select();
        
         //首页置顶新闻
-        $topnews = $news->where('`order` = 2')->find();
+        $topnews = $news->where('`order` = 2')->order('instime desc')->find();
       
         $this->assign('news',$newsval);
         
@@ -31,7 +31,7 @@ class NewsController extends ComController {
         $newsval    = $news->where('`status` = 1 and `order` != 2 and type = 1')->order('`order` desc,instime desc')->select();
        
         //置顶新闻
-        $topnews = $news->where('`order` = 2')->find();
+        $topnews = $news->where('`order` = 2 and type = 1')->order('instime desc')->find();
       
         $this->assign('news',$newsval);
         
@@ -47,7 +47,7 @@ class NewsController extends ComController {
         //新闻资讯
         $newsval    = $news->where('`status` = 1 and `order` != 2 and type = 2')->order('`order` desc,instime desc')->select();
         //置顶新闻
-        $topnews = $news->where('`order` = 2')->find();
+        $topnews = $news->where('`order` = 2 and type = 2')->order('instime desc')->find();
         $this->assign('news',$newsval);
         
         $this->assign('topnews',$topnews);
@@ -62,7 +62,7 @@ class NewsController extends ComController {
         //新闻资讯
         $newsval    = $news->where('`status` = 1 and `order` != 2 and type = 3')->order('`order` desc,instime desc')->select();
         //置顶新闻
-        $topnews = $news->where('`order` = 2')->find();
+        $topnews = $news->where('`order` = 2 and type = 3')->find();
       
         $this->assign('news',$newsval);
         $this->assign('topnews',$topnews);
@@ -76,7 +76,8 @@ class NewsController extends ComController {
         $id   = I('get.newid','','trim');
         $news = M('news');
         $newsinfo = $news->where('id='.$id)->find();
-        $newsinfo['content'] =html_entity_decode($newsinfo['content']);
+        //取出数据库内容详情并Convert all HTML entities to their applicable characters
+        $newsinfo['content'] =html_entity_decode($newsinfo['content']);  
         $this->assign('newsval',$newsinfo);
     	$this->display();
     }
