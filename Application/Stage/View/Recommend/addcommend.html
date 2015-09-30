@@ -139,21 +139,12 @@
                         <div class="l worksList">
                             <h6>代表作</h6>
                             <div class="i" id="J_WorksList">
-                                <div class="item clearFix">
-                                    <div class="i w230 mr0"><input type="text" class="input w200" name="alias" value="" placeholder="请输入代表作名字"/></div>
-                                    <div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl1" cut="true" width="280" height="310" name="photo1"/></div>
+                                 <div class="item clearFix" data-index="1">
+                                    <div class="i w230 mr0"><input type="text" class="input w200" name="title[{$i}]" value="{$vo.title}" placeholder="请输入代表作名字"/></div>
+                                    <div class="i w350"><input type="text" value="{$vo.img}" class="js_imgupload" id="imgurl1" cut="true" width="280" height="310" name="photo[{$i}]"/></div>
                                     <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>
                                 </div>
-                                <div class="item clearFix">
-                                    <div class="i w230 mr0"><input type="text" class="input w200" name="alias" value="" placeholder="请输入代表作名字"/></div>
-                                    <div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="280" height="310" name="photo1"/></div>
-                                    <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>
-                                </div>
-                                <div class="item clearFix">
-                                    <div class="i w230 mr0"><input type="text" class="input w200" name="alias" value="" placeholder="请输入代表作名字"/></div>
-                                    <div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl3" cut="true" width="280" height="310" name="photo1"/></div>
-                                    <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>
-                                </div>
+                               
                                 <a href="javascript:void(0);" class="btnB btnSmall" id="J_AppendWorks">添加代表作</a>
                             </div>
                         </div>
@@ -191,6 +182,41 @@
     <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/lang/zh-cn/zh-cn.js"></script>
     <!--富文本编辑器 end-->
+ <script>
+
+
+        var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=stage"))}";
+        var imgUploadFile = '__ROOT__/Uploads';
+        var swfUrl = "__ROOT__/Public/stage/swf";
+
+        $(function(){
+            $(".worksList").on("click",".del",function(){
+                $(this).parents(".item").remove();
+            });
+
+
+            //动态添加代表作
+            var J_AppendWorks =  $("#J_AppendWorks"),
+                J_WorksList = $("#J_WorksList");
+
+            J_AppendWorks.on("click", appendWorks);
+            function appendWorks(){
+                var _item = J_WorksList.find(".item"), _index = 1;
+                if(_item.length > 0){
+                    _index = +_item.eq(_item.length - 1).data("index");
+                    _index ++;
+                }
+
+                var d = new Date().getTime();
+                J_AppendWorks.before('<div class="item clearFix" data-index="'+ _index +'">'+
+                        '<div class="i w230 mr0"><input type="text" class="input w200" name="title['+ _index +']" value="" placeholder="请输入代表作名字"/></div>'+
+                        '<div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl'+ d +'" cut="true" width="280" height="310" name="photo['+ _index +']"/></div>'+
+                        '<div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>'+
+                        '</div>');
+                $("#imgurl" + d).imgUploadInit();
+            }
+        });
+    </script>
 
 
     </body>
