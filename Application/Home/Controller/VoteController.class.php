@@ -11,7 +11,7 @@ class VoteController extends ComController {
         $this->assign('actors',$actorsval);
 
         //形象指数
-        $actorsvalue = $actors->where($where)->order('votes desc')->limit('0,4')->select();
+        $actorsvalue = $actors->where($where)->order('votes desc')->limit('0,6')->select();
         $this->assign('list',$actorsvalue);
 
         $recommend = M('recommend');
