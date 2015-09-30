@@ -8,8 +8,15 @@ class NewsController extends ComController {
     date：2015年9月28日14:09:19
     */
     public function index (){
-        
-       $this->display();
+        $news = M('news');
+        //首页新闻资讯
+        $newsval    = $news->where('status = 1 and order != 2')->order('order desc')->select();
+        //首页置顶新闻
+        $topnews = $news->where('`order` = 2')->find();
+      
+        $this->assign('news',$newsval);
+        $this->assign('topnews',$topnews);
+        $this->display();
         
     }
    /*粉丝焦点
