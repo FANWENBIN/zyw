@@ -76,7 +76,8 @@ class NewsController extends ComController {
         $id   = I('get.newid','','trim');
         $news = M('news');
         $newsinfo = $news->where('id='.$id)->find();
-        $newsinfo['content'] =html_entity_decode($newsinfo['content']);
+        //取出数据库内容详情并Convert all HTML entities to their applicable characters
+        $newsinfo['content'] =html_entity_decode($newsinfo['content']);  
         $this->assign('newsval',$newsinfo);
     	$this->display();
     }
