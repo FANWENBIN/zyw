@@ -67,40 +67,59 @@ class RecommendController extends ComController {
         if(empty($submit)){
             $id = I('get.id');
             $commendval = $commend->where('id='.$id)->find();
+            $production = M('recommend_production')->where('recommendid='.$id)->select();
             $this->assign('commendval',$commendval);
+            $this->assign('production',$production);
             //var_dump($commendval);
             $this->display();
         }else{
+            $production   = M('recommend_production');
             $data['name'] = I('post.name');
             $data['type'] = I('post.type');
-            $id     = I('post.recommendid');
-            $this->checkDump($data);
-            $upload = new \Think\Upload();// 实例化上传类   
-            $upload->maxSize   =     3145728 ;// 设置附件上传大小   
-            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
-            $upload->savePath  =      '/commend/images/'; // 设置附件上传目录    
-            // 上传文件   
-            $info   =   $upload->upload();   
-            //$this->error($upload->getError()); 
-           //var_dump($info);die();
-            if(!$info) {// 上传错误提示错误信息      
-               
-                $sign = $commend->where('id='.$id)->save($data);
-                if($sign){
-                    
-                    $this->success('修改成功',U('Recommend/index'));
-                }else{
-                    $this->error('没做任何修改');
-                }
-            }else{
-                $data['img'] =  $info['photo']['savepath'].$info['photo']['savename'];
-                $sign = $commend->where('id='.$id)->save($data);
-                if($sign){
-                    $this->success('修改成功',U('Recommend/index'));
-                }else{
-                    $this->error('没做任何修改');
+            $data['nationality'] = I('post.nationality');
+            $data['national']    = I('post.national');
+            $data['height']      = I('post.height');
+            $data['weight']      = I('post.weight');
+            $data['address']     = I('post.address');
+            $data['birthday']    = I('post.birthday');
+            $data['job']         = I('post.job');
+            $data['school']      = I('post.job');
+            $data['achievement'] = I('post.achievement');
+            $data['img']         = I('post.photo1');
+            $title = I('post.title');
+            $img   = I('post.photo');
+            
+            $id = I('post.recommendid');
+            $model = M();                     //开启事物
+            $model->startTrans();
+            $Duck = true;
+           
+            
+            $production->where('recommendid='.$id)->delete();
+            foreach($title as $key=>$val){
+                $c['title'] = $val;
+                $c['img']   = $img[$key];
+                $c['recommendid'] = $id;
+                $sign = $production->add($c);
+                if(!$sign){
+                    $Duck = false;
                 }
             }
+           
+
+            $sign = $commend->where('id='.$id)->save($data);
+            if($sign === false){
+                    $Duck = false;
+            }
+
+            if($Duck){
+                $model->commit();
+                $this->success('修改成功',U('Recommend/index'));
+            }else{
+                $model->rollback();
+                $this->error('没做任何修改');
+            }
+
         }
         
     }

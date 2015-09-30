@@ -44,6 +44,7 @@
                     <h1>请填写基本信息</h1>
                 </div>
                 <form method="post" action="{:U('Recommend/upcommend')}" enctype="multipart/form-data">
+                    <input type="hidden" name="recommendid" value="{$commendval.id}">
                     <fieldset>
                         <!-- 头像-->
                         <div class="l">
@@ -56,18 +57,18 @@
                         <!-- 姓名-->
                         <div class="l">
                             <h6>姓名</h6>
-                            <div class="i"><input type="text" class="input w200" value="" placeholder="请输入姓名" name="name"/></div>
+                            <div class="i"><input type="text" value="{$commendval.name}" class="input w200" value="" placeholder="请输入姓名" name="name"/></div>
                         </div>
                         <!-- 分组-->
                         <div class="l">
                             <h6>代表分组</h6>
 
                             <div class="i w150">
-                                <select style="display: none;" >
-                                    <option>艺术家</option>
-                                    <option>导演</option>
-                                    <option>制片人</option>
-                                    <option>编剧</option>
+                                <select style="display: none;" name="type">
+                                    <option value="1"<if condition="$commendval.type eq 1">selected</if> >艺术家</option>
+                                    <option value="2"<if condition="$commendval.type eq 2">selected</if>>导演</option>
+                                    <option value="3"<if condition="$commendval.type eq 3">selected</if>>制片人</option>
+                                    <option value="4"<if condition="$commendval.type eq 4">selected</if>>编剧</option>
                                 </select>
                             </div>
                         </div>
@@ -75,21 +76,21 @@
                         <div class="l">
                             <h6>国籍</h6>
 
-                            <div class="i"><input type="text" class="input w200" value="" name="national"
+                            <div class="i"><input type="text" class="input w200" value="{$commendval.nationality}" name="national"
                                                   placeholder="请输入国籍"/></div>
                         </div>
                         <!-- 民族-->
                         <div class="l">
                             <h6>民族</h6>
 
-                            <div class="i"><input type="text" class="input w200" name="nation" value=""
+                            <div class="i"><input type="text" class="input w200" name="nation" value="{$commendval.nation}"
                                                   placeholder="请输入民族"/></div>
                         </div>
                         <!-- 身高-->
                         <div class="l">
                             <h6>身高</h6>
 
-                            <div class="i"><input type="text" class="input w200" name="height" value=""
+                            <div class="i"><input type="text" class="input w200" name="height" value="{$commendval.height}"
                                                   placeholder="请输入身高，如180"/>CM
                             </div>
                         </div>
@@ -97,7 +98,7 @@
                         <div class="l">
                             <h6>体重</h6>
 
-                            <div class="i"><input type="text" class="input w200" name="weight" value=""
+                            <div class="i"><input type="text" class="input w200" name="weight" value="{$commendval.weight}"
                                                   placeholder="请输入体重，如50"/>KG
                             </div>
                         </div>
@@ -105,7 +106,7 @@
                         <div class="l">
                             <h6>出生地址</h6>
 
-                            <div class="i"><input type="text" class="input" value="" name="address"
+                            <div class="i"><input type="text" class="input" value="{$commendval.address}" name="address"
                                                   placeholder="请输入地址"/>
                             </div>
                         </div>
@@ -114,58 +115,56 @@
                             <h6>出生年月</h6>
 
                             <div class="i w200">
-                                <input type="text" class="js_date" data-time="false" value="1990-2-20|23:15" name="birthday"/>
+                                <input type="text" class="js_date" data-time="false" value="{:winter_date($commendval['birthday'])}" name="birthday"/>
                             </div>
                         </div>
                         <!-- 职业-->
                         <div class="l">
                             <h6>职业</h6>
-                            <div class="i"><input type="text" class="input w200" name="alias" value="" placeholder="请输入职业"/>
+                            <div class="i"><input type="text" class="input w200" name="alias" value="{$commendval.job}" placeholder="请输入职业"/>
                             </div>
                         </div>
                         <!-- 毕业院校-->
                         <div class="l">
                             <h6>毕业院校</h6>
 
-                            <div class="i"><input type="text" class="input w300" name="alias" value=""
+                            <div class="i"><input type="text" class="input w300" name="alias" value="{$commendval.school}"
                                                   placeholder="请输入毕业院校"/></div>
                         </div>
                         <!-- 主要成就-->
                         <div class="l">
                             <h6>主要成就</h6>
-                            <div class="i"><input type="text" class="input w400" name="alias" value=""  placeholder="请输入主要成就"/></div>
+                            <div class="i"><input type="text" class="input w400" name="alias" value="{$commendval.achievement}"  placeholder="请输入主要成就,请用、分开"/></div>
                         </div>
+
                         <div class="l worksList">
                             <h6>代表作</h6>
                             <div class="i" id="J_WorksList">
-                                <div class="item clearFix">
-                                    <div class="i w230 mr0"><input type="text" class="input w200" name="alias" value="" placeholder="请输入代表作名字"/></div>
-                                    <div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl1" cut="true" width="280" height="310" name="photo1"/></div>
+                            <volist name="production" id = "vo">
+                                <div class="item clearFix" data-index="1">
+                                    <div class="i w230 mr0"><input type="text" class="input w200" name="title[{$i}]" value="{$vo.title}" placeholder="请输入代表作名字"/></div>
+                                    <div class="i w350"><input type="text" value="{$vo.img}" class="js_imgupload" id="imgurl1" cut="true" width="280" height="310" name="photo[{$i}]"/></div>
                                     <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>
                                 </div>
-                                <div class="item clearFix">
-                                    <div class="i w230 mr0"><input type="text" class="input w200" name="alias" value="" placeholder="请输入代表作名字"/></div>
-                                    <div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="280" height="310" name="photo1"/></div>
-                                    <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>
-                                </div>
-                                <div class="item clearFix">
-                                    <div class="i w230 mr0"><input type="text" class="input w200" name="alias" value="" placeholder="请输入代表作名字"/></div>
-                                    <div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl3" cut="true" width="280" height="310" name="photo1"/></div>
-                                    <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>
-                                </div>
+                            </volist>
+
+
+
                                 <a href="javascript:void(0);" class="btnB btnSmall" id="J_AppendWorks">添加代表作</a>
                             </div>
+
                         </div>
+ <!--主提交按钮-->
+            <div class="btnCon btnCon2">
+                <a href="#" class="btnD">取消</a>
+                <input type="submit" class="btnA" value="提交" name="submit"/>
+            </div>
                     </fieldset>
                 </form>
             </div>
 
 
-            <!--主提交按钮-->
-            <div class="btnCon btnCon2">
-                <a href="#" class="btnD">取消</a>
-                <input type="submit" class="btnA" value="提交" />
-            </div>
+           
 
 
         </div>
@@ -203,14 +202,22 @@
             });
 
 
+            //动态添加代表作
+            var J_AppendWorks =  $("#J_AppendWorks"),
+                J_WorksList = $("#J_WorksList");
 
-            var J_AppendWorks =  $("#J_AppendWorks");
             J_AppendWorks.on("click", appendWorks);
             function appendWorks(){
+                var _item = J_WorksList.find(".item"), _index = 1;
+                if(_item.length > 0){
+                    _index = +_item.eq(_item.length - 1).data("index");
+                    _index ++;
+                }
+
                 var d = new Date().getTime();
-                J_AppendWorks.before('<div class="item clearFix">'+
-                        '<div class="i w230 mr0"><input type="text" class="input w200" name="alias" value="" placeholder="请输入代表作名字"/></div>'+
-                        '<div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl'+ d +'" cut="true" width="280" height="310" name="photo15255"/></div>'+
+                J_AppendWorks.before('<div class="item clearFix" data-index="'+ _index +'">'+
+                        '<div class="i w230 mr0"><input type="text" class="input w200" name="title['+ _index +']" value="" placeholder="请输入代表作名字"/></div>'+
+                        '<div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl'+ d +'" cut="true" width="280" height="310" name="photo['+ _index +']"/></div>'+
                         '<div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>'+
                         '</div>');
                 $("#imgurl" + d).imgUploadInit();
