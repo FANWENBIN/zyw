@@ -33,7 +33,6 @@ class NewsController extends ComController {
     }
 	public function add(){
 		$news=  M('news');
-		$_POST['instime']=time();
 		if($_GET['id']>0){
 			$id=$_GET['id'];
 			$data=$news->where('id ='.$id)->find();
@@ -45,6 +44,7 @@ class NewsController extends ComController {
 					$id=intval($_POST['hid_id']);
 					$result=$news->where('id ='.$id)->save();	
 				}else{
+					$_POST['instime']=time();
 					$result=$news->add();	
 				}
 				if($result){
