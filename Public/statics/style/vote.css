@@ -74,8 +74,9 @@
 .webmain .conRule .inner .content1 .r .in .item4 .head span { background: url(../images/mask_vote_head4.png);}
 .webmain .conRule .inner .content1 .r .in .item5 .head span { background: url(../images/mask_vote_head5.png);}
 .webmain .conRule .inner .content1 .r .in .item6 .head span { background: url(../images/mask_vote_head6.png);}
-.webmain .conRule .inner .content1 .r .in .item .vote { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2; display: none;}
-.webmain .conRule .inner .content1 .r .in .item .vote img { width: 100px; height: 100px; display: block; position: absolute; left: 50%; top: 80px; margin-left: -50px;}
+.webmain .conRule .inner .content1 .r .in .item .vote { position: absolute; left: 0; top: 0; width: 100%; height: 100%;background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0); z-index: 2; display: block;filter: alpha(opacity=0)  progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);opacity: 0}
+.webmain .conRule .inner .content1 .r .in .item .vote:hover{background: url("../images/space.png") 0 0 repeat; ;background: rgba(0,0,0,0.6);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);opacity: 1}
+.webmain .conRule .inner .content1 .r .in .item .vote img { width: 100px; height: 100px; display: block; ; left: 50%; top: 80px; margin-left: 20px;}
 .webmain .conRule .inner .content1 .r .in .item .vote p { color: #fff; font-size: 12px; line-height: 18px; text-align: center; display: block; padding-top: 50px;}
 
 .webmain .conRule .inner .content2 { padding-top: 38px;}
