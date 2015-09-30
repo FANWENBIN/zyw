@@ -32,18 +32,18 @@
     </div>
     <ul class="news">
 
-
+    <volist name="news" id="vo">
       <li data-para="1">
-        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
+        <img src="./Uploads{$vo.phoneimg}" width = 130 height= 95 alt=""/>
         <div>
-          <p>粉丝焦点</p>
-          <h2>李冰冰解密贫困女星奋斗史</h2>
+          <p>{:newtype($vo.type)}</p>
+          <h2>{$vo.title}</h2>
           <div class="bottom-info">
-            <p class="date">2015-9-20</p><span class="recommend"></span>
+            <p class="date">{$vo.instime|date="Y-m-d",###}</p><span class="recommend"></span>
           </div>
         </div>
       </li>
-
+    </volist>
 
 
     </ul>
