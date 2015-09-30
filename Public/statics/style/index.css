@@ -104,31 +104,33 @@
 .webmain .conStars {}
 .webmain .conStars .title h2 { width: 146px; background-position: 0 -180px;}
 .webmain .conStars .inner .l { width: 380px; height: 430px; overflow: hidden; float: left; position: relative; display: block;}
-.webmain .conStars .inner .l p { position: absolute; left: 0; bottom: 0; width: 100%; height: 55px; background: rgba(0,0,0,0.6); color: #fff; font-size: 18px; line-height: 55px; text-align: center; z-index: 2;}
+.webmain .conStars .inner .l p { position: absolute; left: 0; bottom: 0; width: 100%; height: 55px; background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000); color: #fff; font-size: 18px; line-height: 55px; text-align: center; z-index: 2;}
 .webmain .conStars .inner .l img { display: block; width: 380px; height: 430px;}
-.webmain .conStars .inner .l .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+.webmain .conStars .inner .l .hover { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0);}
+.webmain .conStars .inner .l .hover:hover{background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
 .webmain .conStars .inner .r { float: left; width: 820px; height: 430px; overflow: hidden;}
 .webmain .conStars .inner .r .item { width: 175px; height: 200px; float: left; margin: 0 0 30px 30px; overflow: hidden; position: relative; display: block;}
 .webmain .conStars .inner .r .item img { display: block; width: 175px; height: 200px;}
-.webmain .conStars .inner .r .item p { position: absolute; left: 0; bottom: 0; width: 100%; height: 36px; line-height: 36px; background: rgba(0,0,0,0.6); color: #fff; font-size: 14px; text-align: center; z-index: 2;}
-.webmain .conStars .inner .r .item .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
-
+.webmain .conStars .inner .r .item p { position: absolute; left: 0; bottom: 0; width: 100%; height: 36px; line-height: 36px; background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0.6); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);color: #fff; font-size: 14px; text-align: center; z-index: 2;}
+.webmain .conStars .inner .r .item .hover { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0);}
+.webmain .conStars .inner .r .item .hover:hover{background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0.34); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000)}
 .webmain .conStage {}
 .webmain .conStage .title h2 { width: 166px; background-position: 0 -240px;}
 .webmain .conStage .inner { width: 1230px; margin-left: -30px;}
 .webmain .conStage .inner .item { width: 175px; height: 200px; float: left; margin: 0 0 30px 30px; overflow: hidden; position: relative; display: block;}
 .webmain .conStage .inner .item img { display: block; width: 175px; height: 200px;}
-.webmain .conStage .inner .item p { position: absolute; left: 0; bottom: 0; width: 100%; height: 36px; line-height: 36px; background: rgba(0,0,0,0.6); color: #fff; font-size: 14px; text-align: center; z-index: 2;}
-.webmain .conStage .inner .item .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
-
+.webmain .conStage .inner .item p { position: absolute; left: 0; bottom: 0; width: 100%; height: 36px; line-height: 36px;background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000); color: #fff; font-size: 14px; text-align: center; z-index: 2;}
+.webmain .conStage .inner .item .hover { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%;background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0);}
+.webmain .conStage .inner .item .hover:hover{background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000)}
 .webmain .conVideo {}
 .webmain .conVideo .title h2 { width: 149px; background-position: 0 -300px;}
 .webmain .conVideo .inner .group { float: left; width: 380px; overflow: hidden; margin-left: 30px;}
 .webmain .conVideo .inner .group.first { margin-left: 0;}
 .webmain .conVideo .inner .group .cover { margin-bottom: 10px; width: 380px; height: 250px; overflow: hidden; position: relative; display: block;}
-.webmain .conVideo .inner .group .cover .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+.webmain .conVideo .inner .group .cover .hover { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0);}
+.webmain .conVideo .inner .group .cover .hover:hover{background: url("../images/space.png") 0 0 repeat;  background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
 .webmain .conVideo .inner .group .cover img { display: block; width: 380px; height: 250px;}
-.webmain .conVideo .inner .group .cover .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 12px 10px 10px 10px; background: rgba(0,0,0,0.68); width: 360px; z-index: 2;}
+.webmain .conVideo .inner .group .cover .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 12px 10px 10px 10px;background: url("../images/space.png") 0 0 repeat;  background: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000); width: 360px; z-index: 2;}
 .webmain .conVideo .inner .group .cover .txt h3 { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal;}
 .webmain .conVideo .inner .group .cover .txt span { color: #fff; font-size: 12px; line-height: 18px; opacity: 0.7;}
 .webmain .conVideo .inner .group ul li { display: block; line-height: 20px; height: 20px; overflow: hidden; position: relative; padding-right: 100px; padding: 5px 0;}
@@ -138,14 +140,15 @@
 .webmain .conYoulike { margin-bottom: 0;}
 .webmain .conYoulike .title h2 { width: 166px; background-position: 0 -360px;}
 .webmain .conYoulike .inner .l { width: 380px; height: 310px; overflow: hidden; float: left; position: relative; display: block;}
-.webmain .conYoulike .inner .l .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
+.webmain .conYoulike .inner .l .hover { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0);}
+.webmain .conYoulike .inner .l .hover:hover{background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
 .webmain .conYoulike .inner .l img { display: block; width: 380px; height: 310px;}
-.webmain .conYoulike .inner .l .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 12px 10px 10px 10px; background: rgba(0,0,0,0.6); width: 360px; z-index: 2;}
+.webmain .conYoulike .inner .l .txt {background: url("../images/space.png") 0 0 repeat; position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 12px 10px 10px 10px; background: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000); width: 360px; z-index: 2;}
 .webmain .conYoulike .inner .l .txt h3 { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal;}
 .webmain .conYoulike .inner .r { float: left; width: 820px; height: 310px; overflow: hidden;}
 .webmain .conYoulike .inner .r .item { width: 175px; height: 140px; float: left; margin: 0 0 30px 30px; overflow: hidden; position: relative;}
 .webmain .conYoulike .inner .r .item img { display: block; width: 175px; height: 140px;}
-.webmain .conYoulike .inner .r .item p { position: absolute; left: 0; bottom: 0; width: 155px; height: 36px; line-height: 36px; background: rgba(0,0,0,0.6); color: #fff; font-size: 14px; padding: 0 10px; z-index: 2;}
-.webmain .conYoulike .inner .r .item .hover { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.34);}
-
+.webmain .conYoulike .inner .r .item p { position: absolute; left: 0; bottom: 0; width: 155px; height: 36px; line-height: 36px;background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);  color: #fff; font-size: 14px; padding: 0 10px; z-index: 2;}
+.webmain .conYoulike .inner .r .item .hover { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%;background: url("../images/space.png") 0 0 repeat;  background: rgba(0,0,0,0);}
+.webmain .conYoulike .inner .r .item .hover:hover{background: url("../images/space.png") 0 0 repeat; background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000); }
 
