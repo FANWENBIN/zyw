@@ -22,11 +22,11 @@
   </header>
   <div class="content">
     <div class="banner">
-      <img src="__PUBLIC__/termin/img/pic_news_big.jpg" alt=""/>
+      <img src="./Uploads{$topnews.topimg}" alt=""/>
       <div class="padding">
-        <p><img src="__PUBLIC__/termin/img/icon_hot_news.jpg" width="25" height="16" alt=""/><span class="title">"大黑牛"李晨演喜剧偷师啥一圈里</span></p>
-        <span class="digest">新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要新闻摘要</span>
-        <p>2015-9-20 15:30 </p>
+        <p><img src="__PUBLIC__/termin/img/icon_hot_news.jpg" width="25" height="16" alt=""/><span class="title">{$topnews.title}</span></p>
+        <span class="digest">{$topnews.digest}</span>
+        <p>{$topnews.instime|date="Y-m-d H:i:s",###}</p>
       </div>
 
     </div>
@@ -44,60 +44,7 @@
         </div>
       </li>
 
-      <li data-para="1">
-        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
-        <div>
-          <p>粉丝焦点</p>
-          <h2>李冰冰解密贫困女星奋斗史</h2>
-          <div class="bottom-info">
-            <p class="date">2015-9-20</p><span class="recommend"></span>
-          </div>
-        </div>
-      </li>
 
-      <li data-para="1">
-        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
-        <div>
-          <p>粉丝焦点</p>
-          <h2>李冰冰解密贫困女星奋斗史</h2>
-          <div class="bottom-info">
-            <p class="date">2015-9-20</p><span class="recommend"></span>
-          </div>
-        </div>
-      </li>
-
-      <li data-para="1">
-        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
-        <div>
-          <p>粉丝焦点</p>
-          <h2>李冰冰解密贫困女星奋斗史</h2>
-          <div class="bottom-info">
-            <p class="date">2015-9-20</p><span class="recommend"></span>
-          </div>
-        </div>
-      </li>
-
-      <li data-para="1">
-        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
-        <div>
-          <p>粉丝焦点</p>
-          <h2>李冰冰解密贫困女星奋斗史</h2>
-          <div class="bottom-info">
-            <p class="date">2015-9-20</p><span class="recommend"></span>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <img src="__PUBLIC__/termin/img/pic_news_small.jpg" width = 130 height= 95 alt=""/>
-        <div>
-          <p>粉丝焦点</p>
-          <h2>李冰冰解密贫困女星奋斗史</h2>
-          <div class="bottom-info">
-            <p class="date">2015-9-20</p><span class="recommend"></span>
-          </div>
-        </div>
-      </li>
 
     </ul>
   </div>
@@ -109,9 +56,9 @@
       <li>
         <span class="dot"></span><a href="{:U('News/infostar')}" class="text">星闻动向</a><span class="hot"></span>
       </li>
-      <li>
+     <!-- <li>
         <span class="text myFocus">我的订阅</span>
-      </li>
+      </li>-->
       <li>
         <span class="dot"></span><a href="{:U('News/infodream')}" class="text">艺术中国梦</a>
       </li>
