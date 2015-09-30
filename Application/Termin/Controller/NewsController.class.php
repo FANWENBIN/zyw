@@ -31,7 +31,7 @@ class NewsController extends ComController {
         $newsval    = $news->where('`status` = 1 and `order` != 2 and type = 1')->order('`order` desc,instime desc')->select();
        
         //置顶新闻
-        $topnews = $news->where('`order` = 2 and type = 1')->find();
+        $topnews = $news->where('`order` = 2')->find();
       
         $this->assign('news',$newsval);
         
@@ -47,7 +47,7 @@ class NewsController extends ComController {
         //新闻资讯
         $newsval    = $news->where('`status` = 1 and `order` != 2 and type = 2')->order('`order` desc,instime desc')->select();
         //置顶新闻
-        $topnews = $news->where('`order` = 2 and type = 2')->find();
+        $topnews = $news->where('`order` = 2')->find();
         $this->assign('news',$newsval);
         
         $this->assign('topnews',$topnews);
@@ -62,7 +62,7 @@ class NewsController extends ComController {
         //新闻资讯
         $newsval    = $news->where('`status` = 1 and `order` != 2 and type = 3')->order('`order` desc,instime desc')->select();
         //置顶新闻
-        $topnews = $news->where('`order` = 2 and type = 3')->find();
+        $topnews = $news->where('`order` = 2')->find();
       
         $this->assign('news',$newsval);
         $this->assign('topnews',$topnews);
