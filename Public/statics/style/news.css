@@ -80,6 +80,12 @@
     margin-left: 50px;
     /*list-style: none;*/
 }
+
+.bannerlist .inner{
+    position: relative;
+    margin: 0 auto;
+    width: auto;
+}
 .bannerlist li{
     display: inline-block;
     float: left;
@@ -87,8 +93,8 @@
     position: relative;
 }
 .webmain .conTopbanner .bannerlist li img{
-    width: 84px;
-    height: 50px;
+    width: 120px;
+    height: 47px;
 }
 .webmain .conTopbanner .bannerlist li.active{
     /*border: 4px solid #b162e4;*/
@@ -96,8 +102,8 @@
 .webmain .conTopbanner .bannerlist .frame{
     display: none;
     position: absolute;
-    width: 76px;
-    height: 42px;
+    width: 112px;
+    height: 39px;
     top: 0;
     left: 0;
     border: 4px solid #b162e4;
