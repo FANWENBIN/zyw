@@ -9,8 +9,8 @@
     text-indent: 5px;
     margin-left: 15px;
 }
-.banner img{
-    /*width: 100%;*/
+.banner>a>img{
+    width: 100%;
 }
 .banner .digest {
     font-size: 12px;
