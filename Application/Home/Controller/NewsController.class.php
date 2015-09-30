@@ -35,7 +35,7 @@ class NewsController extends ComController {
 			$bannerval[$key]['href'] = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=News&a=news_details&id='.$value['newsid'];
 		}
 		$this->assign('bannerval',$bannerval);
-		var_dump($bannerval);
+		
 		$this->display('news');
     }
 	 public function news_details(){
