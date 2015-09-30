@@ -10,11 +10,13 @@ class NewsController extends ComController {
     public function index (){
         $news = M('news');
         //首页新闻资讯
-        $newsval    = $news->where('status = 1 and order != 2')->order('order desc')->select();
+        $newsval    = $news->where('`status` = 1 and `order` != 2')->order('`order` desc')->select();
+       
         //首页置顶新闻
         $topnews = $news->where('`order` = 2')->find();
       
         $this->assign('news',$newsval);
+        
         $this->assign('topnews',$topnews);
         $this->display();
         
@@ -45,6 +47,11 @@ class NewsController extends ComController {
 	date:2015年9月28日14:18:16
     */
     public function newsdetail(){
+        $id   = I('get.newid','','trim');
+        $news = M('news');
+        $newsinfo = $news->where('id='.$id)->find();
+        $newsinfo['content'] =html_entity_decode($newsinfo['content']);
+        $this->assign('newsval',$newsinfo);
     	$this->display();
     }
 
