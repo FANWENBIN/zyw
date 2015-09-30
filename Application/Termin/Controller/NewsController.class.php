@@ -13,7 +13,7 @@ class NewsController extends ComController {
         $newsval    = $news->where('`status` = 1 and `order` != 2')->order('`order` desc,instime desc')->select();
        
         //首页置顶新闻
-        $topnews = $news->where('`order` = 2')->find();
+        $topnews = $news->where('`order` = 2')->order('instime desc')->find();
       
         $this->assign('news',$newsval);
         
