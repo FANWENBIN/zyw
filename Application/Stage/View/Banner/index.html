@@ -31,12 +31,12 @@
     <!--main-->
     <div class="webMain">
         <div class="mainHeader">
-            <h1>添加新闻banner</h1>
-            <!--<ul class="menu clearFix">-->
-            <!--<li class="current"><a href="#">菜单A</a></li>-->
-            <!--<li><a href="#">菜单B</a></li>-->
-            <!--<li><a href="#">菜单C</a></li>-->
-            <!--</ul>-->
+             <h1>Banner管理</h1>
+            <ul class="menu clearFix">
+            <li class="current"><a href="{:U('Banner/index')}">添加新闻banner</a></li>
+           <!--  <li><a href="{:U('Banner/threestrong')}"></a></li>
+            <li><a href="{:U('Banner/winer')}"></a></li> -->
+            </ul>
         </div>
         <div class="mainBody">
 
@@ -45,46 +45,143 @@
 
             <!--表单-->
             <div class="form">
-                <div class="formHeader">
-                    <h1>最多添加5幅图片</h1>
-                </div>
-                <form method="post" action="{:U('Recommend/addcommend')}" enctype="multipart/form-data">
+               
+                <form method="post" action="{:U('Banner/savenewsbanner')}" enctype="multipart/form-data">
                     <fieldset>
 
                         <!-- Banner大图-->
 
                         <div class="l">
-                            <h6>图1</h6>
-                            <div class="i"> <input type="text" value="{$actors.headimg}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo1"/>
+                            <h6>Banner 1</h6>
+                            
+                            <div class="i">
+
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['0']['title']}" placeholder="请输入图片名字" name="name1"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['0']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo1"/>
+                               </div>
+                              <div class="i">
+                                <span>选择Banner相关新闻链接</span>
+                                <select name="newsid1">
+                                    <volist name ="newsval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['0']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
+
                             </div>
-                        </div>
-                        <div class="l">
-                            <h6>图2</h6>
-                            <div class="i"> <input type="text" value="{$actors.headimg}" class="js_imgupload" id="imgurl2" cut="true" width="1200" height="470" name="photo2"/>
-                            </div>
-                        </div>
-                        <div class="l">
-                            <h6>图3</h6>
-                            <div class="i"> <input type="text" value="{$actors.headimg}" class="js_imgupload" id="imgurl3" cut="true" width="1200" height="470" name="photo3"/>
-                            </div>
-                        </div>
-                        <div class="l">
-                            <h6>图4</h6>
-                            <div class="i"> <input type="text" value="{$actors.headimg}" class="js_imgupload" id="imgurl4" cut="true" width="1200" height="470" name="photo4"/>
-                            </div>
-                        </div>
-                        <div class="l">
-                            <h6>图5</h6>
-                            <div class="i"> <input type="text" value="{$actors.headimg}" class="js_imgupload" id="imgurl5" cut="true" width="1200" height="470" name="photo5"/>
-                            </div>
+
                         </div>
 
+                         <div class="l">
+                            <h6>Banner 2</h6>
+                            
+                            <div class="i">
 
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['1']['title']}" placeholder="请输入图片名字" name="name2"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['1']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo2"/>
+                               </div>
+                              <div class="i">
+                                <span>选择Banner相关新闻链接</span>
+                                <select name="newsid2">
+                                    <volist name ="newsval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['1']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
 
+                            </div>
+
+                        </div>
+
+                          <div class="l">
+                            <h6>Banner 3</h6>
+                            
+                            <div class="i">
+
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['2']['title']}" placeholder="请输入图片名字" name="name3"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['2']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo3"/>
+                               </div>
+                              <div class="i">
+                                <span>选择Banner相关新闻链接</span>
+                                <select name="newsid3">
+                                    <volist name ="newsval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['2']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
+
+                            </div>
+
+                        </div>
+                     <div class="l">
+                            <h6>Banner 4</h6>
+                            
+                            <div class="i">
+
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['3']['title']}" placeholder="请输入图片名字" name="name4"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['3']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo4"/>
+                               </div>
+                              <div class="i">
+                                <span>选择Banner相关新闻链接</span>
+                                <select name="newsid4">
+                                    <volist name ="newsval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['3']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
+
+                            </div>
+
+                        </div>
+                        <div class="l">
+                            <h6>Banner 5</h6>
+                            
+                            <div class="i">
+
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['4']['title']}" placeholder="请输入图片名字" name="name5"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['4']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo5"/>
+                               </div>
+                              <div class="i">
+                                <span>选择Banner相关新闻链接</span>
+                                <select name="newsid5">
+                                    <volist name ="newsval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['4']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
+
+                            </div>
+
+                        </div>
                         <!--主提交按钮-->
                         <div class="btnCon btnCon2">
-                            <a href="{:U('Recommend/index')}" class="btnD">取消</a>
-                            <input type="submit" class="btnA" value="提交" name="submit"/>
+                            
+                            <input type="submit" class="btnA" value="保存" name="submit"/>
                         </div>
 
 
@@ -122,8 +219,11 @@
     <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/lang/zh-cn/zh-cn.js"></script>
     <!--富文本编辑器 end-->
-
-
+    <script>
+        var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=banner"))}";
+        var imgUploadFile = '__ROOT__/Uploads';
+        var swfUrl = "__ROOT__/Public/stage/swf";
+    </script>
     </body>
     </html>
 </block>
