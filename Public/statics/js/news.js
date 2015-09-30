@@ -28,6 +28,8 @@ $(function(){
             var _index = $(this).index();
             $("#imgList").find(".img").hide();
             $("#imgList").find(".img").eq(_index).show()
+            $("#topText").find("span").hide();
+            $("#topText").find("span").eq(_index).show();
         }
 	};
 	page.init();

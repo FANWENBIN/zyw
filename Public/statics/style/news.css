@@ -69,7 +69,15 @@
     color: #fff;
     line-height: 25px;
     padding-left: 20px;
+    overflow: hidden;
 }
+.tabctrl .text span{
+    display: none;
+}
+.tabctrl .text span:nth-child(1){
+    display: block;
+}
+
 
 .bannerlist{
     position: relative;
