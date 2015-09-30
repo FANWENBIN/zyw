@@ -34,7 +34,7 @@ class NewsController extends ComController {
 		foreach ($bannerval as $key => $value) {
 			$bannerval[$key]['href'] = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=News&a=news_details&id='.$value['newsid'];
 		}
-		$this->assign('bannnerval',$bannerval);
+		$this->assign('bannerval',$bannerval);
 		var_dump($bannerval);
 		$this->display('news');
     }
