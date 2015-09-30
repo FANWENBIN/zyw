@@ -110,17 +110,7 @@
     }
     //根据id获取推荐团身份
 	function comtype($id){
-		switch ($id) {
-			case '1':
-				return '今日焦点';
-			case '2':
-				return '星闻动向';
-			case '3':
-				return '艺术中国梦';
-			
-		}
-	}
-	function newtype($id){
+		
 		switch ($id) {
 			case '1':
 				return '艺术家';
@@ -130,6 +120,17 @@
 				return '制片人';
 			case '4':
 				return '编剧';
+		}
+	}
+	function newtype($id){
+		switch ($id) {
+			case '1':
+				return '今日焦点';
+			case '2':
+				return '星闻动向';
+			case '3':
+				return '艺术中国梦';
+			
 		}
 	}
 // 检测输入的验证码是否正确，$code为用户输入的验证码字符串
