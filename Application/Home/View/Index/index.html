@@ -81,63 +81,61 @@
                 <h2>今日焦点</h2>
                 <a href="#" class="more">更多</a>
             </div>
+			
             <div class="inner clearFix">
-                
                 <div class="group first">
+					<volist name="newsresult" id="news" key="k" offset="1" length="1" empty="暂时没有数据">
                     <a href="#" class="cover">
                         <div class="txt">
-                            <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
-                            <span>2015-10-14 02:13:36</span>
+                            <h3><?php echo strlen($news['title'])>30?mb_substr($news['title'],0,24,'utf-8').'......':$news['title'] ?></h3>
+                            <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/p5.jpg" />
+						<img  src="./news{$xlist.imgpath}" />
                         <sub class="hover"></sub>
                     </a>
+					</volist>
                     <ul>
-                        <li><a href="#">唐嫣穿薄纱裙现身 膝盖似有伤</a><span>3小时前</span></li>
-                        <li><a href="#">韩秀榜 第43期精彩演出</a><span>4小时前</span></li>
-                        <li><a href="#">CNBLUE新曲MV李正信预告公开</a><span>5小时前</span></li>
-                        <li><a href="#">LYn第9张正规专辑视听影像公开</a><span>6小时前</span></li>
-                        <li><a href="#">MTV发布2015VMA最佳时刻</a><span>7小时前</span></li>
+						<volist name="newsresult" id="news" key="k" offset="2" length="5">
+							<li><a href="#"><?php echo strlen($news['title'])>20?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
+						</volist>
                     </ul>
                 </div>
 
-                <div class="group">
+                 <div class="group">
+					<volist name="newsresult" id="news" key="k" offset="7" length="1" empty="">
                     <a href="#" class="cover">
                         <div class="txt">
-                            <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
-                            <span>2015-10-14 02:13:36</span>
+                            <h3><?php echo strlen($news['title'])>30?mb_substr($news['title'],0,24,'utf-8').'......':$news['title'] ?></h3>
+                            <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/p4.jpg" />
+						<img  src="./news{$xlist.imgpath}" />
                         <sub class="hover"></sub>
                     </a>
+					</volist>
                     <ul>
-                        <li><a href="#">SUPER JUNIOR回归变身小恶魔</a><span>3小时前</span></li>
-                        <li><a href="#">EXO后续曲回归变身橄榄球美少年</a><span>4小时前</span></li>
-                        <li><a href="#">少女时代重新出发魅力回归</a><span>5小时前</span></li>
-                        <li><a href="#">LINKIN PARK猎捕行动2015中国巡回演唱会</a><span>6小时前</span></li>
-                        <li><a href="#">乌兰托娅火红的萨日朗拍摄花絮</a><span>11小时前</span></li>
+						<volist name="newsresult" id="news" key="k" offset="8" length="5">
+							<li><a href="#"><?php echo strlen($news['title'])>20?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
+						</volist>
                     </ul>
                 </div>
 
-                <div class="group">
+                 <div class="group">
+					<volist name="newsresult" id="news" key="k" offset="13" length="1" empty="">
                     <a href="#" class="cover">
                         <div class="txt">
-                            <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
-                            <span>2015-10-14 02:13:36</span>
+                            <h3><?php echo strlen($news['title'])>30?mb_substr($news['title'],0,24,'utf-8').'......':$news['title'] ?></h3>
+                            <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
                         </div>
-                        <img src="__PUBLIC__/statics/images/p/p6.jpg" />
+						<img  src="./news{$xlist.imgpath}" />
                         <sub class="hover"></sub>
                     </a>
+					</volist>
                     <ul>
-                        <li><a href="#">“布达吉雅乐团”新专辑首唱会</a><span>1小时前</span></li>
-                        <li><a href="#">【终于还是等到你】潘协庆音乐分享会</a><span>2小时前</span></li>
-                        <li><a href="#">金润吉新专辑首唱会完美收官</a><span>4小时前</span></li>
-                        <li><a href="#">SUPER JUNIOR十年再造神话</a><span>4小时前</span></li>
-                        <li><a href="#">2015全英音乐奖Taylor Swift现场</a><span>5小时前</span></li>
+						<volist name="newsresult" id="news" key="k" offset="14" length="5">
+							<li><a href="{:U('News/details?id='.$vo['id'])}"><?php echo strlen($news['title'])>20?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
+						</volist>
                     </ul>
                 </div>
-
-            </div>
         </div>
 
 
