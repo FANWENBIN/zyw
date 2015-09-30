@@ -73,7 +73,7 @@
 				<input type="text" value="{$data.phoneimg}" class="js_imgupload" id="imgurl2" cut="true" width="130" height="95" name="phoneimg"/>
 								</div>
 							</div>
-							<div class="l" style="display:none" id="starAction">
+							<div class="l" id="starAction" <if condition="($data.type neq 2)">style="display:none"</if> >
 								<h6>星闻动向</h6>
 								<div class="i">
 				<input type="text" value="{$data.starimg}" class="js_imgupload" id="imgurl2" cut="true" width="175" height="200" name="starimg"/>
@@ -100,7 +100,7 @@
 									<input type="radio" name="order" value="2" data-val="置顶" data-css="r1" <if condition="($data.order eq 2)">checked="checked"</if> />
 								</div>
 							</div>
-							<div class="l" style="display:none" id="topYes">
+							<div class="l" id="topYes" <if condition="($data.order neq 2)">style="display:none"</if> >
 								<h6>置顶大图</h6>
 								<div class="i">
 								<input type="text" value="{$data.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="375" height="175" name="topimg"/>
