@@ -440,6 +440,9 @@ input.btnSmall { height: 36px; line-height: normal; width: 120px;}
 .pagers ul li a.disabled { color: #d5dadd; border: 1px solid #e9efef; cursor: default;}
 .pagers ul li.in { margin-left: 5px;}
 .pagers ul li.in input { border: 1px solid #d5dadd; display: block; width: 70px; height: 18px; padding: 6px 0; text-align: center; background: #fff; font-size: 14px; color: #89949a; border-radius: 3px;}
+.pagers div { text-align: right;}
+.pagers div * { padding: 0 3px; margin: 0 2px; display: inline-block;}
+
 
 /*header*/
 .webHeader { height: 77px; background: #fff; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-top: 3px solid #5cacdf; margin-bottom: 40px;}

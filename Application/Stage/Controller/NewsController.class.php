@@ -43,13 +43,16 @@ class NewsController extends ComController {
 			$data=$news->where('id ='.$id)->find();
 			$this->assign('data',$data);
 		}
+
 		if(isset($_POST['submit'])){
+			$_POST['instime']=time();
 			if($news->create()){
+
 				if($_POST['hid_id']>0){
 					$id=intval($_POST['hid_id']);
 					$result=$news->where('id ='.$id)->save();	
 				}else{
-					$_POST['instime']=time();
+					
 					$result=$news->add();	
 				}
 				if($result){
@@ -61,8 +64,9 @@ class NewsController extends ComController {
 			}else{
 				$this->error('数据格式错误',U('news/add'),3);
 			}
-		}
+		}else{
         $this->display();   
+        }
     } 
 	public function delete(){
 		$news=  M('news');
