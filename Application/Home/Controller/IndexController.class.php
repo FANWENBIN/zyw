@@ -72,6 +72,11 @@ class IndexController extends ComController {
         }
         $this->assign('mengreengroup',$mengreengroup);
         //end
+		//新闻焦点
+		$news = M('news');
+		$map['status']!=0;
+		$newsresult=$news->where($map)->order('instime desc ')->limit('0,18')->select();
+		$this->assign('newsresult',$newsresult);
 		$this->display();
     }
 
