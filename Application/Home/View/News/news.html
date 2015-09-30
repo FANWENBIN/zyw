@@ -131,7 +131,7 @@
 				<volist name="resultD" id="dlist" key="k" offset="0" length="1"  empty="暂时没有数据">
 					<a href="{:U('News/news_details?id='.$dlist['id'])}" class="l">
 						<p><?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></p>
-						<img  src="./Uploads{$dlist.imgpath}" />
+						<img  src="./Uploads{$dlist.starimg}" />
 						<sub class="hover"></sub>
 					</a>
 				</volist>
