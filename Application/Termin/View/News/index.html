@@ -39,7 +39,8 @@
           <p>{:newtype($vo.type)}</p>
           <h2>{$vo.title}</h2>
           <div class="bottom-info">
-            <p class="date">{$vo.instime|date="Y-m-d",###}</p><span class="recommend"></span>
+            <p class="date">{$vo.instime|date="Y-m-d",###}</p>
+            <if condition="$vo.order == 1"><span class="recommend"></span></if>
           </div>
         </div>
       </li>
