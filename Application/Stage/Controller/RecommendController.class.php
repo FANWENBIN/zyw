@@ -33,29 +33,57 @@ class RecommendController extends ComController {
         if(empty($submit)){
             $this->display();
         }else{
+            $production   = M('recommend_production');  //数据库模型实例化
+            $commend      = M('recommend');
+            //接受参数
             $data['type'] = I('post.type');
             $data['name'] = I('post.name');
-            $this->checkDump($data);//检查数据
-            $upload = new \Think\Upload();// 实例化上传类   
-            $upload->maxSize   =     3145728 ;// 设置附件上传大小   
-            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
-            $upload->savePath  =      '/commend/'; // 设置附件上传目录    
-            // 上传文件   
-            $info   =   $upload->upload();    
-            if(!$info) {// 上传错误提示错误信息      
-                $this->error($upload->getError()); 
-                exit;  
-            }else{// 上传成功  
-                $data['img'] = $info['photo']['savepath'].$info['photo']['savename'];
-                $commend = M('recommend');
-                $sign = $commend->add($data);
-                if($sign){
-                    $this->success('添加成功',U('Recommend/index'));
-                }else{
-                    $this->error('添加失败');
+            $data['nationality'] = I('post.nationality');
+            $data['national']    = I('post.national');
+            $data['height']      = I('post.height');
+            $data['weight']      = I('post.weight');
+            $data['address']     = I('post.address');
+            $data['birthday']    = I('post.birthday');
+            $data['job']         = I('post.job');
+            $data['school']      = I('post.job');
+            $data['achievement'] = I('post.achievement');
+            $data['img']         = I('post.img');
+            $title = I('post.title');
+            $img   = I('post.photo');
+            
+            $id = I('post.recommendid');
+            $model = M();                     //开启事物
+            $model->startTrans();
+            $Duck = true;
+            
+
+            
+            $id = $commend->add($data);
+            if(!$id){
+                $Duck = false;
+            }
+                
+            foreach($title as $key=>$val){
+            $c['title'] = $val;
+            $c['img']   = $img[$key];
+            $c['recommendid'] = $id;
+            $sign = $production->add($c);
+                if(!$sign){
+                    $Duck = false;
                 }
             }
+            if($Duck){
+                $model->commit();
+                $this->success('新增成功',U('Recommend/index'));
+            }else{
+                $model->rollback();
+                $this->error('未有任何新增');
+            }
+               
+            
+            
         }
+            
     }
     /*修改评委
     author：witner
@@ -85,7 +113,7 @@ class RecommendController extends ComController {
             $data['job']         = I('post.job');
             $data['school']      = I('post.job');
             $data['achievement'] = I('post.achievement');
-            $data['img']         = I('post.photo1');
+            $data['img']         = I('post.img');
             $title = I('post.title');
             $img   = I('post.photo');
             

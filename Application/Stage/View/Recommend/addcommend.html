@@ -45,13 +45,13 @@
                 <div class="formHeader">
                     <h1>请填写基本信息</h1>
                 </div>
-                <form method="post" action="{:U('Recommend/upcommend')}" enctype="multipart/form-data">
+                <form method="post" action="{:U('Recommend/addcommend')}" enctype="multipart/form-data">
                     <fieldset>
                         <!-- 头像-->
                         <div class="l">
                             <h6>头像</h6>
                             <div class="i">
-                                <input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="280" height="310" name="photo1"/>
+                                <input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="280" height="310" name="img"/>
                             </div>
                         </div>
                         <!-- 姓名-->
@@ -148,16 +148,17 @@
                                 <a href="javascript:void(0);" class="btnB btnSmall" id="J_AppendWorks">添加代表作</a>
                             </div>
                         </div>
+                         <!--主提交按钮-->
+            <div class="btnCon btnCon2">
+                <a href="{:U('Recommend/index')}" class="btnD">取消</a>
+                <input type="submit" class="btnA" value="提交" />
+            </div>
                     </fieldset>
                 </form>
             </div>
 
 
-            <!--主提交按钮-->
-            <div class="btnCon btnCon2">
-                <a href="#" class="btnD">取消</a>
-                <input type="submit" class="btnA" value="提交" />
-            </div>
+           
 
 
         </div>
