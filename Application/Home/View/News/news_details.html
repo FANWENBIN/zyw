@@ -87,7 +87,12 @@
             <ul class="newsList clearFix">
 			<volist name="hotnews" id="dlist" key="k" offset="1" length="4" >
                 <li class="c">
-                    <span class=""><?php echo strlen($dlist['title'])>20?mb_substr($dlist['title'],0,15,'utf-8').'......':$dlist['title'] ?></span><span class="time"><?php echo floor((time()-$dlist['instime'])/3600)?>小时前小时前</span>
+                    <a class="" href="{:U('News/news_details?id='.$dlist['id'])}">
+                        <?php echo strlen($dlist['title'])>20?mb_substr($dlist['title'],0,15,'utf-8').'......':$dlist['title'] ?>
+                    </a>
+                    <span class="time">
+                        <?php echo floor((time()-$dlist['instime'])/3600)?>小时前小时前
+                    </span>
                 </li>
 			</volist>    
             </ul>
