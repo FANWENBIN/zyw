@@ -80,7 +80,7 @@
 						<h3><?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></h3>
 						<span>{$dlist['instime']|date='Y-m-d H:i:s',###}</span>
 					</div>
-					<img  src="./Uploads{$dlist.imgpath}" />
+					<img  src="./Uploads{$dlist.imgpath}" width="380" height="250"/>
 					<sub class="hover"></sub>
 				</a>
 			</volist> 
