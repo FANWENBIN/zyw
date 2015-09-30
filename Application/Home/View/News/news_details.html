@@ -74,27 +74,22 @@
             <div class="title">
                 <h2>艺术中国梦</h2>
             </div>
-            <a href="#" class="item">
-                <div class="txt">
-                    <h3>李冰冰 揭秘贫困女星奋斗史</h3>
-                    <span>2015-10-14 02:13:36</span>
-                </div>
-                <img src="/zyw/Public/statics/images/pic-newsdetails-1.jpg">
-                <sub class="hover"></sub>
-            </a>
+			<volist name="hotnews" id="dlist" key="k" offset="0" length="1"  empty="暂时没有数据">
+				<a href="{:U('News/news_details?id='.$dlist['id'])}" class="item">
+					<div class="txt">
+						<h3><?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></h3>
+						<span>{$dlist['instime']|date='Y-m-d H:i:s',###}</span>
+					</div>
+					<img  src="./Uploads{$dlist.imgpath}" />
+					<sub class="hover"></sub>
+				</a>
+			</volist> 
             <ul class="newsList clearFix">
+			<volist name="hotnews" id="dlist" key="k" offset="1" length="4" >
                 <li class="c">
-                    <span class="">"大黑牛"李晨演喜剧偷师沙溢 圈里是"演员副导演"</span><span class="time">3小时前</span>
+                    <span class=""><?php echo strlen($dlist['title'])>20?mb_substr($dlist['title'],0,15,'utf-8').'......':$dlist['title'] ?></span><span class="time"><?php echo floor((time()-$dlist['instime'])/3600)?>小时前小时前</span>
                 </li>
-                <li class="c">
-                    <span class="">"大黑牛"李晨演喜剧偷师沙溢 圈里是"演员副导演"</span><span class="time">3小时前</span>
-                </li>
-                <li class="c">
-                    <span class="">"大黑牛"李晨演喜剧偷师沙溢 圈里是"演员副导演"</span><span class="time">3小时前</span>
-                </li>
-                <li class="c">
-                    <span class="">"大黑牛"李晨演喜剧偷师沙溢 圈里是"演员副导演"</span><span class="time">3小时前</span>
-                </li>
+			</volist>    
             </ul>
             <div class="title event">
                 <h2>活动</h2>

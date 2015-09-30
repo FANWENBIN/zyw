@@ -28,10 +28,15 @@ class NewsController extends ComController {
 		$this->display('news');
     }
 	 public function news_details(){
+		 //内容
 		 $id=intval($_GET['id']);
 		 $news=  M('news');
 		 $result=$news->where('id ='.$id)->find();
 		 $this->assign('result',$result);
+		 //热点
+		 $hotnews=$news->limit('0,5')->order("instime desc")->select();
+		 var_dump($hotnews);
+		 $this->assign('hotnews',$hotnews);
 		 $this->display('news_details');
 	 }
 }
