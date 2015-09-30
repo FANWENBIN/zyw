@@ -10,10 +10,10 @@ class NewsController extends ComController {
     public function index (){
         $news = M('news');
         //首页新闻资讯
-        $newsval    = $news->where('`status` = 1 and `order` != 2')->order('`order` desc')->select();
+        $newsval    = $news->where('`status` = 1 and `order` != 2')->order('`order` desc,instime desc')->select();
        
         //首页置顶新闻
-        $topnews = $news->where('`order` = 2')->find();
+        $topnews = $news->where('`order` = 2')->order('instime desc')->find();
       
         $this->assign('news',$newsval);
         
@@ -26,6 +26,16 @@ class NewsController extends ComController {
    date：2015年9月28日14:10:01
    */
     public function infofans(){
+        $news = M('news');
+        //新闻资讯
+        $newsval    = $news->where('`status` = 1 and `order` != 2 and type = 1')->order('`order` desc,instime desc')->select();
+       
+        //置顶新闻
+        $topnews = $news->where('`order` = 2 and type = 1')->order('instime desc')->find();
+      
+        $this->assign('news',$newsval);
+        
+        $this->assign('topnews',$topnews);
     	$this->display();
     }
     /*星闻动向
@@ -33,6 +43,14 @@ class NewsController extends ComController {
 	date：2015年9月28日14:11:09
     */
     public function infostar(){
+        $news = M('news');
+        //新闻资讯
+        $newsval    = $news->where('`status` = 1 and `order` != 2 and type = 2')->order('`order` desc,instime desc')->select();
+        //置顶新闻
+        $topnews = $news->where('`order` = 2 and type = 2')->order('instime desc')->find();
+        $this->assign('news',$newsval);
+        
+        $this->assign('topnews',$topnews);
     	$this->display();
     }
     /*艺术中国梦
@@ -40,6 +58,14 @@ class NewsController extends ComController {
 	date:2015年9月28日14:12:31
     */
     public function infodream(){
+        $news = M('news');
+        //新闻资讯
+        $newsval    = $news->where('`status` = 1 and `order` != 2 and type = 3')->order('`order` desc,instime desc')->select();
+        //置顶新闻
+        $topnews = $news->where('`order` = 2 and type = 3')->find();
+      
+        $this->assign('news',$newsval);
+        $this->assign('topnews',$topnews);
     	$this->display();
     }
     /*新闻详情
