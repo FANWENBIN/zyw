@@ -166,7 +166,7 @@
 					<a href="{:U('News/news_details?id='.$mlist['id'])}" class="item cover">
 						<div class="txt">
 							<h3><?php echo strlen($mlist['title'])>30?mb_substr($mlist['title'],0,24,'utf-8').'......':$mlist['title'] ?></h3>
-							<span>{$mlist['title']|date='Y-m-d H:i:s',###}</span>
+							<span>{$mlist['instime']|date='Y-m-d H:i:s',###}</span>
 						</div>
 						<img  src="./Uploads{$mlist.imgpath}" />
 						<sub class="hover"></sub>
@@ -174,7 +174,6 @@
 				</volist>
 
 		</div>
-
 
 </div>
 <!--webmain end-->
