@@ -32,7 +32,6 @@ class NewsController extends ComController {
 		 $news=  M('news');
 		 $result=$news->where('id ='.$id)->find();
 		 $this->assign('result',$result);
-		 var_dump($result);
 		 $this->display('news_details');
 	 }
 }
