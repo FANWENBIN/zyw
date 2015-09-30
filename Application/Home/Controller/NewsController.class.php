@@ -25,6 +25,16 @@ class NewsController extends ComController {
 		$resultM=$news->where('type=3 and status!=0')->limit('0,3')->order(array('order'=>'desc','instime'=>'desc'))->select();
 		$this->assign('resultM',$resultM);
 		//艺术中国梦end
+
+		//banner
+		$banner = M('banner');
+		$bannerval = $banner->select();
+		
+		//
+		foreach ($bannerval as $key => $value) {
+			$bannerval[$key]['href'] = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=News&a=news_details&id='.$value['newsid'];
+		}
+		$this->assign('bannnerval',$bannerval);
 		$this->display('news');
     }
 	 public function news_details(){
