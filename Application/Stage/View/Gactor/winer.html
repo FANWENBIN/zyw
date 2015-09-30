@@ -41,12 +41,21 @@
 		<!--main-->
 		<div class="webMain">
 			<div class="mainHeader">
+
 				<h1>演员成员</h1>
 				<ul class="menu clearFix">
-					<li class="current"><a href="{:U('Gactor/index')}">演员管理</a></li>
+					<li><a href="{:U('Gactor/index')}">演员管理</a></li>
 					<li><a href="{:U('Gactor/threestrong')}">入围演员管理</a></li>
-					<li><a href="{:U('Gactor/winer')}">获胜演员</a></li>
+					<li  class="current"><a href="{:U('Gactor/winer')}">获胜演员</a></li>
 				</ul>
+				<!--<ul class="menu clearFix">-->
+					<!--<li class="current"><a href="#">菜单A</a></li>-->
+					<!--<li><a href="#">菜单B</a></li>-->
+					<!--<li><a href="#">菜单C</a></li>-->
+				<!--</ul>-->
+				<!--<div class="toolbtns">-->
+					<!--<a href="javascript:void(0)" class="btnB btnSmall">导出数据</a>-->
+				<!--</div>-->
 			</div>
 			<div class="mainBody">
 
@@ -148,7 +157,7 @@
 							<td class="t7">
 								<p class="console">
 									<a href="{:U('Gactor/upgactor?id='.$vo['id'])}" class="setting">设置</a>
-									<a href="javascript:void(0)" data-id="{$vo.id}" class="delete">删除</a>
+									<!--a href="javascript:void(0)" data-id="{$vo.id}" class="delete">删除</a-->
 								</p>
 							</td>
 						</tr>
