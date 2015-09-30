@@ -47,18 +47,18 @@
 					<div class="formHeader">
 						<h1>新闻资讯</h1>
 					</div>
-					<form action="" method="post" enctype="multipart/form-data">
+					<form action="" method="post" enctype="multipart/form-data" id="J_Form">
 						<fieldset>
 							<div class="l">
 								<h6>标题</h6>
-								<div class="i"><input type="text" name="title" class="input" value="{$data.title}" /></div>
+								<div class="i"><input type="text" id="title" name="title" class="input" value="{$data.title}"/></div>
 							</div>
 							<div class="l">
 								<h6>类型</h6>
-								<div class="i">
-									<input type="radio" name="type" value="1" data-val="粉丝焦点" data-css="r1"  checked="checked" />
-									<input type="radio" name="type" value="2" data-val="星闻动向" data-css="r1" <if condition="($data.type eq 2)">checked="checked"</if> />
-									<input type="radio" name="type" value="3" data-val="艺术中国梦" data-css="r1" <if condition="($data.type eq 3)">checked="checked"</if>/>
+								<div class="i" id="radioClick">
+									<input type="radio" name="type" value="1" data-val="粉丝焦点"  data-css="r1"  checked="checked" />
+									<input type="radio" name="type" value="2" data-val="星闻动向"  data-css="r1" <if condition="($data.type eq 2)">checked="checked"</if> />
+									<input type="radio" name="type" value="3" data-val="艺术中国梦"  data-css="r1" <if condition="($data.type eq 3)">checked="checked"</if>/>
 								</div>
 							</div>
 							<div class="l">
@@ -73,21 +73,16 @@
 				<input type="text" value="{$data.phoneimg}" class="js_imgupload" id="imgurl2" cut="true" width="130" height="95" name="phoneimg"/>
 								</div>
 							</div>
-							<div class="l">
+							<div class="l" id="starAction" <if condition="($data.type neq 2)">style="display:none"</if> >
 								<h6>星闻动向</h6>
 								<div class="i">
 				<input type="text" value="{$data.starimg}" class="js_imgupload" id="imgurl2" cut="true" width="175" height="200" name="starimg"/>
 								</div>
 							</div>
-							<div class="l">
-								<h6>置顶大图</h6>
-								<div class="i">
-				<input type="text" value="{$data.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="375" height="175" name="topimg"/>
-								</div>
-							</div>
+							
 							<div class="l">
 								<h6>摘要</h6>
-								<div class="i"><textarea class="input" name="digest"><if condition="($data.digest neq '')">{$data.digest}<else/>多个关键词请用、隔开（例如：张靓颖、演唱会）</if></textarea></div>
+								<div class="i"><textarea class="input" name="digest"><if condition="($data.digest neq '')">{$data.digest}<else/></if></textarea></div>
 							</div>
 							<div class="l">
 								<h6>相关明星</h6>
@@ -99,10 +94,16 @@
 							</div>
 							<div class="l">
 								<h6>&nbsp;</h6>
-								<div class="i">
+								<div class="i" id="setTop">
 									<input type="radio" name="order" value="0" data-val="普通新闻" data-css="r1"  checked="checked" />
 									<input type="radio" name="order" value="1" data-val="推荐" data-css="r1"  <if condition="($data.order eq 1)">checked="checked"</if> />
 									<input type="radio" name="order" value="2" data-val="置顶" data-css="r1" <if condition="($data.order eq 2)">checked="checked"</if> />
+								</div>
+							</div>
+							<div class="l" id="topYes" <if condition="($data.order neq 2)">style="display:none"</if> >
+								<h6>置顶大图</h6>
+								<div class="i">
+								<input type="text" value="{$data.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="375" height="175" name="topimg"/>
 								</div>
 							</div>
 						</fieldset>
@@ -138,6 +139,39 @@
 	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=news"))}";
 	var imgUploadFile = '__ROOT__/Uploads';
 	var swfUrl = "__ROOT__/Public/stage/swf";
+	$("#radioClick").click(function(){
+		$("#radioClick input").each(function(){
+			if($(this).prop("checked")){
+				console.log($(this).prop("value"))
+				if($(this).prop("value") == 2){
+					$("#starAction").show()
+				}else{
+					$("#starAction").hide()	
+				}
+			}
+		})
+	})
+	
+	$("#setTop").click(function(){
+		$("#setTop input").each(function(){
+			if($(this).prop("checked")){
+				console.log($(this).prop("value"))
+				if($(this).prop("value") == 2){
+					$("#topYes").show()
+				}else{
+					$("#topYes").hide()	
+				}
+			}
+		})
+	})
+	
+	$("#J_Form").submit(function(){
+		var title=$("#title").val();
+		if(title==''||title==null){
+			$.tips.error('标题不能为空');
+			return false;
+		}
+	});
 </script>
 
 

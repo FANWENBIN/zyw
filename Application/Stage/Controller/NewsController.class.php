@@ -20,8 +20,8 @@ class NewsController extends ComController {
 		}else{
 			session('condition','');
 		}
-
 		$resultgroup=$news->field('count(*),type')->group('type')->order('type asc')->select();
+		
 		$this->assign('group',$resultgroup);
 		//分页显示
 		
@@ -33,6 +33,7 @@ class NewsController extends ComController {
 		$this->assign('result',$result);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
 		$this->assign('cur',5);
+		//session_destroy();
         $this->display();   
     }
 	public function add(){
