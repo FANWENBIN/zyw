@@ -55,48 +55,34 @@
 
     <div class="con conTopbanner">
         <div class="imgList" id="imgList">
+           <volist name="bannerval" id= "vo">
+           <a href= "{$vo.href}">
             <div class="img">
-                <img src="__PUBLIC__/statics/images/banner-news.jpg"/>
+                <img src="./Uploads{$vo.img}"/>
             </div>
-            <div class="img">
-                <img src="__PUBLIC__/statics/images/banner-news.jpg"/>
-            </div>
-            <div class="img">
-                <img src="__PUBLIC__/statics/images/banner-news.jpg"/>
-            </div>
-            <div class="img">
-                <img src="__PUBLIC__/statics/images/banner-news.jpg"/>
-            </div>
+            </a>
+            </volist>
         </div>
 
 
         <div class="tabctrl">
             <div class="text" id="topText">
-                <span class="">大黑牛大黑牛大黑牛牛牛大黑牛大 牛大黑牛大黑牛 </span>
-                <span class="">1111 </span>
-                <span class="">大黑牛2222大黑牛大黑牛牛牛大黑牛大黑牛黑牛 </span>
-                <span class="">大黑牛大黑牛3333大黑牛牛牛大黑牛牛大黑牛大黑牛 </span>
+            <volist name = "bannerval" id = "vo">
+                <span class="">{$vo.title}</span>
+            </volist>
+
             </div>
 
 
             <div class="bannerlist" id="bannerList">
                 <ul class="inner">
-                    <li class="active first"><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/>
+                <volist name = "bannerval" id= "vo">
+                    <li class="active first"><img src="{$vo.smallimg}" alt=""/>
 
                         <div class="frame"></div>
                     </li>
-                    <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/>
-
-                        <div class="frame"></div>
-                    </li>
-                    <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/>
-
-                        <div class="frame"></div>
-                    </li>
-                    <li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/>
-
-                        <div class="frame"></div>
-                    </li>
+                </volist>
+                    
                     <!--<li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>-->
                 </ul>
             </div>
