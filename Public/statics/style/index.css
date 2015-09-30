@@ -29,7 +29,7 @@
 .webmain .conTop .r .item .hover:hover { position: absolute; left: 0; top: 0; width: 100%; height: 100%;  background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000); }
 .webmain .conFocus {}
 .webmain .conFocus .title h2 { width: 166px;}
-.webmain .conFocus .inner .group { float: left; width: 380px; overflow: hidden; margin-left: 30px;}
+.webmain .conFocus .inner .group { float: left; width: 380px; overflow: hidden;margin-left: 30px;}
 .webmain .conFocus .inner .group.first { margin-left: 0;}
 .webmain .conFocus .inner .group .cover { margin-bottom: 10px; width: 380px; height: 250px; overflow: hidden; position: relative; display: block;}
 .webmain .conFocus .inner .group .cover .hover { ; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url("../images/space.png") 0 0 repeat;background: rgba(0,0,0,0);}

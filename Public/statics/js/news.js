@@ -24,9 +24,10 @@ $(function(){
 		},
         hoverIn: function(){
             $("#bannerList").find(".frame").hide();
-            $(this).find(".frame").show()
-            $("#imgBanner").attr("src","__PUBLIC__/statics/images/banner-news.jpg");
-            $("#imgBanner").attr("alt",$(this).index())
+            $(this).find(".frame").show();
+            var _index = $(this).index();
+            $("#imgList").find(".img").hide();
+            $("#imgList").find(".img").eq(_index).show()
         }
 	};
 	page.init();
