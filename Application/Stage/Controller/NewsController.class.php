@@ -65,7 +65,6 @@ class NewsController extends ComController {
 			$id=$_GET['id'];
 			$map['status']=0 ;
 			$result=$news->where('id = '.$_GET['id'])->save($map);
-			echo $news->getLastsql();
 			if($result){
 				$this->success('操作成功',U('news/index'),3);
 			}
