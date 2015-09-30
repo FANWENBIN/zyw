@@ -122,14 +122,20 @@
 				return '编剧';
 		}
 	}
+
 	function newtype($id){
 		switch ($id) {
 			case '1':
 				return '今日焦点';
+
 			case '2':
 				return '星闻动向';
+			
 			case '3':
 				return '艺术中国梦';
+			
+			default:
+				return '123';
 			
 		}
 	}

@@ -39,7 +39,8 @@
       <li data-para="{$vo.id}">
         <img src="./Uploads{$vo.phoneimg}" width = 130 height= 95 alt=""/>
         <div>
-          <p>{:newtype($vo.type)}</p>
+          <!-- <p>{:newtype($vo.type)}</p> -->
+          <p><if condition="$vo.type eq 1">今日焦点<elseif condition="$vo.type eq 2" />星闻动向<elseif condition="$vo.type eq 3" />艺术中国梦</if></p>
           <h2>{$vo.title}</h2>
           <div class="bottom-info">
             <p class="date">{$vo.instime|date="Y-m-d",###}</p>
