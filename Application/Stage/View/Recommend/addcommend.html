@@ -141,7 +141,7 @@
                             <div class="i" id="J_WorksList">
                                  <div class="item clearFix" data-index="1">
                                     <div class="i w230 mr0"><input type="text" class="input w200" name="title[{$i}]" value="{$vo.title}" placeholder="请输入代表作名字"/></div>
-                                    <div class="i w350"><input type="text" value="{$vo.img}" class="js_imgupload" id="imgurl1" cut="true" width="280" height="310" name="photo[{$i}]"/></div>
+                                    <div class="i w350"><input type="text" value="{$vo.img}" class="js_imgupload" id="imgurl1" cut="true" width="500" height="700" name="photo[{$i}]"/></div>
                                     <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>
                                 </div>
                                
@@ -211,7 +211,7 @@
                 var d = new Date().getTime();
                 J_AppendWorks.before('<div class="item clearFix" data-index="'+ _index +'">'+
                         '<div class="i w230 mr0"><input type="text" class="input w200" name="title['+ _index +']" value="" placeholder="请输入代表作名字"/></div>'+
-                        '<div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl'+ d +'" cut="true" width="280" height="310" name="photo['+ _index +']"/></div>'+
+                        '<div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl'+ d +'" cut="true" width="500" height="700" name="photo['+ _index +']"/></div>'+
                         '<div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>'+
                         '</div>');
                 $("#imgurl" + d).imgUploadInit();
