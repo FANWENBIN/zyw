@@ -46,13 +46,14 @@
             <h1>资讯Banner</h1>
 
           </div>
-          <form action="{:U('Gactor/upgactor')}" method="post" enctype="multipart/form-data">
+          <form action="{:U('Banner/index')}" method="post" enctype="multipart/form-data">
             <fieldset>
               <!-- 姓名-->
               <div class="l">
               <input type="hidden" name="actorid" value="{$actors.id}">
                 <h6>姓名</h6>
-                <div class="i"><input type="text" class="input w200" value="{$actors.name}" placeholder="请输入姓名" name="name"/></div>
+                <div class="i"><input type="text" class="input w200" value="{$actors.name}" placeholder="请输入姓名" name="name"/>
+                </div>
               </div>
               <!-- 头像-->
               <div class="l">
@@ -66,107 +67,6 @@
                 <div class="i"> <input type="text" value="{$actors.img}" class="js_imgupload" id="imgurl2" cut="true" width="450" height="450" name="photo2"/>
                 </div>
               </div>
-
-
-
-              <!-- 性别-->
-              <div class="l">
-                <h6>性别</h6>
-                <div class="i w100">
-                  <select name='sex'>
-                    <option value= "1"<if condition="$actors.sex eq 1">selected</if> >男</option>
-                    <option value= "2"<if condition="$actors.sex eq 2">selected</if>>女</option>
-                  </select>
-                </div>
-              </div>
-              <!-- 出生年月-->
-              <div class="l">
-                <h6>出生年月</h6>
-                <div class="i w200">
-                  <input type="text" name="birthday" class="js_date" data-time="f alse" value="{:winter_date($actors['birthday'])}" />
-                </div>
-              </div>
-              <!-- 国籍-->
-              <div class="l">
-                <h6>国籍</h6>
-                <div class="i"><input type="text" class="input w200" value="{$actors.national}" placeholder="请输入国籍" name="national" /></div>
-              </div>
-              <!-- 出生地址-->
-              <div class="l">
-                <h6>出生地址</h6>
-                <div class="i">
-                <input type="text" class="input" value="{$actors.address}" placeholder="请输入地址" name="address"/>
-                </div>
-              </div>
-              <!-- 民族-->
-              <div class="l">
-                <h6>民族</h6>
-                <div class="i">
-                <input type="text" class="input w200" name="nation" value="{$actors.nation}" placeholder="请输入民族" />
-                </div>
-              </div>
-              <!-- 别名-->
-              <div class="l">
-                <h6>别名</h6>
-                <div class="i">
-                <input type="text" class="input w200" name="alias" value="{$actors.alias}" placeholder="请输入别名" />
-                </div>
-              </div>
-              <!-- 星座-->
-              <div class="l">
-                <h6>星座</h6>
-                <div class="i">
-                <input type="text" name="constellation" class="input w200" value="{$actors.constellation}" placeholder="请输入星座" />
-                </div>
-              </div>
-              <!-- 血型-->
-              <div class="l">
-                <h6>血型</h6>
-                <div class="i">
-                <input type="text" class="input w200" name="blood" value="{$actors.blood}" placeholder="请输入血型" /><span>型</span></div>
-              </div>
-              <!-- 身高-->
-              <div class="l">
-                <h6>身高</h6>
-                <div class="i"><input type="text" name="height" class="input w200" value="{$actors.height}" placeholder="请输入身高，如180" />CM</div>
-              </div>
-              <!-- 体重-->
-              <div class="l">
-                <h6>体重</h6>
-                <div class="i"><input type="text" name="weight" class="input w200" value="{$actors.weight}" placeholder="请输入体重，如50" />KG</div>
-              </div>
-              <!-- 经纪公司-->
-              <div class="l">
-                <h6>经纪公司</h6>
-                <div class="i"><input type="text" name="talent" class="input w300" value="{$actors.talent}" placeholder="请输入经纪公司" /></div>
-              </div>
-              <div class="l">
-                <h6>个人简介</h6>
-                <div class="i"><textarea class="input" name="about">{$actors.about}</textarea></div>
-              </div>
-              <!-- 好演员-->
-              <div class="l">
-                <h6>好演员评选</h6>
-                <div class="i w100">
-                  <select name="promotion">
-                    <option name="0" <if condition="$actors.promotion eq 0">selected</if>>预选</option>
-                    <option name="36" <if condition="$actors.promotion eq 36">selected</if>>36强</option>
-                    <option name="6" <if condition="$actors.promotion eq 6">selected</if>>6强</option>
-                  </select>
-                </div>
-              </div>
-              <!-- 分组-->
-              <div class="l">
-                <h6>好演员分组</h6>
-                <div class="i w100">
-                  <select name="groupid">
-                    <option value="1" <if condition="$actors.groupid eq 1">selected</if> >红组</option>
-                    <option value="2" <if condition="$actors.groupid eq 2">selected</if> >蓝组</option>
-                    <option value="3" <if condition="$actors.groupid eq 3">selected</if> >绿组</option>
-                  </select>
-                </div>
-              </div>
-
 
           <div class="btnCon btnCon2">
             <a href="{:U('Gactor/index')}" class="btnD">取消</a>
