@@ -1,4 +1,3 @@
-<meta property="qc:admins" content="2055274421614776367072177" />
 <?php
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK ]
