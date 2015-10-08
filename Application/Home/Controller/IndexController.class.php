@@ -30,7 +30,7 @@ class IndexController extends ComController {
 
         //蓝组
         $where2['groupid'] = 2;
-        $bluegroup = $actors->where($where2)->select();
+        $bluegroup = $actors->where($where2)->order('votes desc')->select();
         foreach($bluegroup as $key=>$val){
             $bluegroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
@@ -52,7 +52,7 @@ class IndexController extends ComController {
 
         //绿组
         $where3['groupid'] = 3;
-        $greengroup = $actors->where($where3)->select();
+        $greengroup = $actors->where($where3)->order('votes desc')->select();
         foreach($greengroup as $key=>$val){
             $greengroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
