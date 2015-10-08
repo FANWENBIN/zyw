@@ -9,7 +9,6 @@ class IndexController extends ComController {
         //红组
         $where1['groupid'] = 1;
         $redgroup = $actors->where($where1)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
-        echo $actors->getlastsql();
         foreach($redgroup as $key=>$val){
             $redgroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
