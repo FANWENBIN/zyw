@@ -1,0 +1,2 @@
+<?php die('forbidden'); ?>
+{"appid":"1","appkey":"2","callback":"http://localhost/connect2.1/example/oauth/callback.php","scope":"get_user_info","errorReport":true,"storageType":"file","host":"localhost","user":"root","password":"root","database":"test"}

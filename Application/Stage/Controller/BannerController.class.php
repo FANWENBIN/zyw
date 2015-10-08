@@ -1,9 +1,12 @@
 <?php
 namespace Stage\Controller;
 use Think\Controller;
-//
+/*各页面banner设置
+author:winter
+date:2015年10月8日15:06:40
+*/
 class BannerController extends ComController {
-    //banner设置
+//==================================新闻banner===//
     public function index(){
         $this->vercklogin();
         $this->assign('cur',4);
@@ -62,5 +65,13 @@ class BannerController extends ComController {
 	    		$this->success('未做任何保存');
 	    	}
     	}
+    }
+//==================================新闻END===//
+
+//==================================活动banner===//
+    public function active(){
+        
+        $this->assign('cur',4);
+        $this->display();
     }
 }

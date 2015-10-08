@@ -6,8 +6,8 @@ class ActiveController extends ComController {
     //首页显示
     public function index(){
 		$this->vercklogin();
-
-        //$this->display();
+		$this->assign('cur',6);
+        $this->display();
     }
 	
 }

@@ -158,7 +158,7 @@ class LoginController extends Controller {
     public function logout(){
         if(IS_POST){
             session('user',null);
-            $this->success(U('User  /index'));
+            $this->success(U('User/index'));
         }
     }
     
