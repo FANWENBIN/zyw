@@ -7,11 +7,11 @@ class VoteController extends ComController {
         $actors = M('actors');
         //好演员评选
         $where['status']=1;
-        $actorsval = $actors->where($where)->order('votes desc')->limit('0,8')->select();
+        $actorsval = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,8')->select();
         $this->assign('actors',$actorsval);
 
         //形象指数
-        $actorsvalue = $actors->where($where)->order('votes desc')->limit('0,6')->select();
+        $actorsvalue = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,6')->select();
         $this->assign('list',$actorsvalue);
 
         $recommend = M('recommend');
