@@ -116,7 +116,7 @@
 					</volist>
                     <ul>
 						<volist name="newsresult" id="news" key="k" offset="8" length="5">
-							<li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'])>15?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
+							<li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'],'utf-8')>15?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
 						</volist>
                     </ul>
                 </div>
