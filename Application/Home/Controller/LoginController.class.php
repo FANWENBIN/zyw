@@ -18,20 +18,13 @@ class LoginController extends Controller {
         $qc->qq_login();
     }
     public function callback(){
-     require('QQ/API/qqConnectAPI.php');
-      /*  $qc = new \QC();
-
-    echo $qc->qq_callback();
-    //echo '<br />';
-    echo $qc->get_openid();echo '<br /><br />';
-    var_dump( $qc->get_user_info());*/
-
-    $qc = new \QC();  
-    $acs = $qc->qq_callback();  
-    $oid = $qc->get_openid();  
-    $qc = new \QC($acs,$oid);  
-    $uinfo = $qc->get_user_info(); 
-    var_dump($uinfo);
+        require('QQ/API/qqConnectAPI.php');//引进qqapi 接口
+        $qc = new \QC();  
+        $acs = $qc->qq_callback();      //获取access-token 和openid
+        $oid = $qc->get_openid();  
+        $qc = new \QC($acs,$oid);  
+        $uinfo = $qc->get_user_info();  //获取用户信息
+        var_dump($uinfo);
     }
     /**
      * 登录
