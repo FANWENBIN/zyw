@@ -13,10 +13,10 @@ class LoginController extends Controller {
         $this->display();
     }
     public function qqlogin(){
-        echo 123;
+        require('QQ/API/qqConnectAPI.php');
     }
     public function callback(){
-        require('QQ/');
+        require('QQ/API');
         $qc = new \QC();
     echo $qc->qq_callback();
     echo $qc->get_openid();
