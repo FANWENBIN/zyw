@@ -10,37 +10,17 @@ use Think\Controller;
 class LoginController extends Controller {
     public function index(){
 
-         /*实例开始*/
-        header('content-type:text/html;charset=utf-8');
-         //申请QQ互联后得到的APP_ID 和 APP_KEY
-        $app_id = 101253689;
-        $app_key = '99527c65d40c58ccf667044aebc35d98';
-         //回调接口，接受QQ服务器返回的信息的脚本
-        $callback = C('DOMAIN_PATH').'/index.php?m=Home&c=Login&a=callback';
-         //实例化qq登陆类，传入上面三个参数
-        $qq = new \Home\Common\Qlogin($app_id,$app_key,$callback);
-       // $qq = new \Qlogin($app_id,$app_key,$callback);
-         //得到access_token验证值
-        $arr = $qq->get_token();
-         if(isset($arr['access_token']))
-            $access_token = $arr['access_token'];
-         else
-            die('登陆失败');
-         //得到用户的openid(登陆用户的识别码)和Client_id
-        $arr = $qq->get_client_id($access_token);
-         if(isset($arr['client_id'])){
-            $client_id = $arr['client_id'];
-            $openid = $arr['openid'];
-         }else{
-            die('登陆失败');
-         }
-         //请求接口，得到用户所有数据
-        $arr = $qq->user_info($client_id,$openid,$access_token);
-         var_dump($arr);
-         /*实例结束*/
         $this->display();
     }
-    
+    public function qqlogin(){
+        echo 123;
+    }
+    public function callback(){
+        require('QQ/');
+        $qc = new \QC();
+    echo $qc->qq_callback();
+    echo $qc->get_openid();
+    }
     /**
      * 登录
      * @author hxf
