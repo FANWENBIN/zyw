@@ -14,7 +14,8 @@ class LoginController extends Controller {
     }
     public function qqlogin(){
         require('QQ/API/qqConnectAPI.php');
-        $qq = new \QC();
+        $qc = new \QC();
+        $qc->qq_login();
     }
     public function callback(){
         require('QQ/API');
