@@ -68,6 +68,7 @@ class NewsController extends ComController {
 		$show       = $Page->show();// 分页显示输出
 		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
 		$list = $news->where('type=1')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+		echo $news->getlastsql();
 		$this->assign('list',$list);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
 		
