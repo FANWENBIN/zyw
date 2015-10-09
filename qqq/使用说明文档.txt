@@ -1,0 +1,7 @@
+1、打开config.php文件，配置你的appid及appkey
+
+2、login.php是登录页面
+
+3、登录成功后，REDIRECT.asp页面会显示相关QQ信息
+
+易IT网-整理发布-www.yiit.cn
