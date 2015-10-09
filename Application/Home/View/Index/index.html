@@ -89,7 +89,7 @@
 					<volist name="newsresult" id="news" key="k" offset="1" length="1" empty="暂时没有数据">
                     <a href="{:U('News/news_details?id='.$news['id'])}" class="cover">
                         <div class="txt">
-                            <h3><?php echo mb_strlen ($news['title'])>30?mb_substr($news['title'],0,24,'utf-8').'......':$news['title'] ?></h3>
+                            <h3><?php echo mb_strlen ($news['title'])>24?mb_substr($news['title'],0,24,'utf-8').'......':$news['title'] ?></h3>
                             <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
                         </div>
 						<img  src="./Uploads{$news.imgpath}" />
@@ -98,7 +98,7 @@
 					</volist>
                     <ul>
 						<volist name="newsresult" id="news" key="k" offset="2" length="5">
-							<li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'])>20?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
+							<li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'])>15?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
 						</volist>
                     </ul>
                 </div>
@@ -107,7 +107,7 @@
 					<volist name="newsresult" id="news" key="k" offset="7" length="1" empty="">
                     <a href="{:U('News/news_details?id='.$news['id'])}" class="cover">
                         <div class="txt">
-                            <h3><?php echo mb_strlen ($news['title'])>30?mb_substr($news['title'],0,24,'utf-8').'......':$news['title'] ?></h3>
+                            <h3><?php echo mb_strlen ($news['title'])>24?mb_substr($news['title'],0,24,'utf-8').'......':$news['title'] ?></h3>
                             <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
                         </div>
 						<img  src="./Uploads{$news.imgpath}" />
@@ -116,7 +116,7 @@
 					</volist>
                     <ul>
 						<volist name="newsresult" id="news" key="k" offset="8" length="5">
-							<li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'])>20?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
+							<li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'])>15?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
 						</volist>
                     </ul>
                 </div>
