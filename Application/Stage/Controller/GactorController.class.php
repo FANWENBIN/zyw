@@ -71,6 +71,7 @@ class GactorController extends ComController {
     public function addactor(){
         $submit = I('post.submit');
         if(empty($submit)){
+            $this->assign('cur',2);
             $this->display();
         }else{
             $data['name']    = I('post.name');
@@ -141,6 +142,7 @@ class GactorController extends ComController {
             $id = I('get.id');
             $actorsval = $actors->where('id='.$id)->find();
             $this->assign('actors',$actorsval);
+            $this->assign('cur',2);
             $this->display('upgactor');
         }else{
             $data['name']      = I('post.name');

@@ -31,6 +31,7 @@ class RecommendController extends ComController {
     public function addcommend(){
         $submit = I('post.submit');
         if(empty($submit)){
+            $this->assign('cur',3);
             $this->display();
         }else{
             $production   = M('recommend_production');  //数据库模型实例化
@@ -99,6 +100,7 @@ class RecommendController extends ComController {
             $this->assign('commendval',$commendval);
             $this->assign('production',$production);
             //var_dump($commendval);
+            $this->assign('cur',3);
             $this->display();
         }else{
             $production   = M('recommend_production');
