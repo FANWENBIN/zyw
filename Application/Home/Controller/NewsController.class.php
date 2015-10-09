@@ -38,6 +38,9 @@ class NewsController extends ComController {
 		
 		$this->display('news');
     }
+    /*新闻详情页
+	
+    */
 	 public function news_details(){
 		 //内容
 		 $id=intval($_GET['id']);
@@ -48,5 +51,22 @@ class NewsController extends ComController {
 		 $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
 		 $this->assign('hotnews',$hotnews);
 		 $this->display('news_details');
+	 }
+	 //艺术中国梦
+	 public function news_dream(){
+
+	 	$this->display();
+	 }
+	 //今日焦点
+	 public function news_fans(){
+	 	$news = M('news');
+	 	$newsval = $news->where('type=1')->select();
+	 	$this->assign('newsval',$newsval);
+	 	
+	 	$this->display();
+	 }
+	 //星闻动向
+	 public function news_star(){
+	 	$this->display();
 	 }
 }
