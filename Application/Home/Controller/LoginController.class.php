@@ -24,6 +24,7 @@ class LoginController extends Controller {
     echo $qc->qq_callback();
     echo '<br />';
     echo $qc->get_openid();
+    echo $qc->get_user_info();
     }
     /**
      * 登录
