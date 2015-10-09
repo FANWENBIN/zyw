@@ -52,7 +52,7 @@
 
     <div class="con nav clearFix" id="J_nav">
         <div class="navTitle">
-            <a href="#">首页</a> > <a href="#">资讯</a> > <a href="#">粉丝焦点</a>
+            <a href="{:U('Index/index')}">首页</a> > <a href="{:U('News/index')}">资讯</a> > <a href="#">粉丝焦点</a>
 
             <div class="loginfo"><span class="face"></span><span class="name">用户名</span></div>
         </div>
@@ -70,41 +70,24 @@
             </a>
 
             <div class="right">
+            <volist name = "timenews" id = "vo" offset="0" length='1'>
                 <a href="#" class="rightTop">
-                    <img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt="" />
+                    <img src="./Uploads{$vo.imgpath}" alt="" />
                     <div class="txt">
-                        <h3>李冰冰 揭秘贫困女奋斗史</h3>
+                        <h3><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h3>
 
-                        <p>2015-10-26</p>
+                        <p>{$vo.instime|date='Y-m-d',###}</p>
                     </div>
                     <div class="cover"></div>
                 </a>
-
+            </volist>
                 <ul class="list">
+                <volist name = "timenews" id = "vo" offset = "1" length = "6">
                     <li>
-                        <a href="#">喜剧演员黄一山来东莞拍微电影</a>
-                        <span>3小时前</span>
+                        <a href="#"><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></a>
+                        <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
                     </li>
-                    <li>
-                        <a href="#">喜剧演员黄一山来东莞拍微电影</a>
-                        <span>3小时前</span>
-                    </li>
-                    <li>
-                        <a href="#">喜剧演员黄一山来东莞拍微电影</a>
-                        <span>3小时前</span>
-                    </li>
-                    <li>
-                        <a href="#">喜剧演员黄一山来东莞拍微电影</a>
-                        <span>3小时前</span>
-                    </li>
-                    <li>
-                        <a href="#">喜剧演员黄一山来东莞拍微电影</a>
-                        <span>3小时前</span>
-                    </li>
-                    <li>
-                        <a href="#">喜剧演员黄一山来东莞拍微电影</a>
-                        <span>3小时前</span>
-                    </li>
+                </volist>
                 </ul>
             </div>
         </div>
