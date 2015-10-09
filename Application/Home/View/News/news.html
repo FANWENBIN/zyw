@@ -82,7 +82,7 @@
                         <div class="frame"></div>
                     </li>
                 </volist>
-                    
+
                     <!--<li><img src="__PUBLIC__/statics/images/pic-banner-1.jpg" alt=""/><div class="frame"></div></li>-->
                 </ul>
             </div>
@@ -91,7 +91,7 @@
 	</div>
     <!--1-->
 
-       
+
 
     <div class="con conFansFocus" id="J_ConFansFocus">
             <div class="title">
@@ -100,7 +100,7 @@
             </div>
             <div class="inner clearFix">
 			<volist name="resultX" id="xlist" key="k" offset="0" length="5" empty="">
-			
+
 				<a href="{:U('News/news_details?id='.$xlist['id'])}" class="item cover">
                     <div class="txt">
                         <h3><?php echo strlen($xlist['title'])>30?mb_substr($xlist['title'],0,24,'utf-8').'......':$xlist['title'] ?></h3>
@@ -108,8 +108,8 @@
                     </div>
                     <img  src="./Uploads{$xlist.imgpath}" />
                     <sub class="hover"></sub>
-                </a>			
-			
+                </a>
+
 			</volist>
 			<div class="item more">
 				<ul>
@@ -135,7 +135,7 @@
 						<sub class="hover"></sub>
 					</a>
 				</volist>
-                
+
                 <div class="r clearFix">
 					<volist name="resultD" id="dlist" key="k" offset="1" length="8" >
 						<a href="{:U('News/news_details?id='.$dlist['id'])}" class="item">
