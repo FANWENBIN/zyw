@@ -19,12 +19,19 @@ class LoginController extends Controller {
     }
     public function callback(){
      require('QQ/API/qqConnectAPI.php');
-        $qc = new \QC();
+      /*  $qc = new \QC();
 
     echo $qc->qq_callback();
     //echo '<br />';
     echo $qc->get_openid();echo '<br /><br />';
-    var_dump( $qc->get_user_info());
+    var_dump( $qc->get_user_info());*/
+
+    $qc = new \QC();  
+    $acs = $qc->qq_callback();  
+    $oid = $qc->get_openid();  
+    $qc = new \QC($acs,$oid);  
+    $uinfo = $qc->get_user_info(); 
+    var_dump($uinfo);
     }
     /**
      * 登录
