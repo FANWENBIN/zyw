@@ -15,12 +15,12 @@ class IndexController extends ComController {
             if($a){
                 $data['name']= I('post.user');
                 $data['passwd']=md5(I('post.pw'));
-                $user=M('admin');
-                $a=$user->where($data)->select();
+                $user = M('admin');
+                $userval = $user->where($data)->find();
                 //echo $user->getlastsql();die();
-                if($a){
-                    $uid = md5('xxxzyw916');
-                    session('uid',$uid);
+                if($userval){
+                   // $uid = md5('xxxzyw916');
+                    session('uid',$userval['id']);
                     session('name',$data['name']);
                     $this->success('登陆成功',U('Gactor/index'),5);
                     //$this->redirect('New/category', array('cate_id' => 2), 5, '页面跳转中...');

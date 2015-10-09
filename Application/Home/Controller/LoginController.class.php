@@ -8,8 +8,24 @@ use Think\Controller;
  * @version 2015年9月24日16:41:44
  */
 class LoginController extends Controller {
-    
-    
+    public function index(){
+
+        $this->display();
+    }
+    public function qqlogin(){
+        require('QQ/API/qqConnectAPI.php');
+        $qc = new \QC();
+        $qc->qq_login();
+    }
+    public function callback(){
+     require('QQ/API/qqConnectAPI.php');
+        $qc = new \QC();
+
+    //echo $qc->qq_callback();
+    //echo '<br />';
+    //echo $qc->get_openid();echo '<br />123<br />';
+    var_dump( $qc->get_user_info());
+    }
     /**
      * 登录
      * @author hxf
@@ -158,7 +174,7 @@ class LoginController extends Controller {
     public function logout(){
         if(IS_POST){
             session('user',null);
-            $this->success(U('User  /index'));
+            $this->success(U('User/index'));
         }
     }
     

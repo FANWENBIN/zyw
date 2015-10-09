@@ -8,21 +8,21 @@ class IndexController extends ComController {
         $actors = M('actors');
         //红组
         $where1['groupid'] = 1;
-        $redgroup = $actors->where($where1)->order('votes desc')->select();
+        $redgroup = $actors->where($where1)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
         foreach($redgroup as $key=>$val){
             $redgroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
         $this->assign('redgroup',$redgroup); 
         //红组男演员
         $where1['sex'] = 1;
-        $manredgroup   = $actors->where($where1)->select();
+        $manredgroup   = $actors->where($where1)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
         foreach($manredgroup as $key=>$val){
             $manredgroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
         $this->assign('manredgroup',$manredgroup); 
         //红组女演员
         $where1['sex'] = 2;
-        $menredgroup   = $actors->where($where1)->select();
+        $menredgroup   = $actors->where($where1)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
         foreach($menredgroup as $key=>$val){
             $menredgroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
@@ -30,21 +30,21 @@ class IndexController extends ComController {
 
         //蓝组
         $where2['groupid'] = 2;
-        $bluegroup = $actors->where($where2)->select();
+        $bluegroup = $actors->where($where2)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
         foreach($bluegroup as $key=>$val){
             $bluegroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
         $this->assign('bluegroup',$bluegroup); 
         //蓝组男演员
         $where2['sex'] = 1;
-        $manbluegroup   = $actors->where($where2)->select();
+        $manbluegroup   = $actors->where($where2)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
         foreach($manbluegroup as $key=>$val){
             $manbluegroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
         $this->assign('manbluegroup',$manbluegroup); 
         //蓝组女演员
         $where2['sex'] = 2;
-        $menbluegroup   = $actors->where($where2)->select();
+        $menbluegroup   = $actors->where($where2)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
         foreach($menbluegroup as $key=>$val){
             $menbluegroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
@@ -52,21 +52,21 @@ class IndexController extends ComController {
 
         //绿组
         $where3['groupid'] = 3;
-        $greengroup = $actors->where($where3)->select();
+        $greengroup = $actors->where($where3)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
         foreach($greengroup as $key=>$val){
             $greengroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
         $this->assign('greengroup',$greengroup); 
         //红组男演员
         $where3['sex'] = 1;
-        $mangreengroup   = $actors->where($where3)->select();
+        $mangreengroup = $actors->where($where3)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
         foreach($mangreengroup as $key=>$val){
             $mangreengroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
         $this->assign('mangreengroup',$mangreengroup); 
         //红组女演员
         $where3['sex'] = 2;
-        $mengreengroup   = $actors->where($where3)->select();
+        $mengreengroup = $actors->where($where3)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->select();
         foreach($mengreengroup as $key=>$val){
             $mengreengroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
@@ -88,7 +88,7 @@ class IndexController extends ComController {
             $where['sex'] = $sex;
         }
         $where['groupid'] = 1;
-        $actorsval = $actors->where($where)->order('votes asc')->select();
+        $actorsval = $actors->where($where)->order('votes desc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
@@ -107,7 +107,7 @@ class IndexController extends ComController {
             $where['sex'] = $sex;
         }
         $where['groupid'] = 2;
-        $actorsval = $actors->where($where)->order('votes asc')->select();
+        $actorsval = $actors->where($where)->order('votes desc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
@@ -125,7 +125,7 @@ class IndexController extends ComController {
             $where['sex'] = $sex; 
         }
         $where['groupid'] = 3;
-        $actorsval = $actors->where($where)->order('votes asc')->select();
+        $actorsval = $actors->where($where)->order('votes desc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
