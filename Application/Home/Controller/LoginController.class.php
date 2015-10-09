@@ -18,7 +18,7 @@ class LoginController extends Controller {
         $qc->qq_login();
     }
     public function callback(){
-        require('QQ/API');
+     require('QQ/API/qqConnectAPI.php');
         $qc = new \QC();
     echo $qc->qq_callback();
     echo $qc->get_openid();
