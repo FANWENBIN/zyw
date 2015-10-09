@@ -8,7 +8,9 @@ use Think\Controller;
  * @version 2015年9月24日16:41:44
  */
 class LoginController extends Controller {
-    
+    public function index(){
+        $this->display();
+    }
     
     /**
      * 登录
