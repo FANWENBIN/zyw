@@ -115,68 +115,19 @@
                 <h2>热门资讯</h2>
             </div>
             <div class="box">
-
+            
                 <ul class="list" id="list">
+                <volist name="hotnews" id="vo">
                     <li class="item">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg">
+                        <a href="{:U('News/news_details?id='.$vo['id'])}">
+                            <img src="./Uploads{$vo.imgpath}">
                             <div class="txt">
-                                <h3>李冰冰 揭秘贫困女奋斗史</h3>
-
-                                <p>2015-10-26</p>
+                                <h3><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h3>
+                                <p>{$vo.instime|date='Y-m-d',###}</p>
                             </div>
                         </a>
                     </li>
-                    <li class="item">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg">
-                            <div class="txt">
-                                <h3>李冰冰 揭秘贫困女奋斗史</h3>
-
-                                <p>2015-10-26</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg">
-                            <div class="txt">
-                                <h3>李冰冰 揭秘贫困女奋斗史</h3>
-
-                                <p>2015-10-26</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg">
-                            <div class="txt">
-                                <h3>李冰冰 揭秘贫困女奋斗史</h3>
-
-                                <p>2015-10-26</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg">
-                            <div class="txt">
-                                <h3>李冰冰 揭秘贫困女奋斗史</h3>
-
-                                <p>2015-10-26</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg">
-                            <div class="txt">
-                                <h3>李冰冰 揭秘贫困女奋斗史</h3>
-
-                                <p>2015-10-26</p>
-                            </div>
-                        </a>
-                    </li>
+                </volist>
                 </ul>
                     <a href="javascript:;" class="preview" id="preview"></a>
                     <a href="javascript:;" class="next" id="next"></a>
@@ -188,110 +139,36 @@
         <div class="con bottomContent">
             <div class="lastedNews">
                 <div class="title">
-                    <h2>粉丝焦点</h2>
+                    <h2>最新资讯 </h2>
                     <!-- <a href="#" class="more">更多</a> -->
                 </div>
                 <div class="list">
+                <volist name="list" id="vo">
                     <div class="item clearFix">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg" alt=""/>
+                        <a href="{:U('News/news_details?id='.$vo['id'])}">
+                            <img src="./Uploads{$vo.imgpath}" alt=""/>
                         </a>
                         <div class="content">
-                            <h1>你好，你好，</h1>
-                            <p>今日凌晨，彭于晏通过微博晒出两张与洪金宝等人的合照，并留言称，可 爱的师傅和家人，洪家班gogogo。　　照片中，彭于晏搂着师</p>
-                            <a href="#" class="details">[详情]</a>
+                            <h1><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h1>
+                            <p>{$vo.digest}</p>
+                            <a href="{:U('News/news_details?id='.$vo['id'])}" class="details">[详情]</a>
                         </div>
                     </div>
-                    <div class="item clearFix">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg" alt=""/>
-                        </a>
-                        <div class="content">
-                            <h1>你好，你好，</h1>
-                            <p>今日凌晨，彭于晏通过微博晒出两张与洪金宝等人的合照，并留言称，可 爱的师傅和家人，洪家班gogogo。　　照片中，彭于晏搂着师</p>
-                            <a href="#" class="details">[详情]</a>
-                        </div>
-                    </div>
-                    <div class="item clearFix">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg" alt=""/>
-                        </a>
-                        <div class="content">
-                            <h1>你好，你好，</h1>
-                            <p>今日凌晨，彭于晏通过微博晒出两张与洪金宝等人的合照，并留言称，可 爱的师傅和家人，洪家班gogogo。　　照片中，彭于晏搂着师</p>
-                            <a href="#" class="details">[详情]</a>
-                        </div>
-                    </div>
-                    <div class="item clearFix">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg" alt=""/>
-                        </a>
-                        <div class="content">
-                            <h1>你好，你好，</h1>
-                            <p>今日凌晨，彭于晏通过微博晒出两张与洪金宝等人的合照，并留言称，可 爱的师傅和家人，洪家班gogogo。　　照片中，彭于晏搂着师</p>
-                            <a href="#" class="details">[详情]</a>
-                        </div>
-                    </div>
-                    <div class="item clearFix">
-                        <a href="#">
-                            <img src="__PUBLIC__/statics/images/p_fav.jpg" alt=""/>
-                        </a>
-                        <div class="content">
-                            <h1>你好，你好，</h1>
-                            <p>今日凌晨，彭于晏通过微博晒出两张与洪金宝等人的合照，并留言称，可 爱的师傅和家人，洪家班gogogo。　　照片中，彭于晏搂着师</p>
-                            <a href="#" class="details">[详情]</a>
-                        </div>
-                    </div>
+                </volist>
+                {$page}
+                
                 </div>
             </div>
-            <div class="ladder">
+           <!-- <div class="ladder" id="pos">
                 <div class="title">
-                    <h2>粉丝焦点</h2>
-                    <!-- <a href="#" class="more">更多</a> -->
+                    <h2>排行榜</h2>
+                     <a href="#" class="more">更多</a> 
                 </div>
                 <ul class="list">
-                    <li href="#" class="item">
-                        <span class="num num1"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
-                    <li href="#" class="item">
-                        <span class="num num2"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
-                    <li href="#" class="item">
-                        <span class="num num3"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
-                    <li href="#" class="item">
-                        <span class="num num4"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
-                    <li href="#" class="item">
-                        <span class="num num5"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
-                    <li href="#" class="item">
-                        <span class="num num6"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
-                    <li href="#" class="item">
-                        <span class="num num7"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
-                    <li href="#" class="item">
-                        <span class="num num8"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
-                    <li href="#" class="item">
-                        <span class="num num9"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
-                    <li href="#" class="item">
-                        <span class="num num10"></span>
-                        <a href="#" class="text">喜剧演员。。。。。。。。。。。。。。。。。。。</a>
-                    </li>
+                
+                    
                 </ul>
-            </div>
+            </div>-->
         </div>
 
     </div>

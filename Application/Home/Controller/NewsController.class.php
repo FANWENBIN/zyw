@@ -46,6 +46,8 @@ class NewsController extends ComController {
 		 $id=intval($_GET['id']);
 		 $news=  M('news');
 		 $result=$news->where('id ='.$id)->find();
+		 $dump['hot'] = $result['hot']+1;
+		 $news->where('id='.$id)->save($dump);
 		 $this->assign('result',$result);
 		 //热点
 		 $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
@@ -60,9 +62,19 @@ class NewsController extends ComController {
 	 //今日焦点
 	 public function news_fans(){
 	 	$news = M('news');
-	 	$newsval = $news->where('type=1')->select();
-	 	$this->assign('newsval',$newsval);
-	 	
+	 	//$newsval = $news->where('type=1')->order('instime desc')->select();
+		$count      = $news->where('type=1')->order('instime desc')->count();// 查询满足要求的总记录数
+		$Page       = new \Think\Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+		$show       = $Page->show();// 分页显示输出
+		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+		$list = $news->where('type=1')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$this->assign('list',$list);// 赋值数据集
+		$this->assign('page',$show);// 赋值分页输出
+		
+		//热门新闻
+		$hotnews = $news->where('type=1')->order('hot desc')->limit('0,10')->select();
+		$this->assign('hotnews',$hotnews);
+
 	 	$this->display();
 	 }
 	 //星闻动向
