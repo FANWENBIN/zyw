@@ -1,0 +1,150 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>中演网</title>
+<link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/style/common.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/style/active_details.css" rel="stylesheet" type="text/css" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+</head>
+
+<body>
+<div class="wrapper">
+
+    <!--webheader-->
+    <div class="webheader">
+        <div class="inner clearFix">
+            <a href="index.html" class="logo"></a>
+            <div class="nav">
+
+                <ul class="clearFix">
+                    <li class="first"><a href="{:U('Index/index')}">首页</a></li>
+                    <li><a href="{:U('News/index')}">资讯</a></li>
+                    <li  class="c"><a href="{:U('#/index')}">活动</a></li>
+                    <li><a href="{:U('#/index')}">演工委之声</a></li>
+                    <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
+                    <li><a href="{:U('#/index')}">饭团</a></li>
+                    <li><a href="{:U('#/index')}">星站</a></li>
+                    <li><a href="{:U('#/index')}">明日之星</a></li>
+                    <li><a href="{:U('Video/index')}">视频</a></li>
+                    <li><a href="{:U('#/index')}">Stage</a></li>
+                    <li><a href="{:U('#/index')}">演艺库</a></li>
+                </ul>
+            </div>
+            <a href="#" class="search"></a>
+        </div>
+    </div>
+    <!--webheader end-->
+
+
+    <!--webmain-->
+    <div class="webmain">
+        <div class="navTitle">
+            <a href="#">首页</a> > <a href="#">活动</a> > <a href="javascript:void(0);">活动详情</a>
+        </div>
+        <div class="topCon">
+            <div class="header">
+                <h1>活动标题</h1><!--
+                --><span class="newActive" id="newActive">发起活动</span>
+            </div>
+            <p>地址：<em>线上活动</em></p>
+            <p>时间：<em>07月30日 周四 16:00 -- 09月26日 周六10:00</em></p>
+            <p>参与方式：<em>致电40000400</em></p>
+        </div>
+
+
+        <div class="con content">
+            <div class="title">
+                <h2>活动详情</h2>
+            </div>
+            <img src="__PUBLIC__/statics/images/p_active_big.jpg" alt=""/>
+            <p>活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍</p>
+        </div>
+
+
+
+        <div class="con pic">
+            <div class="title">
+                <h2>活动图片</h2>
+            </div>
+            <div class="inner clearFix">
+                <div class="item"><img src="__PUBLIC__/statics/images/p_active_1.jpg" alt=""/></div>
+                <div class="item"><img src="__PUBLIC__/statics/images/p_active_1.jpg" alt=""/></div>
+                <div class="item"><img src="__PUBLIC__/statics/images/p_active_1.jpg" alt=""/></div>
+            </div>
+
+        </div>
+
+
+
+        <div class="con fav">
+            <div class="title">
+                <h2>猜你喜欢</h2>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!--webfooter-->
+    <div class="webfooter">
+        <div class="inner clearFix">
+            <div class="logo"></div>
+            <div class="info">
+                <ul class="clearFix">
+                    <li class="f"><a href="#">关于我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+                <p>COPYRIGHT © 2008 - 2015 中国电视好演员. 苏ICP证090011号</p>
+            </div>
+            <div class="qr">
+                <p>扫描二维码</p>
+                <span>关注官方微信</span>
+            </div>
+        </div>
+    </div>
+    <!--webfooter end-->
+
+    <!-- 发起活动弹出层-->
+    <div class="mask" id="mask">
+        <div class="popbox">
+            <form action="#">
+                <h3>发起新活动</h3>
+                <input type="text" placeholder="请输入活动名称" class="activeName" /><br>
+                <input type="text" placeholder="活动日期" class="fromTime" name="fromTime" id="fromTime" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd HH:mm'})" /> - <input type="text" placeholder="活动日期" class="toTime" name="toTime" id="toTime"  onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd HH:mm'})" />
+                <div class="border">
+                    <select class="activeType">
+                        <option>线上活动</option>
+                        <option>线下活动</option>
+                    </select>
+                    <input type="text" placeholder="请输入活动地址" class="activeAdress" name="activeAdress" id="activeAdress" />
+                </div>
+                <div><input type="file" placeholder="封面图" class="pic" id="pic" name="pic" /><i class="camera"></i></div>
+                <textarea name="" id="" placeholder="活动详情"></textarea>
+                <h3>主办人信息</h3>
+                <input type="text" placeholder="姓名" style="width: 245px"/><br/>
+                <input type="text" placeholder="电话" style="width: 245px" /><br/>
+                <input type="text" placeholder="地址" style="width: 500px" /><br/>
+                <input type="text" placeholder="邮箱" style="width: 245px" /><br/>
+                <input type="submit" value="确认" class="submit" />
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+
+<script src="__PUBLIC__/statics/js/active_details.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/DatePicker/WdatePicker.js"></script>
+
+</body>
+</html>
