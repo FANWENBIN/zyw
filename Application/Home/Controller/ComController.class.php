@@ -31,4 +31,40 @@ class ComController extends Controller {
     	 //打印获得的数据
     	 print_r($output);
     }
+    /** 
+    * 获取本周第一天/最后一天的时间戳 
+    * @param string $type 
+    * @return integer 
+    * 
+    */ 
+    public function get_week_time( $type = 'first' ) {  
+     /* 获取本周第一天/最后一天的时间戳 */ 
+        $year = date( "Y" );  
+        $month = date( "m" );  
+        $day = date( 'w' );  
+        $nowMonthDay = date( "t" );  
+        if ( $type == 'first' ) {  
+            $firstday = date( 'd' ) - $day+1;  
+            if ( substr( $firstday, 0, 1 ) == "-" ) {  
+                $firstMonth = $month - 1;  
+                $lastMonthDay = date( "t", $firstMonth );  
+                $firstday = $lastMonthDay - substr( $firstday, 1 );  
+                $time_1 = strtotime( $year . "-" . $firstMonth . "-" . $firstday );  
+            } else {  
+                $time_1 = strtotime( $year . "-" . $month . "-" . $firstday );  
+            }  
+            return $time_1;  
+        } else {  
+            $lastday = date( 'd' ) + (7 - $day)+1;  
+            if ( $lastday > $nowMonthDay ) {  
+                $lastday = $lastday - $nowMonthDay;  
+                $lastMonth = $month + 1;  
+                $time_2 = strtotime( $year . "-" . $lastMonth . "-" . $lastday );  
+            } else {  
+                $time_2 = strtotime( $year . "-" . $month . "-" . $lastday );  
+            }  
+            return $time_2;  
+            }  
+    }  
+   
 }
