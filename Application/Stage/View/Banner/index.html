@@ -33,7 +33,7 @@
         <div class="mainHeader">
              <h1>Banner管理</h1>
             <ul class="menu clearFix">
-            <li class="current"><a href="{:U('Banner/index')}">新闻Bsanner</a></li>
+            <li class="current"><a href="{:U('Banner/index')}">新闻Banner</a></li>
             <li><a href="{:U('Banner/active')}">活动Banner</a></li>
              <!--  <li><a href="{:U('Banner/winer')}"></a></li> -->
             </ul>
@@ -45,7 +45,10 @@
 
             <!--表单-->
             <div class="form">
-               
+                <div class="formHeader">
+                    <h1>新闻Banner</h1>
+                </div>
+
                 <form method="post" action="{:U('Banner/savenewsbanner')}" enctype="multipart/form-data">
                     <fieldset>
 

@@ -62,31 +62,31 @@
 
 
       <!--表格-->
-      <table class="table">
+      <table class="table" id="J_Table">
         <thead>
         <tr>
           <td class="t1">编号</td>
-          <td class="t2">头像</td>
-          <td class="t3">昵称</td>
-          <td class="t4">性别</td>
-          <td class="t6">创建时间</td>
+          <td class="t2">活动标题</td>
+          <td class="t3">活动开始时间</td>
+          <td class="t4">活动结束时间</td>
+          <td class="t5">活动联系电话</td>
+          <td class="t6">活动封面图</td>
           <td class="t7">操作</td>
         </tr>
         </thead>
         <tbody>
-        <volist name="list" id="v">
+        <volist name="result" id="vo">
           <tr>
             <td class="t1">{$i}</td>
-            <td class="t2">
-            <notempty name="v['headpic']"><img src="./Uploads{$v['headpic']}" width="50" height="50" /></notempty></td>
-            <td class="t3">{$v['nickname']}</td>
-            <td class="t4"><eq name="v['sex']" value="1">男<else/>女</eq></td>
-            <td class="t6">{:hql_date($v['createtime'])}</td>
+            <td class="t2">{$vo.title}</td>
+            <td class="t3">{$vo.begin_time|date="m-d",###}</td>
+            <td class="t4">{$vo.last_time|date="m-d",###}</td>
+            <td class="t5">{$vo.phone}</td>
+            <td class="t6"><img src="./Uploads{$vo.img}" width="50" height="50" /></td>
             <td class="t7">
               <p class="console">
-                <a href="{:U('look',array('id'=>$v['id']))}" class="setting">查看</a>
-                <a href="{:U('edit',array('id'=>$v['id']))}" class="setting">编辑</a>
-                <a data-id="{$v['id']}" href="javascript:void(0)" class="delete">删除</a>
+                <a href="{:U('Active/upactive?id='.$vo['id'])}" class="setting">设置</a>
+                <a href="javascript:void(0)" data-id="{$vo.id}" class="delete">删除</a>
               </p>
             </td>
           </tr>
@@ -122,8 +122,26 @@
 <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
 <script>
-    var delete_url='{:U("delete")}';/*删除*/
-</script>
+    $(function(){
+      
+
+      $("#J_Table").on("click",".delete",function(str){
+        var id = $(this).data("id");
+
+        $.alert({
+          btnY: "确认",
+          btnN: "取消",
+          txt:'删除请确认',
+          callbackY: function(){
+            window.location = webPath+"/index.php?m=Stage&c=Active&a=delactive&id="+id;
+          }
+        })
+      });
+
+    })
+
+
+  </script>
 
 </body>
 </html>

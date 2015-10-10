@@ -368,6 +368,9 @@ var swfUrl = "./swf/";
 				if (parent.width() < 200){
 					w = parent.width();
 				}
+				if (select.find("option").length == 0){
+					return;
+				}
 				select.data("init", "true");
 				var disabled = select.attr("disabled") ? "js_selectDisabled" : "";
 				var css = select.data("css") ? select.data("css") : "";

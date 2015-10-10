@@ -51,5 +51,18 @@ class ComController extends Controller {
             $this->ajaxReturn(array('status'=>1,'msg'=>'上传失败'));
         }
     }
+    /*判断活动是否有周末
+     * @author winter
+     * @date 2015年10月10日17:36:27
+     * @parameter begin 开始时间
+     * @parameter last  结束时间
+    */
+    public function isWeek($begin,$last){
+        $span = intval($last-$begin);
+
+        if($span >= 604800){
+
+        }
+    }
 }
 ?>

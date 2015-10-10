@@ -41,6 +41,7 @@ class NewsController extends ComController {
 		if($_GET['id']>0){
 			$id=$_GET['id'];
 			$data=$news->where('id ='.$id)->find();
+			$this->assign('cur',5);
 			$this->assign('data',$data);
 		}
 
@@ -65,6 +66,7 @@ class NewsController extends ComController {
 				$this->error('数据格式错误',U('news/add'),3);
 			}
 		}else{
+			$this->assign('cur',5);
         $this->display();   
         }
     } 
