@@ -61,7 +61,19 @@ class ComController extends Controller {
         $span = intval($last-$begin);
 
         if($span >= 604800){
-
+            return 1;
+        }else if($span > 0){
+            $lWeek = date('w',$last);
+            $bWeek = date('w',$begin);
+            if($lWeek == 6 || $lWeek == 0 || $bWeek == 6 || $bWeek == 0){
+                return 1;
+            }else{
+                if($bWeek > $lWeek){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }
         }
     }
 }
