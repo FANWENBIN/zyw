@@ -23,10 +23,12 @@ class ActiveController extends ComController {
 		$this->assign('cur',6);
         $this->display();
     }
+    //删除活动
     public function delactive(){
     	$id = I('get.id');
     	$active = M('active');
-    	$sign = $active->where('id='.$id)->delete();
+    	$data['status'] = 0;
+    	$sign = $active->where('id='.$id)->save($data);
     	if($sign){
     		$this->success('删除成功',U('Active/index'));
     	}else{
