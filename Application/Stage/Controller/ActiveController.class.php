@@ -88,7 +88,7 @@ class ActiveController extends ComController {
             if($sign){
                 $this->success('活动审核成功',U('Active/audit'));
             }else{
-                $this->error('活动审核失败');
+                $this->error('未做活动审核');
             }
         }
     }
