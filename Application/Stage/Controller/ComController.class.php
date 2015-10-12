@@ -3,8 +3,14 @@
 namespace Stage\Controller;
 use Think\Controller;
 class ComController extends Controller {
-
-//
+    public function __construct(){
+        parent::__construct();
+        //查询未查看消息至每个页面
+        $active = M('active');
+        $sum = $active->where('status = 2')->count();
+        $this->assign('sms',$sum);
+    }
+//验证登录
     public function vercklogin(){
     	//md5(xxzyw916);
     	$data['id'] = session('uid');
@@ -23,6 +29,7 @@ class ComController extends Controller {
     */
     public function checkDump($data){
     	foreach($data as $key=>$val){
+            $data[$key] = trim($val);
     		if(empty($val)){
     			return 0;
     		}

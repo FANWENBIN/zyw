@@ -37,73 +37,73 @@
           <div class="formHeader">
             <h1>活动详情</h1>
           </div>
-          <form action="{:U('Active/upactive')}" method="post" enctype="multipart/form-data" id="J_Form">
+          <form action="{:U('Active/addactive')}" method="post" enctype="multipart/form-data" id="J_Form">
             <fieldset>
               <div class="l">
                 <h6>活动标题</h6>
-                <div class="i"><input type="text" id="title" name="title" class="input" value="{$activeval.title}"/></div>
+                <div class="i"><input type="text" id="title" name="title" class="input" value=""/></div>
               </div>
 
               <div class="l">
                 <h6>封面</h6>
                 <div class="i">
-        <input type="text" value="{$activeval.img}" class="js_imgupload" id="imgurl2" cut="true" width="570" height="810" name="imgpath"/>
+        <input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="570" height="810" name="imgpath"/>
                 </div>
               </div>
 
               <div class="l">
                 <h6>活动简介</h6>
-                <div class="i"><textarea class="input" name="content"><if condition="($activeval.content neq '')">{$activeval.content}</if></textarea></div>
+                <div class="i"><textarea class="input" name="content"></textarea></div>
               </div>
               <div class="l">
                 <h6>活动地址</h6>
                 <div class="i">
                   <select name = "line_type" id="line_type">
-                    <option value="0" <if condition="$activeval.linetype eq 0">selected</if>>线下活动</option>
-                    <option value="1" <if condition="$activeval.linetype eq 1">selected</if>>线上活动</option>
+                    <option value="0" >线下活动</option>
+                    <option value="1" >线上活动</option>
                   </select>
-                  <input type="text" id="line_address" style="display:block" placeholder="请输入详细地址" name="line_address" class="input" value="{$activeval.line_address}"/>
+                  <input type="text" id="line_address" style="display:block" placeholder="请输入详细地址" name="line_address" class="input" value=""/>
                 </div>
               </div>
               <div class="l">
                 <h6>活动联系电话</h6>
-                <div class="i"><input type="text" id="phone" name="phone" maxlength="11" class="input" value="{$activeval.phone}"  onblur="if(/\d{11}/gi.test(this.value)?true:false){}else{alert('活动联系电话输入有误');}"/></div>
+                <div class="i"><input type="text" id="phone" name="phone" maxlength="11" class="input" value=""  onblur="if(/\d{11}/gi.test(this.value)?true:false){}else{alert('活动联系电话输入有误');}"/></div>
               </div>
               <div class="l">
                 <h6>开始时间</h6>
-                <div class="i"><input type="text" id="date1" class="js_date" name="begin_time" value="{$activeval.begin_time|date='Y-m-d',###}" style="display: none;"></div>
+                <div class="i"><input type="text" id="date1" class="js_date" name="begin_time" value="" style="display: none;"></div>
               </div>
               <div class="l">
                 <h6>结束时间</h6>
-                <div class="i"><input type="text" id="date2" class="js_date" name="last_time" value="{$activeval.last_time|date='Y-m-d',###}" style="display: none;"></div>
+                <div class="i"><input type="text" id="date2" class="js_date" name="last_time" value="" style="display: none;"></div>
               </div>
               <div class="l">
                 <h6>设置为推荐</h6>
                 <div class="i">
-                  <input type="radio" name="order" value="0" data-val="普通活动" data-css="r1" <if condition="$activeval.order eq 0"> checked="checked" </if>/>
-                  <input type="radio" name="order" value="1" data-val="推荐活动" data-css="r1" <if condition="$activeval.order eq 1"> checked="checked" </if> />
+                  <input type="radio" name="order" value="0" data-val="普通活动" data-css="r1" selected="selected" />
+                  <input type="radio" name="order" value="1" data-val="推荐活动" data-css="r1"  />
                 </div>
               </div>
               
               <div class="l">
                 <h6>主办人姓名</h6>
-                <div class="i"><input type="text" id="title" name="sponsor_name" class="input" value="{$activeval.sponsor_name}"/></div>
+                <div class="i"><input type="text" id="title" name="sponsor_name" class="input" value=""/></div>
               </div>
               <div class="l">
                 <h6>主办人电话</h6>
-                <div class="i"><input type="text" id="title" maxlength="11" name="sponsor_phone" class="input" value="{$activeval.sponsor_phone}"  onblur="if(/\d{11}/gi.test(this.value)?true:false){}else{alert('主办人电话输入有误');}"/></div>
+                <div class="i"><input type="text" id="title" name="sponsor_phone" maxlength="11" class="input" value=""  onblur="if(/\d{11}/gi.test(this.value)?true:false){}else{alert('主办人电话输入有误');}"/></div>
               </div>
               <div class="l">
                 <h6>主办人地址</h6>
-                <div class="i"><input type="text" id="title" name="sponsor_address" class="input" value="{$activeval.sponsor_address}"/></div>
+                <div class="i"><input type="text" id="title" name="sponsor_address" class="input" value=""/></div>
               </div>
               <div class="l">
                 <h6>主办人邮箱</h6>
-                <div class="i"><input type="text" id="title" name="sponsor_email" class="input" value="{$activeval.sponsor_email}"/></div>
+                <div class="i"><input type="text" id="title" name="sponsor_email" class="input" value=""/></div>
               </div>
               <div class="l">
                 <h6>正文</h6>
-                <div class="i"><script id="container" name="info" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($activeval['info'])?></script></div>
+                <div class="i"><script id="container" name="info" class="js_ueditor" type="text/plain"></script></div>
               </div>
              
               

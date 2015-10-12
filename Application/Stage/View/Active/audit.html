@@ -42,8 +42,8 @@
     <div class="mainHeader">
       <h1>活动管理</h1>
         <ul class="menu clearFix">
-              <li class="current"><a href="{:U('Active/index')}">活动列表</a></li>
-              <li><a href="{:U('Active/audit')}">待审核活动</a></li>
+              <li><a href="{:U('Active/index')}">活动列表</a></li>
+              <li class="current"><a href="{:U('Active/audit')}">待审核活动</a></li>
                <!--  <li><a href="{:U('Banner/winer')}"></a></li> -->
         </ul>
     </div>
@@ -88,7 +88,7 @@
             <td class="t6"><img src="./Uploads{$vo.img}" width="50" height="50" /></td>
             <td class="t7">
               <p class="console">
-                <a href="{:U('Active/upactive?id='.$vo['id'])}" class="setting">设置</a>
+                <a href="{:U('Active/upaudit?id='.$vo['id'])}" class="setting">审核</a>
                 <a href="javascript:void(0)" data-id="{$vo.id}" class="delete">删除</a>
               </p>
             </td>
@@ -116,7 +116,7 @@
       </table>
         <div class="btnCon btnCon2">
              
-              <a href="{:U('Active/addactive')}" class="btnA">新增</a>
+            <!--   <a href="{:U('Active/addactive')}" class="btnA">新增</a> -->
         </div>
     </div>
   </div>

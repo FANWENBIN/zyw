@@ -35,9 +35,9 @@
         <!--表单-->
         <div class="form">
           <div class="formHeader">
-            <h1>活动详情</h1>
+            <h1>活动详情审核</h1>
           </div>
-          <form action="{:U('Active/upactive')}" method="post" enctype="multipart/form-data" id="J_Form">
+          <form action="{:U('Active/upaudit')}" method="post" enctype="multipart/form-data" id="J_Form">
             <fieldset>
               <div class="l">
                 <h6>活动标题</h6>
@@ -105,13 +105,19 @@
                 <h6>正文</h6>
                 <div class="i"><script id="container" name="info" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($activeval['info'])?></script></div>
               </div>
-             
+             <div class="l">
+                <h6>是否通过审核</h6>
+                <div class="i">
+                  <input type="radio" name="status" value="2" data-val="待通过" data-css="r1" <if condition="$activeval.order eq 0"> checked="checked" </if>/>
+                  <input type="radio" name="status" value="1" data-val="通过" data-css="r1" <if condition="$activeval.order eq 1"> checked="checked" </if> />
+                </div>
+              </div>
               
             </fieldset>
             <div class="btnCon btnCon2">
               <input type="hidden" name="id" class="btnA" value="{$activeval.id}" />
               <input type="submit" class="btnA" name="submit" value="提交" />
-              <a href="{:U('Active/index')}" class="btnA" name="submit">返回</a>
+              <a href="{:U('Active/audit')}" class="btnA" name="submit">返回</a>
             </div>
           </form>
           
