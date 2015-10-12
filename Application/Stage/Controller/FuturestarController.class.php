@@ -8,7 +8,7 @@ class FuturestarController extends ComController {
 		$committee  = M('committee');
 		$commitval = $committee->where('status = 1')->select();
 		$this->assign('commitval',$commitval);
-		$this->assign('cur',7);
+		$this->assign('cur',8);
 		$this->display();
 		//echo $ip = get_client_ip();
 	}
