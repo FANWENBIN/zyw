@@ -39,9 +39,9 @@
   <!--main-->
   <div class="webMain" style="">
     <div class="mainHeader">
-      <h1>演工委之省管理</h1>
+      <h1>演工委之声管理</h1>
         <ul class="menu clearFix">
-              <li class="current"><a href="{:U('Committee/index')}">演工委之省列表</a></li>
+              <li class="current"><a href="{:U('Committee/index')}">演工委之声列表</a></li>
             <!-- <li><a href="{:U('Active/audit')}">待审核活动</a></li>
                  <li><a href="{:U('Banner/winer')}"></a></li> -->
         </ul>
@@ -72,12 +72,12 @@
         </tr>
         </thead>
         <tbody>
-		<volist name="result" id="vo">
+		<volist name="commitval" id="vo">
         <tr>
           <td class="t1">{$i}</td> 
           <td class="t2">{$vo['title']}</td>
-		   <td class="t3"><img src="./Uploads{$vo.imgpath}" width="50" height="50"></td>
-          <td class="t4">{$vo['type']==1?"粉丝焦点":""}{$vo['type']==2?"星闻动向":""}{$vo['type']==3?"艺术中国梦":""}</td>
+		      <td class="t3"><img src="./Uploads{$vo.imgpath}" width="50" height="50"></td>
+          <td class="t4">{$vo['type']==1?"红榜":"黑榜"}</td>
           <td class="t6">{$vo['instime']|date='Y-m-d',###}</td>
           <td class="t7">
             <p class="console">
@@ -101,7 +101,7 @@
       <!--主提交按钮-->
 	  <div class="btnCon">
        <div class="btnCon">
-        <a href="{:U('News/add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
+        <a href="{:U('Committee/add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
       </div>
     </div>
   </div>
