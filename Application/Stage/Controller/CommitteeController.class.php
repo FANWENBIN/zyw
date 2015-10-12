@@ -45,7 +45,10 @@ class CommitteeController extends ComController {
 	public function info(){
 		$id = I('get.id');
 		$submit = I('post.submit');
+		$committee = M('committee');
 		if(empty($submit)){
+			$commitval = $committee->where('id='.$id)->find();
+			$this->assign('list',$commitval);
 			$this->assign('cur',7);
 			$this->display();
 		}else{

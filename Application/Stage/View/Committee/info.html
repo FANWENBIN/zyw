@@ -47,68 +47,50 @@
 					<div class="formHeader">
 						<h1>演工委之声</h1>
 					</div>
-					<form action="" method="post" enctype="multipart/form-data" id="J_Form">
+					<form action="{:U('Committee/add')}" method="post" enctype="multipart/form-data" id="J_Form">
 						<fieldset>
 							<div class="l">
 								<h6>标题</h6>
-								<div class="i"><input type="text" id="title" name="title" class="input" value="{$data.title}"/></div>
+								<div class="i"><input type="text" id="title" name="title" class="input" value="{$list.title}"/></div>
 							</div>
 							<div class="l">
 								<h6>类型</h6>
 								<div class="i" id="radioClick">
-									<input type="radio" name="type" value="1" data-val="粉丝焦点"  data-css="r1"  checked="checked" />
-									<input type="radio" name="type" value="2" data-val="星闻动向"  data-css="r1" <if condition="($data.type eq 2)">checked="checked"</if> />
-									<input type="radio" name="type" value="3" data-val="艺术中国梦"  data-css="r1" <if condition="($data.type eq 3)">checked="checked"</if>/>
+									<input type="radio" name="type" value="1" data-val="红榜"  data-css="r1" <if condition= "$list.type eq 1">checked="checked"</if> />
+									<input type="radio" name="type" value="2" data-val="黑榜"  data-css="r1" <if condition= "$list.type eq 2">checked="checked"</if>>
 								</div>
 							</div>
 							<div class="l">
 								<h6>封面</h6>
 								<div class="i">
-				<input type="text" value="{$data.imgpath}" class="js_imgupload" id="imgurl2" cut="true" width="380" height="250" name="imgpath"/>
+				<input type="text" class="js_imgupload" value="{$list.img}" id="imgurl2" cut="true" width="380" height="250" name="img"/>
 								</div>
 							</div>
 							<div class="l">
-								<h6>手机端缩略图</h6>
-								<div class="i">
-				<input type="text" value="{$data.phoneimg}" class="js_imgupload" id="imgurl2" cut="true" width="130" height="95" name="phoneimg"/>
-								</div>
-							</div>
-							<div class="l" id="starAction" <if condition="($data.type neq 2)">style="display:none"</if> >
-								<h6>星闻动向</h6>
-								<div class="i">
-				<input type="text" value="{$data.starimg}" class="js_imgupload" id="imgurl2" cut="true" width="380" height="430" name="starimg"/>
-								</div>
+								<h6>摘要</h6>
+								<div class="i"><textarea class="input" name="digest">{$list.digest}</textarea></div>
 							</div>
 							
 							<div class="l">
-								<h6>摘要</h6>
-								<div class="i"><textarea class="input" name="digest"><if condition="($data.digest neq '')">{$data.digest}<else/></if></textarea></div>
-							</div>
-							<div class="l">
-								<h6>相关明星</h6>
-								<div class="i"><textarea class="input" name="keywords"><if condition="($data.keywords neq '')">{$data.keywords}<else/>多个关键词请用、隔开（例如：张靓颖、演唱会）</if></textarea></div>
-							</div>
-							<div class="l">
 								<h6>正文</h6>
-								<div class="i"><script id="container" name="content" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($data['content'])?></script></div>
+								<div class="i"><script id="container" name="content" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($list['content'])?></script></div>
 							</div>
 							<div class="l">
 								<h6>&nbsp;</h6>
 								<div class="i" id="setTop">
-									<input type="radio" name="order" value="0" data-val="普通新闻" data-css="r1"  checked="checked" />
-									<input type="radio" name="order" value="1" data-val="推荐" data-css="r1"  <if condition="($data.order eq 1)">checked="checked"</if> />
-									<input type="radio" name="order" value="2" data-val="置顶" data-css="r1" <if condition="($data.order eq 2)">checked="checked"</if> />
+									<input type="radio" name="top" value="0" data-val="普通" data-css="r1"  checked="checked" />
+									<input type="radio" name="top" value="1" data-val="推荐" data-css="r1" <if condition="($list.top eq 1)">checked="checked"</if> />
 								</div>
 							</div>
-							<div class="l" id="topYes" <if condition="($data.order neq 2)">style="display:none"</if> >
-								<h6>置顶大图</h6>
+							<div class="l" id="topYes" <if condition="($list.top neq 1)">style="display:none"</if> >
+								<h6>推荐大图</h6>
 								<div class="i">
-								<input type="text" value="{$data.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="375" height="175" name="topimg"/>
+								<input type="text" value="{$list.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="700" height="480" name="topimg"/>
 								</div>
 							</div>
 						</fieldset>
 						<div class="btnCon btnCon2">
-							<input type="hidden" name="hid_id" class="btnA" value="{$data.id}" />
+							<input type="hidden" name="hid_id" class="btnA" value="{$list.id}" />
 							<input type="submit" class="btnA" name="submit" value="提交" />
 						</div>
 					</form>
@@ -136,7 +118,7 @@
 <script type="text/javascript" src="__PUBLIC__/sxx.js">
 </script>
 <script>
-	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=news"))}";
+	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=committee"))}";
 	var imgUploadFile = '__ROOT__/Uploads';
 	var swfUrl = "__ROOT__/Public/stage/swf";
 	$("#radioClick").click(function(){
