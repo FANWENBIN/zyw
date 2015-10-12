@@ -46,7 +46,7 @@ class CommitteeController extends ComController {
     	foreach($list as $key=>$val){
     		$list[$key]['instime'] = date('Y-m-d H:i:s',$val['instime']);
     	}
-    	$data['page'] = $count;
+    	$data['page'] = ceil($count/9);
     	$data['data'] = $list;
     	if($list){
 			ajaxReturn(0,'',$data);
@@ -67,7 +67,7 @@ class CommitteeController extends ComController {
     	foreach($list as $key=>$val){
     		$list[$key]['instime'] = date('Y-m-d H:i:s',$val['instime']);
     	}
-    	$data['page'] = $count;
+    	$data['page'] = ceil($count/9);
 
     	$data['data'] = $list;
     	if($list){
