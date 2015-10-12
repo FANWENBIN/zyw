@@ -24,7 +24,7 @@ class CommitteeController extends ComController {
 			$data['img']     = I('post.img');
 			$data['digest']  = I('post.digest');
 			$data['content'] = I('post.content');
-			$sign = $this->checkDump($data)
+			$sign = $this->checkDump($data);
 			$sign || $this->error('数据不可为空');
 			$data['top']     = I('post.top');
 			if($data['top'] == 1){
