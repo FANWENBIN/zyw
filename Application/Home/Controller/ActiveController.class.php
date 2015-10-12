@@ -75,5 +75,45 @@ class ActiveController extends ComController {
     		ajaxReturn('0','',$activeval);
     	}
     }
-
+    //用户发起活动
+    public function useraddactive(){
+        $data['title']        = I('post.title');
+        $data['img']          = I('post.imgpath');
+        $data['content']      = I('post.content');
+        $data['phone']        = I('post.phone');
+        $data['begin_time']   = strtotime(I('post.begin_time'));
+        $data['last_time']    = strtotime(I('post.last_time'));
+        
+        $span = $data['last_time']-$data['begin_time'];
+        if($span < 0){
+            ajaxReturn(103,'活动结束日期不可比开始日期早','');
+            //$this->error('活动结束日期不可比开始日期早');
+        }
+        $data['info'] = I('post.info');
+        
+        $a = $this->checkDump($data);
+        if(!$a){
+            ajaxReturn(102,'活动主体信息不可为空','');
+          //  $this->error('');
+        }
+        $data['linetype']    = I('post.line_type');
+        if($data['linetype'] == 0){
+            $data['line_address'] = I('post.line_address');
+        }
+        $data['week'] = $this->isWeek($data['begin_time'],$data['last_time']);
+        $data['sponsor_name'] = I('post.sponsor_name');
+        $data['sponsor_phone'] = I('post.sponsor_phone');
+        $data['sponsor_address'] = I('post.sponsor_address');
+        $data['sponsor_email'] = I('post.sponsor_email');
+        $data['order'] = I('post.order');
+        $data['status'] = 2;
+        $data['mast'] = session('username');
+        $data['userid'] = session('id');
+        $sign = $active->add($data);
+        if($sign){
+            ajaxReturn(0,'活动发起成功,静待审核通过','');
+        }else{
+            $this->error('101','系统错误','');
+        }
+    }
 }
