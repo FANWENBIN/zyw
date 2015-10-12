@@ -45,21 +45,17 @@
       <!--筛选-->
       <div class="tableTools clearFix mb30">
         <hr>
-        <h6 class="w100 tr">关键字：</h6>
+
        <!--<form action="" method="post"><div class="i mr20"><input type="text" name="keywords" value="{$Think.session.condition}" class="input w180"></div>
         <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
 		</form>--> 
 		
-       <form action="" method="post"><div class="i mr20">
-          <input type="text" name="keywords"
-         value="{$Think.session.key}" class="input w180"></div>
-        <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
-		  </form>
+
       </div>
       <div class="tableInfo">
-        <div class="item"><h2>粉丝焦点</h2><span><a href="{:U('News/index?type='.$group[0]['type'])}">{$group[0]['count(*)']}</a></span></div>
-        <div class="item"><h2>星闻动向</h2><span><a href="{:U('News/index?type='.$group[1]['type'])}">{$group[1]['count(*)']}</a></span></div>
-        <div class="item"><h2>艺术中国梦</h2><span><a href="{:U('News/index?type='.$group[2]['type'])}">{$group[2]['count(*)']}</a></span></div>
+        <div class="item"><h2>粉丝焦点</h2></div>
+        <div class="item"><h2>星闻动向</h2></div>
+        <div class="item"><h2>艺术中国梦</h2></div>
       </div>
       <!--表格-->
       <table class="table" id="J_Table">
