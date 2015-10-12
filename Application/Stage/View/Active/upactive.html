@@ -91,7 +91,7 @@
               </div>
               <div class="l">
                 <h6>主办人电话</h6>
-                <div class="i"><input type="text" id="title" name="sponsor_phone" class="input" value="{$activeval.sponsor_phone}"  onblur="if(/\d{11}/gi.test(this.value)?true:false){}else{alert('主办人电话输入有误');}"/></div>
+                <div class="i"><input type="text" id="title" maxlength="11" name="sponsor_phone" class="input" value="{$activeval.sponsor_phone}"  onblur="if(/\d{11}/gi.test(this.value)?true:false){}else{alert('主办人电话输入有误');}"/></div>
               </div>
               <div class="l">
                 <h6>主办人地址</h6>

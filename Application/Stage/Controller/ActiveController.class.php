@@ -42,21 +42,23 @@ class ActiveController extends ComController {
     		$data['begin_time']   = strtotime(I('post.begin_time'));
     		$data['last_time']    = strtotime(I('post.last_time'));
     		$data['id']           = I('post.id');
-    		$data['linetype']    = I('post.line_type');
-    		if($data['linetype'] == 0){
-				$data['line_address'] = I('post.line_address');
-    		}
+    		
     		$span = $data['last_time']-$data['begin_time'];
     		if($span < 0){
     			$this->error('活动结束日期不可比开始日期早');
     		}
-    		$data['week'] = $this->isWeek($data['begin_time'],$data['last_time']);
+    		
 
     		$data['info'] = I('post.info');
     		$a = $this->checkDump($data);
     		if(!$a){
     			$this->error('活动主体信息不可为空');
     		}
+    		$data['linetype']    = I('post.line_type');
+    		if($data['linetype'] == 0){
+				$data['line_address'] = I('post.line_address');
+    		}
+    		$data['week'] = $this->isWeek($data['begin_time'],$data['last_time']);
     		$data['sponsor_name'] = I('post.sponsor_name');
     		$data['sponsor_phone'] = I('post.sponsor_phone');
     		$data['sponsor_address'] = I('post.sponsor_address');
@@ -69,6 +71,54 @@ class ActiveController extends ComController {
     			$this->error('活动修改失败');
     		}
     	}
+    }
+    //增加活动
+    public function addactive(){
+    	$submit = I('post.submit');
+    	$active = M('active');
+    	if(empty($submit)){
+	    	$this->assign('cur',6);
+	    	$this->display();
+    	}else{
+    	//html_entity_decode
+	    	$data['title']        = I('post.title');
+			$data['img']          = I('post.imgpath');
+			$data['content']      = I('post.content');
+			$data['phone']        = I('post.phone');
+			$data['begin_time']   = strtotime(I('post.begin_time'));
+			$data['last_time']    = strtotime(I('post.last_time'));
+			
+			$span = $data['last_time']-$data['begin_time'];
+			if($span < 0){
+				$this->error('活动结束日期不可比开始日期早');
+			}
+			
+
+			$data['info'] = I('post.info');
+			
+			$a = $this->checkDump($data);
+			if(!$a){
+
+				$this->error('活动主体信息不可为空');
+			}
+			$data['linetype']    = I('post.line_type');
+			if($data['linetype'] == 0){
+				$data['line_address'] = I('post.line_address');
+			}
+			$data['week'] = $this->isWeek($data['begin_time'],$data['last_time']);
+			$data['sponsor_name'] = I('post.sponsor_name');
+			$data['sponsor_phone'] = I('post.sponsor_phone');
+			$data['sponsor_address'] = I('post.sponsor_address');
+			$data['sponsor_email'] = I('post.sponsor_email');
+			$data['order'] = I('post.order');
+			$sign = $active->add($data);
+			if($sign){
+				$this->success('活动发起成功',U('Active/index'));
+			}else{
+				$this->error('活动发起失败');
+			}
+		}	
+
     }
     //删除活动
     public function delactive(){
