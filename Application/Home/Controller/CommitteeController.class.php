@@ -48,10 +48,10 @@ class CommitteeController extends ComController {
     	}
     	$data['page'] = ceil($count/9);
     	$data['data'] = $list;
-    	if($list){
-			ajaxReturn(0,'',$data);
+    	if($list === false){
+			ajaxReturn(101,'请求失败','');
     	}else{
-    		ajaxReturn(101,'请求失败','');
+    		ajaxReturn(0,'',$data);
     	}
 
     }
@@ -70,10 +70,10 @@ class CommitteeController extends ComController {
     	$data['page'] = ceil($count/9);
 
     	$data['data'] = $list;
-    	if($list){
-			ajaxReturn(0,'',$data);
+    	if($list === false){
+			ajaxReturn(101,'请求失败','');
     	}else{
-    		ajaxReturn(101,'请求失败','');
+    		ajaxReturn(0,'',$data);
     	}
     }
 
