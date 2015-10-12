@@ -19,7 +19,25 @@ class CommitteeController extends ComController {
 			$this->assign('cur',7);
 			$this->display();
 		}else{
-
+			$data['title']   = I('post.title');
+			$data['type']    = I('post.type');
+			$data['img']     = I('post.img');
+			$data['digest']  = I('post.digest');
+			$data['content'] = I('post.content');
+			$sign = $this->checkDump($data)
+			$sign || $this->error('数据不可为空');
+			$data['top']     = I('post.top');
+			if($data['top'] == 1){
+				$data['topimg'] = I('post.topimg');
+			}
+			$data['instime'] = time();
+			$committee = M('committee');
+			$sign = $committee->add($data);
+			if($sign){
+				$this->success('新增成功',U('Committee/index'));
+			}else{
+				$this->error('新增失败');
+			}
 		}
 		
 	}

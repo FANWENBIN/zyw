@@ -47,7 +47,7 @@
 					<div class="formHeader">
 						<h1>演工委之声</h1>
 					</div>
-					<form action="" method="post" enctype="multipart/form-data" id="J_Form">
+					<form action="{:U('Committee/add')}" method="post" enctype="multipart/form-data" id="J_Form">
 						<fieldset>
 							<div class="l">
 								<h6>标题</h6>
@@ -78,8 +78,8 @@
 							<div class="l">
 								<h6>&nbsp;</h6>
 								<div class="i" id="setTop">
-									<input type="radio" name="order" value="0" data-val="普通" data-css="r1"  checked="checked" />
-									<input type="radio" name="order" value="2" data-val="推荐" data-css="r1" <if condition="($data.order eq 2)">checked="checked"</if> />
+									<input type="radio" name="top" value="0" data-val="普通" data-css="r1"  checked="checked" />
+									<input type="radio" name="top" value="2" data-val="推荐" data-css="r1" <if condition="($data.order eq 2)">checked="checked"</if> />
 								</div>
 							</div>
 							<div class="l" id="topYes" <if condition="($data.order neq 2)">style="display:none"</if> >

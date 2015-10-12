@@ -29,6 +29,7 @@ class ComController extends Controller {
     */
     public function checkDump($data){
     	foreach($data as $key=>$val){
+            $data[$key] = trim($val);
     		if(empty($val)){
     			return 0;
     		}
