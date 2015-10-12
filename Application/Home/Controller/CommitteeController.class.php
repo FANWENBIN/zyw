@@ -18,7 +18,7 @@ class CommitteeController extends ComController {
     	$Page  = new \Think\Page($count,9);// 实例化分页类 传入总记录数和每页显示的记录数(25)
     	$show  = $Page->show();// 分页显示输出
     	// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-    	$list = $committee->where('status=1 and type=1')->order('create_time')->limit($Page->firstRow.','.$Page->listRows)->select();
+    	$list = $committee->where('status=1 and type=1')->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
     	$this->assign('redcom',$list);// 赋值数据集
     	$this->assign('redpage',$show);// 赋值分页输出
 
@@ -27,7 +27,7 @@ class CommitteeController extends ComController {
     	$Page  = new \Think\Page($count,9);// 实例化分页类 传入总记录数和每页显示的记录数(25)
     	$show  = $Page->show();// 分页显示输出
     	// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-    	$list = $committee->where('status=1 and type=2')->order('create_time')->limit($Page->firstRow.','.$Page->listRows)->select();
+    	$list = $committee->where('status=1 and type=2')->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
     	$this->assign('blackcom',$list);// 赋值数据集
     	$this->assign('blackpage',$show);// 赋值分页输出
 
@@ -42,7 +42,7 @@ class CommitteeController extends ComController {
     	$Page  = new \Think\Page($count,9);// 实例化分页类 传入总记录数和每页显示的记录数(25)
     	$show  = $Page->show();// 分页显示输出
     	// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-    	$list = $committee->field('img,title,instime')->where('status=1 and type=1')->order('create_time')->limit($Page->firstRow.','.$Page->listRows)->select();
+    	$list = $committee->field('img,title,instime')->where('status=1 and type=1')->limit($Page->firstRow.','.$Page->listRows)->select();
     	foreach($list as $key=>$val){
     		$list[$key]['instime'] = date('Y-m-d H:i:s',$val['instime']);
     	}
