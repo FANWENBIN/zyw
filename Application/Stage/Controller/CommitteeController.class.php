@@ -63,9 +63,9 @@ class CommitteeController extends ComController {
 			if($data['top'] == 1){
 				$data['topimg'] = I('post.topimg');
 			}
-			
+			$id = I('post.id');
 			$committee = M('committee');
-			$sign = $committee->add($data);
+			$sign = $committee->where('id='.$id)->save($data);
 			if($sign){
 				$this->success('修改成功',U('Committee/index'));
 			}else{
