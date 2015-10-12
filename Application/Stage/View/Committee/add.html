@@ -79,10 +79,10 @@
 								<h6>&nbsp;</h6>
 								<div class="i" id="setTop">
 									<input type="radio" name="top" value="0" data-val="普通" data-css="r1"  checked="checked" />
-									<input type="radio" name="top" value="2" data-val="推荐" data-css="r1" <if condition="($data.order eq 2)">checked="checked"</if> />
+									<input type="radio" name="top" value="1" data-val="推荐" data-css="r1" <if condition="($data.order eq 1)">checked="checked"</if> />
 								</div>
 							</div>
-							<div class="l" id="topYes" <if condition="($data.order neq 2)">style="display:none"</if> >
+							<div class="l" id="topYes" <if condition="($data.order neq 1)">style="display:none"</if> >
 								<h6>推荐大图</h6>
 								<div class="i">
 								<input type="text" value="{$data.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="700" height="480" name="topimg"/>
@@ -139,7 +139,7 @@
 		$("#setTop input").each(function(){
 			if($(this).prop("checked")){
 				console.log($(this).prop("value"))
-				if($(this).prop("value") == 2){
+				if($(this).prop("value") == 1){
 					$("#topYes").show()
 				}else{
 					$("#topYes").hide()	
