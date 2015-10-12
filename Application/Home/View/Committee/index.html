@@ -43,68 +43,39 @@
     <!--webmain-->
     <div class="webmain">
         <div class="navTitle">
-            <a href="#">首页</a> > <a href="#">演工委之声</a>
+            <a href="{:U('Index/index')}">首页</a> > <a href="#">演工委之声</a>
         </div>
 
         <div class="topCon">
+        <volist name = "list" id = "vo"  offset="0" length='1'>
             <div class="left">
-                <img src="__PUBLIC__/statics/images/p_committee_big.jpg" alt=""/>
+                <img src="./Uploads{$vo.topimg}" alt=""/>
                 <div class="text">
-                    <h3>电影拍摄花絮</h3>
-                    <p>2015-10-14 02:13:58</p>
+                    <h3>{$vo.title}</h3>
+                    <p>{$vo.instime|date="Y-m-d H:i:s",###}</p>
                 </div>
                 <sub></sub>
             </div>
+        </volist>
             <div class="right">
-
+            <volist name = "list" id = "vo"  offset="1" length='3'>
                 <div class="item">
                     <a href="#" class="pic">
-                        <img src="__PUBLIC__/statics/images/p_committee_1.jpg" alt=""/>
+                        <img src="./Uploads{$vo.img}" alt=""/>
                         <div class="text">
-                            <h3>电影拍摄花絮</h3>
-                            <p>2015-10-14 02:13:58</p>
+                            <h3>{$vo.title}</h3>
+                            <p>{$vo.instime|date="Y-m-d H:i:s",###}</p>
                         </div>
                         <sub></sub>
                     </a>
                     <div class="content">
-                      <h3>公告</h3>
+                     
                       <p>
                         "大黑牛"李晨演喜剧偷师沙溢 圈里是"演员副导演" 喜剧演员黄一山来莞拍微电影 伍迪·艾伦新片再添明星 “绯闻女孩”等演员入选
                       </p>
                     </div>
                 </div>
-                <div class="item">
-                    <a href="#" class="pic">
-                        <img src="__PUBLIC__/statics/images/p_committee_1.jpg" alt=""/>
-                        <div class="text">
-                            <h3>电影拍摄花絮</h3>
-                            <p>2015-10-14 02:13:58</p>
-                        </div>
-                        <sub></sub>
-                    </a>
-                    <div class="content">
-                      <h3>公告</h3>
-                      <p>
-                        "大黑牛"李晨演喜剧偷师沙溢 圈里是"演员副导演" 喜剧演员黄一山来莞拍微电影 伍迪·艾伦新片再添明星 “绯闻女孩”等演员入选
-                      </p>
-                    </div>
-                </div>
-                <div class="item">
-                    <a href="#" class="pic">
-                        <img src="__PUBLIC__/statics/images/p_committee_1.jpg" alt=""/>
-                        <div class="text">
-                            <h3>电影拍摄花絮</h3>
-                            <p>2015-10-14 02:13:58</p>
-                        </div>
-                        <sub></sub>
-                    </a>
-                    <div class="content">
-                      <h3>公告</h3>
-                      <p>
-                        "大黑牛"李晨演喜剧偷师沙溢 圈里是"演员副导演" 喜剧演员黄一山来莞拍微电影 伍迪·艾伦新片再添明星 “绯闻女孩”等演员入选
-                      </p>
-                    </div>
-                </div>
+            </volist>
 
             </div>
         </div>
