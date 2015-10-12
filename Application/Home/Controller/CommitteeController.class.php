@@ -68,6 +68,7 @@ class CommitteeController extends ComController {
     		$list[$key]['instime'] = date('Y-m-d H:i:s',$val['instime']);
     	}
     	$data['page'] = $count;
+    	echo $count;
     	$data['data'] = $list;
     	if($list){
 			ajaxReturn(0,'',$data);
