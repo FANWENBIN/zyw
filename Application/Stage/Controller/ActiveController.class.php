@@ -25,6 +25,7 @@ class ActiveController extends ComController {
     }
     //修改活动信息
     public function upactive(){
+    	$this->vercklogin();
     	$submit = I('post.submit');
     	$active = M('active');
     	if(empty($submit)){
@@ -74,6 +75,7 @@ class ActiveController extends ComController {
     }
     //增加活动
     public function addactive(){
+    	$this->vercklogin();
     	$submit = I('post.submit');
     	$active = M('active');
     	if(empty($submit)){
@@ -131,6 +133,10 @@ class ActiveController extends ComController {
     	}else{
     		$this->error('未删除任何数据');
     	}
+    }
+    //用户发起活动
+    public function useraddactive(){
+    	
     }
 	
 }

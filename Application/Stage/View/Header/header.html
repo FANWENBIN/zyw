@@ -33,7 +33,7 @@
 
               <li <if condition="$cur eq 4">class = "current"</if> ><a href="{:U('Banner/index')}">Banner设置</a></li>
 			  <li <if condition="$cur eq 5">class = "current"</if> ><a href="{:U('News/index')}">资讯管理</a></li>
-        <li <if condition="$cur eq 6">class = "current"</if> ><a href="{:U('Active/index')}">活动管理</a></li>
+        <li <if condition="$cur eq 6">class = "current"</if> ><a href="{:U('Active/index')}">活动管理<if condition="$sms neq 0"><sub>{$sms}</sub></if></a></li>
             </ul>
           </dd>
         </dl>
