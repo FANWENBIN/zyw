@@ -5,7 +5,9 @@ use Think\Controller;
 class CommitteeController extends ComController {
 	//首页显示
     public function index(){
-
+    	$committee = M('committee');
+    	$list = $committee->where('status = 1')->order('top desc,instime desc')->select();
+    	$this->assign('list',$list);
 		$this->display();
 		//echo $ip = get_client_ip();
     }
