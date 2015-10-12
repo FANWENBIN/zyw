@@ -51,14 +51,13 @@
 						<fieldset>
 							<div class="l">
 								<h6>标题</h6>
-								<div class="i"><input type="text" id="title" name="title" class="input" value="{$data.title}"/></div>
+								<div class="i"><input type="text" id="title" name="title" class="input" value=""/></div>
 							</div>
 							<div class="l">
 								<h6>类型</h6>
 								<div class="i" id="radioClick">
-									<input type="radio" name="type" value="1" data-val="粉丝焦点"  data-css="r1" checked="checked" />
-
-									<input type="radio" name="type" value="2" data-val="星闻动向"  data-css="r1">
+									<input type="radio" name="type" value="1" data-val="红榜"  data-css="r1" checked="checked" />
+									<input type="radio" name="type" value="2" data-val="黑榜"  data-css="r1">
 								</div>
 							</div>
 							<div class="l">
@@ -67,12 +66,9 @@
 				<input type="text" class="js_imgupload" id="imgurl2" cut="true" width="380" height="250" name="img"/>
 								</div>
 							</div>
-						
-							
-							
 							<div class="l">
 								<h6>摘要</h6>
-								<div class="i"><textarea class="input" name="digest"><if condition="($data.digest neq '')">{$data.digest}<else/></if></textarea></div>
+								<div class="i"><textarea class="input" name="digest"></textarea></div>
 							</div>
 							
 							<div class="l">
@@ -82,15 +78,14 @@
 							<div class="l">
 								<h6>&nbsp;</h6>
 								<div class="i" id="setTop">
-									<input type="radio" name="order" value="0" data-val="普通新闻" data-css="r1"  checked="checked" />
-
+									<input type="radio" name="order" value="0" data-val="普通" data-css="r1"  checked="checked" />
 									<input type="radio" name="order" value="2" data-val="推荐" data-css="r1" <if condition="($data.order eq 2)">checked="checked"</if> />
 								</div>
 							</div>
 							<div class="l" id="topYes" <if condition="($data.order neq 2)">style="display:none"</if> >
-								<h6>置顶大图</h6>
+								<h6>推荐大图</h6>
 								<div class="i">
-								<input type="text" value="{$data.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="375" height="175" name="topimg"/>
+								<input type="text" value="{$data.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="700" height="480" name="topimg"/>
 								</div>
 							</div>
 						</fieldset>
@@ -123,7 +118,7 @@
 <script type="text/javascript" src="__PUBLIC__/sxx.js">
 </script>
 <script>
-	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=news"))}";
+	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=committee"))}";
 	var imgUploadFile = '__ROOT__/Uploads';
 	var swfUrl = "__ROOT__/Public/stage/swf";
 	$("#radioClick").click(function(){

@@ -16,7 +16,7 @@ class CommitteeController extends ComController {
 	public function add(){
 		$submit = I('post.submit');
 		if(empty($submit)){
-
+			$this->assign('cur',7);
 			$this->display();
 		}else{
 
@@ -28,6 +28,7 @@ class CommitteeController extends ComController {
 		$id = I('get.id');
 		$submit = I('post.submit');
 		if(empty($submit)){
+			$this->assign('cur',7);
 			$this->display();
 		}else{
 
