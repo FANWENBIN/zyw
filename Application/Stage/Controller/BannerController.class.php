@@ -16,7 +16,7 @@ class BannerController extends ComController {
 
         //新闻banner读取
         $news = M('news');
-        $newsval = $news->select();
+        $newsval = $news->where('status <> 0')->select();
         $this->assign('newsval',$newsval);
         //banner 读取
         $banner = M('banner');
@@ -38,8 +38,6 @@ class BannerController extends ComController {
     			$data['title'] = I('post.name'.$i);
     			$data['img'] = I('post.photo'.$i);
     			$data['newsid']  = I('post.newsid'.$i);
-    			
-
     			if(!empty($data['title']) && !empty($data['img'])){
     				$image = new \Think\Image(); 
 
@@ -73,10 +71,11 @@ class BannerController extends ComController {
     public function active(){
         //活动读取
         $active = M('active');
-        $activeval = $active->where('status <> 1')->select();
-        var_dump($active->getlastsql());
+        $activeval = $active->where('status <> 0')->select();
+      
         $this->assign('a','<option>暂时没有数据</option>');
         $this->assign('activeval',$activeval);
+        var_dump($activeval);
         //banner 读取
         $banner = M('banner');
         $bannerval = $banner->where(' type= 2')->select();
