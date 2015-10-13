@@ -45,12 +45,12 @@ class FuturestarController extends ComController {
 			$data['title'] = I('post.title');
 			$data['img']   = I('post.img');
 			$data['href']  = I('post.href');
-			$data['top']   = I('post.top');
 			$sign = $this->checkDump($data);
 			if(!$sign){
 				$this->error('填写数据信息不可为空');
 			}
 			$data['type']  = I('post.type');
+			$data['top']   = I('post.top');
 			if($data['top'] == 1){
 				$data['topimg'] = I('post.topimg');
 			}else{
