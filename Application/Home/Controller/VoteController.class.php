@@ -27,6 +27,15 @@ class VoteController extends ComController {
         //编剧
         $scriptwriter = $recommend->where('type=4')->select();
         $this->assign('scriptwriter',$scriptwriter);
+        //入围演员
+        $where['promotion'] = 36;
+        $cutactors = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,36')->select();
+        $this->assign('cutactors',$cutactors);
+        //获奖演员
+        $where['promotion'] = 6;
+        $winactors = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,36')->select();
+        $this->assign('winactors',$winactors);
+
 		$this->display('vote');
 		//echo $ip = get_client_ip();
     }
