@@ -75,7 +75,6 @@ class BannerController extends ComController {
       
         $this->assign('a','<option>暂时没有数据</option>');
         $this->assign('activeval',$activeval);
-        var_dump($activeval);
         //banner 读取
         $banner = M('banner');
         $bannerval = $banner->where(' type= 2')->select();
@@ -129,6 +128,7 @@ class BannerController extends ComController {
         $active = M('futurestar');
         $activeval = $active->where('status = 1')->select();
         $this->assign('a','<option>暂时没有数据</option>');
+        var_dump($activeval);
         $this->assign('activeval',$activeval);
         //banner 读取
         $banner = M('banner');
