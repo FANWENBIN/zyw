@@ -91,7 +91,7 @@ class FuturestarController extends ComController {
 			}
 
 			$data['instime'] = time();
-			$sign = $futurestar->where('id='.$id)->save($data);
+			$sign = $futurestar->add($data);
 			if($sign){
 				$this->success('新增成功',U('Futurestar/index'));
 			}else{
