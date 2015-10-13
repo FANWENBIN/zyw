@@ -41,7 +41,19 @@ class FuturestarController extends ComController {
 			$this->assign('list',$futureval);
 			$this->display();
 		}else{
-			
+			$data['title'] = I('post.title');
+			$data['img']   = I('post.img');
+			$data['href']  = I('post.href');
+			$data['type']  = I('post.type');
+			$data['top']   = I('post.top');
+			if($data['top'] == 1){
+				$data['topimg'] = I('post.topimg');
+			}else{
+				$data['topimg'] = null;
+			}
+			$data['instime'] = time();
+
+
 		}
 		$futurestar->where('status = 1')->select();
 	}

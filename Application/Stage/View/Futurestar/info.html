@@ -70,15 +70,6 @@
 								</div>
 							</div>
 							<div class="l">
-								<h6>摘要</h6>
-								<div class="i"><textarea class="input" name="digest">{$list.digest}</textarea></div>
-							</div>
-							
-							<div class="l">
-								<h6>正文</h6>
-								<div class="i"><script id="container" name="content" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($list['content'])?></script></div>
-							</div>
-							<div class="l">
 								<h6>&nbsp;</h6>
 								<div class="i" id="setTop">
 									<input type="radio" name="top" value="0" data-val="普通" data-css="r1"  checked="checked" />
@@ -86,16 +77,16 @@
 								</div>
 							</div>
 							<div class="l" id="topYes" <if condition="($list.top neq 1)">style="display:none"</if> >
-								<h6>推荐大图</h6>
+								<h6>推荐封面大图</h6>
 								<div class="i">
-								<input type="text" value="{$list.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="700" height="480" name="topimg"/>
+								<input type="text" value="{$list.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="380" height="250" name="topimg"/>
 								</div>
 							</div>
 						</fieldset>
 						<div class="btnCon btnCon2">
 							<input type="hidden" name="id" class="btnA" value="{$list.id}" />
 							<input type="submit" class="btnA" name="submit" value="提交" />
-							<a href="{:U('Committee/index')}" class = "btnA">返回</a>
+							<a href="{:U('Futurestar/index')}" class = "btnA">返回</a>
 						</div>
 					</form>
 					
