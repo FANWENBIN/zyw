@@ -59,9 +59,8 @@ class FuturestarController extends ComController {
 				$data['topimg'] = null;
 			}
 			$sign = $futurestar->where('id='.$id)->save($data);
-			
 			if($sign){
-				$this->success('修改成功',U('Futuresatr/index'));
+				$this->success('修改成功',U('Futurestar/index'));
 			}else{
 				$this->error('未做任何修改');
 			}
@@ -94,7 +93,7 @@ class FuturestarController extends ComController {
 			$data['instime'] = time();
 			$sign = $futurestar->where('id='.$id)->save($data);
 			if($sign){
-				$this->success('新增成功',U('Futuresatr/index'));
+				$this->success('新增成功',U('Futurestar/index'));
 			}else{
 				$this->error('新增失败');
 			}
