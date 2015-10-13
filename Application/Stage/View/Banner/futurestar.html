@@ -73,7 +73,105 @@
                               </div>
                             </div>
                         </div>
+   <div class="l">
+                            <h6>Banner 2</h6>
+                            
+                            <div class="i">
 
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['1']['title']}" placeholder="请输入图片名字" name="name2"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['1']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo2"/>
+                               </div>
+                              <div class="i">
+                                <span>选择Banner相关明日之星链接</span>
+                                <select name="newsid2">
+                                    <volist name ="newsval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['1']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
+
+                            </div>
+
+                        </div>
+
+                          <div class="l">
+                            <h6>Banner 3</h6>
+                            
+                            <div class="i">
+
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['2']['title']}" placeholder="请输入图片名字" name="name3"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['2']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo3"/>
+                               </div>
+                              <div class="i">
+                                <span>选择Banner相关明日之星链接</span>
+                                <select name="newsid3">
+                                    <volist name ="newsval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['2']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
+
+                            </div>
+
+                        </div>
+                     <div class="l">
+                            <h6>Banner 4</h6>
+                            
+                            <div class="i">
+
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['3']['title']}" placeholder="请输入图片名字" name="name4"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['3']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo4"/>
+                               </div>
+                              <div class="i">
+                                <span>选择Banner相关明日之星链接</span>
+                                <select name="newsid4">
+                                    <volist name ="newsval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['3']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
+
+                            </div>
+
+                        </div>
+                        <div class="l">
+                            <h6>Banner 5</h6>
+                            
+                            <div class="i">
+
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['4']['title']}" placeholder="请输入图片名字" name="name5"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['4']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo5"/>
+                               </div>
+                              <div class="i">
+                                <span>选择Banner相关明日之星链接</span>
+                                <select name="newsid5">
+                                    <volist name ="newsval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['4']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
+
+                            </div>
                         
 
                         </div>
