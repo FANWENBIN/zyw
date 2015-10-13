@@ -53,7 +53,7 @@
             <a href="#" class="l">
                 <div class="txt">
                     <h3><?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'...':$news['title'] ?></h3>
-                    <span>{$news.instime|date="Y-m-d H:i:s"}</span>
+                    <span>{$news.instime|date="Y-m-d H:i:s",###}</span>
                 </div>
                 <div class="play hover"><span></span></div>
                 <img src="./Uploads{$news.pctopimg}" />
