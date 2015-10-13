@@ -50,7 +50,7 @@
 
         <div class="con conTop clearFix" id="J_ConTop">
         <volist  name="newsresult" id="news" offset="0" length="1" empty="暂时没有数据">
-            <a href="#" class="l">
+            <a href="{:U('News/news_details?id='.$news['id'])}" class="l">
                 <div class="txt">
                     <h3><?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'...':$news['title'] ?></h3>
                     <span>{$news.instime|date="Y-m-d H:i:s",###}</span>
@@ -59,23 +59,19 @@
                 <img src="./Uploads{$news.pctopimg}" />
             </a>
         </volist>
+
             <div class="r">
-                <a href="#" class="t item">
+             <volist  name="newsresult" id="news" offset="0" length="1" empty="暂时没有数据">
+                <a href="{:U('News/news_details?id='.$news['id'])}" class="t item">
                     <div class="txt">
-                        <h3>VIXX LR突出女团重围夺得一位</h3>
-                        <span>2015-10-14 02:13:36</span>
+                        <h3><?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'...':$news['title'] ?></h3>
+                        <span>{$news.instime|date="Y-m-d H:i:s",###}</span>
                     </div>
-                    <img src="__PUBLIC__/statics/images/p/p1.jpg" />
+                    <img src="./Uploads{$news.imgpath}" />
                     <sub class="hover"></sub>
                 </a>
-                <a href="#" class="b item">
-                    <div class="txt">
-                        <h3>Purfles性感回归"铐链舞"大玩SM救赎爱情</h3>
-                        <span>2015-10-14 02:13:36</span>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/p3.jpg" />
-                    <sub class="hover"></sub>
-                </a>
+                
+            </volist>
             </div>
         </div>
 
