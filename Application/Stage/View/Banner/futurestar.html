@@ -63,7 +63,14 @@
                                   <h1>上传Banner</h1>
                                   <input type="text" value="{$bannerval['0']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo1"/>
                                </div>
-                           
+                              <div class="i">
+                                <span>选择Banner相关明日之星链接</span>
+                                <select name="newsid1">
+                                    <volist name ="activeval" id="vo">
+                                      <option value="{$vo.id}"<if condition="$bannerval['0']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                    </volist>
+                                </select>
+                              </div>
                             </div>
                         </div>
 
