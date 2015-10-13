@@ -59,7 +59,7 @@ class FuturestarController extends ComController {
 				$data['topimg'] = null;
 			}
 			$sign = $futurestar->where('id='.$id)->save($data);
-			echo $futurestar->getlastsql();die();
+			
 			if($sign){
 				$this->success('修改成功',U('Futuresatr/index'));
 			}else{
