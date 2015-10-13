@@ -68,7 +68,6 @@ class CommitteeController extends ComController {
     		$list[$key]['instime'] = date('Y-m-d H:i:s',$val['instime']);
     	}
     	$data['page'] = ceil($count/9);
-
     	$data['data'] = $list;
     	if($list === false){
 			ajaxReturn(101,'请求失败','');
