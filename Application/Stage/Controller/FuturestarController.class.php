@@ -5,7 +5,7 @@ use Think\Controller;
 class FuturestarController extends ComController {
 	//明日之星首页显示
 	public function index(){
-		$committee  = M('committee');
+		$committee  = M('futurestar');
 
 	
 	
@@ -28,6 +28,34 @@ class FuturestarController extends ComController {
 		$this->display();
 		//echo $ip = get_client_ip();
 		
+	}
+	/*设置修改明日之星管理
+	
+	*/
+	public function info(){
+		$id = I('get.id');
+		$futurestar = M('futurestar');
+		$submit = I('post.submit');
+		if(empty($submit)){
+			$futureval = $futurestar->where('id='.$id)->find();
+			$this->assign('list',$futureval);
+			$this->display();
+		}else{
+			
+		}
+		$futurestar->where('status = 1')->select();
+	}
+	/*删除数据*/
+	public function delete(){
+		$id = I('get.id');
+		$data['status'] = 0;
+		$sign = $futurestar->where('id='.$id)->save($data);
+		if($sign){
+			$this->success('删除成功',U('Futurestar/index'));
+		}else{
+			$this->error('未删除');
+		}
+
 	}
 	
 

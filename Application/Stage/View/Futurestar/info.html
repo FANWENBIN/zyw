@@ -38,16 +38,16 @@
   <!--main-->
 		<div class="webMain">
 			<div class="mainHeader">
-				<h1>演工委之声管理</h1>
+				<h1>明日之声管理</h1>
 			</div>
 			<div class="mainBody">
 				<!--摘要提示等-->
 				<!--表单-->
 				<div class="form">
 					<div class="formHeader">
-						<h1>演工委之声</h1>
+						<h1>明日之声详情</h1>
 					</div>
-					<form action="{:U('Committee/info')}" method="post" enctype="multipart/form-data" id="J_Form">
+					<form action="{:U('Futurestar/info')}" method="post" enctype="multipart/form-data" id="J_Form">
 						<fieldset>
 							<div class="l">
 								<h6>标题</h6>
@@ -56,8 +56,11 @@
 							<div class="l">
 								<h6>类型</h6>
 								<div class="i" id="radioClick">
-									<input type="radio" name="type" value="1" data-val="红榜"  data-css="r1" <if condition= "$list.type eq 1">checked="checked"</if> />
-									<input type="radio" name="type" value="2" data-val="黑榜"  data-css="r1" <if condition= "$list.type eq 2">checked="checked"</if>>
+
+									<input type="radio" name="type" value="1" data-val="直播课"  data-css="r1" <if condition= "$list.type eq 1">checked="checked"</if> />
+	
+									<input type="radio" name="type" value="2" data-val="录播课"  data-css="r1" <if condition= "$list.type eq 2">checked="checked"</if> />
+
 								</div>
 							</div>
 							<div class="l">

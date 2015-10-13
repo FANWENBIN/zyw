@@ -107,7 +107,7 @@ class ComController extends Controller {
     author：winter
     date：2015年10月12日17:47:13
     */
-    public function sms($phone,$verify,){
+    public function sms($phone,$verify){
         header("Content-Type: text/html; charset=UTF-8");
         $verify = $verify;//获取随机验证码        
         //以下信息自己填以下

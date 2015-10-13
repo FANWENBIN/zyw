@@ -81,7 +81,7 @@
           <td class="t5">{$vo['instime']|date='Y-m-d H点',###}</td>
           <td class="t6">
             <p class="console">
-              <a href="{:U('Committee/info?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" data-id="{$vo['id']}" class="delete">删除</a>
+              <a href="{:U('Futurestar/info?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" data-id="{$vo['id']}" class="delete">删除</a>
             </p>
           </td>
         </tr>
@@ -121,7 +121,7 @@
 			txt:'删除请确认',
 			callbackY: function(){
 				//window.location = '{:U('News/delete?id='.$vo['id'])}';
-				window.location = webPath+"/index.php?m=Stage&c=news&a=delete&id="+id;
+				window.location = webPath+"/index.php?m=Stage&c=Futurestar&a=delete&id="+id;
 			}
       	})
       });
