@@ -56,9 +56,8 @@ class FuturestarController extends ComController {
 			}else{
 				$data['topimg'] = null;
 			}
-
-		
 			$sign = $futurestar->where('id='.$id)->save($data);
+			echo $futurestar->getlastsql();die();
 			if($sign){
 				$this->success('修改成功',U('Futuresatr/index'));
 			}else{
@@ -84,7 +83,6 @@ class FuturestarController extends ComController {
 			if(!$sign){
 				$this->error('填写数据信息不可为空');
 			}
-
 			if($data['top'] == 1){
 				$data['topimg'] = I('post.topimg');
 			}else{
