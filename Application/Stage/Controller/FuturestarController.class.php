@@ -104,6 +104,7 @@ class FuturestarController extends ComController {
 	}
 	/*删除数据*/
 	public function delete(){
+		$futurestar = M('futurestar');
 		$id = I('get.id');
 		$data['status'] = 0;
 		$sign = $futurestar->where('id='.$id)->save($data);
