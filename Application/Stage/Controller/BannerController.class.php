@@ -74,7 +74,7 @@ class BannerController extends ComController {
         //活动读取
         $active = M('active');
         $activeval = $active->where('status <> 1')->select();
-        var_dump($activeval);
+        var_dump($active->getlastsql());
         $this->assign('a','<option>暂时没有数据</option>');
         $this->assign('activeval',$activeval);
         //banner 读取
