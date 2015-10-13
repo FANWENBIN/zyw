@@ -66,7 +66,7 @@
                               <div class="i">
                                 <span>选择Banner相关明日之星链接</span>
                                 <select name="newsid1">
-                                    <volist name ="activeval" id="vo">
+                                    <volist name ="activeval" id="vo" empty = "$a">
                                       <option value="{$vo.id}"<if condition="$bannerval['0']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
                                     </volist>
                                 </select>
@@ -89,7 +89,7 @@
                               <div class="i">
                                 <span>选择Banner相关明日之星链接</span>
                                 <select name="newsid2">
-                                    <volist name ="activeval" id="vo">
+                                    <volist name ="activeval" id="vo" empty = "$a">
                                       <option value="{$vo.id}"<if condition="$bannerval['1']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
                                     </volist>
                                 </select>
@@ -115,7 +115,7 @@
                               <div class="i">
                                 <span>选择Banner相关明日之星链接</span>
                                 <select name="newsid3">
-                                    <volist name ="activeval" id="vo">
+                                    <volist name ="activeval" id="vo" empty = "$a">
                                       <option value="{$vo.id}"<if condition="$bannerval['2']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
                                     </volist>
                                 </select>
@@ -140,7 +140,7 @@
                               <div class="i">
                                 <span>选择Banner相关明日之星链接</span>
                                 <select name="newsid4">
-                                    <volist name ="activeval" id="vo">
+                                    <volist name ="activeval" id="vo" empty = "$a">
                                       <option value="{$vo.id}"<if condition="$bannerval['3']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
                                     </volist>
                                 </select>
@@ -165,7 +165,7 @@
                               <div class="i">
                                 <span>选择Banner相关明日之星链接</span>
                                 <select name="newsid5">
-                                    <volist name ="activeval" id="vo">
+                                    <volist name ="activeval" id="vo" empty = "$a">
                                       <option value="{$vo.id}"<if condition="$bannerval['4']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
                                     </volist>
                                 </select>
