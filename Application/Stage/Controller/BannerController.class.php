@@ -73,7 +73,8 @@ class BannerController extends ComController {
     public function active(){
         //活动读取
         $active = M('active');
-        $activeval = $active->select();
+        $activeval = $active->where('status <> 1')->select();
+        var_dump($activeval);
         $this->assign('a','<option>暂时没有数据</option>');
         $this->assign('activeval',$activeval);
         //banner 读取
@@ -125,9 +126,9 @@ class BannerController extends ComController {
 
 //===============明日之星==================================//
     public function futurestar(){
-        //活动读取
+        //明日之星读取
         $active = M('futurestar');
-        $activeval = $active->select();
+        $activeval = $active->where('status = 1')->select();
         $this->assign('a','<option>暂时没有数据</option>');
         $this->assign('activeval',$activeval);
         //banner 读取
