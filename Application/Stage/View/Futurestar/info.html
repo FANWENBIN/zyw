@@ -56,12 +56,13 @@
 							<div class="l">
 								<h6>类型</h6>
 								<div class="i" id="radioClick">
-
 									<input type="radio" name="type" value="1" data-val="直播课"  data-css="r1" <if condition= "$list.type eq 1">checked="checked"</if> />
-	
 									<input type="radio" name="type" value="2" data-val="录播课"  data-css="r1" <if condition= "$list.type eq 2">checked="checked"</if> />
-
 								</div>
+							</div>
+							<div class="l">
+								<h6>视频地址</h6>
+								<div class="i"><input type="text" id="href" name="href" class="input" value="{$list.href}"/></div>
 							</div>
 							<div class="l">
 								<h6>封面</h6>

@@ -39,6 +39,7 @@ class FuturestarController extends ComController {
 		if(empty($submit)){
 			$futureval = $futurestar->where('id='.$id)->find();
 			$this->assign('list',$futureval);
+			$this->assign('cur',8);
 			$this->display();
 		}else{
 			$data['title'] = I('post.title');
@@ -46,16 +47,60 @@ class FuturestarController extends ComController {
 			$data['href']  = I('post.href');
 			$data['type']  = I('post.type');
 			$data['top']   = I('post.top');
+			$sign = $this->checkDump($data);
+			if(!$sign){
+				$this->error('填写数据信息不可为空');
+			}
+
 			if($data['top'] == 1){
 				$data['topimg'] = I('post.topimg');
 			}else{
 				$data['topimg'] = null;
 			}
-			$data['instime'] = time();
 
+		
+			$sign = $futurestar->where('id='.$id)->save($data);
+			if($sign){
+				$this->success('修改成功',U('Futuresatr/index'));
+			}else{
+				$this->error('未做任何修改');
+			}
 
 		}
-		$futurestar->where('status = 1')->select();
+	}
+	/*新增数据*/
+	public function add(){
+		$futurestar = M('futurestar');
+		$submit = I('post.submit');
+		if(empty($submit)){
+			$this->assign('cur',8);
+			$this->display();
+		}else{
+			$data['title'] = I('post.title');
+			$data['img']   = I('post.img');
+			$data['href']  = I('post.href');
+			$data['type']  = I('post.type');
+			$data['top']   = I('post.top');
+			$sign = $this->checkDump($data);
+			if(!$sign){
+				$this->error('填写数据信息不可为空');
+			}
+
+			if($data['top'] == 1){
+				$data['topimg'] = I('post.topimg');
+			}else{
+				$data['topimg'] = null;
+			}
+
+			$data['instime'] = time();
+			$sign = $futurestar->where('id='.$id)->save($data);
+			if($sign){
+				$this->success('新增成功',U('Futuresatr/index'));
+			}else{
+				$this->error('新增失败');
+			}
+
+		}
 	}
 	/*删除数据*/
 	public function delete(){
