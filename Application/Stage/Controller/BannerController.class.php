@@ -121,4 +121,20 @@ class BannerController extends ComController {
             }
         }
     }
+//============活动Banner==END====================//
+
+//===============明日之星==================================//
+    public function futurestar(){
+        //活动读取
+        $active = M('futurestar');
+        $activeval = $active->select();
+        $this->assign('a','<option>暂时没有数据</option>');
+        $this->assign('activeval',$activeval);
+        //banner 读取
+        $banner = M('banner');
+        $bannerval = $banner->where(' type= 3')->select();
+        $this->assign('bannerval',$bannerval);
+        $this->assign('cur',4);
+        $this->display();
+    }
 }

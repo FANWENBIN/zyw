@@ -61,9 +61,15 @@
 								</div>
 							</div>
 							<div class="l">
+								<h6>摘要</h6>
+								<div class="i"><textarea class="input" name="digest"><if condition="($list.digest neq '')">{$data.digest}<else/></if></textarea></div>
+							</div>
+
+							<div class="l">
 								<h6>视频地址</h6>
 								<div class="i"><input type="text" id="href" name="href" class="input" value="{$list.href}"/></div>
 							</div>
+
 							<div class="l">
 								<h6>封面</h6>
 								<div class="i">
