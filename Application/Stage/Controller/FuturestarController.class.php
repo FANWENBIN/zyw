@@ -33,15 +33,17 @@ class FuturestarController extends ComController {
 	
 	*/
 	public function info(){
-		$id = I('get.id');
+		
 		$futurestar = M('futurestar');
 		$submit = I('post.submit');
 		if(empty($submit)){
+			$id = I('get.id');
 			$futureval = $futurestar->where('id='.$id)->find();
 			$this->assign('list',$futureval);
 			$this->assign('cur',8);
 			$this->display();
 		}else{
+			$id = I('post.id');
 			$data['title'] = I('post.title');
 			$data['img']   = I('post.img');
 			$data['href']  = I('post.href');
