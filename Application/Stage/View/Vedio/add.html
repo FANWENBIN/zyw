@@ -57,44 +57,39 @@
 					<div class="formHeader">
 						<h1>视频基本信息</h1>
 					</div>
-					<form action="{:U('edit',array('id'=>$vedioval['id']))}" method="post" enctype="multipart/form-data">
+					<form action="{:U('add')}" method="post" enctype="multipart/form-data">
 						<fieldset>
               <!-- 姓名-->
             <div class="l">
                 <h6>标题</h6>
-                <div class="i"><input type="text" class="input w200"  value="{$vedioval['title']}" name="title" placeholder="请输入姓名" /></div>
+                <div class="i"><input type="text" class="input w200"  value="" name="title" placeholder="请输入姓名" /></div>
             </div>
             <div class="l">
                 <h6>类型</h6>
                <div class="i">
 	                <input type="radio" name="type" value="1" data-val="电影电视" data-css="r1" 
-	                <eq name="vedioval['type']" value="1">checked="checked"</eq> />
+	               checked="checked"/>
 
-					<input type="radio" name="type" value="2" data-val="制作花絮" data-css="r1" 
-					<eq name="vedioval['type']" value="2">checked="checked"</eq> />
+					<input type="radio" name="type" value="2" data-val="制作花絮" data-css="r1" />
 
-					<input type="radio" name="type" value="3" data-val="影视教学" data-css="r1" 
-					<eq name="vedioval['type']" value="3">checked="checked"</eq> />
+					<input type="radio" name="type" value="3" data-val="影视教学" data-css="r1" />
 
-					<input type="radio" name="type" value="4" data-val="探班周边" data-css="r1" 
-					<eq name="vedioval['type']" value="4">checked="checked"</eq> />
+					<input type="radio" name="type" value="4" data-val="探班周边" data-css="r1" />
 
-					<input type="radio" name="type" value="5" data-val="娱乐头条" data-css="r1" 
-					<eq name="vedioval['type']" value="5">checked="checked"</eq> />
+					<input type="radio" name="type" value="5" data-val="娱乐头条" data-css="r1" />
 
-					<input type="radio" name="type" value="6" data-val="影视资讯" data-css="r1" 
-					<eq name="vedioval['type']" value="6">checked="checked"</eq> />
+					<input type="radio" name="type" value="6" data-val="影视资讯" data-css="r1" />
 				</div>
             </div> 
 
  			<div class="l">
                 <h6>视频链接地址</h6>
-                <div class="i"><input type="text" class="input w200"  value="{$vedioval['href']}" name="href" placeholder="" /></div>
+                <div class="i"><input type="text" class="input w200"  value="" name="href" placeholder="" /></div>
             </div>
 			<div class="l">
                 <h6>封面图</h6>
                 <div class="i">
-                <input type="text" value="{$vedioval['img']}" class="js_imgupload" id="imgurl1" cut="true" width="130" height="95" name="img" />
+                <input type="text" value="" class="js_imgupload" id="imgurl1" cut="true" width="130" height="95" name="img" />
                 </div>
             </div>
 			
@@ -102,8 +97,8 @@
 				<h6>&nbsp;</h6>
 				<div class="i" id="setTop">
 					<input type="radio" name="recommend" value="0" data-val="普通视频" data-css="r1" 
-					<eq name= "vedioval['recommend']" value="0">checked="checked"</eq> />
-					<input type="radio" name="recommend"  value="1" data-val="推荐视频" data-css="r1"  <if condition="($vedioval.recommend eq 1)">checked="checked"</if> />
+				checked="checked"/>
+					<input type="radio" name="recommend"  value="1" data-val="推荐视频" data-css="r1" />
 				
 				</div>
 			</div>
