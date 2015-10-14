@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="myComponent.js"></script>
+  <!-- <link href="myComponent.css" type="text/css" rel="stylesheet"> -->
+  <script>
+    window.onload = function(){
+      initRadio("sex");
+      initCheckbox("fruit");
+      var submit = document.getElementsByTagName("input")[4];
+      submit.onclick = function(e){
+
+        console.log($("input[name=fruit]:checked").length);
+        console.log($("#orange").prop("checked"));
+//        console.log($("#sexmale").val(),$("#sexfemale").val(),$("#apple").val(),$("#orange").val(),$("#orange").attr("checked"),$("input[name=fruit]:checked").val())
+        return false;
+      }
+    };
+
+  </script>
+</head>
+<body>
+<form action="./myComponent.html" method="get">
+  <label for="sexmale">男</label><input type="radio" name="sex" value="男" id="sexmale">
+  <label for="sexfemale">女</label><input type="radio" name="sex" value="女" id="sexfemale">
+
+
+
+  <label for="apple">苹果</label><input type="checkbox" name="fruit" value="apple" id="apple">
+  <label for="orange">橘子</label><input type="checkbox" name="fruit" value="orange" id="orange">
+  <input type="file">
+  <input type="submit">
+</form>
+</body>
+</html>
