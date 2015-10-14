@@ -1,0 +1,30 @@
+@charset "utf-8";
+.webmain .con { margin-bottom: 45px; }
+.webmain .con .title { height: 60px; overflow: hidden; background: url(../images/line_contitle.gif) center center repeat-x; margin-bottom: 15px; position: relative; }
+.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 15px; background: url(../images/more_contitle.gif); width: 130px; height: 30px; text-indent: -99em; overflow: hidden; }
+.webmain .con .title h2 { display: block; width: 100px; height: 60px; background-image: url(../images/txt_contitle.gif); background-repeat: no-repeat; text-indent: -99em; overflow: hidden; float: left; }
+.webmain .con .title ul { float: left; height: 26px; background: #fff; padding: 17px 5px 17px 5px; }
+.webmain .con .title ul li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px; }
+.webmain .con .title ul li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px; }
+.webmain .con .title ul li.c a { background: #000; color: #fff; }
+
+/*导航栏*/
+.navTitle { height: 30px;;line-height: 30px;color: #ccc;  }
+.navTitle a { color: inherit }
+.navTitle a:hover { color: red }
+.navTitle .loginfo { float: right; height: 30px; margin-right: 15px; }
+.navTitle .loginfo .face { display: inline-block; float: left; width: 20px; height: 20px; margin-top: 5px; background: url("../images/icon-logface.jpg") 50% no-repeat; }
+.navTitle .loginfo .name { display: inline-block; float: left; height: 20px; margin-top: 5px; margin-left: 15px; line-height: 20px; cursor: pointer; }
+.navTitle .loginfo .name:after { content: ""; position: absolute; margin-left: 10px; margin-top: 10px; border-top: 6px solid #000; border-right: 6px solid #fff; border-left: 6px solid #fff; }
+.webmain .content .subnav{margin-bottom: 30px;}
+.webmain .content .subnav .title{float: left;width: 200px; height: 60px;font-size: 25px;font-weight: bold; text-indent: 55px;line-height: 60px;background: url(../images/icon_myinfo_1.jpg) 10px 0 no-repeat; }
+.webmain .content .subnav .group{height: 60px;margin-left: 240px;}
+.webmain .content .subnav .group li{float: left;width: 130px;font-size: 22px;line-height: 60px; color: #999}
+.webmain .content .subnav .group li.active{color: #000; }
+.webmain .content .subnav .group .active::after{content: "";position: absolute;width: 90px;margin-left: -90px; margin-top: 50px; height: 0; border-bottom: 4px solid black;}
+.webmain .content .list .left{float: left; width: 200px;height: 500px}
+.webmain .content .list .left li{width: 180px; height: 60px; text-align: center; line-height: 60px; font-size: 16px;}
+.webmain .content .list .left li.active{background-color: #000; color: #fff}
+.webmain .content .list .right{margin-left: 240px;}
+.webmain .content .list .right h3{font-size: 14px;}
+.webmain .content .list .right p{font-size: 12px;}
