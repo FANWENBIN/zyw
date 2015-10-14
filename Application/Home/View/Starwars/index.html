@@ -1,0 +1,399 @@
+<!doctype html>
+<!--[if lt IE 7 ]>
+<html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>中演网</title>
+    <link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/statics/style/common.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/statics/style/vote.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+</head>
+
+<body>
+
+<!--webheader-->
+<div class="webheader">
+    <div class="inner clearFix">
+        <a href="index.html" class="logo"></a>
+
+        <div class="nav">
+            <ul class="clearFix">
+                <li class="first"><a href="{:U('Index/index')}">首页</a></li>
+                <li><a href="{:U('News/index')}">资讯</a></li>
+                <li><a href="{:U('Active/index')}">活动</a></li>
+                <li><a href="{:U('Committee/index')}">演工委之声</a></li>
+                <li  class="c"><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
+                <li><a href="{:U('#/index')}">饭团</a></li>
+                <li><a href="{:U('#/index')}">星站</a></li>
+                <li><a href="{:U('#/index')}">明日之星</a></li>
+                <li><a href="{:U('Video/index')}">视频</a></li>
+                <li><a href="{:U('#/index')}">Stage</a></li>
+                <li><a href="{:U('#/index')}">演艺库</a></li>
+            </ul>
+        </div>
+        <a href="#" class="search"></a>
+    </div>
+</div>
+<!--webheader end-->
+
+
+<!--webmain-->
+<div class="webmain">
+
+    <div class="con conTopbanner">
+        <img src="__PUBLIC__/statics/images/__p5.jpg"/>
+    </div>
+
+
+    <div class="con conStars" id="J_ConStars">
+        <div class="title">
+            <h2>推荐团成员</h2>
+            <ul class="groupColorList" id="conStarGroup">
+                <li class="group1 active">艺术家代表</li>
+                <li class="group2">导演代表</li>
+                <li class="group3">制片人代表</li>
+                <li class="group4">编剧代表</li>
+            </ul>
+        </div>
+        <div class="inner clearFix" id="starGroups">
+
+
+            <div class="group group1">
+                <!--<h2><span></span>当代艺术家代表</h2>-->
+
+                <div class="list clearFix">
+                    <volist name="artists" id="vo">
+                        <a href="javascript:void(0);">
+                            <p>{$vo.name}</p>
+                            <img src="./Uploads{$vo.img}"/>
+                            <sub class="hover"></sub>
+                        </a>
+                    </volist>
+                </div>
+            </div>
+            <div class="group group2">
+                <!--<h2><span></span>导演代表</h2>-->
+
+                <div class="list clearFix">
+                    <volist name="director" id="vo">
+                        <a href="javascript:void(0);">
+                            <p>{$vo.name}</p>
+                            <img src="./Uploads{$vo.img}"/>
+                            <sub class="hover"></sub>
+                        </a>
+                    </volist>
+                </div>
+            </div>
+            <div class="group group3">
+                <!--<h2><span></span>制作人代表</h2>-->
+
+                <div class="list clearFix">
+                    <volist name="producer" id="vo">
+                        <a href="javascript:void(0);">
+                            <p>{$vo.name}</p>
+                            <img src="./Uploads{$vo.img}"/>
+                            <sub class="hover"></sub>
+                        </a>
+                    </volist>
+                </div>
+            </div>
+            <div class="group group4">
+                <!--<h2><span></span>编剧代表</h2>-->
+
+                <div class="list clearFix">
+                    <volist name="scriptwriter" id="vo">
+                        <a href="javascript:void(0);">
+                            <p>{$vo.name}</p>
+                            <img src="./Uploads{$vo.img}"/>
+                            <sub class="hover"></sub>
+                        </a>
+                    </volist>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="con conRule" id="J_ConRule">
+        <div class="tab">
+            <a href="javascript:void(0);" data-i="1" class="t1 c">
+                <p>我要投票</p>
+
+                <div class="p1"></div>
+                <div class="p2"></div>
+                <span></span>
+            </a>
+            <a href="javascript:void(0);" data-i="2" class="t2">
+                <p>入围名单</p>
+
+                <div class="p1"></div>
+                <div class="p2"></div>
+                <span></span>
+            </a>
+            <a href="javascript:void(0);" data-i="3" class="t3">
+                <p>出奖结果</p>
+
+                <div class="p1"></div>
+                <div class="p2"></div>
+                <span></span>
+            </a>
+            <a href="javascript:void(0);" data-i="4" class="t4">
+                <p>评选方式</p>
+
+                <div class="p1"></div>
+                <div class="p2"></div>
+                <span></span>
+            </a>
+
+            <div class="bg"></div>
+        </div>
+        <div class="inner">
+            <div class="content content1 clearFix">
+                <div class="l">
+                    <h6>投票<br/>规则</h6>
+
+                    <p>电视观众可在中国电视好演员官网网络公示的六大项全部候选人名单中，投票推选自己心仪的演员。<br/>每位观众可票选各项候选人男女演员各一名；各榜单得票数前六名将进入最终候选名单（共计36人），获得中国电视好演员优秀演员金榜题名。
+                    </p>
+                </div>
+                <div class="r">
+                    <div class="title">
+                        <h2>推荐团成员</h2>
+                        <a href="#" class="result">查看投票结果</a>
+                    </div>
+                    <div class="in clearFix">
+                        <volist name='list' id='vos'>
+                            <div class="item item{$i}">
+                                <div class="vote hover">
+                                    <p>扫描二维码投票</p>
+                                    <img src="{:U('Vote/code?opid='.$vos['opid'])}"/>
+                                </div>
+                                <div class="head"><span></span><img src="./Uploads{$vos.headimg}"/></div>
+                                <h6>{$vos.name}</h6>
+                                <span>总票数</span>
+                                <strong>{$vos.votes}</strong>
+                            </div>
+                        </volist>
+
+                    </div>
+                </div>
+
+                <!-- 好演员-->
+                <div class="con conVote" id="J_ConVote">
+                    <div class="title">
+                        <h2>中国电视好演员评选</h2>
+                        <ul class="groupColorList" id="groupColorList">
+                            <li class="red active" data-color="redgroup">红组</li>
+                            <li class="blue" data-color="bluegroup">蓝组</li>
+                            <li class="green" data-color="greegroup">绿组</li>
+                        </ul>
+                        <ul class="groupSexList" id="groupSexList">
+                            <li class="active female" data-sex="2">女演员</li>
+                            <li class="male" data-sex="1">男演员</li>
+                        </ul>
+                    </div>
+
+
+                    <!--好演员评选-->
+                    <div class="inner clearFix" id="insertgroup">
+                        <!--<volist name="actors" id="vo">-->
+
+                        <!--<div class="item">-->
+                        <!--<div class="vote hover">-->
+                        <!--<p>扫描二维码投票</p>-->
+                        <!--<img src="{:U('Vote/code?opid='.$vo['opid'])}"/>-->
+                        <!--</div>-->
+                        <!--<div class="txt">-->
+                        <!--<p>{$vo.name}</p>-->
+                        <!--<span>当前票数：{$vo.votes}</span>-->
+                        <!--</div>-->
+                        <!--<img src="./Uploads{$vo.headimg}"/>-->
+                        <!--</div>-->
+
+
+                        <!--</volist>-->
+
+                    </div>
+                </div>
+            </div>
+            <div class="content content2 clearFix" style="display:none;">
+                <div class="txt">
+                    <h2>投票结果将于指定日期内公布</h2>
+                    <p>尽请期待</p>
+                </div>
+            </div>
+            <div class="content content3 clearFix" style="display:none;">
+                <div class="box">
+                    <h2>投票结果将于指定日期内公布</h2>
+                    <p>尽请期待</p>
+                </div>
+            </div>
+            <div class="content content4 clearFix" style="display:none;">
+                <ul class="judgeRuleName clearFix" id="judgeRuleName">
+                    <li class="active">项目设置</li>
+                    <li>推选标准</li>
+                    <li>投票规则</li>
+                    <li>评选方式</li>
+                </ul>
+                <ul class="judgeRuleContent" id="judgeRuleContent">
+                    <li>
+                        <h1>中国电视好演员(红组:男女演员各一名）</h1>
+                        <p>红组候选人年龄段为55岁左右男女演员各六名,中国电视好演员男女演员各一名从中产生。</p>
+
+                        <h1>中国电视好演员(蓝组:男女演员各一名） </h1>
+                        <p>蓝组候选人年龄段为40岁左右男女演员各六名，中国电视好演员男女演员各一名从中产生。</p>
+                        <h1>中国电视好演员(绿组:男女演员各一名） </h1>
+                        <p>绿组候选人年龄段为18至39岁左右男女演员各六名，中国电视好演员男女演员各一名从中产生。</p>
+                        <h1>中国电视好演员提名（三组别,男女演员共计36名）</h1>
+                        <p>入围候选人设为红绿蓝三个组别,各组别候选男女演员各六名，共计36名中国电视好演员提名荣誉获得者。
+                            <br/>从以上36名中国电视好演员提名入围者之中，最终产生本届六名中国电视好演员称号获得者。 </p>
+
+
+
+                    </li>
+                    <li>
+                        <p>所有候选演员，均应具备做好人、演好戏、表演技能出众、职业道德良好、积极传播优秀文化等基本素质;其2014至2015年度代表作应于我国上星台播出过。<br/>
+                            中国电视好演员(红组) <br/>
+                            该演员在业界及社会德高望重，具有强烈的社会责任感，表演艺术成就突出、表演功力超群，深受广大电视观众喜爱，对我国电视艺术事业做出了较大贡献。<br/>
+                            中国电视好演员(蓝组)<br/>
+                            推要求演员具有良好的道德修养、职业素养、社会涵养，表演艺术成就突出，塑造的荧屏人物形象真实生动，受到业界及广大电视观众的肯定与赞誉。<br/>
+                            中国电视好演员(绿组) <br/>
+                            要求演员热爱生活、热爱人民、热爱时代，认真演戏、充满创新活力，所塑造的屏幕形象深受广大观众喜爱及业内好评；尊师爱友、崇尚真诚、无负面影响，具有良好的职业道德与社会涵养说明 <br/>
+                            1、凡中国电视好演员称号获得者（注：含首届《中国电视演员形象榜》金榜获得者13名：吕  中、于  洋；孙  俪、奚美娟、李雪健；倪  萍、濮存昕； 陈  好、卢  奇；佟丽娅、邓  超；归亚蕾、李立群。）均应事隔两届后具有再次参评资格。
+                            <br/>
+                            2、中国香港、澳门、台湾地区演员均按上述组别及统一标准推选参评，不另设奖项。 </p>
+                    </li>
+
+                    <li>
+                       <p>  电视观众可在中国电视好演员官网网络公示的六大项全部候选人名单中，投票推选自己心仪的演员。 <br/>
+                           每位观众可票选各项候选人男女演员各一名；各榜单得票数前六名将进入最终候选名单（共计36人），获得中国电视好演员优秀演员金榜题名。</p>
+                    </li>
+
+                    <li>
+                        <p>联合推荐：“中国电视好演员”候选人将由本届《中国电视好演员推荐团》（中国十六位演员、八位导演、六位制片人、二位编剧）联合举荐；每位推荐团成员，可推荐各项候选人男女演员各一名；<br/>
+                            经《中国电视好演员》推选表彰活动组委会对推荐的人员进行汇集、审核后,形成中国电视好演员候选人名单；<br/>
+                            网上公示：本届《中国电视好演员推荐团》成员名单、中国电视好演员候选人名单，将由新浪网、中国电视好演员官方网站张榜公示；<br/>
+                            观众投票：投票主体为影视界专业人士及广大电视观众，可在网络公示的三组全部候选人名单中，投票推选自己心仪的演员，每位观众可票选各组候选人男女演员各一名；按各项候选人得票多少排序，各取前六名进入最终候选名单（男女演员各6名共计36人）；<br/>
+                            进入各项前六名者，均成为中国电视好演员提名荣誉获得者。<br/>
+                            最终票决: 进入终评的中国电视好演员入围（提名荣誉获得者）候选人，由本届《中国电视好演员评审团》成员记名票决；票决出的各组别第一名为最终结局；<br/>
+                            每位评审团成员，应在中国电视好演员候选人名单中,票选各组别候选人男女演员各一名；各取头名 (男女演员各三名) 共计6人。<br/>
+                            现场揭晓：评审团成员对票决各项提名负有保密责任，选票结果由公证员监督统计、密封保存，直到颁奖典礼现场提供其最终结果,由颁奖嘉宾现场宣读获奖者名单时，方才即时揭晓。</p>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--<div class="con conComment">-->
+    <!--<div class="title">-->
+    <!--<h2>评论</h2>-->
+    <!--</div>-->
+    <!--<div class="inner clearFix">-->
+    <!--<div class="list" id="J_CommentList">-->
+    <!--<div class="item clearFix">-->
+    <!--<div class="head"><img src="__PUBLIC__/statics/images/p/a10.jpeg"/></div>-->
+    <!--<div class="info">-->
+    <!--<span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>-->
+
+    <!--<p>大家好。最好的明星就是那些有品行有好的影响力。</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="item clearFix">-->
+    <!--<div class="head"><img src="__PUBLIC__/statics/images/p/a11.jpeg"/></div>-->
+    <!--<div class="info">-->
+    <!--<span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>-->
+
+    <!--<p>-->
+    <!--大家好。最好的明星就是那些有品行有好的影响力。大家好。最好的明星就是那些有品行有好的影响力。大家好。最好的明星就是那些有品行有好的影响力。大家好。最好的明星就是那些有品行有好的影响力。大家好。最好的明星就是那些有品行有好的影响力。</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="item clearFix">-->
+    <!--<div class="head"><img src="__PUBLIC__/statics/images/p/a12.jpeg"/></div>-->
+    <!--<div class="info">-->
+    <!--<span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>-->
+
+    <!--<p>大家好。最好的明星就是那些有品行有好的影响力。</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="item clearFix">-->
+    <!--<div class="head"><img src="__PUBLIC__/statics/images/p/a13.jpeg"/></div>-->
+    <!--<div class="info">-->
+    <!--<span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>-->
+
+    <!--<p>大家好。最好的明星就是那些有品行有好的影响力。</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="item clearFix">-->
+    <!--<div class="head"><img src="__PUBLIC__/statics/images/p/a14.jpeg"/></div>-->
+    <!--<div class="info">-->
+    <!--<span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>-->
+
+    <!--<p>大家好。最好的明星就是那些有品行有好的影响力。</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="pager clearFix">-->
+    <!--<a href="javascript:void(0);">首页</a>-->
+    <!--<a href="javascript:void(0);" class="c">1</a>-->
+    <!--<a href="javascript:void(0);">2</a>-->
+    <!--<span>...</span>-->
+    <!--<a href="javascript:void(0);">3</a>-->
+    <!--<a href="javascript:void(0);">4</a>-->
+    <!--<a href="javascript:void(0);">5</a>-->
+    <!--<a href="javascript:void(0);">未页</a>-->
+    <!--</div>-->
+    <!--<div class="send" id="J_CommentSendbox">-->
+    <!--<textarea></textarea>-->
+    <!--<a href="javascript:void(0);" class="submit">评论</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+</div>
+<!--webmain end-->
+
+
+<!--webfooter-->
+<div class="webfooter">
+    <div class="inner clearFix">
+        <div class="logo"></div>
+        <div class="info">
+            <ul class="clearFix">
+                <li class="f"><a href="#">关于我们</a></li>
+                <li><a href="#">加入我们</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+            <p>COPYRIGHT © 2008 - 2015 中国电视好演员. 苏ICP证090011号</p>
+        </div>
+        <div class="qr">
+            <p>扫描二维码</p>
+            <span>关注官方微信</span>
+        </div>
+    </div>
+</div>
+<!--webfooter end-->
+
+
+<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+
+<script src="__PUBLIC__/statics/js/vote.js"></script>
+
+</body>
+</html>
