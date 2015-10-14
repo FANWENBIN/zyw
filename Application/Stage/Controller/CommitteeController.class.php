@@ -62,6 +62,8 @@ class CommitteeController extends ComController {
 			$data['top']     = I('post.top');
 			if($data['top'] == 1){
 				$data['topimg'] = I('post.topimg');
+			}else{
+				$data['topimg'] = null;
 			}
 			$id = I('post.id');
 			$committee = M('committee');

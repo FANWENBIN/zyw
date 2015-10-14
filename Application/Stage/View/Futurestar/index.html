@@ -39,9 +39,9 @@
   <!--main-->
   <div class="webMain" style="">
     <div class="mainHeader">
-      <h1>明日之声管理</h1>
+      <h1>明日之星管理</h1>
         <ul class="menu clearFix">
-              <li class="current"><a href="{:U('Committee/index')}">明日之声教程列表</a></li>
+              <li class="current"><a href="{:U('Committee/index')}">明日之星教程列表</a></li>
             <!-- <li><a href="{:U('Active/audit')}">待审核活动</a></li>
                  <li><a href="{:U('Banner/winer')}"></a></li> -->
         </ul>
@@ -77,11 +77,11 @@
           <td class="t1">{$i}</td> 
           <td class="t2">{$vo['title']}</td>
 		      <td class="t3"><img src="./Uploads{$vo.img}" width="50" height="50"></td>
-          <td class="t4">{$vo['type']==1?"红榜":"黑榜"}</td>
-          <td class="t6">{$vo['instime']|date='Y-m-d',###}</td>
-          <td class="t7">
+          <td class="t4">{$vo['type']==1?"直播课":"录播课"}</td>
+          <td class="t5">{$vo['instime']|date='Y-m-d H点',###}</td>
+          <td class="t6">
             <p class="console">
-              <a href="{:U('Committee/info?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" data-id="{$vo['id']}" class="delete">删除</a>
+              <a href="{:U('Futurestar/info?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" data-id="{$vo['id']}" class="delete">删除</a>
             </p>
           </td>
         </tr>
@@ -101,7 +101,7 @@
       <!--主提交按钮-->
 	  <div class="btnCon">
        <div class="btnCon">
-        <a href="{:U('Committee/add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
+        <a href="{:U('Futurestar/add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
       </div>
     </div>
   </div>
@@ -121,7 +121,7 @@
 			txt:'删除请确认',
 			callbackY: function(){
 				//window.location = '{:U('News/delete?id='.$vo['id'])}';
-				window.location = webPath+"/index.php?m=Stage&c=news&a=delete&id="+id;
+				window.location = webPath+"/index.php?m=Stage&c=Futurestar&a=delete&id="+id;
 			}
       	})
       });

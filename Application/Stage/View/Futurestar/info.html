@@ -38,16 +38,16 @@
   <!--main-->
 		<div class="webMain">
 			<div class="mainHeader">
-				<h1>演工委之声管理</h1>
+				<h1>明日之星管理</h1>
 			</div>
 			<div class="mainBody">
 				<!--摘要提示等-->
 				<!--表单-->
 				<div class="form">
 					<div class="formHeader">
-						<h1>演工委之声</h1>
+						<h1>明日之星详情</h1>
 					</div>
-					<form action="{:U('Committee/info')}" method="post" enctype="multipart/form-data" id="J_Form">
+					<form action="{:U('Futurestar/info')}" method="post" enctype="multipart/form-data" id="J_Form">
 						<fieldset>
 							<div class="l">
 								<h6>标题</h6>
@@ -56,24 +56,23 @@
 							<div class="l">
 								<h6>类型</h6>
 								<div class="i" id="radioClick">
-									<input type="radio" name="type" value="1" data-val="红榜"  data-css="r1" <if condition= "$list.type eq 1">checked="checked"</if> />
-									<input type="radio" name="type" value="2" data-val="黑榜"  data-css="r1" <if condition= "$list.type eq 2">checked="checked"</if>>
+									<input type="radio" name="type" value="1" data-val="直播课"  data-css="r1" <if condition= "$list.type eq 1">checked="checked"</if> />
+									<input type="radio" name="type" value="2" data-val="录播课"  data-css="r1" <if condition= "$list.type eq 2">checked="checked"</if> />
 								</div>
+							</div>
+							<div class="l">
+								<h6>视频地址</h6>
+								<div class="i"><input type="text" id="href" name="href" class="input" value="{$list.href}"/></div>
+							</div>
+							<div class="l">
+								<h6>摘要</h6>
+								<div class="i"><textarea class="input" name="digest"><if condition="($list.digest neq '')">{$data.digest}<else/></if></textarea></div>
 							</div>
 							<div class="l">
 								<h6>封面</h6>
 								<div class="i">
-				<input type="text" class="js_imgupload" value="{$list.img}" id="imgurl2" cut="true" width="380" height="250" name="img"/>
+				<input type="text" class="js_imgupload" value="{$list.img}" id="imgurl2" cut="true" width="277" height="182" name="img"/>
 								</div>
-							</div>
-							<div class="l">
-								<h6>摘要</h6>
-								<div class="i"><textarea class="input" name="digest">{$list.digest}</textarea></div>
-							</div>
-							
-							<div class="l">
-								<h6>正文</h6>
-								<div class="i"><script id="container" name="content" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($list['content'])?></script></div>
 							</div>
 							<div class="l">
 								<h6>&nbsp;</h6>
@@ -83,16 +82,16 @@
 								</div>
 							</div>
 							<div class="l" id="topYes" <if condition="($list.top neq 1)">style="display:none"</if> >
-								<h6>推荐大图</h6>
+								<h6>推荐封面大图</h6>
 								<div class="i">
-								<input type="text" value="{$list.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="700" height="480" name="topimg"/>
+								<input type="text" value="{$list.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="380" height="250" name="topimg"/>
 								</div>
 							</div>
 						</fieldset>
 						<div class="btnCon btnCon2">
 							<input type="hidden" name="id" class="btnA" value="{$list.id}" />
-							<input type="submit" class="btnA" name="submit" value="提交" />
-							<a href="{:U('Committee/index')}" class = "btnA">返回</a>
+							<input type="submit" class="btnA" name="submit" value="提交" value="submit" />
+							<a href="{:U('Futurestar/index')}" class = "btnA">返回</a>
 						</div>
 					</form>
 					
