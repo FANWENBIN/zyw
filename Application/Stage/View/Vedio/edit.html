@@ -122,11 +122,56 @@
 
 </div>
 <!--container end-->
-
 <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
-
-
+<script type="text/javascript" src="__PUBLIC__/statics/js/swfobject.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.css.js"></script>
+<!--富文本编辑器-->
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!--富文本编辑器 end-->
+<script type="text/javascript">
+    seajs.use("__PUBLIC__/statics/statics/js/form.js");
+</script>
+<script>
+	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=committee"))}";
+	var imgUploadFile = '__ROOT__/Uploads';
+	var swfUrl = "__ROOT__/Public/stage/swf";
+	$("#radioClick").click(function(){
+		$("#radioClick input").each(function(){
+			if($(this).prop("checked")){
+				console.log($(this).prop("value"))
+				if($(this).prop("value") == 2){
+					$("#starAction").show()
+				}else{
+					$("#starAction").hide()	
+				}
+			}
+		})
+	})
+	
+	$("#setTop").click(function(){
+		$("#setTop input").each(function(){
+			if($(this).prop("checked")){
+				console.log($(this).prop("value"))
+				if($(this).prop("value") == 1){
+					$("#topYes").show()
+				}else{
+					$("#topYes").hide()	
+				}
+			}
+		})
+	})
+	
+	$("#J_Form").submit(function(){
+		var title=$("#title").val();
+		if(title==''||title==null){
+			$.tips.error('标题不能为空');
+			return false;
+		}
+	});
+</script>
 </body>
 </html>
 </block>
