@@ -6,6 +6,4 @@ class StarwarsController extends ComController {
     public function index(){
         $this->display();
     }
-
-
 }

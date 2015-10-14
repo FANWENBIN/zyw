@@ -72,6 +72,22 @@
 			
 		}
 	}
+	function vediotyp($id){
+		switch ($id) {
+			case '1':
+				return '电影电视';
+			case '2':
+				return '制作花絮';
+			case '3':
+				return '影视教学';
+			case '4':
+				return '探班周边';
+			case '5':
+				return '娱乐头条';
+			case '6':
+				return '影视资讯';
+		}
+	}
     /**
      * 获取文件路径
      * @author huqinlou

@@ -69,8 +69,8 @@
           <td class="t2">头像</td>
           <td class="t3">昵称</td>
           <td class="t4">性别</td>
-          <td class="t6">创建时间</td>
-          <td class="t7">操作</td>
+          <td class="t5">创建时间</td>
+          <td class="t6">操作</td>
         </tr>
         </thead>
         <tbody>
@@ -81,8 +81,8 @@
             <notempty name="v['headpic']"><img src="./Uploads{$v['headpic']}" width="50" height="50" /></notempty></td>
             <td class="t3">{$v['nickname']}</td>
             <td class="t4"><eq name="v['sex']" value="1">男<else/>女</eq></td>
-            <td class="t6">{:hql_date($v['createtime'])}</td>
-            <td class="t7">
+            <td class="t5">{:hql_date($v['createtime'])}</td>
+            <td class="t6">
               <p class="console">
                 <a href="{:U('look',array('id'=>$v['id']))}" class="setting">查看</a>
                 <a href="{:U('edit',array('id'=>$v['id']))}" class="setting">编辑</a>
