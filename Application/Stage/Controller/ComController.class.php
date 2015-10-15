@@ -7,10 +7,14 @@ class ComController extends Controller {
         parent::__construct();
         //验证登录
         $this->vercklogin();
-        //查询未查看消息至每个页面
+        //活动待审核
         $active = M('active');
         $sum = $active->where('status = 2')->count();
         $this->assign('sms',$sum);
+        //演员待审核
+        $actors = M('actors');
+        $actorssum = $actors->where('status = 3')->count();
+        $this->assign('actorssum',$actorssum);
 
     }
 //验证登录
