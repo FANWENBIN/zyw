@@ -66,7 +66,7 @@ class ActiveController extends ComController {
             if($span < 0){
                 $this->error('活动结束日期不可比开始日期早');
             }
-            
+            $data['remark'] = I('post.remark');
 
             $data['info'] = I('post.info');
             $a = $this->checkDump($data);

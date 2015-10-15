@@ -256,6 +256,7 @@ class PerformingController extends ComController {
             $data['promotion'] = I('post.promotion');
             $data['groupid']   = I('post.groupid');
             $data['status']    = I('post.status');
+            $data['remark']    = I('post.remark');
             $model = M();                     //开启事物
             $model->startTrans();
             $Duck = true;
