@@ -92,7 +92,7 @@ class PerformingController extends ComController {
     autor：winter
     date：2015年9月23日15:58:17
     */
-    public function upgactor(){
+     public function edit(){
         //
         $submit = I('post.submit');
         $actors = M('actors');
@@ -100,8 +100,12 @@ class PerformingController extends ComController {
             $id = I('get.id');
             $actorsval = $actors->where('id='.$id)->find();
             $this->assign('actors',$actorsval);
+
+            $production = M('actors_production')->where('actorsid='.$id)->select();
+            $this->assign('production',$production);
+
             $this->assign('cur',10);
-            $this->display();
+            $this->display('upgactor');
         }else{
             $data['name']      = I('post.name');
             $data['promotion'] = I('post.promotion');
@@ -125,36 +129,37 @@ class PerformingController extends ComController {
             $data['promotion'] = I('post.promotion');
             $data['groupid']   = I('post.groupid');
 
-            // $upload = new \Think\Upload();// 实例化上传类   
-            // $upload->maxSize   =     3145728 ;// 设置附件上传大小   
-            // $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
-            // $upload->savePath  =      '/stage/'; // 设置附件上传目录    
-            // // 上传文件   
-            // $info   =   $upload->upload();    
-            // if(!$info) {// 上传错误提示错误信息 
-            //     $sign = $actors->where('id='.$id)->save($data);
-               
-            //     if($sign){
-            //         $this->success('修改成功',U('Gactor/index'));
-            //     }else{
-            //         $this->error('没做任何修改');
-            //     }
-                
+            $model = M();                     //开启事物
+            $model->startTrans();
+            $Duck = true;
+            $title = I('post.title');
+            $img   = I('post.photo');
+        
+            $production   = M('actors_production');
+            $production->where('actorsid='.$id)->delete();
+            foreach($title as $key=>$val){
+                $c['title'] = $val;
+                $c['img']   = $img[$key];
+                $c['actorsid'] = $id;
+                $sign = $production->add($c);
+                if(!$sign){
+                    $Duck = false;
+                }
+            }
 
-            // }else{
 
-            //     if(isset($info['photo1'])){
-            //         $data['headimg'] = $info['photo1']['savepath'].$info['photo1']['savename']; 
-            //     }
-            //     if(isset($info['photo2'])){
-            //         $data['img']     = $info['photo2']['savepath'].$info['photo2']['savename'];
-            //     }
+
             $data['headimg'] = I('post.photo1');
             $data['img']     = I('post.photo2');
             $sign = $actors->where('id='.$id)->save($data);
-            if($sign){
+             if($sign === false){
+                    $Duck = false;
+            }
+            if($Duck){
+                $model->commit();
                 $this->success('修改成功',U('Gactor/index'));
             }else{
+                $model->rollback();
                 $this->error('没做任何修改');
             }
            // }
