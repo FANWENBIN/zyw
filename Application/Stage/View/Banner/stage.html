@@ -48,10 +48,10 @@
             <!--表单-->
             <div class="form">
                 <div class="formHeader">
-                    <h1>新闻Banner</h1>
+                    <h1>Stage-Banner</h1>
                 </div>
 
-                <form method="post" action="{:U('Banner/savenewsbanner')}" enctype="multipart/form-data">
+                <form method="post" action="{:U('Banner/savestage')}" enctype="multipart/form-data">
                     <fieldset>
 
                         <!-- Banner大图-->
@@ -70,10 +70,10 @@
                                   <input type="text" value="{$bannerval['0']['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo1"/>
                                </div>
                               <div class="i">
-                                <span>选择Banner相关新闻链接</span>
+                                <span>选择Banner相关Stage链接</span>
                                 <select name="newsid1">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['0']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['0']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
                                     </volist>
                                 </select>
                               </div>
@@ -99,7 +99,7 @@
                                 <span>选择Banner相关新闻链接</span>
                                 <select name="newsid2">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['1']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['1']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
                                     </volist>
                                 </select>
                               </div>
@@ -125,7 +125,7 @@
                                 <span>选择Banner相关新闻链接</span>
                                 <select name="newsid3">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['2']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['2']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
                                     </volist>
                                 </select>
                               </div>
@@ -150,7 +150,7 @@
                                 <span>选择Banner相关新闻链接</span>
                                 <select name="newsid4">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['3']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['3']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
                                     </volist>
                                 </select>
                               </div>
@@ -175,7 +175,7 @@
                                 <span>选择Banner相关新闻链接</span>
                                 <select name="newsid5">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['4']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['4']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
                                     </volist>
                                 </select>
                               </div>
