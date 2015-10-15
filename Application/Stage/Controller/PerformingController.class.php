@@ -49,8 +49,8 @@ class PerformingController extends ComController {
             $data['weight']    = I('post.weight');
             $data['talent']    = I('post.talent');
             $data['about']     = I('post.about');
-            $data['promotion'] = I('post.promotion');
-            $data['groupid']   = I('post.groupid');
+            $data['promotion'] = 0;
+            $data['groupid']   = 0;
             if(!$a){
                 //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
             }
@@ -76,9 +76,6 @@ class PerformingController extends ComController {
             $img   = I('post.photo');
         
             $production   = M('actors_production');
-            
-            
-
             $sign = $actors->add($data);
 
             if($sign === false){

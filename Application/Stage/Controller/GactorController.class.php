@@ -87,6 +87,7 @@ class GactorController extends ComController {
             $data['weight']    = I('post.weight');
             $data['talent']    = I('post.talent');
             $data['about']     = I('post.about');
+            $data['achievement'] = I('post.achievement');
             $data['promotion'] = I('post.promotion');
             $data['groupid']   = I('post.groupid');
             if(!$a){
@@ -182,6 +183,7 @@ class GactorController extends ComController {
             $data['blood']     = I('post.blood');
             $data['height']    = I('post.height');
             $data['weight']    = I('post.weight');
+            $data['achievement'] = I('post.achievement');
             $data['talent']    = I('post.talent');
             $data['about']     = I('post.about');
             $data['promotion'] = I('post.promotion');
