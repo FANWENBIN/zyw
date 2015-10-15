@@ -5,10 +5,13 @@ use Think\Controller;
 class ComController extends Controller {
     public function __construct(){
         parent::__construct();
+        //验证登录
+        $this->vercklogin();
         //查询未查看消息至每个页面
         $active = M('active');
         $sum = $active->where('status = 2')->count();
         $this->assign('sms',$sum);
+
     }
 //验证登录
     public function vercklogin(){
@@ -18,7 +21,8 @@ class ComController extends Controller {
         $admin = M('admin');
         $adminval = $admin->where($data)->find();
     	if(!$adminval){
-    		  $this->success('请登陆',U('Index/index'),5);
+    		 // $this->success('请登陆',U('Index/index'),0);
+              $this->redirect(U('Index/index'),'',0, '请登录...');
               exit;
     	}
 

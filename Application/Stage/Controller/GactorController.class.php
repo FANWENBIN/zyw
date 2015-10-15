@@ -5,15 +5,13 @@ use Think\Controller;
 class GactorController extends ComController {
     //首页显示候选演员
     public function index(){
-        $this->vercklogin();
         $actors = M('actors');
 
     	//好演员分页
-
-		$count = $actors->order('votes desc')->count();// 查询满足要求的总记录数
+		$count = $actors->order('votes desc')->where('status=1')->count();// 查询满足要求的总记录数
 		$Page  = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$show  = $Page->show();// 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-		$actorsval  = $actors->order('votes desc')
+		$actorsval  = $actors->order('votes desc')->where('status=1')
 				->limit($Page->firstRow.','.$Page->listRows)->select();
 
 		$this->assign('actors',$actorsval);// 赋值数据集
@@ -26,15 +24,14 @@ class GactorController extends ComController {
     }
     //36强显示
     public function threestrong(){
-        $this->vercklogin();
         $actors = M('actors');
 
         //好演员分页
 
-        $count = $actors->where('promotion=36')->order('votes desc')->count();// 查询满足要求的总记录数
+        $count = $actors->where('promotion=36')->where('status=1')->order('votes desc')->count();// 查询满足要求的总记录数
         $Page  = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show  = $Page->show();// 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $actorsval  = $actors->order('votes desc')->
+        $actorsval  = $actors->order('votes desc')->where('status=1')->
                 where('promotion=36')->limit($Page->firstRow.','.$Page->listRows)->select();
 
         $this->assign('actors',$actorsval);// 赋值数据集
@@ -46,15 +43,14 @@ class GactorController extends ComController {
     }
     //最后获胜者
     public function winer(){
-        $this->vercklogin();
         $actors = M('actors');
 
         //好演员分页
 
-        $count = $actors->where('promotion=6')->order('votes desc')->count();// 查询满足要求的总记录数
+        $count = $actors->where('promotion=6')->where('status=1')->order('votes desc')->count();// 查询满足要求的总记录数
         $Page  = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show  = $Page->show();// 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $actorsval  = $actors->order('votes desc')->where('promotion=6')
+        $actorsval  = $actors->order('votes desc')->where('promotion=6')->where('status=1')
                 ->limit($Page->firstRow.','.$Page->listRows)->select();
 
         $this->assign('actors',$actorsval);// 赋值数据集
@@ -210,7 +206,8 @@ class GactorController extends ComController {
     public function delactor(){
         $id     = I('get.id');
         $actors = M('actors');
-        $sign   = $actors->delete($id);
+        $data['status'] = 0;
+        $sign   = $actors->where('id='.$id)->save($data);
         if($sign){
             $this->success('删除成功',U('Gactor/index'));
         }else{

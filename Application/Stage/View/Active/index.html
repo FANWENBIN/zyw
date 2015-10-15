@@ -22,8 +22,10 @@
 .table .t5 { text-align: center; width: 100px;}
 .table .t5 p { text-align: center; color: #41a82c;}
 .table .t5 p.cease { color: #ff6363;}
-.table .t6 { text-align: center;}
+.table .t6 { text-align: center; }
+.table .t6 img{display: inline-block;}
 .table .t7 { text-align: center; width: 120px;}
+
 </style>
 </head>
 
@@ -84,7 +86,7 @@
             <td class="t2">{$vo.title}</td>
             <td class="t3">{$vo.begin_time|date="m-d",###}</td>
             <td class="t4">{$vo.last_time|date="m-d",###}</td>
-            <td class="t5">{$vo.phone}</td>
+            <td class="t5"><p>{$vo.phone}</p></td>
             <td class="t6"><img src="./Uploads{$vo.img}" width="50" height="50" /></td>
             <td class="t7">
               <p class="console">
