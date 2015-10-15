@@ -217,5 +217,82 @@ class PerformingController extends ComController {
         $this->display();
         //echo md5('xxxzyw916');
     }
+    //审核演员详情页
+    public function editaudit(){
+          //
+        $submit = I('post.submit');
+        $actors = M('actors');
+        if(empty($submit)){
+            $id = I('get.id');
+            $actorsval = $actors->where('id='.$id)->find();
+            $this->assign('actors',$actorsval);
+
+            $production = M('actors_production')->where('actorsid='.$id)->select();
+            $this->assign('production',$production);
+
+            $this->assign('cur',10);
+            $this->display();
+        }else{
+            $data['name']      = I('post.name');
+            $data['promotion'] = I('post.promotion');
+            $data['sex']       = I('post.sex');
+            $data['groupid']   = I('post.group');
+
+            $id = I('post.actorid');
+            $this->checkDump($data);
+            $data['birthday']  = strtotime(I('post.birthday'));
+                                //strtotime(I('post.timet'))
+            $data['achievement'] = I('post.achievement');
+            $data['national']  = I('post.national');
+            $data['address']   = I('post.address');
+            $data['nation']    = I('post.nation');
+            $data['alias']     = I('post.alias');
+            $data['constellation'] = I('post.constellation');
+            $data['blood']     = I('post.blood');
+            $data['height']    = I('post.height');
+            $data['weight']    = I('post.weight');
+            $data['talent']    = I('post.talent');
+            $data['about']     = I('post.about');
+            $data['promotion'] = I('post.promotion');
+            $data['groupid']   = I('post.groupid');
+            $data['status']    = I('post.status');
+            $model = M();                     //开启事物
+            $model->startTrans();
+            $Duck = true;
+
+            $title = I('post.title');
+            $img   = I('post.photo');
+        
+            $production   = M('actors_production');
+            $production->where('actorsid='.$id)->delete();
+            foreach($title as $key=>$val){
+                $c['title'] = $val;
+                $c['img']   = $img[$key];
+                $c['actorsid'] = $id;
+                $sign = $production->add($c);
+                if(!$sign){
+                    $Duck = false;
+                }
+            }
+
+
+
+            $data['headimg'] = I('post.photo1');
+            $data['img']     = I('post.photo2');
+            $sign = $actors->where('id='.$id)->save($data);
+             if($sign === false){
+                    $Duck = false;
+            }
+            if($Duck){
+                $model->commit();
+                $this->success('修改成功',U('Performing/index'));
+            }else{
+                $model->rollback();
+                $this->error('没做任何修改');
+            }
+           // }
+
+        }
+    }
 
 }
