@@ -42,6 +42,7 @@ class PerformingController extends ComController {
             $data['address']   = I('post.address');
             $data['nation']    = I('post.nation');
             $data['alias']     = I('post.alias');
+            $data['achievement'] = I('post.achievement');
             $data['constellation'] = I('post.constellation');
             $data['blood']     = I('post.blood');
             $data['height']    = I('post.height');
@@ -135,6 +136,7 @@ class PerformingController extends ComController {
             $this->checkDump($data);
             $data['birthday']  = strtotime(I('post.birthday'));
                                 //strtotime(I('post.timet'))
+            $data['achievement'] = I('post.achievement');
             $data['national']  = I('post.national');
             $data['address']   = I('post.address');
             $data['nation']    = I('post.nation');
@@ -147,7 +149,6 @@ class PerformingController extends ComController {
             $data['about']     = I('post.about');
             $data['promotion'] = I('post.promotion');
             $data['groupid']   = I('post.groupid');
-
             $model = M();                     //开启事物
             $model->startTrans();
             $Duck = true;
