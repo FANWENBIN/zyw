@@ -75,7 +75,16 @@ class PerformingController extends ComController {
             $img   = I('post.photo');
         
             $production   = M('actors_production');
-            $production->where('actorsid='.$id)->delete();
+            
+            
+
+            $sign = $actors->add($data);
+
+            if($sign === false){
+                    $Duck = false;
+            }else{
+                $id = $sign;
+            }
             foreach($title as $key=>$val){
                 $c['title'] = $val;
                 $c['img']   = $img[$key];
@@ -83,13 +92,8 @@ class PerformingController extends ComController {
                 $sign = $production->add($c);
                 if(!$sign){
                     $Duck = false;
+                    echo $production->getlastsql();die();
                 }
-            }
-
-            $sign = $actors->add($data);
-
-            if($sign === false){
-                    $Duck = false;
             }
             if($Duck){
                 $model->commit();
