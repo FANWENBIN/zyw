@@ -65,8 +65,8 @@ class PerformingController extends ComController {
             $t_hz = M('t_hz');
             $thzval = $t_hz->where("chinese='".$sur."'")->find();
             $data['chinese_sum'] = $thzval['sum'];
+            $data['initial']     = getFirstCharter($data['name']);
             $data['status'] = 2;
-
 
             $model = M();                     //开启事物
             $model->startTrans();
