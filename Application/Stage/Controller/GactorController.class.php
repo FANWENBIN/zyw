@@ -113,7 +113,7 @@ class GactorController extends ComController {
             $t_hz = M('t_hz');
             $thzval = $t_hz->where("chinese='".$sur."'")->find();
             $data['chinese_sum'] = $thzval['sum'];
-            
+            $data['initial']     = getFirstCharter($data['name']);
             $sign = $actors->add($data);
 
             if($sign){
