@@ -5,7 +5,7 @@ use Think\Controller;
 class ActiveController extends ComController {
     //首页活动列表
     public function index(){
-    	$this->vercklogin();
+
 
     	$data['status'] = 1;
     	$active = M('active');
@@ -25,7 +25,7 @@ class ActiveController extends ComController {
     }
     //待审核活动列表
     public function audit(){
-        $this->vercklogin();
+
         $data['status'] = 2;
         $active = M('active');
         //分页显示
@@ -43,7 +43,7 @@ class ActiveController extends ComController {
     }
     //审核活动
     public function upaudit(){
-        $this->vercklogin();
+
         $submit = I('post.submit');
         $active = M('active');
         if(empty($submit)){
@@ -94,7 +94,7 @@ class ActiveController extends ComController {
     }
     //修改活动信息
     public function upactive(){
-    	$this->vercklogin();
+
     	$submit = I('post.submit');
     	$active = M('active');
     	if(empty($submit)){
@@ -144,7 +144,7 @@ class ActiveController extends ComController {
     }
     //增加活动
     public function addactive(){
-    	$this->vercklogin();
+  
     	$submit = I('post.submit');
     	$active = M('active');
     	if(empty($submit)){

@@ -5,8 +5,6 @@ use Think\Controller;
 class RecommendController extends ComController {
     //首页显示
     public function index(){
-        $this->vercklogin();
-       
 
     //评委分页
         $recommend = M('recommend');

@@ -33,11 +33,11 @@
         <div class="mainHeader">
              <h1>Banner管理</h1>
             <ul class="menu clearFix">
-            <li class="current"><a href="{:U('Banner/index')}">新闻Banner</a></li>
+            <li><a href="{:U('Banner/index')}">新闻Banner</a></li>
             <li><a href="{:U('Banner/active')}">活动Banner</a></li>
             <li><a href="{:U('Banner/futurestar')}">明日之星Banner</a></li> 
-            <li><a href="{:U('Banner/vedio')}">视频Banner</a></li> 
-            <li><a href="{:U('Banner/stage')}">Stage-Banner</a></li> 
+            <li class="current"><a href="{:U('Banner/vedio')}">视频Banner</a></li>
+            <li><a href="{:U('Banner/stage')}">Stage-Banner</a></li>  
             </ul>
         </div>
         <div class="mainBody">
@@ -51,7 +51,7 @@
                     <h1>新闻Banner</h1>
                 </div>
 
-                <form method="post" action="{:U('Banner/savenewsbanner')}" enctype="multipart/form-data">
+                <form method="post" action="{:U('Banner/savevedio')}" enctype="multipart/form-data">
                     <fieldset>
 
                         <!-- Banner大图-->
@@ -72,7 +72,7 @@
                               <div class="i">
                                 <span>选择Banner相关新闻链接</span>
                                 <select name="newsid1">
-                                    <volist name ="newsval" id="vo"  empty = "$a">
+                                    <volist name ="newsval" id="vo" empty = "$a">
                                       <option value="{$vo.id}"<if condition="$bannerval['0']['newsid'] eq $vo['id']">selected</if> >{$vo.title}</option>
                                     </volist>
                                 </select>
