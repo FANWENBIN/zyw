@@ -95,16 +95,7 @@ class GactorController extends ComController {
             $counts = $actors->count();
             $data['rank']    = $counts+1;   //名次
             $data['oldrank'] = $data['rank'];
-            // $upload = new \Think\Upload();// 实例化上传类   
-            // $upload->maxSize   =     3145728 ;// 设置附件上传大小   
-            // $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
-            // $upload->savePath  =      '/stage/images/'; // 设置附件上传目录    
-            // // 上传文件   
-            // $info   =   $upload->upload();    
-            // if(!$info) {// 上传错误提示错误信息      
-            //     $this->error($upload->getError()); 
-            //     exit;
-            // }else{// 上传成功      
+ 
             $data['headimg'] = I("post.photo1");
             $data['img']     = I("post.photo2");
             $sur = mb_substr($data['name'],0,1,'utf-8');
@@ -114,13 +105,44 @@ class GactorController extends ComController {
             $thzval = $t_hz->where("chinese='".$sur."'")->find();
             $data['chinese_sum'] = $thzval['sum'];
             $data['initial']     = getFirstCharter($data['name']);
+
+
+            $model = M();                     //开启事物
+            $model->startTrans();
+            $Duck = true;
+            
+            $title = I('post.title');
+            $img   = I('post.photo');
+        
+            $production   = M('actors_production');
+            
+            
+            var_dump($title);die();
             $sign = $actors->add($data);
 
-            if($sign){
-                $this->success('添加成功',U('Gactor/index'));
+            if($sign === false){
+                    $Duck = false;
             }else{
-                 $this->error('添加失败',U('Gactor/index'));
+                $id = $sign;
             }
+            foreach($title as $key=>$val){
+                $c['title'] = $val;
+                $c['img']   = $img[$key];
+                $c['actorsid'] = $id;
+                $sign = $production->add($c);
+                if(!$sign){
+                    $Duck = false;
+                    echo $production->getlastsql();die();
+                }
+            }
+            if($Duck){
+                $model->commit();
+                $this->success('新增成功',U('Gactor/index'));
+            }else{
+                $model->rollback();
+                $this->error('新增失败');
+            }
+           
             
         }
     }
