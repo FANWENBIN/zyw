@@ -34,7 +34,6 @@ class PerformingController extends ComController {
         }else{
             $data['name']    = I('post.name');
             $actors = M('actors');
-            
             $data['sex']     = I('post.sex');
             $a = $this->checkDump($data);
             $data['birthday']  = strtotime(I('post.birthday'));
@@ -56,17 +55,7 @@ class PerformingController extends ComController {
             }
             $counts = $actors->count();
             $data['rank']    = $counts+1;   //名次
-            $data['oldrank'] = $data['rank'];
-            // $upload = new \Think\Upload();// 实例化上传类   
-            // $upload->maxSize   =     3145728 ;// 设置附件上传大小   
-            // $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型  
-            // $upload->savePath  =      '/stage/images/'; // 设置附件上传目录    
-            // // 上传文件   
-            // $info   =   $upload->upload();    
-            // if(!$info) {// 上传错误提示错误信息      
-            //     $this->error($upload->getError()); 
-            //     exit;
-            // }else{// 上传成功      
+            $data['oldrank'] = $data['rank'];   
             $data['headimg'] = I("post.photo1");
             $data['img']     = I("post.photo2");
             $sur = mb_substr($data['name'],0,1,'utf-8');
@@ -75,13 +64,39 @@ class PerformingController extends ComController {
             $t_hz = M('t_hz');
             $thzval = $t_hz->where("chinese='".$sur."'")->find();
             $data['chinese_sum'] = $thzval['sum'];
+            $data['status'] = 2;
+
+
+            $model = M();                     //开启事物
+            $model->startTrans();
+            $Duck = true;
             
+            $title = I('post.title');
+            $img   = I('post.photo');
+        
+            $production   = M('actors_production');
+            $production->where('actorsid='.$id)->delete();
+            foreach($title as $key=>$val){
+                $c['title'] = $val;
+                $c['img']   = $img[$key];
+                $c['actorsid'] = $id;
+                $sign = $production->add($c);
+                if(!$sign){
+                    $Duck = false;
+                }
+            }
+
             $sign = $actors->add($data);
 
-            if($sign){
-                $this->success('添加成功',U('Gactor/index'));
+            if($sign === false){
+                    $Duck = false;
+            }
+            if($Duck){
+                $model->commit();
+                $this->success('新增成功',U('Performing/index'));
             }else{
-                 $this->error('添加失败',U('Gactor/index'));
+                $model->rollback();
+                $this->error('新增失败');
             }
             
         }
@@ -105,7 +120,7 @@ class PerformingController extends ComController {
             $this->assign('production',$production);
 
             $this->assign('cur',10);
-            $this->display('upgactor');
+            $this->display();
         }else{
             $data['name']      = I('post.name');
             $data['promotion'] = I('post.promotion');
@@ -132,6 +147,7 @@ class PerformingController extends ComController {
             $model = M();                     //开启事物
             $model->startTrans();
             $Duck = true;
+
             $title = I('post.title');
             $img   = I('post.photo');
         
@@ -157,7 +173,7 @@ class PerformingController extends ComController {
             }
             if($Duck){
                 $model->commit();
-                $this->success('修改成功',U('Gactor/index'));
+                $this->success('修改成功',U('Performing/index'));
             }else{
                 $model->rollback();
                 $this->error('没做任何修改');
@@ -170,13 +186,13 @@ class PerformingController extends ComController {
 
     
     //删除演员
-    public function delactor(){
+    public function delete(){
         $id     = I('get.id');
         $actors = M('actors');
         $data['status'] = 0;
         $sign   = $actors->where('id='.$id)->save($data);
         if($sign){
-            $this->success('删除成功',U('Gactor/index'));
+            $this->success('删除成功',U('Performing/index'));
         }else{
             $this->error('未删除');
         }
