@@ -1,0 +1,239 @@
+<extend name="Header/header"/>
+<block name='header'>
+    <!DOCTYPE HTML>
+    <!--[if lt IE 7 ]>
+    <html class="ie6 ieOld"><![endif]-->
+    <!--[if IE 7 ]>
+    <html class="ie7 ieOld"><![endif]-->
+    <!--[if IE 8 ]>
+    <html class="ie8 ieOld"><![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <html><!--<![endif]-->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>中演网管理平台</title>
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css"/>
+        <!--每个页面独立的样式文件-->
+    </head>
+
+    <body>
+</block>
+
+<block name="div">
+    <!--container-->
+    <div class="webContainer clearFix" id="webContainer">
+</block>
+
+<block name="content">
+    <!--main-->
+    <div class="webMain">
+        <div class="mainHeader">
+            <h1>添加明星</h1>
+            <!--<ul class="menu clearFix">-->
+            <!--<li class="current"><a href="#">菜单A</a></li>-->
+            <!--<li><a href="#">菜单B</a></li>-->
+            <!--<li><a href="#">菜单C</a></li>-->
+            <!--</ul>-->
+        </div>
+        <div class="mainBody">
+
+            <!--摘要提示等-->
+            <!--<div class="summary mb20">最近一段时间，互联网圈子里流行“举报”——先有腾讯匿名举报快播视频侵权；后有搜狐“举报”今日头条侵犯版权；日前，阿里巴巴也实名举报《IT时代周刊》舆论胁迫及恶意伤害阿里巴巴声誉。8月7日下午，阿里巴巴公关总监颜乔发表微博，实名举报《IT时代周刊》及下属网站“IT商业新闻网”长期通过舆论胁迫及恶意伤害阿里巴巴集团商誉。</div>-->
+
+            <!--表单-->
+            <div class="form">
+                <div class="formHeader">
+                    <h1>请填写基本信息</h1>
+                </div>
+                <form method="post" action="{:U('Gactor/addactor')}" enctype="multipart/form-data">
+                    <fieldset>
+                        <!-- 姓名-->
+                        <div class="l">
+                            <h6>姓名</h6>
+
+                            <div class="i"><input type="text" class="input w200" value="" placeholder="请输入姓名"
+                                                  name="name"/></div>
+                        </div>
+                        <!-- 头像-->
+                        <div class="l">
+                            <h6>头像</h6>
+
+                            <div class="i">
+                                <!--input type="file" class="input w200" name="photo1" value="" placeholder="" /-->
+                                <input type="text" value="" class="js_imgupload" id="imgurl2" cut="true" width="100"
+                                       height="100" name="photo1"/>
+                            </div>
+
+                        </div>
+                        <!-- 照片-->
+                        <div class="l">
+                            <h6>照片</h6>
+
+                            <div class="i"><input type="text" name="photo2" value="" class="js_imgupload" id="imgurl2"
+                                                  cut="true" width="280" height="280"/>
+                            </div>
+                        </div>
+                        <!-- 性别-->
+                        <div class="l">
+                            <h6>性别</h6>
+
+                            <div class="i w100">
+                                <select name="sex">
+                                    <option value='1'>男</option>
+                                    <option value="2">女</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- 出生年月-->
+                        <div class="l">
+                            <h6>出生年月</h6>
+
+                            <div class="i w200">
+                                <input type="text" class="js_date" data-time="f alse" value="1990-2-20|23:15"
+                                       name="birthday"/>
+                            </div>
+                        </div>
+                        <!-- 国籍-->
+                        <div class="l">
+                            <h6>国籍</h6>
+
+                            <div class="i"><input type="text" class="input w200" value="" name="national"
+                                                  placeholder="请输入国籍"/></div>
+                        </div>
+                        <!-- 出生地址-->
+                        <div class="l">
+                            <h6>出生地址</h6>
+
+                            <div class="i"><input type="text" class="input" value="" name="address"
+                                                  placeholder="请输入地址"/></div>
+                        </div>
+                        <!-- 民族-->
+                        <div class="l">
+                            <h6>民族</h6>
+
+                            <div class="i"><input type="text" class="input w200" name="nation" value=""
+                                                  placeholder="请输入民族"/></div>
+                        </div>
+                        <!-- 别名-->
+                        <div class="l">
+                            <h6>别名</h6>
+
+                            <div class="i"><input type="text" class="input w200" name="alias" value=""
+                                                  placeholder="请输入别名"/></div>
+                        </div>
+                        <!-- 星座-->
+                        <div class="l">
+                            <h6>星座</h6>
+
+                            <div class="i"><input type="text" class="input w200" name="constellation" value=""
+                                                  placeholder="请输入星座"/></div>
+                        </div>
+                        <!-- 血型-->
+                        <div class="l">
+                            <h6>血型</h6>
+
+                            <div class="i"><input type="text" class="input w200" name="blood" value=""
+                                                  placeholder="请输入血型"/><span>型</span></div>
+                        </div>
+                        <!-- 身高-->
+                        <div class="l">
+                            <h6>身高</h6>
+
+                            <div class="i"><input type="text" class="input w200" name="height" value=""
+                                                  placeholder="请输入身高，如180"/>CM
+                            </div>
+                        </div>
+                        <!-- 体重-->
+                        <div class="l">
+                            <h6>体重</h6>
+
+                            <div class="i"><input type="text" class="input w200" name="weight" value=""
+                                                  placeholder="请输入体重，如50"/>KG
+                            </div>
+                        </div>
+                        <!-- 经纪公司-->
+                        <div class="l">
+                            <h6>经纪公司</h6>
+
+                            <div class="i"><input type="text" class="input w300" name="talent" value=""
+                                                  placeholder="请输入经纪公司"/></div>
+                        </div>
+                        <!-- 个人介绍-->
+                        <div class="l">
+                            <h6>个人简介</h6>
+
+                            <div class="i"><textarea class="input" name="about"></textarea></div>
+                        </div>
+                        <!-- 好演员-->
+                        <div class="l">
+                            <h6>好演员评选</h6>
+
+                            <div class="i w100">
+                                <select name="promotion">
+                                    <option value="0">预选</option>
+                                    <option value="36">36强</option>
+                                    <option vlaue="6">6强</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- 分组-->
+                        <div class="l">
+                            <h6>好演员分组</h6>
+
+                            <div class="i w100">
+                                <select name="groupid">
+                                    <option value='1'>红组</option>
+                                    <option value='2'>蓝组</option>
+                                    <option value='3'>绿组</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <!--主提交按钮-->
+                        <div class="btnCon btnCon2">
+                            <a href="{:U('Gactor/index')}" class="btnD">取消</a>
+                            <input type="submit" class="btnA" value="提交" name="submit"/>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <!--main end-->
+
+    </div>
+    <!--container end-->
+
+
+    <script type="text/javascript" src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/swfobject.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/sea.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/sea.css.js"></script>
+    <script type="text/javascript">
+        seajs.use("__PUBLIC__/statics/statics/js/form.js");
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/sxx.js">
+    </script>
+
+    <!--富文本编辑器-->
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!--富文本编辑器 end-->
+    <script>
+        var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=stage"))}";
+        var imgUploadFile = '__ROOT__/Uploads';
+        var swfUrl = "__ROOT__/Public/stage/swf";
+    </script>
+
+
+    </body>
+    </html>
+</block>
