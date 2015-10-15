@@ -116,8 +116,7 @@ class GactorController extends ComController {
         
             $production   = M('actors_production');
             
-            
-            var_dump($title);die();
+
             $sign = $actors->add($data);
 
             if($sign === false){
@@ -132,7 +131,6 @@ class GactorController extends ComController {
                 $sign = $production->add($c);
                 if(!$sign){
                     $Duck = false;
-                    echo $production->getlastsql();die();
                 }
             }
             if($Duck){
