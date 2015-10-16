@@ -28,7 +28,7 @@ class NewsController extends ComController {
 
 		//banner
 		$banner = M('banner');
-		$bannerval = $banner->select();
+		$bannerval = $banner->where('type = 1')->select();
 		
 		//
 		foreach ($bannerval as $key => $value) {
