@@ -5,7 +5,10 @@ use Think\Controller;
 class ActiveController extends ComController {
 	//首页显示
     public function index(){
-
+        //banner
+        $banner = M('banner');
+        $bannerval = $banner->where('type = 2')->select();
+        $this->assign('banner',$bannerval);
 		$this->display();
 		//echo $ip = get_client_ip();
     }
