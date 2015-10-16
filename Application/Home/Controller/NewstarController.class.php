@@ -4,7 +4,7 @@ namespace Home\Controller;
 use Think\Controller;
 class NewstarController extends ComController {
     public function index(){
-		$this->display('video');
+		$this->display();
     }
    
    
