@@ -1,0 +1,193 @@
+@charset "UTF-8";
+// 全局变量
+//......大图
+$outerwidth:1200px;
+$bannerwidth:$outerwidth;
+$bannerheight:530px;
+//......推荐团图片尺寸 250/380同比例缩小
+$recommendwidth:125px;
+$recommendheight:138px;
+$recommendmargin:28px;
+//......明星尺寸 4张并列
+$starwidth: 280px;
+$starheight: 410px;
+$starmargin: 26px;
+
+//hover效果
+%animation{
+  p{
+    background: url("../../../images/space.png") 0 0 repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    background: rgba(0,0,0,.6);
+  }
+  sub{
+    background: rgba(0,0,0,0);
+    background: url("../../../images/space.png") 0 0 repeat;
+    &:hover{
+      background: rgba(0,0,0,.3);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+    }
+  }
+}
+
+/*标题，抬头css*/
+.webmain .con { margin-bottom: 45px; }
+.webmain .con .title { height: 60px; overflow: hidden; background: url('../../../images/line_contitle.gif') center center repeat-x; margin-bottom: 15px; position: relative; }
+.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 16px; background: url('../../../images/more_contitle.gif'); width: 130px; height: 30px; text-indent: -99em; overflow: hidden; }
+.webmain .con .title h2 { display: block; width: 100px; height: 60px; background-image: url('../../../images/sprite_starwars.jpg'); background-repeat: no-repeat; text-indent: -99em; overflow: hidden; float: left; }
+.webmain .con .title ul { float: left; height: 26px; background: #fff; padding: 17px 5px 17px 5px; }
+.webmain .con .title ul li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px; }
+.webmain .con .title ul li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px; }
+.webmain .con .title ul li.c a { background: #000; color: #fff; }
+
+/*导航栏*/
+.navTitle { color: #ccc; margin-bottom: 30px; }
+.navTitle a { color: inherit }
+.navTitle a:hover { color: red }
+.navTitle .loginfo { float: right; margin: 0 20px 0 15px; }
+.navTitle .loginfo .face { display: inline-block; float: left; width: 20px; height: 20px; background: url("../../../images/icon-logface.jpg") 50% no-repeat; }
+.navTitle .loginfo .name { display: inline-block; float: left; height: 20px; margin-left: 15px; line-height: 20px; cursor: pointer; }
+.navTitle .loginfo .name:after { content: ""; display: block; position: absolute; margin-left: 55px; margin-top: -10px; border-top: 6px solid #000; border-right: 6px solid #fff; border-left: 6px solid #fff; }
+/*banner轮播*/
+%topbanner{
+  width: $bannerwidth;
+  height: $bannerheight;
+}
+
+.topbanner{
+  @extend %topbanner;
+  position: relative;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.topbanner-imglist{
+  position: absolute;
+  li{
+    @extend %topbanner;
+    display: none;
+    &.active{
+      display: block;
+    };
+  }
+}
+.topbanner-imglist img{
+  @extend %topbanner;
+}
+.topbanner-dotlist{
+  display: inline-block;
+  position: relative;
+  margin-top: 490px;
+  li{
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin:{
+      left:10px;
+      right: 10px;
+    }
+    background-color: #fff;
+    border-radius: 50%;
+    &.active{
+      background-color: #cc66ff;
+    }
+  }
+}
+
+.webmain .judge .judge-title{
+  h2{
+    width: 190px;
+  }
+  li{
+    width: 110px;
+    height: 25px;
+    text-align: center;
+    &.active{
+      color: #fff;
+      background-color: #000;
+    }
+  }
+}
+//推荐团图片格式,宽高
+%recommendpic{
+  width:$recommendwidth;
+  height: $recommendheight;
+}
+
+//内容容器
+.webmain .judge-content{
+  width: 1200px +$recommendmargin;
+  margin-left: - $recommendmargin;
+  .item{
+    float: left;
+    margin:{
+      left:$recommendmargin;
+      bottom: 15px;
+    }
+    @extend %recommendpic;
+    img {
+    @extend %recommendpic;
+    }
+    @extend %animation;
+    p {
+      position: absolute;
+      height: 35px;
+      width: $recommendwidth;
+      line-height: 35px;
+      margin-top: -35px;
+      text-align: center;
+      color: #fff;
+    }
+    sub {
+      display: block;
+      position: absolute;
+      margin-top: -$recommendheight;
+      @extend %recommendpic;
+
+    }
+  }
+}
+//明星推荐版块
+%starpic{
+  width: $starwidth;
+  height: $starheight;
+}
+
+//明星 抬头设置
+.webmain .starrecommend .starrecommend-title{
+  h2{
+    width: 180px;
+    background-position: 0 -60px;
+  }
+}
+//推荐明星主容器
+.webmain .starrecommend-content{
+  width: 1200px + $starmargin;
+  margin-left: -$starmargin;
+  .item{
+    position: relative;
+    @extend %starpic;
+    margin-left: $starmargin;
+    float: left;
+    @extend %animation;
+    img {
+      @extend %starpic;
+    }
+    p {
+      position: absolute;
+      height: 45px;
+      width: $starwidth;
+      margin-top: -45px;
+      text-align: center;
+      line-height: 45px;
+      color: #fff;
+      z-index: 1;
+    }
+    sub {
+      @extend %starpic;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 9;
+    }
+  }
+}

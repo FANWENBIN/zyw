@@ -1,0 +1,124 @@
+@charset "UTF-8";
+//明星头像尺寸
+$starwidth: 220px;
+$starheight: 300px;
+//代表作品尺寸
+$workwidth: 550px;
+$workheight: 770px;
+
+
+/*标题，抬头css*/
+.webmain .con { margin-bottom: 45px; }
+.webmain .con .title { height: 60px; overflow: hidden; background: url('../../../images/line_contitle.gif') center center repeat-x; margin-bottom: 15px; position: relative; }
+.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 16px; background: url('../../../images/more_contitle.gif'); width: 130px; height: 30px; text-indent: -99em; overflow: hidden; }
+.webmain .con .title h2 { display: block; width: 200px; height: 60px; background-image: url('../../../images/p_starinfo_1.jpg'); background-repeat: no-repeat; text-indent: -99em; overflow: hidden; float: left; }
+.webmain .con .title ul { float: left; height: 26px; background: #fff; padding: 17px 5px 17px 5px; }
+.webmain .con .title ul li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px; }
+.webmain .con .title ul li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px; }
+.webmain .con .title ul li.c a { background: #000; color: #fff; }
+
+/*导航栏*/
+.navTitle { color: #ccc; margin-bottom: 30px; }
+.navTitle a { color: inherit }
+.navTitle a:hover { color: red }
+.navTitle .loginfo { float: right; margin: 0 20px 0 15px; }
+.navTitle .loginfo .face { display: inline-block; float: left; width: 20px; height: 20px; background: url("../../../images/icon-logface.jpg") 50% no-repeat; }
+.navTitle .loginfo .name { display: inline-block; float: left; height: 20px; margin-left: 15px; line-height: 20px; cursor: pointer; }
+.navTitle .loginfo .name:after { content: ""; display: block; position: absolute; margin-left: 55px; margin-top: -10px; border-top: 6px solid #000; border-right: 6px solid #fff; border-left: 6px solid #fff; }
+
+%faceimg {
+  width: $starwidth;
+  height: $starheight;
+}
+.introduction-face {
+  float: left;
+  @extend %faceimg;
+  img{
+    @extend %faceimg;
+  }
+}
+.introduction-content {
+  margin-left: 455px;
+  .name{
+    font-size: 40px;
+  }
+  .details{
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: 20px;
+    .left-col {
+      float: left;
+    }
+    .right-col {
+      margin-left: 330px;
+    }
+
+
+  }
+}
+
+.des{
+  display: inline-block;
+  width: 80px;
+  color: #ccc;
+}
+
+%workimg {
+  width: $workwidth;
+  height: $workheight;
+}
+
+%tabimg{
+  width: 95px;
+  height: 133px;
+}
+.worklist-main{
+  text-align: center;
+  .workname {
+    display: inline-block;
+    font-size: 14px;
+  }
+  .imglist {
+    @extend %workimg;
+    margin: 15px auto;
+    li{
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+  }
+  .tabsection{
+    position: absolute;
+    margin-top: -780px;
+    margin-left: 1105px;
+    .up{
+      position: absolute;
+      width: 95px;
+      height: 27px;
+      margin-top: -37px;
+      background: url("../../../images/sprite_starinfo_toggle.png");
+    }
+    .down{
+      display: inline-block;
+      width: 95px;
+      height: 27px;
+      background: url("../../../images/sprite_starinfo_toggle.png") 0 -27px no-repeat;
+    }
+    .frame{
+      width: 95px - 6;
+      height: 133px - 6;
+      position: absolute;
+      top: 0;
+      border: 3px solid #9966cc;
+    }
+    li {
+      margin-bottom: 10px;
+      @extend %tabimg;
+      img {
+        @extend %tabimg;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+.webmain .con { margin-bottom: 45px;}
+.webmain .con .title { height: 60px; overflow: hidden; background: url(../images/line_contitle.gif) center center repeat-x; margin-bottom: 15px; position: relative;}
+.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 16px; background: url(../images/more_contitle.gif); width: 130px; height: 30px; text-indent: -99em; overflow: hidden;}
+.webmain .con .title h2 { display: block; width: 100px; height: 60px; background-image: url(../images/txt_contitle.gif); background-repeat: no-repeat; text-indent: -99em; overflow: hidden; float: left;}
+.webmain .con .title ul { float: left; height: 26px; background: #fff; padding: 17px 5px 17px 5px;}
+.webmain .con .title ul li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px;}
+.webmain .con .title ul li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px;}
+.webmain .con .title ul li.c a { background: #000; color: #fff;}
+
+.webmain .conTopbanner {}
+.webmain .conTopbanner { height: 470px; overflow: hidden;}
+.webmain .conTopbanner img { display: block; width: 100%; height: 470px;}
+
+
+
+.webmain .conStars {}
+.webmain .conStars .title h2 { width: 300px; background-position: 0 -480px;}
+.webmain .conStars .inner { width: 1240px; overflow: hidden; margin-left: -40px;}
+.webmain .conStars .inner .item { float: left; width: 373px; overflow: hidden; height: 420px; margin: 0 0 40px 40px; position: relative; display: block;}
+.webmain .conStars .inner .item img { display: block; width: 373px; height: 420px;}
+.webmain .conStars .inner .item .txt { position: absolute; left: 0; bottom: 0; background: rgba(0,0,0,0.6); width: 100%; padding: 12px 0 10px 0;}
+.webmain .conStars .inner .item .txt p { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal; text-align: center;}
+.webmain .conStars .inner .item .txt span { color: #fff; font-size: 12px; line-height: 18px; opacity: 0.7; display: block; text-align: center;}
+.webmain .conStars .inner .item .vote { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2; display: none;}
+.webmain .conStars .inner .item .vote img { width: 150px; height: 150px; display: block; position: absolute; left: 50%; top: 130px; margin-left: -75px;}
+.webmain .conStars .inner .item .vote p { color: #fff; font-size: 12px; line-height: 18px; text-align: center; display: block; padding-top: 60px;}
+
+
+
+
+.webmain .conVote {}
+.webmain .conVote .title h2 { width: 300px; background-position: 0 -480px;}
+.webmain .conVote .inner { width: 1230px;  overflow: hidden; margin-left: -30px;}
+.webmain .conVote .inner .item { float: left; width: 277px; overflow: hidden; height: 310px; margin: 0 0 30px 30px; position: relative; display: block;}
+.webmain .conVote .inner .item img { display: block; width: 277px; height: 310px;}
+.webmain .conVote .inner .item .txt { position: absolute; left: 0; bottom: 0; background: rgba(0,0,0,0.6); width: 100%; padding: 12px 0 10px 0;}
+.webmain .conVote .inner .item .txt p { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal; text-align: center;}
+.webmain .conVote .inner .item .txt span { color: #fff; font-size: 12px; line-height: 18px; opacity: 0.7; display: block; text-align: center;}
+.webmain .conVote .inner .item .vote { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2; display: none;}
+.webmain .conVote .inner .item .vote img { width: 150px; height: 150px; display: block; position: absolute; left: 50%; top: 90px; margin-left: -75px;}
+.webmain .conVote .inner .item .vote p { color: #fff; font-size: 12px; line-height: 18px; text-align: center; display: block; padding-top: 60px;}
+.grouplist{}
+.grouplist li{display: inline-block; width: 55px; height: 30px;background: #fff; text-align: center; line-height: 30px;font-weight: bold}
+.grouplist li.active{background: #000; color: #fff}
+
+
+.webmain .conComment { margin-bottom: 0;}
+.webmain .conComment .title { margin-bottom: 5px;}
+.webmain .conComment .title h2 { width: 120px; background-position: 0 -540px;}
+.webmain .conComment .inner .list { margin-bottom: 20px;}
+.webmain .conComment .inner .list .item { position: relative; margin-top: 10px;}
+.webmain .conComment .inner .list .item .head { width: 50px; height: 50px; float: left; margin-right: 10px;}
+.webmain .conComment .inner .list .item .head img { display: block; width: 50px; height: 50px;}
+.webmain .conComment .inner .list .item .info { float: left; width: 1140px;}
+.webmain .conComment .inner .list .item .info span { color: #c1c1c1; font-size: 12px; line-height: 18px; margin-bottom: 4px; display: block;}
+.webmain .conComment .inner .list .item .info p { color: #000; font-size: 14px; line-height: 20px;}
+.webmain .conComment .inner .list .item .reply { position: absolute; right: 0; top: 0; line-height: 20px; display: block;}
+.webmain .conComment .inner .pager { height: 20px; overflow: hidden; margin-bottom: 15px;}
+.webmain .conComment .inner .pager a,
+.webmain .conComment .inner .pager span { display: block; float: left; margin-right: 5px; font-size: 12px; padding: 0 2px; line-height: 20px;} 
+.webmain .conComment .inner .pager a.c { color: #f25e5e;}
+.webmain .conComment .inner .send textarea { width: 1178px; height: 120px; padding: 10px; border: 1px solid #000; display: block; margin-bottom: 10px;}
+.webmain .conComment .inner .send .submit { width: 80px; height: 32px; line-height: 32px; color: #fff; text-align: center; display: block; background: #000; margin-left: 1122px;}
+
+
+

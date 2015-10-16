@@ -1,0 +1,2 @@
+$(function(){var i={init:function(){$("#bannerList li").mouseenter(i.hoverIn),$("#bannerList li:nth-child(1)").find(".frame").show()},hover:function(i){"mouseenter"==i.type?$(this).find(".hover").stop(!0,!0).fadeIn(100):$(this).find(".hover").stop(!0,!0).fadeOut(100)},hoverIn:function(){$("#bannerList").find(".frame").hide(),$(this).find(".frame").show();var i=$(this).index();$("#imgList").find(".img").hide(),$("#imgList").find(".img").eq(i).show(),$("#topText").find("span").hide(),$("#topText").find("span").eq(i).show()}};i.init()});
+//# sourceMappingURL=news.js.map
