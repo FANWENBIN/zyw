@@ -51,6 +51,8 @@ class PerformingController extends ComController {
             $data['about']     = I('post.about');
             $data['promotion'] = 0;
             $data['groupid']   = 0;
+            $data['newser']    = I('post.newser');
+            $data['area']      = I('post.area');
             if(!$a){
                 //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
             }
@@ -146,6 +148,8 @@ class PerformingController extends ComController {
             $data['about']     = I('post.about');
             $data['promotion'] = I('post.promotion');
             $data['groupid']   = I('post.groupid');
+            $data['newser']    = I('post.newser');
+            $data['area']      = I('post.area');
             $model = M();                     //开启事物
             $model->startTrans();
             $Duck = true;
@@ -242,6 +246,8 @@ class PerformingController extends ComController {
             $this->checkDump($data);
             $data['birthday']  = strtotime(I('post.birthday'));
                                 //strtotime(I('post.timet'))
+            $data['newser']    = I('post.newser');
+            $data['area']      = I('post.area');
             $data['achievement'] = I('post.achievement');
             $data['national']  = I('post.national');
             $data['address']   = I('post.address');

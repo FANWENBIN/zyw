@@ -90,6 +90,8 @@ class GactorController extends ComController {
             $data['achievement'] = I('post.achievement');
             $data['promotion'] = I('post.promotion');
             $data['groupid']   = I('post.groupid');
+            $data['newser']    = I('post.newser');
+            $data['area']      = I('post.area');
             if(!$a){
                 //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
             }
@@ -174,7 +176,8 @@ class GactorController extends ComController {
             $id = I('post.actorid');
             $this->checkDump($data);
             $data['birthday']  = strtotime(I('post.birthday'));
-                                //strtotime(I('post.timet'))
+            $data['newser']    = I('post.newser');
+            $data['area']      = I('post.area');                   //strtotime(I('post.timet'))
             $data['national']  = I('post.national');
             $data['address']   = I('post.address');
             $data['nation']    = I('post.nation');
