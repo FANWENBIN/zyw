@@ -5,7 +5,11 @@ use Think\Controller;
 class ActiveController extends ComController {
 	//首页显示
     public function index(){
-
+        //banner
+        $banner = M('banner');
+        $bannerval = $banner->where('type = 2')->select();
+        $this->assign('banner',$bannerval);
+       
 		$this->display();
 		//echo $ip = get_client_ip();
     }
@@ -83,7 +87,7 @@ class ActiveController extends ComController {
         $data['phone']        = I('post.phone');
         $data['begin_time']   = strtotime(I('post.begin_time'));
         $data['last_time']    = strtotime(I('post.last_time'));
-        
+        $data['instime'] = time();
         $span = $data['last_time']-$data['begin_time'];
         if($span < 0){
             ajaxReturn(103,'活动结束日期不可比开始日期早','');

@@ -112,13 +112,18 @@ class ComController extends Controller {
         $verify = $verify;//获取随机验证码        
         //以下信息自己填以下
         $mobile=$phone;//手机号
+        $flag = 0; 
+        $params = '';
         $argv = array( 
-            'name'=>'',     //必填参数。用户账号
-            'pwd'=>'',     //必填参数。（web平台：基本资料中的接口密码）
-            'content'=>'短信验证码为：'.$verify.'，请勿将验证码提供给他人。',   //必填参数。发送内容（1-500 个汉字）UTF-8编码
+            'name'=>'yangxiaoli',     //必填参数。用户账号
+            'pwd'=>'A1AE8E481290FA1930641F7A72A6',     //必填参数。（web平台：基本资料中的接口密码）
+            //'content'=>'短信验证码为：'.$verify.'，请勿将验证码提供给他人。', 
+              //必填参数。发送内容（1-500 个汉字）UTF-8编码
+            'content'=>$verify.'(您的中国电视好演员短信验证码)，有效期为30分钟，请勿将该验证码提供给他人。如非本人操作，请忽略此短信',
+            //【中国电视好演员网】
             'mobile'=>$mobile,   //必填参数。手机号码。多个以英文逗号隔开
             'stime'=>'',   //可选参数。发送时间，填写时已填写的时间发送，不填时为当前时间发送
-            'sign'=>'',    //必填参数。用户签名。
+            'sign'=>'中国电视好演员网',    //必填参数。用户签名。
             'type'=>'pt',  //必填参数。固定值 pt
             'extno'=>''    //可选参数，扩展码，用户定义扩展码，只能为数字
         ); 
@@ -130,18 +135,19 @@ class ComController extends Controller {
                 $params .= "&"; 
                 $flag = 1; 
             } 
-            $params.= $key."="; $params.= urlencode($value);// urlencode($value); 
+            $params.= $key."="; 
+            $params.= urlencode($value);// urlencode($value); 
             $flag = 1; 
         } 
         $url = "http://sms.1xinxi.cn/asmx/smsservice.aspx?".$params; //提交的url地址
         //$con= substr( file_get_contents($url), 0, 1 );  //获取信息发送后的状态
         $con = file_get_contents($url);
+        $con = explode(',', $con);
         return $con;
-        if($con == '0'){
-            echo "<script>alert('发送成功!');</script>";
-        }else{
-            echo "<script>alert('发送失败!');history.back();</script>";
-        }
+    }
+    public function a(){
+        $a = $this->sms('18516313142','123');
+        var_dump($a);
     }
    
 }

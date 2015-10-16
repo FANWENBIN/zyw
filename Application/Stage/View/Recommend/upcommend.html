@@ -141,7 +141,7 @@
                             <h6>代表作</h6>
                             <div class="i" id="J_WorksList">
                             <volist name="production" id = "vo">
-                                <div class="item clearFix" data-index="1">
+                                <div class="item clearFix" data-index="{$i}">
                                     <div class="i w230 mr0"><input type="text" class="input w200" name="title[{$i}]" value="{$vo.title}" placeholder="请输入代表作名字"/></div>
                                     <div class="i w350"><input type="text" value="{$vo.img}" class="js_imgupload" id="imgurl1" cut="true" width="500" height="700" name="photo[{$i}]"/></div>
                                     <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>

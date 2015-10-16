@@ -26,7 +26,7 @@
           <dd>
             <ul id="tabList">
              <li <if condition="$cur eq 1">class = "current"</if> ><a href="{:U('User/index')}">用户管理</a></li>
-              <li <if condition="$cur eq 2">class = "current"</if> ><a href="{:U('Gactor/index')}">演员管理</a></li>
+              <li <if condition="$cur eq 2">class = "current"</if> ><a href="{:U('Gactor/index')}">候选演员管理</a></li>
 
               <!--<li <if condition="$cur eq 3">class = "current"</if> ><a href="{:U('Recommend/index')}">推荐团管理<sub></sub></a></li>-->
               <li <if condition="$cur eq 3">class = "current"</if> ><a href="{:U('Recommend/index')}">推荐团管理</a></li>
@@ -38,6 +38,7 @@
      <!--    // Future Star -->
         <li <if condition="$cur eq 8">class = "current"</if> ><a href="{:U('Futurestar/index')}">明日之星教程管理</a></li>
         <li <if condition="$cur eq 9">class = "current"</if> ><a href="{:U('Vedio/index')}">视频管理</a></li>
+        <li <if condition="$cur eq 10">class = "current"</if> ><a href="{:U('Performing/index')}">演艺库管理<if condition="$actorssum neq 0"><sub>{$actorssum}</sub></if></a></li>
             </ul>
           </dd>
         </dl>

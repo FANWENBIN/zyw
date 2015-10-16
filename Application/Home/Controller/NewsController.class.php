@@ -28,7 +28,7 @@ class NewsController extends ComController {
 
 		//banner
 		$banner = M('banner');
-		$bannerval = $banner->select();
+		$bannerval = $banner->where('type = 1')->select();
 		
 		//
 		foreach ($bannerval as $key => $value) {
@@ -52,6 +52,10 @@ class NewsController extends ComController {
 		 //热点
 		 $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
 		 $this->assign('hotnews',$hotnews);
+		 //活动
+		 $active = M('active');
+		 $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
+		 $this->assign('activeval',$activeval);
 		 $this->display('news_details');
 	 }
 	 //艺术中国梦

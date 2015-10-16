@@ -51,32 +51,26 @@
 
         <div class="topBar">
             <div class="imgList" id="imgList">
+            <volist name = "banner" id = "vo">
+            <if condition = "$i eq 1">
                 <a href="#" class="active">
-                <img src="__PUBLIC__/statics/images/p_active.jpg">
+                <img src="./Uploads{$vo.img}">
                 </a>
+            <else />
                 <a href="#">
-                <img src="__PUBLIC__/statics/images/p_active.jpg">
+                <img src="./Uploads{$vo.img}">
                 </a>
-                <a href="#">
-                <img src="__PUBLIC__/statics/images/p_active.jpg">
-                </a>
-                <a href="#">
-                <img src="__PUBLIC__/statics/images/p_active.jpg">
-                </a>
-                <a href="#">
-                <img src="__PUBLIC__/statics/images/p_active.jpg">
-                </a>
-                <a href="#">
-                <img src="__PUBLIC__/statics/images/p_active.jpg">
-                </a>
+            </if>
+            </volist>
             </div>
             <ul class="dotList" id="dotList">
+            <volist name = "banner" id = "vo" >
+            <if condition = "$i eq 1">
                 <li class="active"></li>
+                <else />
                 <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                </if>
+            </volist>
             </ul>
         </div>
 
