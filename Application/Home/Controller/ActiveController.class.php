@@ -9,6 +9,7 @@ class ActiveController extends ComController {
         $banner = M('banner');
         $bannerval = $banner->where('type = 2')->select();
         $this->assign('banner',$bannerval);
+        var_dump($bannerval);
 		$this->display();
 		//echo $ip = get_client_ip();
     }
