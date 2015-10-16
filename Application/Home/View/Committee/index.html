@@ -5,9 +5,9 @@
 <head>
 <meta charset="utf-8">
 <title>中演网</title>
-<link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/style/common.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/style/committee.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/dist/css/committee/committee.css" rel="stylesheet" type="text/css" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="Keywords" content="">
 <meta name="Description" content="">
@@ -27,11 +27,11 @@
                     <li  class="c"><a href="{:U('Committee/index')}">演工委之声</a></li>
                     <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
                     <li><a href="{:U('#/index')}">饭团</a></li>
-                    <li><a href="{:U('#/index')}">星站</a></li>
+                    <li><a href="{:U('Starwars/index')}">星站</a></li>
                     <li><a href="{:U('#/index')}">明日之星</a></li>
                     <li><a href="{:U('Video/index')}">视频</a></li>
                     <li><a href="{:U('#/index')}">Stage</a></li>
-                    <li><a href="{:U('#/index')}">演艺库</a></li>
+                    <li><a href="{:U('Performing/index')}">演艺库</a></li>
                 </ul>
             </div>
             <a href="#" class="search"></a>
@@ -69,7 +69,7 @@
                         <sub></sub>
                     </a>
                     <div class="content">
-                     
+
                       <p>
                         <?php echo mb_strlen ($vo['digest'],'utf-8')>73?mb_substr($vo['digest'],0,73,'utf-8').'...':$vo['digest'] ?>
                       </p>
@@ -86,7 +86,7 @@
                         <sub></sub>
                     </a>
                     <div class="content">
-                     
+
                       <p>
                        123
                       </p>
@@ -102,7 +102,7 @@
                         <sub></sub>
                     </a>
                     <div class="content">
-                     
+
                       <p>
                        123
                       </p>
@@ -121,7 +121,7 @@
               </ul>
           </div>
           <div class="inner clearFix">
-     
+
             <div class="item">
                 <a href="#" class="pic">
                     <img src="__PUBLIC__/statics/images/p_committee_1.jpg" alt=""/>
@@ -182,7 +182,7 @@
                     <sub></sub>
                 </a>
             </div>
-    
+
           </div>
         </div>
 
@@ -213,7 +213,7 @@
 <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
 <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
 
-<script src="__PUBLIC__/statics/js/committee.js"></script>
+<script src="__PUBLIC__/statics/dist/js/committee/committee.js"></script>
 
 </body>
 </html>

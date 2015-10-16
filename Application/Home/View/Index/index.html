@@ -1,708 +1,795 @@
-
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+
 <head>
-<meta property="qc:admins" content="2055274421614776367072177" />
-<meta charset="utf-8">
-<title>中演网</title>
-<link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/style/common.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/style/index.css" rel="stylesheet" type="text/css" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<meta name="Keywords" content="">
-<meta name="Description" content="">
+  <meta property="qc:admins" content="2055274421614776367072177" />
+  <meta charset="utf-8">
+  <title>中演网</title>
+  <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/index/index.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
 
 </head>
 
 <body>
 
-    <!--webheader-->
-    <div class="webheader">
-        <div class="inner clearFix">
-            <a href="index.html" class="logo"></a>
-            <div class="nav">
-                <ul class="clearFix">
-                    <li class="first c"><a href="{:U('Index/index')}">首页</a></li>
-                    <li><a href="{:U('News/index')}">资讯</a></li>
-                    <li><a href="{:U('Active/index')}">活动</a></li>
-                    <li><a href="{:U('Committee/index')}">演工委之声</a></li>
-                    <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
-                    <li><a href="{:U('#/index')}">饭团</a></li>
-                    <li><a href="{:U('#/index')}">星站</a></li>
-                    <li><a href="{:U('#/index')}">明日之星</a></li>
-                    <li><a href="{:U('Video/index')}">视频</a></li>
-                    <li><a href="{:U('#/index')}">Stage</a></li>
-                    <li><a href="{:U('#/index')}">演艺库</a></li>
-                </ul>
-            </div>
-            <a href="#" class="search"></a>
-        </div>
+  <!--webheader-->
+  <div class="webheader">
+    <div class="inner clearFix">
+      <a href="index.html" class="logo"></a>
+      <div class="nav">
+        <ul class="clearFix">
+          <li class="first c"><a href="{:U('Index/index')}">首页</a></li>
+          <li><a href="{:U('News/index')}">资讯</a></li>
+          <li><a href="{:U('Active/index')}">活动</a></li>
+          <li><a href="{:U('Committee/index')}">演工委之声</a></li>
+          <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
+          <li><a href="{:U('#/index')}">饭团</a></li>
+          <li><a href="{:U('Starwars/index')}">星站</a></li>
+          <li><a href="{:U('#/index')}">明日之星</a></li>
+          <li><a href="{:U('Video/index')}">视频</a></li>
+          <li><a href="{:U('#/index')}">Stage</a></li>
+          <li><a href="{:U('Performing/index')}">演艺库</a></li>
+        </ul>
+      </div>
+      <a href="#" class="search"></a>
     </div>
-    <!--webheader end-->
+  </div>
+  <!--webheader end-->
 
 
 
-    <!--webmain-->
-    <div class="webmain">
+  <!--webmain-->
+  <div class="webmain">
 
 
-        <div class="con conTop clearFix" id="J_ConTop">
-        <volist  name="newsresult" id="news" offset="0" length="1" empty="暂时没有数据">
-            <a href="{:U('News/news_details?id='.$news['id'])}" class="l">
-                <div class="txt">
-                    <h3><?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'...':$news['title'] ?></h3>
-                    <span>{$news.instime|date="Y-m-d H:i:s",###}</span>
-                </div>
-                <div class="play hover"><span></span></div>
-                <img src="./Uploads{$news.pctopimg}" />
-            </a>
+    <div class="con conTop clearFix" id="J_ConTop">
+      <volist name="newsresult" id="news" offset="0" length="1" empty="暂时没有数据">
+        <a href="{:U('News/news_details?id='.$news['id'])}" class="l">
+          <div class="txt">
+            <h3>
+              <?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'...':$news['title'] ?>
+            </h3>
+            <span>{$news.instime|date="Y-m-d H:i:s",###}</span>
+          </div>
+          <div class="play hover">
+            <span></span>
+          </div>
+          <img src="./Uploads{$news.pctopimg}" />
+        </a>
+      </volist>
+
+      <div class="r">
+        <volist name="newsresult" id="news" offset="1" length="2" empty="暂时没有数据">
+          <a href="{:U('News/news_details?id='.$news['id'])}" class="t item">
+            <div class="txt">
+              <h3>
+                <?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'...':$news['title'] ?>
+              </h3>
+              <span>{$news.instime|date="Y-m-d H:i:s",###}</span>
+            </div>
+            <img src="./Uploads{$news.imgpath}" />
+            <sub class="hover"></sub>
+          </a>
+
         </volist>
+      </div>
+    </div>
 
-            <div class="r">
-             <volist  name="newsresult" id="news" offset="1" length="2" empty="暂时没有数据">
-                <a href="{:U('News/news_details?id='.$news['id'])}" class="t item">
-                    <div class="txt">
-                        <h3><?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'...':$news['title'] ?></h3>
-                        <span>{$news.instime|date="Y-m-d H:i:s",###}</span>
-                    </div>
-                    <img src="./Uploads{$news.imgpath}" />
-                    <sub class="hover"></sub>
-                </a>
-                
+
+    <div class="con conFocus clearFix" id="J_ConFocus">
+      <div class="title">
+        <h2>今日焦点</h2>
+        <a href="{:U('News/index')}" class="more">更多</a>
+      </div>
+
+      <div class="inner clearFix">
+        <div class="group first">
+          <volist name="newsresult" id="news" key="k" offset="3" length="1" empty="暂时没有数据">
+            <a href="{:U('News/news_details?id='.$news['id'])}" class="cover">
+              <div class="txt">
+                <h3>
+                  <?php echo mb_strlen ($news['title'],'utf-8')>23?mb_substr($news['title'],0,23,'utf-8').'......':$news['title'] ?>
+                </h3>
+                <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
+              </div>
+              <img src="./Uploads{$news.imgpath}" />
+              <sub class="hover"></sub>
+            </a>
+          </volist>
+          <ul>
+            <volist name="newsresult" id="news" key="k" offset="4" length="5">
+              <li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'......':$news['title'] ?></a>
+                <span>
+                  <?php echo floor((time()-$news['instime'])/3600)?>小时前</span>
+              </li>
             </volist>
-            </div>
+          </ul>
         </div>
 
-
-        <div class="con conFocus clearFix" id="J_ConFocus">
-            <div class="title">
-                <h2>今日焦点</h2>
-                <a href="{:U('News/index')}" class="more">更多</a>
-            </div>
-
-            <div class="inner clearFix">
-                <div class="group first">
-					<volist name="newsresult" id="news" key="k" offset="3" length="1" empty="暂时没有数据">
-                    <a href="{:U('News/news_details?id='.$news['id'])}" class="cover">
-                        <div class="txt">
-                            <h3><?php echo mb_strlen ($news['title'],'utf-8')>23?mb_substr($news['title'],0,23,'utf-8').'......':$news['title'] ?></h3>
-                            <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
-                        </div>
-						<img  src="./Uploads{$news.imgpath}" />
-                        <sub class="hover"></sub>
-                    </a>
-					</volist>
-                    <ul>
-						<volist name="newsresult" id="news" key="k" offset="4" length="5">
-							<li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
-						</volist>
-                    </ul>
-                </div>
-
-                 <div class="group">
-					<volist name="newsresult" id="news" key="k" offset="9" length="1" empty="">
-                    <a href="{:U('News/news_details?id='.$news['id'])}" class="cover">
-                        <div class="txt">
-                            <h3><?php echo mb_strlen ($news['title'],'utf-8')>23?mb_substr($news['title'],0,23,'utf-8').'......':$news['title'] ?></h3>
-                            <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
-                        </div>
-						<img  src="./Uploads{$news.imgpath}" />
-                        <sub class="hover"></sub>
-                    </a>
-					</volist>
-                    <ul>
-						<volist name="newsresult" id="news" key="k" offset="10" length="5">
-							<li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
-						</volist>
-                    </ul>
-                </div>
-
-                 <div class="group">
-					<volist name="newsresult" id="news" key="k" offset="15" length="1" empty="">
-                    <a href="{:U('News/news_details?id='.$news['id'])}" class="cover">
-                        <div class="txt">
-                            <h3><?php echo mb_strlen ($news['title'],'utf-8')>30?mb_substr($news['title'],0,24,'utf-8').'......':$news['title'] ?></h3>
-                            <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
-                        </div>
-						<img  src="./Uploads{$news.imgpath}" />
-                        <sub class="hover"></sub>
-                    </a>
-					</volist>
-                    <ul>
-						<volist name="newsresult" id="news" key="k" offset="16" length="5">
-							<li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'],'utf-8')>20?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a><span><?php echo floor((time()-$news['instime'])/3600)?>小时前</span></li>
-						</volist>
-                    </ul>
-                </div>
+        <div class="group">
+          <volist name="newsresult" id="news" key="k" offset="9" length="1" empty="">
+            <a href="{:U('News/news_details?id='.$news['id'])}" class="cover">
+              <div class="txt">
+                <h3>
+                  <?php echo mb_strlen ($news['title'],'utf-8')>23?mb_substr($news['title'],0,23,'utf-8').'......':$news['title'] ?>
+                </h3>
+                <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
+              </div>
+              <img src="./Uploads{$news.imgpath}" />
+              <sub class="hover"></sub>
+            </a>
+          </volist>
+          <ul>
+            <volist name="newsresult" id="news" key="k" offset="10" length="5">
+              <li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'],'utf-8')>16?mb_substr($news['title'],0,16,'utf-8').'......':$news['title'] ?></a>
+                <span>
+                  <?php echo floor((time()-$news['instime'])/3600)?>小时前</span>
+              </li>
+            </volist>
+          </ul>
         </div>
 
-        <div class="con conEvent clearFix" id="J_ConEvent">
-            <div class="title">
-                <h2>热门活动</h2>
-                <ul class="clearFix">
-                    <li class="c"><a href="javascript:void(0);">热门活动</a></li>
-                    <li><a href="javascript:void(0);">进行中</a></li>
-                    <li><a href="javascript:void(0);">未开始</a></li>
-                    <li><a href="javascript:void(0);">已结束</a></li>
-                </ul>
-                <a href="#" class="more">更多</a>
-            </div>
-            <div class="inner clearFix">
-                <a href="#" class="l">
-                    <p>102<span>参加</span></p>
-                    <img src="__PUBLIC__/statics/images/__p2.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <div class="r clearFix">
-                    <div class="item">
-                        <div class="txt hover">
-                            <p>奥斯卡颁奖典礼</p>
-                            <span>2015-09-08</span>
-                            <a href="#">查看</a>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/s10.jpg" />
-                    </div>
-                    <div class="item">
-                        <div class="txt hover">
-                            <p>奥斯卡颁奖典礼</p>
-                            <span>2015-09-08</span>
-                            <a href="#">查看</a>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/s2.jpg" />
-                    </div>
-                    <div class="item">
-                        <div class="txt hover">
-                            <p>奥斯卡颁奖典礼</p>
-                            <span>2015-09-08</span>
-                            <a href="#">查看</a>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/s3.jpg" />
-                    </div>
-                    <div class="item">
-                        <div class="txt hover">
-                            <p>奥斯卡颁奖典礼</p>
-                            <span>2015-09-08</span>
-                            <a href="#">查看</a>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/s4.jpg" />
-                    </div>
-                    <div class="item">
-                        <div class="txt hover">
-                            <p>奥斯卡颁奖典礼</p>
-                            <span>2015-09-08</span>
-                            <a href="#">查看</a>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/s5.jpg" />
-                    </div>
-                    <div class="item">
-                        <div class="txt hover">
-                            <p>奥斯卡颁奖典礼</p>
-                            <span>2015-09-08</span>
-                            <a href="#">查看</a>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/s6.jpg" />
-                    </div>
-                    <div class="item">
-                        <div class="txt hover">
-                            <p>奥斯卡颁奖典礼</p>
-                            <span>2015-09-08</span>
-                            <a href="#">查看</a>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/s7.jpg" />
-                    </div>
-                    <div class="item">
-                        <div class="txt hover">
-                            <p>奥斯卡颁奖典礼</p>
-                            <span>2015-09-08</span>
-                            <a href="#">查看</a>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/s8.jpg" />
-                    </div>
-                </div>
-            </div>
+        <div class="group">
+          <volist name="newsresult" id="news" key="k" offset="15" length="1" empty="">
+            <a href="{:U('News/news_details?id='.$news['id'])}" class="cover">
+              <div class="txt">
+                <h3>
+                  <?php echo mb_strlen ($news['title'],'utf-8')>30?mb_substr($news['title'],0,24,'utf-8').'......':$news['title'] ?>
+                </h3>
+                <span>{$news['title']|date='Y-m-d H:i:s',###}</span>
+              </div>
+              <img src="./Uploads{$news.imgpath}" />
+              <sub class="hover"></sub>
+            </a>
+          </volist>
+          <ul>
+            <volist name="newsresult" id="news" key="k" offset="16" length="5">
+              <li><a href="{:U('News/news_details?id='.$news['id'])}"><?php echo mb_strlen ($news['title'],'utf-8')>20?mb_substr($news['title'],0,15,'utf-8').'......':$news['title'] ?></a>
+                <span>
+                  <?php echo floor((time()-$news['instime'])/3600)?>小时前</span>
+              </li>
+            </volist>
+          </ul>
         </div>
-
-
-        <div class="con conTopStars clearFix" id="J_conTopStars">
-            <div class="title">
-                <h2>好演员评选</h2>
-                <a href="#" class="more">更多</a>
-            </div>
-            <div class="inner clearFix ">
-
-                <div class="group group1">
-                    <div class="tools clearFix">
-                        <h2><span></span>红组</h2>
-                        <div class="select clearFix">
-                            <a href="javascript:void(0);" class="c">全部</a>
-                            <a href="javascript:void(0);">男演员</a>
-                            <a href="javascript:void(0);">女演员</a>
-                        </div>
-                    </div>
-                    <div class="list list1">
-                    <volist name="redgroup" id = "vo">
-                        <div class="item top{$i}">
-                            <a href="#" class="head"><span></span><img src="./Uploads{$vo.headimg}" /></a>
-                            <div class="info">
-                                <h6><a href="#">{$vo.name}</a></h6>
-                                <span>热度: {$vo.votes}</span>
-                            </div>
-                            <div class="status">
-                                {:ranking($vo['lifting'])}
-                            </div>
-                        </div>
-                    </volist>
-
-                    </div>
-                    <div class="list list2">
-                    <volist name= "manredgroup" id = "vo">
-                        <div class="item top{$i}">
-                            <a href="#" class="head"><span></span><img src="./Uploads{$vo.headimg}" /></a>
-                            <div class="info">
-                                <h6><a href="#">{$vo.name}</a></h6>
-                                <span>热度: {$vo.votes}</span>
-                            </div>
-                            <div class="status">
-                                {:ranking($vo['lifting'])}
-                            </div>
-                        </div>
-
-                    </volist>
-
-
-                    </div>
-                    <div class="list list3">
-                    <volist name="menredgroup" id = "vo">
-                        <div class="item top{$i}">
-                            <a href="#" class="head"><span></span><img src="./Uploads{$vo.headimg}" /></a>
-                            <div class="info">
-                                <h6><a href="#">{$vo.name}</a></h6>
-                                <span>热度: {$vo.votes}</span>
-                            </div>
-                            <div class="status">
-                                {:ranking($vo['lifting'])}
-                            </div>
-                        </div>
-                    </volist>
-
-                    </div>
-                </div>
-
-                <div class="group group2">
-                    <div class="tools clearFix">
-                        <h2><span></span>蓝组</h2>
-                        <div class="select clearFix">
-                            <a href="javascript:void(0);" class="c">全部</a>
-                            <a href="javascript:void(0);">男演员</a>
-                            <a href="javascript:void(0);">女演员</a>
-                        </div>
-                    </div>
-                    <div class="list list1">
-
-                    <volist name = "bluegroup" id = "vo">
-                        <div class="item top{$i}">
-                            <a href="#" class="head"><span></span><img src="./Uploads{$vo.headimg}" /></a>
-                            <div class="info">
-                                <h6><a href="#">{$vo.name}</a></h6>
-                                <span>热度: {$vo.votes}</span>
-                            </div>
-                            <div class="status">
-                                {:ranking($vo['lifting'])}
-                            </div>
-                        </div>
-                    </volist>
-
-                    </div>
-                    <div class="list list2">
-
-                    <volist name = "manbluegroup" id = "vo">
-                        <div class="item top{$i}">
-                            <a href="#" class="head"><span></span><img src="./Uploads{$vo.headimg}" /></a>
-                            <div class="info">
-                                <h6><a href="#">{$vo.name}</a></h6>
-                                <span>热度: {$vo.votes}</span>
-                            </div>
-                            <div class="status">
-                                {:ranking($vo['lifting'])}
-                            </div>
-                        </div>
-                    </volist>
-
-
-                    </div>
-                    <div class="list list3">
-                       <volist name = "menbluegroup" id = "vo">
-                        <div class="item top{$i}">
-                            <a href="#" class="head"><span></span><img src="./Uploads{$vo.headimg}" /></a>
-                            <div class="info">
-                                <h6><a href="#">{$vo.name}</a></h6>
-                                <span>热度: {$vo.votes}</span>
-                            </div>
-                            <div class="status">
-                                {:ranking($vo['lifting'])}
-                            </div>
-                        </div>
-                    </volist>
-
-
-                    </div>
-                </div>
-
-                <div class="group group3">
-                    <div class="tools clearFix">
-                        <h2><span></span>绿组</h2>
-                        <div class="select clearFix">
-                            <a href="javascript:void(0);" class="c">全部</a>
-                            <a href="javascript:void(0);">男演员</a>
-                            <a href="javascript:void(0);">女演员</a>
-                        </div>
-                    </div>
-                    <div class="list list1">
-
-                    <volist name = "greengroup" id = "vo">
-                        <div class="item top{$i}">
-                            <a href="#" class="head"><span></span><img src="./Uploads{$vo.headimg}" /></a>
-                            <div class="info">
-                                <h6><a href="#">{$vo.name}</a></h6>
-                                <span>热度: {$vo.votes}</span>
-                            </div>
-                            <div class="status">
-                                {:ranking($vo['lifting'])}
-                            </div>
-                        </div>
-                    </volist>
-
-                    </div>
-                    <div class="list list2">
-
-                    <volist name = "mangreengroup" id = "vo">
-                        <div class="item top{$i}">
-                            <a href="#" class="head"><span></span><img src="./Uploads{$vo.headimg}" /></a>
-                            <div class="info">
-                                <h6><a href="#">{$vo.name}</a></h6>
-                                <span>热度: {$vo.votes}</span>
-                            </div>
-                            <div class="status">
-                                {:ranking($vo['lifting'])}
-                            </div>
-                        </div>
-                    </volist>
-
-
-                    </div>
-                    <div class="list list3">
-
-                    <volist name = "mengreengroup" id = "vo">
-                        <div class="item top{$i}">
-                            <a href="#" class="head"><span></span><img src="./Uploads{$vo.headimg}" /></a>
-                            <div class="info">
-                                <h6><a href="#">{$vo.name}</a></h6>
-                                <span>热度: {$vo.votes}</span>
-                            </div>
-                            <div class="status">
-                                {:ranking($vo['lifting'])}
-                            </div>
-                        </div>
-                    </volist>
-
-
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-
-        <div class="con conStars clearFix" id="J_ConStars">
-            <div class="title">
-                <h2>演艺人</h2>
-                <a href="#" class="more">更多</a>
-            </div>
-            <div class="inner clearFix">
-                <a href="#" class="l">
-                    <p>陈伟伦-百声现场</p>
-                    <img src="__PUBLIC__/statics/images/__p2.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <div class="r clearFix">
-                    <a href="#" class="item">
-                        <p>Stephanie</p>
-                        <img src="__PUBLIC__/statics/images/p/s1.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>JUNIEL</p>
-                        <img src="__PUBLIC__/statics/images/p/s2.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>金亨俊</p>
-                        <img src="__PUBLIC__/statics/images/p/s3.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>APRIL</p>
-                        <img src="__PUBLIC__/statics/images/p/s4.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>myB</p>
-                        <img src="__PUBLIC__/statics/images/p/s5.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>ZPZG</p>
-                        <img src="__PUBLIC__/statics/images/p/s9.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>BEAT WIN</p>
-                        <img src="__PUBLIC__/statics/images/p/s7.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>FlaShe</p>
-                        <img src="__PUBLIC__/statics/images/p/s8.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="con conStage clearFix" id="J_ConStage">
-            <div class="title">
-                <h2>星Stage</h2>
-                <a href="#" class="more">更多</a>
-            </div>
-            <div class="inner clearFix">
-                <a href="#" class="item">
-                    <p>Stephanie</p>
-                    <img src="__PUBLIC__/statics/images/p/s1.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>JUNIEL</p>
-                    <img src="__PUBLIC__/statics/images/p/s2.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>金亨俊</p>
-                    <img src="__PUBLIC__/statics/images/p/s3.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>APRIL</p>
-                    <img src="__PUBLIC__/statics/images/p/s4.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>myB</p>
-                    <img src="__PUBLIC__/statics/images/p/s5.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>ZPZG</p>
-                    <img src="__PUBLIC__/statics/images/p/s9.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>BEAT WIN</p>
-                    <img src="__PUBLIC__/statics/images/p/s7.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>FlaShe</p>
-                    <img src="__PUBLIC__/statics/images/p/s8.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>刷子乱乱唱</p>
-                    <img src="__PUBLIC__/statics/images/p/s10.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>JUNIEL</p>
-                    <img src="__PUBLIC__/statics/images/p/s2.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>金亨俊</p>
-                    <img src="__PUBLIC__/statics/images/p/s3.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <a href="#" class="item">
-                    <p>APRIL</p>
-                    <img src="__PUBLIC__/statics/images/p/s4.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-            </div>
-        </div>
-
-
-        <div class="con conVideo clearFix" id="J_ConVideo">
-            <div class="title">
-                <h2>视频汇</h2>
-                <ul class="clearFix">
-                    <li class="c"><a href="javascript:void(0);">电影电视</a></li>
-                    <li><a href="javascript:void(0);">制作花絮</a></li>
-                    <li><a href="javascript:void(0);">影视教学</a></li>
-                    <li><a href="javascript:void(0);">探班周边</a></li>
-                </ul>
-                <a href="#" class="more">更多</a>
-            </div>
-            <div class="inner clearFix">
-
-                <div class="group first">
-                    <a href="#" class="cover">
-                        <div class="txt">
-                            <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
-                            <span>2015-10-14 02:13:36</span>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/p5.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <ul>
-                        <li><a href="#">唐嫣穿薄纱裙现身 膝盖似有伤</a><span>3小时前</span></li>
-                        <li><a href="#">韩秀榜 第43期精彩演出</a><span>4小时前</span></li>
-                        <li><a href="#">CNBLUE新曲MV李正信预告公开</a><span>5小时前</span></li>
-                        <li><a href="#">LYn第9张正规专辑视听影像公开</a><span>6小时前</span></li>
-                        <li><a href="#">MTV发布2015VMA最佳时刻</a><span>7小时前</span></li>
-                    </ul>
-                </div>
-
-                <div class="group">
-                    <a href="#" class="cover">
-                        <div class="txt">
-                            <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
-                            <span>2015-10-14 02:13:36</span>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/p4.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <ul>
-                        <li><a href="#">SUPER JUNIOR回归变身小恶魔</a><span>3小时前</span></li>
-                        <li><a href="#">EXO后续曲回归变身橄榄球美少年</a><span>4小时前</span></li>
-                        <li><a href="#">少女时代重新出发魅力回归</a><span>5小时前</span></li>
-                        <li><a href="#">LINKIN PARK猎捕行动2015中国巡回演唱会</a><span>6小时前</span></li>
-                        <li><a href="#">乌兰托娅火红的萨日朗拍摄花絮</a><span>11小时前</span></li>
-                    </ul>
-                </div>
-
-                <div class="group">
-                    <a href="#" class="cover">
-                        <div class="txt">
-                            <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
-                            <span>2015-10-14 02:13:36</span>
-                        </div>
-                        <img src="__PUBLIC__/statics/images/p/p6.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <ul>
-                        <li><a href="#">“布达吉雅乐团”新专辑首唱会</a><span>1小时前</span></li>
-                        <li><a href="#">【终于还是等到你】潘协庆音乐分享会</a><span>2小时前</span></li>
-                        <li><a href="#">金润吉新专辑首唱会完美收官</a><span>4小时前</span></li>
-                        <li><a href="#">SUPER JUNIOR十年再造神话</a><span>4小时前</span></li>
-                        <li><a href="#">2015全英音乐奖Taylor Swift现场</a><span>5小时前</span></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="con conYoulike clearFix" id="J_ConYoulike">
-            <div class="title">
-                <h2>猜你喜欢</h2>
-                <a href="#" class="more">更多</a>
-            </div>
-            <div class="inner clearFix">
-                <a href="#" class="l">
-                    <div class="txt">
-                        <h3>微电影拍摄花絮</h3>
-                    </div>
-                    <img src="__PUBLIC__/statics/images/p/b1.jpg" />
-                    <sub class="hover"></sub>
-                </a>
-                <div class="r clearFix">
-                    <a href="#" class="item">
-                        <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b1.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b2.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b3.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b4.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b5.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b6.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b7.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                    <a href="#" class="item">
-                        <p>微电影拍摄花絮</p>
-                        <img src="__PUBLIC__/statics/images/p/b2.jpg" />
-                        <sub class="hover"></sub>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
+      </div>
     </div>
-    <!--webmain end-->
 
-
-    <!--webfooter-->
-    <div class="webfooter">
-        <div class="inner clearFix">
-            <div class="logo"></div>
-            <div class="info">
-                <ul class="clearFix">
-                    <li class="f"><a href="#">关于我们</a></li>
-                    <li><a href="#">加入我们</a></li>
-                    <li><a href="#">联系我们</a></li>
-                </ul>
-                <p>COPYRIGHT © 2008 - 2015 中国电视好演员. 苏ICP证090011号</p>
+    <div class="con conEvent clearFix" id="J_ConEvent">
+      <div class="title">
+        <h2>热门活动</h2>
+        <ul class="clearFix">
+          <li class="c"><a href="javascript:void(0);">热门活动</a></li>
+          <li><a href="javascript:void(0);">进行中</a></li>
+          <li><a href="javascript:void(0);">未开始</a></li>
+          <li><a href="javascript:void(0);">已结束</a></li>
+        </ul>
+        <a href="#" class="more">更多</a>
+      </div>
+      <div class="inner clearFix">
+        <a href="#" class="l">
+          <p>102
+            <span>参加</span>
+          </p>
+          <img src="__PUBLIC__/statics/images/__p2.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <div class="r clearFix">
+          <div class="item">
+            <div class="txt hover">
+              <p>奥斯卡颁奖典礼</p>
+              <span>2015-09-08</span>
+              <a href="#">查看</a>
             </div>
-            <div class="qr">
-                <p>扫描二维码</p>
-                <span>关注官方微信</span>
+            <img src="__PUBLIC__/statics/images/p/s10.jpg" />
+          </div>
+          <div class="item">
+            <div class="txt hover">
+              <p>奥斯卡颁奖典礼</p>
+              <span>2015-09-08</span>
+              <a href="#">查看</a>
             </div>
+            <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+          </div>
+          <div class="item">
+            <div class="txt hover">
+              <p>奥斯卡颁奖典礼</p>
+              <span>2015-09-08</span>
+              <a href="#">查看</a>
+            </div>
+            <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+          </div>
+          <div class="item">
+            <div class="txt hover">
+              <p>奥斯卡颁奖典礼</p>
+              <span>2015-09-08</span>
+              <a href="#">查看</a>
+            </div>
+            <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+          </div>
+          <div class="item">
+            <div class="txt hover">
+              <p>奥斯卡颁奖典礼</p>
+              <span>2015-09-08</span>
+              <a href="#">查看</a>
+            </div>
+            <img src="__PUBLIC__/statics/images/p/s5.jpg" />
+          </div>
+          <div class="item">
+            <div class="txt hover">
+              <p>奥斯卡颁奖典礼</p>
+              <span>2015-09-08</span>
+              <a href="#">查看</a>
+            </div>
+            <img src="__PUBLIC__/statics/images/p/s6.jpg" />
+          </div>
+          <div class="item">
+            <div class="txt hover">
+              <p>奥斯卡颁奖典礼</p>
+              <span>2015-09-08</span>
+              <a href="#">查看</a>
+            </div>
+            <img src="__PUBLIC__/statics/images/p/s7.jpg" />
+          </div>
+          <div class="item">
+            <div class="txt hover">
+              <p>奥斯卡颁奖典礼</p>
+              <span>2015-09-08</span>
+              <a href="#">查看</a>
+            </div>
+            <img src="__PUBLIC__/statics/images/p/s8.jpg" />
+          </div>
         </div>
+      </div>
     </div>
-    <!--webfooter end-->
 
 
-<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
-<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
-<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+    <div class="con conTopStars clearFix" id="J_conTopStars">
+      <div class="title">
+        <h2>好演员评选</h2>
+        <a href="#" class="more">更多</a>
+      </div>
+      <div class="inner clearFix ">
 
-<script src="__PUBLIC__/statics/js/index.js"></script>
+        <div class="group group1">
+          <div class="tools clearFix">
+            <h2>
+              <span></span>红组</h2>
+            <div class="select clearFix">
+              <a href="javascript:void(0);" class="c">全部</a>
+              <a href="javascript:void(0);">男演员</a>
+              <a href="javascript:void(0);">女演员</a>
+            </div>
+          </div>
+          <div class="list list1">
+            <volist name="redgroup" id="vo">
+              <div class="item top{$i}">
+                <a href="#" class="head">
+                  <span></span>
+                  <img src="./Uploads{$vo.headimg}" />
+                </a>
+                <div class="info">
+                  <h6><a href="#">{$vo.name}</a></h6>
+                  <span>热度: {$vo.votes}</span>
+                </div>
+                <div class="status">
+                  {:ranking($vo['lifting'])}
+                </div>
+              </div>
+            </volist>
+
+          </div>
+          <div class="list list2">
+            <volist name="manredgroup" id="vo">
+              <div class="item top{$i}">
+                <a href="#" class="head">
+                  <span></span>
+                  <img src="./Uploads{$vo.headimg}" />
+                </a>
+                <div class="info">
+                  <h6><a href="#">{$vo.name}</a></h6>
+                  <span>热度: {$vo.votes}</span>
+                </div>
+                <div class="status">
+                  {:ranking($vo['lifting'])}
+                </div>
+              </div>
+
+            </volist>
+
+
+          </div>
+          <div class="list list3">
+            <volist name="menredgroup" id="vo">
+              <div class="item top{$i}">
+                <a href="#" class="head">
+                  <span></span>
+                  <img src="./Uploads{$vo.headimg}" />
+                </a>
+                <div class="info">
+                  <h6><a href="#">{$vo.name}</a></h6>
+                  <span>热度: {$vo.votes}</span>
+                </div>
+                <div class="status">
+                  {:ranking($vo['lifting'])}
+                </div>
+              </div>
+            </volist>
+
+          </div>
+        </div>
+
+        <div class="group group2">
+          <div class="tools clearFix">
+            <h2>
+              <span></span>蓝组</h2>
+            <div class="select clearFix">
+              <a href="javascript:void(0);" class="c">全部</a>
+              <a href="javascript:void(0);">男演员</a>
+              <a href="javascript:void(0);">女演员</a>
+            </div>
+          </div>
+          <div class="list list1">
+
+            <volist name="bluegroup" id="vo">
+              <div class="item top{$i}">
+                <a href="#" class="head">
+                  <span></span>
+                  <img src="./Uploads{$vo.headimg}" />
+                </a>
+                <div class="info">
+                  <h6><a href="#">{$vo.name}</a></h6>
+                  <span>热度: {$vo.votes}</span>
+                </div>
+                <div class="status">
+                  {:ranking($vo['lifting'])}
+                </div>
+              </div>
+            </volist>
+
+          </div>
+          <div class="list list2">
+
+            <volist name="manbluegroup" id="vo">
+              <div class="item top{$i}">
+                <a href="#" class="head">
+                  <span></span>
+                  <img src="./Uploads{$vo.headimg}" />
+                </a>
+                <div class="info">
+                  <h6><a href="#">{$vo.name}</a></h6>
+                  <span>热度: {$vo.votes}</span>
+                </div>
+                <div class="status">
+                  {:ranking($vo['lifting'])}
+                </div>
+              </div>
+            </volist>
+
+
+          </div>
+          <div class="list list3">
+            <volist name="menbluegroup" id="vo">
+              <div class="item top{$i}">
+                <a href="#" class="head">
+                  <span></span>
+                  <img src="./Uploads{$vo.headimg}" />
+                </a>
+                <div class="info">
+                  <h6><a href="#">{$vo.name}</a></h6>
+                  <span>热度: {$vo.votes}</span>
+                </div>
+                <div class="status">
+                  {:ranking($vo['lifting'])}
+                </div>
+              </div>
+            </volist>
+
+
+          </div>
+        </div>
+
+        <div class="group group3">
+          <div class="tools clearFix">
+            <h2>
+              <span></span>绿组</h2>
+            <div class="select clearFix">
+              <a href="javascript:void(0);" class="c">全部</a>
+              <a href="javascript:void(0);">男演员</a>
+              <a href="javascript:void(0);">女演员</a>
+            </div>
+          </div>
+          <div class="list list1">
+
+            <volist name="greengroup" id="vo">
+              <div class="item top{$i}">
+                <a href="#" class="head">
+                  <span></span>
+                  <img src="./Uploads{$vo.headimg}" />
+                </a>
+                <div class="info">
+                  <h6><a href="#">{$vo.name}</a></h6>
+                  <span>热度: {$vo.votes}</span>
+                </div>
+                <div class="status">
+                  {:ranking($vo['lifting'])}
+                </div>
+              </div>
+            </volist>
+
+          </div>
+          <div class="list list2">
+
+            <volist name="mangreengroup" id="vo">
+              <div class="item top{$i}">
+                <a href="#" class="head">
+                  <span></span>
+                  <img src="./Uploads{$vo.headimg}" />
+                </a>
+                <div class="info">
+                  <h6><a href="#">{$vo.name}</a></h6>
+                  <span>热度: {$vo.votes}</span>
+                </div>
+                <div class="status">
+                  {:ranking($vo['lifting'])}
+                </div>
+              </div>
+            </volist>
+
+
+          </div>
+          <div class="list list3">
+
+            <volist name="mengreengroup" id="vo">
+              <div class="item top{$i}">
+                <a href="#" class="head">
+                  <span></span>
+                  <img src="./Uploads{$vo.headimg}" />
+                </a>
+                <div class="info">
+                  <h6><a href="#">{$vo.name}</a></h6>
+                  <span>热度: {$vo.votes}</span>
+                </div>
+                <div class="status">
+                  {:ranking($vo['lifting'])}
+                </div>
+              </div>
+            </volist>
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <div class="con conStars clearFix" id="J_ConStars">
+      <div class="title">
+        <h2>演艺人</h2>
+        <a href="#" class="more">更多</a>
+      </div>
+      <div class="inner clearFix">
+        <a href="#" class="l">
+          <p>陈伟伦-百声现场</p>
+          <img src="__PUBLIC__/statics/images/__p2.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <div class="r clearFix">
+          <a href="#" class="item">
+            <p>Stephanie</p>
+            <img src="__PUBLIC__/statics/images/p/s1.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>JUNIEL</p>
+            <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>金亨俊</p>
+            <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>APRIL</p>
+            <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>myB</p>
+            <img src="__PUBLIC__/statics/images/p/s5.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>ZPZG</p>
+            <img src="__PUBLIC__/statics/images/p/s9.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>BEAT WIN</p>
+            <img src="__PUBLIC__/statics/images/p/s7.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>FlaShe</p>
+            <img src="__PUBLIC__/statics/images/p/s8.jpg" />
+            <sub class="hover"></sub>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="con conStage clearFix" id="J_ConStage">
+      <div class="title">
+        <h2>星Stage</h2>
+        <a href="#" class="more">更多</a>
+      </div>
+      <div class="inner clearFix">
+        <a href="#" class="item">
+          <p>Stephanie</p>
+          <img src="__PUBLIC__/statics/images/p/s1.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>JUNIEL</p>
+          <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>金亨俊</p>
+          <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>APRIL</p>
+          <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>myB</p>
+          <img src="__PUBLIC__/statics/images/p/s5.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>ZPZG</p>
+          <img src="__PUBLIC__/statics/images/p/s9.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>BEAT WIN</p>
+          <img src="__PUBLIC__/statics/images/p/s7.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>FlaShe</p>
+          <img src="__PUBLIC__/statics/images/p/s8.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>刷子乱乱唱</p>
+          <img src="__PUBLIC__/statics/images/p/s10.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>JUNIEL</p>
+          <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>金亨俊</p>
+          <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <a href="#" class="item">
+          <p>APRIL</p>
+          <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+          <sub class="hover"></sub>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="con conVideo clearFix" id="J_ConVideo">
+      <div class="title">
+        <h2>视频汇</h2>
+        <ul class="clearFix">
+          <li class="c"><a href="javascript:void(0);">电影电视</a></li>
+          <li><a href="javascript:void(0);">制作花絮</a></li>
+          <li><a href="javascript:void(0);">影视教学</a></li>
+          <li><a href="javascript:void(0);">探班周边</a></li>
+        </ul>
+        <a href="#" class="more">更多</a>
+      </div>
+      <div class="inner clearFix">
+
+        <div class="group first">
+          <a href="#" class="cover">
+            <div class="txt">
+              <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
+              <span>2015-10-14 02:13:36</span>
+            </div>
+            <img src="__PUBLIC__/statics/images/p/p5.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <ul>
+            <li><a href="#">唐嫣穿薄纱裙现身 膝盖似有伤</a>
+              <span>3小时前</span>
+            </li>
+            <li><a href="#">韩秀榜 第43期精彩演出</a>
+              <span>4小时前</span>
+            </li>
+            <li><a href="#">CNBLUE新曲MV李正信预告公开</a>
+              <span>5小时前</span>
+            </li>
+            <li><a href="#">LYn第9张正规专辑视听影像公开</a>
+              <span>6小时前</span>
+            </li>
+            <li><a href="#">MTV发布2015VMA最佳时刻</a>
+              <span>7小时前</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="group">
+          <a href="#" class="cover">
+            <div class="txt">
+              <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
+              <span>2015-10-14 02:13:36</span>
+            </div>
+            <img src="__PUBLIC__/statics/images/p/p4.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <ul>
+            <li><a href="#">SUPER JUNIOR回归变身小恶魔</a>
+              <span>3小时前</span>
+            </li>
+            <li><a href="#">EXO后续曲回归变身橄榄球美少年</a>
+              <span>4小时前</span>
+            </li>
+            <li><a href="#">少女时代重新出发魅力回归</a>
+              <span>5小时前</span>
+            </li>
+            <li><a href="#">LINKIN PARK猎捕行动2015中国巡回演唱会</a>
+              <span>6小时前</span>
+            </li>
+            <li><a href="#">乌兰托娅火红的萨日朗拍摄花絮</a>
+              <span>11小时前</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="group">
+          <a href="#" class="cover">
+            <div class="txt">
+              <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
+              <span>2015-10-14 02:13:36</span>
+            </div>
+            <img src="__PUBLIC__/statics/images/p/p6.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <ul>
+            <li><a href="#">“布达吉雅乐团”新专辑首唱会</a>
+              <span>1小时前</span>
+            </li>
+            <li><a href="#">【终于还是等到你】潘协庆音乐分享会</a>
+              <span>2小时前</span>
+            </li>
+            <li><a href="#">金润吉新专辑首唱会完美收官</a>
+              <span>4小时前</span>
+            </li>
+            <li><a href="#">SUPER JUNIOR十年再造神话</a>
+              <span>4小时前</span>
+            </li>
+            <li><a href="#">2015全英音乐奖Taylor Swift现场</a>
+              <span>5小时前</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="con conYoulike clearFix" id="J_ConYoulike">
+      <div class="title">
+        <h2>猜你喜欢</h2>
+        <a href="#" class="more">更多</a>
+      </div>
+      <div class="inner clearFix">
+        <a href="#" class="l">
+          <div class="txt">
+            <h3>微电影拍摄花絮</h3>
+          </div>
+          <img src="__PUBLIC__/statics/images/p/b1.jpg" />
+          <sub class="hover"></sub>
+        </a>
+        <div class="r clearFix">
+          <a href="#" class="item">
+            <p>微电影拍摄花絮</p>
+            <img src="__PUBLIC__/statics/images/p/b1.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>微电影拍摄花絮</p>
+            <img src="__PUBLIC__/statics/images/p/b2.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>微电影拍摄花絮</p>
+            <img src="__PUBLIC__/statics/images/p/b3.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>微电影拍摄花絮</p>
+            <img src="__PUBLIC__/statics/images/p/b4.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>微电影拍摄花絮</p>
+            <img src="__PUBLIC__/statics/images/p/b5.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>微电影拍摄花絮</p>
+            <img src="__PUBLIC__/statics/images/p/b6.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>微电影拍摄花絮</p>
+            <img src="__PUBLIC__/statics/images/p/b7.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <a href="#" class="item">
+            <p>微电影拍摄花絮</p>
+            <img src="__PUBLIC__/statics/images/p/b2.jpg" />
+            <sub class="hover"></sub>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!--webmain end-->
+
+
+  <!--webfooter-->
+  <div class="webfooter">
+    <div class="inner clearFix">
+      <div class="logo"></div>
+      <div class="info">
+        <ul class="clearFix">
+          <li class="f"><a href="#">关于我们</a></li>
+          <li><a href="#">加入我们</a></li>
+          <li><a href="#">联系我们</a></li>
+        </ul>
+        <p>COPYRIGHT © 2008 - 2015 中国电视好演员. 苏ICP证090011号</p>
+      </div>
+      <div class="qr">
+        <p>扫描二维码</p>
+        <span>关注官方微信</span>
+      </div>
+    </div>
+  </div>
+  <!--webfooter end-->
+
+
+  <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+  <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+  <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+
+  <script src="__PUBLIC__/statics/dist/js/index/index.js"></script>
 
 </body>
+
 </html>
