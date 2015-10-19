@@ -18,7 +18,7 @@ class ConfigureController extends ComController {
             if($sign){
                 $this->success('保存成功',U('Configure/index'));
             }else{
-                $this->error('保存失败');
+                $this->error('未保存');
             }
         }  
           
@@ -38,7 +38,7 @@ class ConfigureController extends ComController {
             if($sign){
                 $this->success('保存成功',U('Configure/index'));
             }else{
-                $this->error('保存失败');
+                $this->error('未保存');
             }
         }  
     }
@@ -56,9 +56,9 @@ class ConfigureController extends ComController {
             $data['stagerule'] = I('post.stagerule');
             $sign = $configure->where('type = 1')->save($data);
             if($sign){
-                $this->success('保存成功',U('Configure/index'));
+                $this->success('保存成功',U('Configure/rule'));
             }else{
-                $this->error('保存失败');
+                $this->error('未保存');
             }
         }  
     }
