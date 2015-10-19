@@ -5,7 +5,9 @@ use Think\Controller;
 class StageController extends ComController {
     public function index(){
     	$actors = M('actors');
-    	$list = $actors->where('newser = 1')->order('clickrate desc')->limit(0,18)->select();
+    	$where['newser'] = array('eq',1);
+    	$where['status'] = array('in','1,2');
+    	$list = $actors->where($where)->order('clickrate desc')->limit(0,18)->select();
     	$this->assign('list',$list);
 		$this->display();
     }
