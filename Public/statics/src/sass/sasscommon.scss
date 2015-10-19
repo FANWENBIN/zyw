@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
-//item style1
+//item1 样式 img p sub
 @mixin item1 ($width, $height, $pheight,$fontsize){
-  width: $width;
-  height: $height;
-  img {
+
+  %wh{
     width: $width;
     height: $height;
+  }
+  img {
+    @extend %wh;
   }
   p {
     position: absolute;
@@ -23,8 +25,7 @@
   }
   sub {
     position: absolute;
-    width: $width;
-    height: $height;
+    @extend %wh;
     margin-top: - $height;
     background: rgba(0,0,0,0);
     background: url("../../../images/space.png") 0 0 repeat;
@@ -35,7 +36,97 @@
   }
 }
 
-//banner1
+//item2 img text{left right} sub
+@mixin item2 ($width, $height, $textheight,$fontsize){
+  %wh{
+    width: $width;
+    height: $height;
+  }
+  img {
+    @extend %wh;
+  }
+  .text{
+    position: absolute;
+    width: $width;
+    height: $textheight;
+    margin-top: -$textheight;
+    color: #fff;
+    background: url("../../../images/space.png") 0 0 repeat;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    background: rgba(0,0,0,.6);
+    span{
+      height: $textheight;
+      font-size: $fontsize;
+      line-height: $textheight;
+      margin: {
+        left: 5px;
+        right: 5px;
+      }
+    }
+    .left{
+      float: left;
+    }
+    .right{
+      float: right;
+    }
+  }
+  sub{
+    position: absolute;
+    @extend %wh;
+    margin-top: -$height;
+    background: rgba(0,0,0,0);
+    background: url("../../../images/space.png") 0 0 repeat;
+    &:hover{
+      background: rgba(0,0,0,.3);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+    }
+  }
+}
+
+//item2 img text{h1 h3} sub
+@mixin item3 ($width, $height, $textheight,$fontsize1,$fontsize2){
+  %wh{
+    width: $width;
+    height: $height;
+  }
+  img {
+    @extend %wh;
+  }
+  .text{
+    position: absolute;
+    width: $width;
+    height: $textheight;
+    margin-top: -$textheight;
+    color: #fff;
+    text-indent: 20px;
+    background: url("../../../images/space.png") 0 0 repeat;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    background: rgba(0,0,0,.6);
+
+    h1{
+      font-size: $fontsize1;
+      line-height: $textheight/2;
+    }
+    h3{
+      font-size: $fontsize2;
+      line-height: $textheight/2;
+    }
+  }
+  sub{
+    position: absolute;
+    @extend %wh;
+    margin-top: -$height;
+    background: rgba(0,0,0,0);
+    background: url("../../../images/space.png") 0 0 repeat;
+    &:hover{
+      background: rgba(0,0,0,.3);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+    }
+  }
+}
+
+
+//banner1 样式
 @mixin banner1 ($width,$height,$bottomclip){
   %wh {
     width: $width;
@@ -48,6 +139,7 @@
   overflow: hidden;
   .imglist {
     width: 10000px;
+    height: $height;
     li {
       @extend %wh;
       float: left;

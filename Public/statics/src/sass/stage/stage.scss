@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+@import "../sasscommon";
+
+
+.webmain .topbanner{
+  @include banner1(1200px, 530px, 40px);
+
+}
+.webmain .enroll{
+  margin-top: 30px;
+  .leftsection{
+    float: left;
+    button{
+      width: 300px;
+      height: 60px;
+      color: #fff;
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 60px;
+      background-color: #000;
+    }
+
+  }
+  .rightsection{
+    margin-left: 330px;
+    h3{
+      font-size: 14px;
+      line-height: 30px;
+    }
+    p{
+      font-size: 12px;
+      line-height: 30px;
+    }
+  }
+}
+
+.webmain .stage .title h2{
+  background: url("../../../images/sprite_stage.gif")
+}
+
+.webmain .stage .inner {
+  width: 1235px;
+  margin-left: -35px;
+  .item{
+    @include item1(170px, 200px, 35px, 16px);
+    float: left;
+    margin:{
+      left: 35px;
+      bottom: 30px;
+    }
+  }
+}
+
+.webmain .work .title h2{
+  width: 210px;
+  background: url("../../../images/sprite_stage.gif") 0 -60px no-repeat;
+}
+.webmain .work .inner {
+
+  width: 1235px;
+  margin-left: -30px;
+  li{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+
+
+  .itembig{
+    @include item3(380px, 310px, 60px, 14px, 12px);
+    float: left;
+    margin:{
+      left: 30px;
+    }
+  }
+  .item{
+    @include item2(175px, 140px, 30px, 12px);
+    float: left;
+    margin:{
+      left: 30px;
+      bottom: 30px;
+    }
+  }
+}

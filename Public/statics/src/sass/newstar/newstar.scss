@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import "../sasscommon";
+@import "../sasscommon"; 
 
 .topbanner{
   @include banner1(890px, 410px, 30px);
