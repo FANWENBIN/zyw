@@ -1,0 +1,157 @@
+<extend name="Header/header"/>
+<block name='header'>
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中演网管理平台</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css" />
+<!--每个页面独立的样式文件-->
+<style type="text/css">
+.table .t1 { text-align: center; width: 80px;}
+.table .t2 { text-align: center; width: 100px;}
+.table .t2 img { display: block; margin: 0 auto;}
+.table .t3 { text-align: center; width: 100px;}
+.table .t4 { text-align: center; width: 150px;}
+.table .t5 { text-align: center; width: 100px;}
+.table .t5 p { text-align: center; color: #41a82c;}
+.table .t5 p.cease { color: #ff6363;}
+.table .t6 { text-align: center;}
+.table .t7 { text-align: center; width: 120px;}
+</style>
+</head>
+
+<body>
+</block>
+
+<block name="div">
+  <!--container-->
+  <div class="webContainer clearFix" id="webContainer">
+</block>
+ 
+<block name="content">
+    <!--main-->
+    <div class="webMain">
+      <div class="mainHeader">
+        <h1>推荐团成员</h1>
+        <!--<ul class="menu clearFix">-->
+          <!--<li class="current"><a href="#">菜单A</a></li>-->
+          <!--<li><a href="#">菜单B</a></li>-->
+          <!--<li><a href="#">菜单C</a></li>-->
+        <!--</ul>-->
+        <!--<div class="toolbtns">-->
+          <!--<a href="javascript:void(0)" class="btnB btnSmall">导出数据</a>-->
+        <!--</div>-->
+      </div>
+      <div class="mainBody">
+
+
+        <!--表格-->
+        <table class="table" id="J_Table" >
+          <thead>
+            <tr>
+              <td class="t1">编号</td>
+              <td class="t2">评论者</td>
+              <td class="t3">评论</td>
+              <td class="t4">评论时间</td>
+              <td class="t5">回应给</td>
+              <td class="t7">操作</td>
+            </tr>
+          </thead>
+          <tbody>
+            <volist name="list" id= "vo">
+            <tr>
+              <td class="t1">{$i}</td>
+              <td class="t2">{$vo.name}</td>
+              <td class="t3">{$vo.content}</td>
+              <td class="t4">{$vo.instime|date="Y-m-d H:i:s",###}</td>
+              <td class="t5"><p>{$vo.pagename}<br /><a href="{$vo.pagehref}">查看页面</a></p></td>
+              <td class="t7">
+                <p class="console">
+                  <a href="{:U('Comment/upcomment?id='.$vo['id'])}" class="setting">编辑</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="delete" data-id="{$vo.id}">移至垃圾站</a>
+                </p>
+              </td>
+            </tr>
+            </volist>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="7">
+                <div class="pagers">
+                  <ul class="clearFix">
+                    {$repage}
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <!--主提交按钮-->
+
+
+
+
+      </div>
+    </div>
+    <!--main end-->
+
+  </div>
+  <!--container end-->
+
+
+
+
+  
+
+<script type="text/javascript" src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/swfobject.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.css.js"></script>
+<script type="text/javascript">
+    seajs.use("__PUBLIC__/statics/statics/js/index.js");
+</script>
+<script type="text/javascript" src="__PUBLIC__/sxx.js">
+</script>
+  <script>
+    $(function(){
+      $("body").on("click","#showAlert",function(){
+        window.location.href = webPath+"/index.php?m=Stage&c=Recommend&a=addcommend"
+      })
+    })
+  </script>
+  
+<script>
+    $(function(){
+      
+
+      $("#J_Table").on("click",".delete",function(str){
+        var id = $(this).data("id");
+
+        $.alert({
+          btnY: "确认",
+      btnN: "取消",
+      txt:'删除请确认',
+      callbackY: function(){
+      
+        window.location = webPath+"/index.php?m=Stage&c=Comment&a=delcomment&id="+id;
+      }
+        })
+      });
+
+    })
+
+
+  </script>
+
+
+
+</body>
+</html>
+</block>

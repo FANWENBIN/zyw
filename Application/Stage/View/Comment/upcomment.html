@@ -1,0 +1,140 @@
+<extend name="Header/header"/>
+<block name='header'>
+    <!DOCTYPE HTML>
+    <!--[if lt IE 7 ]>
+    <html class="ie6 ieOld"><![endif]-->
+    <!--[if IE 7 ]>
+    <html class="ie7 ieOld"><![endif]-->
+    <!--[if IE 8 ]>
+    <html class="ie8 ieOld"><![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <html><!--<![endif]-->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>中演网管理平台</title>
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css"/>
+        <!--每个页面独立的样式文件-->
+        <style>
+            .webMain .mainBody .worksList .item { margin-bottom: 10px;}
+        </style>
+    </head>
+
+    <body>
+</block>
+
+<block name='div'>
+    <!--container-->
+    <div class="webContainer clearFix" id="webContainer">
+</block>
+
+<block name="content">
+    <!--main-->
+    <div class="webMain">
+        <div class="mainHeader">
+            <h1>修改推荐团成员</h1>
+        </div>
+        <div class="mainBody">
+
+            <!--表单-->
+            <div class="form">
+                <div class="formHeader">
+                    <h1>请填写基本信息</h1>
+                </div>
+                <form method="post" action="{:U('Comment/upcomment')}" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="{$list.id}">
+                    <fieldset>
+                        <!-- 头像-->
+                        <div class="l">
+                            <h6>姓名</h6>
+                            <div class="i">
+                               
+                                <input type="text" value="{$list.name}" class="input w200"  name="name"/>
+                            </div>
+                        </div>
+                        <!-- 姓名-->
+                        <div class="l">
+                            <h6>评论内容</h6>
+                            <div class="i">
+                                <input type="text" value="{$list.content}" class="input w200"  name="content"/>
+                            </div>
+                        </div>
+
+                   
+ <!--主提交按钮-->
+            <div class="btnCon btnCon2">
+                <a href="{:U('Comment/index')}" class="btnD">取消</a>
+                <input type="submit" class="btnA" value="提交" name="submit"/>
+            </div>
+                    </fieldset>
+                </form>
+            </div>
+
+
+           
+
+
+        </div>
+    </div>
+    <!--main end-->
+
+    </div>
+    <!--container end-->
+
+
+    <script type="text/javascript" src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/swfobject.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/sea.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/sea.css.js"></script>
+    <script type="text/javascript">
+        seajs.use("__PUBLIC__/statics/statics/js/form.js");
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/sxx.js">
+    </script>
+    <!--富文本编辑器-->
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!--富文本编辑器 end-->
+    <script>
+
+
+        var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=stage"))}";
+        var imgUploadFile = '__ROOT__/Uploads';
+        var swfUrl = "__ROOT__/Public/stage/swf";
+
+        $(function(){
+            $(".worksList").on("click",".del",function(){
+                $(this).parents(".item").remove();
+            });
+
+
+            //动态添加代表作
+            var J_AppendWorks =  $("#J_AppendWorks"),
+                J_WorksList = $("#J_WorksList");
+
+            J_AppendWorks.on("click", appendWorks);
+            function appendWorks(){
+                var _item = J_WorksList.find(".item"), _index = 1;
+                if(_item.length > 0){
+                    _index = +_item.eq(_item.length - 1).data("index");
+                    _index ++;
+                }
+
+                var d = new Date().getTime();
+                J_AppendWorks.before('<div class="item clearFix" data-index="'+ _index +'">'+
+                        '<div class="i w230 mr0"><input type="text" class="input w200" name="title['+ _index +']" value="" placeholder="请输入代表作名字"/></div>'+
+                        '<div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl'+ d +'" cut="true" width="500" height="700" name="photo['+ _index +']"/></div>'+
+                        '<div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>'+
+                        '</div>');
+                $("#imgurl" + d).imgUploadInit();
+            }
+        });
+    </script>
+
+
+    </body>
+    </html>
+</block>
