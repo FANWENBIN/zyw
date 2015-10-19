@@ -1,0 +1,2 @@
+
+//# sourceMappingURL=newstar.js.map

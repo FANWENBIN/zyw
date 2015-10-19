@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@import "../sasscommon";
+
+
+// 全局变量
+//大图
+
+$outerwidth:1200px;
+$bannerwidth:$outerwidth;
+$bannerheight:530px;
+
+
+
+
+
+/*banner轮播*/
+%topbanner{
+  width: $bannerwidth;
+  height: $bannerheight;
+}
+
+.topbanner{
+  @extend %topbanner;
+  position: relative;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.topbanner-imglist{
+  position: absolute;
+  li{
+    @extend %topbanner;
+    display: none;
+    &.active{
+      display: block;
+    };
+  }
+}
+.topbanner-imglist img{
+  @extend %topbanner;
+}
+.topbanner-dotlist{
+  display: inline-block;
+  position: relative;
+  margin-top: 490px;
+  li{
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin:{
+      left:10px;
+      right: 10px;
+    }
+    background-color: #fff;
+    border-radius: 50%;
+    &.active{
+      background-color: #cc66ff;
+    }
+  }
+}
+
+//粉丝社群
+.community .inner{
+  margin-left: -26px;
+  width: 1200px + 26px;
+  .item{
+    @include item1(280px, 415px, 50px, 16px);
+    float: left;
+    margin-left: 26px;
+    margin-bottom: 30px;
+  }
+}

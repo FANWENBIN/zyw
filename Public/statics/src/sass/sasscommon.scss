@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+//item style1
+@mixin item1 ($width, $height, $pheight,$fontsize){
+  width: $width;
+  height: $height;
+  img {
+    width: $width;
+    height: $height;
+  }
+  p {
+    position: absolute;
+    height: $pheight;
+    width: $width;
+    margin-top:  - $pheight;
+    font: $fontsize;
+    color: #fff;
+    text-align: center;
+    line-height: $pheight;
+    background: url("../../../images/space.png") 0 0 repeat;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    background: rgba(0,0,0,.6);
+  }
+  sub {
+    position: absolute;
+    width: $width;
+    height: $height;
+    margin-top: - $height;
+    background: rgba(0,0,0,0);
+    background: url("../../../images/space.png") 0 0 repeat;
+    &:hover{
+      background: rgba(0,0,0,.3);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+    }
+  }
+}
+
+//banner1
+@mixin banner1 ($width,$height,$bottomclip){
+  %wh {
+    width: $width;
+    height: $height;
+  }
+  position: relative;
+  width: $width;
+  height: $height;
+  text-align: center;
+  overflow: hidden;
+  .imglist {
+    width: 10000px;
+    li {
+      @extend %wh;
+      float: left;
+      img {
+        @extend %wh;
+      }
+    }
+  }
+  .dotlist{
+    display: inline-block;
+    position: relative;
+    bottom: $bottomclip;
+    li {
+      float: left;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin:{
+        left: 10px;
+        right: 10px;
+      }
+      &.active{
+        background: #c6f;
+      }
+    }
+  }
+}
