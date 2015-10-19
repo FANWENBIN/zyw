@@ -9,6 +9,10 @@ class StageController extends ComController {
     	$where['status'] = array('in','1,2');
     	$list = $actors->where($where)->order('clickrate desc')->limit(0,18)->select();
     	$this->assign('list',$list);
+        //规则
+        $configure = M('configure');
+        $rule = $configure->where('type = 1')->find();
+        $this->assign('rule',$rule);
     	//Banner
     	$banner = M('banner');
     	$bannerval = $banner->where('type = 5')->select();
