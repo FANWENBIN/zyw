@@ -31,7 +31,6 @@ class PerformingController extends ComController {
     	}
     	$actors = M('actors');
     	$data = [];
-
     	foreach(range('A','Z') as $v){
 			$data[$v] = $actors
 						->field('id,headimg,name')
