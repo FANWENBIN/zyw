@@ -24,7 +24,7 @@ class PerformingController extends ComController {
     			break;
     		case '5':		//演艺新人
     			$where['newser'] = 1;
-    			break;	
+    			break;
     		default:
 
     			break;
