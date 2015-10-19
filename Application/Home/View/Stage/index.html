@@ -49,16 +49,26 @@
 <!--  banner-->
   <div class="topbanner">
     <ul class="topbanner-imglist imglist">
-      <li class="active"><a href="#"><img src="#" alt="1" /></a></li>
-      <li><a href="#"><img src="#" alt="2" /></a></li>
-      <li><a href="#"><img src="#" alt="3" /></a></li>
-      <li><a href="#"><img src="#" alt="4" /></a></li>
+    <volist name = "bannerval" id = "vo">
+      <if condition = "$i eq 1">
+        <li class="active"><a href="#"><img src="./Uploads{$vo.img}" alt="{$vo.title}" /></a></li>
+      <else />
+        <li><a href="#"><img src="./Uploads{$vo.img}" alt="{$vo.title}" /></a></li>
+      </if>
+    </volist>
+
+
     </ul>
-    <ul class="topbanner-dotlist dotlist">
-      <li class="active"></li>
-      <li></li>
-      <li></li>
-      <li></li>
+    <ul class="topbanner-dotlist dotlist">   
+    <volist name = "bannerval" id = "vo">
+     <if condition = "$i eq 1">
+        <li class="active"></li>
+    <else />
+        <li></li>
+      </if>
+    </volist>
+
+
     </ul>
   </div>
   <div class="enroll">
