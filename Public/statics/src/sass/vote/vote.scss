@@ -1,0 +1,236 @@
+@charset "utf-8";
+
+.webmain .con { margin-bottom: 45px;}
+.webmain .con .title { height: 60px; overflow: hidden; background: url('../../../images/line_contitle.gif') center center repeat-x; margin-bottom: 15px; position: relative;}
+.webmain .con .title a.more { display: block; position: absolute; right: 0; top: 16px; background: url('../../../images/more_contitle.gif'); width: 130px; height: 30px; text-indent: -99em; overflow: hidden;}
+.webmain .con .title h2 { display: block; width: 100px; height: 60px; background-image: url('../../../images/txt_contitle.gif'); background-repeat: no-repeat; text-indent: -99em; overflow: hidden; float: left;}
+.webmain .con .title ul { float: left; height: 26px; background: #fff; padding: 17px 5px 17px 5px;}
+.webmain .con .title ul li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px;cursor: pointer;}
+.webmain .con .title ul li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px;}
+.webmain .con .title ul li.c a { background: #000; color: #fff;}
+
+.webmain .conTopbanner {}
+.webmain .conTopbanner { height: 470px; overflow: hidden;}
+.webmain .conTopbanner img { display: block; width: 100%; height: 470px;}
+
+//  导航固定条
+.fixednav{
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 60px;
+
+  background: rgba(0,0,0,.55);
+}
+
+
+
+
+.webmain .conStars { margin-bottom: 0;}
+.webmain .conStars .title h2 { width: 192px; background-position: 0 -420px;}
+/*.webmain .conStars .inner .group { float: left;}*/
+.webmain .conStars .inner .group h2 { font-size: 18px; line-height: 22px; height: 22px; overflow: hidden; display: block; margin-bottom: 20px;}
+.webmain .conStars .inner .group h2 span { display: inline-block; width: 3px; height: 17px; background: #7865f0; position: relative; margin-right: 4px; top: 2px;}
+.webmain .conStars .inner .group .list a { display: block; width: 110px; height: 140px; overflow: hidden; position: relative; float: left; margin: 0 1px 30px 30px;}
+.webmain .conStars .inner .group .list a img { display: block; width: 110px; height: 140px;}
+.webmain .conStars .inner .group .list a .hover { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url("../../../images/space.png") 0 0 repeat;background: rgba(0,0,0,0);}
+.webmain .conStars .inner .group .list a .hover:hover {background: url("../../../images/space.png") 0 0 repeat;background: rgba(0,0,0,0.34);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000)}
+.webmain .conStars .inner .group .list p { display: block; position: absolute; left: 0; bottom: 0; width: 100%; height: 30px; line-height: 30px; background: rgb(0,0,0); filter: alpha(opacity=60);background: rgba(0,0,0,0.6); text-align: center; color: #fff; font-size: 14px; z-index: 2;}
+.webmain .conStars .inner .group1 { width: auto; margin-right: 30px;}
+.webmain .conStars .inner .group2 { width: auto; margin-right: 30px;display: none}
+.webmain .conStars .inner .group3 { width: auto; margin-right: 30px;display: none}
+.webmain .conStars .inner .group4 { width: auto;display: none}
+
+
+.webmain .conRule {}
+.webmain .conRule .tab { display: block; width: 100%; height: 340px; position: relative; margin-bottom: 10px;}
+.webmain .conRule .tab a { display: block; position: absolute; left: 0; top: 0; width: 340px; height: 340px;}
+.webmain .conRule .tab a span { display: none; width: 100%; height: 100%; background: url('../../../images/bg_vote_rule.png'); position: absolute; left: 0; top: 0;}
+.webmain .conRule .tab a p { display: block; width: 340px; height: 140px; position: absolute; left: 0; top: 0; z-index: 2; text-align: center; font-size: 24px; color: #fff; line-height: 20px; padding-top: 200px;}
+.webmain .conRule .tab a .p1 { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 1;}
+.webmain .conRule .tab a .p2 { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 1;}
+.webmain .conRule .tab a.c span { display: block;}
+.webmain .conRule .tab a.c .p1 { display: none;}
+.webmain .conRule .tab a.c .p2 { display: block;}
+.webmain .conRule .tab a.t1 { left: 0;}
+.webmain .conRule .tab a.t2 { left: 287px}
+.webmain .conRule .tab a.t3 { left: 574px}
+.webmain .conRule .tab a.t4 { left: 861px;}
+.webmain .conRule .tab a.t1 p,
+.webmain .conRule .tab a.t3 p { z-index: 3;}
+.webmain .conRule .tab a.t1 .p1 { background: url('../../../images/tab_vote_rule1.png') center center no-repeat;}
+.webmain .conRule .tab a.t1 .p2 { background: url('../../../images/tab_vote_rule1_h.png') center center no-repeat;}
+.webmain .conRule .tab a.t2 .p1 { background: url('../../../images/tab_vote_rule2.png') center center no-repeat;}
+.webmain .conRule .tab a.t2 .p2 { background: url('../../../images/tab_vote_rule2_h.png') center center no-repeat;}
+.webmain .conRule .tab a.t3 .p1 { background: url('../../../images/tab_vote_rule3.png') center center no-repeat;}
+.webmain .conRule .tab a.t3 .p2 { background: url('../../../images/tab_vote_rule3_h.png') center center no-repeat;}
+.webmain .conRule .tab a.t4 .p1 { background: url('../../../images/tab_vote_rule4.png') center center no-repeat;}
+.webmain .conRule .tab a.t4 .p2 { background: url('../../../images/tab_vote_rule4_h.png') center center no-repeat;}
+.webmain .conRule .inner .content1 .l { float: left; width: 210px; height: 227px; background: #dcdcdc url('../../../images/point_vote_rule.gif') center 0 repeat-x; padding: 58px 10px 20px 120px; position: relative; margin-right: 30px;}
+.webmain .conRule .inner .content1 .l h6 { font-size: 38px; font-weight: normal; position: absolute; left: 20px; top: 58px; line-height: 38px;}
+.webmain .conRule .inner .content1 .l p { display: block; line-height: 20px; font-size: 14px; height: 228px; overflow: auto; line-height: 28px;}
+.webmain .conRule .inner .content1 .r { float: left; width: 830px;}
+.webmain .conRule .inner .content1 .r .title h2 { width: 170px; background-position: 0 -600px;}
+.webmain .conRule .inner .content1 .r .title a.result { display: block; position: absolute; right: 0; top: 15px; background: url('../../../images/btn_vote_result.gif'); width: 190px; height: 30px; text-indent: -99em; overflow: hidden;}
+.webmain .conRule .inner .content1 .r .in {}
+.webmain .conRule .inner .content1 .r .in .item { float: left; width: 135px; border-left: 1px solid #dfdfdf; border-right: 1px solid #dfdfdf; height: 222px; padding-top: 8px; position: relative;}
+.webmain .conRule .inner .content1 .r .in .item .head { width: 88px; height: 88px; position: relative; padding: 6px; margin: 0 auto 16px auto;}
+.webmain .conRule .inner .content1 .r .in .item .head span { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url('../../../images/mask_vote_head1.png');}
+.webmain .conRule .inner .content1 .r .in .item .head img { display: block; width: 88px; height: 88px;}
+.webmain .conRule .inner .content1 .r .in .item h6 { display: block; width: 100%; height: 22px; line-height: 22px; text-align: center; font-size: 18px; color: #000; margin-bottom: 16px; font-weight: normal;}
+.webmain .conRule .inner .content1 .r .in .item span { display: block; width: 100%; height: 22px; line-height: 22px; text-align: center; font-size: 12px; color: #898989; margin-bottom: 4px;}
+.webmain .conRule .inner .content1 .r .in .item strong { display: block; width: 100%; height: 24px; line-height: 24px; text-align: center; font-size: 24px; color: #000; font-weight: normal;}
+.webmain .conRule .inner .content1 .r .in .item1 { margin-left: 0;}
+.webmain .conRule .inner .content1 .r .in .item2 .head span { background: url('../../../images/mask_vote_head2.png');}
+.webmain .conRule .inner .content1 .r .in .item3 .head span { background: url('../../../images/mask_vote_head3.png');}
+.webmain .conRule .inner .content1 .r .in .item4 .head span { background: url('../../../images/mask_vote_head4.png');}
+.webmain .conRule .inner .content1 .r .in .item5 .head span { background: url('../../../images/mask_vote_head5.png');}
+.webmain .conRule .inner .content1 .r .in .item6 .head span { background: url('../../../images/mask_vote_head6.png');}
+.webmain .conRule .inner .content1 .r .in .item .vote { position: absolute; left: 0; top: 0; width: 100%; height: 100%;background: url("../../../images/space.png") 0 0 repeat; background: rgba(0,0,0,0); z-index: 2; display: block;filter: alpha(opacity=0)  progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);opacity: 0}
+.webmain .conRule .inner .content1 .r .in .item .vote:hover{background: url("../../../images/space.png") 0 0 repeat; ;background: rgba(0,0,0,0.6);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);opacity: 1}
+.webmain .conRule .inner .content1 .r .in .item .vote img { width: 100px; height: 100px; display: block; ; left: 50%; top: 80px; margin-left: 20px;}
+.webmain .conRule .inner .content1 .r .in .item .vote p { color: #fff; font-size: 12px; line-height: 18px; text-align: center; display: block; padding-top: 50px;}
+
+.webmain .conRule .inner .content2 { padding-top: 38px;}
+.webmain .conRule .inner .content2 .txt { background: #dcdcdc; padding: 20px; position: relative;}
+.webmain .conRule .inner .content2 .txt span { width: 200px; height: 38px; background: url('../../../images/point_vote_rule.gif') center center no-repeat; display: block; position: absolute; left: 357px; top: -38px;}
+/*.webmain .conRule .inner .content2 .txt p { display: block; line-height: 20px; font-size: 14px;}*/
+.webmain .conRule .inner .content2 .list .item { display: block; width: 340px; float: left; padding: 30px 30px 0 30px;}
+.webmain .conRule .inner .content2 .list .item h2 {}
+.webmain .conRule .inner .content2 .list .item h2 { font-size: 18px; line-height: 22px; height: 22px; overflow: hidden; display: block; margin: 0 0 10px 0;}
+.webmain .conRule .inner .content2 .list .item h2 span { display: inline-block; width: 3px; height: 17px; background: #f25e5e; position: relative; margin-right: 4px; top: 2px;}
+.webmain .conRule .inner .content2 .list .item p { display: block; line-height: 20px; font-size: 14px; color: #636363; height: 100px; overflow: hidden;}
+
+.webmain .conRule .inner .content3 { padding-top: 38px;}
+.webmain .conRule .inner .content3 .box { background: #dcdcdc; padding: 20px 15px; position: relative;}
+.webmain .conRule .inner .content3 .box span.point { width: 200px; height: 38px; background: url('../../../images/point_vote_rule.gif') center center no-repeat; display: block; position: absolute; left: 643px; top: -38px;}
+/*.webmain .conRule .inner .content3 .box h2 { font-size: 24px; text-align: center; line-height: 40px; font-weight: normal;}*/
+.webmain .conRule .inner .content3 .box h6 { font-size: 16px; text-align: center; line-height: 20px; font-weight: normal; color: #636363; display: block; margin-bottom: 10px;}
+.webmain .conRule .inner .content3 .box span.line { display: block; width: 120px; height: 3px; background: #000; margin: 0 auto 20px auto;}
+.webmain .conRule .inner .content3 .box .list .item { background: #fff url('../../../images/icon_vote_hz.gif') center 30px no-repeat; float: left; margin: 0 5px; width: 356px; border-radius: 3px; padding: 130px 12px 20px 12px;}
+.webmain .conRule .inner .content3 .box .list .item h3 { display: block; text-align: center; line-height: 28px; height: 28px; font-size: 22px; margin-bottom: 10px;}
+.webmain .conRule .inner .content3 .box .list .item em { display: block; text-align: center; line-height: 22px; height: 22px; font-size: 14px; color: #636363; margin-bottom: 10px;}
+.webmain .conRule .inner .content3 .box .list .item span.l { display: block; width: 80px; height: 3px; background: #f25e5e; margin: 0 auto 10px auto;}
+.webmain .conRule .inner .content3 .box .list .item p { display: block; text-align: center; line-height: 22px; font-size: 14px; color: #636363;}
+.webmain .conRule .inner .content3 .box .list .item1 span.l { background: #f25e5e;}
+.webmain .conRule .inner .content3 .box .list .item2 span.l { background: #27a4f3;}
+.webmain .conRule .inner .content3 .box .list .item3 span.l { background: #7bca35;}
+
+.webmain .conRule .inner .content4 { padding-top: 38px;}
+.webmain .conRule .inner .content4 .txt { background: #dcdcdc; padding: 20px; position: relative; margin-bottom: 20px;}
+.webmain .conRule .inner .content4 .txt span { width: 200px; height: 38px; background: url('../../../images/point_vote_rule.gif') center center no-repeat; display: block; position: absolute; left: 931px; top: -38px;}
+.webmain .conRule .inner .content4 .txt p { display: block; line-height: 20px; font-size: 14px;}
+.webmain .conRule .inner .content4 .list .item { float: left; width: 200px; padding: 160px 20px 20px 20px; display: block; cursor: default;}
+.webmain .conRule .inner .content4 .list .item h2 { text-align: center; display: block; font-size: 20px; line-height: 20px; height: 20px; margin-bottom: 20px; color: #000;}
+.webmain .conRule .inner .content4 .list .item p { display: block; line-height: 20px; font-size: 14px; color: #000;}
+.webmain .conRule .inner .content4 .list .item1 { background: url('../../../images/icon_vote_px1.gif') center 20px no-repeat;}
+.webmain .conRule .inner .content4 .list .item2 { background: url('../../../images/icon_vote_px2.gif') center 20px no-repeat;}
+.webmain .conRule .inner .content4 .list .item3 { background: url('../../../images/icon_vote_px3.gif') center 20px no-repeat;}
+.webmain .conRule .inner .content4 .list .item4 { background: url('../../../images/icon_vote_px4.gif') center 20px no-repeat;}
+.webmain .conRule .inner .content4 .list .item5 { background: url('../../../images/icon_vote_px5.gif') center 20px no-repeat;}
+.webmain .conRule .inner .content4 .list .item1:hover { background: #e2e2e2 url('../../../images/icon_vote_px1_h.gif') center 20px no-repeat;}
+.webmain .conRule .inner .content4 .list .item2:hover { background: #e2e2e2 url('../../../images/icon_vote_px2_h.gif') center 20px no-repeat;}
+.webmain .conRule .inner .content4 .list .item3:hover { background: #e2e2e2 url('../../../images/icon_vote_px3_h.gif') center 20px no-repeat;}
+.webmain .conRule .inner .content4 .list .item4:hover { background: #e2e2e2 url('../../../images/icon_vote_px4_h.gif') center 20px no-repeat;}
+.webmain .conRule .inner .content4 .list .item5:hover { background: #e2e2e2 url('../../../images/icon_vote_px5_h.gif') center 20px no-repeat;}
+.webmain .conRule .content2 .txt h2{text-align: center}
+.webmain .conRule .content2 .txt p{text-align: center}
+.webmain .conRule .content3 .box h2{text-align: center}
+.webmain .conRule .content3 .box p{text-align: center}
+.webmain .conRule .content4 .judgeRuleName{
+    border-bottom: 1px solid #000;
+}
+.webmain .conRule .content4 .judgeRuleContent{
+    height: 500px;
+}
+.webmain .conRule .content4 .judgeRuleName li{
+    position: relative;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 100px;
+    height: 100px;
+    width: 200px;
+    float: left;
+    cursor: pointer;
+}
+
+.webmain .conRule .content4 .judgeRuleName li.active{}
+.webmain .conRule .content4 .judgeRuleName li.active::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 35px;
+    background: #ccc;
+    border-bottom: 10px solid #000;
+    border-left: 7px solid #fff;
+    border-right: 7px solid #fff;
+}
+.webmain .conRule .content4 .judgeRuleContent li:nth-child(2){
+    display: none;
+}
+.webmain .conRule .content4 .judgeRuleContent li:nth-child(3){
+    display: none;
+}
+.webmain .conRule .content4 .judgeRuleContent li:nth-child(4){
+    display: none;
+}
+.webmain .conRule .content4 .judgeRuleContent li h1{
+    height: 60px;
+    font-size: 14px;
+    line-height: 60px;
+    font-weight: 600;
+}
+.webmain .conRule .content4 .judgeRuleContent li p{
+    height: 60px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+
+.webmain .conVote {
+    float: left;
+}
+.webmain .conVote .title h2 { width: 300px; background-position: 0 -480px;}
+.webmain .conVote .inner { width: 1230px; height: auto; overflow: hidden; margin-left: -30px;}
+.webmain .conVote .inner .item { float: left; width: 280px; overflow: hidden; height: 310px; margin: 0 0 30px 25px; position: relative; display: block;}
+.webmain .conVote .inner .item img { display: block; width: 280px; height: 310px;}
+.webmain .conVote .inner .item .txt { position: absolute; left: 0; bottom: 0; background: rgb(0,0,0); filter: alpha(opacity=60);background: rgba(0,0,0,0.6); width: 100%; padding: 12px 0 10px 0;}
+.webmain .conVote .inner .item .txt p { color: #fff; font-size: 14px; line-height: 18px; font-weight: normal; text-align: center;}
+.webmain .conVote .inner .item .txt span { color: #fff; font-size: 12px; line-height: 18px; opacity: 0.7; display: block; text-align: center;}
+.webmain .conVote .inner .item .vote { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background:  url('../../../images/alpha60.png'); z-index: 2; display: none;}
+.webmain .conVote .inner .item .vote img { width: 150px; height: 150px; display: block; position: absolute; left: 50%; top: 90px; margin-left: -75px;}
+.webmain .conVote .inner .item .vote p { color: #fff; font-size: 12px; line-height: 18px; text-align: center; display: block; padding-top: 60px;}
+
+
+.webmain .conComment { margin-bottom: 0;}
+.webmain .conComment .title { margin-bottom: 5px;}
+.webmain .conComment .title h2 { width: 120px; background-position: 0 -540px;}
+.webmain .conComment .inner .list { margin-bottom: 20px;}
+.webmain .conComment .inner .list .item { position: relative; margin-top: 10px;}
+.webmain .conComment .inner .list .item .head { width: 50px; height: 50px; float: left; margin-right: 10px;}
+.webmain .conComment .inner .list .item .head img { display: block; width: 50px; height: 50px;}
+.webmain .conComment .inner .list .item .info { float: left; width: 1140px;}
+.webmain .conComment .inner .list .item .info span { color: #c1c1c1; font-size: 12px; line-height: 18px; margin-bottom: 4px; display: block;}
+.webmain .conComment .inner .list .item .info p { color: #000; font-size: 14px; line-height: 20px;}
+.webmain .conComment .inner .list .item .reply { position: absolute; right: 0; top: 0; line-height: 20px; display: block;}
+.webmain .conComment .inner .pager { height: 20px; overflow: hidden; margin-bottom: 15px;}
+.webmain .conComment .inner .pager a,
+.webmain .conComment .inner .pager span { display: block; float: left; margin-right: 5px; font-size: 12px; padding: 0 2px; line-height: 20px;}
+.webmain .conComment .inner .pager a.c { color: #f25e5e;}
+.webmain .conComment .inner .send textarea { width: 1178px; height: 120px; padding: 10px; border: 1px solid #000; display: block; margin-bottom: 10px;}
+.webmain .conComment .inner .send .submit { width: 80px; height: 32px; line-height: 32px; color: #fff; text-align: center; display: block; background: #000; margin-left: 1122px;}
+
+.webmain .con .title .groupSexList { float: right; height: 26px; background: #fff; padding: 17px 5px 17px 5px;}
+.webmain .con .title .groupSexList li { float: left; font-size: 16px; height: 26px; line-height: 26px; overflow: hidden; margin-right: 8px;}
+.webmain .con .title .groupSexList li a { display: block; width: 100%; height: 26px; line-height: 26px; cursor: pointer; padding: 0 8px;}
+.webmain .con .title .groupSexList li.c a { background: #000; color: #fff;}
+
+.conVote .groupColorList li{display: inline-block; width: 55px; height: 30px;background: #fff; text-align: center; line-height: 30px;font-weight: bold}
+.conVote .groupColorList li.active{background: #000; color: #fff}
+
+.conVote .groupSexList li{display: inline-block; width: 55px; height: 30px;background: #fff; text-align: center; line-height: 30px;font-weight: bold}
+.conVote .groupSexList li.active{background: #000; color: #fff}
+
+.conStars .groupColorList li{display: inline-block; width: 100px; height: 30px;background: #fff; text-align: center; line-height: 30px;font-weight: bold}
+.conStars .groupColorList li.active{background: #000; color: #fff}
