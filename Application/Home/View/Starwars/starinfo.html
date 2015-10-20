@@ -92,13 +92,14 @@
       </div>
       <ul class="imglist" id="imglist">
       <volist name = "production" id = "vo">
-        <li class="active"><h3 class="workname"><{$vo.title}></h3><img src="./Uploads{$vo.img}" alt="" /></li>
+        <li class="active"><h3 class="workname">{$vo.title}</h3><img src="./Uploads{$vo.img}" alt="" /></li>
       </volist>
       </ul>
       <div class="tabsection" id="tabsection"><!--
       --><a href="javascript:;" class="up"></a><div class="frame"></div><!--
         --><ul class="tablist">
         <volist name = "production" id = "vo" empty="暂无">
+
           <li><img src="./Uploads{$vo.img}" alt="" /></li>
           
         </volist>
