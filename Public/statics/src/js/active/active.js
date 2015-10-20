@@ -18,7 +18,7 @@ $(function(){
 
             //分页
             page.getPage(1,function(){
-              pageinit(scope.pageNum,function(index){
+              pageinit(scope.pageNum,function(){
                 page.getActiveData(index);
               });
             });
@@ -70,6 +70,30 @@ $(function(){
             $("#mask").show();
         },
 
+
+        getPage: function(fn){
+          $.ajax({
+            url: "./index.php?m=Home&c=Active&a=activetype",
+            type: "get",
+            dataType: "json",
+            data: {
+              type: scope.type,
+              time: scope.time,
+              p: 1
+            },
+            success: function(json){
+              scope.pageNum = json.data.page;
+              fn();
+            },
+            error: function(){
+
+            }
+
+          })
+        },
+
+
+
         /*
         <li>
             <a>
@@ -87,8 +111,7 @@ $(function(){
         </li>
 
         */
-
-        getPage: function(fn){
+        getActiveData: function(page){
           $.ajax({
             url: "./index.php?m=Home&c=Active&a=activetype",
             type: "get",
@@ -96,30 +119,28 @@ $(function(){
             data: {
               type: scope.type,
               time: scope.time,
-              p: 1
-            },
-            success: function(json){
-              console.log(typeof json);
-              scope.pageNum = json.data.page;
-              fn();
-            },
-            error: function(){
-
-            }
-
-          })
-        },
-        getActiveData: function(page){
-          $.ajax({
-            url: "./index.php?m=Home&c=Active&a=activetype",
-            type: "get",
-            dateType: "json",
-            data: {
-              type: scope.type,
-              time: scope.time,
               p: page
             },
             success: function(json){
+              var _html = "";
+              for(var i = 0, len = json.data.data.length; i < len; i++ ){
+                _html +=
+                +'<li>'
+                +'<a>'
+                +'<img src="__PUBLIC__/statics/images/p_active.jpg">'
+                +'<div class="tags">'
+                +'<h3>伟来眼中的他们</h3>'
+                +'<p>10.25-11.2</p>'
+                +'</div>'
+                +'<sub></sub>'
+                +'</a>'
+                +'<div class="desc">'
+                +'<span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>'
+                +'<div><span class="num">12313</span><i class="focus"></i></div>'
+                +'</div>'
+                +'</li>'
+              }
+              $("#itemlist").html(_html);
             },
             error: function(){
 
