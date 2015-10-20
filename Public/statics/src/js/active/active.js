@@ -118,7 +118,7 @@ $(function(){
                 +'</a>'
                 +'<div class="desc">'
                 +'<span class="txt">'+ _arr[i].content +'</span>'
-                +'<div><i class="focus">'+ _arr[i].concern +'</i></div>'
+                +'<div><span class="num">'+ _arr[i].concern +'</span><i class="focus"></i></div>'
                 +'</div>'
                 +'</li>'
               }
