@@ -7,13 +7,13 @@ $(function() {
   };
   window.pageinit = function(totalpage,fn) {
 
-    $("#pagelist").on("click", ".pre", function(){
+    $("#pagelist").off().on("click", ".pre", function(){
       prePage(fn);
     });
-    $("#pagelist").on("click", ".next", function(){
+    $("#pagelist").off().on("click", ".next", function(){
       nextPage(fn);
     });
-    $("#pagelist .num").on("click", "li", function(){
+    $("#pagelist .num").off().on("click", "li", function(){
       _this = this;
       numclick(fn,_this);
     });
