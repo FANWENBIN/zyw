@@ -118,7 +118,7 @@ $(function(){
               for(var i = 0, len = _arr.length; i < len; i++ ){
                 _html += '<li>'
                 +'<a>'
-                +'<img src="'+ _arr[i].img +'">'
+                +'<img src="./Uploads'+ _arr[i].img +'">'
                 +'<div class="tags">'
                 +'<h3>' + _arr[i].title + '</h3>'
                 +'<p>'+ _arr[i].begin_time +'-'+ _arr[i].last_time +'</p>'
