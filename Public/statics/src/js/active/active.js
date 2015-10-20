@@ -2,7 +2,8 @@ $(function(){
     var scope = {
         now: 0,
         timer: null,
-        
+        type: 0,
+        time: 0
     };
     var page = {
         init: function(){
@@ -13,6 +14,7 @@ $(function(){
             $("#imgList").on("mouseout",page.mouseout);
             $("#newActive").on("click",page.createActive);
             page.autoTab();
+            page.getActiveData(1);
             pageinit(5,function(index){
               console.log(index);
             });
@@ -43,10 +45,14 @@ $(function(){
         tabGroupByType: function(){
             $("#groupByType").find("li").removeClass("active");
             $(this).addClass("active");
+            scope.type = $(this).data("type");
+            console.log(scope.type)
         },
         tabGroupByTime: function(){
             $("#groupByTime").find("li").removeClass("active");
             $(this).addClass("active");
+            scope.time = $(this).data("time");
+            console.log(scope.time)
         },
         mouseover: function(){
             clearTimeout(scope.timer);
@@ -56,6 +62,25 @@ $(function(){
         },
         createActive: function(){
             $("#mask").show();
+        },
+        getActiveData: function(page){
+          $.ajax({
+            url: "/index.php?m=Home&c=Active&a=activetype",
+            type: "get",
+            dateType: "json",
+            data: {
+              type: scope.type,
+              time: scope.time,
+              p: page
+            },
+            success: function(json){
+              console.log(json);
+            },
+            error: function(){
+
+            }
+
+          })
         }
     };
     page.init()
