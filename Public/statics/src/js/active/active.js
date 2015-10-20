@@ -92,7 +92,7 @@ $(function(){
           $.ajax({
             url: "./index.php?m=Home&c=Active&a=activetype",
             type: "get",
-            dateType: "json",
+            dataType: "json",
             data: {
               type: scope.type,
               time: scope.time,
