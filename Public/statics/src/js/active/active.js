@@ -99,7 +99,7 @@ $(function(){
               p: 1
             },
             success: function(json){
-              console.log(json);
+              console.log(json.data.page);
               scope.pageNum = json.data.page;
               fn();
             },
@@ -120,8 +120,6 @@ $(function(){
               p: page
             },
             success: function(json){
-              console.log(json);
-              scope.pageNum = json.data.page;
             },
             error: function(){
 
