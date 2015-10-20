@@ -14,6 +14,7 @@ class StarwarsController extends ComController {
     	$recommend_production = M('recommend_production');
     	$production = $recommend_production->where('recommendid='.$id)->select();
     	$this->assign('production',$production);   //代表作
+    	$this->assign('default','<li>暂未上传代表作</li>');
     	$this->display();
     }
 }
