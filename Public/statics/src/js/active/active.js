@@ -104,20 +104,21 @@ $(function(){
               p: page
             },
             success: function(json){
+              var _arr = json.data.data;
               var _html = "";
-              for(var i = 0, len = json.data.data.length; i < len; i++ ){
+              for(var i = 0, len = _arr.length; i < len; i++ ){
                 _html += '<li>'
                 +'<a>'
-                +'<img src="__PUBLIC__/statics/images/p_active.jpg">'
+                +'<img src="'+ _arr[i].img +'">'
                 +'<div class="tags">'
-                +'<h3>伟来眼中的他们</h3>'
-                +'<p>10.25-11.2</p>'
+                +'<h3>' + _arr[i].title + '</h3>'
+                +'<p>'+ _arr[i].begin_time +'-'+ _arr[i].last_time +'</p>'
                 +'</div>'
                 +'<sub></sub>'
                 +'</a>'
                 +'<div class="desc">'
-                +'<span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>'
-                +'<div><span class="num">12313</span><i class="focus"></i></div>'
+                +'<span class="txt">'+ _arr[i].content +'</span>'
+                +'<div><i class="focus">'+ _arr[i].concern +'</i></div>'
                 +'</div>'
                 +'</li>'
               }
