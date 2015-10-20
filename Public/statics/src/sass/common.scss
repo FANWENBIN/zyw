@@ -10,6 +10,7 @@ body {
   text-shadow: none;
 }
 
+
 /*clearFix clear*/
 .clearFix:after {
   content: "\0020";
@@ -124,7 +125,7 @@ a.important {
   width: 1200px;
   overflow: hidden;
 }
- 
+
 /*导航栏*/
 .navTitle {
   color: #ccc;
@@ -621,4 +622,31 @@ a.important {
 .myinfoalert-content .item .name {
   font-size: 14px;
   margin-left: 8px;
+}
+
+
+
+.pagelist{
+  position: absolute;
+  bottom: 0;
+  .pre{
+    float: left;
+
+  }
+  .num{
+    float: left;
+    display: inline-block;
+    li{
+      float: left;
+      cursor: pointer;
+      width: 25px;
+      &.active{
+        color: red;
+      }
+    }
+
+  }
+  .next{
+    float: left;
+  }
 }

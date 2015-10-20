@@ -1,0 +1,1 @@
+$(function(){var i={init:function(){$("#community .group").on("click","li",i.tabCommunity)},tabCommunity:function(){var i=$(this).index();$("#community .group").find("li").removeClass("active"),$(this).addClass("active"),$("#community .inner").find("li").hide(),$("#community .inner").find("li").eq(i).show()}};i.init()});

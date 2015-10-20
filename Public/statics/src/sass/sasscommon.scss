@@ -127,7 +127,7 @@
 
 
 //banner1 样式
-@mixin banner1 ($width,$height,$bottomclip){
+@mixin banner1 ($width,$height,$topclip){
   %wh {
     width: $width;
     height: $height;
@@ -138,6 +138,8 @@
   text-align: center;
   overflow: hidden;
   .imglist {
+    position: absolute;
+    left: 0;
     width: 10000px;
     height: $height;
     li {
@@ -151,12 +153,13 @@
   .dotlist{
     display: inline-block;
     position: relative;
-    bottom: $bottomclip;
+    top: $topclip;
     li {
       float: left;
       width: 12px;
       height: 12px;
       border-radius: 50%;
+      background-color: #000;
       margin:{
         left: 10px;
         right: 10px;
