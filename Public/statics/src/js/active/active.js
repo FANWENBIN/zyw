@@ -18,7 +18,7 @@ $(function(){
 
             //分页
             page.getPage(1,function(){
-              pageinit(scope.pageNum,function(){
+              pageinit(scope.pageNum,function(index){
                 page.getActiveData(index);
               });
             });
@@ -92,25 +92,6 @@ $(function(){
           })
         },
 
-
-
-        /*
-        <li>
-            <a>
-                <img src="__PUBLIC__/statics/images/p_active.jpg">
-                <div class="tags">
-                    <h3>伟来眼中的他们</h3>
-                    <p>10.25-11.2</p>
-                </div>
-                <sub></sub>
-            </a>
-            <div class="desc">
-                <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-                <div><span class="num">12313</span><i class="focus"></i></div>
-            </div>
-        </li>
-
-        */
         getActiveData: function(page){
           $.ajax({
             url: "./index.php?m=Home&c=Active&a=activetype",
