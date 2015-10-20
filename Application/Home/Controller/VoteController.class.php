@@ -248,4 +248,42 @@ class VoteController extends ComController {
     //=================END
    
     
+
+    //无标题的页面
+
+    public function votenonav(){
+         $actors = M('actors');
+        //好演员评选
+        $where['status']=1;
+        $actorsval = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,8')->select();
+        $this->assign('actors',$actorsval);
+
+        //形象指数
+        $actorsvalue = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,6')->select();
+        $this->assign('list',$actorsvalue);
+
+        $recommend = M('recommend');
+        //当代艺术家
+        $artists   = $recommend->where('type=1')->select();
+        $this->assign('artists',$artists);
+        //导演
+        $director  = $recommend->where('type=2')->select();
+        $this->assign('director',$director);
+        //制作人
+        $producer  = $recommend->where('type=3')->select();
+        $this->assign('producer',$producer);
+        //编剧
+        $scriptwriter = $recommend->where('type=4')->select();
+        $this->assign('scriptwriter',$scriptwriter);
+        //入围演员
+        $where['promotion'] = 36;
+        $cutactors = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,36')->select();
+        $this->assign('cutactors',$cutactors);
+        //获奖演员
+        $where['promotion'] = 6;
+        $winactors = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,36')->select();
+        $this->assign('winactors',$winactors);
+
+        $this->display();
+    }
 }
