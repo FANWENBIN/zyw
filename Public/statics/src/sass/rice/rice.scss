@@ -12,7 +12,7 @@ $bannerheight:530px;
 
 //banner
 .topbanner{
-@include banner1($bannerwidth, $bannerheight, 50px);
+@include banner1($bannerwidth, $bannerheight, 450px);
 
 }
 
@@ -22,6 +22,12 @@ $bannerheight:530px;
 .community .inner{
   margin-left: -26px;
   width: 1200px + 26px;
+  li{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
   .item{
     @include item1(280px, 415px, 50px, 16px);
     float: left;

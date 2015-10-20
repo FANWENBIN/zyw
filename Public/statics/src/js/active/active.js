@@ -1,7 +1,8 @@
 $(function(){
     var scope = {
         now: 0,
-        timer: null
+        timer: null,
+        
     };
     var page = {
         init: function(){
@@ -10,8 +11,11 @@ $(function(){
             $("#groupByTime").on("click","li",page.tabGroupByTime);
             $("#imgList").on("mouseover",page.mouseover);
             $("#imgList").on("mouseout",page.mouseout);
-            $("#newActive").on("click",page.createActive)
+            $("#newActive").on("click",page.createActive);
             page.autoTab();
+            pageinit(5,function(index){
+              console.log(index);
+            });
         },
         tabBanner: function(){
             clearTimeout(scope.timer);

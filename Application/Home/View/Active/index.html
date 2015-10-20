@@ -85,23 +85,20 @@
                     <li class="active">全部</li>
                     <li>线上</li>
                     <li>线下</li>
-                    <li>未开始</li>
-                    <li>已结束</li>
                 </ul>
             </div>
             <div class="group group2 clearFix">
                 <span class="label">时间：</span>
                 <ul class="groupList" id="groupByTime">
-                    <li class="active">今天</li>
+                    <li class="active">全部</li>
+                    <li>今天</li>
                     <li>明天</li>
-                    <li>后天</li>
                     <li>周末</li>
-                    <li>本周</li>
-                    <li>本周后</li>
-                    <li>本周后</li>
+                    <li>未开始</li>
+                    <li>已结束</li>
                 </ul>
             </div>
-            <ul class="inner clearFix">
+            <ul class="inner clearFix" id="itemlist">
                 <li>
                     <a>
                         <img src="__PUBLIC__/statics/images/p_active.jpg">
@@ -186,8 +183,17 @@
                         <div><span class="num">12313</span><i class="focus"></i></div>
                     </div>
                 </li>
-
             </ul>
+            <div class="pagelist" id="pagelist">
+              <a href="javacript:;" class="pre">上一页</a>
+              <ul class="num">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+              </ul>
+              <a href="javacript:;" class="next">下一页</a>
+            </div>
+
         </div>
     </div>
 
@@ -241,7 +247,7 @@
 <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
 <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
 <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
-
+<script src="__PUBLIC__/statics/dist/js/pagetool/page.js"></script>
 <script src="__PUBLIC__/statics/dist/js/active/active.js"></script>
 <script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/DatePicker/WdatePicker.js"></script>
 
