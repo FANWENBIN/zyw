@@ -99,7 +99,7 @@ $(function(){
               p: 1
             },
             success: function(json){
-              console.log(json.data.page);
+              console.log(json.data);
               scope.pageNum = json.data.page;
               fn();
             },
