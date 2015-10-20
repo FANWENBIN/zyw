@@ -83,8 +83,14 @@ class StageController extends ComController {
             }else{
                 $this->error('新增失败');
             }
-            
-
         }
+    }
+    //审核作品列表
+    public function audit(){
+        $stage = M('stageworks');
+        $works = $stage->where('status = 2')->select();
+        $this->assign('list',$works);
+        $this->assign('cur',13);
+        $this->display();
     }
 }
