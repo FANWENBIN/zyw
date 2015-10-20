@@ -21,6 +21,27 @@
   height: 60px;
 
   background: rgba(0,0,0,.55);
+  .outerframe{
+    width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+    .logo{
+      float: left;
+      width: 200px;
+      height: 60px;
+      background: url("../../../images/icon_logo.png") 0 0  no-repeat;
+    }
+    .link2home{
+      float: right;
+      font-size: 18px;
+      width: 200px;
+      height: 60px;
+      line-height: 60px;
+      color: #fff;
+      text-indent: 60px;
+      background: url("../../../images/icon_link2homepage.png") 0 0  no-repeat;
+    }
+  }
 }
 
 
