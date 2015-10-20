@@ -17,6 +17,10 @@ class StageController extends ComController {
     	$banner = M('banner');
     	$bannerval = $banner->where('type = 5')->select();
     	$this->assign('bannerval',$bannerval);
+        //作品展示
+        $stage = M('stageworks');
+        $works = $stage->where('status = 1')->order('instime desc')->select();
+        $this->assign('works',$works);
 		$this->display();
     }
     //学员报名
