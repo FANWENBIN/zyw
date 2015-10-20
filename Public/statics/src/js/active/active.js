@@ -106,8 +106,7 @@ $(function(){
             success: function(json){
               var _html = "";
               for(var i = 0, len = json.data.data.length; i < len; i++ ){
-                _html +=
-                +'<li>'
+                _html += '<li>'
                 +'<a>'
                 +'<img src="__PUBLIC__/statics/images/p_active.jpg">'
                 +'<div class="tags">'
