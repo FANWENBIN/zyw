@@ -9,7 +9,7 @@ class StarwarsController extends ComController {
     public function starinfo(){
     	$id = I('get.id');
     	$recommend = M('recommend');
-    	$recommendval = $recommend->where()->find();
+    	$recommendval = $recommend->where('id='.$id)->find();
     	$this->assign('list',$recommendval);
     	$recommend_production = M('recommend_production');
     	$production = $recommend_production->where('recommendid='.$id)->select();
