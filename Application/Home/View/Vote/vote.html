@@ -70,7 +70,7 @@
 
                 <div class="list clearFix">
                     <volist name="artists" id="vo">
-                        <a href="javascript:void(0);">
+                        <a href="{:U('Starwars/starinfo',array('id'=>$vo['id']))}">
                             <p>{$vo.name}</p>
                             <img src="./Uploads{$vo.img}"/>
                             <sub class="hover"></sub>
@@ -83,7 +83,7 @@
 
                 <div class="list clearFix">
                     <volist name="director" id="vo">
-                        <a href="javascript:void(0);">
+                        <a href="{:U('Starwars/starinfo',array('id'=>$vo['id']))}">
                             <p>{$vo.name}</p>
                             <img src="./Uploads{$vo.img}"/>
                             <sub class="hover"></sub>
@@ -96,7 +96,7 @@
 
                 <div class="list clearFix">
                     <volist name="producer" id="vo">
-                        <a href="javascript:void(0);">
+                        <a href="{:U('Starwars/starinfo',array('id'=>$vo['id']))}">
                             <p>{$vo.name}</p>
                             <img src="./Uploads{$vo.img}"/>
                             <sub class="hover"></sub>
@@ -109,7 +109,7 @@
 
                 <div class="list clearFix">
                     <volist name="scriptwriter" id="vo">
-                        <a href="javascript:void(0);">
+                        <a href="{:U('Starwars/starinfo',array('id'=>$vo['id']))}">
                             <p>{$vo.name}</p>
                             <img src="./Uploads{$vo.img}"/>
                             <sub class="hover"></sub>
