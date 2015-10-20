@@ -45,35 +45,35 @@
 <div class="webmain">
 
   <div class="navTitle">
-      <a href="#">首页</a> > <a href="#">星站</a> > <a href="#">吕中</a><!--
+      <a href="{:U('Index/index')}">首页</a> > <a href="{:U('Starwars/index')}">星站</a> > <a href="#">{$list.name}</a><!--
        --><div class="loginfo"><span class="face"></span><span class="name">用户名</span></div>
   </div>
 
   <div class="introduction clearFix">
     <div class="introduction-face">
-      <img src="__PUBLIC__/statics/images/p_starwars_1.jpg" alt="" />
+      <img src="./Uploads{$list.img}" alt="" />
     </div>
 
     <div class="introduction-content">
       <span class="name">
-        吕中
+        {$list.name}
       </span>
 
       <div class="details clearFix">
         <div class="left-col">
-          <div class="list"><span class="des">中文名：</span><span class="cont">吕中</span></div>
-          <div class="list"><span class="des">国&nbsp;&nbsp;籍：</span><span class="cont">中国</span></div>
-          <div class="list"><span class="des">民&nbsp;&nbsp;族：</span><span class="cont">汉</span></div>
-          <div class="list"><span class="des">身&nbsp;&nbsp;高：</span><span class="cont">164CM</span></div>
-          <div class="list"><span class="des">体&nbsp;&nbsp;重：</span><span class="cont">57KG</span></div>
-          <div class="list"><span class="des">出生地：</span><span class="cont">陕西宝鸡</span></div>
+          <div class="list"><span class="des">中文名：</span><span class="cont">{$list.name}</span></div>
+          <div class="list"><span class="des">国&nbsp;&nbsp;籍：</span><span class="cont">{$list.nationality}</span></div>
+          <div class="list"><span class="des">民&nbsp;&nbsp;族：</span><span class="cont">{$list.nation}</span></div>
+          <div class="list"><span class="des">身&nbsp;&nbsp;高：</span><span class="cont">{$list.height}CM</span></div>
+          <div class="list"><span class="des">体&nbsp;&nbsp;重：</span><span class="cont">{$list.weight}KG</span></div>
+          <div class="list"><span class="des">出生地：</span><span class="cont">{$list.address}</span></div>
         </div>
         <div class="right-col">
-          <div class="list"><span class="des">出生日期：</span><span class="cont">1640年12月99日</span></div>
-          <div class="list"><span class="des">职&nbsp;&nbsp;业：</span><span class="cont">演员</span></div>
+          <div class="list"><span class="des">出生日期：</span><span class="cont">{$list.birthday|date="Y年m月d日",###}</span></div>
+          <div class="list"><span class="des">职&nbsp;&nbsp;业：</span><span class="cont">{$list.job}</span></div>
           <div class="list"><span class="des">毕业院校：</span><span class="cont">汉</span></div>
-          <div class="list"><span class="des">代表作品：</span><span class="cont">164CM</span></div>
-          <div class="list"><span class="des">主要成就：</span><span class="cont">57KG</span></div>
+         
+          <div class="list"><span class="des">主要成就：</span><span class="cont">{$list.achievement}</span></div>
         </div>
 
       </div>
