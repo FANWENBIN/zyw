@@ -99,6 +99,7 @@ $workheight: 770px;
       margin-top: -37px;
       background: url("../../../images/sprite_starinfo_toggle.png");
     }
+
     .down{
       display: inline-block;
       width: 95px;
@@ -111,6 +112,7 @@ $workheight: 770px;
       position: absolute;
       top: 0;
       border: 3px solid #9966cc;
+      transition: all 0.3s linear;
     }
     li {
       margin-bottom: 10px;

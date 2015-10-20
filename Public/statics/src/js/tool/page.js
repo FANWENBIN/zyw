@@ -7,10 +7,10 @@ $(function() {
   };
   window.pageinit = function(totalpage,fn) {
 
-    $("#pagelist").off().on("click", ".pre", function(){
+    $("#pagelist .pre").off().on("click", function(){
       prePage(fn);
     });
-    $("#pagelist").off().on("click", ".next", function(){
+    $("#pagelist .next").off().on("click", function(){
       nextPage(fn);
     });
 
@@ -21,6 +21,8 @@ $(function() {
     listInit(totalpage,fn);
   };
   //页数点击
+  
+
   function listInit(totalpage,fn){
     console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
     scope.totalpage = totalpage;

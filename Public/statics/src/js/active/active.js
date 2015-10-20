@@ -14,11 +14,14 @@ $(function(){
             $("#imgList").on("mouseover",page.mouseover);
             $("#imgList").on("mouseout",page.mouseout);
             $("#newActive").on("click",page.createActive);
-            page.autoTab();
+
+            //banner切换
+            tabinit();
 
             //分页
             page.getPage(function(){
               pageinit(parseInt(scope.pageNum),function(index){
+                //回调，刷新内容页
                 if(index == 0)return false;
                 page.getActiveData(index);
               });
