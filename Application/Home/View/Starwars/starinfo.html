@@ -91,18 +91,17 @@
 
       </div>
       <ul class="imglist" id="imglist">
-        <li class="active"><h3 class="workname"><天下第一楼></h3><img src="__PUBLIC__/statics/images/p_starinfo_2.jpg" alt="" /></li>
-        <li><h3 class="workname"><天下第二楼></h3><img src="__PUBLIC__/statics/images/p_starinfo_2.jpg" alt="" /></li>
-        <li><h3 class="workname"><天下第三楼></h3><img src="__PUBLIC__/statics/images/p_starinfo_2.jpg" alt="" /></li>
-        <li><h3 class="workname"><天下第四楼></h3><img src="__PUBLIC__/statics/images/p_starinfo_2.jpg" alt="" /></li>
+      <volist name = "production" id = "vo">
+        <li class="active"><h3 class="workname"><{$vo.title}></h3><img src="./Uploads{$vo.img}" alt="" /></li>
+      </volist>
       </ul>
       <div class="tabsection" id="tabsection"><!--
       --><a href="javascript:;" class="up"></a><div class="frame"></div><!--
         --><ul class="tablist">
-          <li><img src="__PUBLIC__/statics/images/p_starinfo_2.jpg" alt="" /></li>
-          <li><img src="__PUBLIC__/statics/images/p_starinfo_2.jpg" alt="" /></li>
-          <li><img src="__PUBLIC__/statics/images/p_starinfo_2.jpg" alt="" /></li>
-          <li><img src="__PUBLIC__/statics/images/p_starinfo_2.jpg" alt="" /></li>
+        <volist name = "production" id = "vo">
+          <li><img src="./Uploads{$vo.img}" alt="" /></li>
+          
+        </volist>
         </ul><!--
         --><a href="javascript:;" class="down"></a><!--
         --></div>
