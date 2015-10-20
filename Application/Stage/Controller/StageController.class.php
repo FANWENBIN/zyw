@@ -72,6 +72,7 @@ class StageController extends ComController {
             $data['img']   = I('post.img');
             $data['content'] = I('post.content');
             //var_dump($data);die();
+            $data['instime'] = time();
             $sign = $this->checkDump($data);
             if(!$sign){
                 $this->error('主要信息不可为空');
@@ -92,5 +93,39 @@ class StageController extends ComController {
         $this->assign('list',$works);
         $this->assign('cur',13);
         $this->display();
+    }
+    //审核作品
+    public function editaudit(){
+        $submit = I('post.submit');
+        $stage  = M('stageworks');
+        if(empty($submit)){
+            $id = I('get.id');
+            $this->assign('cur',13);
+            $vedioval = $stage->where('id='.$id)->find();
+            $this->assign('vedioval',$vedioval);
+            $this->display();
+        }else{
+            $id = I('get.id');
+            $data['title'] = I('post.title');
+            $data['href']  = I('post.href');
+            $data['img']   = I('post.img');
+            $data['content'] = I('post.content');
+            $data['remark'] = I('post.remark');
+            //var_dump($data);die();
+            $sign = $this->checkDump($data);
+            if(!$sign){
+                $this->error('主要信息不可为空');
+            }
+            $data['status'] = I('post.status');
+            $data['remark'] = I('post.remark');
+
+            $sign = $stage->where('id='.$id)->save($data);
+            if($sign){
+                $this->success('审核完毕',U('Stage/index'));
+            }else{
+                $this->error('未做任何审核');
+            }
+
+        }
     }
 }

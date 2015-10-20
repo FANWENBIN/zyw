@@ -15,6 +15,11 @@ class ComController extends Controller {
         $actors = M('actors');
         $actorssum = $actors->where('status = 3')->count();
         $this->assign('actorssum',$actorssum);
+        //Stage作品审核
+        $stage = M('stageworks');
+        $works = $stage->where('status = 2')->count();
+        $this->assign('works',$works);
+        
 
     }
 //验证登录
