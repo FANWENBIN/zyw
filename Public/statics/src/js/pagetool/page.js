@@ -38,7 +38,7 @@ $(function() {
     }
   };
   function prePage(fn) {
-    if(totalpage == 0)return 0;
+    if(scope.totalpage == 0)return 0;
     if (scope.currentpage == 1 && scope.currentpage == 1) {
       alert("这是第一页，不能切换！");
     } else if (scope.currentpage <= scope.minpage) {
@@ -58,7 +58,7 @@ $(function() {
   };
 
   function nextPage(fn) {
-    if(totalpage == 0)return 0;
+    if(scope.totalpage == 0)return 0;
     if (scope.currentpage == scope.totalpage) {
       alert("这是最后一页，不能切换！");
       //当前页大于等于最大页&&+10小于总数
