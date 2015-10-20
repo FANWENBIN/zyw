@@ -52,13 +52,21 @@ $(function(){
             $("#groupByType").find("li").removeClass("active");
             $(this).addClass("active");
             scope.type = $(this).data("type");
-            console.log(scope.type)
+            page.getPage(function(){
+              pageinit(scope.pageNum,function(index){
+                page.getActiveData(index);
+              });
+            });
         },
         tabGroupByTime: function(){
             $("#groupByTime").find("li").removeClass("active");
             $(this).addClass("active");
             scope.time = $(this).data("time");
-            console.log(scope.time)
+            page.getPage(function(){
+              pageinit(scope.pageNum,function(index){
+                page.getActiveData(index);
+              });
+            });
         },
         mouseover: function(){
             clearTimeout(scope.timer);
