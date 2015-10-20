@@ -17,7 +17,7 @@ $(function(){
             page.autoTab();
 
             //分页
-            page.getPage(1,function(){
+            page.getPage(function(){
               pageinit(scope.pageNum,function(index){
                 page.getActiveData(index);
               });
