@@ -110,7 +110,7 @@
       <div class="tabsection" id="tabsection"><!--
       --><a href="javascript:;" class="up"></a><div class="frame"></div><!--
         --><ul class="tablist">
-        <volist name = "production" id = "vo">
+        <volist name = "production" id = "vo" empty="暂未上传作品">
 
           <li><img src="./Uploads{$vo.img}" alt="" /></li>
 
@@ -135,7 +135,7 @@
                 <li><a href="#">加入我们</a></li>
                 <li><a href="#">联系我们</a></li>
             </ul>
-            <p>COPYRIGHT © 2008 - 2015 中国电视好演员. 苏ICP证090011号</p>
+            <p>{$records}</p>
         </div>
         <div class="qr">
             <p>扫描二维码</p>

@@ -3,8 +3,13 @@
 namespace Home\Controller;
 use Think\Controller;
 class ComController extends Controller {
-    public function index(){
-	echo  '中演网';
+
+    public function __construct(){
+        parent::__construct();
+	   $config = M('configure');
+       $records = $config->where('type = 4')->find();
+
+       $this->assign('records',$records['records']);
     }
 
 //测试
