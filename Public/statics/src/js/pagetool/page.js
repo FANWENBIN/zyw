@@ -19,8 +19,9 @@ $(function() {
     });
     listInit(totalpage,fn);
   };
-
+  //页数点击
   function listInit(totalpage,fn){
+    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
     scope.totalpage = totalpage;
     if(totalpage > 10){
       $("#pagelist .num").html('<li class="active">1</li>' + '<li>2</li>' + '<li>3</li>' + '<li>4</li>' + '<li>5</li>' + '<li>6</li>' + '<li>7</li>' + '<li>8</li>' + '<li>9</li>' + '<li>10</li>')
@@ -37,7 +38,10 @@ $(function() {
       fn(1);
     }
   };
+
+  //上一页
   function prePage(fn) {
+    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
     if(scope.totalpage == 0)return 0;
     if (scope.currentpage == 1 && scope.currentpage == 1) {
       alert("这是第一页，不能切换！");
@@ -56,8 +60,9 @@ $(function() {
       fn(scope.currentpage);
     };
   };
-
+  //下一页
   function nextPage(fn) {
+    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
     if(scope.totalpage == 0)return 0;
     if (scope.currentpage == scope.totalpage) {
       alert("这是最后一页，不能切换！");
