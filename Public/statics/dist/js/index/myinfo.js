@@ -1,2 +1,1 @@
-
-//# sourceMappingURL=myinfo.js.map
+$(function(){var i={init:function(){$(".sublist").on("click","li",i.leftClick)},leftClick:function(){$(this).parent().find("li").removeClass("active"),$(this).addClass("active"),$(this).parents(".bottomitem").find(".item").removeClass("active"),$(this).parents(".bottomitem").find(".item").eq($(this).index()).addClass("active")}};i.init()});

@@ -1,1 +1,1 @@
-$(function(){});
+$(function(){var n={init:function(){$("#login").on("click",n.showInfo),$("body").on("click",n.hideInfo)},showInfo:function(n){return $("#myinfoalert").show(),!1},hideInfo:function(){$("#myinfoalert").hide()}};n.init()});

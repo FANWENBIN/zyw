@@ -58,6 +58,18 @@
       <span class="name">
         {$list.name}
       </span>
+      <div class="share" id="share">
+        <a href="#" class="weibo">微博关注</a>
+        <a href="#" class="weixin">微信互动</a>
+
+        <div class="weixinshare" id="weixinshare">
+          <h3>关注中国电视演员形象榜</h3>
+          <p>
+            微信号 : cntvstar
+          </p>
+          <img src="__PUBLIC__/statics/images/p_share_code.gif" alt="" />
+        </div>
+      </div>
 
       <div class="details clearFix">
         <div class="left-col">
@@ -101,7 +113,7 @@
         <volist name = "production" id = "vo">
 
           <li><img src="./Uploads{$vo.img}" alt="" /></li>
-          
+
         </volist>
         </ul><!--
         --><a href="javascript:;" class="down"></a><!--

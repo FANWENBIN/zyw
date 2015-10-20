@@ -1,7 +1,8 @@
 $(function(){
   var scope = {
     now : 0,
-    max : 0
+    max : 0,
+    timer: null
   };
   var page = {
     init: function(){
@@ -13,7 +14,11 @@ $(function(){
         var _this = this;
         page.toggle(_this);
 
-      })
+      }),
+      $("#share .weixin").on("mouseenter",page.showShare);
+      $("#share .weixin").on("mouseout",page.hideShare);
+      $("#weixinshare").on("mouseover",function(){clearTimeout(scope.timer)});
+      $("#weixinshare").on("mouseout",page.hideShare);
 
     },
     goUp: function(){
@@ -43,6 +48,17 @@ $(function(){
       });
       $("#imglist").find("li").removeClass("active");
       $("#imglist").find("li").eq(scope.now).addClass("active");
+    },
+    showShare: function(){
+      clearTimeout(scope.timer);
+      $("#weixinshare").show();
+
+    },
+    hideShare: function(){
+      clearTimeout(scope.timer);
+      scope.timer = setTimeout(function(){
+      $("#weixinshare").hide();
+      },1000)
     }
   }
   page.init();
