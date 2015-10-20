@@ -19,6 +19,7 @@ $(function(){
             //分页
             page.getPage(function(){
               pageinit(scope.pageNum,function(index){
+                if(index == 0)return false;
                 page.getActiveData(index);
               });
             });
@@ -133,7 +134,6 @@ $(function(){
               $("#itemlist").html(_html);
             },
             error: function(){
-
             }
 
           })
