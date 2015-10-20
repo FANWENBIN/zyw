@@ -17,7 +17,7 @@ $(function(){
       }),
       $("#share .weixin").on("mouseenter",page.showShare);
       $("#share .weixin").on("mouseout",page.hideShare);
-      $("#weixinshare").on("mouseover",function(){clearTimeout(scope.timer)});
+      $("#weixinshare").on("mouseover",page.showShare);
       $("#weixinshare").on("mouseout",page.hideShare);
 
     },
