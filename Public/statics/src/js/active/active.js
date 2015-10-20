@@ -93,6 +93,7 @@ $(function(){
         },
 
         getActiveData: function(page){
+
           $.ajax({
             url: "./index.php?m=Home&c=Active&a=activetype",
             type: "get",
