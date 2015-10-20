@@ -31,6 +31,7 @@ class CommitteeController extends ComController {
     	$this->assign('blackcom',$list);// 赋值数据集
     	$this->assign('blackpage',$show);// 赋值分页输出
 
+
 		$this->display();
 		//echo $ip = get_client_ip();
     }
