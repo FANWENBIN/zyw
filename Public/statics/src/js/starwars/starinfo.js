@@ -6,6 +6,7 @@ $(function(){
   var page = {
     init: function(){
       scope.max = $("#tabsection").find("li").length;
+      if(scope.max == 0)$(".frame").hide();
       $("#tabsection .up").on("click",page.goUp);
       $("#tabsection .down").on("click",page.goDown);
       $("#tabsection").on("click","li",function(){
