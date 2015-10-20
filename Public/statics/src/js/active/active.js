@@ -113,8 +113,10 @@ $(function(){
               p: page
             },
             success: function(json){
+
               var _arr = json.data.data;
               var _html = "";
+              if(json.data.page == 0) $("#itemlist").html(_html);
               for(var i = 0, len = _arr.length; i < len; i++ ){
                 _html += '<li>'
                 +'<a>'
