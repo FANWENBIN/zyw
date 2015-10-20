@@ -80,11 +80,6 @@ class ActiveController extends ComController {
 $list = $active->where($data)->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
     //$this->assign('list',$list);// 赋值数据集
    // $this->assign('page',$show);// 赋值分页输出
- 
-
-
-        
-
 
     	if($list === false){
     		ajaxReturn('102','查询数据有误','');
