@@ -73,20 +73,28 @@ $workheight: 770px;
   height: 133px;
 }
 .worklist-main{
-  text-align: center;
-  .workname {
-    display: inline-block;
-    font-size: 14px;
-  }
+
   .imglist {
     @extend %workimg;
-    margin: 15px auto;
+    margin: 45px auto;
     li{
       display: none;
       &.active{
         display: block;
       }
+      img{
+        position: absolute;
+      }
+
+      text-align: center;
+      .workname {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 45px;
+        font-size: 14px;
+      }
     }
+
   }
   .tabsection{
     position: absolute;
