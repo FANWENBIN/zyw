@@ -25,24 +25,21 @@ class StageController extends ComController {
         }else{
             $id = I('get.id');
             $data['title'] = I('post.title');
-            $data['type']  = I('post.type');
             $data['href']  = I('post.href');
             $data['img']   = I('post.img');
+            $data['content'] = I('post.content');
+            //var_dump($data);die();
             $sign = $this->checkDump($data);
             if(!$sign){
                 $this->error('主要信息不可为空');
             }
-            $data['recommend'] = I('post.recommend');
-            if($data['recommend'] == 1){
-                $data['topimg'] = I('post.topimg');
-            }
+
             $sign = $stage->where('id='.$id)->save($data);
             if($sign){
-                $this->success('修改成功',U('Vedio/index'));
+                $this->success('修改成功',U('Stage/index'));
             }else{
                 $this->error('未做任何修改');
             }
-            
 
         }
     }
@@ -62,32 +59,32 @@ class StageController extends ComController {
     //新增数据
     public function add(){
         $submit = I('post.submit');
-        $vedio  = M('vedio');
+        $stage  = M('stageworks');
         if(empty($submit)){
+
             $this->assign('cur',13);
+
             $this->display();
         }else{
+            $id = I('get.id');
             $data['title'] = I('post.title');
-            $data['type']  = I('post.type');
             $data['href']  = I('post.href');
             $data['img']   = I('post.img');
+            $data['content'] = I('post.content');
+            //var_dump($data);die();
             $sign = $this->checkDump($data);
             if(!$sign){
                 $this->error('主要信息不可为空');
             }
-            $data['recommend'] = I('post.recommend');
-            if($data['recommend'] == 1){
-                $data['topimg'] = I('post.topimg');
-            }
-            $data['instime'] = time();
 
-            $sign = $vedio->add($data);
+            $sign = $stage->add($data);
             if($sign){
-                $this->success('新增成功',U('Vedio/index'));
+                $this->success('新增成功',U('Stage/index'));
             }else{
-                $this->error('未做任何新增');
+                $this->error('新增失败');
             }
-        }
+            
 
+        }
     }
 }

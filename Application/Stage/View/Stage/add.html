@@ -40,7 +40,7 @@
  <!--main-->
 		<div class="webMain">
 			<div class="mainHeader">
-				<h1>视频管理</h1>
+				<h1>Stage-作品管理</h1>
 				<!--<ul class="menu clearFix">-->
 					<!--<li class="current"><a href="#">菜单A</a></li>-->
 					<!--<li><a href="#">菜单B</a></li>-->
@@ -55,65 +55,36 @@
 				<!--表单-->
 				<div class="form">
 					<div class="formHeader">
-						<h1>视频基本信息</h1>
+						<h1>作品基本信息</h1>
 					</div>
 					<form action="{:U('add')}" method="post" enctype="multipart/form-data">
 						<fieldset>
               <!-- 姓名-->
             <div class="l">
                 <h6>标题</h6>
-                <div class="i"><input type="text" class="input w200"  value="" name="title" placeholder="请输入姓名" /></div>
+                <div class="i"><input type="text" class="input w200"  value="{$vedioval['title']}" name="title" placeholder="请输入姓名" /></div>
             </div>
-            <div class="l">
-                <h6>类型</h6>
-               <div class="i">
-	                <input type="radio" name="type" value="1" data-val="电影电视" data-css="r1" 
-	               checked="checked"/>
-
-					<input type="radio" name="type" value="2" data-val="制作花絮" data-css="r1" />
-
-					<input type="radio" name="type" value="3" data-val="影视教学" data-css="r1" />
-
-					<input type="radio" name="type" value="4" data-val="探班周边" data-css="r1" />
-
-					<input type="radio" name="type" value="5" data-val="娱乐头条" data-css="r1" />
-
-					<input type="radio" name="type" value="6" data-val="影视资讯" data-css="r1" />
-				</div>
-            </div> 
 
  			<div class="l">
                 <h6>视频链接地址</h6>
-                <div class="i"><input type="text" class="input w200"  value="" name="href" placeholder="" /></div>
+                <div class="i"><input type="text" class="input w200"  value="{$vedioval['href']}" name="href" placeholder="" /></div>
             </div>
 			<div class="l">
                 <h6>封面图</h6>
                 <div class="i">
-                <input type="text" value="" class="js_imgupload" id="imgurl1" cut="true" width="130" height="95" name="img" />
+                <input type="text" value="{$vedioval['img']}" class="js_imgupload" id="imgurl1" cut="true" width="130" height="95" name="img" />
                 </div>
             </div>
-			
 			<div class="l">
-				<h6>&nbsp;</h6>
-				<div class="i" id="setTop">
-					<input type="radio" name="recommend" value="0" data-val="普通视频" data-css="r1" 
-				checked="checked"/>
-					<input type="radio" name="recommend"  value="1" data-val="推荐视频" data-css="r1" />
-				
-				</div>
+				<h6>作品简介</h6>
+				<div class="i"><textarea class="input" name="content">{$vedioval.content}</textarea></div>
 			</div>
-			<div class="l" id="topYes" <if condition="($vedioval.order neq 1)">style="display:none"</if> >
-				<h6>置顶大图</h6>
-				<div class="i">
-				<input type="text" value="{$vedioval.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="375" height="175" name="topimg"/>
-				</div><hr>
-				
-			</div>
+		
 
 	<!--主提交按钮-->
 				<div class="btnCon btnCon2">
 					<input type="submit" class="btnA" value="提交" name = "submit"/>
-					<a href="{:U('Vedio/index')}" class="btnD">返回</a>
+					<a href="{:U('Stage/index')}" class="btnD">返回</a>
 				</div>
 
 						</fieldset>
