@@ -10,6 +10,7 @@
 <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/statics/dist/css/index/myinfo.css" rel="stylesheet" type="text/css" />
+
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="Keywords" content="">
 <meta name="Description" content="">
@@ -55,16 +56,98 @@
           <ul class="group">
             <li class="active">我的饭团</li>
             <li>我的活动</li>
-            <li>我的频道</li>
-            <li>我的订阅</li>
           </ul>
         </div>
         <ul class="list">
-          <li class="active">
+
+
+
+          <li class="active bottomitem">
             <div class="left">
               <ul class="sublist">
-                <li class="active">上传的视频</li>
+                <li class="active">上传视频</li>
                 <li>明日之星</li>
+              </ul>
+            </div>
+            <div class="right">
+                <!--  基本资料-->
+              <div class="item active">
+                <form class="" action="#" method="post">
+                  <ul>
+                    <li>
+                      <span class="item-head">昵&nbsp;称：</span>
+                      <div class="item-body">
+                        <span>用户名</span><span>修改</span>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="item-head">性&nbsp;别：</span>
+                      <div class="item-body">
+                        <input type="radio" name="sex" value="male">男
+                        <input type="radio" name="sex" value="female">女
+                      </div>
+                    </li>
+                    <li>
+                      <span class="item-head">所在地：</span>
+                      <div class="item-body">
+                        <select class="" name="province">
+                          <option>上海市</option>
+                          <option>北京市</option>
+                        </select>
+                        <select class="" name="city">
+                          <option>普陀区</option>
+                          <option>黄浦区</option>
+                        </select>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="item-head">生&nbsp;日：</span>
+                      <div class="item-body">
+                        <select class="" name="year">
+                          <option>2000</option>
+                          <option>1999</option>
+                        </select>
+                        <select class="" name="month">
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                        <select class="" name="day">
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                      </div>
+                    </li>
+                    <li>
+                      <input type="submit" name="" value="保存">
+                    </li>
+                  </ul>
+
+                </form>
+
+              </div>
+
+                <!--  修改头像-->
+              <div class="item">
+                <button type="button" name="button">上传头像</button>
+                <span>(支持JPG,PNG,GIF格式的图片，最大2M)</span>
+                <div class="uploadpic">
+
+                </div>
+
+                <button type="button" name="button">保存</button>
+              </div>
+              <div class="item">
+                <!--  绑定网站-->
+              </div>
+            </div>
+          </li>
+
+
+          <li class="bottomitem">
+            <div class="left">
+              <ul class="sublist">
+                <li class="active">历史浏览</li>
+                <li>发起活动</li>
               </ul>
             </div>
             <div class="right">
@@ -82,6 +165,9 @@
               </div>
             </div>
           </li>
+
+
+
         </ul>
       </div>
 
@@ -100,7 +186,7 @@
                     <li><a href="#">加入我们</a></li>
                     <li><a href="#">联系我们</a></li>
                 </ul>
-                <p>{$records}</p>
+                <p>COPYRIGHT © 2008 - 2015 中国电视好演员. 苏ICP证090011号</p>
             </div>
             <div class="qr">
                 <p>扫描二维码</p>
@@ -115,6 +201,6 @@
 <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
 <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
 <script src="__PUBLIC__/statics/dist/js/index/myinfo.js"></script>
-
+<script src="__PUBLIC__/statics/js/radio&checkbox/myComponent.js"></script>
 </body>
 </html>
