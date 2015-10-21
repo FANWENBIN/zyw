@@ -13,6 +13,10 @@ class ActiveController extends ComController {
 		$this->display();
 		//echo $ip = get_client_ip();
     }
+    public function active_details(){
+        
+        $this->display();
+    }
     //========================前台调用活动查询接口==============Start//
     /*类型分类查询*/
     public function activetype(){
