@@ -21,7 +21,7 @@
 .webmain .content .subnav .group{height: 60px;margin-left: 240px;}
 .webmain .content .subnav .group li{float: left;width: 130px;font-size: 22px;line-height: 60px; color: #999}
 .webmain .content .subnav .group li.active{color: #000; }
-.webmain .content .subnav .group .active::after{content: "";position: absolute;width: 90px;margin-left: -90px; margin-top: 50px; height: 0; border-bottom: 4px solid black;}
+.webmain .content .subnav .group .active:after{content: "";position: absolute;width: 90px;margin-left: -90px; margin-top: 50px; height: 0; border-bottom: 4px solid black;}
 .webmain .content .list .left{float: left; width: 200px;height: 500px}
 .webmain .content .list .bottomitem{
   display: none;
@@ -38,6 +38,22 @@
     &.active{
       display: block;
     }
+    li{
+      height: 60px;
+      margin-left: 150px;
+      .item-head{
+        position: absolute;
+        margin-left: -100px;
+      }
+    }
+.my-radio{
+  background-image: url("../../../images/icon_myradio.gif")
+}
+.my-radio-active{
+  background-image: url("../../../images/icon_myradio.gif")
+}
+
+
   }
 }
 .webmain .content .list .right h3{font-size: 14px;}
