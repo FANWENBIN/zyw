@@ -45,15 +45,15 @@
     <!--webmain-->
     <div class="webmain">
         <div class="navTitle">
-            <a href="#">首页</a> > <a href="#">活动</a> > <a href="javascript:void(0);">活动详情</a>
+            <a href="{:U('Index/index')}">首页</a> > <a href="{:U('Active/index')}">活动</a> > <a href="javascript:void(0);">活动详情</a>
         </div>
         <div class="topCon">
             <div class="header">
-                <h1>活动标题</h1><!--
+                <h1>{$list.title}</h1><!--
                 --><span class="newActive" id="newActive">发起活动</span>
             </div>
-            <p>地址：<em>线上活动</em></p>
-            <p>时间：<em>07月30日 周四 16:00 -- 09月26日 周六10:00</em></p>
+            <p>地址：<em>{$list.line_address}</em></p>
+            <p>时间：<em>{$list.begin_time|date="m月d日 N H:i"} -- 09月26日 周六10:00</em></p>
             <p>参与方式：<em>致电40000400</em></p>
         </div>
 

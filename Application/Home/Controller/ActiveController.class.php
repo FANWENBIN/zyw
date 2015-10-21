@@ -14,7 +14,10 @@ class ActiveController extends ComController {
 		//echo $ip = get_client_ip();
     }
     public function active_details(){
-        
+        $id = I('get.id');
+        $active = M('active');
+        $list = $active->where('id='.$id)->find();
+        $this->assign('list',$list);
         $this->display();
     }
     //========================前台调用活动查询接口==============Start//
