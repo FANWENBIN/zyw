@@ -82,6 +82,13 @@ class IndexController extends ComController {
         $active = M('active');
         $activeval = $active->where('status = 1')->order('`order` desc,instime desc')->limit('0,9')->select();
         $this->assign('activeval',$activeval);
+        //星Stage
+      
+        $where4['newser'] = array('eq',1);
+        $where4['status'] = array('in','1,2');
+        $list = $actors->where($where4)->order('clickrate desc')->limit(0,12)->select();
+        $this->assign('actorslist',$list);
+
 		$this->display();
     }
 
