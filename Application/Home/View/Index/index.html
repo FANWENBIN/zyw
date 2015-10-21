@@ -433,8 +433,6 @@
                 </div>
               </div>
             </volist>
-
-
           </div>
         </div>
 
@@ -519,53 +517,26 @@
         <h2>演艺人</h2>
         <a href="{:U('Performing/index')}" class="more">更多</a>
       </div>
+
       <div class="inner clearFix">
+      <volist name = "starlist" id = "vo" offset="0" length='1'>
         <a href="#" class="l">
-          <p>陈伟伦-百声现场</p>
-          <img src="__PUBLIC__/statics/images/__p2.jpg" />
+          <p>{$vo.name}</p>
+          <img src="./Uploads{$vo.img}" />
           <sub class="hover"></sub>
         </a>
+        </volist>
         <div class="r clearFix">
+        <volist name = "starlist" id = "vo" offset = "1" length = "8">
           <a href="#" class="item">
-            <p>Stephanie</p>
-            <img src="__PUBLIC__/statics/images/p/s1.jpg" />
+            <p>{$vo.name}</p>
+            <img src="./Uploads{$vo.img}" />
             <sub class="hover"></sub>
           </a>
-          <a href="#" class="item">
-            <p>JUNIEL</p>
-            <img src="__PUBLIC__/statics/images/p/s2.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>金亨俊</p>
-            <img src="__PUBLIC__/statics/images/p/s3.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>APRIL</p>
-            <img src="__PUBLIC__/statics/images/p/s4.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>myB</p>
-            <img src="__PUBLIC__/statics/images/p/s5.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>ZPZG</p>
-            <img src="__PUBLIC__/statics/images/p/s9.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>BEAT WIN</p>
-            <img src="__PUBLIC__/statics/images/p/s7.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>FlaShe</p>
-            <img src="__PUBLIC__/statics/images/p/s8.jpg" />
-            <sub class="hover"></sub>
-          </a>
+        </volist>
+        
+
+
         </div>
       </div>
     </div>
