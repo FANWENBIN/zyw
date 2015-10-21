@@ -13,6 +13,10 @@ class ActiveController extends ComController {
 		$this->display();
 		//echo $ip = get_client_ip();
     }
+    public function active_details(){
+        
+        $this->display();
+    }
     //========================前台调用活动查询接口==============Start//
     /*类型分类查询*/
     public function activetype(){
@@ -85,8 +89,8 @@ $list = $active->where($data)->order('instime')->limit($Page->firstRow.','.$Page
     		ajaxReturn('102','查询数据有误','');
     	}else{
     		foreach($list as $key=>$val){
-    			$activeval[$key]['begin_time'] = date('m-d',$val['begin_time']);
-    			$activeval[$key]['last_time'] = date('m-d',$val['last_time']);
+    			$list[$key]['begin_time'] = date('m.d',$val['begin_time']);
+    			$list[$key]['last_time'] = date('m.d',$val['last_time']);
     		}
             $dump['page'] = ceil($count/12);
             $dump['data'] = $list;

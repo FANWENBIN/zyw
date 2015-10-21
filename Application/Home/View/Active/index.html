@@ -45,7 +45,7 @@
     <!--webmain-->
     <div class="webmain">
         <div class="navTitle">
-            <a href="#">首页</a> > <a href="#">活动</a><!--
+            <a href="{:U('Index/index')}">首页</a> > <a href="#">活动</a><!--
              --><div class="loginfo"><span class="face"></span><span class="name">用户名</span></div>
         </div>
 
@@ -53,11 +53,11 @@
             <div class="imgList" id="imgList">
             <volist name = "banner" id = "vo">
             <if condition = "$i eq 1">
-                <a href="#" class="active">
+                <a href="{:U('active_details')}" class="active">
                 <img src="./Uploads{$vo.img}">
                 </a>
             <else />
-                <a href="#">
+                <a href="{:U('active_details')}">
                 <img src="./Uploads{$vo.img}">
                 </a>
             </if>
