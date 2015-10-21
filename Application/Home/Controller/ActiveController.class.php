@@ -85,8 +85,8 @@ $list = $active->where($data)->order('instime')->limit($Page->firstRow.','.$Page
     		ajaxReturn('102','查询数据有误','');
     	}else{
     		foreach($list as $key=>$val){
-    			$list[$key]['begin_time'] = date('m-d',$val['begin_time']);
-    			$list[$key]['last_time'] = date('m-d',$val['last_time']);
+    			$list[$key]['begin_time'] = date('m.d',$val['begin_time']);
+    			$list[$key]['last_time'] = date('m.d',$val['last_time']);
     		}
             $dump['page'] = ceil($count/12);
             $dump['data'] = $list;
