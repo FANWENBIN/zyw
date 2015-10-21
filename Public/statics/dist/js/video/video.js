@@ -1,0 +1,1 @@
+$(function(){var i={init:function(){tabinit(),$("#group").on("click","li",i.changeGroup)},changeGroup:function(){$("#group").find("li").removeClass("active"),$(this).addClass("active"),$(".video .innergroup").removeClass("active"),$(".video .innergroup").eq($(this).index()).addClass("active")}};i.init()});

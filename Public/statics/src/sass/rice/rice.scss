@@ -29,9 +29,31 @@ $bannerheight:530px;
     }
   }
   .item{
-    @include item1(280px, 415px, 50px, 16px);
+    @include item4(280px, 415px, 50px, 16px);
     float: left;
     margin-left: 26px;
     margin-bottom: 30px;
+    .cover{
+      text-align: center;
+      color: #fff;
+      .info{
+        display: inline-block;
+        margin: 100px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      a{
+        position: relative;
+        display: inline-block;
+        margin: 0 auto;
+        width: 120px;
+        height: 40px;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid #fff;
+      }
+    }
   }
 }
