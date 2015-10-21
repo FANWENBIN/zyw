@@ -101,6 +101,9 @@ class ActiveController extends ComController {
 			$id = trim(I('get.id'));
 	    	$activeval = $active->where('id='.$id)->find();
 	    	$this->assign('activeval',$activeval);
+            $img = M('active_img');
+            $imglist = $img->where('activeid='.$id)->select();
+            $this->assign('imglist',$imglist);
 	    	$this->assign('cur',6);
 	    	$this->display();
     	}else{
@@ -134,12 +137,39 @@ class ActiveController extends ComController {
     		$data['sponsor_address'] = I('post.sponsor_address');
     		$data['sponsor_email'] = I('post.sponsor_email');
     		$data['order'] = I('post.order');
-    		$sign = $active->save($data);
-    		if($sign){
-    			$this->success('活动修改成功',U('Active/index'));
-    		}else{
-    			$this->error('活动修改失败');
-    		}
+
+
+
+
+
+            $photo = I('post.photos');
+            $model = M();                     //开启事物
+            $model->startTrans();
+            $Duck = true;
+            $active_img = M('active_img');
+            $active_img->where('activeid='.$data['id'])->delete();
+            foreach($photo as $key=>$val){
+                $c['img']   = $val;
+                $c['activeid'] = $data['id'];
+                $sign = $active_img->add($c);
+                if($sign === false){
+                    $Duck = false;
+                }
+            }
+
+            $signs = $active->save($data);
+            if($signs === false){
+                $Duck = false;
+            }
+
+            if($Duck){
+                $model->commit();
+                $this->success('活动修改成功',U('Active/index'));
+            }else{
+                $model->rollback();
+                $this->error('活动未做修改');
+            }
+
     	}
     }
     //增加活动

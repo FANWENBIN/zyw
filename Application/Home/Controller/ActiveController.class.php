@@ -18,6 +18,9 @@ class ActiveController extends ComController {
         $active = M('active');
         $list = $active->where('id='.$id)->find();
         $this->assign('list',$list);
+        $img = M('active_img');
+        $imglist = $img->where('activeid='.$id)->select();
+        $this->assign('imglist',$imglist);
         $this->display();
     }
     //========================前台调用活动查询接口==============Start//
