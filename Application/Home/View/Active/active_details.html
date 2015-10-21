@@ -52,9 +52,9 @@
                 <h1>{$list.title}</h1><!--
                 --><span class="newActive" id="newActive">发起活动</span>
             </div>
-            <p>地址：<em><if condition="$list.line_address neq '' ">{$list.line_address}</else>线上活动</if></em></p>
-            <p>时间：<em>{$list.begin_time|date="m月d日 N H:i"} -- 09月26日 周六10:00</em></p>
-            <p>参与方式：<em>致电40000400</em></p>
+            <p>地址：<em><if condition="$list.line_address neq '' ">{$list.line_address}<else />线上活动</if></em></p>
+            <p>时间：<em>{$list.begin_time|date="m月d日 周N H:i",###} -- {$list.last_time|date="m月d日 周N H:i",###}</em></p>
+            <p>参与方式：<em>致电{$list.phone}</em></p>
         </div>
 
 
@@ -62,8 +62,8 @@
             <div class="title">
                 <h2>活动详情</h2>
             </div>
-            <img src="__PUBLIC__/statics/images/p_active_big.jpg" alt=""/>
-            <p>活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍</p>
+            <img src="{$list.img}" alt=""/>
+            <p>{$list.info}</p>
         </div>
 
 
