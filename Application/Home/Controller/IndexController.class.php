@@ -88,7 +88,10 @@ class IndexController extends ComController {
         $where4['status'] = array('in','1,2');
         $list = $actors->where($where4)->order('clickrate desc')->limit(0,12)->select();
         $this->assign('actorslist',$list);
-
+        //演艺人
+        $where5['status'] = 1;
+        $star = $actors->where($where5)->order('clickrate desc')->limit(0,9)->select();
+        $this->assign('starlist',$star);
 		$this->display();
     }
 

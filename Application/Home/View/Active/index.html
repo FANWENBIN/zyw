@@ -53,11 +53,11 @@
             <div class="imgList" id="imgList">
             <volist name = "banner" id = "vo">
             <if condition = "$i eq 1">
-                <a href="{:U('active_details')}" class="active">
+                <a href="{:U('active_details',array('id'=>$vo['newsid']))}" class="active">
                 <img src="./Uploads{$vo.img}">
                 </a>
             <else />
-                <a href="{:U('active_details')}">
+                <a href="{:U('active_details',array('id'=>$vo['newsid']))}">
                 <img src="./Uploads{$vo.img}">
                 </a>
             </if>

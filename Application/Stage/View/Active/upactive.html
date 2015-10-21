@@ -106,7 +106,18 @@
                 <div class="i"><script id="container" name="info" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($activeval['info'])?></script></div>
               </div>
              
-              
+               <div class="l worksList">
+                            <h6>活动图片</h6>
+                            <div class="i" id="J_WorksList">
+                              <volist name="imglist" id = "vo">
+                                <div class="item clearFix" data-index="{$i}">
+                                    <div class="i w350"><input type="text" value="{$vo.img}" class="js_imgupload" id="imgurl1" cut="true" width="500" height="700" name="photos[{$i}]"/></div>
+                                    <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>
+                                </div>
+                            </volist>
+                                <a href="javascript:void(0);" class="btnB btnSmall" id="J_AppendWorks">添加活动图片</a>
+                            </div>
+                        </div>
             </fieldset>
             <div class="btnCon btnCon2">
               <input type="hidden" name="id" class="btnA" value="{$activeval.id}" />
@@ -167,7 +178,32 @@ if($('#line_type').val() == 0){
 
   });
   </script>>
+<script type="text/javascript">
+    $(function(){
+            $(".worksList").on("click",".del",function(){
+                $(this).parents(".item").remove();
+            });
+            //动态添加代表作
+            var J_AppendWorks =  $("#J_AppendWorks"),
+                J_WorksList = $("#J_WorksList");
 
+            J_AppendWorks.on("click", appendWorks);
+            function appendWorks(){
+                var _item = J_WorksList.find(".item"), _index = 1;
+                if(_item.length > 0){
+                    _index = +_item.eq(_item.length - 1).data("index");
+                    _index ++;
+                }
+                var d = new Date().getTime();
+                J_AppendWorks.before('<div class="item clearFix" data-index="'+ _index +'">'+
+                        '<div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl'+ d +'" cut="true" width="500" height="700" name="photos['+ _index +']"/></div>'+
+                        '<div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>'+
+                        '</div>');
+                $("#imgurl" + d).imgUploadInit();
+            }
+        });
+
+</script>
 
 
 

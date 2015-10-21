@@ -45,25 +45,24 @@
     <!--webmain-->
     <div class="webmain">
         <div class="navTitle">
-            <a href="#">首页</a> > <a href="#">活动</a> > <a href="javascript:void(0);">活动详情</a>
+            <a href="{:U('Index/index')}">首页</a> > <a href="{:U('Active/index')}">活动</a> > <a href="javascript:void(0);">活动详情</a>
         </div>
         <div class="topCon">
             <div class="header">
-                <h1>活动标题</h1><!--
+                <h1>{$list.title}</h1><!--
                 --><span class="newActive" id="newActive">发起活动</span>
             </div>
-            <p>地址：<em>线上活动</em></p>
-            <p>时间：<em>07月30日 周四 16:00 -- 09月26日 周六10:00</em></p>
-            <p>参与方式：<em>致电40000400</em></p>
+            <p>地址：<em><if condition="$list.line_address neq '' ">{$list.line_address}<else />线上活动</if></em></p>
+            <p>时间：<em>{$list.begin_time|date="m月d日 周N H:i",###} -- {$list.last_time|date="m月d日 周N H:i",###}</em></p>
+            <p>参与方式：<em>致电{$list.phone}</em></p>
         </div>
-
 
         <div class="con content">
             <div class="title">
                 <h2>活动详情</h2>
             </div>
-            <img src="__PUBLIC__/statics/images/p_active_big.jpg" alt=""/>
-            <p>活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍</p>
+            <img src="./Uploads{$list.img}" alt=""/>
+            <p>{:html_entity_decode($list['info'])}</p>
         </div>
 
 
@@ -73,9 +72,10 @@
                 <h2>活动图片</h2>
             </div>
             <div class="inner clearFix">
-                <div class="item"><img src="__PUBLIC__/statics/images/p_active_1.jpg" alt=""/></div>
-                <div class="item"><img src="__PUBLIC__/statics/images/p_active_1.jpg" alt=""/></div>
-                <div class="item"><img src="__PUBLIC__/statics/images/p_active_1.jpg" alt=""/></div>
+            <volist name = "imglist" id = "vo">
+                <div class="item"><img src="./Uploads{$vo.img}" alt=""/></div>
+            </volist>
+
             </div>
 
         </div>
