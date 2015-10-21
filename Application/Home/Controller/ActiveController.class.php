@@ -15,7 +15,6 @@ class ActiveController extends ComController {
     }
     public function active_details(){
         $id = I('get.id');
-
         $active = M('active');
         $list = $active->where('id='.$id)->find();
         $this->assign('list',$list);
