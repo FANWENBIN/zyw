@@ -4,7 +4,7 @@ $(function(){
   };
   var page = {
     init: function(){
-      initRadio();
+      initRadio("sex");
       $(".sublist").on("click","li",page.leftClick);
       $(".group").on("click","li",page.upClick);
     },
