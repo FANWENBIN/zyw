@@ -75,7 +75,7 @@ class NewsController extends ComController {
 		$hotnews = $news->where('type=3')->order('hot desc')->limit('0,10')->select();
 		$this->assign('hotnews',$hotnews);
 		//置顶新闻图片
-		$topnews = $news->where('type=3 `order` = 2')->order('instime desc')->find();
+		$topnews = $news->where('type=3 and `order` = 2')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
 	 	$this->display();
 	 }
@@ -97,7 +97,7 @@ class NewsController extends ComController {
 		$hotnews = $news->where('type=1')->order('hot desc')->limit('0,10')->select();
 		$this->assign('hotnews',$hotnews);
 //置顶新闻图片
-		$topnews = $news->where('type=3 `order` = 2')->order('instime desc')->find();
+		$topnews = $news->where('type=1 and `order` = 2')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
 	 	$this->display();
 	 }
@@ -118,8 +118,9 @@ class NewsController extends ComController {
 		$hotnews = $news->where('type=2')->order('hot desc')->limit('0,10')->select();
 		$this->assign('hotnews',$hotnews);
 //置顶新闻图片
-		$topnews = $news->where('type=3 `order` = 2')->order('instime desc')->find();
+		$topnews = $news->where('type=2 and `order` = 2')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
+		var_dump($topnews);
 	 	$this->display();
 	 }
 }
