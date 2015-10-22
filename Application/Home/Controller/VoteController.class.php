@@ -27,14 +27,7 @@ class VoteController extends ComController {
         //编剧
         $scriptwriter = $recommend->where('type=4')->select();
         $this->assign('scriptwriter',$scriptwriter);
-        //入围演员
-        $where['promotion'] = 36;
-        $cutactors = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,36')->select();
-        $this->assign('cutactors',$cutactors);
-        //获奖演员
-        $where['promotion'] = 6;
-        $winactors = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,36')->select();
-        $this->assign('winactors',$winactors);
+    
 
 		$this->display('vote');
 		//echo $ip = get_client_ip();
@@ -246,8 +239,38 @@ class VoteController extends ComController {
         }
     }
     //=================END
-   
-    
+   //候选演员和获奖者查询接口
+    public function wininter(){
+        $condition = trim(I('get.condition'));
+
+        if($condition != 6 && $condition != 36){
+            ajaxReturn(104,'参数错误','');
+        }
+        
+        if($condition == 36){
+            $groupid = trim(I('get.groupid'));
+            $sex     = trim(I('get.sex'));
+            if($groupid < 0 || $groupid > 3){
+                ajaxReturn(104,'参数错误','');
+            }
+            $where['groupid'] = $groupid;
+            $where['sex']     = $sex;
+        }
+        //入围演员
+        $actors = M('actors');
+        $where['promotion'] = $condition;
+        $cutactors = $actors->field('headimg,votes,id,name,groupid')->where($where)->order(array('groupid'=>'asc','votes'=>'desc','chinese_sum'=>'asc'))->limit(0,$condition)->select();
+       if($cutactors === false){
+            ajaxReturn(101,'请求失败','');
+       }else{
+        foreach ($cutactors as $key => $value) {
+            $cutactors[$key]['groupid'] = ($value['groupid'] == 1) ? '红组' : (($value['groupid'] == 2) ? '蓝组' : '绿组');
+            $cutactors[$key]['headimg'] = './Uploads'.$value['headimg'];
+        }
+            ajaxReturn(0,'',$cutactors);
+       }
+       
+    }
 
     //无标题的页面
 
