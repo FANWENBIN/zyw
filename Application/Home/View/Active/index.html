@@ -1,256 +1,276 @@
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+
 <head>
-<meta charset="utf-8">
-<title>中演网</title>
-<link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/dist/css/active/active.css" rel="stylesheet" type="text/css" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<meta name="Keywords" content="">
-<meta name="Description" content="">
+  <meta charset="utf-8">
+  <title>中演网</title>
+  <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/active/active.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
 </head>
 
 <body>
-<div class="wrapper">
+  <div class="wrapper">
 
     <!--webheader-->
     <div class="webheader">
-        <div class="inner clearFix">
-            <a href="index.html" class="logo"></a>
-            <div class="nav">
+      <div class="inner clearFix">
+        <a href="index.html" class="logo"></a>
+        <div class="nav">
 
-                <ul class="clearFix">
-                <li class="first"><a href="{:U('Index/index')}">首页</a></li>
-                <li><a href="{:U('News/index')}">资讯</a></li>
-                <li  class="c"><a href="{:U('Active/index')}">活动</a></li>
-                <li><a href="{:U('Committee/index')}">演工委之声</a></li>
-                <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
-                <li><a href="{:U('#/index')}">饭团</a></li>
-                <li><a href="{:U('Starwars/index')}">星站</a></li>
-                <li><a href="{:U('#/index')}">明日之星</a></li>
-                <li><a href="{:U('Video/index')}">视频</a></li>
-                <li><a href="{:U('#/index')}">Stage</a></li>
-                <li><a href="{:U('Performing/index')}">演艺库</a></li>
-                </ul>
-            </div>
-            <a href="#" class="search"></a>
+          <ul class="clearFix">
+            <li class="first"><a href="{:U('Index/index')}">首页</a></li>
+            <li><a href="{:U('News/index')}">资讯</a></li>
+            <li class="c"><a href="{:U('Active/index')}">活动</a></li>
+            <li><a href="{:U('Committee/index')}">演工委之声</a></li>
+            <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
+            <li><a href="{:U('#/index')}">饭团</a></li>
+            <li><a href="{:U('Starwars/index')}">星站</a></li>
+            <li><a href="{:U('#/index')}">明日之星</a></li>
+            <li><a href="{:U('Video/index')}">视频</a></li>
+            <li><a href="{:U('#/index')}">Stage</a></li>
+            <li><a href="{:U('Performing/index')}">演艺库</a></li>
+          </ul>
         </div>
+        <a href="#" class="search"></a>
+      </div>
     </div>
     <!--webheader end-->
 
 
     <!--webmain-->
     <div class="webmain">
-        <div class="navTitle">
-            <a href="{:U('Index/index')}">首页</a> > <a href="#">活动</a><!--
-             --><div class="loginfo"><span class="face"></span><span class="name">用户名</span></div>
+      <div class="navTitle">
+        <a href="{:U('Index/index')}">首页</a> > <a href="#">活动</a><!--
+             --><div class="loginfo">
+          <span class="face"></span>
+          <span class="name">用户名</span>
         </div>
+      </div>
 
-        <div class="topBar">
-            <div class="imgList" id="imgList">
-            <volist name = "banner" id = "vo">
-            <if condition = "$i eq 1">
-                <a href="{:U('active_details',array('id'=>$vo['newsid']))}" class="active">
+      <div class="topBar">
+        <div class="imgList" id="imgList">
+          <volist name="banner" id="vo">
+            <if condition="$i eq 1">
+              <a href="{:U('active_details',array('id'=>$vo['newsid']))}" class="active">
                 <img src="./Uploads{$vo.img}">
-                </a>
-            <else />
-                <a href="{:U('active_details',array('id'=>$vo['newsid']))}">
+              </a>
+              <else />
+              <a href="{:U('active_details',array('id'=>$vo['newsid']))}">
                 <img src="./Uploads{$vo.img}">
-                </a>
+              </a>
             </if>
-            </volist>
+          </volist>
+        </div>
+        <ul class="dotList" id="dotList">
+          <volist name="banner" id="vo">
+            <if condition="$i eq 1">
+              <li class="active"></li>
+              <else />
+              <li></li>
+            </if>
+          </volist>
+        </ul>
+      </div>
+
+      <div class="con activity">
+        <div class="title">
+          <h2>全部活动</h2>
+          <a href="javascript:void (0);" id="newActive">发起活动</a>
+        </div>
+        <div class="group group1 clearFix">
+          <span class="label">类型：</span>
+          <ul class="groupList" id="groupByType">
+            <li class="active" data-type="0">全部</li>
+            <li data-type="1">线上</li>
+            <li data-type="2">线下</li>
+          </ul>
+        </div>
+        <div class="group group2 clearFix">
+          <span class="label">时间：</span>
+          <ul class="groupList" id="groupByTime">
+            <li class="active" data-time="0">全部</li>
+            <li data-time="1">今天</li>
+            <li data-time="2">明天</li>
+            <li data-time="4">周末</li>
+            <li data-time="7">未开始</li>
+            <li data-time="8">已结束</li>
+          </ul>
+        </div>
+        <ul class="inner clearFix" id="itemlist">
+          <li>
+            <a>
+              <img src="__PUBLIC__/statics/images/p_active.jpg">
+              <div class="tags">
+                <h3>伟来眼中的他们</h3>
+                <p>10.25-11.2</p>
+              </div>
+              <sub></sub>
+            </a>
+            <div class="desc">
+              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
+              <div>
+                <span class="num">12313</span><i class="focus"></i></div>
             </div>
-            <ul class="dotList" id="dotList">
-            <volist name = "banner" id = "vo" >
-            <if condition = "$i eq 1">
-                <li class="active"></li>
-                <else />
-                <li></li>
-                </if>
-            </volist>
-            </ul>
+          </li>
+          <li>
+            <a>
+              <img src="__PUBLIC__/statics/images/p_active.jpg">
+              <div class="tags">
+                <h3>伟来眼中的他们</h3>
+                <p>10.25-11.2</p>
+              </div>
+              <sub></sub>
+            </a>
+            <div class="desc">
+              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
+              <div>
+                <span class="num">12313</span><i class="focus"></i></div>
+            </div>
+          </li>
+          <li>
+            <a>
+              <img src="__PUBLIC__/statics/images/p_active.jpg">
+              <div class="tags">
+                <h3>伟来眼中的他们</h3>
+                <p>10.25-11.2</p>
+              </div>
+              <sub></sub>
+            </a>
+            <div class="desc">
+              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
+              <div>
+                <span class="num">12313</span><i class="focus"></i></div>
+            </div>
+          </li>
+          <li>
+            <a>
+              <img src="__PUBLIC__/statics/images/p_active.jpg">
+              <div class="tags">
+                <h3>伟来眼中的他们</h3>
+                <p>10.25-11.2</p>
+              </div>
+              <sub></sub>
+            </a>
+            <div class="desc">
+              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
+              <div>
+                <span class="num">12313</span><i class="focus"></i></div>
+            </div>
+          </li>
+          <li>
+            <a>
+              <img src="__PUBLIC__/statics/images/p_active.jpg">
+              <div class="tags">
+                <h3>伟来眼中的他们</h3>
+                <p>10.25-11.2</p>
+              </div>
+              <sub></sub>
+            </a>
+            <div class="desc">
+              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
+              <div>
+                <span class="num">12313</span><i class="focus"></i></div>
+            </div>
+          </li>
+          <li>
+            <a>
+              <img src="__PUBLIC__/statics/images/p_active.jpg">
+              <div class="tags">
+                <h3>伟来眼中的他们</h3>
+                <p>10.25-11.2</p>
+              </div>
+              <sub></sub>
+            </a>
+            <div class="desc">
+              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
+              <div>
+                <span class="num">12313</span><i class="focus"></i></div>
+            </div>
+          </li>
+        </ul>
+        <div class="pagelist" id="pagelist">
+          <a href="javacript:;" class="pre">上一页</a>
+          <ul class="num">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+          <a href="javacript:;" class="next">下一页</a>
         </div>
 
-        <div class="con activity">
-            <div class="title">
-                <h2>全部活动</h2>
-                <a href="javascript:void (0);" id="newActive">发起活动</a>
-            </div>
-            <div class="group group1 clearFix">
-                <span class="label">类型：</span>
-                <ul class="groupList" id="groupByType">
-                    <li class="active" data-type="0">全部</li>
-                    <li data-type="1">线上</li>
-                    <li data-type="2">线下</li>
-                </ul>
-            </div>
-            <div class="group group2 clearFix">
-                <span class="label">时间：</span>
-                <ul class="groupList" id="groupByTime">
-                    <li class="active" data-time="0">全部</li>
-                    <li data-time="1">今天</li>
-                    <li data-time="2">明天</li>
-                    <li data-time="4">周末</li>
-                    <li data-time="7">未开始</li>
-                    <li data-time="8">已结束</li>
-                </ul>
-            </div>
-            <ul class="inner clearFix" id="itemlist">
-                <li>
-                    <a>
-                        <img src="__PUBLIC__/statics/images/p_active.jpg">
-                        <div class="tags">
-                            <h3>伟来眼中的他们</h3>
-                            <p>10.25-11.2</p>
-                        </div>
-                        <sub></sub>
-                    </a>
-                    <div class="desc">
-                        <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-                        <div><span class="num">12313</span><i class="focus"></i></div>
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <img src="__PUBLIC__/statics/images/p_active.jpg">
-                        <div class="tags">
-                            <h3>伟来眼中的他们</h3>
-                            <p>10.25-11.2</p>
-                        </div>
-                        <sub></sub>
-                    </a>
-                    <div class="desc">
-                        <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-                        <div><span class="num">12313</span><i class="focus"></i></div>
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <img src="__PUBLIC__/statics/images/p_active.jpg">
-                        <div class="tags">
-                            <h3>伟来眼中的他们</h3>
-                            <p>10.25-11.2</p>
-                        </div>
-                        <sub></sub>
-                    </a>
-                    <div class="desc">
-                        <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-                        <div><span class="num">12313</span><i class="focus"></i></div>
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <img src="__PUBLIC__/statics/images/p_active.jpg">
-                        <div class="tags">
-                            <h3>伟来眼中的他们</h3>
-                            <p>10.25-11.2</p>
-                        </div>
-                        <sub></sub>
-                    </a>
-                    <div class="desc">
-                        <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-                        <div><span class="num">12313</span><i class="focus"></i></div>
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <img src="__PUBLIC__/statics/images/p_active.jpg">
-                        <div class="tags">
-                            <h3>伟来眼中的他们</h3>
-                            <p>10.25-11.2</p>
-                        </div>
-                        <sub></sub>
-                    </a>
-                    <div class="desc">
-                        <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-                        <div><span class="num">12313</span><i class="focus"></i></div>
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <img src="__PUBLIC__/statics/images/p_active.jpg">
-                        <div class="tags">
-                            <h3>伟来眼中的他们</h3>
-                            <p>10.25-11.2</p>
-                        </div>
-                        <sub></sub>
-                    </a>
-                    <div class="desc">
-                        <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-                        <div><span class="num">12313</span><i class="focus"></i></div>
-                    </div>
-                </li>
-            </ul>
-            <div class="pagelist" id="pagelist">
-              <a href="javacript:;" class="pre">上一页</a>
-              <ul class="num">
-                <li class="active">1</li>
-                <li>2</li>
-                <li>3</li>
-              </ul>
-              <a href="javacript:;" class="next">下一页</a>
-            </div>
-
-        </div>
+      </div>
     </div>
 
     <!--webfooter-->
     <div class="webfooter">
-        <div class="inner clearFix">
-            <div class="logo"></div>
-            <div class="info">
-                <ul class="clearFix">
-                    <li class="f"><a href="#">关于我们</a></li>
-                    <li><a href="#">加入我们</a></li>
-                    <li><a href="#">联系我们</a></li>
-                </ul>
-                <p>{$records}</p>
-            </div>
-            <div class="qr">
-                <p>扫描二维码</p>
-                <span>关注官方微信</span>
-            </div>
+      <div class="inner clearFix">
+        <div class="logo"></div>
+        <div class="info">
+          <ul class="clearFix">
+            <li class="f"><a href="#">关于我们</a></li>
+            <li><a href="#">加入我们</a></li>
+            <li><a href="#">联系我们</a></li>
+          </ul>
+          <p>{$records}</p>
         </div>
+        <div class="qr">
+          <p>扫描二维码</p>
+          <span>关注官方微信</span>
+        </div>
+      </div>
     </div>
     <!--webfooter end-->
 
     <!-- 发起活动弹出层-->
     <div class="mask" id="mask">
-        <div class="popbox">
-            <form action="#">
-                <h3>发起新活动</h3>
-                <input type="text" placeholder="请输入活动名称" class="activeName" /><br>
-                <input type="text" placeholder="活动日期" class="fromTime" name="fromTime" id="fromTime" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd HH:mm'})" /> - <input type="text" placeholder="活动日期" class="toTime" name="toTime" id="toTime"  onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd HH:mm'})" />
-                <div class="border">
-                    <select class="activeType">
-                        <option>线上活动</option>
-                        <option>线下活动</option>
-                    </select>
-                    <input type="text" placeholder="请输入活动地址" class="activeAdress" name="activeAdress" id="activeAdress" />
-                </div>
-                <div><input type="file" placeholder="封面图" class="pic" id="pic" name="pic" /><i class="camera"></i></div>
-                <textarea name="" id="" placeholder="活动详情"></textarea>
-                <h3>主办人信息</h3>
-                <input type="text" placeholder="姓名" style="width: 245px"/><br/>
-                <input type="text" placeholder="电话" style="width: 245px" /><br/>
-                <input type="text" placeholder="地址" style="width: 500px" /><br/>
-                <input type="text" placeholder="邮箱" style="width: 245px" /><br/>
-                <input type="submit" value="确认" class="submit" />
-            </form>
-        </div>
+      <div class="popbox">
+        <form action="#">
+          <h3>发起新活动</h3>
+          <input type="text" placeholder="请输入活动名称" class="activeName" />
+          <br>
+          <input type="text" placeholder="活动日期" class="fromTime" name="fromTime" id="fromTime" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd HH:mm'})" /> -
+          <input type="text" placeholder="活动日期" class="toTime" name="toTime" id="toTime" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd HH:mm'})" />
+          <div class="border">
+            <select class="activeType">
+              <option>线上活动</option>
+              <option>线下活动</option>
+            </select>
+            <input type="text" placeholder="请输入活动地址" class="activeAdress" name="activeAdress" id="activeAdress" />
+          </div>
+          <div>
+            <input type="file" placeholder="封面图" class="pic" id="pic" name="pic" /><i class="camera"></i></div>
+          <textarea name="" id="" placeholder="活动详情"></textarea>
+          <h3>主办人信息</h3>
+          <input type="text" placeholder="姓名" style="width: 245px" />
+          <br/>
+          <input type="text" placeholder="电话" style="width: 245px" />
+          <br/>
+          <input type="text" placeholder="地址" style="width: 500px" />
+          <br/>
+          <input type="text" placeholder="邮箱" style="width: 245px" />
+          <br/>
+          <input type="submit" value="确认" class="submit" />
+        </form>
+      </div>
     </div>
-</div>
+  </div>
 
-<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
-<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
-<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
-<script src="__PUBLIC__/statics/dist/js/tool/page.js"></script>
-<script src="__PUBLIC__/statics/dist/js/tool/tab.js"></script>
-<script src="__PUBLIC__/statics/dist/js/active/active.js"></script>
-<script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/DatePicker/WdatePicker.js"></script>
+  <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+  <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+  <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+  <script src="__PUBLIC__/statics/dist/js/tool/page.js"></script>
+  <script src="__PUBLIC__/statics/dist/js/tool/tab.js"></script>
+  <script src="__PUBLIC__/statics/dist/js/active/active.js"></script>
+  <script language="javascript" type="text/javascript" src="__PUBLIC__/statics/js/DatePicker/WdatePicker.js"></script>
 
 </body>
+
 </html>

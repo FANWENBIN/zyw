@@ -52,48 +52,49 @@
   <div class="webmain">
     <!-- 登陆栏 -->
     <div class="con nav clearFix" id="J_nav">
-        <div class="navTitle"><a href="{:U('Index/index')}">首页</a>
-          <div class="loginfo">
-            <span class="face"></span><span class="name" id="login">用户名</span>
-            <!--  登陆-->
-            <!--  个人中心入口-->
-            <div class="myinfoalert" id="myinfoalert">
-              <div class="myinfoalert-header">
-                <span class="myinfoalert-header-face"></span>
-                <div class="myinfoalert-header-content">
-                  <span class="name">用户名。。。。</span>
-                  <div class="setting">
-                     <a href="{:U('Index/setting')}" class="set">设置</a>
-                     <a href="#" class="logout">登出</a>
-                  </div>
+      <div class="navTitle"><a href="{:U('Index/index')}">首页</a>
+        <div class="loginfo">
+          <span class="face"></span>
+          <span class="name" id="login">用户名</span>
+          <!--  登陆-->
+          <!--  个人中心入口-->
+          <div class="myinfoalert" id="myinfoalert">
+            <div class="myinfoalert-header">
+              <span class="myinfoalert-header-face"></span>
+              <div class="myinfoalert-header-content">
+                <span class="name">用户名。。。。</span>
+                <div class="setting">
+                  <a href="{:U('Index/setting')}" class="set">设置</a>
+                  <a href="#" class="logout">登出</a>
                 </div>
-              </div>
-              <div class="myinfoalert-content">
-                <div class="item">
-                  <a href="{:U('Index/myinfo')}" class="">
-                    <span class="icon icon1"></span>
-                    <span class="name">个人中心</span>
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="{:U('Index/myinfo')}" class="">
-                    <span class="icon icon2"></span>
-                    <span class="name">我的饭团</span>
-                  </a>
-                </div>
-                  <div class="item">
-                    <a href="{:U('Index/myinfo')}" class="">
-                      <span class="icon icon3"></span>
-                      <span class="name">我的频道</span>
-                    </a>
-                  </div>
               </div>
             </div>
+            <div class="myinfoalert-content">
+              <div class="item">
+                <a href="{:U('Index/myinfo')}" class="">
+                  <span class="icon icon1"></span>
+                  <span class="name">个人中心</span>
+                </a>
+              </div>
+              <div class="item">
+                <a href="{:U('Index/myinfo')}" class="">
+                  <span class="icon icon2"></span>
+                  <span class="name">我的饭团</span>
+                </a>
+              </div>
+              <div class="item">
+                <a href="{:U('Index/myinfo')}" class="">
+                  <span class="icon icon3"></span>
+                  <span class="name">我的频道</span>
+                </a>
+              </div>
+            </div>
+          </div>
 
-          </div></div>
+        </div>
+      </div>
     </div>
-
-
+    <!--  头部-->
     <div class="con conTop clearFix" id="J_ConTop">
       <volist name="newsresult" id="news" offset="0" length="1" empty="暂时没有数据">
         <a href="{:U('News/news_details?id='.$news['id'])}" class="l">
@@ -126,8 +127,7 @@
         </volist>
       </div>
     </div>
-
-
+    <!--  今日焦点-->
     <div class="con conFocus clearFix" id="J_ConFocus">
       <div class="title">
         <h2>今日焦点</h2>
@@ -205,7 +205,7 @@
         </div>
       </div>
     </div>
-
+    <!--  热门活动-->
     <div class="con conEvent clearFix" id="J_ConEvent">
       <div class="title">
         <h2>热门活动</h2>
@@ -293,8 +293,7 @@
         </div>
       </div>
     </div>
-
-
+    <!--  好演员-->
     <div class="con conTopStars clearFix" id="J_conTopStars">
       <div class="title">
         <h2>好演员评选</h2>
@@ -512,8 +511,7 @@
 
       </div>
     </div>
-
-
+    <!--  演艺人-->
     <div class="con conStars clearFix" id="J_ConStars">
       <div class="title">
         <h2>演艺人</h2>
@@ -521,15 +519,35 @@
       </div>
 
       <div class="inner clearFix">
-      <volist name = "starlist" id = "vo" offset="0" length='1'>
-        <a href="#" class="l">
-          <p>{$vo.name}</p>
-          <img src="./Uploads{$vo.img}" />
-          <sub class="hover"></sub>
-        </a>
+        <volist name="starlist" id="vo" offset="0" length='1'>
+          <a href="#" class="l">
+            <p>{$vo.name}</p>
+            <img src="./Uploads{$vo.img}" />
+            <sub class="hover"></sub>
+          </a>
         </volist>
         <div class="r clearFix">
-        <volist name = "starlist" id = "vo" offset = "1" length = "8">
+          <volist name="starlist" id="vo" offset="1" length="8">
+            <a href="#" class="item">
+              <p>{$vo.name}</p>
+              <img src="./Uploads{$vo.img}" />
+              <sub class="hover"></sub>
+            </a>
+          </volist>
+
+
+
+        </div>
+      </div>
+    </div>
+    <!--  stage-->
+    <div class="con conStage clearFix" id="J_ConStage">
+      <div class="title">
+        <h2>星Stage</h2>
+        <a href="{:U('Stage/index')}" class="more">更多</a>
+      </div>
+      <div class="inner clearFix">
+        <volist name="actorslist" id="vo">
           <a href="#" class="item">
             <p>{$vo.name}</p>
             <img src="./Uploads{$vo.img}" />
@@ -538,31 +556,9 @@
         </volist>
 
 
-
-        </div>
       </div>
     </div>
-
-
-    <div class="con conStage clearFix" id="J_ConStage">
-      <div class="title">
-        <h2>星Stage</h2>
-        <a href="{:U('Stage/index')}" class="more">更多</a>
-      </div>
-      <div class="inner clearFix">
-      <volist name = "actorslist" id = "vo">
-        <a href="#" class="item">
-          <p>{$vo.name}</p>
-          <img src="./Uploads{$vo.img}" />
-          <sub class="hover"></sub>
-        </a>
-      </volist>
-
-
-      </div>
-    </div>
-
-
+    <!--  视频汇-->
     <div class="con conVideo clearFix" id="J_ConVideo">
       <div class="title">
         <h2>视频汇</h2>
@@ -662,8 +658,7 @@
 
       </div>
     </div>
-
-
+    <!--  猜你喜欢-->
     <div class="con conYoulike clearFix" id="J_ConYoulike">
       <div class="title">
         <h2>猜你喜欢</h2>
@@ -721,7 +716,6 @@
         </div>
       </div>
     </div>
-
 
   </div>
   <!--webmain end-->
