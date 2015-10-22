@@ -74,7 +74,9 @@ class NewsController extends ComController {
 		//热门新闻
 		$hotnews = $news->where('type=3')->order('hot desc')->limit('0,10')->select();
 		$this->assign('hotnews',$hotnews);
-
+		//置顶新闻图片
+		$topnews = $news->where('type=3 and `order` = 2')->order('instime desc')->find();
+		$this->assign('topnews',$topnews);
 	 	$this->display();
 	 }
 	 //今日焦点
@@ -94,7 +96,9 @@ class NewsController extends ComController {
 		//热门新闻
 		$hotnews = $news->where('type=1')->order('hot desc')->limit('0,10')->select();
 		$this->assign('hotnews',$hotnews);
-
+//置顶新闻图片
+		$topnews = $news->where('type=1 and `order` = 2')->order('instime desc')->find();
+		$this->assign('topnews',$topnews);
 	 	$this->display();
 	 }
 	 //星闻动向
@@ -113,7 +117,9 @@ class NewsController extends ComController {
 		//热门新闻
 		$hotnews = $news->where('type=2')->order('hot desc')->limit('0,10')->select();
 		$this->assign('hotnews',$hotnews);
-
+//置顶新闻图片
+		$topnews = $news->where('type=2 and `order` = 2')->order('instime desc')->find();
+		$this->assign('topnews',$topnews);
 	 	$this->display();
 	 }
 }
