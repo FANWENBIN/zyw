@@ -5,11 +5,13 @@
   <title></title>
   <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
   <script src="myComponent.js"></script>
-  <!-- <link href="myComponent.css" type="text/css" rel="stylesheet"> -->
+  <link href="myComponent.css" type="text/css" rel="stylesheet">
   <script>
     window.onload = function(){
       initRadio("sex");
       initCheckbox("fruit");
+      initSelect("city");
+      initSelect("aaa");
       var submit = document.getElementsByTagName("input")[4];
       submit.onclick = function(e){
 
@@ -31,8 +33,26 @@
 
   <label for="apple">苹果</label><input type="checkbox" name="fruit" value="apple" id="apple">
   <label for="orange">橘子</label><input type="checkbox" name="fruit" value="orange" id="orange">
-  <input type="file">
   <input type="submit">
 </form>
+
+<form action="xxx.php" method="get">
+    <select name='city'>
+        <option value="北京">北京</option>
+        <option value="上海">上海</option>
+        <option value="河南">河南</option>
+        <option value="武汉">武汉</option>
+    </select>
+    <input type="submit" value="提交">
+</form>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<form action="xxx.php" method="get">
+    <select name='aaa'>
+        <option value="apple">苹果</option>
+        <option value="orange">橘子</option>
+    </select>
+    <input type="submit" value="提交">
+</form>
+
 </body>
 </html>
