@@ -204,10 +204,11 @@
       </div>
     </div>
 
+    <!--  热门活动-->
     <div class="con conEvent clearFix" id="J_ConEvent">
       <div class="title">
         <h2>热门活动</h2>
-        <ul class="clearFix">
+        <ul class="clearFix" id="eventlist">
           <li class="c"><a href="javascript:void(0);">热门活动</a></li>
           <li><a href="javascript:void(0);">进行中</a></li>
           <li><a href="javascript:void(0);">未开始</a></li>
@@ -215,81 +216,301 @@
         </ul>
         <a href="{:U('Active/index')}" class="more">更多</a>
       </div>
-      <div class="inner clearFix">
-        <a href="#" class="l">
-          <p>102
-            <span>参加</span>
-          </p>
-          <img src="__PUBLIC__/statics/images/__p2.jpg" />
-          <sub class="hover"></sub>
-        </a>
-        <div class="r clearFix">
-          <div class="item">
-            <div class="txt hover">
-              <p>奥斯卡颁奖典礼</p>
-              <span>2015-09-08</span>
-              <a href="#">查看</a>
+      <ul class="inner clearFix" id="eventgroup">
+        <li class="active">
+          <a href="#" class="l">
+            <img src="__PUBLIC__/statics/images/__p2.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <div class="r clearFix">
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s10.jpg" />
             </div>
-            <img src="__PUBLIC__/statics/images/p/s10.jpg" />
-          </div>
-          <div class="item">
-            <div class="txt hover">
-              <p>奥斯卡颁奖典礼</p>
-              <span>2015-09-08</span>
-              <a href="#">查看</a>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s2.jpg" />
             </div>
-            <img src="__PUBLIC__/statics/images/p/s2.jpg" />
-          </div>
-          <div class="item">
-            <div class="txt hover">
-              <p>奥斯卡颁奖典礼</p>
-              <span>2015-09-08</span>
-              <a href="#">查看</a>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s3.jpg" />
             </div>
-            <img src="__PUBLIC__/statics/images/p/s3.jpg" />
-          </div>
-          <div class="item">
-            <div class="txt hover">
-              <p>奥斯卡颁奖典礼</p>
-              <span>2015-09-08</span>
-              <a href="#">查看</a>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s4.jpg" />
             </div>
-            <img src="__PUBLIC__/statics/images/p/s4.jpg" />
-          </div>
-          <div class="item">
-            <div class="txt hover">
-              <p>奥斯卡颁奖典礼</p>
-              <span>2015-09-08</span>
-              <a href="#">查看</a>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s5.jpg" />
             </div>
-            <img src="__PUBLIC__/statics/images/p/s5.jpg" />
-          </div>
-          <div class="item">
-            <div class="txt hover">
-              <p>奥斯卡颁奖典礼</p>
-              <span>2015-09-08</span>
-              <a href="#">查看</a>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s6.jpg" />
             </div>
-            <img src="__PUBLIC__/statics/images/p/s6.jpg" />
-          </div>
-          <div class="item">
-            <div class="txt hover">
-              <p>奥斯卡颁奖典礼</p>
-              <span>2015-09-08</span>
-              <a href="#">查看</a>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s7.jpg" />
             </div>
-            <img src="__PUBLIC__/statics/images/p/s7.jpg" />
-          </div>
-          <div class="item">
-            <div class="txt hover">
-              <p>奥斯卡颁奖典礼</p>
-              <span>2015-09-08</span>
-              <a href="#">查看</a>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s8.jpg" />
             </div>
-            <img src="__PUBLIC__/statics/images/p/s8.jpg" />
           </div>
-        </div>
-      </div>
+
+        </li>
+        <li class="">
+          <a href="#" class="l">
+            <img src="__PUBLIC__/statics/images/__p2.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <div class="r clearFix">
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s10.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s5.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s6.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s7.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s8.jpg" />
+            </div>
+          </div>
+
+        </li>
+        <li class="">
+          <a href="#" class="l">
+            <img src="__PUBLIC__/statics/images/__p2.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <div class="r clearFix">
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s10.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s5.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s6.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s7.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s8.jpg" />
+            </div>
+          </div>
+
+        </li>
+        <li class="">
+          <a href="#" class="l">
+            <img src="__PUBLIC__/statics/images/__p2.jpg" />
+            <sub class="hover"></sub>
+          </a>
+          <div class="r clearFix">
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s10.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s2.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s3.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s4.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s5.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s6.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s7.jpg" />
+            </div>
+            <div class="item">
+              <div class="txt hover">
+                <p>奥斯卡颁奖典礼</p>
+                <span>2015-09-08</span>
+                <a href="#">查看</a>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/s8.jpg" />
+            </div>
+          </div>
+
+        </li>
+
+      </ul>
     </div>
 
 
@@ -564,7 +785,7 @@
     <div class="con conVideo clearFix" id="J_ConVideo">
       <div class="title">
         <h2>视频汇</h2>
-        <ul class="clearFix">
+        <ul class="clearFix" id="videolist">
           <li class="c"><a href="javascript:void(0);">电影电视</a></li>
           <li><a href="javascript:void(0);">制作花絮</a></li>
           <li><a href="javascript:void(0);">影视教学</a></li>
@@ -572,93 +793,354 @@
         </ul>
         <a href="#" class="more">更多</a>
       </div>
-      <div class="inner clearFix">
+      <ul class="inner clearFix" id="videogroup">
 
-        <div class="group first">
-          <a href="#" class="cover">
-            <div class="txt">
-              <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
-              <span>2015-10-14 02:13:36</span>
-            </div>
-            <img src="__PUBLIC__/statics/images/p/p5.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <ul>
-            <li><a href="#">唐嫣穿薄纱裙现身 膝盖似有伤</a>
-              <span>3小时前</span>
-            </li>
-            <li><a href="#">韩秀榜 第43期精彩演出</a>
-              <span>4小时前</span>
-            </li>
-            <li><a href="#">CNBLUE新曲MV李正信预告公开</a>
-              <span>5小时前</span>
-            </li>
-            <li><a href="#">LYn第9张正规专辑视听影像公开</a>
-              <span>6小时前</span>
-            </li>
-            <li><a href="#">MTV发布2015VMA最佳时刻</a>
-              <span>7小时前</span>
-            </li>
-          </ul>
-        </div>
+        <li class="list active">
+          <div class="group first">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p5.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">唐嫣穿薄纱裙现身 膝盖似有伤</a>
+                <span>3小时前</span>
+              </li>
+              <li><a href="#">韩秀榜 第43期精彩演出</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">CNBLUE新曲MV李正信预告公开</a>
+                <span>5小时前</span>
+              </li>
+              <li><a href="#">LYn第9张正规专辑视听影像公开</a>
+                <span>6小时前</span>
+              </li>
+              <li><a href="#">MTV发布2015VMA最佳时刻</a>
+                <span>7小时前</span>
+              </li>
+            </ul>
+          </div>
 
-        <div class="group">
-          <a href="#" class="cover">
-            <div class="txt">
-              <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
-              <span>2015-10-14 02:13:36</span>
-            </div>
-            <img src="__PUBLIC__/statics/images/p/p4.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <ul>
-            <li><a href="#">SUPER JUNIOR回归变身小恶魔</a>
-              <span>3小时前</span>
-            </li>
-            <li><a href="#">EXO后续曲回归变身橄榄球美少年</a>
-              <span>4小时前</span>
-            </li>
-            <li><a href="#">少女时代重新出发魅力回归</a>
-              <span>5小时前</span>
-            </li>
-            <li><a href="#">LINKIN PARK猎捕行动2015中国巡回演唱会</a>
-              <span>6小时前</span>
-            </li>
-            <li><a href="#">乌兰托娅火红的萨日朗拍摄花絮</a>
-              <span>11小时前</span>
-            </li>
-          </ul>
-        </div>
+          <div class="group">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p4.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">SUPER JUNIOR回归变身小恶魔</a>
+                <span>3小时前</span>
+              </li>
+              <li><a href="#">EXO后续曲回归变身橄榄球美少年</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">少女时代重新出发魅力回归</a>
+                <span>5小时前</span>
+              </li>
+              <li><a href="#">LINKIN PARK猎捕行动2015中国巡回演唱会</a>
+                <span>6小时前</span>
+              </li>
+              <li><a href="#">乌兰托娅火红的萨日朗拍摄花絮</a>
+                <span>11小时前</span>
+              </li>
+            </ul>
+          </div>
 
-        <div class="group">
-          <a href="#" class="cover">
-            <div class="txt">
-              <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
-              <span>2015-10-14 02:13:36</span>
-            </div>
-            <img src="__PUBLIC__/statics/images/p/p6.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <ul>
-            <li><a href="#">“布达吉雅乐团”新专辑首唱会</a>
-              <span>1小时前</span>
-            </li>
-            <li><a href="#">【终于还是等到你】潘协庆音乐分享会</a>
-              <span>2小时前</span>
-            </li>
-            <li><a href="#">金润吉新专辑首唱会完美收官</a>
-              <span>4小时前</span>
-            </li>
-            <li><a href="#">SUPER JUNIOR十年再造神话</a>
-              <span>4小时前</span>
-            </li>
-            <li><a href="#">2015全英音乐奖Taylor Swift现场</a>
-              <span>5小时前</span>
-            </li>
-          </ul>
-        </div>
+          <div class="group">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p6.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">“布达吉雅乐团”新专辑首唱会</a>
+                <span>1小时前</span>
+              </li>
+              <li><a href="#">【终于还是等到你】潘协庆音乐分享会</a>
+                <span>2小时前</span>
+              </li>
+              <li><a href="#">金润吉新专辑首唱会完美收官</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">SUPER JUNIOR十年再造神话</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">2015全英音乐奖Taylor Swift现场</a>
+                <span>5小时前</span>
+              </li>
+            </ul>
+          </div>
 
-      </div>
+        </li>
+        <li class="list">
+          <div class="group first">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p5.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">唐嫣穿薄纱裙现身 膝盖似有伤</a>
+                <span>3小时前</span>
+              </li>
+              <li><a href="#">韩秀榜 第43期精彩演出</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">CNBLUE新曲MV李正信预告公开</a>
+                <span>5小时前</span>
+              </li>
+              <li><a href="#">LYn第9张正规专辑视听影像公开</a>
+                <span>6小时前</span>
+              </li>
+              <li><a href="#">MTV发布2015VMA最佳时刻</a>
+                <span>7小时前</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="group">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p4.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">SUPER JUNIOR回归变身小恶魔</a>
+                <span>3小时前</span>
+              </li>
+              <li><a href="#">EXO后续曲回归变身橄榄球美少年</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">少女时代重新出发魅力回归</a>
+                <span>5小时前</span>
+              </li>
+              <li><a href="#">LINKIN PARK猎捕行动2015中国巡回演唱会</a>
+                <span>6小时前</span>
+              </li>
+              <li><a href="#">乌兰托娅火红的萨日朗拍摄花絮</a>
+                <span>11小时前</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="group">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p6.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">“布达吉雅乐团”新专辑首唱会</a>
+                <span>1小时前</span>
+              </li>
+              <li><a href="#">【终于还是等到你】潘协庆音乐分享会</a>
+                <span>2小时前</span>
+              </li>
+              <li><a href="#">金润吉新专辑首唱会完美收官</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">SUPER JUNIOR十年再造神话</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">2015全英音乐奖Taylor Swift现场</a>
+                <span>5小时前</span>
+              </li>
+            </ul>
+          </div>
+
+        </li>
+        <li class="list">
+          <div class="group first">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p5.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">唐嫣穿薄纱裙现身 膝盖似有伤</a>
+                <span>3小时前</span>
+              </li>
+              <li><a href="#">韩秀榜 第43期精彩演出</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">CNBLUE新曲MV李正信预告公开</a>
+                <span>5小时前</span>
+              </li>
+              <li><a href="#">LYn第9张正规专辑视听影像公开</a>
+                <span>6小时前</span>
+              </li>
+              <li><a href="#">MTV发布2015VMA最佳时刻</a>
+                <span>7小时前</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="group">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p4.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">SUPER JUNIOR回归变身小恶魔</a>
+                <span>3小时前</span>
+              </li>
+              <li><a href="#">EXO后续曲回归变身橄榄球美少年</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">少女时代重新出发魅力回归</a>
+                <span>5小时前</span>
+              </li>
+              <li><a href="#">LINKIN PARK猎捕行动2015中国巡回演唱会</a>
+                <span>6小时前</span>
+              </li>
+              <li><a href="#">乌兰托娅火红的萨日朗拍摄花絮</a>
+                <span>11小时前</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="group">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p6.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">“布达吉雅乐团”新专辑首唱会</a>
+                <span>1小时前</span>
+              </li>
+              <li><a href="#">【终于还是等到你】潘协庆音乐分享会</a>
+                <span>2小时前</span>
+              </li>
+              <li><a href="#">金润吉新专辑首唱会完美收官</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">SUPER JUNIOR十年再造神话</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">2015全英音乐奖Taylor Swift现场</a>
+                <span>5小时前</span>
+              </li>
+            </ul>
+          </div>
+
+        </li>
+        <li class="list">
+          <div class="group first">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>鹿晗新专辑《Reloaded》舞蹈花絮上线</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p5.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">唐嫣穿薄纱裙现身 膝盖似有伤</a>
+                <span>3小时前</span>
+              </li>
+              <li><a href="#">韩秀榜 第43期精彩演出</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">CNBLUE新曲MV李正信预告公开</a>
+                <span>5小时前</span>
+              </li>
+              <li><a href="#">LYn第9张正规专辑视听影像公开</a>
+                <span>6小时前</span>
+              </li>
+              <li><a href="#">MTV发布2015VMA最佳时刻</a>
+                <span>7小时前</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="group">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>霸道总裁言承旭追爱前任，双CP四角乱爱烧脑互虐！</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p4.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">SUPER JUNIOR回归变身小恶魔</a>
+                <span>3小时前</span>
+              </li>
+              <li><a href="#">EXO后续曲回归变身橄榄球美少年</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">少女时代重新出发魅力回归</a>
+                <span>5小时前</span>
+              </li>
+              <li><a href="#">LINKIN PARK猎捕行动2015中国巡回演唱会</a>
+                <span>6小时前</span>
+              </li>
+              <li><a href="#">乌兰托娅火红的萨日朗拍摄花絮</a>
+                <span>11小时前</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="group">
+            <a href="#" class="cover">
+              <div class="txt">
+                <h3>霉霉Taylor Swift新单《Wildest Dreams》MV</h3>
+                <span>2015-10-14 02:13:36</span>
+              </div>
+              <img src="__PUBLIC__/statics/images/p/p6.jpg" />
+              <sub class="hover"></sub>
+            </a>
+            <ul>
+              <li><a href="#">“布达吉雅乐团”新专辑首唱会</a>
+                <span>1小时前</span>
+              </li>
+              <li><a href="#">【终于还是等到你】潘协庆音乐分享会</a>
+                <span>2小时前</span>
+              </li>
+              <li><a href="#">金润吉新专辑首唱会完美收官</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">SUPER JUNIOR十年再造神话</a>
+                <span>4小时前</span>
+              </li>
+              <li><a href="#">2015全英音乐奖Taylor Swift现场</a>
+                <span>5小时前</span>
+              </li>
+            </ul>
+          </div>
+
+        </li>
+
+      </ul>
     </div>
 
 
