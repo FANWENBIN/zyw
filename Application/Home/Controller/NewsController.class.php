@@ -120,7 +120,6 @@ class NewsController extends ComController {
 //置顶新闻图片
 		$topnews = $news->where('type=2 and `order` = 2')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
-		var_dump($topnews);
 	 	$this->display();
 	 }
 }
