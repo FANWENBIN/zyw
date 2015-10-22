@@ -60,18 +60,18 @@
     <div class="wrapper clearFix">
         <!--正文-->
         <div class="topContent clearFix">
-            <a href="#" class="topImg">
-                <img src="__PUBLIC__/statics/images/pic_top.jpg" alt=""/>
+            <a href="{:U('News/news_details?id='.$newstop['id'])}" class="topImg">
+                <img src="./Uploads{$newstop.topimg}" alt=""/>
                 <div class="title">
-                    <h3>adadadadadadada</h3>
-                    <p>范冰冰 大水牛 亲亲我我</p>
+                    <h3>{$newstop.title}</h3>
+                  
                 </div>
                 <div class="cover"></div>
             </a>
 
             <div class="right">
              <volist name = "timenews" id = "vo" offset="0" length='1'>
-                <a href="#" class="rightTop">
+                <a href="{:U('News/news_details?id='.$vo['id'])}" class="rightTop">
                     <img src="./Uploads{$vo.imgpath}" alt="" />
                     <div class="txt">
                         <h3><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h3>
@@ -85,7 +85,7 @@
                 <ul class="list">
                 <volist name = "timenews" id = "vo" offset = "1" length = "6">
                     <li>
-                        <a href="#"><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></a>
+                        <a href="{:U('News/news_details?id='.$vo['id'])}"><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></a>
                         <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
                     </li>
                 </volist>
