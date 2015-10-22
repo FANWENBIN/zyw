@@ -16,7 +16,7 @@
       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
     }
   }
-} 
+}
 
 /*标题，抬头css*/
 .webmain .con {
@@ -190,12 +190,14 @@
         @extend %img;
       }
       p {
+        position: absolute;
         height: 30px;
         width: 180px;
         color: #fff;
         line-height: 30px;
         text-align: center;
         margin-top: -30px;
+
       }
       sub {
         @extend %img;

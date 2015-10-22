@@ -125,6 +125,44 @@
   }
 }
 
+@mixin item4 ($width, $height, $pheight,$fontsize){
+    %wh{
+      width: $width;
+      height: $height;
+    }
+    img {
+      @extend %wh;
+    }
+    p {
+      position: absolute;
+      height: $pheight;
+      width: $width;
+      margin-top:  - $pheight;
+      font: $fontsize;
+      color: #fff;
+      text-align: center;
+      line-height: $pheight;
+      background: url("../../../images/space.png") 0 0 repeat;
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+      background: rgba(0,0,0,.6);
+    }
+    .cover {
+      position: absolute;
+      @extend %wh;
+      margin-top: - $height;
+      background: rgba(0,0,0,0);
+      opacity: 0;
+      filter: alpha(opacity=0);
+      background: url("../../../images/space.png") 0 0 repeat;
+      &:hover{
+        background: rgba(0,0,0,.3);
+        opacity: 1;
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+      }
+    }
+}
+
+
 
 //banner1 样式
 @mixin banner1 ($width,$height,$topclip){

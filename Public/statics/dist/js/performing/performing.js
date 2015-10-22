@@ -1,2 +1,1 @@
-
-//# sourceMappingURL=performing.js.map
+$(function(){var i={init:function(){$("#sorting").on("click","li",i.tabGroup)},tabGroup:function(){$("#sorting").find("li").removeClass("active"),$(this).addClass("active"),console.log($(this).data("group"))}};i.init()});

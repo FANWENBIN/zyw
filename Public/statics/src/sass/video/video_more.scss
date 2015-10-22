@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+@import "../sasscommon";
+
+.webmain .con .title h2{
+  background: url("../../../images/sprite_video.gif") 0 0 no-repeat;
+}
+
+.webmain .video{
+  .title {
+    h2{
+      width: 145px;
+      background-position: 0 -120px;
+    }
+    .group li{
+      width: 90px;
+    }
+  }
+  .innergroup{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+  .inner {
+    width: 1230px;
+    margin-left: -30px;
+    .colsection{
+      float: left;
+      width: 380px;
+      margin-left: 30px;
+      .item{
+        @include item3(380px, 285px, 60px, 14px, 12px);
+      }
+      li{
+        position: relative;
+        height: 35px;
+        line-height: 35px;
+        font-size: 12px;
+        h3{
+          display: inline-block;
+        }
+        span{
+          position: absolute;
+          right: 0;
+          color: #ccc;
+        }
+      }
+    }
+  }
+}

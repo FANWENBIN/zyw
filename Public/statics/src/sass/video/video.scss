@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+@import "../sasscommon";
+
+
+
+.banner{
+  @include banner1(1200px, 530px, 480px);
+}
+.webmain .con .title h2{
+  background: url("../../../images/sprite_video.gif") 0 0 no-repeat;
+}
+.webmain .todayhot{
+  .inner{
+    .left{
+      float: left;
+      .item{
+       @include item3(380px, 310px, 60px, 14px, 12px);
+     }
+    }
+    .middle {
+      float: left;
+      width: 175px*2 + 30px*2;
+      .item{
+        @include item2(175px, 140px, 35px, 12px);
+        float: left;
+        margin:{
+          left: 30px;
+          bottom: 30px;
+        }
+      }
+    }
+    .right {
+      margin-left: 820px;
+      li{
+        height: 35px;
+        line-height: 35px;
+        position: relative;
+        font-size: 12px;
+        h3{
+          display: inline-block;
+        }
+        span{
+          position: absolute;
+          right: 0;
+          color: #ccc;
+        }
+
+      }
+
+    }
+  }
+}
+
+.webmain .entertainment{
+  .title h2{
+    background-position: 0 -60px;
+  }
+  .item1{
+   @include item3(380px, 310px, 60px, 14px, 12px);
+   float: left;
+ }
+ .item2 {
+   @include item2(175px, 140px, 35px, 12px);
+   float: left;
+   margin:{
+     left: 30px;
+     bottom: 30px;
+   }
+ }
+}
+.webmain .video{
+  .title {
+    h2{
+      width: 145px;
+      background-position: 0 -120px;
+    }
+    .group li{
+      width: 90px;
+    }
+  }
+  .innergroup{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+  .inner {
+    width: 1230px;
+    margin-left: -30px;
+    .colsection{
+      float: left;
+      width: 380px;
+      margin-left: 30px;
+      .item{
+        @include item3(380px, 285px, 60px, 14px, 12px);
+      }
+      li{
+        position: relative;
+        height: 35px;
+        line-height: 35px;
+        font-size: 12px;
+        h3{
+          display: inline-block;
+        }
+        span{
+          position: absolute;
+          right: 0;
+          color: #ccc;
+        }
+      }
+    }
+  }
+}
+
+.webmain .guess{
+  .title {
+    h2{
+      width: 165px;
+      background-position: 0 -180px;
+    }
+    a.more{
+      top: 14px;
+      background-image: url("../../../images/p_change.gif");
+    }
+  }
+  .inner {
+    width: 1230px;
+    margin-left: -30px;
+      .item1{
+        @include item3(380px, 285px, 60px, 14px, 12px);
+        float: left;
+        margin-left: 30px;
+      }
+      .item2{
+        @include item2(175px, 135px, 35px, 12px);
+        float: left;
+        margin: {
+          left: 30px;
+          bottom: 15px;
+        }
+      }
+      .go2info{
+        float: left;
+        width: 175px;
+        height: 135px;
+        background: url("../../../images/p_info.gif");
+        margin: {
+          left: 30px;
+          bottom: 15px;
+        }
+      }
+  }
+}
