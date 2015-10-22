@@ -31,20 +31,39 @@ class PerformingController extends ComController {
     	}
     	$actors = M('actors');
     	$data = [];
+        $condition = I('get.condition');
+        if(!empty($condition)){
+            $where['name|achievement'] = array('like','%'.$condition.'%'); 
+        }   $where['status'] = array(array('eq',1),array('eq',2),'or');
     	foreach(range('A','Z') as $v){
 			$data[$v] = $actors
 						->field('id,headimg,name')
-						->where("status <> 0 and initial ='".$v."'")
+						->where("initial ='".$v."'")
 						->where($where)
 						->select();
 			foreach($data[$v] as $key=>$val){
 				$data[$v][$key]['headimg'] = './Uploads'.$val['headimg'];
 			}
 			if($data[$v] === false){
-				ajaxReturn(101,'系统错误','');
+				ajaxReturn(101,'请求失败','');
 			}
 		}
 		ajaxReturn(0,'',$data);
+    }
+
+    //搜索演员
+    public function actorssearch(){
+
+        $condition = I('get.condition');
+        $data['name|achievement'] = array('like','%'.$condition.'%');
+        $data['status'] = array(array('eq',1),array('eq',2),'or');
+        $actors = M('actors');
+        $actorsval = $actors->where($data)->select();
+        if($actorsval === false){
+            ajaxReturn(101,'请求失败','');
+        }else{
+            ajaxReturn(0,'',$actorsval);
+        }
     }
 
 
