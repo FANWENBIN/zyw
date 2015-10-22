@@ -10,6 +10,7 @@ class ComController extends Controller {
        $records = $config->where('type = 4')->find();
 
        $this->assign('records',$records['records']);
+       $this->assign('stagerule',$records['stagerule']);
     }
 
 //测试

@@ -11,9 +11,10 @@ class ConfigureController extends ComController {
             $list = $configure->where('type = 4')->find();
             $this->assign('list',$list);
             $this->assign('cur',12);
-            $this->display();  
+            $this->display();
         }else{
             $data['records'] = I('post.records');
+            $data['stagerule'] = I('post.stagerule');
             $sign = $configure->where('type = 4')->save($data);
             if($sign){
                 $this->success('保存成功',U('Configure/index'));
