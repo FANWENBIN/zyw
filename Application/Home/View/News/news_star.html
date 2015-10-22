@@ -64,24 +64,20 @@
                 <img src="./Uploads{$topnews.pctopimg}" alt=""/>
                 <div class="title">
                     <h3>{$topnews.title}</h3>
-                  
                 </div>
                 <div class="cover"></div>
             </a>
-
             <div class="right">
              <volist name = "timenews" id = "vo" offset="0" length='1'>
                 <a href="{:U('News/news_details?id='.$vo['id'])}" class="rightTop">
                     <img src="./Uploads{$vo.imgpath}" alt="" />
                     <div class="txt">
                         <h3><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h3>
-
                         <p>{$vo.instime|date='Y-m-d',###}</p>
                     </div>
                     <div class="cover"></div>
                 </a>
             </volist>
-
                 <ul class="list">
                 <volist name = "timenews" id = "vo" offset = "1" length = "6">
                     <li>
