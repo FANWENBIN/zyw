@@ -50,15 +50,19 @@
         <!--表单-->
         <div class="form">
           <div class="formHeader">
-            <h1>备案号设置</h1>
+            <h1>页面底部信息设置</h1>
           </div>
           <form action="{:U('Configure/index')}" method="post" enctype="multipart/form-data" id="J_Form">
             <fieldset>
+            <div class="l">
+                <h6>版权信息</h6>
+                <div class="i"><input type="text" id="stagerule" name="stagerule" class="input" value="{$list.stagerule}"/></div>
+              </div>
               <div class="l">
                 <h6>备案号</h6>
                 <div class="i"><input type="text" id="title" name="records" class="input" value="{$list.records}"/></div>
               </div>
-
+            
             </fieldset>
             <div class="btnCon btnCon2">
               <input type="hidden" name="id" class="btnA" value="{$list.id}" />
