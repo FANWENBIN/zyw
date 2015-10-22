@@ -13,7 +13,7 @@
 
 .webmain .conTop .l { width: 790px; height: 530px; overflow: hidden; float: left; margin-right: 30px; position: relative; display: block;}
 .webmain .conTop .l img { display: block; width: 790px; height: 530px;}
-.webmain .conTop .l .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 22px 20px 20px 20px;background: rgb(0,0,0); background: rgba(0,0,0,0.34); width: 750px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
+.webmain .conTop .l .txt { position: absolute; left: 0; bottom: 0; z-index: 3; width: 100%; padding: 22px 20px 20px 20px;background: rgb(0,0,0); background: rgba(0,0,0,0.6); width: 750px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);}
 .webmain .conTop .l .txt h3 { color: #fff; font-size: 22px; line-height: 24px; font-weight: normal; margin-bottom: 8px;}
 .webmain .conTop .l .txt span { color: #fff; font-size: 14px; line-height: 18px; opacity: 0.7;}
 .webmain .conTop .l .play { width: 100%; height: 100%;   position: absolute; left: 0; top: 0; background: rgba(0, 0, 0, 0);  background: url("../../../images/space.png") 0 0 repeat;}
@@ -45,6 +45,12 @@
 
 .webmain .conEvent {}
 .webmain .conEvent .title h2 { width: 166px; background-position: 0 -60px;}
+.webmain .conEvent .inner li{
+  display: none;
+  &.active{
+    display: block;
+  }
+}
 .webmain .conEvent .inner .l { width: 380px; height: 430px; overflow: hidden; float: left; position: relative; display: block;}
 .webmain .conEvent .inner .l img { display: block; width: 380px; height: 430px;}
 .webmain .conEvent .inner .l p { height: 30px; background: rgba(0,0,0,0.8); color: #fff; font-size: 12px; line-height: 30px; padding: 0 12px; position: absolute; right: 0; top: 0; z-index: 2;}
@@ -60,6 +66,8 @@
 .webmain .conEvent .inner .r .item .txt span { display: block; width: 100%; height: 20px; line-height: 20px; text-align: center; font-size: 12px;}
 .webmain .conEvent .inner .r .item .txt a { display: block; width: 80px; height: 28px; line-height: 28px; text-align: center; font-size: 12px; border: 1px solid #ffffff; color: #fff; font-size: 12px; bottom: 42px; margin: 42px auto;}
 .webmain .conEvent .inner .r .item .txt a:hover { background: rgba(255,255,255,0.2);}
+
+
 
 .webmain .conTopStars {}
 .webmain .conTopStars .title h2 { width: 358px; background-position: 0 -120px;}
@@ -125,6 +133,14 @@
 .webmain .conStage .inner .item .hover:hover{background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000)}
 .webmain .conVideo {}
 .webmain .conVideo .title h2 { width: 149px; background-position: 0 -300px;}
+.webmain .conVideo .inner .list{
+  display: none;
+  &.active{
+    display: block;
+  }
+}
+
+
 .webmain .conVideo .inner .group { float: left; width: 380px; overflow: hidden; margin-left: 30px;}
 .webmain .conVideo .inner .group.first { margin-left: 0;}
 .webmain .conVideo .inner .group .cover { margin-bottom: 10px; width: 380px; height: 250px; overflow: hidden; position: relative; display: block;}
@@ -140,6 +156,10 @@
 
 .webmain .conYoulike { margin-bottom: 30px;}
 .webmain .conYoulike .title h2 { width: 166px; background-position: 0 -360px;}
+.webmain .conYoulike .title a.more{
+  background-image: url("../../../images/p_change.gif");
+  top: 14px;
+}
 .webmain .conYoulike .inner .l { width: 380px; height: 310px; overflow: hidden; float: left; position: relative; display: block;}
 .webmain .conYoulike .inner .l .hover { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%;background: rgba(0,0,0,0); background: url("../../../images/space.png") 0 0 repeat;}
 .webmain .conYoulike .inner .l .hover:hover{background: rgba(0,0,0,0.34);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000,endColorstr=#57000000);}
