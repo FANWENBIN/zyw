@@ -263,13 +263,13 @@ $(function() {
                                 <p>' + json.data[i].name + '</p>\
                         <span>当前票数：' + json.data[i].votes + '</span>\
                         </div>\
-                        <img src="./Uploads' + json.data[i].headimg + '"/>\
+                        <img src="./Uploads' + json.data[i].img + '"/>\
                             </div>'
             }
             $("#insertgroup").html(_html);
 
             $("#J_ConVote .inner .item").off().hover(page.voteIn, page.voteOut);
-
+ 
           } else {
             //alert(json.msg)
           }
