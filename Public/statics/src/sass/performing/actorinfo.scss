@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+@import "../sasscommon";
+
+
+.webmain .con .title h2{
+  background: url("../../../images/sprite_actorinfo.gif") 0 0 no-repeat;
+}
+
+.webmain .topcon .leftsection{
+  width: 660px;
+  float: left;
+  h3{
+    font-size: 40px;
+    line-height: 90px;
+  }
+  span  {
+    font-size: 14px;
+    line-height: 35px;
+  }
+  ul{
+    margin-left: 75px;
+    .title{
+      position: absolute;
+      margin-left: -75px;
+      color: #ccc;
+    }
+  }
+}
+.webmain .topcon .rightsection{
+  margin-left: 740px;
+  img{
+    width: 425px;
+    height: 415px;
+  }
+  span{
+    position: absolute;
+    height: 20px;
+    margin:{
+      left: 10px;
+      top: -30px;
+    }
+    font-size: 18px;
+  }
+  a{
+    position: absolute;
+    width: 155px;
+    height: 44px;
+    margin: {
+      left: 270px;
+      top: -44px;
+    }
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    background: #000;
+
+  }
+}
+.webmain .work{
+  .banner{
+    position: relative;
+    height: 200px;
+    .pre{
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      width: 45px;
+      height: 200px;
+      background: url("../../../images/sprite_performce.png") 0 0 no-repeat;
+    }
+    .next{
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      width: 45px;
+      height: 200px;
+      background: url("../../../images/sprite_performce.png") 0 -200px no-repeat;
+    }
+    ul{
+      position: absolute;
+      left: 0;
+      width: 2000px;
+      li{
+        float: left;
+        width: 175px;
+        height: 200px;
+        &+li{
+        margin-left: 30px;
+        }
+        img{
+          width: 175px;
+          height: 200px;
+        }
+        p{
+          height: 30px;
+          margin-top: -30px;
+          line-height: 30px;
+          text-align: center;
+          color: #fff;
+          background: url("../../../images/space.png") 0 0 repeat;
+          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+          background: rgba(0,0,0,.6);
+        }
+      }
+    }
+  }
+}
+
+.webmain .newstatus{
+  position: relative;
+  float: left;
+  width: 790px;
+  .title h2{
+    background-position: 0 -60px;
+  }
+  .item{
+    height: 160px;
+    margin-bottom: 30px;
+    img {
+      float: left;
+      width: 240px;
+      height: 160px;
+    }
+    .content{
+      margin-left: 270px;
+      h3{
+        font-size: 18px;
+        line-height: 30px;
+        margin-bottom: 30px;
+      }
+      span{
+        display: block;
+        font-size: 16px;
+        color: #ccc;
+      }
+      .more{
+        float: right;
+      }
+    }
+  }
+}
+.webmain .fansactive{
+  margin-left: 820px;
+  .title h2{
+    background-position: 0 -120px;
+  }
+  .item{
+    @include item3(380px, 280px, 65px,14px, 12px);
+  }
+  .intro{
+    width: 380px;
+    p{
+      font-size: 12px;
+      line-height: 30px;
+    }
+    .focus{
+      float: right;
+      width: 30px;
+      height: 30px;
+      background: url("../../../images/icon_focus.jpg")
+    }
+    .num{
+      float: right;
+      height: 30px;
+      font-size: 12px;
+      line-height: 30px;
+      color: #ccc;
+
+    }
+  }
+}
