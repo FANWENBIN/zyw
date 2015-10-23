@@ -241,12 +241,15 @@ class VoteController extends ComController {
     //=================END
    //候选演员和获奖者查询接口
     public function wininter(){
+        $actors = M('actors');
         $condition = trim(I('get.condition'));
 
         if($condition != 6 && $condition != 36){
             ajaxReturn(104,'参数错误','');
         }
-        
+        $where['promotion'] = $condition;
+        $sign = $actors->where($where)->count();
+        if($sign < 1){ajaxReturn(102,'未产生'.$condition.'强','');}
         if($condition == 36){
             $groupid = trim(I('get.groupid'));
             $sex     = trim(I('get.sex'));
@@ -256,9 +259,8 @@ class VoteController extends ComController {
             $where['groupid'] = $groupid;
             $where['sex']     = $sex;
         }
+
         //入围演员
-        $actors = M('actors');
-        $where['promotion'] = $condition;
         $cutactors = $actors->field('headimg,votes,id,name,groupid')->where($where)->order(array('groupid'=>'asc','votes'=>'desc','chinese_sum'=>'asc'))->limit(0,$condition)->select();
        if($cutactors === false){
             ajaxReturn(101,'请求失败','');
