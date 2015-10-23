@@ -3,8 +3,8 @@
 @import "../sasscommon";
 
 
-.webmain .topbanner{
-  @include banner1(1200px, 530px, 40px);
+.webmain .banner{
+  @include banner1(1200px, 530px, 480px);
 
 }
 .webmain .enroll{

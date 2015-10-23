@@ -1,1 +1,1 @@
-$(function(){});
+$(function(){var i={init:function(){tabinit()}};i.init()});
