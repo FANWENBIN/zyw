@@ -16,11 +16,14 @@ class ActiveController extends ComController {
     public function active_details(){
         $id = I('get.id');
         $active = M('active');
-        $list = $active->where('id='.$id)->find();
+        $list   = $active->where('id='.$id)->find();
         $this->assign('list',$list);
+        $data['concern'] = $list['concern']+1;
+        $active->where('id='.$id)->save($data);
         $img = M('active_img');
         $imglist = $img->where('activeid='.$id)->select();
         $this->assign('imglist',$imglist);
+
         $this->display();
     }
     //========================前台调用活动查询接口==============Start//
@@ -78,7 +81,7 @@ class ActiveController extends ComController {
    				ajaxReturn('101','参数错误','');
     			break;
     	}
-    $data['status'] = 1;
+        $data['status'] = 1;
     	//$activeval = $active->where($data)->select();
 
 
