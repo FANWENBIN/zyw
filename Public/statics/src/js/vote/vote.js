@@ -140,13 +140,12 @@ $(function() {
         },
         success: function(json) {
           //alert(json.status)
-          console.console.log(json.status);
+          console.log(json.status);
           if (json.status == 102) {
             $("#finallylist").hide();
           }else if(json.status == 0){
             var _html = "";
-
-            for(var i = 0, len = json.status.length ; i < len ; i++){
+            for(var i = 0, len = json.data.length ; i < len ; i++){
               if(json.status.data[i].groupid == "红组"){
                 _html += '<div class="item">'
                   +'<a href="#'+ json.data[i].id +'"></a>'
