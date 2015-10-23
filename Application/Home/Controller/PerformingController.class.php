@@ -65,6 +65,29 @@ class PerformingController extends ComController {
             ajaxReturn(0,'',$actorsval);
         }
     }
-
+    //明星详情
+    public function actorinfo(){
+        $id = I('get.id');
+        //明星信息
+        $acotrs = M('actors');
+        $actorsval = $actors->where('id='.$id)->find();
+        $this->assign('actorsval',$actorsval);
+        //明星代表作
+        $actors_production = M('actors_production');
+        $production = $actors_production->where('actorsid='.$id)->select();
+        $this->assign('production',$production);
+        //明星动态
+        $news = M('news');
+        $where['status'] = 1;
+        $where['keywords'] = array('like', $actorsval['name']);
+        $newsval = $news->where($where)->select();
+        $this->assign('newsval',$newsval);
+        //推荐活动
+         $active = M('active');
+         $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
+         $this->assign('activeval',$activeval);
+        
+        $this->display();
+    }
 
 }

@@ -50,18 +50,18 @@
 
     <div class="topcon">
       <div class="leftsection">
-        <h3>李易峰</h3>
-        <span>李易峰，中国男演员、歌手、制片人。1987年5月4日出生于四川成都，毕业于四川师范大学电影电视学院。2007年参加《加油！好男儿》出道，同年12月发行首张EP《四叶草》。2009年发行首张个人专辑《小先生》。2010年主演电视剧《幸福一定强》和《幸福最晴天》，获2011年国剧盛典最佳新演员奖。2012年在《真爱谎言》中挑战扮演自闭症患者。2013年凭借电视剧《千金归来》获得乐视盛典最受欢迎男演员奖。2014年7月因电视剧《古剑奇谭》中“百里屠苏”一角而获得广泛</span>
+        <h3>{$actorsval.name}</h3>
+        <span>{$actorsval.about}</span>
         <ul>
-          <li><span class="title">出生年月</span><span class="des">1987年5月4日 四川省成都市</span></li>
-          <li><span class="title">国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍</span><span class="des">中华人民共和国</span></li>
-          <li><span class="title">人物信息</span><span class="des">A型 | 金牛座 | 181cm | 60kg</span></li>
-          <li><span class="title">经纪公司</span><span class="des">欢瑞世纪影视传媒股份有限公司</span></li>
+          <li><span class="title">出生年月</span><span class="des">{$actorsval.birthday|date="Y年m月d日",###} {$actorsval.address</span></li>
+          <li><span class="title">国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍</span><span class="des">{$actorsval.national}</span></li>
+          <li><span class="title">人物信息</span><span class="des">{$actorsval.blood}型 | {$actorsval.constellation} | {$actorsval.height}cm | {$actorsval.weight}kg</span></li>
+          <li><span class="title">经纪公司</span><span class="des">{$actorsval.talent}</span></li>
         </ul>
 
       </div>
       <div class="rightsection">
-        <img src="" alt="" />
+        <img src="{$actorsval.img}" alt="" />
         <span>粉丝团人数：5413131</span>
         <a href="#">粉丝团</a>
       </div>
@@ -76,41 +76,14 @@
           <a href="javascrpt:;" class="pre"></a>
           <a href="javascrpt:;" class="next"></a>
           <ul>
+      <volist name = "production" id = "vo" empty= "暂未上传代表作">
             <li>
-              <img src="" alt="" />
-              <p class="name">xxxx
+              <img src="./Uploads{$vo.img}" alt="" />
+              <p class="name">{$vo.title}
               </p>
             </li>
-            <li>
-              <img src="" alt="" />
-              <p class="name">xxxx
-              </p>
-            </li>
-            <li>
-              <img src="" alt="" />
-              <p class="name">xxxx
-              </p>
-            </li>
-            <li>
-              <img src="" alt="" />
-              <p class="name">xxxx
-              </p>
-            </li>
-            <li>
-              <img src="" alt="" />
-              <p class="name">xx
-              </p>
-            </li>
-            <li>
-              <img src="" alt="" />
-              <p class="name">1111
-              </p>
-            </li>
-            <li>
-              <img src="" alt="" />
-              <p class="name">33333
-              </p>
-            </li>
+        </volist>  
+
           </ul>
         </div>
 
@@ -122,46 +95,17 @@
         <h2>最新动态</h2>
       </div>
       <div class="inner">
+      <volsit name = "newsval" id = "vo">
         <div class="item clearFix">
-          <img src="" alt="" />
+          <img src="{:U('News/news_details',array('id'=>$vo['id']))}" alt="" />
           <div class="content">
-            <h3>xxxxxx</h3>
-            <span>xxxxxxxxxxxxxxxxxxxxxxxxxxxa dadadadada dadada daadada adadada dadadada  dadadadada dadadada dadadad dadadadad</span>
-            <a href="#" class="more">[详情]</a>
+            <h3><?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,15,'utf-8').'......':$vo['title'] ?></h3>
+            <span><?php echo strlen($vo['digest'])>60?mb_substr($vo['digest'],0,60,'utf-8').'......':$vo['digest'] ?></span>
+            <a href="{:U('News/news_details',array('id'=>$vo['id']))}" class="more">[详情]</a>
           </div>
         </div>
-        <div class="item clearFix">
-          <img src="" alt="" />
-          <div class="content">
-            <h3>xxxxxx</h3>
-            <span>xxxxxxxxxxxxxxxxxxxxxxxxxxxa dadadadada dadada daadada adadada dadadada  dadadadada dadadada dadadad dadadadad</span>
-            <a href="#" class="more">[详情]</a>
-          </div>
-        </div>
-        <div class="item clearFix">
-          <img src="" alt="" />
-          <div class="content">
-            <h3>xxxxxx</h3>
-            <span>xxxxxxxxxxxxxxxxxxxxxxxxxxxa dadadadada dadada daadada adadada dadadada  dadadadada dadadada dadadad dadadadad</span>
-            <a href="#" class="more">[详情]</a>
-          </div>
-        </div>
-        <div class="item clearFix">
-          <img src="" alt="" />
-          <div class="content">
-            <h3>xxxxxx</h3>
-            <span>xxxxxxxxxxxxxxxxxxxxxxxxxxxa dadadadada adadada dadada daadada adadada dadadada  dadadadada dadadada dadadad dadadadad</span>
-            <a href="#" class="more">[详情]</a>
-          </div>
-        </div>
-        <div class="item clearFix">
-          <img src="" alt="" />
-          <div class="content">
-            <h3>xxxxxx</h3>
-            <span>xxxxxxxxxxxxxxxxxxxxxxxxxxxa dadadadada dadada daadada adadada dadadada  dadadadada dadadada dadadad dadadadad</span>
-            <a href="#" class="more">[详情]</a>
-          </div>
-        </div>
+      </volsit>
+        
 
       </div>
 
@@ -179,22 +123,22 @@
     </div>
     <div class="con fansactive">
       <div class="title">
-        <h2>粉丝活动</h2>
+        <h2>推荐活动</h2>
       </div>
       <div class="inner">
         <div class="item">
-            <img src="#" alt="" />
+            <img src="./Uploads{$activeval.img}" alt="" />
             <div class="text">
-              <h1>xxx</h1>
-              <h3>xxxx</h3>
+             <h3>{$activeval.title}</h3>
+                    <span>{$activeval.begin_time|date="m.d",###}-{$activeval.last_time|date="m.d",###}</span>
             </div>
             <sub></sub>
         </div>
         <div class="intro">
           <p>
-            zczczc xcaczczcz czczczcz czczczcz cczczczcz
+            <?php echo strlen($activeval['content'])>60?mb_substr($activeval['content'],0,58,'utf-8').'...':$activeval['content'] ?>
           </p>
-          <span class="num">1111</span>
+          <span class="num">{$activeval.concern}</span>
           <span class="focus"></span>
         </div>
       </div>
