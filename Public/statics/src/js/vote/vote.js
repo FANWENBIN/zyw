@@ -1,9 +1,9 @@
 $(function() {
 
   var scope = {
-    color1: "Redgroup",
+    color1: 1,
     sex1: 1,
-    color2: "Redgroup",
+    color2: 1,
     sex2: 1
 
   };
