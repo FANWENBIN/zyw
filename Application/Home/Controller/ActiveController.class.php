@@ -97,7 +97,7 @@ class ActiveController extends ComController {
     		foreach($list as $key=>$val){
     			$list[$key]['begin_time'] = date('m.d',$val['begin_time']);
     			$list[$key]['last_time'] = date('m.d',$val['last_time']);
-                 echo strlen($val['title'])>80?mb_substr($val['title'],0,80,'utf-8').'......':$val['title'];
+                $list[$key]['content'] strlen($val['content'])>80?mb_substr($val['content'],0,80,'utf-8').'......':$val['content'];
     		}
             $dump['page'] = ceil($count/12);
             $dump['data'] = $list;
