@@ -114,6 +114,7 @@ $(function() {
             $(".successlist").hide();
           }else if (json.status == 0) {
             var _html = "";
+            console.log(json.data.length);
             for (var i = 0, len = json.data.length; i < len; i++) {
               _html += '<div class="item">'
                   +'<a href="#'+ json.data[i].id +'" class="hover">'
