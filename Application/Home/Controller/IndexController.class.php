@@ -80,10 +80,23 @@ class IndexController extends ComController {
 
         //热门活动
         $active = M('active');
-        $activeval = $active->where('status = 1')->order('`order` desc,instime desc')->limit('0,9')->select();
+        $activeval = $active->where('status = 1')->order('`order` desc,concern desc,instime desc')->limit('0,9')->select();
         $this->assign('activeval',$activeval);
+        //进行中的活动
+        $where['begin_time'] = array('lt',time());
+        $where['last_time']  = array('gt',time());
+        $activestart = $active->where($where)->order('`order` desc,concern desc, instime desc')->limit(0,9)->select();
+        $this->assign('activestart',$activestart);
+        //未开始的活动
+        $where1['begin_time'] = array('gt',time());
+        $activebegin = $active->where($where1)->order('`order` desc,concern desc, instime desc')->limit(0,9)->select();
+        $this->assign('activebegin',$activebegin);
+        //一结束的活动
+        $where2['last_time'] = array('lt',time());
+        $activelast = $active->where($where2)->order('`order` desc,concern desc, instime desc')->limit(0,9)->select();
+        $this->assign('activelast',$activelast);
+        
         //星Stage
-      
         $where4['newser'] = array('eq',1);
         $where4['status'] = array('in','1,2');
         $list = $actors->where($where4)->order('clickrate desc')->limit(0,12)->select();
