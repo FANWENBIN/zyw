@@ -269,7 +269,7 @@ $(function() {
             $("#insertgroup").html(_html);
 
             $("#J_ConVote .inner .item").off().hover(page.voteIn, page.voteOut);
-
+ 
           } else {
             //alert(json.msg)
           }
