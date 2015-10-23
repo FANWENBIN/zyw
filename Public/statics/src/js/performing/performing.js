@@ -46,7 +46,7 @@ $(function(){
             var _outerhtml = '';
             var item = json.data;
             for(key in item){
-              var _innerhtml = '<li class="alphabet-list"><div class="title"><h3 id="a">'+ key +'</h3></div>'
+              var _innerhtml = '<li class="alphabet-list"><div class="title"><h3 id="'+ key +'">'+ key +'</h3></div>'
                 +'<div class="inner clearFix">'
               ;
               //item[key]
