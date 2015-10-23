@@ -269,6 +269,7 @@ class VoteController extends ComController {
             $cutactors[$key]['groupid'] = ($value['groupid'] == 1) ? '红组' : (($value['groupid'] == 2) ? '蓝组' : '绿组');
             $cutactors[$key]['headimg'] = './Uploads'.$value['headimg'];
         }
+            if(!$cutactors){$cutactors= array();}
             ajaxReturn(0,'',$cutactors);
        }
        
