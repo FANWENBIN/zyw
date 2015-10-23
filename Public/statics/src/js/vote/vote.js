@@ -145,6 +145,7 @@ $(function() {
             $("#finallylist").hide();
           }else if(json.status == 0){
             var _html = "";
+
             for(var i = 0, len = json.status.length ; i < len ; i++){
               if(json.status.data[i].groupid == "红组"){
                 _html += '<div class="item">'
@@ -156,8 +157,6 @@ $(function() {
                   +'<p class="vote">总票数</p>'
                   +'<p class="num">'+ json.data[i].votes +'</p>'
                 +'</div>'
-
-
               }else if(json.status.data[i].groupid == "蓝组"){
                 _html += '<div class="item">'
                   +'<a href="#'+ json.data[i].id +'"></a>'
@@ -179,6 +178,7 @@ $(function() {
                   +'<p class="num">'+ json.data[i].votes +'</p>'
                 +'</div>'
               }
+              console.log(_html);
               $("#finallygroup").html(_html);
             }
             $("#content2commet").hide();
