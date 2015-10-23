@@ -61,7 +61,7 @@
 
       </div>
       <div class="rightsection">
-        <img src="{$actorsval.img}" alt="" />
+        <img src="./Uploads{$actorsval.img}" alt="" />
         <span>粉丝团人数：5413131</span>
         <a href="#">粉丝团</a>
       </div>
@@ -95,16 +95,16 @@
         <h2>最新动态</h2>
       </div>
       <div class="inner">
-      <volsit name = "newsval" id = "vo">
+      <volist name = "newsval" id = "vo" empty= "暂未上传">
         <div class="item clearFix">
-          <img src="{:U('News/news_details',array('id'=>$vo['id']))}" alt="" />
+          <img src="./Uploads{$vo.imgpath}" alt="" />
           <div class="content">
             <h3><?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,15,'utf-8').'......':$vo['title'] ?></h3>
             <span><?php echo strlen($vo['digest'])>60?mb_substr($vo['digest'],0,60,'utf-8').'......':$vo['digest'] ?></span>
             <a href="{:U('News/news_details',array('id'=>$vo['id']))}" class="more">[详情]</a>
           </div>
         </div>
-      </volsit>
+      </volist>
         
 
       </div>
