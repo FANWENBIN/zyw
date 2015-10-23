@@ -132,7 +132,6 @@ $(function() {
 
         }
       });
-
       $.ajax({
         url: "./index.php?m=Home&c=Vote&a=wininter&condition=6",
         type: "get",
@@ -141,6 +140,7 @@ $(function() {
         },
         success: function(json) {
           //alert(json.status)
+          console.console.log(json.status);
           if (json.status == 102) {
             $("#finallylist").hide();
           }else if(json.status == 0){
