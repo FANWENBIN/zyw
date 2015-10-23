@@ -4,7 +4,8 @@ $(function(){
   };
   var page = {
     init: function(){
-      $("#sorting").on("click","li",page.tabGroup)
+      $("#sorting").on("click","li",page.tabGroup);
+      page.loadData();
     },
     tabGroup: function(){
       $("#sorting").find("li").removeClass("active");
@@ -63,7 +64,7 @@ $(function(){
               }else{
               }
                 _innerhtml += '</div></li>'
-            _outerhtml += _innerhtml;
+                _outerhtml += _innerhtml;
             }
             $("#actorgroup").html(_outerhtml);
           }else{
