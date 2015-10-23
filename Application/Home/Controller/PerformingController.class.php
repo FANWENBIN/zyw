@@ -81,7 +81,6 @@ class PerformingController extends ComController {
         $where['status'] = 1;
         $where['keywords'] = array('like', $actorsval['name']);
         $newsval = $news->where($where)->select();
-        var_dump($newsval);
         $this->assign('newsval',$newsval);
         //推荐活动
          $active = M('active');
