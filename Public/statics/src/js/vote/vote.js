@@ -144,6 +144,7 @@ $(function() {
           if (json.status == 102) {
             $("#finallylist").hide();
           }else if(json.status == 0){
+            console.log(json.data.length);
             var _html = "";
             for(var i = 0, len = json.data.length ; i < len ; i++){
               if(json.status.data[i].groupid == "红组"){
