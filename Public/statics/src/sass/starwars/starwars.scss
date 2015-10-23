@@ -1,4 +1,7 @@
 @charset "UTF-8";
+
+@import "../sasscommon";
+
 // 全局变量
 //......大图
 $outerwidth:1200px;
@@ -13,7 +16,7 @@ $starwidth: 280px;
 $starheight: 410px;
 $starmargin: 26px;
 
-//hover效果 
+//hover效果
 %animation{
   p{
     background: url("../../../images/space.png") 0 0 repeat;
@@ -54,44 +57,10 @@ $starmargin: 26px;
   height: $bannerheight;
 }
 
-.topbanner{
-  @extend %topbanner;
-  position: relative;
-  text-align: center;
-  margin-bottom: 15px;
+.banner{
+  @include banner1($bannerwidth, $bannerheight, 480px);
 }
-.topbanner-imglist{
-  position: absolute;
-  li{
-    @extend %topbanner;
-    display: none;
-    &.active{
-      display: block;
-    };
-  }
-}
-.topbanner-imglist img{
-  @extend %topbanner;
-}
-.topbanner-dotlist{
-  display: inline-block;
-  position: relative;
-  margin-top: 490px;
-  li{
-    float: left;
-    width: 12px;
-    height: 12px;
-    margin:{
-      left:10px;
-      right: 10px;
-    }
-    background-color: #fff;
-    border-radius: 50%;
-    &.active{
-      background-color: #cc66ff;
-    }
-  }
-}
+
 
 .webmain .judge .judge-title{
   h2{
@@ -101,6 +70,7 @@ $starmargin: 26px;
     width: 110px;
     height: 25px;
     text-align: center;
+    cursor: pointer;
     &.active{
       color: #fff;
       background-color: #000;
@@ -117,6 +87,12 @@ $starmargin: 26px;
 .webmain .judge-content{
   width: 1200px +$recommendmargin;
   margin-left: - $recommendmargin;
+  li{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
   .item{
     float: left;
     margin:{

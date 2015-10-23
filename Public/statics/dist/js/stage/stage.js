@@ -1,2 +1,1 @@
-
-//# sourceMappingURL=stage.js.map
+$(function(){});
