@@ -95,7 +95,7 @@
         <h2>最新动态</h2>
       </div>
       <div class="inner">
-      <volsit name = "newsval" id = "vo" empty= "暂未上传">
+      <volist name = "newsval" id = "vo" empty= "暂未上传">
         <div class="item clearFix">
           <img src="{:U('News/news_details',array('id'=>$vo['id']))}" alt="" />
           <div class="content">
@@ -104,7 +104,7 @@
             <a href="{:U('News/news_details',array('id'=>$vo['id']))}" class="more">[详情]</a>
           </div>
         </div>
-      </volsit>
+      </volist>
         
 
       </div>
