@@ -54,7 +54,7 @@ $(function() {
         type: "get",
         dataType: "json",
         data: {
-          a: scope.color1,
+          groupid: scope.color1,
           sex: scope.sex1
         },
         success: function(json) {
@@ -105,7 +105,7 @@ $(function() {
         type: "get",
         dataType: "json",
         data: {
-          a: scope.color2,
+          groupid: scope.color2,
           sex: scope.sex2
         },
         success: function(json) {
