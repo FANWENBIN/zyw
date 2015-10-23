@@ -147,7 +147,7 @@ $(function() {
             console.log(json.data.length);
             var _html = "";
             for(var i = 0, len = json.data.length ; i < len ; i++){
-              if(json.status.data[i].groupid == "红组"){
+              if(json.data[i].groupid == "红组"){
                 _html += '<div class="item">'
                   +'<a href="#'+ json.data[i].id +'"></a>'
                   +'<img src="'+ json.data[i].headimg +'" alt="" />'
@@ -157,7 +157,7 @@ $(function() {
                   +'<p class="vote">总票数</p>'
                   +'<p class="num">'+ json.data[i].votes +'</p>'
                 +'</div>'
-              }else if(json.status.data[i].groupid == "蓝组"){
+              }else if(json.data[i].groupid == "蓝组"){
                 _html += '<div class="item">'
                   +'<a href="#'+ json.data[i].id +'"></a>'
                   +'<img src="'+ json.data[i].headimg +'" alt="" />'
@@ -167,7 +167,7 @@ $(function() {
                   +'<p class="vote">总票数</p>'
                   +'<p class="num">'+ json.data[i].votes +'</p>'
                 +'</div>'
-              }else if(json.status.data[i].groupid == "绿组"){
+              }else if(json.data[i].groupid == "绿组"){
                 _html += '<div class="item">'
                   +'<a href="#'+ json.data[i].id +'"></a>'
                   +'<img src="'+ json.data[i].headimg +'" alt="" />'
