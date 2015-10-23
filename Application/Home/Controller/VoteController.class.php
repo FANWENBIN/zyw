@@ -86,7 +86,7 @@ class VoteController extends ComController {
 		            }else{
 		                mysql_query('update zyw_actors set votes=votes-1 where opid="'.$opid.'"');
 		                ajaxReturn(1,'投票失败');
-		            }  
+		            }
 		        }
 		        
 		    }else{
