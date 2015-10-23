@@ -43,6 +43,7 @@ $(function(){
 
           if(json.status == 0){
             var _outerhtml = '';
+            var item = json.data;
             for(key in item){
               var _innerhtml = '<li class="alphabet-list"><div class="title"><h3 id="a">'+ key +'</h3></div>'
                 +'<div class="inner clearFix">'
