@@ -69,7 +69,7 @@ class PerformingController extends ComController {
     public function actorinfo(){
         $id = I('get.id');
         //明星信息
-        $acotrs = M('actors');
+        $actors = M('actors');
         $actorsval = $actors->where('id='.$id)->find();
         $this->assign('actorsval',$actorsval);
         //明星代表作
