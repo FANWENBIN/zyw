@@ -50,7 +50,7 @@ $(function() {
     refleshgroup1: function() {
 
       $.ajax({
-        url: "/index.php?m=Home&c=Vote&a=wininter&condition=36",
+        url: "./index.php?m=Home&c=Vote&a=wininter&condition=36",
         type: "get",
         dataType: "json",
         data: {
@@ -101,7 +101,7 @@ $(function() {
     refleshgroup2: function() {
 
       $.ajax({
-        url: "/index.php?m=Home&c=Vote&a=wininter&condition=36",
+        url: "./index.php?m=Home&c=Vote&a=wininter&condition=36",
         type: "get",
         dataType: "json",
         data: {
@@ -134,7 +134,7 @@ $(function() {
       });
 
       $.ajax({
-        url: "/index.php?m=Home&c=Vote&a=wininter&condition=6",
+        url: "./index.php?m=Home&c=Vote&a=wininter&condition=6",
         type: "get",
         dataType: "json",
         data: {
