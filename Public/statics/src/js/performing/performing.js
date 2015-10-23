@@ -59,13 +59,10 @@ $(function(){
                       +'<sub></sub>'
                     +'</div>'
                   +'</a>'
-                  +'</div>'
-                  +'</li>'
-
                 }
               }else{
-                _innerhtml += '</div></li>'
               }
+                _innerhtml += '</div></li>'
             _outerhtml += _innerhtml;
             }
             $("#actorgroup").html(_outerhtml);
