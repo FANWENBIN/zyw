@@ -161,6 +161,49 @@
       }
     }
 }
+// 投票
+@mixin item5($width, $height,$textheight,$fontsize1, $fontsize2) {
+  %wh{
+    width: $width;
+    height: $height;
+  }
+  .img1 {
+    @extend %wh;
+  }
+  .text{
+    position: absolute;
+    width: $width;
+    height: $textheight;
+    margin-top: -$textheight;
+    background: url("../../../images/space.png") 0 0 repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+    background: rgba(0,0,0,.3);
+    h1{
+      font-size: $fontsize1;
+      line-height: $textheight/2;
+      text-align: center;
+      color: #fff;
+    }
+    h3{
+      font-size: $fontsize2;
+      line-height: $textheight/2;
+      text-align: center;
+      color: #ccc;
+    }
+  }
+  .hover{
+    @extend %wh;
+    position: absolute;
+    filter: alpha(opacity=0);
+    background: url("../../../images/space.png") 0 0 repeat;
+
+    &:hover{
+      background: rgba(0,0,0,.3);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+    }
+  }
+
+}
 
 
 
