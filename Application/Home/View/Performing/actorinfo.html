@@ -97,7 +97,7 @@
       <div class="inner">
       <volist name = "newsval" id = "vo" empty= "暂未上传">
         <div class="item clearFix">
-          <img src="{:U('News/news_details',array('id'=>$vo['id']))}" alt="" />
+          <img src="./Uploads{$vo.img}" alt="" />
           <div class="content">
             <h3><?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,15,'utf-8').'......':$vo['title'] ?></h3>
             <span><?php echo strlen($vo['digest'])>60?mb_substr($vo['digest'],0,60,'utf-8').'......':$vo['digest'] ?></span>
