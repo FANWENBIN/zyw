@@ -47,7 +47,7 @@
               <div class="l">
                 <h6>封面</h6>
                 <div class="i">
-        <input type="text" value="{$activeval.img}" class="js_imgupload" id="imgurl2" cut="true" width="380" height="250" name="imgpath"/>
+        <input type="text" value="{$activeval.img}" class="js_imgupload" id="imgurl2" cut="true" width="380" height="285" name="imgpath"/>
                 </div>
               </div>
 
@@ -111,7 +111,7 @@
                             <div class="i" id="J_WorksList">
                               <volist name="imglist" id = "vo">
                                 <div class="item clearFix" data-index="{$i}">
-                                    <div class="i w350"><input type="text" value="{$vo.img}" class="js_imgupload" id="imgurl1" cut="true" width="500" height="700" name="photos[{$i}]"/></div>
+                                    <div class="i w350"><input type="text" value="{$vo.img}" class="js_imgupload" id="imgurl1" cut="true" width="380" height="285" name="photos[{$i}]"/></div>
                                     <div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>
                                 </div>
                             </volist>
@@ -196,7 +196,7 @@ if($('#line_type').val() == 0){
                 }
                 var d = new Date().getTime();
                 J_AppendWorks.before('<div class="item clearFix" data-index="'+ _index +'">'+
-                        '<div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl'+ d +'" cut="true" width="500" height="700" name="photos['+ _index +']"/></div>'+
+                        '<div class="i w350"><input type="text" value="" class="js_imgupload" id="imgurl'+ d +'" cut="true" width="380" height="285" name="photos['+ _index +']"/></div>'+
                         '<div class="i w100"><a href="javascript:void(0);" class="del">删除</a></div>'+
                         '</div>');
                 $("#imgurl" + d).imgUploadInit();
