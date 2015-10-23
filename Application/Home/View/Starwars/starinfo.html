@@ -104,7 +104,11 @@
       </div>
       <ul class="imglist" id="imglist">
       <volist name = "production" id = "vo">
+      <if condition = "$i eq 1">
         <li class="active"><h3 class="workname">{$vo.title}</h3><img src="./Uploads{$vo.img}" alt="" /></li>
+        <else />
+        <li><h3 class="workname">{$vo.title}</h3><img src="./Uploads{$vo.img}" alt="" /></li>
+      </if>
       </volist>
       </ul>
       <div class="tabsection" id="tabsection"><!--
