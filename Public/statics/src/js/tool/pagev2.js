@@ -5,7 +5,7 @@ $(function() {
     maxpage: 10,
     totalpage: 1
   };
-  window.pageinit = function(totalpage,fn) {
+  window.initPage = function(totalpage,fn) {
 
     $("#pagelist .pre").off().on("click", function(){
       prePage(fn);
@@ -22,7 +22,6 @@ $(function() {
   };
   //页数点击
   /*
-
   <div class="pagelist" id="pagelist">
     <a href="javacript:;" class="pre">上一页</a>
     <ul class="num">
@@ -32,10 +31,12 @@ $(function() {
     </ul>
     <a href="javacript:;" class="next">下一页</a>
   </div>
-
-
-
   */
+/*
+调用 拿到总页数后回调
+page.getTotalPage(initPage(parseInt(scope.totalpage), page.getData));
+*/
+
 
   function listInit(totalpage,fn){
     console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
