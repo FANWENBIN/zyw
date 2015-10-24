@@ -290,7 +290,7 @@ $(function() {
           if (json.status == 0) {
             var _html = "";
             for (var i = 0; i < json.data.length; i++) {
-              _html += '<div class="item">\
+              _html += '<a href=".index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'"><div class="item">\
                             <div class="vote hover">\
                                 <p>扫描二维码投票</p>\
                                 <img src="' + json.data[i].codeimg + '"/>\
@@ -300,7 +300,7 @@ $(function() {
                         <span>当前票数：' + json.data[i].votes + '</span>\
                         </div>\
                         <img src="./Uploads' + json.data[i].img + '"/>\
-                            </div>'
+                            </div></a>'
             }
             $("#insertgroup").html(_html);
 
