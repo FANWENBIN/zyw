@@ -16,7 +16,9 @@ $(function(){
       $("#typelist").find("li").removeClass("active");
       $(this).addClass("active");
       scope.type = $(this).data("type");
-      page.getTotalPage(initPage(parseInt(scope.totalpage), page.getData));
+      page.getTotalPage(initPage(parseInt(scope.totalpage), function(page){
+        page.getData(page);
+      }));
     },
     getData: function(page){
       $.ajax({
