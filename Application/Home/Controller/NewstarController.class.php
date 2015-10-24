@@ -4,6 +4,11 @@ namespace Home\Controller;
 use Think\Controller;
 class NewstarController extends ComController {
     public function index(){
+    	 //Banner
+        $banner = M('banner');
+        $bannerval = $banner->where('type = 3')->select();
+        $this->assign('bannerval',$bannerval);
+
 		$this->display();
     }
    
