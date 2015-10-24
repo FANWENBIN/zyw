@@ -4,6 +4,11 @@ use Think\Controller;
 //首页类
 class StarwarsController extends ComController {
     public function index(){
+       //Banner
+        $banner = M('banner');
+        $bannerval = $banner->where('type = 5')->select();
+        $this->assign('bannerval',$bannerval);
+        
         $this->display();
     }
     public function starinfo(){
