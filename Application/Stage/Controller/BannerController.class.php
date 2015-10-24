@@ -351,7 +351,7 @@ class BannerController extends ComController {
             }
             if($Duck){
                 $model->commit();
-                $this->success('保存成功',U('Banner/stage'));
+                $this->success('保存成功',U('Banner/starwars'));
             }else{
                 $model->rollback();
                 $this->success('未做任何保存');
