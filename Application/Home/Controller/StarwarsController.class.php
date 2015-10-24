@@ -6,9 +6,9 @@ class StarwarsController extends ComController {
     public function index(){
        //Banner
         $banner = M('banner');
-        $bannerval = $banner->where('type = 5')->select();
+        $bannerval = $banner->where('type = 6')->select();
         $this->assign('bannerval',$bannerval);
-        
+
         $this->display();
     }
     public function starinfo(){
