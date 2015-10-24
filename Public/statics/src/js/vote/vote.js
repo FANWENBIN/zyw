@@ -65,7 +65,7 @@ $(function() {
               var _html = "";
               for (var i = 0, len = json.data.length; i < len; i++) {
                 _html += '<div class="item">'
-                    +'<a href="#'+ json.data[i].id +'" class="hover">'
+                    +'<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'" class="hover">'
                     +'</a>'
                     +'<img class="img1" src="'+ json.data[i].headimg +'" alt="" />'
                     +'<div class="text">'
@@ -117,7 +117,7 @@ $(function() {
             console.log(json.data);
             for (var i = 0, len = json.data.length; i < len; i++) {
               _html += '<div class="item">'
-                  +'<a href="#'+ json.data[i].id +'" class="hover">'
+                  +'<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'" class="hover">'
                   +'</a>'
                   +'<img class="img1" src="'+ json.data[i].headimg +'" alt="" />'
                   +'<div class="text">'
@@ -150,7 +150,7 @@ $(function() {
             for(var i = 0, len = json.data.length ; i < len ; i++){
               if(json.data[i].groupid == "红组"){
                 _html += '<div class="item">'
-                  +'<a href="#'+ json.data[i].id +'"></a>'
+                  +'<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'"></a>'
                   +'<img src="'+ json.data[i].headimg +'" alt="" />'
                   +'<div class="frame"></div>'
                   +'<span class="name">'+ json.data[i].name +'</span>'
@@ -160,7 +160,7 @@ $(function() {
                 +'</div>'
               }else if(json.data[i].groupid == "蓝组"){
                 _html += '<div class="item">'
-                  +'<a href="#'+ json.data[i].id +'"></a>'
+                  +'<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'"></a>'
                   +'<img src="'+ json.data[i].headimg +'" alt="" />'
                   +'<div class="frame"></div>'
                   +'<span class="name">'+ json.data[i].name +'</span>'
@@ -170,7 +170,7 @@ $(function() {
                 +'</div>'
               }else if(json.data[i].groupid == "绿组"){
                 _html += '<div class="item">'
-                  +'<a href="#'+ json.data[i].id +'"></a>'
+                  +'<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'"></a>'
                   +'<img src="'+ json.data[i].headimg +'" alt="" />'
                   +'<div class="frame"></div>'
                   +'<span class="name">'+ json.data[i].name +'</span>'
