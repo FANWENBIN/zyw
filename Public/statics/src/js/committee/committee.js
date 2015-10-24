@@ -11,8 +11,8 @@ $(function(){
     init:function(){
       $("#typelist").on("click","li",page.tabGroup);
       page.getTotalPage(function(){
-        initPage(parseInt(scope.totalpage), function(page){
-          page.getData(page);
+        initPage(parseInt(scope.totalpage), function(index){
+          page.getData(index);
         })
       });
     },
@@ -21,12 +21,12 @@ $(function(){
       $(this).addClass("active");
       scope.type = $(this).data("type");
       page.getTotalPage(function(){
-        initPage(parseInt(scope.totalpage), function(page){
-          page.getData(page);
+        initPage(parseInt(scope.totalpage), function(index){
+          page.getData(index);
         })
       });
     },
-    getData: function(page){
+    getData: function(index){
       $.ajax({
         url: "./index.php?m=Home&c=Committee",
         dataType: "json",
@@ -37,7 +37,7 @@ $(function(){
         },
         success: function(json){
           //写数据
-          console.log(page)
+          console.log(index)
         },
         error: function(){
 
