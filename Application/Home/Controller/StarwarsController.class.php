@@ -8,6 +8,23 @@ class StarwarsController extends ComController {
         $banner = M('banner');
         $bannerval = $banner->where('type = 6')->select();
         $this->assign('bannerval',$bannerval);
+
+        
+        $recommend = M('recommend');
+        //当代艺术家
+        $artists   = $recommend->where('type=1')->select();
+        $this->assign('artists',$artists);
+        //导演
+        $director  = $recommend->where('type=2')->select();
+        $this->assign('director',$director);
+        //制作人
+        $producer  = $recommend->where('type=3')->select();
+        $this->assign('producer',$producer);
+        //编剧
+        $scriptwriter = $recommend->where('type=4')->select();
+        $this->assign('scriptwriter',$scriptwriter);
+
+        
         $this->display();
     }
     public function starinfo(){
