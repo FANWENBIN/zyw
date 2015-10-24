@@ -14,11 +14,12 @@ class NewstarController extends ComController {
         $where['type']    = 1;
         $livevideo = $futurestar->where($where)->order('hot desc')->select();
         $this->assign('livevideo',$livevideo);
+        var_dump($livevideo);
         //录播课
         $where['type']    = 2;
         $rcevideo = $futurestar->where($where)->order('hot desc')->select();
         $this->assign('rcevideo',$rcevideo);
-        var_dump($rcevideo);
+
         //排行
         $data['status'] = 1;
         $hotvideo = $futurestar->where($data)->order('hot desc')->select();
