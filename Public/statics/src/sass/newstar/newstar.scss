@@ -1,7 +1,127 @@
 @charset "UTF-8";
 
-@import "../sasscommon"; 
+@import "../sasscommon";
 
 .topbanner{
-  @include banner1(890px, 410px, 30px);
+  @include banner1(890px, 410px, 350px);
+  float: left;
+}
+.course{
+  margin-left: 920px;
+  .hot{
+    display: block;
+    width: 275px;
+    height: 43px;
+    line-height: 43px;
+    text-indent: 60px;
+    background: url("../../../images/sprite_course.gif") 0 -43px no-repeat;
+    &.active{
+      background: url("../../../images/sprite_course.gif") 0 0 no-repeat;
+    }
+  }
+  .new{
+    display: block;
+    width: 275px;
+    height: 43px;
+    line-height: 43px;
+    text-indent: 60px;
+    background: url("../../../images/sprite_course.gif") 0 -86px no-repeat;
+    &.active{
+      background: url("../../../images/sprite_course.gif") 0 -129px no-repeat;
+    }
+  }
+  ul{
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s linear;
+    margin:{
+      top: 18px;
+      bottom: 18px;
+    }
+    &.active{
+      height: 288px;
+    }
+
+
+  }
+  li{
+    height: 32px;
+    line-height: 32px;
+    margin-left: 30px;
+  }
+  .partin{
+    float: right;
+    width: 60px;
+    height: 30px;
+    margin-top: 1px;
+    text-indent: 30px;
+    font-size: 12px;
+    color: #ccc;
+    background: url("../../../images/icon_partin.gif") 0 0 no-repeat;
+  }
+}
+
+.webmain .hotcourse{
+  .title h2{
+    width: 165px;
+    background: url("../../../images/sprite_newstar.gif") 0 0 no-repeat;
+  }
+
+  .inner {
+    width: 1230px;
+    margin-left: -25px;
+    li{
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+    .item{
+      @include item3(280px, 185px, 60px, 14px, 12px);
+      float: left;
+      margin: {
+        left: 25px;
+        bottom: 30px
+      }
+      h3{
+        background: url("../../../images/icon_partin_2.png")  0 0 no-repeat;
+        text-indent: 40px;
+      }
+    }
+  }
+}
+
+.webmain .recommendedcourse{
+  .title h2{
+    width: 165px;
+    background: url("../../../images/sprite_newstar.gif") 0 -60px no-repeat;
+  }
+
+  .inner {
+    width: 1230px;
+    margin-left: -30px;
+    li{
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+    .item{
+      @include item3(380px, 285px, 60px, 14px, 12px);
+      float: left;
+      margin: {
+        left: 30px;
+        bottom: 30px
+      }
+      h3{
+        background: url("../../../images/icon_partin_2.png")  0 0 no-repeat;
+        text-indent: 40px;
+      }
+      .des{
+        width: 380px;
+        font-size: 12px;
+        line-height: 35px;
+      }
+    }
+  }
 }

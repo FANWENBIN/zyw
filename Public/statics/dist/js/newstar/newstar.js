@@ -1,2 +1,1 @@
-
-//# sourceMappingURL=newstar.js.map
+$(function(){var t={init:function(){tabinit(),$("#hot").on("click",t.showHot),$("#new").on("click",t.showNew),$("#hotcouse").on("click","li",t.tabHotCouse)},showHot:function(){$(this).addClass("active"),$("#hotlist").addClass("active"),$("#new").removeClass("active"),$("#newlist").removeClass("active")},showNew:function(){$(this).addClass("active"),$("#newlist").addClass("active"),$("#hot").removeClass("active"),$("#hotlist").removeClass("active")},tabHotCouse:function(){$("#hotcouse").find("li").removeClass("active"),$(this).addClass("active"),$("#hotcousegroup").find("li").removeClass("active"),$("#hotcousegroup").find("li").eq($(this).index()).addClass("active")}};t.init()});
