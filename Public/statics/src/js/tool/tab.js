@@ -4,6 +4,25 @@ $(function(){
     timer: null
   };
 
+
+/*
+
+<div class="banner" id="banner">
+  <ul class="imglist">
+    <li class="active"><a href="#"><img src="#" alt="1" /></a></li>
+    <li><a href="#"><img src="#" alt="2" /></a></li>
+    <li><a href="#"><img src="#" alt="3"  /></a></li>
+    <li><a href="#"><img src="#" alt="4"  /></a></li>
+  </ul>
+  <ul class="dotlist">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+*/
 window.tabinit = function() {
     $("#banner").on("click", ".dotlist li", tabBanner);
     autoTab();
