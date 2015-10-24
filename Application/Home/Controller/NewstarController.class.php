@@ -11,6 +11,9 @@ class NewstarController extends ComController {
 
 		$this->display();
     }
-   
+    //教程详情页面
+   public function newstarinfo(){
+
+   }
    
 }
