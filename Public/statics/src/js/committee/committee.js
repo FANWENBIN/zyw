@@ -10,7 +10,11 @@ $(function(){
   var page = {
     init:function(){
       $("#typelist").on("click","li",page.tabGroup);
-      page.getTotalPage(initPage(parseInt(scope.totalpage), page.getData));
+      page.getTotalPage(function(){
+        initPage(parseInt(scope.totalpage), function(page){
+          page.getData(page);
+        })
+      });
     },
     tabGroup: function(){
       $("#typelist").find("li").removeClass("active");
