@@ -79,7 +79,7 @@
         <a href="javascript:;" class="hot active" id="hot">热门排行</a>
         <ul class="hotlist active" id="hotlist">
         <volist name = "hotvideo" id = "vo">
-          <li><span class="no">$i</span><span class="content"><?php echo strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></span><span class="partin">{$vo.hot}</span></li>
+          <li><span class="no">{$i}</span><span class="content"><?php echo strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></span><span class="partin">{$vo.hot}</span></li>
         </volist>
 
           
@@ -88,7 +88,7 @@
         <ul class="newlist" id="newlist">
 
           <volist name = "timevideo" id = "vo">
-          <li><span class="no">$i</span><span class="content"><?php echo strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></span><span class="partin">{$vo.hot}</span></li>
+          <li><span class="no">{$i}</span><span class="content"><?php echo strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></span><span class="partin">{$vo.hot}</span></li>
         </volist>
          
         </ul>
