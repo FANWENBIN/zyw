@@ -157,7 +157,7 @@
               </div>
               <sub></sub>
               <div class="des">
-                <?php echo mb_strlen($vo['digest'])>15?mb_substr($vo['digest'],0,15,'utf-8').'...':$vo['digest'] ?>
+                <?php echo mb_strlen($vo['digest'])>80?mb_substr($vo['digest'],0,80,'utf-8').'...':$vo['digest'] ?>
               </div>
           </div>
         </a>
