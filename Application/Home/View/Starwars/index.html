@@ -54,17 +54,21 @@
     <ul class="imglist">
     <volist name = "bannerval" id = "vo">
       <if condition = "$i eq 1">
-       <li class="active"><a href="{:U('Performing/actorinfo',array('id'=>$vo['newsid']))}"><img src="./Uploads{$vo.img}" alt="1" /></a></li>
+       <li class="active"><a href="{:U('Performing/actorinfo',array('id'=>$vo['newsid']))}">
+       <img src="./Uploads{$vo.img}" alt="1" /></a></li>
       <else />
       <li><a href="{:U('Performing/actorinfo',array('id'=>$vo['newsid']))}"><img src="./Uploads{$vo.img}" alt="2" /></a></li>
      </if>
+     </volist>
     </ul>
     <ul class="dotlist">
+    <volist name ="bannerval" id = "vo">
       <if condition = "$i eq 1">
       <li class="active"></li>
       <else />
       <li></li>
      </if>
+     </volist>
     </ul>
   </div>
 
