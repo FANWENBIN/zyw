@@ -108,7 +108,7 @@
         </div>
         <div class="group group4">
           <!--<h2><span></span>编剧代表</h2>-->
-
+ 
           <div class="list clearFix">
             <volist name="scriptwriter" id="vo">
               <a href="{:U('Starwars/starinfo',array('id'=>$vo['id']))}">
@@ -173,6 +173,7 @@
             </div>
             <div class="in clearFix">
               <volist name='list' id='vos'>
+              <a href = "{:U('Performing/actorinfo',array('id'=>$vos['id']))}">
                 <div class="item item{$i}">
                   <div class="vote hover">
                     <p>扫描二维码投票</p>
@@ -186,6 +187,7 @@
                   <span>总票数</span>
                   <strong>{$vos.votes}</strong>
                 </div>
+              </a>
               </volist>
 
             </div>
