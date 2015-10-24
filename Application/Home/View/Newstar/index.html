@@ -78,27 +78,19 @@
       <div class="course">
         <a href="javascript:;" class="hot active" id="hot">热门排行</a>
         <ul class="hotlist active" id="hotlist">
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin">1</span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin">22222</span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
+        <volist name = "hotvideo" id = "vo">
+          <li><span class="no">$i</span><span class="content"><?php echo strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></span><span class="partin">{$vo.hot}</span></li>
+        </volist>
+
+          
         </ul>
         <a href="javascript:;" class="new" id="new">最新课程</a>
         <ul class="newlist" id="newlist">
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
-          <li><span class="no">01</span><span class="content">周老师表演基础课</span><span class="partin"></span></li>
+
+          <volist name = "timevideo" id = "vo">
+          <li><span class="no">$i</span><span class="content"><?php echo strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></span><span class="partin">{$vo.hot}</span></li>
+        </volist>
+         
         </ul>
       </div>
 
@@ -115,81 +107,35 @@
       </div>
       <ul class="inner clearFix" id="hotcousegroup">
         <li class="active">
+<volist name = "livevideo" id = "vo">
           <a href="#">
             <div class="item">
-                <img src="#" alt="" />
+                <img src="./Uploads{$vo.img}" alt="" />
                 <div class="text">
-                  <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                  <h3>11200</h3>
+                  <h1><?php echo strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?></h1>
+                  <h3>{$vo.hot}</h3>
                 </div>
                 <sub></sub>
             </div>
           </a>
-          <a href="#">
-            <div class="item">
-                <img src="#" alt="" />
-                <div class="text">
-                  <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                  <h3>11200</h3>
-                </div>
-                <sub></sub>
-            </div>
-          </a>
+</volist>
 
 
         </li>
 
         <li class="">
+<volsit name = "rcevideo" id = "vo">
           <a href="#">
             <div class="item">
-                <img src="#" alt="" />
+                <img src="./Uploads{$vo.img}" alt="" />
                 <div class="text">
-                  <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                  <h3>11200</h3>
+                  <h1><?php echo strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?></h1>
+                  <h3>{$vo.hot}</h3>
                 </div>
                 <sub></sub>
             </div>
           </a>
-          <a href="#">
-            <div class="item">
-                <img src="#" alt="" />
-                <div class="text">
-                  <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                  <h3>11200</h3>
-                </div>
-                <sub></sub>
-            </div>
-          </a>
-          <a href="#">
-            <div class="item">
-                <img src="#" alt="" />
-                <div class="text">
-                  <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                  <h3>11200</h3>
-                </div>
-                <sub></sub>
-            </div>
-          </a>
-          <a href="#">
-            <div class="item">
-                <img src="#" alt="" />
-                <div class="text">
-                  <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                  <h3>11200</h3>
-                </div>
-                <sub></sub>
-            </div>
-          </a>
-          <a href="#">
-            <div class="item">
-                <img src="#" alt="" />
-                <div class="text">
-                  <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                  <h3>11200</h3>
-                </div>
-                <sub></sub>
-            </div>
-          </a>
+</volsit>
 
         </li>
 
@@ -202,45 +148,21 @@
 
       </div>
       <div class="inner clearFix">
+      <volist name = "revi" id = "vo">
         <a href="#">
           <div class="item">
-              <img src="#" alt="" />
+              <img src="./Uploads{$vo.img}" alt="" />
               <div class="text">
-                <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                <h3>11200</h3>
+                <h1><?php echo strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?></h1>
+                <h3>{$vo.hot}</h3>
               </div>
               <sub></sub>
               <div class="des">
-                xxxx czzcz czczcz xczczcz 简介xxxx czzcz czczcz xczczcz 简介xxxx czzcz czczcz xczczcz 简介xxxx czzcz czczcz xczczcz 简介xxxx czzcz czczcz xczczcz 简介xxxx czzcz czczcz xczczcz 简介xxxx czzcz czczcz xczczcz 简介
+                <?php echo strlen($vo['digest'])>15?mb_substr($vo['digest'],0,15,'utf-8').'...':$vo['digest'] ?>
               </div>
           </div>
         </a>
-        <a href="#">
-          <div class="item">
-              <img src="#" alt="" />
-              <div class="text">
-                <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                <h3>11200</h3>
-              </div>
-              <sub></sub>
-              <div class="des">
-                xxxx czzcz czczcz xczczcz 简介
-              </div>
-          </div>
-        </a>
-        <a href="#">
-          <div class="item">
-              <img src="#" alt="" />
-              <div class="text">
-                <h1>赵老师播音主持-即兴评述 拷贝</h1>
-                <h3>11200</h3>
-              </div>
-              <sub></sub>
-              <div class="des">
-                xxxx czzcz czczcz xczczcz 简介
-              </div>
-          </div>
-        </a>
+        </volist>
       </div>
     </div>
 
