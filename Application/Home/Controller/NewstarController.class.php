@@ -18,6 +18,7 @@ class NewstarController extends ComController {
         $where['type']    = 2;
         $rcevideo = $futurestar->where($where)->order('hot desc')->select();
         $this->assign('rcevideo',$rcevideo);
+        var_dump($rcevideo);
         //排行
         $data['status'] = 1;
         $hotvideo = $futurestar->where($data)->order('hot desc')->select();
