@@ -337,7 +337,7 @@
           <div class="list list2">
             <volist name="manredgroup" id="vo">
               <div class="item top{$i}">
-                <a href="#" class="head">
+                <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="head">
                   <span></span>
                   <img src="./Uploads{$vo.headimg}" />
                 </a>
@@ -357,7 +357,7 @@
           <div class="list list3">
             <volist name="menredgroup" id="vo">
               <div class="item top{$i}">
-                <a href="#" class="head">
+                <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="head">
                   <span></span>
                   <img src="./Uploads{$vo.headimg}" />
                 </a>
@@ -388,7 +388,7 @@
 
             <volist name="bluegroup" id="vo">
               <div class="item top{$i}">
-                <a href="#" class="head">
+                <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="head">
                   <span></span>
                   <img src="./Uploads{$vo.headimg}" />
                 </a>
@@ -407,7 +407,7 @@
 
             <volist name="manbluegroup" id="vo">
               <div class="item top{$i}">
-                <a href="#" class="head">
+                <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="head">
                   <span></span>
                   <img src="./Uploads{$vo.headimg}" />
                 </a>
@@ -426,7 +426,7 @@
           <div class="list list3">
             <volist name="menbluegroup" id="vo">
               <div class="item top{$i}">
-                <a href="#" class="head">
+                <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="head">
                   <span></span>
                   <img src="./Uploads{$vo.headimg}" />
                 </a>
@@ -456,7 +456,7 @@
 
             <volist name="greengroup" id="vo">
               <div class="item top{$i}">
-                <a href="#" class="head">
+                <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="head">
                   <span></span>
                   <img src="./Uploads{$vo.headimg}" />
                 </a>
@@ -475,7 +475,7 @@
 
             <volist name="mangreengroup" id="vo">
               <div class="item top{$i}">
-                <a href="#" class="head">
+                <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="head">
                   <span></span>
                   <img src="./Uploads{$vo.headimg}" />
                 </a>
@@ -495,7 +495,7 @@
 
             <volist name="mengreengroup" id="vo">
               <div class="item top{$i}">
-                <a href="#" class="head">
+                <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="head">
                   <span></span>
                   <img src="./Uploads{$vo.headimg}" />
                 </a>
@@ -526,7 +526,7 @@
 
       <div class="inner clearFix">
         <volist name="starlist" id="vo" offset="0" length='1'>
-          <a href="#" class="l">
+          <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="l">
             <p>{$vo.name}</p>
             <img src="./Uploads{$vo.img}" />
             <sub class="hover"></sub>
@@ -534,7 +534,7 @@
         </volist>
         <div class="r clearFix">
           <volist name="starlist" id="vo" offset="1" length="8">
-            <a href="#" class="item">
+            <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="item">
               <p>{$vo.name}</p>
               <img src="./Uploads{$vo.img}" />
               <sub class="hover"></sub>
@@ -555,7 +555,7 @@
       </div>
       <div class="inner clearFix">
         <volist name="actorslist" id="vo">
-          <a href="#" class="item">
+          <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="item">
             <p>{$vo.name}</p>
             <img src="./Uploads{$vo.img}" />
             <sub class="hover"></sub>
