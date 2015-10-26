@@ -6,7 +6,7 @@ class VedioController extends ComController {
     //首页显示
     public function index(){
     	$vedio = M('vedio');
-    	$vedioval = $vedio->where('status = 1')->select();
+    	$vedioval = $vedio->where('status = 1')->order('instime desc')->select();
 
     	$this->assign('list',$vedioval);
     	$this->assign('cur',9);
