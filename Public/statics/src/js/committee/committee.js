@@ -11,7 +11,7 @@ $(function(){
     init:function(){
       $("#typelist").on("click","li",page.tabGroup);
       page.getTotalPage(function(){
-        initPage(scope.totalpage, function(index){
+        pageInit(scope.totalpage, function(index){
           page.getData(index);
         })
       });
