@@ -25,6 +25,7 @@ $(function(){
 */
 window.tabinit = function() {
     $("#banner").on("click", ".dotlist li", tabBanner);
+    initUlList()
     autoTab();
   };
   function tabBanner(){
@@ -39,13 +40,24 @@ window.tabinit = function() {
   function autoTab(){
     scope.timer = setInterval(function(){
       scope.now++;
-      if(scope.now == $(".imglist").find("li").length)scope.now = 0;
+
       $(".imglist").stop().animate({
         "left": -(scope.now * $(".imglist li").width()) + "px"
-      }, 2000);
+      }, 2000,function(){
+          if(scope.now == 0){
+            $(".imglist").css({"left": 0});
+          }
+      });
+      if(scope.now == $(".imglist").find("li").length/2)scope.now = 0;
       $(".dotlist").find("li").removeClass("active")
       $(".dotlist").find("li").eq(scope.now).addClass("active")
     },5000)
+  }
+  function initUlList() {
+    var _html = $(".imglist").html();
+    $(".imglist").html( _html + _html );
+    $(".imglist").width($(".imglist").width()*$(".imglist li").length + "px");
+
   }
 
 
