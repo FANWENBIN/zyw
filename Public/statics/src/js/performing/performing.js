@@ -63,7 +63,8 @@ $(function(){
                 }
               }else{
               }
-                _innerhtml += '</div></li>'
+                _innerhtml = '<li class="alphabet-list" style="display: none;"><div class="title"><h3 id="'+ key +'">'+ key +'</h3></div>'
+                  +'<div class="inner clearFix">' + '</div></li>'
                 _outerhtml += _innerhtml;
             }
             $("#actorgroup").html(_outerhtml);
