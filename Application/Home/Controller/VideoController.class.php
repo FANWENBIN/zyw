@@ -10,8 +10,10 @@ class VideoController extends ComController {
     $this->assign('banner',$bannerval);
     //今日热门
     $vedio = M('vedio');
-    $vedio->where()->order()->select();
-    
+    $data['status'] = 1;
+    $videohot = $vedio->where($data)->order('instime desc,hot desc')->limit(0,14)->select();
+    $this->assign('videohot',$videohot);
+    //视频汇
     $this->display();
   }
     //视频详情页
