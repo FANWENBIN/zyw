@@ -272,72 +272,69 @@
         <li class="innergroup active">
           <div class="inner clearFix">
             <div class="colsection">
-
+            <volist name = "tvvideo" id = "vo" offset = "0" length = "1">
               <div class="item">
-                <img src="#" alt="" />
+                <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
-                  <h1>xxx</h1>
-                  <h3>xxxx</h3>
+                  <h1><?php echo strlen($vo['title'])>16?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?></h1>
+                  <h3>{$vo.instime|date="H:i",###}</h3>
                 </div>
                 <sub></sub>
               </div>
-
+            </volist>
               <ul>
 
+            <volist name = "tvvideo" id = "vo" offset = "3" length = "4">
                 <li>
-                  <h3>xxxx</h3>
-                  <span>7-25</span>
+                  <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
+                  <span>{$vo.instime|date="m-d",###}</span>
                 </li>
-
-                <li>
-                  <h3>xxxx</h3>
-                  <span>7-25</span>
-                </li>
-
-                <li>
-                  <h3>xxxx</h3>
-                  <span>7-25</span>
-                </li>
-
+            </volist>
               
 
               </ul>
             </div>
             <div class="colsection">
+
+             <volist name = "tvvideo" id = "vo" offset = "1" length = "1">
               <div class="item">
-                <img src="#" alt="" />
+                <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
-                  <h1>xxx</h1>
-                  <h3>xxxx</h3>
+                  <h1><?php echo strlen($vo['title'])>16?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?></h1>
+                  <h3>{$vo.instime|date="H:i"}</h3>
                 </div>
                 <sub></sub>
               </div>
+            </volist>
+
               <ul>
+            <volist name = "tvvideo" id = "vo" offset = "7" length = "4">
                 <li>
-                  <h3>xxxx</h3>
-                  <span>7-25</span>
+                  <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
+                  <span>{$vo.instime|date="m-d",###}</span>
                 </li>
-                <li>
-                  <h3>xxxx</h3>
-                  <span>7-25</span>
-                </li>
+            </volist>
             
               </ul>
             </div>
             <div class="colsection">
+            <volist name = "tvvideo" id = "vo" offset = "2" length = "1">
               <div class="item">
-                <img src="#" alt="" />
+                <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
-                  <h1>xxx</h1>
-                  <h3>xxxx</h3>
+                  <h1><?php echo strlen($vo['title'])>16?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?></h1>
+                  <h3>{$vo.instime|date="H:i"}</h3>
                 </div>
                 <sub></sub>
               </div>
+            </volist>
               <ul>
+            <volist name = "tvvideo" id = "vo" offset = "11" length = "4">
                 <li>
-                  <h3>xxxx</h3>
-                  <span>7-25</span>
+                  <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
+                  <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+            </volist>
              
               </ul>
             </div>
