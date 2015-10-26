@@ -14,7 +14,7 @@ $(function(){
       //   initPage(parseInt(scope.totalpage), function(index){
       //     page.getData(index);
       //   })
-      // }); 
+      // });
     },
     tabGroup: function(){
       $("#typelist").find("li").removeClass("active");
@@ -29,15 +29,18 @@ $(function(){
     getData: function(index){
       $.ajax({
         url: "./index.php?m=Home&c=Committee",
-        dataType: "json",
         type: "get",
+        dataType: "json",
         data: {
           a: scope.type,
           p: page
         },
         success: function(json){
           //写数据
-          console.log(index)
+          var _arr = json.data.data;
+          for(var i= 0,len = _arr.length ; i < len; i++){
+            
+          }
         },
         error: function(){
 
@@ -47,8 +50,8 @@ $(function(){
     getTotalPage: function(fn){
       $.ajax({
         url: "./index.php?m=Home&c=Committee",
-        dataType: "json",
         type: "get",
+        dataType: "json",
         data: {
           a: scope.type,
           p: 1
