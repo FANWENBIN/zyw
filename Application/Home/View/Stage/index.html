@@ -55,7 +55,7 @@
         <li class="active"><a href="{:U('Performing/actorinfo',array('id'=>$vo['newsid']))}"><img src="./Uploads{$vo.img}" alt="1" /></a></li>
       <else />
         <li><a href="{:U('Performing/actorinfo',array('id'=>$vo['newsid']))}"><img src="./Uploads{$vo.img}" alt="2" /></a></li>
-       
+
       </if>
       </volist>
       </ul>
@@ -95,7 +95,7 @@
         <volist name="list" id="vo">
         <a href="{:U('Performing/actorinfo',array('id'=>$vo['id']))}">
           <div class="item">
-        
+
             <img src="./Uploads{$vo.headimg}" alt="" />
             <p>{$vo.name}</p>
             <sub></sub>
@@ -110,13 +110,12 @@
     <div class="con work">
       <div class="title">
         <h2>星stage</h2>
-        <ul class="group">
+        <ul class="group" id="sortinglist">
           <li class="active">按热门</li>
           <li>按时间</li>
         </ul>
       </div>
-      <div class="inner clearFix">
-        <ul>
+      <ul class="inner clearFix" id="sortinggroup">
           <li class="byfav active">
 
             <div class="itembig">
@@ -339,10 +338,7 @@
             </div>
 
           </li>
-
-
-        </ul>
-      </div>
+      </ul>
     </div>
   </div>
   <!--webmain end-->

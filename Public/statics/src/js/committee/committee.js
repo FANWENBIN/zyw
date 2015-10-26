@@ -3,13 +3,64 @@
  */
 
 $(function(){
+  var scope = {
+    type: "redcom",
+    totalpage: 0
+  }
   var page = {
     init:function(){
-      $("#group").on("click","li",page.tabGroup);
+      $("#typelist").on("click","li",page.tabGroup);
+      // page.getTotalPage(function(){
+      //   initPage(parseInt(scope.totalpage), function(index){
+      //     page.getData(index);
+      //   })
+      // });
     },
     tabGroup: function(){
-      $("#group").find("li").removeClass("active");
+      $("#typelist").find("li").removeClass("active");
       $(this).addClass("active");
+      scope.type = $(this).data("type");
+      // page.getTotalPage(function(){
+      //   initPage(parseInt(scope.totalpage), function(index){
+      //     page.getData(index);
+      //   })
+      // });
+    },
+    getData: function(index){
+      $.ajax({
+        url: "./index.php?m=Home&c=Committee",
+        dataType: "json",
+        type: "get",
+        data: {
+          a: scope.type,
+          p: page
+        },
+        success: function(json){
+          //写数据
+          console.log(index)
+        },
+        error: function(){
+
+        }
+      })
+    },
+    getTotalPage: function(fn){
+      $.ajax({
+        url: "./index.php?m=Home&c=Committee",
+        dataType: "json",
+        type: "get",
+        data: {
+          a: scope.type,
+          p: 1
+        },
+        success: function(json){
+          scope.totalpage = json.data.page;
+          fn();
+        },
+        error: function(){
+
+        }
+      })
     }
   };
   page.init();

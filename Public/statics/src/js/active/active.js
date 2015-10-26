@@ -125,7 +125,7 @@ $(function(){
               }
               for(var i = 0, len = _arr.length; i < len; i++ ){
                 _html += '<li>'
-                +'<a>'
+                +'<a href="./index.php?m=Home&c=Active&a=active_details&id='+ _arr[i].id +'">'
                 +'<img src="./Uploads'+ _arr[i].img +'">'
                 +'<div class="tags">'
                 +'<h3>' + _arr[i].title + '</h3>'
