@@ -221,7 +221,7 @@
   .imglist {
     position: absolute;
     left: 0;
-    width: 10000px;
+    // width: 10000px;
     height: $height;
     li {
       @extend %wh;
