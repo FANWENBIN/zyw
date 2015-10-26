@@ -30,6 +30,7 @@ class StarwarsController extends ComController {
 
         $actorsval = $actors->where('$where')->order('recommend desc,instime desc')->limit(0,4)->select();
         $this->assign('actorsval',$actorsval);
+        echo $actors->getlastsql();
         var_dump($actorsval);
         $this->display();
     }
