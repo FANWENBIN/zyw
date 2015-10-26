@@ -20,7 +20,7 @@ $(function(){
 
             //分页
             page.getPage(function(){
-              pageInit(parseInt(scope.pageNum),function(index){
+              pageInit(parseInt(scope.pageNum),12,function(index){
                 //回调，刷新内容页
                 if(index == 0)return false;
                 page.getActiveData(index);
@@ -57,7 +57,7 @@ $(function(){
             $(this).addClass("active");
             scope.type = $(this).data("type");
             page.getPage(function(){
-              pageInit(scope.pageNum,function(index){
+              pageInit(scope.pageNum,12,function(index){
                 page.getActiveData(index);
               });
             });
@@ -67,7 +67,7 @@ $(function(){
             $(this).addClass("active");
             scope.time = $(this).data("time");
             page.getPage(function(){
-              pageInit(scope.pageNum,function(index){
+              pageInit(scope.pageNum,12,function(index){
                 page.getActiveData(index);
               });
             });
