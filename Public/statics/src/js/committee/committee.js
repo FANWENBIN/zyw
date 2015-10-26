@@ -9,7 +9,7 @@ $(function(){
   }
   var page = {
     init:function(){
-      $("#typelist").on("click","li",page.tabGroup);
+      $("#typelist").off().on("click","li",page.tabGroup);
       page.getTotalPage(function(){
         pageInit(scope.totalpage, 12,function(index){
           page.getData(index);
