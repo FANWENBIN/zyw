@@ -10,11 +10,11 @@ $(function(){
   var page = {
     init:function(){
       $("#typelist").on("click","li",page.tabGroup);
-      // page.getTotalPage(function(){
-      //   initPage(parseInt(scope.totalpage), function(index){
-      //     page.getData(index);
-      //   })
-      // });
+      page.getTotalPage(function(){
+        initPage(scope.totalpage, function(index){
+          page.getData(index);
+        })
+      });
     },
     tabGroup: function(){
       $("#typelist").find("li").removeClass("active");
@@ -33,14 +33,25 @@ $(function(){
         dataType: "json",
         data: {
           a: scope.type,
-          p: page
+          p: index
         },
         success: function(json){
           //写数据
           var _arr = json.data.data;
+          var _html = '';
           for(var i= 0,len = _arr.length ; i < len; i++){
-            
+            _html += '<div class="item">'
+              +'<a href="#" class="pic">'
+                +'<img src="./Uploads'+ _arr.img +'" alt="" />'
+                +'<div class="text">'
+                  +'<h3>'+ _arr.title +'</h3>'
+                  +'<p>'+ _arr.instime +'</p>'
+                +'</div>'
+                +'<sub></sub>'
+              +'</a>'
+            +'</div>'
           }
+          $("#typegroup").html(_html);
         },
         error: function(){
 
@@ -57,7 +68,7 @@ $(function(){
           p: 1
         },
         success: function(json){
-          scope.totalpage = json.data.page;
+          scope.totalpage = parseInt(json.data.page);
           fn();
         },
         error: function(){
