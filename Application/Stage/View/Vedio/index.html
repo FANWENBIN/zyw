@@ -75,7 +75,7 @@
             {$v.title}</td>
             <td class="t3">{:vediotyp($v['type'])}</td>
             <td class="t4"> <notempty name="v['img']"><img src="./Uploads{$v['img']}" width="50" height="50" /></notempty></td>
-            <td class="t5">{$v['instime']}</td>
+            <td class="t5">{$v.instime|date="Y-m-d H:i:s",###}</td>
             <td class="t6">
               <p class="console">
                 <a href="{:U('edit',array('id'=>$v['id']))}" class="setting">编辑</a>
