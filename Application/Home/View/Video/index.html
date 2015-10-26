@@ -46,16 +46,22 @@
 
       <div class="banner" id="banner">
         <ul class="imglist">
-          <li class="active"><a href="#"><img src="#" alt="1" /></a></li>
-          <li><a href="#"><img src="#" alt="2" /></a></li>
-          <li><a href="#"><img src="#" alt="3"  /></a></li>
-          <li><a href="#"><img src="#" alt="4"  /></a></li>
+        <volist name = "banner" id = "vo">
+          <if condition = "$i eq 1">
+            <li class="active"><a href="{:U('vidioinfo',array('id'=>$vo['id']))}"><img src="{$vo.img}" alt="{$vo.title}" /></a></li>
+          <else />
+          <li><a href="{:U('vidioinfo',array('id'=>$vo['id']))}"><img src="{$vo.img}" alt="{$vo.title}" /></a></li>
+          </if>
+        </volist>
         </ul>
         <ul class="dotlist">
+        <volist name = "banner" id = "vo">
+        <if condition = "$i eq 1">
           <li class="active"></li>
+          <else />
           <li></li>
-          <li></li>
-          <li></li>
+          </if>
+        </volist>
         </ul>
       </div>
 
