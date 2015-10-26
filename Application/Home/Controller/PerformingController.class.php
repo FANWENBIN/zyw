@@ -71,6 +71,9 @@ class PerformingController extends ComController {
         //明星信息
         $actors = M('actors');
         $actorsval = $actors->where('id='.$id)->find();
+        //点击率
+        $data['clickrate'] = $actorsval['clickrate']+1;
+        $actors->where('id='.$id)->save($data);
         $this->assign('actorsval',$actorsval);
         //明星代表作
         $actors_production = M('actors_production');
