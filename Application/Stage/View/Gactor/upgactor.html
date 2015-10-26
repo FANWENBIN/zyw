@@ -83,8 +83,8 @@
 
                             <div class="i w100">
                                 <select name="recommend">
-                                    <option value='0'>否</option>
-                                    <option value="1">是</option>
+                                    <option value='0' <if condition="$actors.recommend eq 0">selected</if>>否</option>
+                                    <option value="1" <if condition="$actors.recommend eq 1">selected</if>>是</option>
                                 </select>
                             </div>
                         </div>
