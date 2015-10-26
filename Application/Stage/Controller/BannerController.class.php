@@ -41,7 +41,6 @@ class BannerController extends ComController {
     			$data['newsid']  = I('post.newsid'.$i);
     			if(!empty($data['title']) && !empty($data['img'])){
     				$image = new \Think\Image(); 
-
 	    			$image->open('./Uploads'.$data['img']);
 	    			$able = explode('.',$data['img']);
 	        		//按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.jpg   1200  470   
