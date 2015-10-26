@@ -5,7 +5,7 @@ $(function() {
     maxpage: 10,
     totalpage: 1
   };
-  window.pageinit = function(totalpage,fn) {
+  window.pageInit = function(totalpage,fn) {
 
     $("#pagelist .pre").off().on("click", function(){
       prePage(fn);
@@ -13,14 +13,13 @@ $(function() {
     $("#pagelist .next").off().on("click", function(){
       nextPage(fn);
     });
-
     $("#pagelist .num").off().on("click", "li", function(){
       _this = this;
       numclick(fn,_this);
     });
     listInit(totalpage,fn);
   };
-  //页数点击
+  //页数点击 切换同步换下一屏
   /*
 
   <div class="pagelist" id="pagelist">
@@ -38,22 +37,30 @@ $(function() {
   */
 
   function listInit(totalpage,fn){
-    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
-    scope.totalpage = totalpage;
-    if(totalpage > 10){
-      $("#pagelist .num").html('<li class="active">1</li>' + '<li>2</li>' + '<li>3</li>' + '<li>4</li>' + '<li>5</li>' + '<li>6</li>' + '<li>7</li>' + '<li>8</li>' + '<li>9</li>' + '<li>10</li>')
-    }else{
-      var _html = '';
-      for (var i = 0, len = totalpage; i < len; i++) {
-        if (i == 0) {
-          _html += '<li class="active">' + ( i + 1 ) + '</li>';
-        } else {
-          _html += '<li>' + ( i + 1 ) + '</li>';
+    scope.totalpage = parseInt(totalpage);
+    if((typeof scope.totalpage) == "number"){
+      if(scope.totalpage > 10){
+        $("#pagelist .num").html('<li class="active">1</li>' + '<li>2</li>' + '<li>3</li>' + '<li>4</li>' + '<li>5</li>' + '<li>6</li>' + '<li>7</li>' + '<li>8</li>' + '<li>9</li>' + '<li>10</li>')
+      }else{
+        scope.maxpage = scope.totalpage;
+        var _html = '';
+        for (var i = 0, len = totalpage; i < len; i++) {
+          if (i == 0) {
+            _html += '<li class="active">' + ( i + 1 ) + '</li>';
+          } else {
+            _html += '<li>' + ( i + 1 ) + '</li>';
+          }
         }
+        $("#pagelist .num").html(_html);
+        fn(1);
       }
-      $("#pagelist .num").html(_html);
-      fn(1);
+    }else{
+      console.log("页数是非数字，请确认！");
+      scope.totalpage = 1;
+      scope.minpage = 1;
+      scope.maxpage = 1;
     }
+
   };
 
   //上一页
@@ -61,7 +68,7 @@ $(function() {
     console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
     if(scope.totalpage == 0)return 0;
     if (scope.currentpage == 1 && scope.currentpage == 1) {
-      alert("这是第一页，不能切换！");
+      console.log("这是第一页，不能切换！");
     } else if (scope.currentpage <= scope.minpage) {
       scope.minpage -= 10;
       scope.maxpage = scope.minpage + 9;
@@ -82,7 +89,7 @@ $(function() {
     console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
     if(scope.totalpage == 0)return 0;
     if (scope.currentpage == scope.totalpage) {
-      alert("这是最后一页，不能切换！");
+      console.log("这是最后一页，不能切换！");
       //当前页大于等于最大页&&+10小于总数
     } else if (scope.currentpage == scope.maxpage && (scope.maxpage + 10 <= scope.totalpage)) {
       scope.minpage += 10;
@@ -119,7 +126,7 @@ $(function() {
   function numclick(fn,_this) {
     $("#pagelist .num").find("li").removeClass("active");
     $(_this).addClass("active");
-    scope.currentpage = $(_this).html();
+    scope.currentpage = parseInt($(_this).html());
     fn(scope.currentpage);
   }
 })

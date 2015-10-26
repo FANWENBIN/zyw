@@ -20,7 +20,7 @@ $(function(){
 
             //分页
             page.getPage(function(){
-              pageinit(parseInt(scope.pageNum),function(index){
+              pageInit(parseInt(scope.pageNum),function(index){
                 //回调，刷新内容页
                 if(index == 0)return false;
                 page.getActiveData(index);
