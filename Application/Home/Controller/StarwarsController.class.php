@@ -24,7 +24,12 @@ class StarwarsController extends ComController {
         $scriptwriter = $recommend->where('type=4')->select();
         $this->assign('scriptwriter',$scriptwriter);
 
-        
+        //推荐明星
+        $actors = M('actors');
+        $where['status'] = array(array('neq',0),array('neq',3));
+
+        $actorsval = $actors->where('$where')->order('recommend desc,instime desc')->limit(0,4)->select();
+        $this->assign('actorsval',$actorsval);
         $this->display();
     }
     //推荐团成员详情
