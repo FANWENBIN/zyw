@@ -48,47 +48,45 @@
   <!--webmain-->
   <div class="webmain">
     <!-- 登陆栏 -->
-    <div class="con nav clearFix" id="J_nav">
-      <div class="navTitle"><a href="{:U('Index/index')}">首页</a>
-        <div class="loginfo">
-          <span class="face"></span>
-          <span class="name" id="login">用户名</span>
-          <!--  登陆-->
-          <!--  个人中心入口-->
-          <div class="myinfoalert" id="myinfoalert">
-            <div class="myinfoalert-header">
-              <span class="myinfoalert-header-face"></span>
-              <div class="myinfoalert-header-content">
-                <span class="name">用户名。。。。</span>
-                <div class="setting">
-                  <a href="{:U('Index/setting')}" class="set">设置</a>
-                  <a href="#" class="logout">登出</a>
-                </div>
-              </div>
-            </div>
-            <div class="myinfoalert-content">
-              <div class="item">
-                <a href="{:U('Index/myinfo')}" class="">
-                  <span class="icon icon1"></span>
-                  <span class="name">个人中心</span>
-                </a>
-              </div>
-              <div class="item">
-                <a href="{:U('Index/myinfo')}" class="">
-                  <span class="icon icon2"></span>
-                  <span class="name">我的饭团</span>
-                </a>
-              </div>
-              <div class="item">
-                <a href="{:U('Index/myinfo')}" class="">
-                  <span class="icon icon3"></span>
-                  <span class="name">我的频道</span>
-                </a>
+    <div class="navTitle"><a href="{:U('Index/index')}">首页</a>
+      <div class="loginfo">
+        <span class="face"></span>
+        <span class="name" id="login">用户名</span>
+        <!--  登陆-->
+        <!--  个人中心入口-->
+        <div class="myinfoalert" id="myinfoalert">
+          <div class="myinfoalert-header">
+            <span class="myinfoalert-header-face"></span>
+            <div class="myinfoalert-header-content">
+              <span class="name">用户名。。。。</span>
+              <div class="setting">
+                <a href="{:U('Index/setting')}" class="set">设置</a>
+                <a href="#" class="logout">登出</a>
               </div>
             </div>
           </div>
-
+          <div class="myinfoalert-content">
+            <div class="item">
+              <a href="{:U('Index/myinfo')}" class="">
+                <span class="icon icon1"></span>
+                <span class="name">个人中心</span>
+              </a>
+            </div>
+            <div class="item">
+              <a href="{:U('Index/myinfo')}" class="">
+                <span class="icon icon2"></span>
+                <span class="name">我的饭团</span>
+              </a>
+            </div>
+            <div class="item">
+              <a href="{:U('Index/myinfo')}" class="">
+                <span class="icon icon3"></span>
+                <span class="name">我的频道</span>
+              </a>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
 
@@ -219,75 +217,83 @@
       <ul class="inner clearFix" id="eventgroup">
 
         <li class="active">
-<volist name = "activeval" id = "vo">
-          <a href="{:U('Active/active_details',array('id'=>$vo['id']))}">
-            <div class="item">
-              <img src="./Uploads{$vo.img}" alt="" />
-              <div class="text">
-                <h1><?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,20,'utf-8').'......':$vo['title'] ?></h1>
-                <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
+          <volist name="activeval" id="vo">
+            <a href="{:U('Active/active_details',array('id'=>$vo['id']))}">
+              <div class="item">
+                <img src="./Uploads{$vo.img}" alt="" />
+                <div class="text">
+                  <h1>
+                    <?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,20,'utf-8').'......':$vo['title'] ?>
+                  </h1>
+                  <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
+                </div>
+                <sub></sub>
               </div>
-              <sub></sub>
-            </div>
-          </a>
-</volist>
+            </a>
+          </volist>
 
 
         </li>
 
         <li class="">
 
-        <volist name = "activestart" id = "vo">
-          <a href="{:U('Active/active_details',array('id'=>$vo['id']))}">
-            <div class="item">
-              <img src="./Uploads{$vo.img}" alt="" />
-              <div class="text">
-                <h1><?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,20,'utf-8').'......':$vo['title'] ?></h1>
-                <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
+          <volist name="activestart" id="vo">
+            <a href="{:U('Active/active_details',array('id'=>$vo['id']))}">
+              <div class="item">
+                <img src="./Uploads{$vo.img}" alt="" />
+                <div class="text">
+                  <h1>
+                    <?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,20,'utf-8').'......':$vo['title'] ?>
+                  </h1>
+                  <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
+                </div>
+                <sub></sub>
               </div>
-              <sub></sub>
-            </div>
-          </a>
-</volist>
+            </a>
+          </volist>
 
-         
+
 
 
         </li>
 
         <li class="">
 
-         
-<volist name = "activebegin" id = "vo">
-          <a href="{:U('Active/active_details',array('id'=>$vo['id']))}">
-            <div class="item">
-              <img src="./Uploads{$vo.img}" alt="" />
-              <div class="text">
-                <h1><?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,20,'utf-8').'......':$vo['title'] ?></h1>
-                <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
+
+          <volist name="activebegin" id="vo">
+            <a href="{:U('Active/active_details',array('id'=>$vo['id']))}">
+              <div class="item">
+                <img src="./Uploads{$vo.img}" alt="" />
+                <div class="text">
+                  <h1>
+                    <?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,20,'utf-8').'......':$vo['title'] ?>
+                  </h1>
+                  <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
+                </div>
+                <sub></sub>
               </div>
-              <sub></sub>
-            </div>
-          </a>
-</volist>
+            </a>
+          </volist>
 
 
         </li>
 
         <li class="">
 
-         <volist name = "activelast" id = "vo">
-          <a href="{:U('Active/active_details',array('id'=>$vo['id']))}">
-            <div class="item">
-              <img src="./Uploads{$vo.img}" alt="" />
-              <div class="text">
-                <h1><?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,20,'utf-8').'......':$vo['title'] ?></h1>
-                <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
+          <volist name="activelast" id="vo">
+            <a href="{:U('Active/active_details',array('id'=>$vo['id']))}">
+              <div class="item">
+                <img src="./Uploads{$vo.img}" alt="" />
+                <div class="text">
+                  <h1>
+                    <?php echo strlen($vo['title'])>20?mb_substr($vo['title'],0,20,'utf-8').'......':$vo['title'] ?>
+                  </h1>
+                  <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
+                </div>
+                <sub></sub>
               </div>
-              <sub></sub>
-            </div>
-          </a>
-      </volist>
+            </a>
+          </volist>
 
 
         </li>
