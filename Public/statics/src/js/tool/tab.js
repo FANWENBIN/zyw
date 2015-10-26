@@ -29,12 +29,15 @@ window.tabinit = function() {
     autoTab();
   };
   function tabBanner(){
+    clearTimeout(scope.timer)
     scope.now = $(this).index();
     $(".dotlist li").removeClass("active");
     $(this).addClass("active");
     $(".imglist").stop().animate({
       "left": -(scope.now * $(".imglist li").width()) + "px"
-    }, 2000);
+    }, 2000,function(){
+      autoTab();
+    });
 
   }
   function autoTab(){
