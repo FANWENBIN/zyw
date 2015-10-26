@@ -28,6 +28,7 @@ class VedioController extends ComController {
     		$data['type']  = I('post.type');
     		$data['href']  = I('post.href');
     		$data['img']   = I('post.img');
+            $data['bigimg'] = I('post.bigimg');
     		$sign = $this->checkDump($data);
     		if(!$sign){
     			$this->error('主要信息不可为空');
@@ -72,6 +73,7 @@ class VedioController extends ComController {
     		$data['type']  = I('post.type');
     		$data['href']  = I('post.href');
     		$data['img']   = I('post.img');
+            $data['bigimg'] = I('post.bigimg');
     		$sign = $this->checkDump($data);
     		if(!$sign){
     			$this->error('主要信息不可为空');

@@ -140,13 +140,12 @@
         </ul>
         <a href="javascript:;" class="new" id="new">最新课程</a>
         <ul class="newlist" id="newlist">
-
           <volist name="timevideo" id="vo">
             <li>
               <span class="no">{$i}.</span>
               <span class="content">
                 <?php echo mb_strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?>
-              </span>
+              </span>asd
               <span class="partin">{$vo.hot}</span>
             </li>
           </volist>
