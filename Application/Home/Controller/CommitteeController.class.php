@@ -61,14 +61,14 @@ class CommitteeController extends ComController {
     public function blackcom(){
     	$committee = M('committee');
     	$count = $committee->where('status=1 and type=2')->count();// 查询满足要求的总记录数
-    	$Page  = new \Think\Page($count,1);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+    	$Page  = new \Think\Page($count,9);// 实例化分页类 传入总记录数和每页显示的记录数(25)
     	$show  = $Page->show();// 分页显示输出
     	// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
     	$list = $committee->field('img,title,instime')->where('status=1 and type=2')->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
     	foreach($list as $key=>$val){
     		$list[$key]['instime'] = date('Y-m-d H:i:s',$val['instime']);
     	}
-    	$data['page'] = ceil($count/1);
+    	$data['page'] = ceil($count/9);
     	$data['data'] = $list;
     	if($list === false){
 			ajaxReturn(101,'请求失败','');

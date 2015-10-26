@@ -25,7 +25,7 @@ class StageController extends ComController {
     }
     //学员报名
    	public function apply(){
-
+        
    	}
    
 }

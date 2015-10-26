@@ -6,7 +6,7 @@ class NewsController extends ComController {
     //首页显示
     public function index(){
 		$news=  M('news');
-		$map['status']!=0;
+		$map['status'] = 1;
 		if(isset($_POST['sousuo'])){
 			$keywords=$_POST['keywords'];
 			$map['keywords|title|content']=array('like','%'.$keywords.'%');
