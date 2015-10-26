@@ -14,7 +14,7 @@ $(function(){
       //   initPage(parseInt(scope.totalpage), function(index){
       //     page.getData(index);
       //   })
-      // });
+      // }); 
     },
     tabGroup: function(){
       $("#typelist").find("li").removeClass("active");
