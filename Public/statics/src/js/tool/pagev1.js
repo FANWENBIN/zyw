@@ -59,13 +59,13 @@ $(function() {
       scope.totalpage = 1;
       scope.minpage = 1;
       scope.maxpage = 1;
-    }
-
+    };
+    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
   };
 
   //上一页
   function prePage(fn) {
-    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
+
     if(scope.totalpage == 0)return 0;
     if (scope.currentpage == 1 && scope.currentpage == 1) {
       console.log("这是第一页，不能切换！");
@@ -86,7 +86,6 @@ $(function() {
   };
   //下一页
   function nextPage(fn) {
-    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
     if(scope.totalpage == 0)return 0;
     if (scope.currentpage == scope.totalpage) {
       console.log("这是最后一页，不能切换！");
