@@ -23,4 +23,5 @@ return array(
 		'DB_PREFIX' => 'zyw_', 		 // 数据库表前缀
 
 	'DOMAIN_PATH'=>'http://m2.nadoo.cn/p/zyw'
+	//'DOMAIN_PATH'=>'http://115.28.177.57/zyw'
 );
