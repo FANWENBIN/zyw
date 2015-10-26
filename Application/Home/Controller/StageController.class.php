@@ -28,15 +28,8 @@ class StageController extends ComController {
         
    	}
    //做品榜
-    public function (){
+    public function stageworks(){
         $condition = I('get.condition');
 
-
-
-
-
-
-
-        
     }
 }
