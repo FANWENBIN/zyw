@@ -52,7 +52,7 @@ class CommitteeController extends ComController {
     	if($list === false){
 			ajaxReturn(101,'请求失败','');
     	}else{
-             if($data['data']){
+             if(!$data['data']){
                 $data['data'] = array();
             }
     		ajaxReturn(0,'',$data);
@@ -76,7 +76,7 @@ class CommitteeController extends ComController {
     	if($list === false){
 			ajaxReturn(101,'请求失败','');
     	}else{
-            if($data['data']){
+            if(!$data['data']){
                 $data['data'] = array();
             }
     		ajaxReturn(0,'',$data);
