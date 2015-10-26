@@ -43,10 +43,10 @@ $(function(){
           for(var i= 0,len = _arr.length ; i < len; i++){
             _html += '<div class="item">'
               +'<a href="#" class="pic">'
-                +'<img src="./Uploads'+ _arr.img +'" alt="" />'
+                +'<img src="./Uploads'+ _arr[i].img +'" alt="" />'
                 +'<div class="text">'
-                  +'<h3>'+ _arr.title +'</h3>'
-                  +'<p>'+ _arr.instime +'</p>'
+                  +'<h3>'+ _arr[i].title +'</h3>'
+                  +'<p>'+ _arr[i].instime +'</p>'
                 +'</div>'
                 +'<sub></sub>'
               +'</a>'
