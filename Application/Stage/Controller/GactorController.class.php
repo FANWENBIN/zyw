@@ -93,6 +93,7 @@ class GactorController extends ComController {
             $data['groupid']   = I('post.groupid');
             $data['newser']    = I('post.newser');
             $data['area']      = I('post.area');
+            $data['recommend'] = I('post.recommend');
             if(!$a){
                 //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
             }
@@ -190,7 +191,7 @@ class GactorController extends ComController {
             $data['about']     = I('post.about');
             $data['promotion'] = I('post.promotion');
             $data['groupid']   = I('post.groupid');
-
+            $data['recommend'] = I('post.recommend');
             $model = M();                     //开启事物
             $model->startTrans();
             $Duck = true;
