@@ -57,7 +57,7 @@ $(function(){
             $(this).addClass("active");
             scope.type = $(this).data("type");
             page.getPage(function(){
-              pageinit(scope.pageNum,function(index){
+              pageInit(scope.pageNum,function(index){
                 page.getActiveData(index);
               });
             });
@@ -67,7 +67,7 @@ $(function(){
             $(this).addClass("active");
             scope.time = $(this).data("time");
             page.getPage(function(){
-              pageinit(scope.pageNum,function(index){
+              pageInit(scope.pageNum,function(index){
                 page.getActiveData(index);
               });
             });
