@@ -60,9 +60,9 @@ $(function() {
       scope.minpage = 1;
       scope.maxpage = 1;
     };
-    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
+    console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
   };
- 
+
   //上一页
   function prePage(fn) {
 
