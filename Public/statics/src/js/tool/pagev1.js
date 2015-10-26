@@ -83,6 +83,8 @@ $(function() {
       $("#pagelist .num").find("li").eq(scope.currentpage % 10 - 1).addClass("active");
       fn(scope.currentpage);
     };
+    console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
+
   };
   //下一页
   function nextPage(fn) {
@@ -120,6 +122,8 @@ $(function() {
       $("#pagelist .num").find("li").eq(scope.currentpage % 10 - 1).addClass("active");
       fn(scope.currentpage);
     };
+    console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
+
   };
 
   function numclick(fn,_this) {
@@ -127,5 +131,7 @@ $(function() {
     $(_this).addClass("active");
     scope.currentpage = parseInt($(_this).html());
     fn(scope.currentpage);
+    console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
+    
   }
 })
