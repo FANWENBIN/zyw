@@ -20,11 +20,12 @@ $(function(){
       $("#typelist").find("li").removeClass("active");
       $(this).addClass("active");
       scope.type = $(this).data("type");
-      // page.getTotalPage(function(){
-      //   initPage(parseInt(scope.totalpage), function(index){
-      //     page.getData(index);
-      //   })
-      // });
+      $("#typelist").on("click","li",page.tabGroup);
+      page.getTotalPage(function(){
+        pageInit(scope.totalpage, 12,function(index){
+          page.getData(index);
+        })
+      });
     },
     getData: function(index){
       $.ajax({
