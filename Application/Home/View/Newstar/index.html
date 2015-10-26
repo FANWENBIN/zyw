@@ -4,94 +4,153 @@
 <!--[if IE 7 ]>
 <html class="ie7"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html> <!--<![endif]-->
+<html>
+<!--<![endif]-->
+
 <head>
-    <meta charset="utf-8">
-    <title>中演网</title>
-    <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css"/>
-    <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css"/>
-    <link href="__PUBLIC__/statics/dist/css/newstar/newstar.css" rel="stylesheet" type="text/css"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="Keywords" content="">
-    <meta name="Description" content="">
+  <meta charset="utf-8">
+  <title>中演网</title>
+  <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/newstar/newstar.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
 </head>
 
 <body>
 
-<!--webheader-->
-<div class="webheader">
+  <!--webheader-->
+  <div class="webheader">
     <div class="inner clearFix">
-        <a href="index.html" class="logo"></a>
+      <a href="index.html" class="logo"></a>
 
-        <div class="nav">
-            <ul class="clearFix">
-                <li class="first"><a href="{:U('Index/index')}">首页</a></li>
-                <li><a href="{:U('News/index')}">资讯</a></li>
-                <li><a href="{:U('Active/index')}">活动</a></li>
-                <li><a href="{:U('Committee/index')}">演工委之声</a></li>
-                <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
-                <li><a href="{:U('Rice/index')}">饭团</a></li>
-                <li><a href="{:U('Starwars/index')}">星站</a></li>
-                <li  class="c"><a href="{:U('#/index')}">明日之星</a></li>
-                <li><a href="{:U('Video/index')}">视频</a></li>
-                <li><a href="{:U('Stage/index')}">Stage</a></li>
-                <li><a href="{:U('Performing/index')}">演艺库</a></li>
-            </ul>
-        </div>
-        <a href="#" class="search"></a>
+      <div class="nav">
+        <ul class="clearFix">
+          <li class="first"><a href="{:U('Index/index')}">首页</a></li>
+          <li><a href="{:U('News/index')}">资讯</a></li>
+          <li><a href="{:U('Active/index')}">活动</a></li>
+          <li><a href="{:U('Committee/index')}">演工委之声</a></li>
+          <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
+          <li><a href="{:U('Rice/index')}">饭团</a></li>
+          <li><a href="{:U('Starwars/index')}">星站</a></li>
+          <li class="c"><a href="{:U('#/index')}">明日之星</a></li>
+          <li><a href="{:U('Video/index')}">视频</a></li>
+          <li><a href="{:U('Stage/index')}">Stage</a></li>
+          <li><a href="{:U('Performing/index')}">演艺库</a></li>
+        </ul>
+      </div>
+      <a href="#" class="search"></a>
     </div>
-</div>
-<!--webheader end-->
+  </div>
+  <!--webheader end-->
 
 
-<!--webmain-->
-<div class="webmain">
-
+  <!--webmain-->
+  <div class="webmain">
+    <!--  导航栏-->
     <div class="navTitle">
-        <a href="#">首页</a> > <a href="#">明日之星</a><!--
-         --><div class="loginfo"><span class="face"></span><span class="name">用户名</span></div>
+      <a href="{:U('Index/index')}">首页</a> > <a href="#">明日之星</a><!--
+           --><div class="loginfo">
+        <span class="face"></span>
+        <span class="name" id="login">用户名</span>
+        <!--  登陆-->
+        <!--  个人中心入口-->
+        <div class="myinfoalert" id="myinfoalert">
+          <div class="myinfoalert-header">
+            <span class="myinfoalert-header-face"></span>
+            <div class="myinfoalert-header-content">
+              <span class="name">用户名。。。。</span>
+              <div class="setting">
+                <a href="{:U('Index/setting')}" class="set">设置</a>
+                <a href="#" class="logout">登出</a>
+              </div>
+            </div>
+          </div>
+          <div class="myinfoalert-content">
+            <div class="item">
+              <a href="{:U('Index/myinfo')}" class="">
+                <span class="icon icon1"></span>
+                <span class="name">个人中心</span>
+              </a>
+            </div>
+            <div class="item">
+              <a href="{:U('Index/myinfo')}" class="">
+                <span class="icon icon2"></span>
+                <span class="name">我的饭团</span>
+              </a>
+            </div>
+            <div class="item">
+              <a href="{:U('Index/myinfo')}" class="">
+                <span class="icon icon3"></span>
+                <span class="name">我的频道</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
     <!--  top-->
     <div class="topsection">
       <!--  banner-->
       <div class="topbanner" id="banner">
         <ul class="imglist">
-    <volist name = "bannerval" id = "vo">
-      <if condition = "$i eq 1">
-      <li class="active"><a href="#"><img src="./Uploads{$vo.img}" alt="1" /></a></li>
-      <else />
-      <li><a href="#"><img src="./Uploads{$vo.img}" alt="2" /></a></li>
-      </if>
-    </volist>
+          <volist name="bannerval" id="vo">
+            <if condition="$i eq 1">
+              <li class="active">
+                <a href="#">
+                  <img src="./Uploads{$vo.img}" alt="1" />
+                </a>
+              </li>
+              <else />
+              <li>
+                <a href="#">
+                  <img src="./Uploads{$vo.img}" alt="2" />
+                </a>
+              </li>
+            </if>
+          </volist>
         </ul>
         <ul class="dotlist">
-  <volist name = "bannerval" id = "vo">
-      <if condition = "$i eq 1">
-      <li class="active"></li>
-      <else />
-     <li></li>
-      </if>
-    </volist>
+          <volist name="bannerval" id="vo">
+            <if condition="$i eq 1">
+              <li class="active"></li>
+              <else />
+              <li></li>
+            </if>
+          </volist>
         </ul>
       </div>
       <!--  最新课程-->
       <div class="course">
         <a href="javascript:;" class="hot active" id="hot">热门排行</a>
         <ul class="hotlist active" id="hotlist">
-        <volist name = "hotvideo" id = "vo">
-          <li><span class="no">{$i}.</span><span class="content">
-          <?php echo (strlen($vo['title']))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></span><span class="partin">{$vo.hot}</span></li>
-        </volist>
+          <volist name="hotvideo" id="vo">
+            <li>
+              <span class="no">{$i}.</span>
+              <span class="content">
+                <?php echo (strlen($vo['title']))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?>
+              </span>
+              <span class="partin">{$vo.hot}</span>
+            </li>
+          </volist>
 
-          
+
         </ul>
         <a href="javascript:;" class="new" id="new">最新课程</a>
         <ul class="newlist" id="newlist">
 
-          <volist name = "timevideo" id = "vo">
-          <li><span class="no">{$i}.</span><span class="content"><?php echo mb_strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></span><span class="partin">{$vo.hot}</span></li>
-        </volist>
-         
+          <volist name="timevideo" id="vo">
+            <li>
+              <span class="no">{$i}.</span>
+              <span class="content">
+                <?php echo mb_strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?>
+              </span>
+              <span class="partin">{$vo.hot}</span>
+            </li>
+          </volist>
+
         </ul>
       </div>
 
@@ -108,33 +167,37 @@
       </div>
       <ul class="inner clearFix" id="hotcousegroup">
         <li class="active">
-<volist name = "livevideo" id = "vo">
-          <a href="#">
-            <div class="item">
+          <volist name="livevideo" id="vo">
+            <a href="#">
+              <div class="item">
                 <img src="./Uploads{$vo.img}" alt="" />
                 <div class="text">
-                  <h1><?php echo mb_strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?></h1>
+                  <h1>
+                    <?php echo mb_strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
+                  </h1>
                   <h3>{$vo.hot}</h3>
                 </div>
                 <sub></sub>
-            </div>
-          </a>
-</volist>
+              </div>
+            </a>
+          </volist>
         </li>
 
         <li class="">
-<volist name = "rcevideo" id = "vo">
-          <a href="#">
-            <div class="item">
+          <volist name="rcevideo" id="vo">
+            <a href="#">
+              <div class="item">
                 <img src="./Uploads{$vo.img}" alt="" />
                 <div class="text">
-                  <h1><?php echo mb_strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?></h1>
+                  <h1>
+                    <?php echo mb_strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
+                  </h1>
                   <h3>{$vo.hot}</h3>
                 </div>
                 <sub></sub>
-            </div>
-          </a>
-</volist>
+              </div>
+            </a>
+          </volist>
 
         </li>
 
@@ -147,39 +210,42 @@
 
       </div>
       <div class="inner clearFix">
-      <volist name = "revi" id = "vo">
-        <a href="#">
-          <div class="item">
+        <volist name="revi" id="vo">
+          <a href="#">
+            <div class="item">
               <img src="./Uploads{$vo.img}" alt="" />
               <div class="text">
-                <h1><?php echo mb_strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?></h1>
+                <h1>
+                  <?php echo mb_strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
+                </h1>
                 <h3>{$vo.hot}</h3>
               </div>
               <sub></sub>
               <div class="des">
                 <?php echo mb_strlen($vo['digest'])>80?mb_substr($vo['digest'],0,80,'utf-8').'...':$vo['digest'] ?>
               </div>
-          </div>
-        </a>
+            </div>
+          </a>
         </volist>
       </div>
     </div>
 
 
-</div>
-<!--webmain end-->
+  </div>
+  <!--webmain end-->
 
 
-<!--webfooter-->
-<include file="Header/header" />
-<!--webfooter end-->
+  <!--webfooter-->
+  <include file="Header/header" />
+  <!--webfooter end-->
 
 
-<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
-<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
-<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
-<script src="__PUBLIC__/statics/dist/js/tool/tab.js"></script>
-<script src="__PUBLIC__/statics/dist/js/newstar/newstar.js"></script>
+  <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+  <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+  <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+  <script src="__PUBLIC__/statics/dist/js/tool/tab.js"></script>
+  <script src="__PUBLIC__/statics/dist/js/newstar/newstar.js"></script>
 
 </body>
+
 </html>

@@ -57,51 +57,7 @@
   color: #fff;
 }
 
-/*导航栏*/
-.navTitle {
-  color: #ccc;
-  position: relative;
-}
-.navTitle a {
-  color: inherit;
-}
-.navTitle a:hover {
-  color: red;
-}
-.navTitle .loginfo {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 30px;
-  margin-right: 15px;
-}
-.navTitle .loginfo .face {
-  display: inline-block;
-  float: left;
-  width: 20px;
-  height: 20px;
-  margin-top: 5px;
-  background: url("../../../images/icon-logface.jpg") 50% no-repeat;
-}
-.navTitle .loginfo .name {
-  display: inline-block;
-  float: left;
-  height: 20px;
-  margin-top: 5px;
-  margin-left: 15px;
-  line-height: 20px;
-  cursor: pointer;
-}
-.navTitle .loginfo .name::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: -15px;
-  border-top: 6px solid #000;
-  border-right: 6px solid #fff;
-  border-left: 6px solid #fff;
-}
+
 .tabctrl {
   position: absolute;
   bottom: 15px;
@@ -424,7 +380,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0);
   background: url("../../../images/space.png") 0 0 repeat;
-} 
+}
 .webmain .conChinaDream .inner .item .hover:hover {
   background: rgba(0, 0, 0, 0.34);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#57000000, endColorstr=#57000000);

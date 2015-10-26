@@ -48,6 +48,50 @@
 
   <!--webmain-->
   <div class="webmain">
+    <!--  导航栏-->
+    <div class="navTitle">
+      <a href="{:U('Index/index')}">首页</a> > <a href="#">中国电视好演员评选</a><!--
+           --><div class="loginfo">
+        <span class="face"></span>
+        <span class="name" id="login">用户名</span>
+        <!--  登陆-->
+        <!--  个人中心入口-->
+        <div class="myinfoalert" id="myinfoalert">
+          <div class="myinfoalert-header">
+            <span class="myinfoalert-header-face"></span>
+            <div class="myinfoalert-header-content">
+              <span class="name">用户名。。。。</span>
+              <div class="setting">
+                <a href="{:U('Index/setting')}" class="set">设置</a>
+                <a href="#" class="logout">登出</a>
+              </div>
+            </div>
+          </div>
+          <div class="myinfoalert-content">
+            <div class="item">
+              <a href="{:U('Index/myinfo')}" class="">
+                <span class="icon icon1"></span>
+                <span class="name">个人中心</span>
+              </a>
+            </div>
+            <div class="item">
+              <a href="{:U('Index/myinfo')}" class="">
+                <span class="icon icon2"></span>
+                <span class="name">我的饭团</span>
+              </a>
+            </div>
+            <div class="item">
+              <a href="{:U('Index/myinfo')}" class="">
+                <span class="icon icon3"></span>
+                <span class="name">我的频道</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
 
     <div class="con conTopbanner">
       <img src="__PUBLIC__/statics/images/__p5.jpg" />
@@ -108,7 +152,7 @@
         </div>
         <div class="group group4">
           <!--<h2><span></span>编剧代表</h2>-->
- 
+
           <div class="list clearFix">
             <volist name="scriptwriter" id="vo">
               <a href="{:U('Starwars/starinfo',array('id'=>$vo['id']))}">
