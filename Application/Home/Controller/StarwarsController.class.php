@@ -28,10 +28,9 @@ class StarwarsController extends ComController {
         $actors = M('actors');
         $where['status'] = array(array('neq',0),array('neq',3));
 
-        $actorsval = $actors->where('$where')->order('recommend desc,instime desc')->limit(0,4)->select();
+        $actorsval = $actors->where($where)->order('recommend desc,instime desc')->limit(0,4)->select();
         $this->assign('actorsval',$actorsval);
-        echo $actors->getlastsql();
-        var_dump($actorsval);
+   
         $this->display();
     }
     //推荐团成员详情
