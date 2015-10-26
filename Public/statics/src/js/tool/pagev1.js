@@ -3,10 +3,12 @@ $(function() {
     currentpage: 1,
     minpage: 1,
     maxpage: 10,
-    totalpage: 1
+    totalpage: 1,
+    eachpage: 10
   };
-  window.pageInit = function(totalpage,fn) {
-
+  window.pageInit = function(totalpage,eachpage,fn) {
+    scope.maxpage = eachpage;
+    scope.eachpage = eachpage;
     $("#pagelist .pre").off().on("click", function(){
       prePage(fn);
     });
@@ -40,8 +42,17 @@ $(function() {
     scope.totalpage = parseInt(totalpage);
     scope.currentpage = 1;
     if((typeof scope.totalpage) == "number"){
-      if(scope.totalpage > 10){
-        $("#pagelist .num").html('<li class="active">1</li>' + '<li>2</li>' + '<li>3</li>' + '<li>4</li>' + '<li>5</li>' + '<li>6</li>' + '<li>7</li>' + '<li>8</li>' + '<li>9</li>' + '<li>10</li>')
+      if(scope.totalpage > scope.eachpage){
+        var _html = "";
+        for(var i = 0,len = scope.eachpage; i < len ; i++){
+          if(i == 0 ){
+            _html += '<li class="active">'+ (i + 1) +'</li>';
+          }else{
+            _html += '<li>'+ (i + 1) +'</li>';
+          }
+        }
+
+        $("#pagelist .num").html(_html)
       }else{
         scope.maxpage = scope.totalpage;
         var _html = '';
@@ -71,17 +82,26 @@ $(function() {
     if (scope.currentpage == 1 && scope.currentpage == 1) {
       console.log("这是第一页，不能切换！");
     } else if (scope.currentpage <= scope.minpage) {
-      scope.minpage -= 10;
-      scope.maxpage = scope.minpage + 9;
+      scope.minpage -= scope.eachpage;
+      scope.maxpage = scope.minpage + scope.eachpage - 1;
       scope.currentpage--;
       $("#pagelist .num").find("li").removeClass("active");
       $("#pagelist .num").find("li").eq(scope.currentpage).addClass("active");
-      $("#pagelist .num").html('<li>' + scope.minpage + '</li>' + '<li>' + (scope.minpage + 1) + '</li>' + '<li>' + (scope.minpage + 2) + '</li>' + '<li>' + (scope.minpage + 3) + '</li>' + '<li>' + (scope.minpage + 4) + '</li>' + '<li>' + (scope.minpage + 5) + '</li>' + '<li>' + (scope.minpage + 6) + '</li>' + '<li>' + (scope.minpage + 7) + '</li>' + '<li>' + (scope.minpage + 8) + '</li>' + '<li class="active">' + (scope.minpage + 9) + '</li>')
+      var _html = "";
+      for(var i = 0,len = scope.eachpage; i < len ; i++){
+        if(i == len-1){
+          _html += '<li class="active">' + scope.minpage + '</li>'
+        }else{
+          _html += '<li>' + (scope.minpage + i) + '</li>'
+        }
+      }
+
+      $("#pagelist .num").html(_html);
       fn(scope.currentpage);
     } else {
       scope.currentpage--;
       $("#pagelist .num").find("li").removeClass("active");
-      $("#pagelist .num").find("li").eq(scope.currentpage % 10 - 1).addClass("active");
+      $("#pagelist .num").find("li").eq(scope.currentpage % scope.eachpage - 1).addClass("active");
       fn(scope.currentpage);
     };
     console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
@@ -93,17 +113,26 @@ $(function() {
     if (scope.currentpage == scope.totalpage) {
       console.log("这是最后一页，不能切换！");
       //当前页大于等于最大页&&+10小于总数
-    } else if (scope.currentpage == scope.maxpage && (scope.maxpage + 10 <= scope.totalpage)) {
-      scope.minpage += 10;
-      scope.maxpage = scope.minpage + 9;
+    } else if (scope.currentpage == scope.maxpage && (scope.maxpage + scope.eachpage <= scope.totalpage)) {
+      scope.minpage += scope.eachpage;
+      scope.maxpage = scope.minpage + scope.eachpage - 1;
       scope.currentpage++;
       $("#pagelist .num").find("li").removeClass("active");
-      $("#pagelist .num").find("li").eq(scope.currentpage % 10 - 1).addClass("active");
-      $("#pagelist .num").html('<li class="active">' + scope.minpage + '</li>' + '<li>' + (scope.minpage + 1) + '</li>' + '<li>' + (scope.minpage + 2) + '</li>' + '<li>' + (scope.minpage + 3) + '</li>' + '<li>' + (scope.minpage + 4) + '</li>' + '<li>' + (scope.minpage + 5) + '</li>' + '<li>' + (scope.minpage + 6) + '</li>' + '<li>' + (scope.minpage + 7) + '</li>' + '<li>' + (scope.minpage + 8) + '</li>' + '<li>' + (scope.minpage + 9) + '</li>')
+      $("#pagelist .num").find("li").eq(scope.currentpage % scope.eachpage - 1).addClass("active");
+      var _html = "";
+      for(var i = 0, len = scope.eachpage; i < len ; i++ ){
+        if(i == 0){
+          _html += '<li class="active">' + scope.minpage + '</li>';
+        }else{
+          _html += '<li>' + (scope.minpage + i) + '</li>'
+        }
+      }
+      
+      $("#pagelist .num").html(_html)
       fn(scope.currentpage);
       //当前页大于等于最大页&&+10大于总数
     } else if (scope.currentpage == scope.maxpage) {
-      scope.minpage += 10;
+      scope.minpage += scope.eachpage;
       scope.maxpage = scope.totalpage;
       scope.currentpage++;
       var _html = '';
@@ -120,7 +149,7 @@ $(function() {
     } else {
       scope.currentpage++;
       $("#pagelist .num").find("li").removeClass("active");
-      $("#pagelist .num").find("li").eq(scope.currentpage % 10 - 1).addClass("active");
+      $("#pagelist .num").find("li").eq(scope.currentpage % scope.eachpage - 1).addClass("active");
       fn(scope.currentpage);
     };
     console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
