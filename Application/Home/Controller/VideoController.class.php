@@ -18,7 +18,7 @@ class VideoController extends ComController {
   }
     //视频详情页
   public function vidioinfo(){
-
+    
   }
    
 }
