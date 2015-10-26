@@ -38,6 +38,7 @@ $(function() {
 
   function listInit(totalpage,fn){
     scope.totalpage = parseInt(totalpage);
+    scope.currentpage = 1;
     if((typeof scope.totalpage) == "number"){
       if(scope.totalpage > 10){
         $("#pagelist .num").html('<li class="active">1</li>' + '<li>2</li>' + '<li>3</li>' + '<li>4</li>' + '<li>5</li>' + '<li>6</li>' + '<li>7</li>' + '<li>8</li>' + '<li>9</li>' + '<li>10</li>')
@@ -132,6 +133,6 @@ $(function() {
     scope.currentpage = parseInt($(_this).html());
     fn(scope.currentpage);
     console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
-    
+
   }
 })
