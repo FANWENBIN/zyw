@@ -6,7 +6,16 @@ class CommitteeController extends ComController {
 	//演工委之声首页显示
 	public function index(){
 		$committee  = M('committee');
+
 		$commitval = $committee->where('status = 1')->select();
+		$count      = $committee->where('status=1')->count();
+		// 查询满足要求的总记录数
+		$Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+		$show       = $Page->show();// 分页显示输出
+		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+		$commitval = $committee->where('status=1')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$this->assign('page',$show);// 赋值分页输出
+
 		$this->assign('commitval',$commitval);
 		$this->assign('cur',7);
 		$this->display();
@@ -24,7 +33,7 @@ class CommitteeController extends ComController {
 			$data['img']     = I('post.img');
 			$data['digest']  = I('post.digest');
 			$data['content'] = I('post.content');
-			
+
 			$sign = $this->checkDump($data);
 			$sign || $this->error('数据不可为空');
 			$data['top']     = I('post.top');
