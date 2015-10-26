@@ -59,13 +59,13 @@ $(function() {
       scope.totalpage = 1;
       scope.minpage = 1;
       scope.maxpage = 1;
-    }
-
+    };
+    console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
   };
 
   //上一页
   function prePage(fn) {
-    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
+
     if(scope.totalpage == 0)return 0;
     if (scope.currentpage == 1 && scope.currentpage == 1) {
       console.log("这是第一页，不能切换！");
@@ -83,10 +83,11 @@ $(function() {
       $("#pagelist .num").find("li").eq(scope.currentpage % 10 - 1).addClass("active");
       fn(scope.currentpage);
     };
+    console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
+
   };
   //下一页
   function nextPage(fn) {
-    console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
     if(scope.totalpage == 0)return 0;
     if (scope.currentpage == scope.totalpage) {
       console.log("这是最后一页，不能切换！");
@@ -121,6 +122,8 @@ $(function() {
       $("#pagelist .num").find("li").eq(scope.currentpage % 10 - 1).addClass("active");
       fn(scope.currentpage);
     };
+    console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
+
   };
 
   function numclick(fn,_this) {
@@ -128,5 +131,7 @@ $(function() {
     $(_this).addClass("active");
     scope.currentpage = parseInt($(_this).html());
     fn(scope.currentpage);
+    console.log("总页数:"+scope.totalpage,"当前页:"+scope.currentpage,"最小页:"+scope.minpage,"最大页:"+scope.maxpage)
+    
   }
 })
