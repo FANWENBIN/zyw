@@ -62,7 +62,7 @@ $(function() {
     };
     console.log(scope.totalpage,scope.currentpage,scope.minpage,scope.maxpage)
   };
-
+ 
   //上一页
   function prePage(fn) {
 
