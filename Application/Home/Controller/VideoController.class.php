@@ -18,6 +18,7 @@ class VideoController extends ComController {
     $data['type'] = 1;
     $tvvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,15)->select();
     $this->assign('tvvideo',$tvvideo);
+    var_dump($tvvideo);
     //制作花絮
     $data['type'] = 2;
     $hxvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,15)->select();
