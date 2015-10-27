@@ -133,7 +133,7 @@ class ComController extends Controller {
             $acval = $sqlnews->where($acwhere)->order('hot desc,instime desc,`order` desc')->limit(0,4)->select();
            
         }else{
-            if(empty($acval)){
+            if(!empty($acval)){
                 $acwhere2['status'] = 1;
                 $acval = $sqlnews->where($acwhere2)->order('hot desc,instime desc,`order` desc')->limit(0,4)->select();
             }
