@@ -131,8 +131,11 @@ class ComController extends Controller {
             $acwhere['status'] = 1;
             $acwhere['keywords'] = array('like','%'.$actors['name'].'%');
             $acval = $sqlnews->where($acwhere)->order('hot desc,instime desc,`order` desc')->limit(0,4)->select();
+            if(){
+
+            }
         }else{
-            if(!$acval){
+            if(!empty($acval)){
                 $acwhere['status'] = 1;
                 $acval = $sqlnews->where($acwhere)->order('hot desc,instime desc,`order` desc')->limit(0,4)->select();
             }
