@@ -44,9 +44,9 @@ $(function(){
       };
     },
     initWork: function(workname){
-      var work = new Cropper({
+      var cropper = new Cropper({
         element: document.getElementById(workname + '-target'),
-        aspectRatio:0.688,
+        aspectRatio:0.875,
         previews: [
           document.getElementById(workname + '-large'),
           // document.getElementById('preview-medium'),
@@ -61,7 +61,7 @@ $(function(){
         if (typeof FileReader !== 'undefined') {
           var reader = new FileReader();
           reader.onload = function (event) {
-            work.setImage(event.target.result);
+            cropper.setImage(event.target.result);
           };
           if (scope[workname].files && scope[workname].files[0]) {
             reader.readAsDataURL(scope[workname].files[0]);
@@ -71,7 +71,7 @@ $(function(){
           scope[workname].blur();
 
           var src = document.selection.createRange().text;
-          work.setImage(src);
+          cropper.setImage(src);
         }
       };
     },
