@@ -11,6 +11,10 @@
     <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css"/>
     <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="__PUBLIC__/statics/dist/css/performing/newacter.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/statics/dist/css/performing/newacter.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/statics/js/image-cropper/dist/cropper.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/statics/js/image-cropper/demo/cropper-demo.css" rel="stylesheet" type="text/css"/>
+
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta name="Keywords" content="">
     <meta name="Description" content="">
@@ -35,7 +39,7 @@
                 <li><a href="{:U('Newstar/index')}">明日之星</a></li>
                 <li><a href="{:U('Video/index')}">视频</a></li>
                 <li><a href="{:U('Stage/index')}">Stage</a></li>
-                <li class="c"><a href="{:U('#/index')}">演艺库</a></li>
+                <li class="c"><a href="{:U('Performing/index')}">演艺库</a></li>
             </ul>
         </div>
         <a href="#" class="search"></a>
@@ -58,7 +62,7 @@
     </div>
     <div class="inner">
       <form class="form" action="index.html" method="post">
-        <fieldset>
+        <fieldset id="fiedset">
           <legend>基本信息</legend>
           <ul class="info">
             <li>
@@ -69,15 +73,15 @@
             </li>
             <li>
               <label for="sex">性别：</label>
-              <div class="">
-                <input type="radio" name="sex" value="male">
-                <input type="radio" name="sex" value="female">
+              <div class="formatradio">
+                <input type="radio" name="sex" value="male"><span>男</span>
+                <input type="radio" name="sex" value="female"><span>女</span>
               </div>
             </li>
             <li class="brief">
               <label for="name">简介：</label>
               <div class="">
-                <textarea name="name" rows="8" cols="40"></textarea>
+                <textarea name="name"></textarea>
               </div>
             </li>
             <li>
@@ -101,16 +105,120 @@
                 <select class="" name="year">
                   <option>2015</option>
                   <option>2014</option>
+                  <option>2013</option>
+                  <option>2012</option>
+                  <option>2011</option>
+                  <option>2010</option>
+                  <option>2009</option>
+                  <option>2008</option>
+                  <option>2007</option>
+                  <option>2006</option>
+                  <option>2005</option>
+                  <option>2004</option>
+                  <option>2003</option>
+                  <option>2002</option>
+                  <option>2001</option>
+                  <option>2000</option>
+                  <option>1999</option>
+                  <option>1998</option>
+                  <option>1997</option>
+                  <option>1996</option>
+                  <option>1995</option>
+                  <option>1994</option>
+                  <option>1993</option>
+                  <option>1992</option>
+                  <option>1991</option>
+                  <option>1990</option>
+                  <option>1989</option>
+                  <option>1988</option>
+                  <option>1987</option>
+                  <option>1986</option>
+                  <option>1985</option>
+                  <option>1984</option>
+                  <option>1983</option>
+                  <option>1982</option>
+                  <option>1981</option>
+                  <option>1980</option>
+                  <option>1979</option>
+                  <option>1978</option>
+                  <option>1977</option>
+                  <option>1976</option>
+                  <option>1975</option>
+                  <option>1974</option>
+                  <option>1973</option>
+                  <option>1972</option>
+                  <option>1971</option>
+                  <option>1970</option>
+                  <option>1969</option>
+                  <option>1968</option>
+                  <option>1967</option>
+                  <option>1966</option>
+                  <option>1965</option>
+                  <option>1964</option>
+                  <option>1963</option>
+                  <option>1962</option>
+                  <option>1961</option>
+                  <option>1960</option>
+                  <option>1959</option>
+                  <option>1958</option>
+                  <option>1957</option>
+                  <option>1956</option>
+                  <option>1955</option>
+                  <option>1954</option>
+                  <option>1953</option>
+                  <option>1952</option>
+                  <option>1951</option>
+                  <option>1950</option>
+
 
                 </select>
                 <select class="" name="month">
                   <option>1</option>
                   <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
 
                 </select>
                 <select class="" name="day">
                   <option>1</option>
                   <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+                  <option>29</option>
+                  <option>30</option>
+                  <option>31</option>
 
                 </select>
               </div>
@@ -132,19 +240,29 @@
                 <select class="" name="provice">
                   <option>白羊座</option>
                   <option>金牛座</option>
+                  <option>双子座</option>
+                  <option>巨蟹座</option>
+                  <option>狮子座</option>
+                  <option>处女座</option>
+                  <option>天秤座</option>
+                  <option>天蝎座</option>
+                  <option>射手座</option>
+                  <option>摩羯座</option>
+                  <option>水瓶座</option>
+                  <option>双鱼座</option>
                 </select>
               </div>
             </li>
             <li>
               <label for="name">身高：</label>
               <div class="">
-                <input class="w120" type="text" name="name" value="">
+                <input class="w120" type="text" name="name" value="">&nbsp;cm
               </div>
             </li>
             <li>
               <label for="name">体重：</label>
               <div class="">
-                <input class="w120" type="text" name="name" value="">
+                <input class="w120" type="text" name="name" value="">&nbsp;kg
               </div>
             </li>
             <li>
@@ -153,11 +271,35 @@
                 <input type="text" name="name" value="">
               </div>
             </li>
-            <li>
+            <li class="norest">
               <label for="name">个人照片</label>
-              <div class="">
-                <input type="file" name="name" value="">
+              <div class="uploadpic">
+                <p>
+                  <button class="btn-upload btn-lg">选择图片</button>
+                  <input type="file" name="avatar" id="mypic"/>
+                  支持格式: JPG, PNG
+                </p>
+                <!--  原图剪裁-->
+                <div class="preview-container">
+
+                  <!--  原图-->
+                  <div class="image-container target" id="mypic-target">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />
+                  </div>
+
+                <!--  大图预览-->
+                <div class="large-wrapper">
+                  <div class="image-container large" id="mypic-large">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />
+                  </div>
+                </div>
+                <!-- <input type="hidden" name="x" value="{{cropContext.left}}"/>
+                <input type="hidden" name="y" value="{{cropContext.top}}"/>
+                <input type="hidden" name="w" value="{{cropContext.width}}"/>
+                <input type="hidden" name="h" value="{{cropContext.height}}"/> -->
+
               </div>
+            </div>
             </li>
 
           </ul>
@@ -175,24 +317,37 @@
                 <input type="text" name="name" value="">
               </div>
             </li>
-          </ul>
-          <ul class="worklist">
-            <li>
-              <label for="name">标题1：</label>
-              <div class="">
-                <input type="text" name="name" value="">
+            <div class="uploadpic">
+              <p>
+                <button class="btn-upload btn-lg">选择图片</button>
+                <input type="file" name="avatar" id="work1"/>
+                支持格式: JPG, PNG
+              </p>
+              <!--  原图剪裁-->
+              <div class="preview-container">
+
+                <!--  原图-->
+                <div class="image-container target" id="work1-target">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />
+                </div>
+
+              <!--  大图预览-->
+              <div class="large-wrapper">
+                <div class="image-container large" id="work1-large">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />
+                </div>
               </div>
-            </li>
-            <li>
-              <label for="name">作品1：</label>
-              <div class="">
-                <input type="text" name="name" value="">
-              </div>
-            </li>
+              <!-- <input type="hidden" name="x" value="{{cropContext.left}}"/>
+              <input type="hidden" name="y" value="{{cropContext.top}}"/>
+              <input type="hidden" name="w" value="{{cropContext.width}}"/>
+              <input type="hidden" name="h" value="{{cropContext.height}}"/> -->
+
+            </div>
+          </div>
           </ul>
 
         </fieldset>
-        <a href="javascript:;">继续添加</a>
+        <a href="javascript:;" id="addwork">+继续添加</a>
       </form>
     </div>
 
@@ -210,8 +365,9 @@
 <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
 <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
 <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
-
 <script src="__PUBLIC__/statics/dist/js/performing/newacter.js"></script>
+<script src="__PUBLIC__/statics/js/form/myComponent.js"></script>
+<script src="__PUBLIC__/statics/js/image-cropper/dist/cropper.js"></script>
 
 </body>
 </html>

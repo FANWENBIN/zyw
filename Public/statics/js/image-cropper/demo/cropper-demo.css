@@ -1,9 +1,9 @@
-form {
-  margin-left: 18px;
+.uploadpic {
+  /*margin-left: 18px;*/
 }
 
-form > p {
-  padding-top: 22px;
+.uploadpic > p {
+  padding-top: 13px;
   line-height: 40px;
   font-size: 14px;
   position: relative;
@@ -12,20 +12,20 @@ form > p {
   overflow: hidden;
 }
 
-form > p .btn-upload {
+.uploadpic > p .btn-upload {
   width: 120px;
   padding: 12px 20px;
   font-size: 14px;
-  border: 1px solid #1e89e0;
+  border: 1px solid #000;
   background-color: transparent;
-  color: #1e89e0;
+  color: #000;
   margin-right: 20px;
 }
 
-form > p input {
+.uploadpic > p input {
   position: absolute;
   font-size: 480px;
-  top: 22px;
+  top: 13px;
   left: -30px;
   height: 42px;
   width: 150px;
@@ -34,7 +34,7 @@ form > p input {
   cursor: pointer;
 }
 
-form .btn-submit {
+.uploadpic .btn-submit {
   font-size: 14px;
   padding: 12px 20px;
   width: 120px;
@@ -95,12 +95,12 @@ form .btn-submit {
 
 .image-container.large {
   width: 210px;
-  height: 210px;
+  height: 305px;
 }
 
 .image-container.large img {
   width: 210px;
-  height: 210px;
+  height: 305px;
 }
 
 .image-container.large .noavatar {

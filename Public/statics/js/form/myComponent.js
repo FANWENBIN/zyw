@@ -68,9 +68,9 @@
       }
     };
     //插入css样式表
-    if (bAdd) {//判断是否已经调用css
+    if (!bAdd) {//判断是否已经调用css
       var oLink = document.createElement("link");
-      oLink.href = "./myComponent.css";
+      oLink.href = str +"/myComponent.css";
       oLink.rel = "stylesheet";
       oLink.type = "text/css";
       var oHead = document.getElementsByTagName("head")[0];
@@ -102,9 +102,10 @@
       aSpan.push(oSpan);
     }
     //插入css样式表
-    if (bAdd) {//判断是否已经调用css
+    if (!bAdd) {//判断是否已经调用css
       var oLink = document.createElement("link");
-      oLink.href = "./myComponent.css";
+      oLink.href = str +"/myComponent.css";
+
       oLink.rel = "stylesheet";
       oLink.type = "text/css";
       var oHead = document.getElementsByTagName("head")[0];
@@ -139,7 +140,7 @@
       aSpan.push(oSpan);
     }
     //插入css样式表
-    if (bAdd) {//判断是否已经调用css
+    if (!bAdd) {//判断是否已经调用css
       var oLink = document.createElement("link");
       oLink.href = str +"/myComponent.css";
       oLink.rel = "stylesheet";

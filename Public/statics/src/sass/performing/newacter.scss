@@ -16,6 +16,27 @@ legend{
 .form{
   margin-left: 320px;
   font-size: 16px;
+  .formatradio{
+    .my-radio{
+      margin-top: 22px;
+      background: url("../../../images/icon_myradio.gif") 0 0 no-repeat;
+    }
+    .my-radio-active{
+      margin-top: 22px;
+      background: url("../../../images/icon_myradio.gif") 0 -18px no-repeat;
+    }
+    span{
+      float: left;
+    }
+  }
+  textarea{
+      overflow: visible;
+      width: 440px;
+      height: 120px;
+      padding: 15px;
+      background-color: #fff;
+      border: 1px solid #000;
+  }
   legend{
     margin-left: -190px;
     font-size: 18px;
@@ -25,12 +46,22 @@ legend{
     margin-left: -80px;
     font-size: 16px;
   }
+  select{
+    width: 140px;
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid #000;
+  }
   li{
     height: 60px;
     line-height: 60px;
+    &.norest{
+      height: auto;
+    }
     input[type=text]{
       width: 280px;
       height: 35px;
+      text-indent: 15px;
       background-color: #fff;
       border: 1px solid #000;
       &.w120{
