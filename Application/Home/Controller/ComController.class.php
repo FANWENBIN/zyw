@@ -165,6 +165,8 @@ class ComController extends Controller {
         $this->assign('veval',$veval);
         $this->assign('acval',$acval);
         $this->assign('actval',$actval);
+        echo $sqlvedio->getlastsql();
+     
 
     }
     /*检查数组数据是否为空
