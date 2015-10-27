@@ -32,8 +32,12 @@ class NewstarController extends ComController {
 		$this->display();
     }
     //教程详情页面
-   public function newstarinfo(){
-
-   }
+    public function classinfo(){
+        $id = I('get.id');
+        $futurestar = M('futurestar');
+        $vedioval = $futurestar->where('id='.$id)->find();
+        $this->assign('list',$vedioval);
+        $this->display();
+    }
    
 }
