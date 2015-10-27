@@ -867,46 +867,27 @@
           <sub class="hover"></sub>
         </a>
         <div class="r clearFix">
-          <a href="#" class="item">
-            <p>微电影拍摄花絮</p>
-            <img src="__PUBLIC__/statics/images/p/b1.jpg" />
+        <volist name = "acval" id = "vo">
+          <a href="{:U('News/news_details',array('id'=>$vo['id']))}" class="item">
+            <p><?php echo (strlen($vo['title'],'utf8'))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></p>
+            <img src="./Uploads{$vo.imgpath}" />
             <sub class="hover"></sub>
           </a>
-          <a href="#" class="item">
-            <p>微电影拍摄花絮</p>
-            <img src="__PUBLIC__/statics/images/p/b2.jpg" />
+        </volist>
+        <volist name = "actval" id = "vo">
+          <a href="{:U('Active/active_details',array('id'=>$vo['id']))}" class="item">
+            <p><?php echo (strlen($vo['title'],'utf8'))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></p>
+            <img src="./Uploads{$vo.img}" />
             <sub class="hover"></sub>
           </a>
-          <a href="#" class="item">
-            <p>微电影拍摄花絮</p>
-            <img src="__PUBLIC__/statics/images/p/b3.jpg" />
+        </volist>
+          <volist name = "veval" id = "vo">
+          <a href="{:U('Video/video_details',array('id'=>$vo['id']))}" class="item">
+            <p><?php echo (strlen($vo['title'],'utf8'))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></p>
+            <img src="./Uploads{$vo.img}" />
             <sub class="hover"></sub>
           </a>
-          <a href="#" class="item">
-            <p>微电影拍摄花絮</p>
-            <img src="__PUBLIC__/statics/images/p/b4.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>微电影拍摄花絮</p>
-            <img src="__PUBLIC__/statics/images/p/b5.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>微电影拍摄花絮</p>
-            <img src="__PUBLIC__/statics/images/p/b6.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>微电影拍摄花絮</p>
-            <img src="__PUBLIC__/statics/images/p/b7.jpg" />
-            <sub class="hover"></sub>
-          </a>
-          <a href="#" class="item">
-            <p>微电影拍摄花絮</p>
-            <img src="__PUBLIC__/statics/images/p/b2.jpg" />
-            <sub class="hover"></sub>
-          </a>
+        </volist>
         </div>
       </div>
     </div>

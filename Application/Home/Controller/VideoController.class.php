@@ -39,6 +39,7 @@ class VideoController extends ComController {
     $id = I('get.id');
     $vedio = M('vedio');
     $vedioval = $vedio->where('id='.$id)->find();
+    session('video',$vedioval);
     $this->assign('list',$vedioval);
     $this->display();
   }

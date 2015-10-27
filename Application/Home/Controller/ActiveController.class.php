@@ -17,6 +17,7 @@ class ActiveController extends ComController {
         $id = I('get.id');
         $active = M('active');
         $list   = $active->where('id='.$id)->find();
+        session('active',$list);
         $this->assign('list',$list);
         $data['concern'] = $list['concern']+1;
         $active->where('id='.$id)->save($data);

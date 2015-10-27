@@ -127,7 +127,7 @@ class IndexController extends ComController {
 
     $this->assign('tbvideo',$tbvideo);
 
-
+    $this->like();
 
 		$this->display();
     }
