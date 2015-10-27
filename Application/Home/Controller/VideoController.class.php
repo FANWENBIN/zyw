@@ -31,7 +31,7 @@ class VideoController extends ComController {
     $tbvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,15)->select();
 
     $this->assign('tbvideo',$tbvideo);
-
+    $this->like();
     $this->display();
   }
     //视频详情页

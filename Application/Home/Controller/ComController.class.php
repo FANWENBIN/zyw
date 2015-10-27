@@ -115,10 +115,10 @@ class ComController extends Controller {
         if(!empty($vedio)){
             $vewhere['status'] = 1;
             $vewhere['type'] = $vedio['type'];
-            $veval = $sqlvedio->where($vewhere)->order('hot desc,instime desc,recommend desc')->limit(0,2)->select();
+            $veval = $sqlvedio->where($vewhere)->order('hot desc,instime desc,recommend desc')->limit(0,3)->select();
         }else{
             $vewhere['status'] = 1;
-            $veval = $sqlvedio->where($vewhere)->order('hot desc,instime desc,recommend desc')->limit(0,2)->select();
+            $veval = $sqlvedio->where($vewhere)->order('hot desc,instime desc,recommend desc')->limit(0,3)->select();
         }
         //喜欢的新闻和新闻
         if(!empty($news)){
@@ -142,12 +142,11 @@ class ComController extends Controller {
         if(!empty($active)){
             $actwhere['status'] = 1;
            
-            $actval = $sqlnews->where($actwhere)->order('concern desc,instime desc')->limit(0,2)->select();
+            $actval = $sqlactive->where($actwhere)->order('concern desc,instime desc')->limit(0,2)->select();
         }else{
             $actwhere['status'] = 1;
-            $actval = $sqlnews->where($actwhere)->order('concern desc,instime desc')->limit(0,2)->select();
+            $actval = $sqlactive->where($actwhere)->order('concern desc,instime desc')->limit(0,2)->select();
         }
-        
         $this->assign('veval',$veval);
         $this->assign('acval',$acval);
         $this->assign('actval',$actval);

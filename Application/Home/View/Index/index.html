@@ -856,40 +856,54 @@
     <div class="con conYoulike clearFix" id="J_ConYoulike">
       <div class="title">
         <h2>猜你喜欢</h2>
-        <a href="#" class="more">更多</a>
+        
       </div>
       <div class="inner clearFix">
-        <a href="#" class="l">
+      <volist name ="acval" id = "vo" offset = "0" length="1">
+      <div class="item1">
+        <a href="{:U('News/news_details',array('id'=>$vo['id']))}" class="l">
           <div class="txt">
-            <h3>微电影拍摄花絮</h3>
+            <h3><?php echo (strlen($vo['title'],'utf8'))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></h3>
           </div>
-          <img src="__PUBLIC__/statics/images/p/b1.jpg" />
+          <img src="./Uploads{$vo.imgpath}" />
           <sub class="hover"></sub>
         </a>
+        </div>
+        </volist>
         <div class="r clearFix">
-        <volist name = "acval" id = "vo">
+        <volist name = "acval" id = "vo" offset = "1" length = "3">
+        <div class="item2">
           <a href="{:U('News/news_details',array('id'=>$vo['id']))}" class="item">
             <p><?php echo (strlen($vo['title'],'utf8'))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></p>
             <img src="./Uploads{$vo.imgpath}" />
             <sub class="hover"></sub>
           </a>
+          </div>
         </volist>
         <volist name = "actval" id = "vo">
+         <div class="item2">
           <a href="{:U('Active/active_details',array('id'=>$vo['id']))}" class="item">
             <p><?php echo (strlen($vo['title'],'utf8'))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></p>
             <img src="./Uploads{$vo.img}" />
             <sub class="hover"></sub>
           </a>
+          </div>
         </volist>
           <volist name = "veval" id = "vo">
+           <div class="item2">
           <a href="{:U('Video/video_details',array('id'=>$vo['id']))}" class="item">
             <p><?php echo (strlen($vo['title'],'utf8'))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?></p>
             <img src="./Uploads{$vo.img}" />
             <sub class="hover"></sub>
           </a>
+          </div>
         </volist>
+      
         </div>
+       
       </div>
+
+      
     </div>
 
 
