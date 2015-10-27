@@ -26,65 +26,65 @@ $workheight: 770px;
 // .navTitle .loginfo .name { display: inline-block; float: left; height: 20px; margin-left: 15px; line-height: 20px; cursor: pointer; }
 // .navTitle .loginfo .name:after { content: ""; display: block; position: absolute; margin-left: 55px; margin-top: -10px; border-top: 6px solid #000; border-right: 6px solid #fff; border-left: 6px solid #fff; }
 //
-// .share{
-//   position: absolute;
-//   margin:{
-//     left: 510px;
-//     top: -50px;
-//   }
-//   a{
-//     display: inline-block;
-//     width: 120px;
-//     height: 20px;
-//     text-indent: 30px;
-//     margin:{
-//     }
-//     font-size: 16px;
-//     background: url("../../../images/sprite_weiboweixin.gif") 0 0  no-repeat;
-//   }
-//   .weibo{
-//     background-position: 0 -19px;
-//     &:hover{
-//       background-position: 0 -0;
-//     }
-//   }
-//   .weixin{
-//     background-position: 0 -60px;
-//     &:hover{
-//     background-position: 0 -39px;
-//
-//     }
-//   }
-//   .weixinshare{
-//     display: none;
-//     width: 215px;
-//     height: 243px;
-//     margin-left: 65px;
-//     text-align: center;
-//     background: url("../../../images/p_weixincodeframe.png")  0 0 no-repeat;
-//     h3,p,img{
-//       display: inline-block;
-//     }
-//     h3{
-//       height: 40px;
-//       margin-top: 10px;
-//       font-size: 12px;
-//       line-height: 40px;
-//     }
-//     p{
-//       color: #ccc;
-//       font-size: 16px;
-//       line-height: 25px;
-//     }
-//
-//     img{
-//       width: 125px;
-//       height: 125px;
-//       margin-top: 10px;
-//     }
-//   }
-//
-// }
+.share{
+  position: absolute;
+  margin:{
+    left: 510px;
+    top: -50px;
+  }
+  a{
+    display: inline-block;
+    width: 120px;
+    height: 20px;
+    text-indent: 30px;
+    margin:{
+    }
+    font-size: 16px;
+    background: url("../../../images/sprite_weiboweixin.gif") 0 0  no-repeat;
+  }
+  .weibo{
+    background-position: 0 -19px;
+    &:hover{
+      background-position: 0 -0;
+    }
+  }
+  .weixin{
+    background-position: 0 -60px;
+    &:hover{
+    background-position: 0 -39px;
+
+    }
+  }
+  .weixinshare{
+    display: none;
+    width: 215px;
+    height: 243px;
+    margin-left: 65px;
+    text-align: center;
+    background: url("../../../images/p_weixincodeframe.png")  0 0 no-repeat;
+    h3,p,img{
+      display: inline-block;
+    }
+    h3{
+      height: 40px;
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 40px;
+    }
+    p{
+      color: #ccc;
+      font-size: 16px;
+      line-height: 25px;
+    }
+
+    img{
+      width: 125px;
+      height: 125px;
+      margin-top: 10px;
+    }
+  }
+
+}
 
 %faceimg {
   width: $starwidth;
