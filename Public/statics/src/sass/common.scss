@@ -290,6 +290,18 @@ a.important {
   line-height: 18px;
 }
 
+.register{
+  float: right;
+  margin-left: 50px;
+  a{
+    width: 70px;
+    height: 300px;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+
 /*registeralert*/
 .registeralert {
   display: none;
