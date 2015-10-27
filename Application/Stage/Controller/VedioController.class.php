@@ -52,9 +52,7 @@ class VedioController extends ComController {
     	$id = I('post.id','','intval');
     	$vedio = M('vedio');
     	$data['status'] = 0;
-
     	$sign = $vedio->where('id='.$id)->save($data);
-   
     	if($sign){
     		$this->success('删除成功',U('Vedio/index'));
     	}else{

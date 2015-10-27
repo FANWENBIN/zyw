@@ -36,7 +36,15 @@ class VideoController extends ComController {
   }
     //视频详情页
   public function vidioinfo(){
-
+    $id = I('get.id');
+    $vedio = M('vedio');
+    $vedioval = $vedio->where('id='.$id)->select();
+    
+    $this->assign('list',$vedioval);
+    $this->display();
   }
-   
+   //视频汇
+  public function video_more(){
+    $this->display();
+  }
 }
