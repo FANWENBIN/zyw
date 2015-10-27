@@ -38,62 +38,27 @@
   <!--main-->
 		<div class="webMain">
 			<div class="mainHeader">
-				<h1>明日之星管理</h1>
+				<h1>用户管理</h1>
 			</div>
 			<div class="mainBody">
 				<!--摘要提示等-->
 				<!--表单-->
 				<div class="form">
 					<div class="formHeader">
-						<h1>明日之星详情</h1>
+						<h1>给{$user.nickname}发送消息</h1>
 					</div>
-					<form action="{:U('Futurestar/add')}" method="post" enctype="multipart/form-data" id="J_Form">
+					<form action="{:U('sendmsg',array('id'=>$user['id']))}" method="post" enctype="multipart/form-data">
 						<fieldset>
-							<div class="l">
-								<h6>标题</h6>
-								<div class="i"><input type="text" id="title" name="title" class="input" value="{$list.title}"/></div>
-							</div>
-							<div class="l">
-								<h6>类型</h6>
-								<div class="i" id="radioClick">
-									<input type="radio" name="type" value="1" data-val="直播课"  data-css="r1"  />
-									<input type="radio" name="type" value="2" data-val="录播课"  data-css="r1"  />
-								</div>
-							</div>
-							<div class="l">
-								<h6>摘要</h6>
-								<div class="i"><textarea class="input" name="digest"><if condition="($list.digest neq '')">{$data.digest}<else/></if></textarea></div>
-							</div>
 
 							<div class="l">
-								<h6>视频地址</h6>
-								<div class="i"><input type="text" id="href" name="href" class="input" value="{$list.href}"/></div>
+								<h6>信息</h6>
+								<div class="i"><script id="container" name="content" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($user['msg'])?></script></div>
 							</div>
-
-							<div class="l">
-								<h6>封面</h6>
-								<div class="i">
-				<input type="text" class="js_imgupload" value="{$list.img}" id="imgurl2" cut="true" width="380" height="285" name="img"/>
-								</div>
-							</div>
-							<div class="l">
-								<h6>&nbsp;</h6>
-								<div class="i" id="setTop">
-									<input type="radio" name="top" value="0" data-val="普通" data-css="r1"  checked="checked" />
-									<input type="radio" name="top" value="1" data-val="推荐" data-css="r1" <if condition="($list.top eq 1)">checked="checked"</if> />
-								</div>
-							</div>
-							<div class="l" id="topYes" <if condition="($list.top neq 1)">style="display:none"</if> >
-								<h6>推荐封面大图</h6>
-								<div class="i">
-								<input type="text" value="{$list.topimg}" class="js_imgupload" id="imgurl2" cut="true" width="380" height="285" name="topimg"/>
-								</div>
-							</div>
+							
 						</fieldset>
 						<div class="btnCon btnCon2">
-							<input type="hidden" name="id" class="btnA" value="{$list.id}" />
-							<input type="submit" class="btnA" name="submit" value="提交" value="submit" />
-							<a href="{:U('Futurestar/index')}" class = "btnA">返回</a>
+
+							<input type="submit" class="btnA" name="submit" value="发送" />
 						</div>
 					</form>
 					
@@ -120,7 +85,7 @@
 <script type="text/javascript" src="__PUBLIC__/sxx.js">
 </script>
 <script>
-	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=committee"))}";
+	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=news"))}";
 	var imgUploadFile = '__ROOT__/Uploads';
 	var swfUrl = "__ROOT__/Public/stage/swf";
 	$("#radioClick").click(function(){
@@ -140,7 +105,7 @@
 		$("#setTop input").each(function(){
 			if($(this).prop("checked")){
 				console.log($(this).prop("value"))
-				if($(this).prop("value") == 1){
+				if($(this).prop("value") == 2){
 					$("#topYes").show()
 				}else{
 					$("#topYes").hide()	

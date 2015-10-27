@@ -99,13 +99,13 @@
           <volist name="bannerval" id="vo">
             <if condition="$i eq 1">
               <li class="active">
-                <a href="#">
+                <a href="{:U('Newstar/classinfo',array('id'=>$vo['newsid']))}">
                   <img src="./Uploads{$vo.img}" alt="1" />
                 </a>
               </li>
               <else />
               <li>
-                <a href="#">
+                <a href="{:U('Newstar/classinfo',array('id'=>$vo['newsid']))}">
                   <img src="./Uploads{$vo.img}" alt="2" />
                 </a>
               </li>
@@ -127,6 +127,7 @@
         <a href="javascript:;" class="hot active" id="hot">热门排行</a>
         <ul class="hotlist active" id="hotlist">
           <volist name="hotvideo" id="vo">
+          <a href = "{:U('Newstar/classinfo',array('id'=>$vo['id']))}">
             <li>
               <span class="no">{$i}.</span>
               <span class="content">
@@ -134,6 +135,7 @@
               </span>
               <span class="partin">{$vo.hot}</span>
             </li>
+            </a>
           </volist>
 
 
@@ -141,6 +143,7 @@
         <a href="javascript:;" class="new" id="new">最新课程</a>
         <ul class="newlist" id="newlist">
           <volist name="timevideo" id="vo">
+          <a href = "{:U('Newstar/classinfo',array('id'=>$vo['id']))}">
             <li>
               <span class="no">{$i}.</span>
               <span class="content">
@@ -148,6 +151,7 @@
               </span>asd
               <span class="partin">{$vo.hot}</span>
             </li>
+            </a>
           </volist>
 
         </ul>
@@ -167,7 +171,7 @@
       <ul class="inner clearFix" id="hotcousegroup">
         <li class="active">
           <volist name="livevideo" id="vo">
-            <a href="#">
+            <a href="{:U('Newstar/classinfo',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.img}" alt="" />
                 <div class="text">
@@ -184,7 +188,7 @@
 
         <li class="">
           <volist name="rcevideo" id="vo">
-            <a href="#">
+            <a href="{:U('Newstar/classinfo',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.img}" alt="" />
                 <div class="text">
@@ -210,9 +214,9 @@
       </div>
       <div class="inner clearFix">
         <volist name="revi" id="vo">
-          <a href="#">
+          <a href="{:U('Newstar/classinfo',array('id'=>$vo['id']))}">
             <div class="item">
-              <img src="./Uploads{$vo.img}" alt="" />
+              <img src="./Uploads{$vo.topimg}" alt="" />
               <div class="text">
                 <h1>
                   <?php echo mb_strlen($vo['title'],'utf8')>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>

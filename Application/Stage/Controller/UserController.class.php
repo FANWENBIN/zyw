@@ -37,6 +37,7 @@ class UserController extends ComController {
         //用户信息
         $this->user = M("User")->where(array('status'=>'1','id'=>$id))->find();
         empty($this->user)&&$this->error('未找到此数据');
+        $this->assign('cur',1);
         $this->display();
     }
     
@@ -68,6 +69,7 @@ class UserController extends ComController {
             //用户信息
             $this->user = M("User")->where(array('status'=>'1','id'=>$id))->find();
             empty($this->user)&&$this->error('未找到此数据');
+            $this->assign('cur',1);
             $this->display();
         }  
     }
@@ -86,6 +88,32 @@ class UserController extends ComController {
         M("User")->where(array('id'=>$id))->save(array('status'=>'0'));
         $this->success('操作成功!');        
     }
-    
+    //给用户发送消息
+    public function sendmsg(){
+
+        $submit = I('post.submit');
+        if(empty($submit)){
+            $id = I('get.id','','intval');
+            $this->user = M("User")->where(array('status'=>'1','id'=>$id))->find();
+            empty($this->user)&&$this->error('未找到此数据');
+            $this->assign('cur',1);
+            $this->display();
+        }else{
+            $id = I('get.id','','intval');
+            $user_msg = M('user_msg');
+            $data['type'] = 1;
+            $data['msg']  = I('post.content');
+            $data['instime'] = time();
+            $data['status'] = 2;
+            $data['uid'] = $id;
+            $sign = $user_msg->add($data);
+            if($sign){
+                $this->success('发送成功',U('User/index'));
+            }else{
+                $this->error('消息未发送');
+            }
+
+        }
+    }
     
 }

@@ -44,8 +44,10 @@ class NewsController extends ComController {
 	 public function news_details(){
 		 //内容
 		 $id=intval($_GET['id']);
+
 		 $news=  M('news');
 		 $result=$news->where('id ='.$id)->find();
+		 session('news',$result);
 		 $dump['hot'] = $result['hot']+1;
 		 $news->where('id='.$id)->save($dump);
 		 $this->assign('result',$result);
@@ -55,6 +57,7 @@ class NewsController extends ComController {
 		 //活动
 		 $active = M('active');
 		 $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
+
 		 $this->assign('activeval',$activeval);
 		 $this->display('news_details');
 	 }
