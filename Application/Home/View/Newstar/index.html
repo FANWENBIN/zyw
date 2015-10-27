@@ -99,13 +99,13 @@
           <volist name="bannerval" id="vo">
             <if condition="$i eq 1">
               <li class="active">
-                <a href="{:U('Newstar/classinfo',array('id'=>$vo['id']))}">
+                <a href="{:U('Newstar/classinfo',array('id'=>$vo['newsid']))}">
                   <img src="./Uploads{$vo.img}" alt="1" />
                 </a>
               </li>
               <else />
               <li>
-                <a href="{:U('Newstar/classinfo',array('id'=>$vo['id']))}">
+                <a href="{:U('Newstar/classinfo',array('id'=>$vo['newsid']))}">
                   <img src="./Uploads{$vo.img}" alt="2" />
                 </a>
               </li>
