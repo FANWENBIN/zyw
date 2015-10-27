@@ -52,7 +52,7 @@ class StageController extends ComController {
             }
             foreach ($list as $key => $value) {
                 $list[$key]['instime'] = date('m-d',$value['instime']);
-                $list[$key]['title'] = mb_strlen($vlaue['title'],'utf8')>12?mb_substr($vlaue['title'], 0,12,'utf8').'...':$vlaue['title'];
+                $list[$key]['title'] = mb_strlen($value['title'],'utf8')>12?mb_substr($value['title'], 0,12,'utf8').'...':$value['title'];
                 $list[$key]['img'] = './Uploads'.$value['img'];
             }
             $data['page'] = ceil($count/6);
