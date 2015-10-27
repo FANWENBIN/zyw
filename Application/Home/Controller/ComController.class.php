@@ -147,6 +147,7 @@ class ComController extends Controller {
             $actwhere['status'] = 1;
             $actval = $sqlnews->where($actwhere)->order('concern desc,instime desc')->limit(0,2)->select();
         }
+        
         $this->assign('veval',$veval);
         $this->assign('acval',$acval);
         $this->assign('actval',$actval);
