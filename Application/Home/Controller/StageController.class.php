@@ -39,13 +39,10 @@ class StageController extends ComController {
 
         $count      = $stageworks->where('status = 1')->count();
         // 查询满足要求的总记录数
-        $Page       = new \Think\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page       = new \Think\Page($count,6);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = $stageworks->field('id,title,instime,img')->where('status = 1')->order($condition.' desc')->limit($Page->firstRow.','.$Page->listRows)->select();
-
-        
-
 
         if($list === false){
             ajaxReturn(101,'请求失败','');
@@ -58,7 +55,7 @@ class StageController extends ComController {
                 $list[$key]['title'] = mb_strlen($vlaue['title'],'utf8')>12?mb_substr($vlaue['title'], 0,12,'utf8').'...':$vlaue['title'];
                 $list[$key]['img'] = './Uploads'.$value['img'];
             }
-            $data['page'] = ceil($count/15);
+            $data['page'] = ceil($count/6);
             $data['data'] = $list;
             ajaxReturn(0,'',$data);
         }

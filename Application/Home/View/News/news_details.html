@@ -77,7 +77,7 @@
 			<volist name="hotnews" id="dlist" key="k" offset="0" length="1"  empty="暂时没有数据">
 				<a href="{:U('News/news_details?id='.$dlist['id'])}" class="item">
 					<div class="txt">
-						<h3><?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></h3>
+						<h3><?php echo strlen($dlist['title'],'utf8')>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></h3>
 						<span>{$dlist['instime']|date='Y-m-d H:i:s',###}</span>
 					</div>
 					<img  src="./Uploads{$dlist.imgpath}" width="380" height="250"/>
@@ -88,7 +88,7 @@
 			<volist name="hotnews" id="dlist" key="k" offset="1" length="4" >
                 <li class="c">
                     <a class="" href="{:U('News/news_details?id='.$dlist['id'])}">
-                        <?php echo strlen($dlist['title'])>20?mb_substr($dlist['title'],0,15,'utf-8').'......':$dlist['title'] ?>
+                        <?php echo strlen($dlist['title'],'utf8')>20?mb_substr($dlist['title'],0,15,'utf-8').'......':$dlist['title'] ?>
                     </a>
                     <span class="time">
                         <?php echo floor((time()-$dlist['instime'])/3600)?>小时前小时前
@@ -109,7 +109,7 @@
                   <img src="./Uploads{$activeval.img}">
                   <sub class="hover"></sub>
               </a>
-              <p class="active"> <?php echo strlen($activeval['content'])>60?mb_substr($activeval['content'],0,58,'utf-8').'...':$activeval['content'] ?></p>
+              <p class="active"> <?php echo strlen($activeval['content'],'utf8')>60?mb_substr($activeval['content'],0,58,'utf-8').'...':$activeval['content'] ?></p>
               <div class="focus"><span class="text">{$activeval.concern}</span><span class="iconPart"></span></div>
             </div>
 

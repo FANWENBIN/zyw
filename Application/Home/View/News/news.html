@@ -146,7 +146,7 @@
           <a href="{:U('News/news_details?id='.$xlist['id'])}" class="item cover">
             <div class="txt">
               <h3>
-                <?php echo strlen($xlist['title'])>30?mb_substr($xlist['title'],0,24,'utf-8').'......':$xlist['title'] ?>
+                <?php echo strlen($xlist['title'],'utf8')>30?mb_substr($xlist['title'],0,24,'utf-8').'......':$xlist['title'] ?>
               </h3>
               <span>{$xlist['title']|date='Y-m-d H:i:s',###}</span>
             </div>
@@ -158,7 +158,7 @@
         <div class="item more">
           <ul>
             <volist name="resultX" id="xlist" key="k" offset="5" length="8" empty="">
-              <li><a href="{:U('News/news_details?id='.$xlist['id'])}"><?php echo strlen($xlist['title'])>30?mb_substr($xlist['title'],0,24,'utf-8').'......':$xlist['title'] ?></a>
+              <li><a href="{:U('News/news_details?id='.$xlist['id'])}"><?php echo strlen($xlist['title'],'utf8')>30?mb_substr($xlist['title'],0,24,'utf-8').'......':$xlist['title'] ?></a>
                 <span>
                   <?php echo floor((time()-$xlist['instime'])/3600)?>小时前</span>
               </li>
@@ -178,7 +178,7 @@
         <volist name="resultD" id="dlist" key="k" offset="0" length="1" empty="">
           <a href="{:U('News/news_details?id='.$dlist['id'])}" class="l">
             <p>
-              <?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?>
+              <?php echo strlen($dlist['title'],'utf8')>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?>
             </p>
             <img src="./Uploads{$dlist.starimg}" />
             <sub class="hover"></sub>
@@ -189,7 +189,7 @@
           <volist name="resultD" id="dlist" key="k" offset="1" length="8">
             <a href="{:U('News/news_details?id='.$dlist['id'])}" class="item">
               <p>
-                <?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?>
+                <?php echo strlen($dlist['title'],'utf8')>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?>
               </p>
               <img src="./Uploads{$dlist.starimg}" />
               <sub class="hover"></sub>
@@ -209,7 +209,7 @@
           <a href="{:U('News/news_details?id='.$mlist['id'])}" class="item cover">
             <div class="txt">
               <h3>
-                <?php echo strlen($mlist['title'])>30?mb_substr($mlist['title'],0,24,'utf-8').'......':$mlist['title'] ?>
+                <?php echo strlen($mlist['title'],'utf8')>30?mb_substr($mlist['title'],0,24,'utf-8').'......':$mlist['title'] ?>
               </h3>
               <span>{$mlist['instime']|date='Y-m-d H:i:s',###}</span>
             </div>

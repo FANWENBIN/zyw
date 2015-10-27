@@ -130,7 +130,7 @@
             <li>
               <span class="no">{$i}.</span>
               <span class="content">
-                <?php echo (strlen($vo['title']))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?>
+                <?php echo (strlen($vo['title'],'utf8'))>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?>
               </span>
               <span class="partin">{$vo.hot}</span>
             </li>
@@ -144,7 +144,7 @@
             <li>
               <span class="no">{$i}.</span>
               <span class="content">
-                <?php echo mb_strlen($vo['title'])>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?>
+                <?php echo mb_strlen($vo['title'],'utf8')>8?mb_substr($vo['title'],0,8,'utf-8').'...':$vo['title'] ?>
               </span>asd
               <span class="partin">{$vo.hot}</span>
             </li>
@@ -172,7 +172,7 @@
                 <img src="./Uploads{$vo.img}" alt="" />
                 <div class="text">
                   <h1>
-                    <?php echo mb_strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
+                    <?php echo mb_strlen($vo['title'],'utf8')>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
                   </h1>
                   <h3>{$vo.hot}</h3>
                 </div>
@@ -189,7 +189,7 @@
                 <img src="./Uploads{$vo.img}" alt="" />
                 <div class="text">
                   <h1>
-                    <?php echo mb_strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
+                    <?php echo mb_strlen($vo['title'],'utf8')>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
                   </h1>
                   <h3>{$vo.hot}</h3>
                 </div>
@@ -215,13 +215,13 @@
               <img src="./Uploads{$vo.img}" alt="" />
               <div class="text">
                 <h1>
-                  <?php echo mb_strlen($vo['title'])>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
+                  <?php echo mb_strlen($vo['title'],'utf8')>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
                 </h1>
                 <h3>{$vo.hot}</h3>
               </div>
               <sub></sub>
               <div class="des">
-                <?php echo mb_strlen($vo['digest'])>80?mb_substr($vo['digest'],0,80,'utf-8').'...':$vo['digest'] ?>
+                <?php echo mb_strlen($vo['digest'],'utf8')>80?mb_substr($vo['digest'],0,80,'utf-8').'...':$vo['digest'] ?>
               </div>
             </div>
           </a>
