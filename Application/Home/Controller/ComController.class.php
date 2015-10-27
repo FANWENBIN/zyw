@@ -150,6 +150,7 @@ class ComController extends Controller {
         $this->assign('veval',$veval);
         $this->assign('acval',$acval);
         $this->assign('actval',$actval);
+        var_dump($acval);
 
     }
     /*检查数组数据是否为空
