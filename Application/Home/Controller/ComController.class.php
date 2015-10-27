@@ -165,7 +165,6 @@ class ComController extends Controller {
         $this->assign('veval',$veval);
         $this->assign('acval',$acval);
         $this->assign('actval',$actval);
-        echo $sqlvedio->getlastsql();
      
 
     }
