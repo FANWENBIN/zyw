@@ -49,10 +49,10 @@
   <!--webmain-->
   <div class="webmain">
 
-    <div class="navTitle"><a href="#">首页</a> > <a href="#">视频汇</a> > 《12道锋味》开播 谢霆锋 范冰冰相遇巴黎</div>
+    <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="{:U('Video/video_more')}">视频汇</a> > {$list.title}</div>
 
     <!--<img src="__PUBLIC__/statics/images/p/p2.jpg"/>-->
-    <iframe width=1200 height=800 src="http://player.youku.com/embed/XMTM0MTU2NzM2NA==" frameborder=0 allowfullscreen></iframe>
+    <iframe width=1200 height=800 src="{$list.href}" frameborder=0 allowfullscreen></iframe>
 
     <div class="con conComment">
 
