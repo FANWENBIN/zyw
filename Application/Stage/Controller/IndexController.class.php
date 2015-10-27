@@ -66,6 +66,8 @@ class IndexController extends Controller {
     }
     //验证码
     public function verify(){
+        //ob_start();
+        ob_end_clean();
         $Verify = new \Think\Verify();
         $Verify->entry();
     }
