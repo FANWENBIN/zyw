@@ -131,12 +131,26 @@ class ComController extends Controller {
             $acwhere['status'] = 1;
             $acwhere['keywords'] = array('like','%'.$actors['name'].'%');
             $acval = $sqlnews->where($acwhere)->order('hot desc,instime desc,`order` desc')->limit(0,4)->select();
+            if(!$acval){
+                if(!empty($news)){
+                    $newhere['status'] = 1;
+                    $newhere['type']   = $news['type'];
+                    $acval = $sqlnews->where($newhere)->order('hot desc,instime desc,`order` desc')->limit(0,4)->select();
+                }else{
+                    $acwhere2['status'] = 1;
+                $acval = $sqlnews->where($acwhere2)->order('hot desc,instime desc,`order` desc')->limit(0,4)->select();
+                }
+            }
            
         }else{
-            if(!empty($acval)){
-                $acwhere2['status'] = 1;
+            if(!empty($news)){
+                    $newhere['status'] = 1;
+                    $newhere['type']   = $news['type'];
+                    $acval = $sqlnews->where($newhere)->order('hot desc,instime desc,`order` desc')->limit(0,4)->select();
+                }else{
+                    $acwhere2['status'] = 1;
                 $acval = $sqlnews->where($acwhere2)->order('hot desc,instime desc,`order` desc')->limit(0,4)->select();
-            }
+                }
             
         }
         //喜欢的活动
