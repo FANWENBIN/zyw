@@ -47,6 +47,7 @@ class VideoController extends ComController {
   public function video_more(){
     $this->display();
   }
+  //视频汇调用分页接口数据
   public function vial(){
     $type = intval(trim(I('get.type')));
     $vedio = M('vedio');
@@ -76,4 +77,5 @@ class VideoController extends ComController {
         ajaxReturn(0,'',$dump);
     }
   }
+
 }

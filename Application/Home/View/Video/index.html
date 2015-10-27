@@ -273,6 +273,7 @@
           <div class="inner clearFix">
             <div class="colsection">
             <volist name = "tvvideo" id = "vo" offset = "0" length = "1">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -281,14 +282,17 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
               <ul>
 
             <volist name = "tvvideo" id = "vo" offset = "3" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
               
 
@@ -297,6 +301,7 @@
             <div class="colsection">
 
              <volist name = "tvvideo" id = "vo" offset = "1" length = "1">
+             <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -305,20 +310,24 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
 
               <ul>
             <volist name = "tvvideo" id = "vo" offset = "7" length = "4">
+               <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
             
               </ul>
             </div>
             <div class="colsection">
             <volist name = "tvvideo" id = "vo" offset = "2" length = "1">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -327,13 +336,16 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
               <ul>
             <volist name = "tvvideo" id = "vo" offset = "11" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
              
               </ul>
@@ -344,6 +356,7 @@
            <div class="inner clearFix">
             <div class="colsection">
             <volist name = "hxvideo" id = "vo" offset = "0" length = "1">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -352,14 +365,17 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
               <ul>
 
             <volist name = "hxvideo" id = "vo" offset = "3" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
               
 
@@ -368,6 +384,7 @@
             <div class="colsection">
 
              <volist name = "hxvideo" id = "vo" offset = "1" length = "1">
+             <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -376,20 +393,24 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
 
               <ul>
             <volist name = "hxvideo" id = "vo" offset = "7" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
             
               </ul>
             </div>
             <div class="colsection">
             <volist name = "hxvideo" id = "vo" offset = "2" length = "1">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -398,13 +419,16 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
               <ul>
             <volist name = "hxvideo" id = "vo" offset = "11" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
              
               </ul>
@@ -428,10 +452,12 @@
               <ul>
 
             <volist name = "spvideo" id = "vo" offset = "3" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
               
 
@@ -440,6 +466,7 @@
             <div class="colsection">
 
              <volist name = "spvideo" id = "vo" offset = "1" length = "1">
+             <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -448,20 +475,24 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
 
               <ul>
             <volist name = "spvideo" id = "vo" offset = "7" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
             
               </ul>
             </div>
             <div class="colsection">
             <volist name = "spvideo" id = "vo" offset = "2" length = "1">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -470,13 +501,16 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
               <ul>
             <volist name = "spvideo" id = "vo" offset = "11" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
              
               </ul>
@@ -488,6 +522,7 @@
            <div class="inner clearFix">
             <div class="colsection">
             <volist name = "tbvideo" id = "vo" offset = "0" length = "1">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -496,14 +531,17 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
               <ul>
 
             <volist name = "tbvideo" id = "vo" offset = "3" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
               
 
@@ -512,6 +550,7 @@
             <div class="colsection">
 
              <volist name = "tbvideo" id = "vo" offset = "1" length = "1">
+             <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -520,20 +559,24 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
 
               <ul>
             <volist name = "tbvideo" id = "vo" offset = "7" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
             
               </ul>
             </div>
             <div class="colsection">
             <volist name = "tbvideo" id = "vo" offset = "2" length = "1">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
               <div class="item">
                 <img src="./Uploads{$vo.bigimg}" alt="" />
                 <div class="text">
@@ -542,13 +585,16 @@
                 </div>
                 <sub></sub>
               </div>
+              </a>
             </volist>
               <ul>
             <volist name = "tbvideo" id = "vo" offset = "11" length = "4">
+            <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <li>
                   <h3><?php echo strlen($vo['title'])>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h3>
                   <span>{$vo.instime|date="m-d",###}</span>
                 </li>
+                </a>
             </volist>
              
               </ul>
