@@ -14,18 +14,18 @@
     .left{
       float: left;
       .item{
-       @include item3(380px, 310px, 60px, 14px, 12px);
+       @include item3(380px, 285px, 60px, 14px, 12px);
      }
     }
     .middle {
       float: left;
       width: 175px*2 + 30px*2;
       .item{
-        @include item2(175px, 140px, 35px, 12px);
+        @include item2(175px, 131px, 35px, 12px);
         float: left;
         margin:{
           left: 30px;
-          bottom: 30px;
+          bottom: 23px;
         }
       }
     }

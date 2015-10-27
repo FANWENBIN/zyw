@@ -28,10 +28,10 @@
   }
 }
 .webmain .topcon .rightsection{
-  margin-left: 740px;
+  margin-left: 810px;
   img{
-    width: 425px;
-    height: 415px;
+    width: 380px;
+    height: 552px;
   }
   span{
     position: absolute;
@@ -47,7 +47,7 @@
     width: 155px;
     height: 44px;
     margin: {
-      left: 270px;
+      left: 225px;
       top: -44px;
     }
     text-align: center;
@@ -146,7 +146,7 @@
     background-position: 0 -120px;
   }
   .item{
-    @include item3(380px, 280px, 65px,14px, 12px);
+    @include item3(380px, 285px, 65px,14px, 12px);
   }
   .intro{
     width: 380px;

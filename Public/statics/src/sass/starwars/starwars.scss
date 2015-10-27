@@ -9,15 +9,15 @@ $bannerwidth:$outerwidth;
 $bannerheight:530px;
 //......推荐团图片尺寸 250/380同比例缩小
 $recommendwidth:125px;
-$recommendheight:138px;
+$recommendheight:182px;
 $recommendmargin:28px;
 //......明星尺寸 4张并列
 $starwidth: 280px;
-$starheight: 410px;
+$starheight: 407px;
 $starmargin: 26px;
 
 //hover效果
-%animation{ 
+%animation{
   p{
     background: url("../../../images/space.png") 0 0 repeat;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
