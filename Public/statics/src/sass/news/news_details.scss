@@ -193,6 +193,14 @@
   height: 250px;
   margin-bottom: 30px;
 }
+.webmain .active .item{
+  height: 285px;
+  img{
+    width: 380px;
+    height: 285px;
+  }
+}
+
 .webmain .con .item .txt {
   z-index: 2;
   position: absolute;
@@ -203,7 +211,7 @@
   background: rgba(0,0,0,0.6);
   width: 100%;
   color: #fff;
-} 
+}
 .webmain .con .item .txt h3 {
   line-height: 30px;
 }
