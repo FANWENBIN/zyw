@@ -65,17 +65,17 @@ class NewsController extends ComController {
 		$Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$show       = $Page->show();// 分页显示输出
 		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-		$list = $news->where('type=3')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$list = $news->where('type=3 and status = 1')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
 		$this->assign('list',$list);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
-		//时间顺序
-		$timenews = $news->where('type=3')->order('instime desc')->limit(0,7)->select();
+		//时间顺序 
+		$timenews = $news->where('type=3  and status = 1')->order('instime desc')->limit(0,7)->select();
 		$this->assign('timenews',$timenews);
 		//热门新闻
-		$hotnews = $news->where('type=3')->order('hot desc')->limit('0,10')->select();
+		$hotnews = $news->where('type=3  and status = 1')->order('hot desc')->limit('0,10')->select();
 		$this->assign('hotnews',$hotnews);
 		//置顶新闻图片
-		$topnews = $news->where('type=3 and `order` = 2')->order('instime desc')->find();
+		$topnews = $news->where('type=3 and `order` = 2 and status = 1')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
 	 	$this->display();
 	 }
@@ -87,17 +87,17 @@ class NewsController extends ComController {
 		$Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$show       = $Page->show();// 分页显示输出
 		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-		$list = $news->where('type=1')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$list = $news->where('type=1 and status = 1')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
 		$this->assign('list',$list);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
 		//时间顺序
-		$timenews = $news->where('type=1')->order('instime desc')->limit(0,7)->select();
+		$timenews = $news->where('type=1 and status = 1')->order('instime desc')->limit(0,7)->select();
 		$this->assign('timenews',$timenews);
 		//热门新闻
-		$hotnews = $news->where('type=1')->order('hot desc')->limit('0,10')->select();
+		$hotnews = $news->where('type=1 and status = 1')->order('hot desc')->limit('0,10')->select();
 		$this->assign('hotnews',$hotnews);
 //置顶新闻图片
-		$topnews = $news->where('type=1 and `order` = 2')->order('instime desc')->find();
+		$topnews = $news->where('type=1 and `order` = 2 and status = 1')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
 	 	$this->display();
 	 }
@@ -108,17 +108,17 @@ class NewsController extends ComController {
 		$Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$show       = $Page->show();// 分页显示输出
 		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-		$list = $news->where('type=2')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$list = $news->where('type=2 and status = 1')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
 		$this->assign('list',$list);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
 		//时间顺序
-		$timenews = $news->where('type=2')->order('instime desc')->limit(0,7)->select();
+		$timenews = $news->where('type=2 and status = 1')->order('instime desc')->limit(0,7)->select();
 		$this->assign('timenews',$timenews);
 		//热门新闻
-		$hotnews = $news->where('type=2')->order('hot desc')->limit('0,10')->select();
+		$hotnews = $news->where('type=2 and status = 1')->order('hot desc')->limit('0,10')->select();
 		$this->assign('hotnews',$hotnews);
 //置顶新闻图片
-		$topnews = $news->where('type=2 and `order` = 2')->order('instime desc')->find();
+		$topnews = $news->where('type=2 and `order` = 2 and status = 1')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
 	 	$this->display();
 	 }
