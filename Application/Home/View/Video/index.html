@@ -97,13 +97,13 @@
         <volist name="banner" id="vo">
           <if condition="$i eq 1">
             <li class="active">
-              <a href="{:U('vidioinfo',array('id'=>$vo['id']))}">
+              <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <img src="./Uploads{$vo.img}" alt="{$vo.title}" />
               </a>
             </li>
             <else />
             <li>
-              <a href="{:U('vidioinfo',array('id'=>$vo['id']))}">
+             <a href="{:U('video_details',array('id'=>$vo['id']))}">
                 <img src="./Uploads{$vo.img}" alt="{$vo.title}" />
               </a>
             </li>
@@ -130,7 +130,7 @@
 
         <div class="left">
   <volist name = "videohot" id = "vo" offset = "0" length = "1">
-    <a href = "{:U('vidioinfo',array('id'=>$vo['id']))}">
+    <a href="{:U('video_details',array('id'=>$vo['id']))}">
           <div class="item">
             <img src="./Uploads{$vo.bigimg}" alt="" />
             <div class="text">
@@ -146,7 +146,7 @@
 
         <div class="middle clearFix">
 <volist name = "videohot" id = "vo" offset="1" length = "4">
-<a href = "{:U('vidioinfo',array('id'=>$vo['id']))}">
+<a href="{:U('video_details',array('id'=>$vo['id']))}">
           <div class="item">
             <img src="./Uploads{$vo.img}" alt="" />
             <div class="text">
@@ -161,7 +161,7 @@
         </div>
         <ul class="right">
 <volist name = "videohot" id = "vo" offset = "5" length = "9">
-  <a href = "{:U('vidioinfo',array('id'=>$vo['id']))}">
+  <a href="{:U('video_details',array('id'=>$vo['id']))}">
           <li>
             <h3><?php echo strlen($vo['title'])>23?mb_substr($vo['title'],0,22,'utf-8').'...':$vo['title'] ?></h3>
             <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
