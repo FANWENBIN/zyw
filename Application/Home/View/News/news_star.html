@@ -72,7 +72,7 @@
                 <a href="{:U('News/news_details?id='.$vo['id'])}" class="rightTop">
                     <img src="./Uploads{$vo.imgpath}" alt="" />
                     <div class="txt">
-                        <h3><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h3>
+                        <h3><?php echo strlen($vo['title'],'utf8')>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h3>
                         <p>{$vo.instime|date='Y-m-d',###}</p>
                     </div>
                     <div class="cover"></div>
@@ -81,7 +81,7 @@
                 <ul class="list">
                 <volist name = "timenews" id = "vo" offset = "1" length = "6">
                     <li>
-                        <a href="{:U('News/news_details?id='.$vo['id'])}"><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></a>
+                        <a href="{:U('News/news_details?id='.$vo['id'])}"><?php echo strlen($vo['title'],'utf8')>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></a>
                         <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
                     </li>
                 </volist>
@@ -102,7 +102,7 @@
                         <a href="{:U('News/news_details?id='.$vo['id'])}">
                             <img src="./Uploads{$vo.imgpath}">
                             <div class="txt">
-                                <h3><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h3>
+                                <h3><?php echo strlen($vo['title'],'utf8')>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h3>
                                 <p>{$vo.instime|date='Y-m-d',###}</p>
                             </div>
                         </a>
@@ -129,7 +129,7 @@
                             <img src="./Uploads{$vo.imgpath}" alt=""/>
                         </a>
                         <div class="content">
-                            <h1><?php echo strlen($vo['title'])>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h1>
+                            <h1><?php echo strlen($vo['title'],'utf8')>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h1>
                             <p>{$vo.digest}</p>
                             <a href="{:U('News/news_details?id='.$vo['id'])}" class="details">[详情]</a>
                         </div>
