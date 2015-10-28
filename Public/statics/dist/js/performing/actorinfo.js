@@ -1,1 +1,1 @@
-$(function(){var t={init:function(){$(".pre").on("click",tabPre),$(".next").on("click",tabNext)},tabPre:function(){$("#ullist").animate({})},tabNext:function(){}};t.init()});
+$(function(){var n={now:0},t={init:function(){$("#pre").on("click",t.tabPre),$("#next").on("click",t.tabNext)},tabPre:function(){n.now++,n.now>$("#ullist").find("li").length-6&&(n.now=$("#ullist").find("li").length-6),$("#ullist").animate({left:205*n.now},1e3)},tabNext:function(){n.now--,n.now<0&&(n.now=0),$("#ullist").animate({left:205*n.now},1e3)}};t.init()});
