@@ -92,18 +92,20 @@
     <div class="topCon">
       <volist name="list" id="vo" offset="0" length='1'>
         <div class="left">
+        <a href="{:U('committee_details',array('id'=>$vo['id']))}">
           <img src="./Uploads{$vo.topimg}" alt="" />
           <div class="text">
             <h3>{$vo.title}</h3>
             <p>{$vo.instime|date="Y-m-d H:i:s",###}</p>
           </div>
           <sub></sub>
+          </a>
         </div>
       </volist>
       <div class="right">
         <volist name="list" id="vo" offset="1" length='3'>
           <div class="item">
-            <a href="#" class="pic">
+            <a href="{:U('committee_details',array('id'=>$vo['id']))}" class="pic">
               <img src="./Uploads{$vo.img}" alt="" />
               <div class="text">
                 <h3>{$vo.title}</h3>

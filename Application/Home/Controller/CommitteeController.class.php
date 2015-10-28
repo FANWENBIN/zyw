@@ -82,5 +82,8 @@ class CommitteeController extends ComController {
     		ajaxReturn(0,'',$data);
     	}
     }
-
+    //演工委之声详情
+    public function committee_details(){
+        
+    }
 }
