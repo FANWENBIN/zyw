@@ -73,4 +73,46 @@ legend{
       margin-bottom: 100px;
     }
   }
+  .worklist .close{
+    position: absolute;
+    margin: {
+      left: 580px;
+      top: 10px;
+    }
+  }
+  .submit{
+    float: right;
+    width: 75px;
+    height: 35px;
+    margin:{
+      top: 30px;
+      left: 15px;
+    }
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #000;
+    &:active{
+      background-color: #ccc;
+    }
+  }
+  .cancel{
+    float: right;
+    width: 75px;
+    height: 35px;
+    margin:{
+      top: 30px;
+      left: 15px;
+      right: 285px;
+    }
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #000;
+    &:active{
+      background-color: #ccc;
+    }
+  }
 }

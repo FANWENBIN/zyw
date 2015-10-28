@@ -98,12 +98,24 @@
   height: 305px;
 }
 
+.image-container.largework {
+  width: 210px;
+  height: 242px;
+}
+
 .image-container.large img {
   width: 210px;
   height: 305px;
 }
+.image-container.largework img {
+  width: 210px;
+  height: 242px;
+}
 
 .image-container.large .noavatar {
+  background-position: -320px 0;
+}
+.image-container.largework .noavatar {
   background-position: -320px 0;
 }
 

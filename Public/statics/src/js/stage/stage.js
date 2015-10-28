@@ -55,7 +55,7 @@ $(function(){
           var _arr = json.data.data;
           var _html = '';
           for(var i= 0,len = _arr.length ; i < len; i++){
-            _html += '<a class="itembig" href="#'+ _arr[i].id +'">'
+            _html += '<a class="itembig" href="./index.php?m=Home&c=Video&a=video_details&id='+ _arr[i].id +'">'
               +'<img src="./Uploads'+ _arr[i].img +'" alt="" />'
               +'<div class="text">'
                 +'<h1>'+ _arr[i].title +'</h1>'
