@@ -9,9 +9,20 @@ class VoteController extends ComController {
         $where['status']=1;
         $actorsval = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,8')->select();
         $this->assign('actors',$actorsval);
-
         //形象指数
-        $actorsvalue = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,6')->select();
+        $where['groupid'] = 1;
+        $red = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
+        $where['groupid'] = 2;
+        $blue = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
+        $where['groupid'] = 3;
+        $green = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
+        $actorsvalue = $red;
+        foreach ($blue as $key => $value) {
+            array_push($actorsvalue, $value);
+        }
+        foreach ($green as $key => $value) {
+            array_push($actorsvalue, $value);
+        }
         $this->assign('list',$actorsvalue);
 
         $recommend = M('recommend');
