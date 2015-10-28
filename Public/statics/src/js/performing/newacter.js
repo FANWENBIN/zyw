@@ -15,7 +15,7 @@ $(function(){
       page.fillProvince();
       page.fillCity("440000");
       $("#provice").on("change",function(){
-        page.fillCity($(this).find("option:selected").data("id");
+        page.fillCity($(this).find("option:selected").data("id"));
       });
     },
     fillProvince: function(){
@@ -148,15 +148,27 @@ $(function(){
     },
     formSubmit: function(){
       if(!/^.+$/.test($(":text[name='name']").val())){
-        alert("请填入姓名")
+        alert("请填入姓名");
+        return false;
       }else if($(":radio[name='sex'][checked='checked']").length == 0){
-        alert("请选择性别！")
+        alert("请选择性别")
+        return false;
       }else if(!/^.+$/.test($("textarea[name='brief']").val())){
         alert("请填入简介")
-      }else if(true){
-
+        return false;
+      }else if(!/^.+$/.test($(":text[name='fromTime']").val())){
+        alert("请填入生日")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='height']").val())){
+        alert("请填入身高")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='weight']").val())){
+        alert("请填入体重")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='company']").val())){
+        alert("请填入经纪公司")
+        return false;
       }
-      return false;
     }
   };
   page.init();
