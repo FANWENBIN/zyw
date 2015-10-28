@@ -11,7 +11,40 @@ $(function(){
         page.addwork();
       })
       $("#fiedset").on("click",".close",page.closeUl);
-      $(".form").on("submit",page.formSubmit)
+      $(".form").on("submit",page.formSubmit);
+      page.fillProvince();
+      $("#province").on("change",page.fillCity($(this).val()));
+    },
+    fillProvince: function(){
+      $.ajax({
+        url: "./index.php?m=Home&c=Area&a=province",
+        type: "get",
+        dataType: "json",
+        success: function(json){
+          var _arr = json.data.data;
+          var _html = '';
+          for(var i = 0, len = _arr.length; i < len ; i++){
+            _html += '<option data-id="'+ _arr.provinceid +'">'+ _arr.province +'</option>'
+          }
+          $("#provice").html(_html);
+        }
+      })
+    },
+    fillCity: function(sCity){
+      $.ajax({
+        url: "./index.php?m=Home&c=Area&a=city",
+        type: "get",
+        data: {provinceid: sCity}
+        dataType: "json",
+        success: function(json){
+          var _arr = json.data.data;
+          var _html = '';
+          for(var i = 0, len = _arr.length; i < len ; i++){
+            _html += '<option>'+ _arr.city +'</option>'
+          }
+          $("#city").html(_html);
+        }
+      })
     },
     intitCropper: function(){
       var cropper = new Cropper({
@@ -111,11 +144,16 @@ $(function(){
       $(this).parent().remove();
     },
     formSubmit: function(){
-      console.log("开始验证");
-      console.log();
+      if(!/^.+$/.test($(":text[name='name']").val())){
+        alert("请填入姓名")
+      }else if($(":radio[name='sex'][checked='checked']").length == 0){
+        alert("请选择性别！")
+      }else if(!/^.+$/.test($("textarea[name='brief']").val())){
+        alert("请填入简介")
+      }else if(true){
 
+      }
       return false;
-
     }
   };
   page.init();
