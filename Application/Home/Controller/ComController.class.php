@@ -3,14 +3,22 @@
 namespace Home\Controller;
 use Think\Controller;
 class ComController extends Controller {
-
+//初始化构造
     public function __construct(){
-        parent::__construct();
+    parent::__construct();
 	   $config = M('configure');
        $records = $config->where('type = 4')->find();
-
        $this->assign('records',$records['records']);
        $this->assign('copyright',$records['stagerule']);
+       //加载导航栏
+       $this->nav();
+    }
+//导航栏
+    public function nav(){
+        $nav = M('nav');
+        $list = $nav->where('status = 1')->order('place')->select();
+        $this->assign('nav',$list);
+
     }
 
 //测试

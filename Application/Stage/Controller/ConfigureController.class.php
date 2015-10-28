@@ -63,5 +63,41 @@ class ConfigureController extends ComController {
             }
         }  
     }
+    //导航栏管理
+    public function nav(){
+        $nav = M('nav');
+        $nav->startTrans();
+        $sign = 1;
+        $submit = I('post.submit');
+        if(empty($submit)){
+            $list = $nav->order('place')->select();
+            $this->assign('list',$list);
+            $this->display();
+        }else{
+            $place = I('post.place');
+            $name  = I('post.name');
 
+            if (count($place) != count(array_unique($place))) {   
+               $this->error('排序不可一样');
+            }
+            
+            foreach ($place as $key => $value) {
+                $data['id'] = $key;
+                $data['place'] = $value;
+                $data['name']  = $name[$key];
+                $du = $nav->save($data);
+                if($du === false){
+                    $sign = 0;
+                }
+            }
+            if($sign == 1){
+                $nav->commit();
+                $this->success('保存成功',U('nav'));
+            }else{
+                $nav->rollback();
+                $this->error('保存失败',U('nav'));
+            }
+        }
+    }
+    
 }

@@ -4,40 +4,11 @@
       <div class="nav">
       <!--  class="first c" -->
         <ul class="clearFix">
-
-          <li <if condition= "$sign eq 1"> class="first c"</if> >
-            <a href="{:U('Index/index')}">首页</a>
+        <volist name ="nav" id = "vo">
+          <li <if condition= "$sign eq $vo['id']"> class="first c"</if> >
+            <a href="{:U($vo['href'])}">{$vo.name}</a>
           </li>
-          <li <if condition= "$sign eq 2"> class="first c"</if> >
-            <a href="{:U('News/index')}">资讯</a>
-          </li>
-          <li <if condition= "$sign eq 3"> class="first c"</if> >
-            <a href="{:U('Active/index')}">活动</a>
-          </li>
-          <li <if condition= "$sign eq 4"> class="first c"</if> >
-            <a href="{:U('Committee/index')}">演工委之声</a>
-          </li>
-          <li <if condition= "$sign eq 5"> class="first c"</if> >
-            <a href="{:U('Vote/index')}">中国电视好演员评选</a>
-          </li>
-          <li <if condition= "$sign eq 6"> class="first c"</if> >
-            <a href="{:U('Rice/index')}">饭团</a>
-          </li>
-          <li <if condition= "$sign eq 7"> class="first c"</if> >
-            <a href="{:U('Starwars/index')}">星站</a>
-          </li>
-          <li  <if condition= "$sign eq 8"> class="first c"</if> >
-            <a href="{:U('Newstar/index')}">明日之星</a>
-          </li>
-          <li <if condition= "$sign eq 9"> class="first c"</if> >
-            <a href="{:U('Video/index')}">视频</a>
-          </li>
-          <li <if condition= "$sign eq 10"> class="first c"</if> >
-            <a href="{:U('Stage/index')}">Stage</a>
-          </li>
-          <li <if condition= "$sign eq 11"> class="first c"</if> >
-            <a href="{:U('Performing/index')}">演艺库</a>
-          </li>
+        </volist>
 
         </ul>
       </div>
