@@ -25,7 +25,7 @@ $(function(){
           var _arr = json.data;
           var _html = '';
           for(var i = 0, len = _arr.length; i < len ; i++){
-            _html += '<option data-id="'+ _arr.provinceid +'">'+ _arr.province +'</option>'
+            _html += '<option data-id="'+ _arr[i].provinceid +'">'+ _arr[i].province +'</option>'
           }
           $("#provice").html(_html);
         }
@@ -41,7 +41,7 @@ $(function(){
           var _arr = json.data;
           var _html = '';
           for(var i = 0, len = _arr.length; i < len ; i++){
-            _html += '<option>'+ _arr.city +'</option>'
+            _html += '<option>'+ _arr[i].city +'</option>'
           }
           $("#city").html(_html);
         }
