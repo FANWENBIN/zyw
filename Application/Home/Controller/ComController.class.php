@@ -20,7 +20,28 @@ class ComController extends Controller {
         $this->assign('nav',$list);
 
     }
-
+    //用户中心登陆验证直接返回首页重新登陆
+    public function checkuserLogin(){
+        //md5(xxzyw916);
+        $data['id'] = session('uid');
+        $data['name'] = session('name');
+        $user = M('user');
+        $list = $user->where($data)->find();
+        if(!$list){
+            $this->error('请先登录',U('Index/index'));  //从用户中心返回首页
+        }
+    }
+    //外部验证登陆返回上一层
+    public function checkLogin(){
+        //md5(xxzyw916);
+        $data['id'] = session('uid');
+        $data['name'] = session('name');
+        $user = M('user');
+        $list = $user->where($data)->find();
+        if(!$list){
+            $this->error('请先登录');  //error 返回上一层
+        }
+    }
 //测试
     public function test(){
 
