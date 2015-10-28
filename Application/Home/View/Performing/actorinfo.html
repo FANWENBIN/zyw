@@ -104,19 +104,23 @@
       </div>
       <div class="inner">
         <div class="item">
+        <a href = "{:U('Active/active_details',array('id'=>$activeval['id']))}">
             <img src="./Uploads{$activeval.img}" alt="" />
             <div class="text">
              <h3>{$activeval.title}</h3>
                     <span>{$activeval.begin_time|date="m.d",###}-{$activeval.last_time|date="m.d",###}</span>
             </div>
             <sub></sub>
+          </a>
         </div>
         <div class="intro">
+         <a href = "{:U('Active/active_details',array('id'=>$activeval['id']))}">
           <p>
             <?php echo strlen($activeval['content'])>60?mb_substr($activeval['content'],0,58,'utf-8').'...':$activeval['content'] ?>
           </p>
           <span class="num">{$activeval.concern}</span>
           <span class="focus"></span>
+          </a>
         </div>
       </div>
 

@@ -63,5 +63,12 @@ class ConfigureController extends ComController {
             }
         }  
     }
+    //导航栏管理
+    public function nav(){
+        $nav = M('nav');
+        $list = $nav->order('place')->select();
+        $this->assign('list',$list);
+        $this->display();
+    }
 
 }

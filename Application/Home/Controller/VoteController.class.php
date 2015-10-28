@@ -174,7 +174,6 @@ class VoteController extends ComController {
 	/*二维码生成*/
     public function code(){
     	 vendor("phpqrcode.phpqrcode");
-    	 //http://yz2500.gov.cn/TP/actor/Index/index.php?opid=3099502f8652e48cd2d15e49bb5bf67f
     		$opid = I('get.opid');
             $data = 'http://yz2500.gov.cn/TP/actor/Index/index.php?opid='.$opid;
             // 纠错级别：L、M、Q、H
