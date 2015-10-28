@@ -1,21 +1,27 @@
-$(function(){
+$(function() {
   var scope = {
     now: 0
   };
   var page = {
-    init: function(){
-      $("#pre").on("click",page.tabPre);
-      $("#next").on("click",page.tabNext);
+    init: function() {
+      $("#pre").on("click", page.tabPre);
+      $("#next").on("click", page.tabNext);
     },
-    tabPre: function(){
+    tabPre: function() {
       scope.now++;
-      if(scope.now > $("#ullist").find("li").length - 6)scope.now = $("#ullist").find("li").length - 6
-      $("#ullist").animate({"left",scope.now*205},1000)
+      if (scope.now > $("#ullist").find("li").length - 6) {
+        scope.now = ($("#ullist").find("li").length - 6);
+      }
+      $("#ullist").animate({
+        "left": scope.now * 205
+      }, 1000);
     },
-    tabNext: function(){
+    tabNext: function() {
       scope.now--;
-      if(scope.now < 0)scope.now = 0;
-      $("#ullist").animate({"left",scope.now*205},1000)
+      if (scope.now < 0) scope.now = 0;
+      $("#ullist").animate({
+        "left", scope.now * 205
+      }, 1000)
     }
   };
   page.init()
