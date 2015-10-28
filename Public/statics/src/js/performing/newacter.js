@@ -5,8 +5,8 @@ $(function(){
   var page = {
     init: function(){
       initRadio("sex");
-      page.intitCropper();
-      page.initWork("work1");
+      // page.intitCropper();
+      // page.initWork("work1");
       $("#addwork").on("click",function(){
         page.addwork();
       })
@@ -121,27 +121,35 @@ $(function(){
             +'<input type="text" name="workname['+ scope.workno +']" value="">'
           +'</div>'
         +'</li>'
+
+
+
         // +'<li>'
         //   +'<label for="name">作品'+ scope.workno +'：</label>'
         //   +'<div class="">'
         //     +'<input type="text" name="name" value="">'
         //   +'</div>'
         // +'</li>'
-      +'<div class="uploadpic"><p>'
-          +'<button class="btn-upload btn-lg">选择图片</button>'
-          +'<input type="file" name="workpic['+ scope.workno +']" id="work'+ scope.workno +'"/>支持格式: JPG, PNG</p>'
-        +'<div class="preview-container">'
-          +'<div class="image-container target" id="work'+ scope.workno +'-target">'
-            +'<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />'
-          +'</div>'
-        +'<div class="large-wrapper">'
-          +'<div class="image-container largework" id="work'+ scope.workno +'-large">'
-            +'<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />'
-          +'</div>'
-        +'</div>'
-      +'</div>'
-      +'</div></ul>');
-      page.initWork("work"+scope.workno);
+
+
+
+      // +'<div class="uploadpic"><p>'
+      //     +'<button class="btn-upload btn-lg">选择图片</button>'
+          +'<input type="file" name="workpic['+ scope.workno +']" id="work'+ scope.workno +'"/>'
+          // +'支持格式: JPG, PNG</p>'
+      //   +'<div class="preview-container">'
+      //     +'<div class="image-container target" id="work'+ scope.workno +'-target">'
+      //       +'<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />'
+      //     +'</div>'
+      //   +'<div class="large-wrapper">'
+      //     +'<div class="image-container largework" id="work'+ scope.workno +'-large">'
+      //       +'<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />'
+      //     +'</div>'
+      //   +'</div>'
+      // +'</div>'
+      // +'</div>'
+      +'</ul>');
+      // page.initWork("work"+scope.workno);
     },
     closeUl: function(){
       $(this).parent().remove();
