@@ -57,20 +57,19 @@
               </div>
             </li>
             <li class="brief">
-              <label for="name">简介：</label>
+              <label for="breif">简介：</label>
               <div class="">
-                <textarea name="name"></textarea>
+                <textarea name="breif"></textarea>
               </div>
             </li>
             <li>
               <label for="">出生地：</label>
               <div class="">
-                <select class="" name="provice">
+                <select class="" name="provice" id="provice">
                   <option>上海</option>
                   <option>北京</option>
-
                 </select>
-                <select class="" name="city">
+                <select class="" name="city" id="city">
                   <option>黄埔区</option>
                   <option>静安区</option>
 
@@ -202,9 +201,9 @@
               </div>
             </li>
             <li>
-              <label for="">血型：</label>
+              <label for="bloodtype">血型：</label>
               <div class="">
-                <select class="" name="provice">
+                <select class="" name="bloodtype">
                   <option>A型</option>
                   <option>B型</option>
                   <option>AB型</option>
@@ -213,9 +212,9 @@
               </div>
             </li>
             <li>
-              <label for="name">星座：</label>
+              <label for="constellation ">星座：</label>
               <div class="">
-                <select class="" name="provice">
+                <select class="" name="constellation ">
                   <option>白羊座</option>
                   <option>金牛座</option>
                   <option>双子座</option>
@@ -232,29 +231,29 @@
               </div>
             </li>
             <li>
-              <label for="name">身高：</label>
+              <label for="height">身高：</label>
               <div class="">
-                <input class="w120" type="text" name="name" value="">&nbsp;cm
+                <input class="w120" type="text" name="height" value="">&nbsp;cm
               </div>
             </li>
             <li>
-              <label for="name">体重：</label>
+              <label for="weight">体重：</label>
               <div class="">
-                <input class="w120" type="text" name="name" value="">&nbsp;kg
+                <input class="w120" type="text" name="weight" value="">&nbsp;kg
               </div>
             </li>
             <li>
-              <label for="name">经济公司：</label>
+              <label for="company">经纪公司：</label>
               <div class="">
-                <input type="text" name="name" value="">
+                <input type="text" name="company" value="">
               </div>
             </li>
             <li class="norest">
-              <label for="name">个人照片</label>
+              <label for="mypic">个人照片</label>
               <div class="uploadpic">
                 <p>
                   <button class="btn-upload btn-lg">选择图片</button>
-                  <input type="file" name="avatar" id="mypic"/>
+                  <input type="file" name="mypic" id="mypic"/>
                   支持格式: JPG, PNG
                 </p>
                 <!--  原图剪裁-->
@@ -287,9 +286,9 @@
               X
             </a>
             <li>
-              <label for="name">标题1：</label>
+              <label for="work1name">标题1：</label>
               <div class="">
-                <input type="text" name="name" value="">
+                <input type="text" name="work1name" value="">
               </div>
             </li>
             <!-- <li>
@@ -301,7 +300,7 @@
             <div class="uploadpic">
               <p>
                 <button class="btn-upload btn-lg">选择图片</button>
-                <input type="file" name="avatar" id="work1"/>
+                <input type="file" name="work1pic" id="work1"/>
                 支持格式: JPG, PNG
               </p>
               <!--  原图剪裁-->
@@ -330,7 +329,7 @@
         </fieldset>
         <a href="javascript:;" id="addwork">+继续添加</a><br/>
         <a href="{:U('Performing/index')}" class="cancel">取消</a>
-        <input type="submit" name="" value="确定" class="submit">
+        <input type="submit" name="" value="确定" class="submit" id="formsubmit">
       </form>
     </div>
 

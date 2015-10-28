@@ -11,6 +11,7 @@ $(function(){
         page.addwork();
       })
       $("#fiedset").on("click",".close",page.closeUl);
+      $(".form").on("submit",page.formSubmit)
     },
     intitCropper: function(){
       var cropper = new Cropper({
@@ -79,9 +80,9 @@ $(function(){
     addwork: function(){
       scope.workno++;
       $("#fiedset").append('<ul class="worklist"><a href="javascript:;" class="close">X</a><li>'
-          +'<label for="name">标题' + scope.workno + '：</label>'
+          +'<label for="work'+ scope.workno +'name">标题' + scope.workno + '：</label>'
           +'<div class="">'
-            +'<input type="text" name="name" value="">'
+            +'<input type="text" name="work'+ scope.workno +'name" value="">'
           +'</div>'
         +'</li>'
         // +'<li>'
@@ -92,7 +93,7 @@ $(function(){
         // +'</li>'
       +'<div class="uploadpic"><p>'
           +'<button class="btn-upload btn-lg">选择图片</button>'
-          +'<input type="file" name="avatar" id="work'+ scope.workno +'"/>支持格式: JPG, PNG</p>'
+          +'<input type="file" name="work'+ scope.workno +'pic" id="work'+ scope.workno +'"/>支持格式: JPG, PNG</p>'
         +'<div class="preview-container">'
           +'<div class="image-container target" id="work'+ scope.workno +'-target">'
             +'<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="noavatar" />'
@@ -108,6 +109,13 @@ $(function(){
     },
     closeUl: function(){
       $(this).parent().remove();
+    },
+    formSubmit: function(){
+      console.log("开始验证");
+      console.log();
+
+      return false;
+
     }
   };
   page.init();
