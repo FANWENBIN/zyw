@@ -1,1 +1,1 @@
-$(function(){});
+$(function(){var t={init:function(){$(".pre").on("click",tabPre),$(".next").on("click",tabNext)},tabPre:function(){$("#ullist").animate({})},tabNext:function(){}};t.init()});
