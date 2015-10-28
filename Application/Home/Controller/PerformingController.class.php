@@ -96,12 +96,15 @@ class PerformingController extends ComController {
     }
     //提交演员资料待审核
     public function newacter(){
-        $this->checkLogin();
+        //$this->checkLogin();              //验证登陆 暂时关闭
         $submit = I('post.submit');
+    var_dump($submit);
+    var_dump(I('post.name'));
         if(empty($submit)){
             $this->assign('sign',11);
             $this->display();
         }else{
+            echo 'asdfasf';
             $actors = M('actors');
             $data['name']    = I('post.name'); //姓名
             $data['sex']     = I('post.sex');   // 性别
@@ -114,14 +117,15 @@ class PerformingController extends ComController {
             $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');
             // 设置附件上传类型    
             $upload->savePath  =      './Uploads/user/'; // 设置附件上传目录    // 上传文件     
-            $info   =   $upload->upload($_FILES["photo[]"]);    
+            $info   =   $upload->upload($_FILES["workpic[]"]);    
             if(!$info) {// 上传错误提示错误信息        
-                $this->error($upload->getError());    
+                var_dump($upload->getError());    
             }else{
             // 上传成功        
-                $this->success('上传成功！');    
+               // $this->success('上传成功！');    
+                echo '成功';
             }
-
+die();
 
             $a = $this->checkDump($data);
             if(!$a){
