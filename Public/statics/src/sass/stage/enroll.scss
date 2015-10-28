@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+@import "../sasscommon";
+
+.webmain .top{
+  h3{
+    font-size: 26px;
+    font-weight: bold;
+  }
+  p{
+    font-size: 16px;
+    line-height: 55px;
+  }
+}
+.webmain .chart{
+  height: 1000px;
+  margin-top: 50px;
+  .submit{
+    position: absolute;
+    margin: {
+      left: 600px;
+      top: 400px;
+    }
+    .confirm{
+      float: left;
+      width: 75px;
+      height: 35px;
+      text-align: center;
+      line-height: 35px;
+      color: #fff;
+      font-size: 16px;
+      background-color: #000;
+      &:active{
+        background-color: #ccc;
+      }
+    }
+    .cancel{
+      float: left;
+      width: 75px;
+      height: 35px;
+      margin-left: 15px;
+      text-align: center;
+      line-height: 35px;
+      font-family: Arial;
+      color: #fff;
+      font-size: 16px;
+      background-color: #000;
+      &:active{
+        background-color: #ccc;
+      }
+    }
+  }
+  dt{
+    float: left;
+    width: 315px;
+    line-height: 35px;
+    text-align: right;
+  }
+  dd{
+    height: 60px;
+    margin-left: 360px;
+    input{
+      width: 280px;
+      height: 35px;
+      line-height: 35px;
+      text-indent: 15px;
+      border: 1px solid #000;
+      background-color: #fff;
+      &.w440{
+        width: 440px;
+      }
+    }
+    textarea{
+      width: 440px;
+      height: 120px;
+      border: 1px solid #000;
+      background-color: #fff;
+      overflow: visible;
+    }
+  }
+}
