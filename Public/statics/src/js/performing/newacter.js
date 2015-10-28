@@ -14,8 +14,7 @@ $(function(){
       $(".form").on("submit",page.formSubmit);
       page.fillProvince();
       page.fillCity("440000");
-      $("#province").on("change",function(){
-        alert(1);
+      $("#provice").on("change",function(){
         page.fillCity($(this).val());
       });
     },
