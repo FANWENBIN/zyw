@@ -21,7 +21,7 @@ $(function(){
         type: "get",
         dataType: "json",
         success: function(json){
-          var _arr = json.data.data;
+          var _arr = json.data;
           var _html = '';
           for(var i = 0, len = _arr.length; i < len ; i++){
             _html += '<option data-id="'+ _arr.provinceid +'">'+ _arr.province +'</option>'
@@ -37,7 +37,7 @@ $(function(){
         data: {provinceid: sCity}
         dataType: "json",
         success: function(json){
-          var _arr = json.data.data;
+          var _arr = json.data;
           var _html = '';
           for(var i = 0, len = _arr.length; i < len ; i++){
             _html += '<option>'+ _arr.city +'</option>'
