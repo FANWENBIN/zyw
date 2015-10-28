@@ -15,7 +15,7 @@ $(function(){
       page.fillProvince();
       page.fillCity("440000");
       $("#provice").on("change",function(){
-        page.fillCity($(this).val());
+        page.fillCity($(this).data("id");
       });
     },
     fillProvince: function(){
