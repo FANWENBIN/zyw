@@ -21,6 +21,7 @@ class StageController extends ComController {
         $stage = M('stageworks');
         $works = $stage->where('status = 1')->order('instime desc')->select();
         $this->assign('works',$works);
+        $this->assign('sign',10);
 		$this->display();
     }
     //学员报名

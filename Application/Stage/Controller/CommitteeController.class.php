@@ -86,5 +86,17 @@ class CommitteeController extends ComController {
 
 		}
 	}
+	public function delete(){
+		$id = I('get.id');
+		$committee = M('committee');
+		$data['status'] = 0;
+		$sign = $committee->where('id='.$id)->save($data);
+		if($sign){
+			$this->success('删除成功',U('index'));
+		}else{
+			$this->error('未删除');
+		}
+
+	}
 
 }

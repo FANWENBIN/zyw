@@ -30,7 +30,7 @@ class StarwarsController extends ComController {
 
         $actorsval = $actors->where($where)->order('recommend desc,instime desc')->limit(0,4)->select();
         $this->assign('actorsval',$actorsval);
-   
+   $this->assign('sign',7);
         $this->display();
     }
     //推荐团成员详情
@@ -43,6 +43,7 @@ class StarwarsController extends ComController {
     	$production = $recommend_production->where('recommendid='.$id)->select();
     	$this->assign('production',$production);   //代表作
     	$this->assign('default','<li>暂未上传代表作</li>');
+        $this->assign('sign',7);
     	$this->display();
     }
     //推荐明星接口数据

@@ -9,7 +9,7 @@ class ActiveController extends ComController {
         $banner = M('banner');
         $bannerval = $banner->where('type = 2')->select();
         $this->assign('banner',$bannerval);
-       
+       $this->assign('sign',3);
 		$this->display();
 		//echo $ip = get_client_ip();
     }
@@ -24,7 +24,7 @@ class ActiveController extends ComController {
         $img = M('active_img');
         $imglist = $img->where('activeid='.$id)->select();
         $this->assign('imglist',$imglist);
-
+        $this->assign('sign',3);
         $this->display();
     }
     //========================前台调用活动查询接口==============Start//

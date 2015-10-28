@@ -32,6 +32,7 @@ class VideoController extends ComController {
 
     $this->assign('tbvideo',$tbvideo);
     $this->like();
+    $this->assign('sign',9);
     $this->display();
   }
     //视频详情页
@@ -41,10 +42,12 @@ class VideoController extends ComController {
     $vedioval = $vedio->where('id='.$id)->find();
     session('video',$vedioval);
     $this->assign('list',$vedioval);
+    $this->assign('sign',9);
     $this->display();
   }
    //视频汇
   public function video_more(){
+    $this->assign('sign',9);
     $this->display();
   }
   //视频汇调用分页接口数据

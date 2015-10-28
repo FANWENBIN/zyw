@@ -29,6 +29,7 @@ class NewstarController extends ComController {
         //推荐课程
         $revi = $futurestar->where($data)->order('top desc,hot desc')->select();
         $this->assign('revi',$revi);
+        $this->assign('sign',8);
 		$this->display();
     }
     //教程详情页面
@@ -37,6 +38,7 @@ class NewstarController extends ComController {
         $futurestar = M('futurestar');
         $vedioval = $futurestar->where('id='.$id)->find();
         $this->assign('list',$vedioval);
+        $this->assign('sign',8);
         $this->display();
     }
    
