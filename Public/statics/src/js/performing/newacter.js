@@ -13,6 +13,7 @@ $(function(){
       $("#fiedset").on("click",".close",page.closeUl);
       $(".form").on("submit",page.formSubmit);
       page.fillProvince();
+      page.fillCity(440000);
       $("#province").on("change",page.fillCity($(this).val()));
     },
     fillProvince: function(){
@@ -34,7 +35,7 @@ $(function(){
       $.ajax({
         url: "./index.php?m=Home&c=Area&a=city",
         type: "get",
-        data: {provinceid: sCity}
+        data: {provinceid: sCity},
         dataType: "json",
         success: function(json){
           var _arr = json.data;
