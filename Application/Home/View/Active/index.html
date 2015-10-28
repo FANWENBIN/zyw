@@ -20,28 +20,7 @@
   <div class="wrapper">
 
     <!--webheader-->
-    <div class="webheader">
-      <div class="inner clearFix">
-        <a href="index.html" class="logo"></a>
-        <div class="nav">
-
-          <ul class="clearFix">
-            <li class="first"><a href="{:U('Index/index')}">首页</a></li>
-            <li><a href="{:U('News/index')}">资讯</a></li>
-            <li class="c"><a href="{:U('Active/index')}">活动</a></li>
-            <li><a href="{:U('Committee/index')}">演工委之声</a></li>
-            <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
-            <li><a href="{:U('Rice/index')}">饭团</a></li>
-            <li><a href="{:U('Starwars/index')}">星站</a></li>
-            <li><a href="{:U('Newstar/index')}">明日之星</a></li>
-            <li><a href="{:U('Video/index')}">视频</a></li>
-            <li><a href="{:U('Stage/index')}">Stage</a></li>
-            <li><a href="{:U('Performing/index')}">演艺库</a></li>
-          </ul>
-        </div>
-        <a href="#" class="search"></a>
-      </div>
-    </div>
+    <include file = "Header/nav" />
     <!--webheader end-->
 
 
@@ -49,37 +28,10 @@
     <div class="webmain">
       <div class="navTitle">
         <a href="{:U('Index/index')}">首页</a> > <a href="#">活动</a><!--
-             --><div class="loginfo">
-          <span class="face"></span>
-          <span class="name">用户名</span>
-        </div>
-      </div>
-
-      <div class="topBar">
-        <div class="imgList" id="imgList">
-          <volist name="banner" id="vo">
-            <if condition="$i eq 1">
-              <a href="{:U('active_details',array('id'=>$vo['newsid']))}" class="active">
-                <img src="./Uploads{$vo.img}">
-              </a>
-              <else />
-              <a href="{:U('active_details',array('id'=>$vo['newsid']))}">
-                <img src="./Uploads{$vo.img}">
-              </a>
-            </if>
-          </volist>
-        </div>
-        <ul class="dotList" id="dotList">
-          <volist name="banner" id="vo">
-            <if condition="$i eq 1">
-              <li class="active"></li>
-              <else />
-              <li></li>
-            </if>
-          </volist>
-        </ul>
-      </div>
-
+             -->
+      <include file = "Header/login" />
+      
+  </div>
       <div class="con activity">
         <div class="title">
           <h2>全部活动</h2>

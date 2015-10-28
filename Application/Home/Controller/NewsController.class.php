@@ -35,7 +35,7 @@ class NewsController extends ComController {
 			$bannerval[$key]['href'] = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=News&a=news_details&id='.$value['newsid'];
 		}
 		$this->assign('bannerval',$bannerval);
-		
+		$this->assign('sign',2);
 		$this->display('news');
     }
     /*新闻详情页
@@ -59,6 +59,7 @@ class NewsController extends ComController {
 		 $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
 
 		 $this->assign('activeval',$activeval);
+		 $this->assign('sign',2);
 		 $this->display('news_details');
 	 }
 	 //艺术中国梦
@@ -80,6 +81,7 @@ class NewsController extends ComController {
 		//置顶新闻图片
 		$topnews = $news->where('type=3 and `order` = 2 and status = 1')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
+		$this->assign('sign',2);
 	 	$this->display();
 	 }
 	 //今日焦点
@@ -102,6 +104,7 @@ class NewsController extends ComController {
 //置顶新闻图片
 		$topnews = $news->where('type=1 and `order` = 2 and status = 1')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
+		$this->assign('sign',2);
 	 	$this->display();
 	 }
 	 //星闻动向
@@ -123,6 +126,7 @@ class NewsController extends ComController {
 //置顶新闻图片
 		$topnews = $news->where('type=2 and `order` = 2 and status = 1')->order('instime desc')->find();
 		$this->assign('topnews',$topnews);
+		$this->assign('sign',2);
 	 	$this->display();
 	 }
 }

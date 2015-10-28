@@ -20,7 +20,7 @@
 
 <body>
   <!--webheader-->
-<!-- --> <include file = "Header/nav" />
+  <include file = "Header/nav" />
   <!--webheader end-->
 
 
@@ -28,8 +28,9 @@
   <!--webmain-->
   <div class="webmain">
     <!-- 登陆栏 -->
-   <include file = "Header/login" />
-
+     <div class="navTitle"><a href="{:U('Index/index')}">首页</a>
+     <include file = "Header/login" />
+     </div>
     <!--  头部-->
     <div class="con conTop clearFix" id="J_ConTop">
       <volist name="newsresult" id="news" offset="0" length="1" empty="暂时没有数据">

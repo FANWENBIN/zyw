@@ -107,6 +107,7 @@ class IndexController extends ComController {
         $this->assign('starlist',$star);
 
     $vedio = M('vedio');
+
     $data['status'] = 1;
     //视频汇
     //电影电视
@@ -128,7 +129,7 @@ class IndexController extends ComController {
     $this->assign('tbvideo',$tbvideo);
 
     $this->like();
-
+    $this->assign('sign',1);
 		$this->display();
     }
 

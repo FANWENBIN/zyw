@@ -39,7 +39,7 @@ class VoteController extends ComController {
         $scriptwriter = $recommend->where('type=4')->select();
         $this->assign('scriptwriter',$scriptwriter);
     
-
+        $this->assign('sign',5);
 		$this->display('vote');
 		//echo $ip = get_client_ip();
     }
@@ -320,7 +320,7 @@ class VoteController extends ComController {
         $where['promotion'] = 6;
         $winactors = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,36')->select();
         $this->assign('winactors',$winactors);
-
+        $this->assign('sign',5);
         $this->display();
     }
 }

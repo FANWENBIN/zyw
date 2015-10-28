@@ -4,6 +4,7 @@ use Think\Controller;
 //演艺库类
 class PerformingController extends ComController {
     public function index(){
+        $this->assign('sign',11);
         $this->display();
     }
     //演艺人全部按照字母排序接口数据
@@ -90,12 +91,12 @@ class PerformingController extends ComController {
          $active = M('active');
          $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
          $this->assign('activeval',$activeval);
-        
+        $this->assign('sign',11);
         $this->display();
     }
     //提交演员资料待审核
     public function newacter(){
-        
+$this->assign('sign',11);
         $this->display();
 
     }

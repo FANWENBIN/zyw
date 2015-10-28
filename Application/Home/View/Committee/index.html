@@ -19,27 +19,7 @@
 <body>
 
   <!--webheader-->
-  <div class="webheader">
-    <div class="inner clearFix">
-      <a href="index.html" class="logo"></a>
-      <div class="nav">
-        <ul class="clearFix">
-          <li class="first"><a href="{:U('Index/index')}">首页</a></li>
-          <li><a href="{:U('News/index')}">资讯</a></li>
-          <li><a href="{:U('Active/index')}">活动</a></li>
-          <li class="c"><a href="{:U('Committee/index')}">演工委之声</a></li>
-          <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
-          <li><a href="{:U('Rice/index')}">饭团</a></li>
-          <li><a href="{:U('Starwars/index')}">星站</a></li>
-          <li><a href="{:U('Newstar/index')}">明日之星</a></li>
-          <li><a href="{:U('Video/index')}">视频</a></li>
-          <li><a href="{:U('Stage/index')}">Stage</a></li>
-          <li><a href="{:U('Performing/index')}">演艺库</a></li>
-        </ul>
-      </div>
-      <a href="#" class="search"></a>
-    </div>
-  </div>
+  <include file = "Header/nav" />
   <!--webheader end-->
 
 
@@ -48,46 +28,8 @@
     <!--  导航栏-->
     <div class="navTitle">
       <a href="{:U('Index/index')}">首页</a> > <a href="#">演工委之声</a><!--
-           --><div class="loginfo">
-        <span class="face"></span>
-        <span class="name" id="login">用户名</span>
-        <!--  登陆-->
-        <!--  个人中心入口-->
-        <div class="myinfoalert" id="myinfoalert">
-          <div class="myinfoalert-header">
-            <span class="myinfoalert-header-face"></span>
-            <div class="myinfoalert-header-content">
-              <span class="name">用户名。。。。</span>
-              <div class="setting">
-                <a href="{:U('Index/setting')}" class="set">设置</a>
-                <a href="#" class="logout">登出</a>
-              </div>
-            </div>
-          </div>
-          <div class="myinfoalert-content">
-            <div class="item">
-              <a href="{:U('Index/myinfo')}" class="">
-                <span class="icon icon1"></span>
-                <span class="name">个人中心</span>
-              </a>
-            </div>
-            <div class="item">
-              <a href="{:U('Index/myinfo')}" class="">
-                <span class="icon icon2"></span>
-                <span class="name">我的饭团</span>
-              </a>
-            </div>
-            <div class="item">
-              <a href="{:U('Index/myinfo')}" class="">
-                <span class="icon icon3"></span>
-                <span class="name">我的频道</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
+           --><include file = "Header/login" />
       </div>
-    </div>
 
     <div class="topCon">
       <volist name="list" id="vo" offset="0" length='1'>
