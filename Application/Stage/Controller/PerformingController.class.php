@@ -32,8 +32,8 @@ class PerformingController extends ComController {
             $this->assign('cur',10);
             $this->display();
         }else{
-            $data['name']    = I('post.name');
             $actors = M('actors');
+            $data['name']    = I('post.name');
             $data['sex']     = I('post.sex');
             $a = $this->checkDump($data);
             $data['birthday']  = strtotime(I('post.birthday'));

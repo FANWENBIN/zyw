@@ -96,8 +96,99 @@ class PerformingController extends ComController {
     }
     //提交演员资料待审核
     public function newacter(){
-$this->assign('sign',11);
-        $this->display();
+        $this->checkLogin();
+        $submit = I('post.submit');
+        if(empty($submit)){
+            $this->assign('sign',11);
+            $this->display();
+        }else{
+            $actors = M('actors');
+            $data['name']    = I('post.name'); //姓名
+            $data['sex']     = I('post.sex');   // 性别
+            $data['about']     = I('post.about');  //简介
+            $data['headimg'] = I("post.photo1");
+            $data['img']     = I("post.photo2");
+
+            $upload = new \Think\Upload();// 实例化上传类    
+            $upload->maxSize   =     3145728 ;// 设置附件上传大小    
+            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');
+            // 设置附件上传类型    
+            $upload->savePath  =      './Uploads/user/'; // 设置附件上传目录    // 上传文件     
+            $info   =   $upload->upload($_FILES["photo[]"]);    
+            if(!$info) {// 上传错误提示错误信息        
+                $this->error($upload->getError());    
+            }else{
+            // 上传成功        
+                $this->success('上传成功！');    
+            }
+
+
+            $a = $this->checkDump($data);
+            if(!$a){
+                //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
+            }
+            $data['birthday']  = strtotime(I('post.birthday'));   //出生日期
+                                //strtotime(I('post.timet'))
+            $data['address']   = I('post.address');      //出生地址
+            $data['constellation'] = I('post.constellation'); //星座
+            $data['blood']     = I('post.blood');   //血型
+            $data['height']    = I('post.height');  //身高
+            $data['weight']    = I('post.weight');  //体重
+            $data['talent']    = I('post.talent');  //经纪公司
+            $data['promotion'] = 0;
+            $data['groupid']   = 0;
+            $data['newser']    = 1;
+            $data['area']      = 0;
+
+            $counts = $actors->count();
+            $data['rank']    = $counts+1;   //名次
+            $data['oldrank'] = $data['rank']; 
+
+
+
+            $sur = mb_substr($data['name'],0,1,'utf-8');
+            $data['opid']    = md5(date('YmdHis',time()));
+            $data['instime'] = time();
+            $t_hz = M('t_hz');
+            $thzval = $t_hz->where("chinese='".$sur."'")->find();
+            $data['chinese_sum'] = $thzval['sum'];
+            $data['initial']     = getFirstCharter($data['name']);
+            $data['status'] = 3;
+
+            $model = M();                     //开启事物
+            $model->startTrans();
+            $Duck = true;
+            
+            $title = I('post.title');
+            $img   = I('post.photo');
+        
+            $production   = M('actors_production');
+            $sign = $actors->add($data);
+
+            if($sign === false){
+                    $Duck = false;
+            }else{
+                $id = $sign;
+            }
+            foreach($title as $key=>$val){
+                $c['title'] = $val;
+                $c['img']   = $img[$key];
+                $c['actorsid'] = $id;
+                $sign = $production->add($c);
+                if(!$sign){
+                    $Duck = false;
+                    echo $production->getlastsql();die();
+                }
+            }
+            if($Duck){
+                $model->commit();
+                $this->success('新增成功',U('Performing/index'));
+            }else{
+                $model->rollback();
+                $this->error('新增失败');
+            }
+        }
+        
 
     }
 

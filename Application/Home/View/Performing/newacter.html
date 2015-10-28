@@ -39,7 +39,7 @@
         <h2>演艺人</h2>
     </div>
     <div class="inner">
-      <form class="form" action="{:U('Performing/index')}" method="post">
+      <form class="form" action="{:U('Performing/newacter')}" method="post" enctype="multipart/form-data">
         <fieldset id="fiedset">
           <legend>基本信息</legend>
           <ul class="info">
@@ -170,7 +170,7 @@
             <li>
               <label for="work1name">标题1：</label>
               <div class="">
-                <input type="text" name="work1name" value="">
+                <input type="text" name="work1name[1]" value="">
               </div>
             </li>
             <!-- <li>
@@ -182,7 +182,7 @@
             <div class="uploadpic">
               <p>
                 <button class="btn-upload btn-lg">选择图片</button>
-                <input type="file" name="work1pic" id="work1"/>
+                <input type="file" name="work1pic[1]" id="work1"/>
                 支持格式: JPG, PNG
               </p>
               <!--  原图剪裁-->
@@ -211,7 +211,7 @@
         </fieldset>
         <a href="javascript:;" id="addwork">+继续添加</a><br/>
         <a href="{:U('Performing/index')}" class="cancel">取消</a>
-        <input type="submit" name="" value="确定" class="submit" id="formsubmit">
+        <input type="submit" name="submit" value="确定" class="submit" id="formsubmit">
       </form>
     </div>
 
