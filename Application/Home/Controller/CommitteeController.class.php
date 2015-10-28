@@ -84,6 +84,7 @@ class CommitteeController extends ComController {
     }
     //演工委之声详情
     public function committee_details(){
-        
+        $id = I('get.id');
+        $this->display();
     }
 }
