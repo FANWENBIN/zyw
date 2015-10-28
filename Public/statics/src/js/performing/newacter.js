@@ -118,7 +118,7 @@ $(function(){
       $("#fiedset").append('<ul class="worklist"><a href="javascript:;" class="close">X</a><li>'
           +'<label for="workname['+ scope.workno +']">标题' + scope.workno + '：</label>'
           +'<div class="">'
-            +'<input type="text" name="work'+ scope.workno +'name" value="">'
+            +'<input type="text" name="workname['+ scope.workno +']" value="">'
           +'</div>'
         +'</li>'
         // +'<li>'

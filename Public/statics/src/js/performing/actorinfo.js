@@ -13,7 +13,7 @@ $(function() {
         scope.now = ($("#ullist").find("li").length - 6);
       }
       $("#ullist").animate({
-        "left": scope.now * 205
+        "left": scope.now * 205 
       }, 1000);
     },
     tabNext: function() {
