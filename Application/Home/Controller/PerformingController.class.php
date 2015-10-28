@@ -95,7 +95,7 @@ class PerformingController extends ComController {
     }
     //提交演员资料待审核
     public function newacter(){
-
+        
         $this->display();
 
     }
