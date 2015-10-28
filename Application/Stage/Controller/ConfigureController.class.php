@@ -72,6 +72,7 @@ class ConfigureController extends ComController {
         if(empty($submit)){
             $list = $nav->order('place')->select();
             $this->assign('list',$list);
+            $this->assign('cur',12);
             $this->display();
         }else{
             $place = I('post.place');
@@ -80,7 +81,7 @@ class ConfigureController extends ComController {
             if (count($place) != count(array_unique($place))) {   
                $this->error('排序不可一样');
             }
-            
+
             foreach ($place as $key => $value) {
                 $data['id'] = $key;
                 $data['place'] = $value;
@@ -90,6 +91,7 @@ class ConfigureController extends ComController {
                     $sign = 0;
                 }
             }
+
             if($sign == 1){
                 $nav->commit();
                 $this->success('保存成功',U('nav'));
@@ -99,5 +101,15 @@ class ConfigureController extends ComController {
             }
         }
     }
-    
+    public function change(){
+        $id = I('get.id');
+        $data['status'] = intval(trim(I('get.status')));
+        $nav = M('nav');
+        $sign = $nav->where('id='.$id)->save($data);
+        if($sign){
+            $this->redirect(U('nav'),'',0,'');
+        }else{
+            $this->error('修改失败');
+        }
+    }
 }
