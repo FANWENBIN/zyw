@@ -85,18 +85,19 @@ class CommitteeController extends ComController {
     //演工委之声详情
     public function committee_details(){
         $id = I('get.id');
+        $committee = M('committee');
+        $result = $committee->where('id='.$id)->find();
+        $this->assign('result',$result);
 
+        $news=  M('news');
+        //热点
+        $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
+        $this->assign('hotnews',$hotnews);
+        //活动
+        $active = M('active');
+        $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
 
-
-$news=  M('news');
-         //热点
-         $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
-         $this->assign('hotnews',$hotnews);
-         //活动
-         $active = M('active');
-         $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
-
-         $this->assign('activeval',$activeval);
+        $this->assign('activeval',$activeval);
         $this->display();
     }
 }
