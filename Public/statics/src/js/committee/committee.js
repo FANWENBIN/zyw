@@ -42,7 +42,7 @@ $(function(){
           var _html = '';
           for(var i= 0,len = _arr.length ; i < len; i++){
             _html += '<div class="item">'
-              +'<a href="/index.php?m=Home&c=Committee&a=committee_details&id='+ _arr[i].id +'" class="pic">'
+              +'<a href="./index.php?m=Home&c=Committee&a=committee_details&id='+ _arr[i].id +'" class="pic">'
                 +'<img src="./Uploads'+ _arr[i].img +'" alt="" />'
                 +'<div class="text">'
                   +'<h3>'+ _arr[i].title +'</h3>'
