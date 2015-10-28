@@ -53,7 +53,7 @@ $(function(){
               if(item[key]){
                 for(var i = 0, len = item[key].length; i < len ; i++){
                   //item[key][i].
-                  _innerhtml += '<a href = "./index.php?m=Home&c=Starwars&a=starinfo&id='+ item[key][i].id +'">'
+                  _innerhtml += '<a href = "index.php?m=Home&c=Performing&a=actorinfo&id='+ item[key][i].id +'">'
                       +'<div class="item">'
                       +'<img src="'+ item[key][i].headimg +'" alt="" />'
                       +'<p>'+ item[key][i].name +'</p>'
