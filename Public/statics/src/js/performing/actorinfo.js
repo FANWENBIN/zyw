@@ -4,8 +4,8 @@ $(function(){
   };
   var page = {
     init: function(){
-      $("#pre").on("click",tabPre);
-      $("#next").on("click",tabNext);
+      $("#pre").on("click",page.tabPre);
+      $("#next").on("click",page.tabNext);
     },
     tabPre: function(){
       scope.now++;
