@@ -99,16 +99,16 @@
             <div class="title event">
                 <h2>活动</h2>
             </div>
-            <a href="#" class="item">
+            <a href="{:U('Active/active_details',array('id'=>$activeval['id']))}" class="item">
                 <div class="txt">
-                    <h3>伟来眼中的他们</h3>
-                    <span>10.25-11.2</span>
+                    <h3>{$activeval.title}</h3>
+                    <span>{$activeval.begin_time|date="m.d",###}-{$activeval.last_time|date="m.d",###}</span>
                 </div>
-                <img src="__PUBLIC__/statics/images/pic-newsdetails-1.jpg">
+                <img src="./Uploads{$activeval.img}">
                 <sub class="hover"></sub>
             </a>
-            <p class="active">活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍</p>
-            <div class="focus"><span class="text">2555252</span><span class="iconFocus"></span><span class="text">22555222</span><span class="iconPart"></span></div>
+            <p class="active"><?php echo mb_strlen($activeval['content'],'utf8')>60?mb_substr($activeval['content'],0,58,'utf-8').'...':$activeval['content'] ?></p>
+            <div class="focus"><span class="text">{$activeval.concern}</span><span class="iconPart"></span></div>
 
 
 
