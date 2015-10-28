@@ -13,8 +13,10 @@ $(function(){
       $("#fiedset").on("click",".close",page.closeUl);
       $(".form").on("submit",page.formSubmit);
       page.fillProvince();
-      page.fillCity(440000);
-      $("#province").on("change",page.fillCity($(this).val()));
+      page.fillCity("440000");
+      $("#province").on("change",function(){
+        page.fillCity($(this).val());
+      });
     },
     fillProvince: function(){
       $.ajax({
