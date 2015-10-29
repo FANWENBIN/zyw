@@ -38,12 +38,12 @@ class PerformingController extends ComController {
         }   $where['status'] = array(array('eq',1),array('eq',2),'or');
     	foreach(range('A','Z') as $v){
 			$data[$v] = $actors
-						->field('id,headimg,name')
+						->field('id,img,name')
 						->where("initial ='".$v."'")
 						->where($where)
 						->select();
 			foreach($data[$v] as $key=>$val){
-				$data[$v][$key]['headimg'] = './Uploads'.$val['headimg'];
+				$data[$v][$key]['img'] = './Uploads'.$val['img'];
 			}
 			if($data[$v] === false){
 				ajaxReturn(101,'请求失败','');
@@ -84,9 +84,10 @@ class PerformingController extends ComController {
         //明星动态
         $news = M('news');
         $where['status'] = 1;
-        $where['keywords'] = array('like', $actorsval['name']);
+        $where['keywords'] = array('like', '%'.$actorsval['name'].'%');
         $newsval = $news->where($where)->select();
         $this->assign('newsval',$newsval);
+
         //推荐活动
          $active = M('active');
          $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
