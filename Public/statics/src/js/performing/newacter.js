@@ -135,7 +135,7 @@ $(function(){
 
       // +'<div class="uploadpic"><p>'
       //     +'<button class="btn-upload btn-lg">选择图片</button>'
-          +'<input type="file" name="workpic['+ scope.workno +']" id="work'+ scope.workno +'"/>'
+          +'<input type="file" name="workpic'+ scope.workno +'" id="work'+ scope.workno +'"/>'
           // +'支持格式: JPG, PNG</p>'
       //   +'<div class="preview-container">'
       //     +'<div class="image-container target" id="work'+ scope.workno +'-target">'
