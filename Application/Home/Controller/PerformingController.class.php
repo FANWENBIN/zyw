@@ -119,6 +119,7 @@ class PerformingController extends ComController {
             }else{
             $path = substr($info['mypic']['savepath'], 9);
             $data['img'] = $path.$info['mypic']['savename'];
+            echo $data['img'];
             }
            
 
@@ -177,7 +178,7 @@ class PerformingController extends ComController {
                 $c['img'] = $path.$info['workpic'.$key]['savename'];
                 $c['actorsid'] = $id;
                 $sign = $production->add($c);
-                var_dump($c);die();
+                
                 if(!$sign){
                     $Duck = false;
                     echo $production->getlastsql();die();
