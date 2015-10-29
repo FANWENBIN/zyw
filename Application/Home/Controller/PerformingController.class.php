@@ -102,6 +102,7 @@ class PerformingController extends ComController {
             $this->assign('sign',11);
             $this->display();
         }else{
+            var_dump($submit);
             $actors = M('actors');
             $data['name']    = I('post.name'); //姓名
             $data['sex']     = I('post.sex');   // 性别
@@ -123,6 +124,16 @@ class PerformingController extends ComController {
                 echo '成功';
                 var_dump($info);
             }
+            $info2 = $upload->upload($_FILES['workpic']);
+            if(!$info2) {// 上传错误提示错误信息        
+                var_dump($upload->getError());    
+            }else{
+            // 上传成功        
+               // $this->success('上传成功！');    
+                echo '成功';
+                var_dump($info2);
+            }
+           
 die();
 
             $a = $this->checkDump($data);
