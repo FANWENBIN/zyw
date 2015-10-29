@@ -52,6 +52,7 @@ class LoginController extends Controller {
     $verify = new \Think\Verify();   
     return $verify->check($code);
     }
+    
     /**
      * 退出登录
      * @author winter
