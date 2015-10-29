@@ -32,7 +32,7 @@
         <h3>{$actorsval.name}</h3>
         <span>{$actorsval.about}</span>
         <ul>
-          <li><span class="title">出生年月</span><span class="des">{$actorsval.birthday|date="Y年m月d日",###} {$actorsval.address}</span></li>
+          <li><span class="title">出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生</span><span class="des">{$actorsval.birthday|date="Y年m月d日",###} {$actorsval.address}</span></li>
           <li><span class="title">国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍</span><span class="des">{$actorsval.national}</span></li>
           <li><span class="title">人物信息</span><span class="des"><if condition = "$actorsval.blood eq '' ">未知血<else />{$actorsval.blood}</if>型 | <if condition = "$actorsval.constellation eq '' ">未知星座<else />{$actorsval.constellation}</if> | <if condition = "$actorsval.height eq '' ">未知身高<else />{$actorsval.height}</if>cm | <if condition = "$actorsval.weight eq '' ">未知体重<else />{$actorsval.weight}</if>kg</span></li>
           <li><span class="title">经纪公司</span><span class="des">{$actorsval.talent}</span></li>
