@@ -37,6 +37,7 @@ class NewsController extends ComController {
         $this->display();   
     }
 	public function add(){
+		ob_end_clean();
 		$news=  M('news');
 		if($_GET['id']>0){
 			$id=$_GET['id'];
