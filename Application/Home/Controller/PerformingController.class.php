@@ -98,13 +98,10 @@ class PerformingController extends ComController {
     public function newacter(){
         //$this->checkLogin();              //验证登陆 暂时关闭
         $submit = I('post.submit');
-    var_dump($submit);
-    var_dump(I('post.name'));
         if(empty($submit)){
             $this->assign('sign',11);
             $this->display();
         }else{
-            echo 'asdfasf';
             $actors = M('actors');
             $data['name']    = I('post.name'); //姓名
             $data['sex']     = I('post.sex');   // 性别
@@ -114,16 +111,17 @@ class PerformingController extends ComController {
 
             $upload = new \Think\Upload();// 实例化上传类    
             $upload->maxSize   =     3145728 ;// 设置附件上传大小    
-            $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');
+            $upload->exts      =     array('jpg', 'png', 'jpeg');
             // 设置附件上传类型    
             $upload->savePath  =      './Uploads/user/'; // 设置附件上传目录    // 上传文件     
-            $info   =   $upload->upload($_FILES["workpic[]"]);    
+            $info   =   $upload->upload();    
             if(!$info) {// 上传错误提示错误信息        
                 var_dump($upload->getError());    
             }else{
             // 上传成功        
                // $this->success('上传成功！');    
                 echo '成功';
+                var_dump($info);
             }
 die();
 
