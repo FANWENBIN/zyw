@@ -172,9 +172,9 @@ class PerformingController extends ComController {
             }
             foreach($title as $key=>$val){
                 $c['title'] = $val;
-                $path = substr($info['workname'.$key]['savepath'], 9);
-                echo $path;var_dump($info);
-                $c['img'] = $path.$info['workname'.$key]['savename'];
+                $path = substr($info['workpic'.$key]['savepath'], 9);
+                echo $path;
+                $c['img'] = $path.$info['workpic'.$key]['savename'];
                 $c['actorsid'] = $id;
                 $sign = $production->add($c);
                 var_dump($c);die();
