@@ -102,13 +102,11 @@ class PerformingController extends ComController {
             $this->assign('sign',11);
             $this->display();
         }else{
-            var_dump($submit);
+           
             $actors = M('actors');
             $data['name']    = I('post.name'); //姓名
             $data['sex']     = I('post.sex');   // 性别
             $data['about']     = I('post.about');  //简介
-            $data['headimg'] = I("post.photo1");
-            $data['img']     = I("post.photo2");
 
             $upload = new \Think\Upload();// 实例化上传类    
             $upload->maxSize   =     3145728 ;// 设置附件上传大小    
@@ -123,7 +121,7 @@ class PerformingController extends ComController {
             $data['img'] = $path.$info['mypic']['savename'];
             }
            
-die();
+
 
             $a = $this->checkDump($data);
             if(!$a){
