@@ -126,8 +126,9 @@ class PerformingController extends ComController {
             $data['birthday']  = strtotime(I('post.birthday'));   //出生日期
                                 //strtotime(I('post.timet'))
             $data['address']   = I('post.provice').I('post.city');      //出生地址
-            $data['constellation'] = I('post.constellation'); //星座
-            var_dump( $data);
+           // $data['constellation'] = I('post.constellation'); //星座
+            $data=$_POST;
+            var_dump($data);
             var_dump(I('post.'));
             die();
             $data['blood']     = I('post.blood');   //血型
