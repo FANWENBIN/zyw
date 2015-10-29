@@ -56,7 +56,7 @@ $(function(){
           var _html = '';
           for(var i= 0,len = _arr.length ; i < len; i++){
             _html += '<a class="itembig" href="./index.php?m=Home&c=Video&a=video_details&id='+ _arr[i].id +'">'
-              +'<img src="./Uploads'+ _arr[i].img +'" alt="" />'
+              +'<img src="'+ _arr[i].img +'" alt="" />'
               +'<div class="text">'
                 +'<h1>'+ _arr[i].title +'</h1>'
                 +'<h3>'+ _arr[i].instime +'</h3>'
