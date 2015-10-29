@@ -1,15 +1,13 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-
 /**
  * 登录注册
- * @author hxf
+ * @author winter
  * @version 2015年9月24日16:41:44
  */
 class LoginController extends Controller {
     public function index(){
-
         $this->display();
     }
     public function qqlogin(){
@@ -26,9 +24,9 @@ class LoginController extends Controller {
         $uinfo = $qc->get_user_info();  //获取用户信息
         var_dump($uinfo);
     }
-   
+   //验证登陆接口
     public function checklogin(){
-         //md5(xxzyw916);
+        //md5(xxzyw916);
         $data['id'] = session('uid');
         $data['name'] = session('name');
         $user = M('user');
@@ -39,19 +37,21 @@ class LoginController extends Controller {
             ajaxReturn(1,'已登录','');
         }
     }
-  
-    
-    
-     /**
-     * 验证码
-     * @author winter
-     * @version 2015年10月28日19:15:25
-     */
+
+    /**
+    * 验证码
+    * @author winter
+    * @version 2015年10月28日19:15:25
+    */
     public function verify(){
+        ob_end_clean();
         $verify = new \Think\Verify(array('imageH'=>40,'imageW'=>140,'length'=>4,'fontSize'=>18,'useNoise'=>false,'expire'=>1800));
-        $verify->entry(1);
+        $verify->entry();
     }
-    
+    function check_verify($code){  
+    $verify = new \Think\Verify();   
+    return $verify->check($code);
+    }
     /**
      * 退出登录
      * @author winter

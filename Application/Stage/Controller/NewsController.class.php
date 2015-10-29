@@ -20,7 +20,7 @@ class NewsController extends ComController {
 		}else{
 			session('condition','');
 		}
-		$resultgroup=$news->field('count(*),type')->group('type')->order('type asc')->select();
+		$resultgroup=$news->field('count(*),type')->where('status = 1')->group('type')->order('type asc')->select();
 		
 		$this->assign('group',$resultgroup);
 		//分页显示
@@ -37,6 +37,7 @@ class NewsController extends ComController {
         $this->display();   
     }
 	public function add(){
+		ob_end_clean();
 		$news=  M('news');
 		if($_GET['id']>0){
 			$id=$_GET['id'];
