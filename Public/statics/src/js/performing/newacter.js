@@ -178,6 +178,7 @@ $(function(){
         return false;
       }
       console.log($(".form").serialize())
+      return false;
     }
   };
   page.init();
