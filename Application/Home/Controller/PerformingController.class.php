@@ -173,9 +173,10 @@ class PerformingController extends ComController {
             foreach($title as $key=>$val){
                 $c['title'] = $val;
                 $path = substr($info['workname'.$key]['savepath'], 9);
-                $c['img']   = $path.$info['workname'.$key]['savename'];
+                $c['img'] = $path.$info['workname'.$key]['savename'];
                 $c['actorsid'] = $id;
                 $sign = $production->add($c);
+                var_dump($c);die();
                 if(!$sign){
                     $Duck = false;
                     echo $production->getlastsql();die();
