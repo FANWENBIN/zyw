@@ -118,11 +118,7 @@ class PerformingController extends ComController {
                 $upload->getError();    
             }else{
             $data['img'] = $info['mypic']['savepath'].$info['mypic']['savename'];
-
             }
-           
-
-
             $a = $this->checkDump($data);
             if(!$a){
                 $this->error('添加失败，不可有空数据！');
@@ -131,6 +127,7 @@ class PerformingController extends ComController {
                                 //strtotime(I('post.timet'))
             $data['address']   = I('post.provice').I('post.city');      //出生地址
             $data['constellation'] = I('post.constellation'); //星座
+            echo $data['constellation'];die();
             $data['blood']     = I('post.blood');   //血型
             $data['height']    = I('post.height');  //身高
             $data['weight']    = I('post.weight');  //体重
@@ -143,9 +140,6 @@ class PerformingController extends ComController {
             $counts = $actors->count();
             $data['rank']    = $counts+1;   //名次
             $data['oldrank'] = $data['rank']; 
-
-
-
             $sur = mb_substr($data['name'],0,1,'utf-8');
             $data['opid']    = md5(date('YmdHis',time()));
             $data['instime'] = time();
@@ -154,17 +148,13 @@ class PerformingController extends ComController {
             $data['chinese_sum'] = $thzval['sum'];
             $data['initial']     = getFirstCharter($data['name']);
             $data['status'] = 3;
-
             $model = M();                     //开启事物
             $model->startTrans();
             $Duck = true;
-            
             $title = I('post.workname');
-            
         
             $production   = M('actors_production');
             $sign = $actors->add($data);
-
             if($sign === false){
                     $Duck = false;
             }else{
@@ -175,7 +165,6 @@ class PerformingController extends ComController {
                 $c['img'] = $info['workpic'.$key]['savepath'].$info['workpic'.$key]['savename'];
                 $c['actorsid'] = $id;
                 $sign = $production->add($c);
-                
                 if(!$sign){
                     $Duck = false;
                     echo $production->getlastsql();die();
