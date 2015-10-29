@@ -5,6 +5,7 @@ $(function(){
   var page = {
     init: function(){
       page.intitCropper();
+      $("#form").on("submit",page.formSubmit)
     },
     intitCropper: function(){
       var cropper = new Cropper({
@@ -38,6 +39,32 @@ $(function(){
         }
       };
     },
+    formSubmit: function(){
+      if(!/^.+$/.test($(":text[name='name']").val())){
+        alert("请填入姓名");
+        return false;
+      }else if(!/^.+$/.test($("textarea[name='company']").val())){
+        alert("请填入所属学校或公司")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='depart']").val())){
+        alert("请填入院系或部门")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='address']").val())){
+        alert("请填入地址")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='mb']").val())){
+        alert("请填入手机")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='email']").val())){
+        alert("请填入邮件")
+        return false;
+      }else if(!/^.+$/.test($("textarea[name='comment']").val())){
+        alert("请填入备注")
+        return false;
+      }
+      // console.log($(".form").serialize())
+      // return false;
+    }
   };
   page.init();
 })
