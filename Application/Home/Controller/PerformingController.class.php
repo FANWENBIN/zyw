@@ -119,7 +119,7 @@ class PerformingController extends ComController {
             }else{
             $path = substr($info['mypic']['savepath'], 9);
             $data['img'] = $path.$info['mypic']['savename'];
-            echo $data['img'];
+            echo $data['img'];die();
             }
            
 
