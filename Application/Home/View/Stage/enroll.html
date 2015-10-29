@@ -59,7 +59,7 @@
       </p>
     </div>
     <div class="chart">
-      <form class="" action="{:U('Stage/index')}" method="post">
+      <form class="" action="{:U('Stage/index')}" method="post" id="form">
 
 
       <dl class="clearFix">
@@ -69,27 +69,27 @@
         </dd>
         <dt>所属学校/公司</dt>
         <dd>
-          <input type="text" name="name" value="">
+          <input type="text" name="company" value="">
         </dd>
         <dt>所属院系/部门</dt>
         <dd>
-          <input type="text" name="name" value="">
+          <input type="text" name="depart" value="">
         </dd>
         <dt>通讯地址</dt>
         <dd>
-          <input type="text" name="name" value="">
+          <input type="text" name="address" value="">
         </dd>
         <dt>手机</dt>
         <dd>
-          <input type="text" name="name" value="">
+          <input type="text" name="mb" value="">
         </dd>
         <dt>电子邮件</dt>
         <dd>
-          <input type="text" name="name" value="">
+          <input type="text" name="email" value="">
         </dd>
         <dt>备注 </dt>
         <dd>
-          <textarea name="name" rows="8" cols="40"></textarea>
+          <textarea name="comment" rows="8" cols="40"></textarea>
         </dd>
         <br>
         <br>
@@ -101,7 +101,7 @@
           <!-- <div class="uploadpic"> -->
             <p class="filewrapper">
               <!-- <button class="btn-upload btn-lg">选择图片</button> -->
-              <input type="file" name="avatar" id="mypic" />
+              <input type="file" name="pic" id="mypic" />
               <span>请选择一张照片</span>
             </p>
             <!--  原图剪裁-->
