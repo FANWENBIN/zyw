@@ -7,6 +7,9 @@
   background: url("../../../images/sprite_actorinfo.gif") 0 0 no-repeat;
 }
 
+.webmain .topcon{
+  margin-bottom: 80px;
+}
 .webmain .topcon .leftsection{
   width: 660px;
   float: left;
@@ -31,17 +34,17 @@
   }
 }
 .webmain .topcon .rightsection{
-  margin-left: 810px;
+  margin-left: 850px;
   img{
-    width: 380px;
-    height: 552px;
+    width: 350px;
+    height: 400px;
   }
   span{
     position: absolute;
     height: 20px;
     margin:{
-      left: 10px;
-      top: -30px;
+      left: 5px;
+      top: 25px;
     }
     font-size: 18px;
   }
@@ -50,8 +53,8 @@
     width: 155px;
     height: 44px;
     margin: {
-      left: 225px;
-      top: -44px;
+      left: 195px;
+      top: 15px;
     }
     text-align: center;
     line-height: 44px;

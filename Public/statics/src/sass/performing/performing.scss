@@ -129,8 +129,8 @@
   }
 }
 %img {
-  width: 180px;
-  height: 261px;
+  width: 175px;
+  height: 200px;
 }
 .alphabet-list .title h3 {
   position: absolute;
@@ -146,7 +146,7 @@
     .item {
       float: left;
       margin: {
-        left: 19px;
+        left: 24px;
         bottom: 15px;
       }
       @extend %animation;
@@ -157,7 +157,7 @@
       p {
         position: absolute;
         height: 30px;
-        width: 180px;
+        width: 175px;
         color: #fff;
         line-height: 30px;
         text-align: center;
@@ -167,7 +167,7 @@
       sub {
         @extend %img;
         position: absolute;
-        margin-top: -260px;
+        margin-top: -200px;
       }
     }
   }

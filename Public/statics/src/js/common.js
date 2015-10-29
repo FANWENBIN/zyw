@@ -13,14 +13,18 @@ $(function() {
       }else{
         $("#nologin").show();
       }
-      $("#reg").on("click",regShow);
-      $("#log").on("click",logShow);
+      $("#reg").on("click",page.regShow);
+      $("#log").on("click",page.logShow);
+      $(".close").on("click",page.closeAlert)
+    },
+    closeAlert: function(){
+      $(this).parent().parent().hide();
     },
     regShow: function(){
-      
+      $("#registeralert").show();
     },
     logShow: function(){
-
+      $("#loginalert").show();
     },
     showInfo: function(e){
       $("#myinfoalert").show();
@@ -35,7 +39,7 @@ $(function() {
           $.ajax({
             url: "./index.php?m=Home&c=Login&a=checklogin",
             dataType: "json",
-            type: "get"
+            type: "get",
             success: function(json){
               if(json.status == "0")return false;
               if(json.status == "1")return true;
