@@ -62,7 +62,6 @@ $(function(){
         alert("请填入备注")
         return false;
       }
-      alert("正在上传，请不要切换页面！")
       // console.log($(".form").serialize())
       // return false;
     }

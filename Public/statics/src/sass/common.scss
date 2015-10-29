@@ -126,6 +126,36 @@ a.important {
   overflow: hidden;
 }
 
+#nologin{
+  display: inline-block;
+  color: #000;
+  a{
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+  }
+  .log{
+    &:before{
+      content: " ";
+      position: absolute;
+      width: 70px;
+      height: 20px;
+      margin: {
+          left: -87px;
+          top: 5px;
+      }
+      border-right: 1px solid #000;
+
+    }
+  }
+}
+#islogin{
+  display: none;
+}
+
+
 /*导航栏*/
 .navTitle {
   color: #ccc;
