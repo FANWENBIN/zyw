@@ -124,7 +124,8 @@ class PerformingController extends ComController {
                 echo '成功';
                 var_dump($info);
             }
-            $info2 = $upload->upload($_FILES["workpic[]"]);
+
+            $info2 = $upload->upload();
             if(!$info2) {// 上传错误提示错误信息        
                 var_dump($upload->getError());    
             }else{
