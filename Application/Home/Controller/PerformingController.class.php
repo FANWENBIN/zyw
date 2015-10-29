@@ -102,29 +102,23 @@ class PerformingController extends ComController {
             $this->assign('sign',11);
             $this->display();
         }else{
-            var_dump($submit);
+           
             $actors = M('actors');
             $data['name']    = I('post.name'); //姓名
             $data['sex']     = I('post.sex');   // 性别
             $data['about']     = I('post.about');  //简介
-            $data['headimg'] = I("post.photo1");
-            $data['img']     = I("post.photo2");
 
             $upload = new \Think\Upload();// 实例化上传类    
             $upload->maxSize   =     3145728 ;// 设置附件上传大小    
             $upload->exts      =     array('jpg', 'png', 'jpeg');
             // 设置附件上传类型    
-            $upload->savePath  =      './Uploads/user/'; // 设置附件上传目录    // 上传文件     
+            $upload->savePath  =      '/user/'; // 设置附件上传目录    // 上传文件     
             $info   =   $upload->upload();    
             if(!$info) {// 上传错误提示错误信息        
                 $upload->getError();    
             }else{
-            $path = substr($info['mypic']['savepath'], 9);
-            $data['img'] = $path.$info['mypic']['savename'];
+            $data['img'] = $info['mypic']['savepath'].$info['mypic']['savename'];
             }
-           
-die();
-
             $a = $this->checkDump($data);
             if(!$a){
                 $this->error('添加失败，不可有空数据！');
@@ -133,6 +127,7 @@ die();
                                 //strtotime(I('post.timet'))
             $data['address']   = I('post.provice').I('post.city');      //出生地址
             $data['constellation'] = I('post.constellation'); //星座
+            echo $data['constellation'];die();
             $data['blood']     = I('post.blood');   //血型
             $data['height']    = I('post.height');  //身高
             $data['weight']    = I('post.weight');  //体重
@@ -145,9 +140,6 @@ die();
             $counts = $actors->count();
             $data['rank']    = $counts+1;   //名次
             $data['oldrank'] = $data['rank']; 
-
-
-
             $sur = mb_substr($data['name'],0,1,'utf-8');
             $data['opid']    = md5(date('YmdHis',time()));
             $data['instime'] = time();
@@ -156,17 +148,13 @@ die();
             $data['chinese_sum'] = $thzval['sum'];
             $data['initial']     = getFirstCharter($data['name']);
             $data['status'] = 3;
-
             $model = M();                     //开启事物
             $model->startTrans();
             $Duck = true;
-            
             $title = I('post.workname');
-            
         
             $production   = M('actors_production');
             $sign = $actors->add($data);
-
             if($sign === false){
                     $Duck = false;
             }else{
@@ -174,8 +162,7 @@ die();
             }
             foreach($title as $key=>$val){
                 $c['title'] = $val;
-                $path = substr($info['workname'.$key]['savepath'], 9);
-                $c['img']   = $path.$info['workname'.$key]['savename'];
+                $c['img'] = $info['workpic'.$key]['savepath'].$info['workpic'.$key]['savename'];
                 $c['actorsid'] = $id;
                 $sign = $production->add($c);
                 if(!$sign){
