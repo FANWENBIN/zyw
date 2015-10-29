@@ -112,15 +112,13 @@ class PerformingController extends ComController {
             $upload->maxSize   =     3145728 ;// 设置附件上传大小    
             $upload->exts      =     array('jpg', 'png', 'jpeg');
             // 设置附件上传类型    
-            $upload->savePath  =      './Uploads/user/'; // 设置附件上传目录    // 上传文件     
+            $upload->savePath  =      '/user/'; // 设置附件上传目录    // 上传文件     
             $info   =   $upload->upload();    
             if(!$info) {// 上传错误提示错误信息        
                 $upload->getError();    
             }else{
-            $path = substr($info['mypic']['savepath'], 9);
-            $data['img'] = $path.$info['mypic']['savename'];
-            var_dump($info);
-            echo $data['img'];die();
+            $data['img'] = $info['mypic']['savepath'].$info['mypic']['savename'];
+
             }
            
 
@@ -174,9 +172,7 @@ class PerformingController extends ComController {
             }
             foreach($title as $key=>$val){
                 $c['title'] = $val;
-                $path = substr($info['workpic'.$key]['savepath'], 9);
-                echo $path;
-                $c['img'] = $path.$info['workpic'.$key]['savename'];
+                $c['img'] = $info['workpic'.$key]['savepath'].$info['workpic'.$key]['savename'];
                 $c['actorsid'] = $id;
                 $sign = $production->add($c);
                 
