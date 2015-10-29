@@ -43,7 +43,7 @@ $(function(){
       if(!/^.+$/.test($(":text[name='name']").val())){
         alert("请填入姓名");
         return false;
-      }else if(!/^.+$/.test($("textarea[name='company']").val())){
+      }else if(!/^.+$/.test($(":text[name='company']").val())){
         alert("请填入所属学校或公司")
         return false;
       }else if(!/^.+$/.test($(":text[name='depart']").val())){
@@ -62,6 +62,7 @@ $(function(){
         alert("请填入备注")
         return false;
       }
+      alert("正在上传，请不要切换页面！")
       // console.log($(".form").serialize())
       // return false;
     }
