@@ -42,13 +42,13 @@
 }
 
 .webmain .stage .inner {
-  width: 1235px;
-  margin-left: -35px;
+  width: 1230px;
+  margin-left: -30px;
   .item{
-    @include item1(170px, 200px, 35px, 16px);
+    @include item1(175px, 200px, 35px, 16px);
     float: left;
     margin:{
-      left: 35px;
+      left: 30px;
       bottom: 30px;
     }
   }
