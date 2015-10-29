@@ -59,7 +59,7 @@
   dd{
     height: 60px;
     margin-left: 360px;
-    input{
+    input[type='text']{
       width: 280px;
       height: 35px;
       line-height: 35px;
@@ -76,6 +76,13 @@
       border: 1px solid #000;
       background-color: #fff;
       overflow: visible;
+    }
+    input[type='file']{
+      // display: inline-block;
+      width: 200px;
+    }
+    .filewrapper{
+      margin-top: 5px;
     }
   }
 }
