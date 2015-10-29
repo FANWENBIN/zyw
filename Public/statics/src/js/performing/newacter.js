@@ -177,6 +177,7 @@ $(function(){
         alert("请填入经纪公司")
         return false;
       }
+      console.log($(".form").serialize())
     }
   };
   page.init();
