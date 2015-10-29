@@ -1,0 +1,144 @@
+<extend name="Header/header"/>
+<block name='header'>
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中演网管理平台</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css" />
+<!--每个页面独立的样式文件-->
+<style type="text/css">
+
+.table .t1 { text-align: center; width: 80px;}
+.table .t2 { text-align: center; width: 100px;}
+.table .t3 { text-align: center; width: 100px;}
+.table tr td input {display:inline-block; width:50px; margin-left:0px;padding-left:0px; background-color: white}
+</style>
+</head>
+
+<body>
+</block>
+<block name="div">
+  <!--container-->
+  <div class="webContainer clearFix" id="webContainer">
+</block>
+<block name="content">
+  
+  <!--main-->
+    <div class="webMain">
+      <div class="mainHeader">
+        <h1>网站基础配置</h1>
+         <ul class="menu clearFix">
+              <li><a href="{:U('Configure/index')}">备案号设置</a></li> 
+               <li><a href="{:U('Configure/rule')}">Stage页报名规则设置</a></li>
+               <li class="current"><a href="{:U('Configure/nav')}">管理导航栏</a></li>
+        </ul>
+      </div>
+      <div class="mainBody">
+        <!--摘要提示等-->
+        <!--表单-->
+        <div class="form">
+
+          <form action="{:U('Configure/nav')}" method="post" enctype="multipart/form-data" id="J_Form">
+          <input type="hidden" id="title" name="stagetitle" class="input" value="123"/>
+            <fieldset>
+               <table class="table" id="J_Table">
+        <thead>
+        <tr>
+          <td class="t1">顺序</td>
+          <td class="t2">名称</td>
+          <td class="t3">状态</td>
+        </tr>
+        </thead>
+        <tbody>
+    <volist name="list" id="vo">
+        <tr>
+          <td class="t1"><input type = "text" name = "place[{$vo['id']}]" value = "{$vo.place}" ></td> 
+          <td class="t2"><input type = "text" name = "name[{$vo['id']}]" value = "{$vo.name}"></td>
+          <td class="t3"><if condition = "$vo['status'] eq 1"><a href = "{:U('change',array('id'=>$vo['id'],'status'=>0))}">点击隐藏</a><else /><a href = "{:U('change',array('id'=>$vo['id'],'status'=>1))}">点击显示</a></if></td>
+        </tr>
+    </volist>
+        </tbody>
+
+      </table>
+              
+            </fieldset>
+            <div class="btnCon btnCon2">
+              <input type="submit" class="btnA" name="submit" value="保存" />
+            </div>
+          </form>
+
+          
+        </div>
+
+        <!--主提交按钮-->
+      </div>
+    </div>
+    <!--main end-->
+</div>
+<!--container end-->
+<script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/swfobject.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.css.js"></script>
+<!--富文本编辑器-->
+  <script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.config.js"></script>
+  <script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.all.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!--富文本编辑器 end-->
+<script type="text/javascript">
+    seajs.use("__PUBLIC__/statics/statics/js/form.js");
+</script>
+
+
+<script>
+  var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=committee"))}";
+  var imgUploadFile = '__ROOT__/Uploads';
+  var swfUrl = "__ROOT__/Public/stage/swf";
+  $("#radioClick").click(function(){
+    $("#radioClick input").each(function(){
+      if($(this).prop("checked")){
+        console.log($(this).prop("value"))
+        if($(this).prop("value") == 2){
+          $("#starAction").show()
+        }else{
+          $("#starAction").hide() 
+        }
+      }
+    })
+  })
+  
+  $("#setTop").click(function(){
+    $("#setTop input").each(function(){
+      if($(this).prop("checked")){
+        console.log($(this).prop("value"))
+        if($(this).prop("value") == 1){
+          $("#topYes").show()
+        }else{
+          $("#topYes").hide() 
+        }
+      }
+    })
+  })
+  
+  $("#J_Form").submit(function(){
+    var title=$("#title").val();
+    if(title==''||title==null){
+      $.tips.error('标题不能为空');
+      return false;
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
+
+</block>
