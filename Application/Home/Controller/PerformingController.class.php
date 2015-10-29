@@ -168,15 +168,15 @@ class PerformingController extends ComController {
                 $sign = $production->add($c);
                 if(!$sign){
                     $Duck = false;
-                    echo $production->getlastsql();die();
+                   // echo $production->getlastsql();die();
                 }
             }
             if($Duck){
                 $model->commit();
-                $this->success('新增成功',U('Performing/index'));
+                $this->success('上传成功',U('Performing/index'));
             }else{
                 $model->rollback();
-                $this->error('新增失败');
+                $this->error('上传失败，请重新上传');
             }
         }
         
