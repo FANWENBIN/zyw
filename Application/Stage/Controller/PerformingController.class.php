@@ -92,7 +92,7 @@ class PerformingController extends ComController {
                 $sign = $production->add($c);
                 if(!$sign){
                     $Duck = false;
-                    echo $production->getlastsql();die();
+                    //echo $production->getlastsql();die();
                 }
             }
             if($Duck){

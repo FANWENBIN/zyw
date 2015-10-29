@@ -117,33 +117,21 @@ class PerformingController extends ComController {
             $upload->savePath  =      './Uploads/user/'; // 设置附件上传目录    // 上传文件     
             $info   =   $upload->upload();    
             if(!$info) {// 上传错误提示错误信息        
-                var_dump($upload->getError());    
+                $upload->getError();    
             }else{
-            // 上传成功        
-               // $this->success('上传成功！');    
-                echo '成功';
-                var_dump($info);
-            }
-
-            $info2 = $upload->upload();
-            if(!$info2) {// 上传错误提示错误信息        
-                var_dump($upload->getError());    
-            }else{
-            // 上传成功        
-               // $this->success('上传成功！');    
-                echo '成功';
-                var_dump($info2);
+            $path = substr($info['mypic']['savepath'], 9);
+            $data['img'] = $path.$info['mypic']['savename'];
             }
            
 die();
 
             $a = $this->checkDump($data);
             if(!$a){
-                //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
+                $this->error('添加失败，不可有空数据！');
             }
             $data['birthday']  = strtotime(I('post.birthday'));   //出生日期
                                 //strtotime(I('post.timet'))
-            $data['address']   = I('post.address');      //出生地址
+            $data['address']   = I('post.provice').I('post.city');      //出生地址
             $data['constellation'] = I('post.constellation'); //星座
             $data['blood']     = I('post.blood');   //血型
             $data['height']    = I('post.height');  //身高
@@ -173,8 +161,8 @@ die();
             $model->startTrans();
             $Duck = true;
             
-            $title = I('post.title');
-            $img   = I('post.photo');
+            $title = I('post.workname');
+            
         
             $production   = M('actors_production');
             $sign = $actors->add($data);
@@ -186,7 +174,8 @@ die();
             }
             foreach($title as $key=>$val){
                 $c['title'] = $val;
-                $c['img']   = $img[$key];
+                $path = substr($info['workname'.$key]['savepath'], 9);
+                $c['img']   = $path.$info['workname'.$key]['savename'];
                 $c['actorsid'] = $id;
                 $sign = $production->add($c);
                 if(!$sign){
