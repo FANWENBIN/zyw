@@ -156,110 +156,28 @@
               <a href="#" class="result">查看投票结果</a>
             </div>
             <div class="in clearFix">
-                <a class="item">
+
+            <volist name = "list" id = "vo">
+                <a href = "{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="item">
                   <div class="vote hover">
                     <p>扫描二维码投票</p>
-                    <img src="#" />
+                    <img src="{:U('code')}" />
                   </div>
                   <div class="head">
                     <span></span>
-                    <img src="#" />
+                    <img src="{$vo.headimg}" />
                   </div>
-                  <h6 class="red">刘晓庆</h6>
+<if condition = "$vo['groupid'] eq 1">
+                 <h6 class="red">{$vo.name}</h6>
+              <elseif condition = "$vo['groupid'] eq '2'" /> 
+              <h6 class="blue">{$vo.name}</h6>  
+              <elseif condition = "$vo['groupid'] eq 3" />
+                  <h6 class="green">{$vo.name}</h6>
+</if>
                   <span>总票数</span>
-                  <strong>1000</strong>
+                  <strong>{$vo.votes}</strong>
                 </a>
-                <a class="item">
-                  <div class="vote hover">
-                    <p>扫描二维码投票</p>
-                    <img src="#" />
-                  </div>
-                  <div class="head">
-                    <span></span>
-                    <img src="#" />
-                  </div>
-                  <h6 class="blue">刘晓庆</h6>
-                  <span>总票数</span>
-                  <strong>1000</strong>
-                </a>
-                <a class="item">
-                  <div class="vote hover">
-                    <p>扫描二维码投票</p>
-                    <img src="#" />
-                  </div>
-                  <div class="head">
-                    <span></span>
-                    <img src="#" />
-                  </div>
-                  <h6 class="green">刘晓庆</h6>
-                  <span>总票数</span>
-                  <strong>1000</strong>
-                </a>
-                <a class="item">
-                  <div class="vote hover">
-                    <p>扫描二维码投票</p>
-                    <img src="#" />
-                  </div>
-                  <div class="head">
-                    <span></span>
-                    <img src="#" />
-                  </div>
-                  <h6 class="red">刘晓庆</h6>
-                  <span>总票数</span>
-                  <strong>1000</strong>
-                </a>
-                <a class="item">
-                  <div class="vote hover">
-                    <p>扫描二维码投票</p>
-                    <img src="#" />
-                  </div>
-                  <div class="head">
-                    <span></span>
-                    <img src="#" />
-                  </div>
-                  <h6 class="blue">刘晓庆</h6>
-                  <span>总票数</span>
-                  <strong>1000</strong>
-                </a>
-                <a class="item">
-                  <div class="vote hover">
-                    <p>扫描二维码投票</p>
-                    <img src="#" />
-                  </div>
-                  <div class="head">
-                    <span></span>
-                    <img src="#" />
-                  </div>
-                  <h6 class="green">刘晓庆</h6>
-                  <span>总票数</span>
-                  <strong>1000</strong>
-                </a>
-                <a class="item">
-                  <div class="vote hover">
-                    <p>扫描二维码投票</p>
-                    <img src="#" />
-                  </div>
-                  <div class="head">
-                    <span></span>
-                    <img src="#" />
-                  </div>
-                  <h6 class="blue">刘晓庆</h6>
-                  <span>总票数</span>
-                  <strong>1000</strong>
-                </a>
-                <a class="item">
-                  <div class="vote hover">
-                    <p>扫描二维码投票</p>
-                    <img src="#" />
-                  </div>
-                  <div class="head">
-                    <span></span>
-                    <img src="#" />
-                  </div>
-                  <h6 class="green">刘晓庆</h6>
-                  <span>总票数</span>
-                  <strong>1000</strong>
-                </a>
+            </volist>
 
             </div>
           </div>

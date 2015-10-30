@@ -23,8 +23,9 @@ class VoteController extends ComController {
         foreach ($green as $key => $value) {
             array_push($actorsvalue, $value);
         }
-        $this->assign('list',$actorsvalue);
 
+        $this->assign('list',$actorsvalue);
+  
         $recommend = M('recommend');
         //当代艺术家
         $artists   = $recommend->where('type=1')->select();
