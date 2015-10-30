@@ -13,7 +13,7 @@ class VoteController extends ComController {
         $where['groupid'] = 1;
         $red = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
         $where['groupid'] = 2;
-        $blue = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
+        $blue = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,4')->select();
         $where['groupid'] = 3;
         $green = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
         $actorsvalue = $red;
