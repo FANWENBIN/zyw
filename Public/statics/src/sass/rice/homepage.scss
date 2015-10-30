@@ -34,6 +34,7 @@
 .sectiontab{
   height: 45px;
   border-bottom: 6px solid #000;
+  margin-bottom: 30px;
   li{
     float: left;
     width: 600px;
@@ -43,9 +44,150 @@
     &.active{
       color: #000;
     }
+
+  }
+  li+li:before{
+    position: absolute;
+    content: "";
+    height: 23px;
+    margin-left: -285px;
+    border-left: 1px solid #999;
   }
 }
 
 .maincontent{
-  
+
+  .leftsection{
+    float: left;
+    width: 790px;
+    .commentlist li{
+      border-bottom: 1px solid #999;
+      margin-bottom: 25px;
+    }
+  }
+
+  .userhead{
+    float: left;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .username{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 75px;
+  }
+  .commentsec{
+    margin-left: 75px;
+    .comment-title{
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .comment-body{
+      margin-top: 20px;
+    }
+    .remark{
+      height: 70px;
+      margin-top: 10px;
+      color: #999;
+      >span{
+        display: inline-block;
+        height: 70px;
+        line-height: 70px;
+      }
+      .focussection{
+        float: right;
+        height: 30px;
+        margin-top: 15px;
+        .remarknum{
+          display: inline-block;
+          height: 30px;
+          text-indent: 35px;
+          background: url("../../../images/icon_fans_homepage.gif") 0 0 no-repeat;
+          line-height: 30px;
+        }
+        .hotnum{
+          display: inline-block;
+          height: 30px;
+          text-indent: 35px;
+          background: url("../../../images/icon_fans_homepage.gif") 0 -30px no-repeat;
+          line-height: 30px;
+        }
+      }
+
+    }
+
+  }
+
+  .rightsection{
+    margin-left: 820px;
+    .fansinfo{
+      overflow: hidden;
+      .item{
+        float: left;
+        width: 120px;
+        height: 40px;
+        span{
+          display: block;
+          text-align: center;
+        }
+        .no{
+          font-size: 18px;
+        }
+        .tit{
+          font-size: 14px;
+          color: #999;
+        }
+      }
+      .item+.item:before{
+        content: "";
+        position: absolute;
+        border-left: 2px solid #999;
+        height: 40px;
+      }
+    }
+    .active{
+      .title{
+        height: 60px;
+        background: url("../../../images/icon_fans_title.gif") 0 0 no-repeat;
+      }
+      .item{
+        @include item3(380px, 285px, 65px, 14px, 12px);
+      }
+      .focus{
+        float: right;
+        height: 30px;
+        line-height: 30px;
+        text-indent: 40px;
+        color: #999;
+        background: url("../../../images/icon_fans_homepage.gif") 0 -30px no-repeat;
+      }
+    }
+    .interview{
+      margin-top: 30px;
+      .title{
+        height: 60px;
+        background: url("../../../images/icon_fans_title.gif") 0 -60px no-repeat;
+      }
+      .item{
+        @include item3(380px, 285px, 65px, 14px, 12px);
+      }
+
+    }
+  }
+}
+.webmain .con .title h2{
+  background: url("../../../images/icon_comments.gif") 0 0 no-repeat;
+}
+
+.comments{
+  textarea{
+    width: 97%;
+    background-color: #fff;
+    overflow: visible;
+    border: 1px solid #000;
+    padding: 15px;
+  }
 }
