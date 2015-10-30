@@ -237,10 +237,24 @@ $(function() {
     },
     //每次点击后加载 列表
     loadStar: function() {
+      $("#groupSexList").find("li").removeClass("redselect").removeClass("blueselect").removeClass("greenselect")
       $(this).parent().find("li").removeClass("active");
       $(this).addClass("active");
       var _color = $("#groupColorList").find(".active").data("color");
       var _sex = $("#groupSexList").find(".active").data("sex");
+      if(_color == "redgroup"){
+        $("#title").removeClass("blue").removeClass("green").addClass("red")
+        $("#groupSexList").find(".active").addClass("redselect")
+      }
+      if(_color == "bluegroup"){
+        $("#title").removeClass("red").removeClass("green").addClass("blue")
+        $("#groupSexList").find(".active").addClass("blueselect")
+      }
+      if(_color == "greengroup"){
+        $("#title").removeClass("blue").removeClass("red").addClass("green")
+        $("#groupSexList").find(".active").addClass("greenselect")
+      }
+
       $.ajax({
         type: "get",
         dataType: "json",
