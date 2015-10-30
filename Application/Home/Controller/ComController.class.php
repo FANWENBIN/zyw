@@ -249,11 +249,17 @@ class ComController extends Controller {
         //$con= substr( file_get_contents($url), 0, 1 );  //获取信息发送后的状态
         $con = file_get_contents($url);
         $con = explode(',', $con);
-        return $con;
+        if($con[0] == 0){
+            return 0;
+        }else{
+            return 1;
+        }
+         
     }
     public function a(){
         $a = $this->sms('18516313142','123');
         var_dump($a);
     }
+        }
    
 }

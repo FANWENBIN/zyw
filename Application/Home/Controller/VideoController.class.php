@@ -56,6 +56,7 @@ class VideoController extends ComController {
     $vedio = M('vedio');
     //视频汇
     $data['type'] = $type;
+    $data['status'] = 1;
     //$tvvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,15)->select();
 
     $count      = $vedio->where($data)->count();

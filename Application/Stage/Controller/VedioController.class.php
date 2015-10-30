@@ -76,6 +76,7 @@ class VedioController extends ComController {
     		if(!$sign){
     			$this->error('主要信息不可为空');
     		}
+            $data['status'] = 4;
 			$data['recommend'] = I('post.recommend');
 			if($data['recommend'] == 1){
 				$data['topimg'] = I('post.topimg');
