@@ -39,7 +39,7 @@
 		
 
 		<!--main-->
-		<div class="webMain">
+		<div class="webMain"> 
 			<div class="mainHeader">
 				<h1>演员成员</h1>
 				<ul class="menu clearFix">
@@ -48,81 +48,23 @@
 					<li><a href="{:U('Gactor/winer')}">获胜演员</a></li>
 				</ul>
 			</div>
-			<div class="mainBody">
+		<div class="mainBody">
 
-				<!--筛选-->
-				<!--<div class="tableTools clearFix mb30">-->
-					<!--<h6 class="w100 tr">起始时间：</h6>-->
-					<!--<div class="w350 i"><input type="text" class="js_date" /></div>-->
-					<!--<h6 class="w150 tr">结束时间：</h6>-->
-					<!--<div class="w300 i"><input type="text" class="js_date" /></div>-->
-					<!--<hr />-->
-					<!--<h6 class="w100 tr">活动类型：</h6>-->
-					<!--<div class="w300 i">-->
-						<!--<select>-->
-							<!--<option>菜单内容A</option>-->
-							<!--<option>菜单内容B</option>-->
-							<!--<option>菜单内容C</option>-->
-							<!--<option>菜单内容D</option>-->
-							<!--<option>菜单内容E</option>-->
-							<!--<option>菜单内容F</option>-->
-						<!--</select>-->
-					<!--</div>-->
-					<!--<h6 class="w100 tr">关键字：</h6>-->
-					<!--<div class="i mr20"><input type="text" class="input w180" /></div>-->
-					<!--<div class="i"><a href="javascript:void(0)" class="btnB btnSmall">查找</a></div>-->
-				<!--</div>-->
-
-				<!--汇总-->
-				<!--<div class="tableInfo">-->
-					<!--<div class="item"><h2>总管理员数</h2><span>195</span></div>-->
-					<!--<div class="item"><h2>总用户数</h2><span>17855</span></div>-->
-					<!--<div class="item"><h2>第三个参数</h2><span>19%</span></div>-->
-				<!--</div>-->
-
-				<!--表格-->
-				<!--<table class="table mb30">-->
-					<!--<thead>-->
-						<!--<tr>-->
-							<!--<td class="t1">编号</td>-->
-							<!--<td class="t2">头像</td>-->
-							<!--<td class="t3">用户名</td>-->
-							<!--<td class="t4">用户量</td>-->
-							<!--<td class="t5">状态</td>-->
-							<!--<td class="t6">创建时间</td>-->
-							<!--<td class="t7">操作</td>-->
-						<!--</tr>-->
-					<!--</thead>-->
-					<!--<tbody>-->
-						<!--<tr>-->
-							<!--<td colspan="7" class="none">暂无数据</td>-->
-						<!--</tr>-->
-					<!--</tbody>-->
-					<!--<tfoot>-->
-						<!--<tr>-->
-							<!--<td colspan="7">-->
-								<!--<div class="pagers">-->
-									<!--<ul class="clearFix">-->
-										<!--<li><a class="disabled prev" href="#">上一页</a></li>-->
-										<!--<li><p><span class="c">1</span><span>/</span><span>1</span></p></li>-->
-										<!--<li><a class="disabled next" href="#">下一页</a></li>-->
-										<!--<li class="in"><input type="text" /></li>-->
-										<!--<li><a href="javascript:void(0)">跳转</a></li>-->
-									<!--</ul>-->
-								<!--</div>-->
-							<!--</td>-->
-						<!--</tr>-->
-					<!--</tfoot>-->
-				<!--</table>-->
-
-				<!--汇总-->
-				<!--<div class="tableInfo">-->
-					<!--<div class="item"><h2>总管理员数</h2><span>195</span></div>-->
-					<!--<div class="item"><h2>总用户数</h2><span>17855</span></div>-->
-					<!--<div class="item"><h2>第三个参数</h2><span>19%</span></div>-->
-				<!--</div>-->
-
-				<!--表格-->
+		 <!--筛选-->
+  
+      <div class="tableTools clearFix mb30">
+        <hr>
+        <h6 class="w100 tr">关键字：</h6>
+       <!--<form action="" method="post"><div class="i mr20"><input type="text" name="keywords" value="{$Think.session.condition}" class="input w180"></div>
+        <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
+		</form>--> 
+		
+       <form action="" method="post"><div class="i mr20">
+          <input type="text" name="keywords"
+         value="{$Think.session.key}" class="input w180" placeholder="姓名、地区"></div>
+        <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
+		  </form>
+      </div>
 				<table class="table" id="J_Table">
 					<thead>
 						<tr>
