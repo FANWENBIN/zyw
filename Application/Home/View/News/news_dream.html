@@ -113,7 +113,9 @@
                             <img src="./Uploads{$vo.imgpath}" alt=""/>
                         </a>
                         <div class="content">
+                        <a href="{:U('News/news_details?id='.$vo['id'])}">
                             <h1><?php echo strlen($vo['title'],'utf8')>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></h1>
+                            </a>
                             <p>{$vo.digest}</p>
                             <a href="{:U('News/news_details?id='.$vo['id'])}" class="details">[详情]</a>
                         </div>

@@ -89,7 +89,7 @@ class VoteController extends ComController {
 		        mysql_query('update zyw_actors set votes=votes+1 where opid="'.$opid.'"');
 		        if(mysql_affected_rows()){
 		            $query = mysql_query('insert into zyw_votelog (actor_opid,wxopenid,ip,instime,insdate) values ("'.$opid.'","'.$openid.'","'.$ip.'",'.time().',"'.date('Y-m-d').'")');
-		            //echo 'insert into zyw_votelog (actor_opid,wxopenid,ip,instime,insdate) values ("'.$opid.'","'.$openid.'","'.$ip.'",'.time().',"'.date('Y-m-d').'")';
+		            //echo 'insert into zyw_votelog (actor_opid, ,ip,instime,insdate) values ("'.$opid.'","'.$openid.'","'.$ip.'",'.time().',"'.date('Y-m-d').'")';
 		            if($query){
 		                $query = mysql_query('select votes from zyw_actors where opid="'.$opid.'"');
 		                $row = mysql_fetch_assoc($query);
@@ -108,6 +108,86 @@ class VoteController extends ComController {
             errReturn(101,'请输入有效参数');
         }
     }
+    /*改版投票接口
+    每人可投36票，分3组男女。各六票，不可重复
+    author：winter
+    date：2015年10月30日14:27:33
+    */
+    public function newvoting(){
+        $votelog = M('votelog');
+        $actors  = M('actors');
+        $model = M();
+        //接受参数
+        $opid = I('post.opid','','trim');trim($_POST['opid']);
+        $openid = trim(I('post.wxopenid','','addslashes'));
+        $ip = get_client_ip();
+        if(preg_match("/^[a-f\d]{32}$/",$opid)){
+            $actorsval = $actors->where("opid='".$opid."'")->find();
+            if(!$actorsval){
+                errReturn(102,'明星查找失败，不可对其投票');
+            }
+            $condition['wxopenid'] = $openid;
+            $condition['insdate'] = date('Y-m-d',time());
+            $sum = $votelog->where($condition)->count();
+            if($sum < 36){
+                $condition['groupid'] = $actorsval['groupid'];
+                $sum = $votelog->where($condition)->count();
+                if($sum < 12){
+                    $condition['sexid'] = $actorsval['sex'];
+                    $sum = $votelog->where($condition)->count();
+                    if($sum < 6){
+                        $condition['actor_opid'] = $opid;
+                        $sum = $votelog->where($condition)->count();
+                        if($sum < 1){
+                            $model->startTrans();
+                            $sign = true;
+                            $data['actor_opid'] = $opid;
+                            $data['wxopenid']   = $openid;
+                            $data['ip']         = $ip;
+                            $data['instime']    = time();
+                            $data['insdate']    = date('Y-m-d',time());
+                            $data['groupid']    = $actorsval['groupid'];
+                            $data['sexid']      = $actorsval['sexid'];
+                            $vosign = $votelog->add($data);
+                            if(!$vosign){
+                                $sign = false;
+                            }
+                            $tick['votes'] = $actorsval['votes'];
+                            $acsign = $actors->where("opid='".$opid."'")->save($tick);
+                            if($acsign){
+                                $sign = false;
+                            }
+                            if($sign){
+                                $model->commit();
+                                $result = $actors->field('votes')->where("opid='".$opid."'")->find();
+                                ajaxReturn(0,'',$result);
+                            }else{
+                                $model->rollback();
+                                errReturn(1,'投票失败');
+                            }
+                        }else{
+                            errReturn(201,'今日已给该演员投过票');
+                        }
+                    }else{
+                        if($actorsval == 1){
+                            errReturn(108,'今日给该组男演员投票已达上限');
+                        }else{
+                            errReturn(109,'今日给该组女演员投票已达上限');
+                        }
+                        
+                    }
+                }else{
+                    errReturn(107,'今日给该组投票已达上限');
+                }
+            }else{
+                errReturn(106,'今日投票次数已达上限');
+            }
+        }else{
+            errReturn(101,'请输入有效参数');
+        }
+
+    }
+
     //演员详情
     public function actorinfo(){
         $opid = trim($_POST['opid']);

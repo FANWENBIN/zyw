@@ -7,14 +7,14 @@ class NewsController extends ComController {
 		//echo $_SERVER['DOCUMENT_ROOT'];
 		//var_dump($_SERVER);
 		//形象指数
-		$resultX=$news->where('type=1 and status!=0')->limit('0,13')->order(array('order'=>'desc','instime'=>'desc'))->select();
+		$resultX=$news->where('type=1 and status = 1')->limit('0,13')->order(array('order'=>'desc','instime'=>'desc'))->select();
 		//var_dump($resultX);
 		$this->assign('resultX',$resultX);
 		//形象指数end
 		
 		
 		//星闻动向
-		$resultD=$news->where('type=2 and status!=0')->limit('0,9')->order(array('order'=>'desc','instime'=>'desc'))->select();
+		$resultD=$news->where('type=2 and status = 1')->limit('0,9')->order(array('order'=>'desc','instime'=>'desc'))->select();
 		//echo $news->getLastsql();
 		//var_dump($resultD);
 		$this->assign('resultD',$resultD);
@@ -22,7 +22,7 @@ class NewsController extends ComController {
 		
 		
 		//艺术中国梦
-		$resultM=$news->where('type=3 and status!=0')->limit('0,3')->order(array('order'=>'desc','instime'=>'desc'))->select();
+		$resultM=$news->where('type=3 and status = 1')->limit('0,3')->order(array('order'=>'desc','instime'=>'desc'))->select();
 		$this->assign('resultM',$resultM);
 		//艺术中国梦end
 
