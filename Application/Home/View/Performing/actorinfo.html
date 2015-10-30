@@ -30,7 +30,7 @@
     <div class="topcon clearFix">
       <div class="leftsection">
         <h3>{$actorsval.name}</h3>
-        <span>{$actorsval.about}</span>
+        <span>{:html_entity_decode($actorsval['about'])}</span>
         <ul>
           <li><span class="title">出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生</span><span class="des">{$actorsval.birthday|date="Y年m月d日",###} {$actorsval.address}</span></li>
           <li><span class="title">国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍</span><span class="des">{$actorsval.national}</span></li>

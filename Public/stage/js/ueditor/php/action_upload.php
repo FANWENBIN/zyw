@@ -4,7 +4,7 @@
  * User: Jinqn
  * Date: 14-04-09
  * Time: 上午10:17
- */
+ */ 
 include "Uploader.class.php";
 
 /* 上传配置 */
@@ -63,4 +63,4 @@ $up = new Uploader($fieldName, $config, $base64);
  */
 
 /* 返回数据 */
-return json_encode($up->getFileInfo('http://m2.nadoo.cn/p/zyw/'));
+return json_encode($up->getFileInfo('http://m2.nadoo.cn/p/zyw'));

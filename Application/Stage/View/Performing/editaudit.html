@@ -155,7 +155,8 @@
               </div>
               <div class="l">
                 <h6>个人简介</h6>
-                <div class="i"><textarea class="input" name="about">{$actors.about}</textarea></div>
+                <div class="i">
+                  <script id="container" name="about" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($actors['about'])?></script></div>
               </div>
               <!-- 好演员-->
           <!--     <div class="l">

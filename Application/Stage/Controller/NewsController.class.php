@@ -45,7 +45,7 @@ class NewsController extends ComController {
 			$this->assign('cur',5);
 			$this->assign('data',$data);
 		}
-
+			$_POST['status'] = 4;
 		if(isset($_POST['submit'])){
 			$_POST['instime']=time();
 			if($news->create()){

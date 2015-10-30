@@ -7,9 +7,7 @@ use Think\Controller;
  * @version 2015年9月24日16:41:44
  */
 class LoginController extends Controller {
-    public function index(){
-        $this->display();
-    }
+
     public function qqlogin(){
         require('QQ/API/qqConnectAPI.php');
         $qc = new \QC();
@@ -51,6 +49,61 @@ class LoginController extends Controller {
     function check_verify($code){  
     $verify = new \Think\Verify();   
     return $verify->check($code);
+    }
+    //登陆接口
+    public function login(){
+        $name = I('get.name');
+        $passwd = I('get.passwd','','md5');
+        $user = M('user');
+        $data['nickname'] = $name;
+        $data['passwd']   = $passwd;
+        $sign =  $user->where($data)->find();
+        if($sign){
+            session('userid',$sign['id']);
+            session('username',$sign['nickname']);
+            session('userphone',$sign['mobile']);
+            ajaxReturn(1,'登陆成功','');
+        }else{
+            ajaxReturn(0,'登陆失败','');
+        }
+    }
+    //注册接口
+    public function register(){
+        $phone = I('get.phone','','trim');
+        $passwd = I('get.passwd','','md5');
+        $verify = I('get.verify');
+        if($verify != session('yzm')){
+            ajaxReturn(102,'手机验证码输入错误','');
+        }
+        $user = M('user');
+        $data['phone'] = $phone;
+        $data['passwd'] = $passwd;
+        $data['nickname'] = $phone;
+        $sign = $user->add($data);
+        if($sign){
+            ajaxReturn(0,'注册成功','');
+        }else{
+            ajaxReturn(101,'注册失败','');
+        }
+    }
+    //前台调用验证码接口
+    public function yzm(){
+        //调用短信先验证验证码是否正确
+        $code = I('get.code');
+        $a=$this->check_verify($code);
+        if(!$a){
+            ajaxReturn(102,'验证码输入错误','');
+        }
+        //随机生成验证码
+        $ver = rand(1000,9999);
+        $phone = I('get.phone');
+        $sign = $this->sms($phone,$ver);
+        if($sign){
+            ajaxReturn(101,'发送失败','');
+        }else{
+            session('yzm',$ver);
+            ajaxReturn(0,'发送成功','');
+        }
     }
     /**
      * 退出登录
