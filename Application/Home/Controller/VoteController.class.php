@@ -307,13 +307,14 @@ class VoteController extends ComController {
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
             $actorsval[$key]['codeimg'] = $url.="&opid=".$val['opid'];
         }
+        var_dump($actorsval);
         if($actorsval === false){
             ajaxReturn(1,'系统错误','');
         }else{
             ajaxReturn(0,'',$actorsval);
         }
     }
-    public function greegroup(){
+    public function greengroup(){
         $url = C('DOMAIN_PATH')."/index.php?m=Home&c=Vote&a=code";
         $sex = I('get.sex');
         $actors = M('actors');
