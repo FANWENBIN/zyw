@@ -41,8 +41,8 @@
     <div class="mainHeader">
       <h1>演工委之声管理</h1>
         <ul class="menu clearFix">
-              <li class="current"><a href="{:U('Committee/index')}">演工委红黑榜列表</a></li>
-            <li><a href="{:U('Committee/about')}">委员会简介</a></li>
+              <li><a href="{:U('Committee/index')}">演工委红黑榜列表</a></li>
+            <li class="current"><a href="{:U('Committee/about')}">委员会简介</a></li>
             <li><a href="{:U('Committee/rule')}">委员会章程</a></li>
             <li><a href="{:U('Committee/roll')}">委员会人员名册</a></li>
             <li><a href="{:U('Committee/notice')}">公告</a></li>
@@ -53,69 +53,50 @@
                 <!--  <li><a href="{:U('Banner/winer')}"></a></li> -->
         </ul>
     </div>
-    <div class="mainBody">
-      <!--筛选-->
-      <div class="tableTools clearFix mb30">
-        <hr>
-    
-       
-       <!--<form action="" method="post"><div class="i mr20"><input type="text" name="keywords" value="{$Think.session.condition}" class="input w180"></div>
-        <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
-		</form>--> 
-		
-
-      </div>
-
-      <!--表格-->
-      <table class="table" id="J_Table">
-        <thead>
-        <tr>
-          <td class="t1">编号</td>
-          <td class="t2">标题</td>
-          <td class="t3">封面</td>
-          <td class="t4">类型</td>
-          <td class="t5">创建时间</td>
-          <td class="t6">操作</td>
-        </tr>
-        </thead>
-        <tbody>
-		<volist name="commitval" id="vo">
-        <tr>
-          <td class="t1">{$i}</td> 
-          <td class="t2">{$vo['title']}</td>
-		      <td class="t3"><img src="./Uploads{$vo.img}" width="50" height="50"></td>
-          <td class="t4">{$vo['type']==1?"红榜":"黑榜"}</td>
-          <td class="t6">{$vo['instime']|date='Y-m-d',###}</td>
-          <td class="t7">
-            <p class="console">
-              <a href="{:U('Committee/info?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" data-id="{$vo['id']}" class="delete">删除</a>
-            </p>
-          </td>
-        </tr>
-		</volist>
-        </tbody>
-        <tfoot>
-        <tr>
-          <td colspan="7">
-            <div class="pagers">
-              {$page}
+      <div class="mainBody">
+        <!--摘要提示等-->
+        <!--表单-->
+        <div class="form">
+          <div class="formHeader">
+            <h1>委员会简介</h1>
+          </div>
+          <form action="" method="post" enctype="multipart/form-data" id="J_Form">
+            <fieldset>
+              <div class="l">
+                <h6>标题</h6>
+                <div class="i"><input type="text" id="title" name="title" class="input" value="{$data.title}"/></div>
+              </div> 
+              <div class="l">
+                <h6>发布时间</h6>
+                <div class="i"><input type="text" class="js_date" data-time="true" value="{:date('Y-m-d|H:i',$data['instime'])}" name="instime"/></div>
+              </div>
+              <div class="l">
+                <h6>正文</h6>
+                <div class="i"><script id="container" name="content" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($data['content'])?></script></div>
+              </div>
+<input type = "hidden" name = "id" value= "{$data['id']}">
+            </fieldset>
+            <div class="btnCon btnCon2">
+              <input type="submit" class="btnA" name="submit" value="保存" />
             </div>
-          </td>
-        </tr>
-        </tfoot>
-      </table>
-	  
-      <!--主提交按钮-->
-	  <div class="btnCon">
-       <div class="btnCon">
-        <a href="{:U('Committee/add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
+          </form>
+          
+        </div>
+
+        <!--主提交按钮-->
       </div>
     </div>
+	  
   </div>
   <!--main end-->
 </div>
 <!--container end-->
 <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+<!--富文本编辑器-->
+  <script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.config.js"></script>
+  <script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.all.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!--富文本编辑器 end-->
 <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
 
 <script>

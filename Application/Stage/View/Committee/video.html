@@ -41,14 +41,14 @@
     <div class="mainHeader">
       <h1>演工委之声管理</h1>
         <ul class="menu clearFix">
-              <li class="current"><a href="{:U('Committee/index')}">演工委红黑榜列表</a></li>
+              <li><a href="{:U('Committee/index')}">演工委红黑榜列表</a></li>
             <li><a href="{:U('Committee/about')}">委员会简介</a></li>
             <li><a href="{:U('Committee/rule')}">委员会章程</a></li>
             <li><a href="{:U('Committee/roll')}">委员会人员名册</a></li>
             <li><a href="{:U('Committee/notice')}">公告</a></li>
             <li><a href="{:U('Committee/special')}">专题摘要</a></li>
             <li><a href="{:U('Committee/intro')}">相关简介</a></li>
-            <li><a href="{:U('Committee/video')}">视频</a></li>
+            <li class="current"><a href="{:U('Committee/video')}">视频</a></li>
             <li><a href="{:U('Committee/introduce')}">工作介绍</a></li>
                 <!--  <li><a href="{:U('Banner/winer')}"></a></li> -->
         </ul>
@@ -72,23 +72,19 @@
         <tr>
           <td class="t1">编号</td>
           <td class="t2">标题</td>
-          <td class="t3">封面</td>
-          <td class="t4">类型</td>
-          <td class="t5">创建时间</td>
-          <td class="t6">操作</td>
+          <td class="t3">创建时间</td>
+          <td class="t4">操作</td>
         </tr>
         </thead>
         <tbody>
-		<volist name="commitval" id="vo">
+		<volist name="data" id="vo">
         <tr>
           <td class="t1">{$i}</td> 
           <td class="t2">{$vo['title']}</td>
-		      <td class="t3"><img src="./Uploads{$vo.img}" width="50" height="50"></td>
-          <td class="t4">{$vo['type']==1?"红榜":"黑榜"}</td>
-          <td class="t6">{$vo['instime']|date='Y-m-d',###}</td>
-          <td class="t7">
+          <td class="t3">{$vo['instime']|date='Y-m-d',###}</td>
+          <td class="t4">
             <p class="console">
-              <a href="{:U('Committee/info?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" data-id="{$vo['id']}" class="delete">删除</a>
+              <a href="{:U('Committee/videoinfo?id='.$vo['id'])}" class="setting">设置</a><a href="javascript:void(0)" data-id="{$vo['id']}" class="delete">删除</a>
             </p>
           </td>
         </tr>
@@ -108,7 +104,7 @@
       <!--主提交按钮-->
 	  <div class="btnCon">
        <div class="btnCon">
-        <a href="{:U('Committee/add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
+        <a href="{:U('Committee/videoinfo')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
       </div>
     </div>
   </div>
@@ -128,7 +124,7 @@
 			txt:'删除请确认',
 			callbackY: function(){
 				//window.location = '{:U('News/delete?id='.$vo['id'])}';
-				window.location = "./index.php?m=Stage&c=Committee&a=delete&id="+id;
+				window.location = "./index.php?m=Stage&c=Committee&a=delvideo&id="+id;
 			}
       	})
       });

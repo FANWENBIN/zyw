@@ -259,7 +259,9 @@ class VoteController extends ComController {
         ob_end_clean();
     	 vendor("phpqrcode.phpqrcode");
     		$opid = I('get.opid');
-            $data = 'http://yz2500.gov.cn/TP/actor/Index/index.php?opid='.$opid;
+            //$data = 'http://yz2500.gov.cn/TP/actor/Index/index.php?opid='.$opid;
+             $data = 'http://www.zmyzr.gov.cn/zyw_vote/Index/index.php?opid='.$opid;
+            
             // 纠错级别：L、M、Q、H
             $level = 'L';
             // 点的大小：1到10,用于手机端4就可以了
