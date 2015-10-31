@@ -281,6 +281,7 @@ class VoteController extends ComController {
             $where['sex'] = $sex;
         }
         $where['groupid'] = 1;
+        $where['status'] = 1;
         $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
@@ -302,6 +303,7 @@ class VoteController extends ComController {
             $where['sex'] = $sex;
         }
         $where['groupid'] = 2;
+        $where['status'] = 1;
         $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
@@ -321,6 +323,7 @@ class VoteController extends ComController {
             $where['sex'] = $sex; 
         }
         $where['groupid'] = 3;
+        $where['status'] = 1;
         $actorsval = $actors->where($where)->order('chinese_sum asc')->select();
         foreach($actorsval as $key=>$val){
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];

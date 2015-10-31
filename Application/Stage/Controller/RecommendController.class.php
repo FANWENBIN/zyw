@@ -80,7 +80,6 @@ class RecommendController extends ComController {
             }
                
             
-            
         }
             
     }
