@@ -3,7 +3,7 @@
 namespace Stage\Controller;
 use Think\Controller;
 class CommitteeController extends ComController {
-	//演工委之声首页显示
+	//演工委之声红黑榜首页显示
 	public function index(){
 		$committee  = M('committee');
 
@@ -98,5 +98,7 @@ class CommitteeController extends ComController {
 		}
 
 	}
+
+	
 
 }
