@@ -89,9 +89,16 @@
 								<div class="i"><textarea class="input" name="keywords"><if condition="($data.keywords neq '')">{$data.keywords}<else/>多个关键词请用、隔开（例如：张靓颖、演唱会）</if></textarea></div>
 							</div>
 							<div class="l">
+								<h6>发布时间</h6>
+								<div class="i"><input type="text" class="js_date" data-time="true" value="{:date('Y-m-d|H:i',$data['instime'])}" name="instime"/></div>
+							</div>
+							<div class="l">
 								<h6>正文</h6>
 								<div class="i"><script id="container" name="content" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($data['content'])?></script></div>
 							</div>
+
+							
+
 							<div class="l">
 								<h6>&nbsp;</h6>
 								<div class="i" id="setTop">

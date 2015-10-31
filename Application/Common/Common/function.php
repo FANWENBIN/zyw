@@ -178,7 +178,7 @@
  *      中文字符串：返回拼音首字符        eg. 王小明 => W
  *      中英混合串: 返回拼音首字符和英文   eg. 我i我j => W
  *  eg. 
- *  
+ *  author：winter
  *  getFirstCharter('王小明'); 
  */  
 function getFirstCharter($str){

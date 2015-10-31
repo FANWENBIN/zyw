@@ -21,8 +21,11 @@ class NewsController extends ComController {
 			session('condition','');
 		}
 		$resultgroup=$news->field('count(*),type')->where('status = 1')->group('type')->order('type asc')->select();
+		foreach ($resultgroup as $key => $value) {
+			$result[$value['type']] = $resultgroup[$key];
+		}
 		
-		$this->assign('group',$resultgroup);
+		$this->assign('group',$result);
 		//分页显示
 		
 		$count      = $news->where(session('condition'))->count();// 查询满足要求的总记录数
@@ -45,9 +48,12 @@ class NewsController extends ComController {
 			$this->assign('cur',5);
 			$this->assign('data',$data);
 		}
-			$_POST['status'] = 4;
+			//$_POST['status'] = 4;
+		$array = explode('|', $_POST['instime']);
+		$_POST['instime'] = strtotime($array[0].' '.$array[1]);
+		
 		if(isset($_POST['submit'])){
-			$_POST['instime']=time();
+			//$_POST['instime']=time();
 			if($news->create()){
 
 				if($_POST['hid_id']>0){
@@ -70,7 +76,7 @@ class NewsController extends ComController {
 			$this->assign('cur',5);
         $this->display();   
         }
-    } 
+    }
 	public function delete(){
 		$news=  M('news');
 		if($_GET['id']>0){

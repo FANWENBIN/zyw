@@ -64,7 +64,7 @@ class LoginController extends Controller {
             session('userphone',$sign['mobile']);
             ajaxReturn(1,'登陆成功','');
         }else{
-            ajaxReturn(0,'登陆失败','');
+            ajaxReturn(0,'账号密码输入错误','');
         }
     }
     //注册接口
@@ -79,6 +79,10 @@ class LoginController extends Controller {
         $data['phone'] = $phone;
         $data['passwd'] = $passwd;
         $data['nickname'] = $phone;
+        $sum = $user->where('phone='.$phone)->count();
+        if($sum>1){
+            ajaxReturn(103,'账号已被注册过','');
+        }
         $sign = $user->add($data);
         if($sign){
             ajaxReturn(0,'注册成功','');
