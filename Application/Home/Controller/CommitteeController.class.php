@@ -12,7 +12,19 @@ class CommitteeController extends ComController {
     			->order('top desc,instime desc')
     			->select();
     	$this->assign('list',$list);
-        
+        //banner 
+        $banner = M('banner');
+        $this->bannerlist = $banner->where('type = 7')->find();
+        //公告
+        $council_rule = M('council_rule');
+        $this->tall = $council_rule->where('type = 4')->find();
+        //专题摘要
+        $this->cel = $council_rule->where('type = 5 and status = 1')->order('instime desc')->limit(0,9)->select();
+        //相关简介
+        $this->com = $council_rule->where('type = 6 and status = 1')->order('instime desc')->limit(0,2)->select();
+        //视频
+        $this->video = $council_rule->where('type = 7 and status = 1')->order('instime desc')->limit(0,1)->select();
+
     	//形象监督 
     		//红榜
     	$count = $committee->where('status=1 and type=1')->count();// 查询满足要求的总记录数
@@ -99,6 +111,53 @@ class CommitteeController extends ComController {
         $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
 
         $this->assign('activeval',$activeval);
+        $this->assign('sign',4);
+        $this->display();
+    }
+    //演工委条例、
+    public function committee_rule(){
+        $type = I('get.type');
+        $council_rule = M('council_rule');
+        $this->result = $council_rule->where('type='.$type)->find();
+
+        $news=  M('news');
+        //热点
+        $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
+        $this->assign('hotnews',$hotnews);
+        //活动
+        $active = M('active');
+        $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
+
+        $this->assign('activeval',$activeval);
+        $this->assign('sign',4);
+        $this->display();
+    }
+    
+    //演工委摘要
+    public function committee_cel(){
+        $id = I('get.id');
+        $council_rule = M('council_rule');
+        $this->result = $council_rule->where('id='.$id)->find();
+
+        $news=  M('news');
+        //热点
+        $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
+        $this->assign('hotnews',$hotnews);
+        //活动
+        $active = M('active');
+        $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
+
+        $this->assign('activeval',$activeval);
+        $this->assign('sign',4);
+        $this->display();
+    }
+    //视频
+    public function committee_video(){
+        $id = I('get.id');
+        $council_rule = M('council_rule');
+        $vedioval = $council_rule->where('id='.$id)->find();
+       
+        $this->assign('list',$vedioval);
         $this->assign('sign',4);
         $this->display();
     }

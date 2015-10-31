@@ -32,11 +32,11 @@
       </div>
 
     <div class="topcon">
-      <img src="#" alt="" />
+      <img src="./Uploads{$bannerlist['img']}" alt="" />
       <ul class="link2content">
-        <li><a href="javascript:;">委员会简介</a></li>
-        <li><a href="javascript:;">委员会章程</a></li>
-        <li><a href="javascript:;">委员会人员名册</a></li>
+        <li><a href="{:U('committee_rule',array('type'=>1))}">委员会简介</a></li>
+        <li><a href="{:U('committee_rule',array('type'=>2))}">委员会章程</a></li>
+        <li><a href="{:U('committee_rule',array('type'=>3))}">委员会人员名册</a></li>
       </ul>
     </div>
 
@@ -45,11 +45,11 @@
         <h2>公告</h2>
       </div>
       <div class="inner">
-        <a href="#" class="item">
-            <img src="#" alt="" />
+        <a href="{:U('committee_rule',array('type'=>4))}" class="item">
+            <img src="./Uploads{$tall.img}" alt="" />
             <div class="text">
-              <h1>标题</h1>
-              <h3>10:36</h3>
+              <h1><?php echo mb_strlen($tall['title'],'utf8')>18?mb_substr($tall['title'],0,18,'utf-8').'...':$tall['title'] ?></h1>
+              <h3>{$tall.instime|date= "Y-m-d H:i:s",###}</h3>
             </div>
             <sub></sub>
         </a>
@@ -60,44 +60,12 @@
         <h2>专题摘要</h2>
       </div>
       <div class="inner clearFix">
-        <a href="#" class="item">
-          <h3>文章标题</h3>
-          <span>3小时前</span>
+      <volist name = "cel" id = "vo">
+        <a href="{:U('committee_cel',array('id'=>$vo['id']))}" class="item">
+          <h3><?php echo mb_strlen($vo['title'],'utf8')>18?mb_substr($vo['title'],0,18,'utf-8').'...':$vo['title'] ?></h3>
+          <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
         </a>
-        <a href="#" class="item">
-          <h3>文章标题</h3>
-          <span>3小时前</span>
-        </a>
-        <a href="#" class="item">
-          <h3>文章标题</h3>
-          <span>3小时前</span>
-        </a>
-        <a href="#" class="item">
-          <h3>文章标题</h3>
-          <span>3小时前</span>
-        </a>
-        <a href="#" class="item">
-          <h3>文章标题</h3>
-          <span>3小时前</span>
-        </a>
-        <a href="#" class="item">
-          <h3>文章标题</h3>
-          <span>3小时前</span>
-        </a>
-        <a href="#" class="item">
-          <h3>文章标题</h3>
-          <span>3小时前</span>
-        </a>
-        <a href="#" class="item">
-          <h3>文章标题</h3>
-          <span>3小时前</span>
-        </a>
-        <a href="#" class="item">
-          <h3>文章标题</h3>
-          <span>3小时前</span>
-        </a>
-
-
+      </volist>
 
       </div>
     </div>
@@ -106,26 +74,21 @@
       <div class="title">
         <h2>相关简介</h2>
       </div>
+
       <div class="inner">
+    <volist name = "com" id = "vo">
         <div class="item clearFix">
-          <a href="#">标题：链接到正文</a>
+          <a href="{:U('committee_cel',array('id'=>$vo['id']))}"><?php echo mb_strlen($vo['title'],'utf8')>8?mb_substr($vo['title'],0,7,'utf-8').'...':$vo['title'] ?></a>
           <div class="maincontent">
-            <img src="#" alt="" />
+            <img src="./Uploads{$vo.img}" alt="" />
             <p>
-              中国电视演员工作委员会是中国电视艺术家协会所属常设机构，是面向全国从事电视表演艺术人员的专业团体。
+              <?php echo mb_strlen($vo['digest'],'utf8')>50?mb_substr($vo['digest'],0,5,'utf-8').'...':$vo['digest'] ?>
             </p>
           </div>
         </div>
 
-        <div class="item clearFix">
-          <a href="#">标题：链接到正文</a>
-          <div class="maincontent">
-            <img src="#" alt="" />
-            <p>
-              中国电视演员工作委员会是中国电视艺术家协会所属常设机构，是面向全国从事电视表演艺术人员的专业团体。
-            </p>
-          </div>
-        </div>
+  </volist>
+
       </div>
     </div>
     <div class="clearFix">
@@ -135,14 +98,14 @@
     <div class="con video">
       <div class="title">
         <h2>视频</h2>
-        <a href="#" class="more">more</a>
+        <!-- <a href="#" class="more">more</a> -->
     </div>
     <div class="inner clearFix">
-      <a href="#" class="item">
-        <img src="#" alt="" />
+      <a href="{:U('committee_video',array('id'=>$video[0]['id']))}" class="item">
+        <img src="./Uploads{$video[0].img}" alt="" />{$video.img}
         <div class="text">
-          <h1>标题</h1>
-          <h3>7:30</h3>
+          <h1><?php echo mb_strlen($video[0]['title'],'utf8')>8?mb_substr($video[0]['title'],0,7,'utf-8').'...':$video[0]['title'] ?></h1>
+          <h3>{$video[0].instime|date="Y-m-d H:i:s",###}</h3>
         </div>
         <sub></sub>
       </a>

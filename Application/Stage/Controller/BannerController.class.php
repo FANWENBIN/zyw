@@ -358,4 +358,25 @@ class BannerController extends ComController {
         }
 
     }
+//==============================演工委bannerstart=======================、、
+    public function committee(){
+        $submit = I('post.submit');
+        $banner = M('banner');
+        if(empty($submit)){
+            $list = $banner->where('type = 7')->find();
+            $this->assign('bannerval',$list);
+            $this->display();
+        }else{
+            $data['title'] = I('post.title');
+            $data['img'] = I('post.photo');
+            $sign = $banner->where('type = 7')->save($data);
+            if($sign){
+                $this->success('保存成功',U('committee'));
+            }else{
+                $this->error('保存失败',U('committee'));
+            }
+        }
+        
+    }
+
 }
