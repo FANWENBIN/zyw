@@ -74,7 +74,7 @@ class IndexController extends ComController {
         //end
 		//新闻焦点
 		$news = M('news');
-		$map['status']!=0;
+		$map['status'] = 1;
 		$newsresult=$news->where($map)->order(array('order'=>'desc','instime'=>'desc'))->limit('0,21')->select();
 		$this->assign('newsresult',$newsresult);
 

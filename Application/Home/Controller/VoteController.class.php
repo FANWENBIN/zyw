@@ -119,8 +119,8 @@ class VoteController extends ComController {
         $actors  = M('actors');
         $model = M();
         //接受参数
-        $opid = I('get.opid','','trim');
-        $openid = trim(I('get.wxopenid','','addslashes'));
+        $opid = I('post.opid','','trim');
+        $openid = trim(I('post.wxopenid','','addslashes'));
         $ip = get_client_ip();
         if(preg_match("/^[a-f\d]{32}$/",$opid)){
             $actorsval = $actors->where("opid='".$opid."'")->find();
@@ -172,7 +172,7 @@ class VoteController extends ComController {
                             errReturn(201,'今日已给该演员投过票');
                         }
                     }else{
-                        if($actorsval == 1){
+                        if($actorsval['sex'] == 1){
                             errReturn(108,'今日给该组男演员投票已达上限');
                         }else{
                             errReturn(109,'今日给该组女演员投票已达上限');
@@ -313,7 +313,7 @@ class VoteController extends ComController {
             ajaxReturn(0,'',$actorsval);
         }
     }
-    public function greegroup(){
+    public function greengroup(){
         $url = C('DOMAIN_PATH')."/index.php?m=Home&c=Vote&a=code";
         $sex = I('get.sex');
         $actors = M('actors');
