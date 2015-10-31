@@ -354,6 +354,15 @@
   position: relative;
   text-align: center;
 }
+.webmain .conRule .inner .content1 .r .in .item+.item:before{
+  content: "";
+  position: absolute;
+  border-left: 1px solid #999;
+  width: 0;
+  height: 75%;
+  margin-left: -56px;
+  margin-top: 27px;
+}
 .webmain .conRule .inner .content1 .r .in .item .head {
   width: 110px;
   height: 110px;
@@ -698,13 +707,13 @@
   border-left: 7px solid #fff;
   border-right: 7px solid #fff;
 }
-.webmain .conRule .content4 .judgeRuleContent li:nth-child(2) {
+.webmain .conRule .content4 .judgeRuleContent .content4gourp:nth-child(2) {
   display: none;
 }
-.webmain .conRule .content4 .judgeRuleContent li:nth-child(3) {
+.webmain .conRule .content4 .judgeRuleContent .content4gourp:nth-child(3) {
   display: none;
 }
-.webmain .conRule .content4 .judgeRuleContent li:nth-child(4) {
+.webmain .conRule .content4 .judgeRuleContent .content4gourp:nth-child(4) {
   display: none;
 }
 .webmain .conRule .content4 .judgeRuleContent li h1 {
@@ -713,10 +722,11 @@
   line-height: 60px;
   font-weight: 600;
 }
-.webmain .conRule .content4 .judgeRuleContent li p {
-  height: 60px;
-  font-size: 14px;
-  line-height: 30px;
+.webmain .conRule .content4 .judgeRuleContent>li>p {
+  // height: 60px;
+  margin-top: 50px;
+  font-size: 18px;
+  line-height: 33px;
 }
 .webmain .conVote {
   float: left;
@@ -1087,4 +1097,75 @@
 }
 .conVote .groupSexList li.greenselect{
   background: #0c6;
+}
+.voterulelist{
+  position: absolute;
+  z-index: 2;
+  li{
+    float: left;
+    width: 230px;
+    height: 175px;
+    text-align: center;
+
+
+    .description{
+      text-align: center;
+      font-size: 20px;
+      line-height: 60px;
+    }
+
+  }
+  .ruleicon{
+    display: inline-block;
+    width: 81px;
+    height: 80px;
+    margin-top: 25px;
+    background: url("../../../images/icon_votemethod.gif") 0 0 no-repeat;
+  }
+  .ruleicon2{
+    background: url("../../../images/icon_votemethod.gif") 0 -80px no-repeat;
+  }
+  .ruleicon3{
+    background: url("../../../images/icon_votemethod.gif") 0 -160px no-repeat;
+  }
+  .ruleicon4{
+    background: url("../../../images/icon_votemethod.gif") 0 -240px no-repeat;
+  }
+  .ruleicon5{
+    background: url("../../../images/icon_votemethod.gif") 0 -320px no-repeat;
+  }
+}
+.voterulegroup{
+  li{
+    position: absolute;
+    padding:{
+      top: 175px;
+      left: 15px;
+      right: 15px;
+    }
+    font-size: 14px;
+    line-height: 30px;
+  }
+  li:nth-child(2){
+    left: 230px;
+  }
+  li:nth-child(3){
+    left: 460px;
+  }
+  li:nth-child(4){
+    left: 690px;
+  }
+  li:nth-child(5){
+    left: 920px;
+  }
+  .style1{
+    width: 200px;
+    height: 640px;
+    background-color: #f4f4f4;
+  }
+  .style2{
+    width: 200px;
+    height: 640px;
+    background-color: #dcdcdc;
+  }
 }

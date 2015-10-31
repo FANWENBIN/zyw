@@ -26,12 +26,17 @@ $(function() {
       // 6强
       $("#colorlist2").on("click", "li", page.tabType2);
       $("#sexlist2").on("click", "li", page.tabSex2);
+      $("#voterulelist").on("mouseenter","li",page.tabVoteRule)
 
 
       page.refleshgroup1();
       page.refleshgroup2();
 
       page.initStar();
+    },
+    tabVoteRule: function(){
+      $("#voterulegroup").find("li").hide();
+      $("#voterulegroup").find("li").eq($(this).index()).show();
     },
     // 36强 查询
     tabSex1: function() {
@@ -200,8 +205,8 @@ $(function() {
       $("#judgeRuleName").find("li").removeClass("active");
       $(this).addClass("active");
       var _index = $(this).index();
-      $("#judgeRuleContent").find("li").hide();
-      $("#judgeRuleContent").find("li").eq(_index).show()
+      $("#judgeRuleContent").find(".content4gourp").hide();
+      $("#judgeRuleContent").find(".content4gourp").eq(_index).show()
     },
     hover: function(e) {
       if (e.type == "mouseenter") {
