@@ -174,10 +174,12 @@
   width: 380px;
   height: 250px;
   margin-top: -250px;
-  background-color: rgba(0, 0, 0, 0);
+  background: rgba(0,0,0,0);
+  background: url("../../../images/space.png") 0 0 repeat;
 }
 .webmain .overWatch .pic sub:hover {
-  background-color: rgba(0, 0, 0, .34);
+  background: rgba(0,0,0,.3);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
 }
 .webmain .overWatch .pic img {
   width: 380px;
@@ -190,7 +192,9 @@
   margin-top: -60px;
   color: #fff;
   padding: 0 0 0 20px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: url("../../../images/space.png") 0 0 repeat;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+  background: rgba(0,0,0,.6);
 }
 .webmain .overWatch .pic .text h3 {
   font-size: 14px;
