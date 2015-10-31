@@ -12,7 +12,8 @@ class CommitteeController extends ComController {
     			->order('top desc,instime desc')
     			->select();
     	$this->assign('list',$list);
-    	//形象监督
+        
+    	//形象监督 
     		//红榜
     	$count = $committee->where('status=1 and type=1')->count();// 查询满足要求的总记录数
     	$Page  = new \Think\Page($count,9);// 实例化分页类 传入总记录数和每页显示的记录数(25)
