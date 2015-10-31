@@ -1,0 +1,127 @@
+<extend name="Header/header"/>
+<block name='header'>
+    <!DOCTYPE HTML>
+    <!--[if lt IE 7 ]>
+    <html class="ie6 ieOld"><![endif]-->
+    <!--[if IE 7 ]>
+    <html class="ie7 ieOld"><![endif]-->
+    <!--[if IE 8 ]>
+    <html class="ie8 ieOld"><![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <html><!--<![endif]-->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>微信公众号管理平台</title>
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css"/>
+        <!--每个页面独立的样式文件-->
+    </head>
+
+    <body>
+</block>
+
+<block name='div'>
+    <!--container-->
+    <div class="webContainer clearFix" id="webContainer">
+</block>
+
+<block name="content">
+    <!--main-->
+    <div class="webMain">
+        <div class="mainHeader">
+             <h1>Banner管理</h1>
+            <ul class="menu clearFix">
+            <li><a href="{:U('Banner/index')}">新闻Banner</a></li>
+            <li><a href="{:U('Banner/active')}">活动Banner</a></li>
+            <li><a href="{:U('Banner/futurestar')}">明日之星Banner</a></li> 
+            <li><a href="{:U('Banner/vedio')}">视频Banner</a></li>
+            <li><a href="{:U('Banner/stage')}">Stage-Banner</a></li> 
+            <li><a href="{:U('Banner/starwars')}">星站Banner</a></li> 
+            <li class="current"><a href="{:U('Banner/committee')}">演工委之声大图设置</a></li> 
+            </ul>
+        </div>
+        <div class="mainBody">
+
+            <!--摘要提示等-->
+            <!--<div class="summary mb20">最近一段时间，互联网圈子里流行“举报”——先有腾讯匿名举报快播视频侵权；后有搜狐“举报”今日头条侵犯版权；日前，阿里巴巴也实名举报《IT时代周刊》舆论胁迫及恶意伤害阿里巴巴声誉。8月7日下午，阿里巴巴公关总监颜乔发表微博，实名举报《IT时代周刊》及下属网站“IT商业新闻网”长期通过舆论胁迫及恶意伤害阿里巴巴集团商誉。</div>-->
+
+            <!--表单-->
+            <div class="form">
+                <div class="formHeader">
+                    <h1>演工委之声大图</h1>
+                </div>
+
+                <form method="post" action="{:U('Banner/committee')}" enctype="multipart/form-data">
+                    <fieldset>
+
+                        <!-- Banner大图-->
+
+                        <div class="l">
+                            <h6>大图</h6>
+                            
+                            <div class="i">
+
+                              <div class="i">
+                                <h1>输入Banner标题</h1>
+                                <input type="text" class="input w200" value="{$bannerval['title']}" placeholder="请输入图片名字" name="title"/> <br>
+                              </div>
+                               <div class="i">
+                                  <h1>上传Banner</h1>
+                                  <input type="text" value="{$bannerval['img']}" class="js_imgupload" id="imgurl1" cut="true" width="1200" height="470" name="photo"/>
+                               </div>
+                              
+                            </div>
+
+                        </div>
+
+                        <!--主提交按钮-->
+                        <div class="btnCon btnCon2">
+                            
+                            <input type="submit" class="btnA" value="保存" name="submit"/>
+                        </div>
+
+
+                    </fieldset>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <!--main end-->
+
+    </div>
+    <!--container end-->
+    <script type="text/javascript">
+        var webPath = "";
+        var imgUploadFile = ""; // 图片上传后的文件夹目录
+        var imgUploadServer = ""; // 图片上传接口地址
+        var swfUrl = "../statics/swf"; // flash文件夹目录
+        var mp3UploadServer = ""; // mp3上传接口地址
+        var mp3UploadFile = ""; // mp3上传后的文件夹目录
+    </script>
+
+    <script type="text/javascript" src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/swfobject.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/sea.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/statics/js/sea.css.js"></script>
+    <script type="text/javascript">
+        seajs.use("__PUBLIC__/statics/statics/js/form.js");
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/sxx.js">
+    </script>
+    <!--富文本编辑器-->
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/statics/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!--富文本编辑器 end-->
+    <script>
+        var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=banner"))}";
+        var imgUploadFile = '__ROOT__/Uploads';
+        var swfUrl = "__ROOT__/Public/stage/swf";
+    </script>
+    </body>
+    </html>
+</block>

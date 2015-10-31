@@ -1,0 +1,128 @@
+<!doctype html>
+<!--[if lt IE 7 ]>
+<html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <title>中演网</title>
+  <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/video/video_details.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+</head>
+
+<body>
+
+  <!--webheader-->
+<include file = "Header/nav" />
+  <!--webheader end-->
+
+
+  <!--webmain-->
+  <div class="webmain">
+
+    <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="{:U('Committee/index')}">演工委之声</a> > {$list.title}</div>
+
+    <!--<img src="__PUBLIC__/statics/images/p/p2.jpg"/>-->
+    <iframe width=1200 height=800 src="{$list.href}" frameborder=0 allowfullscreen></iframe>
+
+    <div class="con conComment">
+
+      <div class="title">
+        <h2>评论</h2>
+      </div>
+      <div class="inner clearFix">
+        <div class="send" id="J_CommentSendbox">
+          <textarea></textarea>
+          <a href="javascript:void(0);" class="submit">评论</a>
+        </div>
+        <div class="list" id="J_CommentList">
+          <div class="item clearFix">
+            <div class="head">
+              <img src="/zyw/Public/statics/images/p/a10.jpeg">
+            </div>
+            <div class="info">
+              <span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>
+
+              <p>大家好。最好的明星就是那些有品行有好的影响力。</p>
+            </div>
+          </div>
+          <div class="item clearFix">
+            <div class="head">
+              <img src="/zyw/Public/statics/images/p/a11.jpeg">
+            </div>
+            <div class="info">
+              <span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>
+
+              <p>
+                大家好。最好的明星就是那些有品行有好的影响力。大家好。最好的明星就是那些有品行有好的影响力。大家好。最好的明星就是那些有品行有好的影响力。大家好。最好的明星就是那些有品行有好的影响力。大家好。最好的明星就是那些有品行有好的影响力。</p>
+            </div>
+          </div>
+          <div class="item clearFix">
+            <div class="head">
+              <img src="/zyw/Public/statics/images/p/a12.jpeg">
+            </div>
+            <div class="info">
+              <span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>
+
+              <p>大家好。最好的明星就是那些有品行有好的影响力。</p>
+            </div>
+          </div>
+          <div class="item clearFix">
+            <div class="head">
+              <img src="/zyw/Public/statics/images/p/a13.jpeg">
+            </div>
+            <div class="info">
+              <span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>
+
+              <p>大家好。最好的明星就是那些有品行有好的影响力。</p>
+            </div>
+          </div>
+          <div class="item clearFix">
+            <div class="head">
+              <img src="/zyw/Public/statics/images/p/a14.jpeg">
+            </div>
+            <div class="info">
+              <span>V网友：清晰白阳2 发表日期：2015-06-07 19:56</span>
+
+              <p>大家好。最好的明星就是那些有品行有好的影响力。</p>
+            </div>
+          </div>
+        </div>
+        <div class="pager clearFix">
+          <a href="javascript:void(0);">首页</a>
+          <a href="javascript:void(0);" class="c">1</a>
+          <a href="javascript:void(0);">2</a>
+          <span>...</span>
+          <a href="javascript:void(0);">3</a>
+          <a href="javascript:void(0);">4</a>
+          <a href="javascript:void(0);">5</a>
+          <a href="javascript:void(0);">未页</a>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+  <!--webmain end-->
+
+  <include file="Header/header" />
+
+
+  <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+  <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+  <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+
+  <script src="__PUBLIC__/statics/js/index/index_video.js"></script>
+
+</body>
+
+</html>

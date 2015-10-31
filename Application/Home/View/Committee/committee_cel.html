@@ -1,0 +1,131 @@
+<!doctype html>
+<!--[if lt IE 7 ]>
+<html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>中演网</title>
+    <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/statics/dist/css/committee/committee_details.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+</head>
+
+<body>
+
+<!--webheader-->
+<include file = "Header/nav" />
+<!--webheader end-->
+
+
+<!-- 导航栏-->
+
+
+<!--webmain-->
+<div class="webmain">
+
+    <div class="con nav clearFix" id="J_nav">
+        <div class="navTitle">
+            <a href="{:U('Index/index')}">首页</a> > <a href="{:U('committee/index')}">演工委之声</a> > <a href="#">正文</a>
+
+            <include file = "Header/login" />
+        </div>
+    </div>
+    <div class="wrapper clearFix">
+        <!--正文-->
+        <div class="content">
+            <div class="header">
+                <h1>{$result.title}</h1>
+                <h3>{$result['instime']|date='Y-m-d H:i:s',###}</h3>
+            </div>
+            <div class="content">
+               <?php echo html_entity_decode($result['content']);?>
+            </div>
+
+        </div>
+        <!--右侧边栏-->
+        <div class="con rightCol clearFix">
+            <div class="title">
+                <h2>艺术中国梦</h2>
+            </div>
+			<volist name="hotnews" id="dlist" key="k" offset="0" length="1"  empty="暂时没有数据">
+				<a href="{:U('News/news_details?id='.$dlist['id'])}" class="item">
+					<div class="txt">
+						<h3><?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></h3>
+						<span>{$dlist['instime']|date='Y-m-d H:i:s',###}</span>
+					</div>
+					<img  src="./Uploads{$dlist.imgpath}" width="380" height="250"/>
+					<sub class="hover"></sub>
+				</a>
+			</volist>
+            <ul class="newsList clearFix">
+			<volist name="hotnews" id="dlist" key="k" offset="1" length="4" >
+                <li class="c">
+                    <a class="" href="{:U('News/news_details?id='.$dlist['id'])}">
+                        <?php echo strlen($dlist['title'])>20?mb_substr($dlist['title'],0,15,'utf-8').'......':$dlist['title'] ?>
+                    </a>
+                    <span class="time">
+                        <?php echo floor((time()-$dlist['instime'])/3600)?>小时前小时前
+                    </span>
+                </li>
+			</volist>
+            </ul>
+            <div class="title event">
+                <h2>活动</h2>
+            </div>
+            <a href="{:U('Active/active_details',array('id'=>$activeval['id']))}" class="item">
+                <div class="txt">
+                    <h3>{$activeval.title}</h3>
+                    <span>{$activeval.begin_time|date="m.d",###}-{$activeval.last_time|date="m.d",###}</span>
+                </div>
+                <img src="./Uploads{$activeval.img}">
+                <sub class="hover"></sub>
+            </a>
+            <p class="active"><?php echo mb_strlen($activeval['content'],'utf8')>60?mb_substr($activeval['content'],0,58,'utf-8').'...':$activeval['content'] ?></p>
+            <div class="focus"><span class="text">{$activeval.concern}</span><span class="iconPart"></span></div>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+    <!--webmain end-->
+
+
+    <!--webfooter-->
+    <div class="webfooter">
+        <div class="inner clearFix">
+            <div class="logo"></div>
+            <div class="info">
+                <ul class="clearFix">
+                    <li class="f"><a href="#">关于我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+                <p>{$records}</p>
+            </div>
+            <div class="qr">
+                <p>扫描二维码</p>
+                <span>关注官方微信</span>
+            </div>
+        </div>
+    </div>
+    <!--webfooter end-->
+
+
+    <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+    <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+    <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+
+    <script src="__PUBLIC__/statics/dist/js/committee/committee.js"></script>
+
+</body>
+</html>
