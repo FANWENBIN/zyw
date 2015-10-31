@@ -119,8 +119,8 @@ class VoteController extends ComController {
         $actors  = M('actors');
         $model = M();
         //接受参数
-        $opid = I('post.opid','','trim');trim($_POST['opid']);
-        $openid = trim(I('post.wxopenid','','addslashes'));
+        $opid = I('get.opid','','trim');
+        $openid = trim(I('get.wxopenid','','addslashes'));
         $ip = get_client_ip();
         if(preg_match("/^[a-f\d]{32}$/",$opid)){
             $actorsval = $actors->where("opid='".$opid."'")->find();
@@ -148,14 +148,16 @@ class VoteController extends ComController {
                             $data['instime']    = time();
                             $data['insdate']    = date('Y-m-d',time());
                             $data['groupid']    = $actorsval['groupid'];
-                            $data['sexid']      = $actorsval['sexid'];
+                            $data['sexid']      = $actorsval['sex'];
                             $vosign = $votelog->add($data);
                             if(!$vosign){
                                 $sign = false;
                             }
-                            $tick['votes'] = $actorsval['votes'];
+                            
+                            $tick['votes'] = $actorsval['votes']+1;
                             $acsign = $actors->where("opid='".$opid."'")->save($tick);
-                            if($acsign){
+                           
+                            if(!$acsign){
                                 $sign = false;
                             }
                             if($sign){
