@@ -307,7 +307,6 @@ class VoteController extends ComController {
             $actorsval[$key]['lifting'] = $val['oldrank']-$val['rank'];
             $actorsval[$key]['codeimg'] = $url.="&opid=".$val['opid'];
         }
-        var_dump($actorsval);
         if($actorsval === false){
             ajaxReturn(1,'系统错误','');
         }else{
