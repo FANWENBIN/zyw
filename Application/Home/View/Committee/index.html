@@ -60,14 +60,17 @@
         <h2>专题摘要</h2>
       </div>
       <div class="inner clearFix">
-        
-        <p>
-          继中广协电视剧演员委员会后，中国电视艺术家协会演员工作委员会成立大会，于8月6日在钓鱼台国宾馆举行。黄宏出任首届会长，并透露演员入会三条件：得过金鹰奖、得过德艺双馨奖，有社会影响力。他还将演员工作委员会的宗旨概括为六个字：法律、服务、自律。
-        </p>
-        <p>
-          --------------------------------------------------------------
-        </p>
 
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;继中广协电视剧演员委员会后，中国电视艺术家协会演员工作委员会成立大会，于8月6日在钓鱼台国宾馆举行。黄宏出任首届会长，并透露演员入会三条件：得过金鹰奖、得过德艺双馨奖，有社会影响力。他还将演员工作委员会的宗旨概括为六个字：法律、服务、自律。
+        </p>
+        <p class="div">
+          ------------------------------------------------------
+        </p>
+        <h1>中视协演员委员会成立 黄宏任会长</h1>
+        <a href="#">[委员会简介]</a>
+        <a href="#">[委员会章程]</a> <br>
+        <a href="#">[委员会人员名册]</a>
       <!-- <volist name = "cel" id = "vo">
         <a href="{:U('committee_cel',array('id'=>$vo['id']))}" class="item">
           <h3><?php echo mb_strlen($vo['title'],'utf8')>18?mb_substr($vo['title'],0,18,'utf-8').'...':$vo['title'] ?></h3>
@@ -123,13 +126,24 @@
 
     <div class="con committeework">
       <div class="title">
-        <h2>视频</h2>
+        <h2>中国电视</h2>
       </div>
 
       <div class="inner">
-        <p>
-         <?php echo html_entity_decode($about[0]['content']);?>
-        </p>
+        <dl class="">
+          <dt>法律维权</dt>
+          <dd>聘请我国著名的律师设立法律顾问处，增强法律意识，维护合法权益，长年为广大会员提供法律服务</dd>
+          <dt>褒奖优秀</dt>
+          <dd>创办中国电视演员委员会奖，努力创造优秀品牌，大力扩展社会影响力，增强队伍凝聚力</dd>
+          <dt>人事服务</dt>
+          <dd>随着我国文化体制及人事制度改革的逐渐深入，工作委员会将负有代理代办会员人事档案的职责；随着专业职称评定制度的发展，努力创造条件，担负起演员专业职称评定的职责</dd>
+          <dt>设立基金</dt>
+          <dd>设立中国电视演员基金，主要用于为广大会员创造福利，鼓励扶持新人、提倡扶助老弱，奖励创新作品</dd>
+          <dt>全面交流</dt>
+          <dd>加强与欧美、亚洲韩日等国进行专业交流合作；组织会员和香港、台湾地区演员进行互访交流</dd>
+          <dt>参加公益</dt>
+          <dd>要积极、及时组织会员参与公益活动、鼓励会员树立“我是中国电视演员”的国家荣誉感</dd>
+        </dl>
       </div>
     </div>
 
@@ -140,10 +154,10 @@
     <div class="con overWatch">
       <div class="title">
         <h2>形象监督</h2>
-        <ul class="group" id="typelist" >
+        <!-- <ul class="group" id="typelist" >
           <li class="active" data-type="redcom">红榜</li>
           <li data-type="blackcom">黑榜</li>
-        </ul>
+        </ul> -->
       </div>
       <div class="inner clearFix" id="typegroup">
           <div class="item">
@@ -209,7 +223,7 @@
       </div>
 
 
-      <div class="pagelist" id="pagelist">
+      <!-- <div class="pagelist" id="pagelist">
         <a href="javacript:;" class="pre">上一页</a>
         <ul class="num">
           <li class="active">1</li>
@@ -217,7 +231,7 @@
           <li>3</li>
         </ul>
         <a href="javacript:;" class="next">下一页</a>
-      </div>
+      </div> -->
     </div>
 
   </div>
