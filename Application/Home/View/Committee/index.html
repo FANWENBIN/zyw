@@ -82,7 +82,7 @@
           <div class="maincontent">
             <img src="./Uploads{$vo.img}" alt="" />
             <p>
-              <?php echo mb_strlen($vo['digest'],'utf8')>50?mb_substr($vo['digest'],0,5,'utf-8').'...':$vo['digest'] ?>
+              <?php echo mb_strlen($vo['digest'],'utf8')>50?mb_substr($vo['digest'],0,50,'utf-8').'...':$vo['digest'] ?>
             </p>
           </div>
         </div>
@@ -119,14 +119,7 @@
 
       <div class="inner">
         <p>
-          法律维权 <br>
-聘请我国著名的律师设立法律顾问处，增强法律意识，维护合法权益，长年为广大会员提供法律服务 <br>
-褒奖优秀 <br>
-创办中国电视演员委员会奖，努力创造优秀品牌，大力扩展社会影响力，增强队伍凝聚力 <br>
-人事服务 <br>
-随着我国文化体制及人事制度改革的逐渐深入，工作委员会将负有代理代办会员人事档案的职责；随着专业职称评定制度的发展，努力创造条件，担负起演员专业职称评定的职责 <br>
-设立基金 <br>
-设立中国电视演员基金，主要用于为广大会员创造福利，鼓励扶持新人、提倡扶助老弱，奖励创新作品 <br>
+         <?php echo html_entity_decode($about[0]['content']);?>
         </p>
       </div>
     </div>
