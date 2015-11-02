@@ -4,7 +4,9 @@ $(function() {
     color1: 1,
     sex1: 1,
     color2: 1,
-    sex2: 1
+    sex2: 1,
+    allcolor: "redgroup",
+    allsex: "2"
 
   };
 
@@ -36,30 +38,35 @@ $(function() {
       page.resetGroup();
     },
     resetGroup: function(){
-      var _color = getCookie("color");
-      var _sex  = getCookie("sex");
-      console.log(_color, _sex);
-      if(_color)$("#groupColorList").find("li").removeClass("active");
-      if(_sex)$("#groupSexList").find("li").removeClass("active").removeClass("redselect").removeClass("blueselect").removeClass("greenselect");
-      if(_sex == "2"){
+      if(getCookie("color"))
+      scope.allcolor = getCookie("color");
+      if(getCookie("sex"))
+      scope.allsex  = getCookie("sex");
+      console.log(scope.allcolor, scope.allsex);
+      if(scope.allcolor).$("#groupColorList").find("li").removeClass("active");
+      if(scope.allsex)$("#groupSexList").find("li").removeClass("active").removeClass("redselect").removeClass("blueselect").removeClass("greenselect");
+      if(scope.allsex == "2"){
         $("#groupSexList").find(".female").addClass("active");
-      }else if(_sex == "1"){
+      }else if(scope.allsex == "1"){
         $("#groupSexList").find(".male").addClass("active");
       }
-      if(_color == "redgroup"){
+      if(scope.allcolor == "redgroup"){
         $("#groupColorList").find(".red").addClass("active");
         $("#groupSexList").find(".active").addClass("redselect");
         $("#title").removeClass("blue").removeClass("green").addClass("red")
-      }else if(_color == "bluegroup"){
+      }else if(scope.allcolor == "bluegroup"){
         $("#groupColorList").find(".blue").addClass("active");
         $("#groupSexList").find(".active").addClass("blueselect");
         $("#title").removeClass("red").removeClass("green").addClass("blue")
       }
-      else if(_color == "greengroup"){
+      else if(scope.allcolor == "greengroup"){
         $("#groupColorList").find(".green").addClass("active");
         $("#groupSexList").find(".active").addClass("greenselect");
-        $("#title").removeClass("blue").removeClass("red").addClass("green")
+        $("#title").removeClass("blue").removeClass("red").addClass("green");
       }
+
+      page.getfromserver();
+      
     },
     tabVoteRule: function(){
       $("#voterulegroup").find("li").hide();
@@ -272,30 +279,34 @@ $(function() {
       $("#groupSexList").find("li").removeClass("redselect").removeClass("blueselect").removeClass("greenselect")
       $(this).parent().find("li").removeClass("active");
       $(this).addClass("active");
-      var _color = $("#groupColorList").find(".active").data("color");
-      var _sex = $("#groupSexList").find(".active").data("sex");
+      scope.allcolor = $("#groupColorList").find(".active").data("color");
+      scope.allsex = $("#groupSexList").find(".active").data("sex");
       setCookie("color",_color);
       setCookie("sex",_sex);
-      if(_color == "redgroup"){
+      if(scope.allcolor == "redgroup"){
         $("#title").removeClass("blue").removeClass("green").addClass("red")
         $("#groupSexList").find(".active").addClass("redselect")
       }
-      if(_color == "bluegroup"){
+      if(scope.allcolor == "bluegroup"){
         $("#title").removeClass("red").removeClass("green").addClass("blue")
         $("#groupSexList").find(".active").addClass("blueselect")
       }
-      if(_color == "greengroup"){
+      if(scope.allcolor == "greengroup"){
         $("#title").removeClass("blue").removeClass("red").addClass("green")
         $("#groupSexList").find(".active").addClass("greenselect")
       }
 
+      page.getfromserver();
+    },
+
+    getfromserver: function(){
       $.ajax({
         type: "get",
         dataType: "json",
         data: {
           url: "/index.php?m=Home&c=Vote&",
-          a: _color,
-          sex: _sex
+          a: scope.allcolor,
+          sex: scope.allsex
         },
         success: function(json) {
           //alert(json.status)
@@ -323,7 +334,7 @@ $(function() {
           }
         }
       })
-    },
+    }
     //初始化加载 明星列表
     initStar: function() {
       $.ajax({
