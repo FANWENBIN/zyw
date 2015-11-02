@@ -43,8 +43,8 @@ $(function() {
       if(getCookie("sex"))
       scope.allsex  = getCookie("sex");
       console.log(scope.allcolor, scope.allsex);
-      if(scope.allcolor).$("#groupColorList").find("li").removeClass("active");
-      if(scope.allsex)$("#groupSexList").find("li").removeClass("active").removeClass("redselect").removeClass("blueselect").removeClass("greenselect");
+      if(scope.allcolor) $("#groupColorList").find("li").removeClass("active");
+      if(scope.allsex) $("#groupSexList").find("li").removeClass("active").removeClass("redselect").removeClass("blueselect").removeClass("greenselect");
       if(scope.allsex == "2"){
         $("#groupSexList").find(".female").addClass("active");
       }else if(scope.allsex == "1"){
@@ -66,7 +66,7 @@ $(function() {
       }
 
       page.getfromserver();
-      
+
     },
     tabVoteRule: function(){
       $("#voterulegroup").find("li").hide();
@@ -334,7 +334,7 @@ $(function() {
           }
         }
       })
-    }
+    },
     //初始化加载 明星列表
     initStar: function() {
       $.ajax({
@@ -346,7 +346,7 @@ $(function() {
           sex: "2"
         },
         success: function(json) {
-          if (json.status == 0) {
+          if(json.status == 0) {
             var _html = "";
             for (var i = 0; i < json.data.length; i++) {
               _html += '<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'"><div class="item">\
