@@ -14,7 +14,7 @@ class CommitteeController extends ComController {
     	$this->assign('list',$list);
         //banner 
         $banner = M('banner');
-        $this->bannerlist = $banner->where('type = 7 and status = 1')->find();
+        $this->bannerlist = $banner->where('type = 7')->find();
         //公告
         $council_rule = M('council_rule');
         $this->tall = $council_rule->where('type = 4 and status = 1')->find();

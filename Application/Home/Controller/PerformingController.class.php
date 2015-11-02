@@ -38,30 +38,30 @@ class PerformingController extends ComController {
         if(!empty($condition)){
             $where['name|achievement'] = array('like','%'.$condition.'%'); 
         }   $where['status'] = array(array('eq',1),array('eq',2),'or');
-    	foreach(range('A','Z') as $v){
-            if($condi == 6){
-                $data[$v] = $actors
-                        ->field('id,img,name')
-                        ->where("initial ='".$v."'")
-                        ->where($where)
-                        ->order('clickrate desc')
-                        ->select();
-            }else{
-                $data[$v] = $actors
-                        ->field('id,img,name')
-                        ->where("initial ='".$v."'")
-                        ->where($where)
-                        ->select();
-            }
-			
+        if($condi == 6){
+        	 $data = $actors
+                    ->field('id,img,name')
+                    ->where($where)
+                    ->order('clickrate desc, initial asc')
+                    ->limit(0,10)
+                    ->select();
 
-			foreach($data[$v] as $key=>$val){
-				$data[$v][$key]['img'] = './Uploads'.$val['img'];
-			}
-			if($data[$v] === false){
-				ajaxReturn(101,'请求失败','');
-			}
-		}
+        }else{
+            foreach(range('A','Z') as $v){
+                $data[$v] = $actors
+                        ->field('id,img,name')
+                        ->where("initial ='".$v."'")
+                        ->where($where)
+                        ->select();
+                foreach($data[$v] as $key=>$val){
+                    $data[$v][$key]['img'] = './Uploads'.$val['img'];
+                }
+                if($data[$v] === false){
+                    ajaxReturn(101,'请求失败','');
+                }
+            }
+
+        }
 		ajaxReturn(0,'',$data);
     }
 
