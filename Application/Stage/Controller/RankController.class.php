@@ -2,7 +2,7 @@
 namespace Stage\Controller;
 use Think\Controller;
 //每日更新名次
-class RankController extends ComController {
+class RankController extends Controller {
 
     public function index(){
           $actors = M('actors');  

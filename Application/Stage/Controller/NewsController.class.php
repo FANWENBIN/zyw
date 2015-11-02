@@ -10,7 +10,6 @@ class NewsController extends ComController {
 		if(isset($_POST['sousuo'])){
 			$keywords=$_POST['keywords'];
 			$map['keywords|title|content']=array('like','%'.$keywords.'%');
-
 		} 
 		if(isset($_GET['type'])){
 			$map['type']=intval($_GET['type']);
