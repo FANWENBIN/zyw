@@ -85,6 +85,9 @@ class LoginController extends Controller {
         }
         $sign = $user->add($data);
         if($sign){
+             session('userid',$sign);
+            session('username',$data['nickname']);
+            session('userphone',$data['phone']);
             ajaxReturn(0,'注册成功','');
         }else{
             ajaxReturn(101,'注册失败','');

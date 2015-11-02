@@ -23,7 +23,7 @@ class IndexController extends ComController {
         $this->assign('manredgroup',$manredgroup); 
         //红组女演员
         $where1['sex'] = 2;
-        $menredgroup   = $actors->where($where1)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit(0,10)->select();
+        $menredgroup   = $actors->where($where1)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit(0,10)->select(); 
         foreach($menredgroup as $key=>$val){
             $menredgroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
