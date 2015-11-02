@@ -77,9 +77,11 @@
             </ul>
 
             <div class="active">
+            <if condition = "$empty neq 1">
               <div class="title event">
                   <h2>活动</h2>
               </div>
+
               <a href="{:U('Active/active_details',array('id'=>$activeval['id']))}" class="item">
                   <div class="txt">
                       <h3>{$activeval.title}</h3>
@@ -90,6 +92,7 @@
               </a>
               <p class="active"> <?php echo mb_strlen($activeval['content'],'utf8')>60?mb_substr($activeval['content'],0,58,'utf-8').'...':$activeval['content'] ?></p>
               <div class="focus"><span class="text">{$activeval.concern}</span><span class="iconPart"></span></div>
+            </if>
             </div>
 
 
