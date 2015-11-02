@@ -4,7 +4,9 @@ $(function() {
     color1: 1,
     sex1: 1,
     color2: 1,
-    sex2: 1
+    sex2: 1,
+    allcolor: "redgroup",
+    allsex: "2"
 
   };
 
@@ -33,6 +35,38 @@ $(function() {
       page.refleshgroup2();
 
       page.initStar();
+      page.resetGroup();
+    },
+    resetGroup: function(){
+      if(getCookie("color"))
+      scope.allcolor = getCookie("color");
+      if(getCookie("sex"))
+      scope.allsex  = getCookie("sex");
+      console.log(scope.allcolor, scope.allsex);
+      if(scope.allcolor) $("#groupColorList").find("li").removeClass("active");
+      if(scope.allsex) $("#groupSexList").find("li").removeClass("active").removeClass("redselect").removeClass("blueselect").removeClass("greenselect");
+      if(scope.allsex == "2"){
+        $("#groupSexList").find(".female").addClass("active");
+      }else if(scope.allsex == "1"){
+        $("#groupSexList").find(".male").addClass("active");
+      }
+      if(scope.allcolor == "redgroup"){
+        $("#groupColorList").find(".red").addClass("active");
+        $("#groupSexList").find(".active").addClass("redselect");
+        $("#title").removeClass("blue").removeClass("green").addClass("red")
+      }else if(scope.allcolor == "bluegroup"){
+        $("#groupColorList").find(".blue").addClass("active");
+        $("#groupSexList").find(".active").addClass("blueselect");
+        $("#title").removeClass("red").removeClass("green").addClass("blue")
+      }
+      else if(scope.allcolor == "greengroup"){
+        $("#groupColorList").find(".green").addClass("active");
+        $("#groupSexList").find(".active").addClass("greenselect");
+        $("#title").removeClass("blue").removeClass("red").addClass("green");
+      }
+
+      page.getfromserver();
+
     },
     tabVoteRule: function(){
       $("#voterulegroup").find("li").hide();
@@ -245,28 +279,34 @@ $(function() {
       $("#groupSexList").find("li").removeClass("redselect").removeClass("blueselect").removeClass("greenselect")
       $(this).parent().find("li").removeClass("active");
       $(this).addClass("active");
-      var _color = $("#groupColorList").find(".active").data("color");
-      var _sex = $("#groupSexList").find(".active").data("sex");
-      if(_color == "redgroup"){
+      scope.allcolor = $("#groupColorList").find(".active").data("color");
+      scope.allsex = $("#groupSexList").find(".active").data("sex");
+      setCookie("color",scope.allcolor);
+      setCookie("sex",scope.allsex);
+      if(scope.allcolor == "redgroup"){
         $("#title").removeClass("blue").removeClass("green").addClass("red")
         $("#groupSexList").find(".active").addClass("redselect")
       }
-      if(_color == "bluegroup"){
+      if(scope.allcolor == "bluegroup"){
         $("#title").removeClass("red").removeClass("green").addClass("blue")
         $("#groupSexList").find(".active").addClass("blueselect")
       }
-      if(_color == "greengroup"){
+      if(scope.allcolor == "greengroup"){
         $("#title").removeClass("blue").removeClass("red").addClass("green")
         $("#groupSexList").find(".active").addClass("greenselect")
       }
 
+      page.getfromserver();
+    },
+
+    getfromserver: function(){
       $.ajax({
         type: "get",
         dataType: "json",
         data: {
           url: "/index.php?m=Home&c=Vote&",
-          a: _color,
-          sex: _sex
+          a: scope.allcolor,
+          sex: scope.allsex
         },
         success: function(json) {
           //alert(json.status)
@@ -306,7 +346,7 @@ $(function() {
           sex: "2"
         },
         success: function(json) {
-          if (json.status == 0) {
+          if(json.status == 0) {
             var _html = "";
             for (var i = 0; i < json.data.length; i++) {
               _html += '<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'"><div class="item">\
