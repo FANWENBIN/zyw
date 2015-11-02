@@ -383,7 +383,6 @@
   margin: 5px;
 }
 .webmain .conRule .inner .content1 .r .in .item h6 {
-  display: inline-block;
   height: 40px;
   line-height: 40px;
   text-align: center;
@@ -393,13 +392,40 @@
   font-weight: normal;
 }
 .webmain .conRule .inner .content1 .r .in .item h6.red {
-  border-bottom: 3px solid #f30;
+  position: relative;
+  &:after{
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 0;
+    border-bottom: 3px solid #f30;
+    top: 45px;
+    left: 23px;
+  }
 }
 .webmain .conRule .inner .content1 .r .in .item h6.blue {
-  border-bottom: 3px solid #03f;
+  position: relative;
+  &:after{
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 0;
+    border-bottom: 3px solid #03f;
+    top: 45px;
+    left: 23px;
+  }
 }
 .webmain .conRule .inner .content1 .r .in .item h6.green {
-  border-bottom: 3px solid #0c6;
+  position: relative;
+  &:after{
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 0;
+    border-bottom: 3px solid #0c6;
+    top: 45px;
+    left: 23px;
+  }
 }
 .webmain .conRule .inner .content1 .r .in .item span {
   display: block;
@@ -689,7 +715,8 @@
   font-weight: bold;
   line-height: 100px;
   height: 100px;
-  width: 200px;
+  width: 100px;
+  margin-right: 100px;
   float: left;
   cursor: pointer;
 }
