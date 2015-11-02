@@ -1,4 +1,7 @@
 @charset "utf-8";
+
+@import "../sasscommon";
+
 .webmain .con {
   margin-bottom: 45px;
 }
@@ -175,39 +178,8 @@
   background: url("../../../images/favnews.jpg") 0 5px no-repeat;
   width: 200px;
 }
-.webmain .con .item {
-  display: block;
-  position: relative;
-  float: left;
-  width: 380px;
-  height: 250px;
-  margin-bottom: 30px;
-}
-.webmain .con .item .txt {
-  z-index: 2;
-  position: absolute;
-  bottom: 0;
-  display: block;
-  height: 60px;
-  padding-left: 15px;
-  background: rgba(0,0,0,.6);
-  width: 100%;
-  color: #fff;
-}
-.webmain .con .item .txt h3 {
-  line-height: 30px;
-}
-.webmain .con .item .hover {
-  display: block;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: 0 0;
-}
-.webmain .con .item .hover:hover {
-  background: rgba(0,0,0,.34);
-}
+
+
 .webmain .con .newsList {
   float: left;
   width: 100%;
@@ -230,6 +202,7 @@
   background: url("../../../images/icon-event.jpg") 0 5px no-repeat;
   width: 200px;
 }
+.webmain .con .title.event
 .webmain .con .active {
   float: left;
   font-size: 12px;
@@ -274,4 +247,15 @@
   text-align: center;
   font-size: 14px;
   color: #a5a5a5;
+}
+
+.webmain .con .item1{
+  @include item3(380px, 250px, 60px, 14px, 12px);
+  margin-bottom: 10px;
+  display: block;
+}
+.webmain .con .item2{
+  @include item3(380px, 285px, 60px, 14px, 12px);
+  margin-bottom: 10px;
+  display: block;
 }

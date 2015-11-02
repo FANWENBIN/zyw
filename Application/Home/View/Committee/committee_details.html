@@ -53,7 +53,7 @@
             <div class="title">
                 <h2>艺术中国梦</h2>
             </div>
-			<volist name="hotnews" id="dlist" key="k" offset="0" length="1"  empty="暂时没有数据">
+			<!-- <volist name="hotnews" id="dlist" key="k" offset="0" length="1"  empty="暂时没有数据">
 				<a href="{:U('News/news_details?id='.$dlist['id'])}" class="item">
 					<div class="txt">
 						<h3><?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></h3>
@@ -62,7 +62,20 @@
 					<img  src="./Uploads{$dlist.imgpath}" width="380" height="250"/>
 					<sub class="hover"></sub>
 				</a>
-			</volist>
+			</volist> -->
+
+      <volist name="hotnews" id="dlist" key="k" offset="0" length="1"  empty="暂时没有数据">
+        <a class="item1" href="{:U('News/news_details?id='.$dlist['id'])}">
+            <img src="./Uploads{$dlist.imgpath}" alt="" />
+            <div class="text">
+              <h1><?php echo strlen($dlist['title'])>30?mb_substr($dlist['title'],0,24,'utf-8').'......':$dlist['title'] ?></h1>
+              <h3>{$dlist['instime']|date='Y-m-d H:i:s',###}</h3>
+            </div>
+            <sub></sub>
+        </a>
+      </volist>
+
+
             <ul class="newsList clearFix">
 			<volist name="hotnews" id="dlist" key="k" offset="1" length="4" >
                 <li class="c">
@@ -78,14 +91,23 @@
             <div class="title event">
                 <h2>活动</h2>
             </div>
-            <a href="{:U('Active/active_details',array('id'=>$activeval['id']))}" class="item">
+            <!-- <a href="{:U('Active/active_details',array('id'=>$activeval['id']))}" class="item itemevent">
                 <div class="txt">
                     <h3>{$activeval.title}</h3>
                     <span>{$activeval.begin_time|date="m.d",###}-{$activeval.last_time|date="m.d",###}</span>
                 </div>
                 <img src="./Uploads{$activeval.img}">
                 <sub class="hover"></sub>
+            </a> -->
+            <a class="item2" href="{:U('Active/active_details',array('id'=>$activeval['id']))}">
+                <img src="./Uploads{$activeval.img}" alt="" />
+                <div class="text">
+                  <h1>{$activeval.title}</h1>
+                  <h3>{$activeval.begin_time|date="m.d",###}-{$activeval.last_time|date="m.d",###}</h3>
+                </div>
+                <sub></sub>
             </a>
+
             <p class="active"><?php echo mb_strlen($activeval['content'],'utf8')>60?mb_substr($activeval['content'],0,58,'utf-8').'...':$activeval['content'] ?></p>
             <div class="focus"><span class="text">{$activeval.concern}</span><span class="iconPart"></span></div>
 
