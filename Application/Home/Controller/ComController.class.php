@@ -256,9 +256,6 @@ class ComController extends Controller {
         }
          
     }
-    public function a(){
-        $a = $this->sms('18516313142','123');
-        var_dump($a);
-    }
+   
 }
    

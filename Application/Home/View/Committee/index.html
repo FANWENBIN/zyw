@@ -84,7 +84,8 @@
       <div class="inner">
     <volist name = "com" id = "vo">
         <div class="item clearFix">
-          <a href="{:U('committee_cel',array('id'=>$vo['id']))}"><?php echo mb_strlen($vo['title'],'utf8')>8?mb_substr($vo['title'],0,7,'utf-8').'...':$vo['title'] ?></a>
+          <!-- <a href="{:U('committee_cel',array('id'=>$vo['id']))}"><?php echo mb_strlen($vo['title'],'utf8')>8?mb_substr($vo['title'],0,7,'utf-8').'...':$vo['title'] ?></a> -->
+          <a href="{:U('committee_cel',array('id'=>$vo['id']))}">{$vo.title}</a>
           <div class="maincontent">
             <img src="./Uploads{$vo.img}" alt="" />
             <p>

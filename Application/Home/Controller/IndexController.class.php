@@ -8,6 +8,7 @@ class IndexController extends ComController {
         $actors = M('actors');
         //红组
         $where1['groupid'] = 1;
+        $where1['status'] = 1;
         $redgroup = $actors->where($where1)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit(0,10)->select();
         foreach($redgroup as $key=>$val){
             $redgroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
@@ -30,6 +31,7 @@ class IndexController extends ComController {
 
         //蓝组
         $where2['groupid'] = 2;
+        $where2['status'] = 1;
         $bluegroup = $actors->where($where2)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit(0,10)->select();
         foreach($bluegroup as $key=>$val){
             $bluegroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
@@ -52,6 +54,7 @@ class IndexController extends ComController {
 
         //绿组
         $where3['groupid'] = 3;
+        $where3['status'] = 1;
         $greengroup = $actors->where($where3)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit(0,10)->select();
         foreach($greengroup as $key=>$val){
             $greengroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
