@@ -26,6 +26,8 @@ class PerformingController extends ComController {
     		case '5':		//演艺新人
     			$where['newser'] = 1;
     			break;
+            case '6':
+                $condi = 6;
     		default:
 
     			break;
@@ -37,11 +39,22 @@ class PerformingController extends ComController {
             $where['name|achievement'] = array('like','%'.$condition.'%'); 
         }   $where['status'] = array(array('eq',1),array('eq',2),'or');
     	foreach(range('A','Z') as $v){
-			$data[$v] = $actors
-						->field('id,img,name')
-						->where("initial ='".$v."'")
-						->where($where)
-						->select();
+            if($condi == 6){
+                $data[$v] = $actors
+                        ->field('id,img,name')
+                        ->where("initial ='".$v."'")
+                        ->where($where)
+                        ->order('clickrate desc')
+                        ->select();
+            }else{
+                $data[$v] = $actors
+                        ->field('id,img,name')
+                        ->where("initial ='".$v."'")
+                        ->where($where)
+                        ->select();
+            }
+			
+
 			foreach($data[$v] as $key=>$val){
 				$data[$v][$key]['img'] = './Uploads'.$val['img'];
 			}

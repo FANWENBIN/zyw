@@ -14,17 +14,18 @@ class CommitteeController extends ComController {
     	$this->assign('list',$list);
         //banner 
         $banner = M('banner');
-        $this->bannerlist = $banner->where('type = 7')->find();
+        $this->bannerlist = $banner->where('type = 7 and status = 1')->find();
         //公告
         $council_rule = M('council_rule');
-        $this->tall = $council_rule->where('type = 4')->find();
+        $this->tall = $council_rule->where('type = 4 and status = 1')->find();
         //专题摘要
         $this->cel = $council_rule->where('type = 5 and status = 1')->order('instime desc')->limit(0,9)->select();
         //相关简介
         $this->com = $council_rule->where('type = 6 and status = 1')->order('instime desc')->limit(0,2)->select();
         //视频
         $this->video = $council_rule->where('type = 7 and status = 1')->order('instime desc')->limit(0,1)->select();
-
+        //工作介绍
+        $this->about = $council_rule->where('type = 8 and status = 1')->order('instime desc')->limit(0,1)->select();
     	//形象监督 
     		//红榜
     	$count = $committee->where('status=1 and type=1')->count();// 查询满足要求的总记录数
