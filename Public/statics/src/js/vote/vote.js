@@ -34,6 +34,26 @@ $(function() {
 
       page.initStar();
     },
+    resetGroup: function(){
+      var _color = getsec("color");
+      var _sex  =getsec("sex");
+      $("#groupColorList").find("li").removeClass("active");
+      $("#groupSexList").find("li").removeClass("active");
+      if(_sex == "2"){
+        $("#groupSexList").find(".female").addClass("active");
+      }
+      if(_color == "redgroup"){
+        $("#groupColorList").find(".red").addClass("acitve");
+        $("#groupSexList").find(".active").addClass("redselect");
+      }else if(_color == "bluegroup"){
+        $("#groupColorList").find(".blue").addClass("acitve");
+        $("#groupSexList").find(".active").addClass("blueselect");
+      }
+      else if(_color == "greengroup"){
+        $("#groupColorList").find(".green").addClass("acitve");
+        $("#groupSexList").find(".active").addClass("greenselect");
+      } 
+    },
     tabVoteRule: function(){
       $("#voterulegroup").find("li").hide();
       $("#voterulegroup").find("li").eq($(this).index()).show();
@@ -247,6 +267,8 @@ $(function() {
       $(this).addClass("active");
       var _color = $("#groupColorList").find(".active").data("color");
       var _sex = $("#groupSexList").find(".active").data("sex");
+      setCookie("color",_color);
+      setCookie("sex",_sex);
       if(_color == "redgroup"){
         $("#title").removeClass("blue").removeClass("green").addClass("red")
         $("#groupSexList").find(".active").addClass("redselect")
