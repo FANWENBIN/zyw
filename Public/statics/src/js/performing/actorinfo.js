@@ -6,6 +6,7 @@ $(function() {
     init: function() {
       $("#pre").on("click", page.tabPre);
       $("#next").on("click", page.tabNext);
+      page.reset();
     },
     tabPre: function() {
       scope.now--;
@@ -18,6 +19,12 @@ $(function() {
         scope.now --
       }
       $("#ullist").animate({"left": -scope.now*205}, 1000);
+    },
+    reset: function(){
+      if($("#ullist").find("li").length < 7 ){
+        $("#pre").hide();
+        $("#next").hide();
+      }
     }
   };
   page.init()
