@@ -281,8 +281,8 @@ $(function() {
       $(this).addClass("active");
       scope.allcolor = $("#groupColorList").find(".active").data("color");
       scope.allsex = $("#groupSexList").find(".active").data("sex");
-      setCookie("color",_color);
-      setCookie("sex",_sex);
+      setCookie("color",scope.allcolor);
+      setCookie("sex",scope.allsex);
       if(scope.allcolor == "redgroup"){
         $("#title").removeClass("blue").removeClass("green").addClass("red")
         $("#groupSexList").find(".active").addClass("redselect")
