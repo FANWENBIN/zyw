@@ -33,28 +33,32 @@ $(function() {
       page.refleshgroup2();
 
       page.initStar();
-      page.resetGroup;
+      page.resetGroup();
     },
     resetGroup: function(){
-      alert(1)
       var _color = getCookie("color");
       var _sex  = getCookie("sex");
       console.log(_color, _sex);
-      $("#groupColorList").find("li").removeClass("active");
-      $("#groupSexList").find("li").removeClass("active");
+      if(_color)$("#groupColorList").find("li").removeClass("active");
+      if(_sex)$("#groupSexList").find("li").removeClass("active").removeClass("redselect").removeClass("blueselect").removeClass("greenselect");
       if(_sex == "2"){
         $("#groupSexList").find(".female").addClass("active");
+      }else if(_sex == "1"){
+        $("#groupSexList").find(".male").addClass("active");
       }
       if(_color == "redgroup"){
-        $("#groupColorList").find(".red").addClass("acitve");
+        $("#groupColorList").find(".red").addClass("active");
         $("#groupSexList").find(".active").addClass("redselect");
+        $("#title").removeClass("blue").removeClass("green").addClass("red")
       }else if(_color == "bluegroup"){
-        $("#groupColorList").find(".blue").addClass("acitve");
+        $("#groupColorList").find(".blue").addClass("active");
         $("#groupSexList").find(".active").addClass("blueselect");
+        $("#title").removeClass("red").removeClass("green").addClass("blue")
       }
       else if(_color == "greengroup"){
-        $("#groupColorList").find(".green").addClass("acitve");
+        $("#groupColorList").find(".green").addClass("active");
         $("#groupSexList").find(".active").addClass("greenselect");
+        $("#title").removeClass("blue").removeClass("red").addClass("green")
       }
     },
     tabVoteRule: function(){
