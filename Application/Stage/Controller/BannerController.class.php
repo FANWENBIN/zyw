@@ -19,7 +19,7 @@ class BannerController extends ComController {
         $newsval = $news->where('status <> 0')->select();
         $this->assign('a','<option>暂时没有数据</option>');
         $this->assign('newsval',$newsval);
-        //banner 读取
+        //banner 读取 
         $banner = M('banner');
         $bannerval = $banner->where(' type= 1')->select();
         $this->assign('bannerval',$bannerval);

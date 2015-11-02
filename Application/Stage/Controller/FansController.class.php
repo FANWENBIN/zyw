@@ -43,8 +43,6 @@ class VedioController extends ComController {
     		}else{
     			$this->error('未做任何修改');
     		}
-    		
-
     	}
     }
     //删除视频

@@ -38,7 +38,7 @@
     <div class="con conTopbanner">
       <div class="imgList" id="imgList">
         <volist name="bannerval" id="vo">
-          <a href="{$vo.href}">
+          <a href="{:U('news_details',array('id'=>$vo['newsid']))}">
             <div class="img">
               <img src="./Uploads{$vo.img}" />
             </div>

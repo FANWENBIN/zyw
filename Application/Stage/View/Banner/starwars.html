@@ -75,7 +75,7 @@
                                 <span>选择Banner相关Stage链接</span>
                                 <select name="newsid1">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['0']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['0']['newsid'] eq $vo['id']">selected</if> ><?php echo (mb_strlen($vo['name'],'utf8') > 11) ?mb_substr($vo['name'], 0, 11,'utf8'):$vo['name'] ?></option>
                                     </volist>
                                 </select>
                               </div>
@@ -101,7 +101,7 @@
                                 <span>选择Banner相关新闻链接</span>
                                 <select name="newsid2">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['1']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['1']['newsid'] eq $vo['id']">selected</if> ><?php echo (mb_strlen($vo['name'],'utf8') > 11) ?mb_substr($vo['name'], 0, 11,'utf8'):$vo['name'] ?></option>
                                     </volist>
                                 </select>
                               </div>
@@ -127,7 +127,7 @@
                                 <span>选择Banner相关新闻链接</span>
                                 <select name="newsid3">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['2']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['2']['newsid'] eq $vo['id']">selected</if> ><?php echo (mb_strlen($vo['name'],'utf8') > 11) ?mb_substr($vo['name'], 0, 11,'utf8'):$vo['name'] ?></option>
                                     </volist>
                                 </select>
                               </div>
@@ -152,7 +152,7 @@
                                 <span>选择Banner相关新闻链接</span>
                                 <select name="newsid4">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['3']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['3']['newsid'] eq $vo['id']">selected</if> ><?php echo (mb_strlen($vo['name'],'utf8') > 11) ?mb_substr($vo['name'], 0, 11,'utf8'):$vo['name'] ?></option>
                                     </volist>
                                 </select>
                               </div>
@@ -177,7 +177,7 @@
                                 <span>选择Banner相关新闻链接</span>
                                 <select name="newsid5">
                                     <volist name ="newsval" id="vo"  empty = "$a">
-                                      <option value="{$vo.id}"<if condition="$bannerval['4']['newsid'] eq $vo['id']">selected</if> >{$vo.name}</option>
+                                      <option value="{$vo.id}"<if condition="$bannerval['4']['newsid'] eq $vo['id']">selected</if> ><?php echo (mb_strlen($vo['name'],'utf8') > 11) ?mb_substr($vo['name'], 0, 11,'utf8'):$vo['name'] ?></option>
                                     </volist>
                                 </select>
                               </div>
