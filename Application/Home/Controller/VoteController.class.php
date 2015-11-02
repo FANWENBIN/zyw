@@ -382,16 +382,33 @@ class VoteController extends ComController {
     //无标题的页面
 
     public function votenonav(){
-         $actors = M('actors');
+        $actors = M('actors');
         //好演员评选
         $where['status']=1;
         $actorsval = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,8')->select();
         $this->assign('actors',$actorsval);
-
         //形象指数
-        $actorsvalue = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,6')->select();
-        $this->assign('list',$actorsvalue);
+        $where['groupid'] = 1;
+        $red = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
+        $where['groupid'] = 2;
+        $manblue = $actors->where($where)->where('sex = 1')->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
+        $woblue  = $actors->where($where)->where('sex = 2')->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
+        $where['groupid'] = 3;
+        $green = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
+        $actorsvalue = $red;
 
+        foreach ($manblue as $key => $value) {
+            array_push($actorsvalue, $value);
+        }
+        foreach ($woblue as $key => $value) {
+            array_push($actorsvalue, $value);
+        }
+        foreach ($green as $key => $value) {
+            array_push($actorsvalue, $value);
+        }
+
+        $this->assign('list',$actorsvalue);
+  
         $recommend = M('recommend');
         //当代艺术家
         $artists   = $recommend->where('type=1')->select();
@@ -405,15 +422,6 @@ class VoteController extends ComController {
         //编剧
         $scriptwriter = $recommend->where('type=4')->select();
         $this->assign('scriptwriter',$scriptwriter);
-        //入围演员
-        $where['promotion'] = 36;
-        $cutactors = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,36')->select();
-        $this->assign('cutactors',$cutactors);
-        //获奖演员
-        $where['promotion'] = 6;
-        $winactors = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,36')->select();
-        $this->assign('winactors',$winactors);
-        $this->assign('sign',5);
         $this->display();
     }
 }

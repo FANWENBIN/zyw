@@ -162,26 +162,26 @@
                   <div class="in clearFix">
 
                   <volist name = "list" id = "vo">
-                      <a href = "{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="item">
-                        <div class="vote hover">
-                          <p>扫描二维码投票</p>
-                          <img src="{:U('code')}" />
-                        </div>
-                        <div class="head">
-                          <span></span>
-                          <img src="./Uploads{$vo.headimg}" />
-                        </div>
-      <if condition = "$vo['groupid'] eq 1">
-                       <h6 class="red">{$vo.name}</h6>
-                    <elseif condition = "$vo['groupid'] eq '2'" />
-                    <h6 class="blue">{$vo.name}</h6>
-                    <elseif condition = "$vo['groupid'] eq 3" />
-                        <h6 class="green">{$vo.name}</h6>
-      </if>
-                        <span>总票数</span>
-                        <strong>{$vo.votes}</strong>
-                      </a>
-                  </volist>
+                <a href = "{:U('Performing/actorinfo',array('id'=>$vo['id']))}" class="item">
+                  <div class="vote hover">
+                    <p>扫描二维码投票</p>
+                    <img src="{:U('code')}" />
+                  </div>
+                  <div class="head">
+                    <span></span>
+                    <img src="./Uploads{$vo.headimg}" />
+                  </div>
+<if condition = "$vo['groupid'] eq 1">
+                 <h6 class="red">{$vo.name}</h6>
+              <elseif condition = "$vo['groupid'] eq '2'" />
+              <h6 class="blue">{$vo.name}</h6>
+              <elseif condition = "$vo['groupid'] eq 3" />
+                  <h6 class="green">{$vo.name}</h6>
+</if>
+                  <span>总票数</span>
+                  <strong>{$vo.votes}</strong>
+                </a>
+            </volist>
 
                   </div>
                 </div>

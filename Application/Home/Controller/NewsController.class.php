@@ -52,7 +52,7 @@ class NewsController extends ComController {
 		 $news->where('id='.$id)->save($dump);
 		 $this->assign('result',$result);
 		 //热点
-		 $hotnews=$news->limit('0,5')->order(array('order'=>'desc','instime'=>'desc'))->select();
+		 $hotnews=$news->limit('0,5')->where('status = 1')->order(array('order'=>'desc','instime'=>'desc'))->select();
 		 $this->assign('hotnews',$hotnews);
 		 //活动
 		 $active = M('active');
