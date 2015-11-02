@@ -8,6 +8,7 @@
   background: url("../../../images/line_contitle.gif") center center repeat-x;
   margin-bottom: 15px;
   position: relative;
+  float: left;
 }
 .webmain .con .title a.more {
   display: block;
@@ -22,7 +23,6 @@
 }
 .webmain .con .title h2 {
   display: block;
-  width: 100px;
   height: 60px;
   background-image: url("../../../images/txt_contitle.gif");
   background-repeat: no-repeat;
@@ -56,8 +56,6 @@
   background: #000;
   color: #fff;
 }
-
-/*导航栏*/
 .navTitle {
   color: #ccc;
   position: relative;
@@ -75,19 +73,18 @@
   height: 30px;
   margin-right: 15px;
 }
-.navTitle .loginfo .face {
-  display: inline-block;
-  float: left;
-  width: 20px;
-  height: 20px;
-  margin-top: 5px;
-  background: url("../../../images/icon-logface.jpg") 50% no-repeat;
-}
+.navTitle .loginfo .face,
 .navTitle .loginfo .name {
   display: inline-block;
   float: left;
   height: 20px;
   margin-top: 5px;
+}
+.navTitle .loginfo .face {
+  width: 20px;
+  background: url("../../../images/icon-logface.jpg") 50% no-repeat;
+}
+.navTitle .loginfo .name {
   margin-left: 15px;
   line-height: 20px;
   cursor: pointer;
@@ -108,9 +105,14 @@
   left: 100px;
   width: 986px;
   height: 62px;
-  background: url("../../../images/space.png") 0 0 repeat;
-  background: rgba(0,0,0,0.5);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+  background: url("../../../images/space.png");
+  background: rgba(0,0,0,.5);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000, endColorstr=#7F000000);
+}
+.bannerlist,
+.bannerlist li {
+  position: relative;
+  float: left;
 }
 .tabctrl .text {
   display: inline-block;
@@ -124,26 +126,18 @@
   padding-left: 20px;
 }
 .bannerlist {
-  position: relative;
-  float: left;
   width: 650px;
   height: 50px;
   margin-top: 6px;
   margin-left: 50px;
-  /*list-style: none;*/
 }
 .bannerlist li {
   display: inline-block;
-  float: left;
   margin-right: 6px;
-  position: relative;
 }
 .webmain .conTopbanner .bannerlist li img {
   width: 84px;
   height: 50px;
-}
-.webmain .conTopbanner .bannerlist li.active {
-  /*border: 4px solid #b162e4;*/
 }
 .webmain .conTopbanner .bannerlist .frame {
   display: none;
@@ -156,8 +150,6 @@
 }
 .webmain .conTopbanner {
   position: relative;
-}
-.webmain .conTopbanner {
   height: 470px;
   overflow: hidden;
 }
@@ -171,19 +163,17 @@
   float: left;
   word-wrap: break-word;
   overflow: hidden;
+  img{
+    display: inline;
+  }
 }
 .webmain .rightCol {
   float: left;
-  /*background: #eee;*/
   width: 380px;
 }
-.webmain .con .title {
-  float: left;
-}
 .webmain .con .title h2 {
-  background: url("../../../images/favnews.jpg") 50% no-repeat;
+  background: url("../../../images/favnews.jpg") 0 5px no-repeat;
   width: 200px;
-  background-position: 0 5px;
 }
 .webmain .con .item {
   display: block;
@@ -193,14 +183,6 @@
   height: 250px;
   margin-bottom: 30px;
 }
-.webmain .active .item{
-  height: 285px;
-  img{
-    width: 380px;
-    height: 285px;
-  }
-}
-
 .webmain .con .item .txt {
   z-index: 2;
   position: absolute;
@@ -208,7 +190,7 @@
   display: block;
   height: 60px;
   padding-left: 15px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,.6);
   width: 100%;
   color: #fff;
 }
@@ -221,10 +203,10 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0);
+  background: 0 0;
 }
 .webmain .con .item .hover:hover {
-  background: rgba(0,0,0,0.34);
+  background: rgba(0,0,0,.34);
 }
 .webmain .con .newsList {
   float: left;
@@ -245,9 +227,8 @@
   width: 100%;
 }
 .webmain .con .title.event h2 {
-  background: url("../../../images/icon-event.jpg") 50% no-repeat;
+  background: url("../../../images/icon-event.jpg") 0 5px no-repeat;
   width: 200px;
-  background-position: 0 5px;
 }
 .webmain .con .active {
   float: left;
@@ -279,9 +260,6 @@
 }
 .webmain .wrapper .content {
   margin-right: 50px;
-  img{
-    display: inline;
-  }
 }
 .webmain .wrapper .content .header {
   width: 100%;
