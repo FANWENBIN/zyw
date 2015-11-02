@@ -33,10 +33,13 @@ $(function() {
       page.refleshgroup2();
 
       page.initStar();
+      page.resetGroup;
     },
     resetGroup: function(){
-      var _color = getsec("color");
-      var _sex  =getsec("sex");
+      alert(1)
+      var _color = getCookie("color");
+      var _sex  = getCookie("sex");
+      console.log(_color, _sex);
       $("#groupColorList").find("li").removeClass("active");
       $("#groupSexList").find("li").removeClass("active");
       if(_sex == "2"){
@@ -52,7 +55,7 @@ $(function() {
       else if(_color == "greengroup"){
         $("#groupColorList").find(".green").addClass("acitve");
         $("#groupSexList").find(".active").addClass("greenselect");
-      } 
+      }
     },
     tabVoteRule: function(){
       $("#voterulegroup").find("li").hide();
