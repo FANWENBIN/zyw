@@ -86,6 +86,7 @@
                 </li>
 			</volist>
             </ul>
+            <if condition = "$empty neq 1">
             <div class="title event">
                 <h2>活动</h2>
             </div>
@@ -108,7 +109,7 @@
 
 
             <p class="active"><?php echo mb_strlen($activeval['content'],'utf8')>60?mb_substr($activeval['content'],0,58,'utf-8').'...':$activeval['content'] ?></p>
-            <div class="focus"><span class="text">{$activeval.concern}</span><span class="iconPart"></span></div>
+            <div class="focus"><span class="text">{$activeval.concern}</span><span class="iconPart"></span></if></div>
 
 
 
