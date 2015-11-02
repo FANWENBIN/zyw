@@ -60,18 +60,20 @@
         <h2>专题摘要</h2>
       </div>
       <div class="inner clearFix">
+        
         <p>
           继中广协电视剧演员委员会后，中国电视艺术家协会演员工作委员会成立大会，于8月6日在钓鱼台国宾馆举行。黄宏出任首届会长，并透露演员入会三条件：得过金鹰奖、得过德艺双馨奖，有社会影响力。他还将演员工作委员会的宗旨概括为六个字：法律、服务、自律。
         </p>
         <p>
           --------------------------------------------------------------
         </p>
-      <volist name = "cel" id = "vo">
+
+      <!-- <volist name = "cel" id = "vo">
         <a href="{:U('committee_cel',array('id'=>$vo['id']))}" class="item">
           <h3><?php echo mb_strlen($vo['title'],'utf8')>18?mb_substr($vo['title'],0,18,'utf-8').'...':$vo['title'] ?></h3>
           <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
         </a>
-      </volist>
+      </volist> -->
 
       </div>
     </div>
