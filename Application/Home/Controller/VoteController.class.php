@@ -13,11 +13,16 @@ class VoteController extends ComController {
         $where['groupid'] = 1;
         $red = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
         $where['groupid'] = 2;
-        $blue = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,4')->select();
+        $manblue = $actors->where($where)->where('sex = 1')->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,4')->select();
+        $woblue  = $actors->where($where)->where('sex = 2')->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,4')->select();
         $where['groupid'] = 3;
         $green = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
         $actorsvalue = $red;
-        foreach ($blue as $key => $value) {
+
+        foreach ($manblue as $key => $value) {
+            array_push($actorsvalue, $value);
+        }
+        foreach ($woblue as $key => $value) {
             array_push($actorsvalue, $value);
         }
         foreach ($green as $key => $value) {
