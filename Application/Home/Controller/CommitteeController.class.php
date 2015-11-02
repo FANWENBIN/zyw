@@ -157,7 +157,6 @@ class CommitteeController extends ComController {
         $id = I('get.id');
         $council_rule = M('council_rule');
         $vedioval = $council_rule->where('id='.$id)->find();
-       
         $this->assign('list',$vedioval);
         $this->assign('sign',4);
         $this->display();

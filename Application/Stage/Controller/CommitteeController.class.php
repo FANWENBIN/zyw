@@ -453,7 +453,6 @@ class CommitteeController extends ComController {
 				if($id != 0){
 					$sign = $council_rule->save();
 				}else{
-					
 					$sign = $council_rule->add();
 				}
 				
