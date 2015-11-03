@@ -18,9 +18,10 @@ $(function() {
       // 刷新二维码
       $("#img1").on("click", page.changePic);
       $("#img2").on("click", page.changePic);
-      //
-      $("#regsubmit").on("click",page.regSubmit)
-      $(".registerform").on("submit", page.getVer);
+      // 获取二维码
+      $("#getfreemesg").on("click",page.getVer);
+      // 注册提交
+      $(".registerform").on("submit", page.regSubmit);
       // 增加$.testLogin函数验证登陆
       page.addLogin();
       // 用户登陆检测判断
@@ -68,7 +69,7 @@ $(function() {
         },
         success: function(json) {
           if(json.status == "0"){
-
+            console.log("发送成功")
           }else if(json.status == "101"){
             $("#error").html("服务器错误,请稍后再试");
           }else if(json.status == "102"){
