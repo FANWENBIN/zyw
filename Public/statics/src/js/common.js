@@ -44,7 +44,6 @@ $(function() {
         success: function(json){
           if(json.status == "0"){
             console.log("成功");
-
           }else if(json.status == "101"){
             $("#error").html("注册失败,请稍后再试");
           }else if(json.status == "102"){
@@ -70,7 +69,7 @@ $(function() {
         },
         success: function(json) {
           if(json.status == "0"){
-            console.log("发送成功")
+            $("#error").html("验证已发送,请注意查收");
           }else if(json.status == "101"){
             $("#error").html("服务器错误,请稍后再试");
           }else if(json.status == "102"){
