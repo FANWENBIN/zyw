@@ -18,7 +18,9 @@ $(function() {
       // 刷新二维码
       $("#img1").on("click", page.changePic);
       $("#img2").on("click", page.changePic);
-      $("#getfreemesg").on("click", page.getVer);
+      //
+      $("#regsubmit").on("click",page.regSubmit)
+      $(".registerform").on("submit", page.getVer);
       // 增加$.testLogin函数验证登陆
       page.addLogin();
       // 用户登陆检测判断
@@ -27,6 +29,32 @@ $(function() {
       } else {
         $("#nologin").show();
       }
+    },
+    regSubmit: function(){
+      $.ajax({
+        url: "./index.php?m=Home&c=Login&a=register",
+        type: "get",
+        dataType: "json",
+        data: {
+          phone: $(":text[name=mb]").val(),
+          passwd: $(":text[name=password]").val(),
+          verify: $(":text[name=idcode2]").val()
+        },
+        success: function(){
+          if(json.status == "0"){
+            console.log("成功")
+          }else if(json.status == "101"){
+            $("#error").html("注册失败,请稍后再试");
+          }else if(json.status == "102"){
+            $("#error").html("手机号码输入错误，请重新输入");
+          }else if(){
+            $("#error").html("该手机账号已被注册过");
+          }
+        },
+        error: function(){
+        }
+      })
+      return false;
     },
     getVer: function() {
       console.log(typeof $(":text[name=mb]").val(),typeof $(":text[name=idcode1]").val())
@@ -38,8 +66,16 @@ $(function() {
           code: $(":text[name=idcode1]").val(),
           phone: $(":text[name=mb]").val()
         },
-        success: function(d) {
-          console.log(d);
+        success: function(json) {
+          if(json.status == "0"){
+
+          }else if(json.status == "101"){
+            $("#error").html("服务器错误,请稍后再试");
+          }else if(json.status == "102"){
+            $("#error").html("验证码输入错误，请重新输入");
+          }else if(){
+            $("#error").html("手机号码输入错误，请重新输入");
+          }
         },
         error: function(d) {
           //
