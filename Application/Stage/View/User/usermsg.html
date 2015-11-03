@@ -42,33 +42,22 @@
     <div class="mainHeader">
       <h1>用户管理</h1>
         <ul class="menu clearFix">
-          <li class="current"><a href="{:U('index')}">用户管理</a></li>
-          <li><a href="{:U('usermsg')}">用户消息管理</a></li>
+          <li><a href="{:U('index')}">用户管理</a></li>
+          <li class="current"><a href="{:U('usermsg')}">用户消息管理</a></li>
         </ul>
 
     </div>
     <div class="mainBody">
-
-      <!--筛选-->
-     <div class="tableTools clearFix mb30">
-        <hr>
-        <h6 class="w100 tr">关键字：</h6>
-        <form action="" method="post"><div class="i mr20">
-          <input type="text" name="keywords"
-         value="{$Think.session.key}" class="input w180" placeholder="姓名、手机号"></div>
-        <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
-        </form>
-      </div>
-
+    
       <!--表格-->
       <table class="table">
         <thead>
         <tr>
           <td class="t1">编号</td>
-          <td class="t2">头像</td>
-          <td class="t3">昵称</td>
-          <td class="t4">性别</td>
-          <td class="t5">创建时间</td>
+          <td class="t2">接收者</td>
+          <td class="t3">发送时间</td>
+          <td class="t4">是否已发送</td>
+          <td class="t5">是否已查看</td>
           <td class="t6">操作</td>
         </tr>
         </thead>
@@ -76,17 +65,15 @@
         <volist name="list" id="v">
           <tr>
             <td class="t1">{$i}</td>
-            <td class="t2">
-            <notempty name="v['headpic']"><img src="./Uploads{$v['headpic']}" width="50" height="50" /></notempty></td>
-            <td class="t3">{$v['nickname']}</td>
-            <td class="t4"><eq name="v['sex']" value="1">男<else/>女</eq></td>
-            <td class="t5">{:hql_date($v['createtime'])}</td>
+            <td class="t2">{$v.username}
+            </td>
+            <td class="t3">{$v.instime|date="Y-m-d H:i",###}</td>
+            <td class="t4">{:finshTime($v['instime'])}</td>
+            <td class="t5"><if condition = "$v['status'] eq 2">用户未查看<else />已查看</if></td>
             <td class="t6">
               <p class="console">
-              <a href="{:U('sendmsg',array('id'=>$v['id']))}" class="setting">发送消息</a>
-                <a href="{:U('look',array('id'=>$v['id']))}" class="setting">查看</a>
-                <a href="{:U('edit',array('id'=>$v['id']))}" class="setting">编辑</a>
-                <a data-id="{$v['id']}" href="javascript:void(0)" class="delete">删除</a>
+              <a href="{:U('smsinfo',array('id'=>$v['id']))}">查看内容</a>
+                <a data-id="{$v.id}" href="javascript:void(0)" class="delete">撤回消息</a>
               </p>
             </td>
           </tr>
@@ -122,7 +109,7 @@
 <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
 <script>
-    var delete_url='{:U("delete")}';/*删除*/
+    var delete_url='{:U("deletesms")}';/*删除*/
 </script>
 
 </body>

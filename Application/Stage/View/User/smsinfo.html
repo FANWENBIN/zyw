@@ -1,0 +1,144 @@
+<extend name="Header/header"/>
+<block name='header'>
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中演网管理平台</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css" />
+<!--每个页面独立的样式文件-->
+<style type="text/css">
+.table .t1 { text-align: center; width: 80px;}
+.table .t2 { text-align: center; width: 100px;}
+.table .t2 img { display: block; margin: 0 auto;}
+.table .t3 { text-align: center; width: 100px;}
+.table .t4 { text-align: center; width: 150px;}
+.table .t5 { text-align: center; width: 100px;}
+.table .t5 p { text-align: center; color: #41a82c;}
+.table .t5 p.cease { color: #ff6363;}
+.table .t6 { text-align: center;}
+.table .t7 { text-align: center; width: 120px;}
+.i span {color:red; font-size: 10px; padding-left: 10px}
+</style>
+</head>
+
+<body>
+</block>
+<block name="div">
+	<!--container-->
+	<div class="webContainer clearFix" id="webContainer">
+</block>
+<block name="content">
+  
+  <!--main-->
+		<div class="webMain">
+			<div class="mainHeader">
+				<h1>用户管理</h1>
+			</div>
+			<div class="mainBody">
+				<!--摘要提示等-->
+				<!--表单-->
+				<div class="form">
+					<div class="formHeader">
+						<h1>给{$user.nickname}发送消息</h1>
+					</div>
+					<form action="{:U('sendmsg',array('id'=>$user['id']))}" method="post" enctype="multipart/form-data">
+						<fieldset>
+							<div class="l">
+								<h6>发送时间</h6>
+								<div class="i">
+								<span>{$list.instime|date="Y-m-d H:i",###}</span>
+								</div>
+							</div>
+							<div class="l">
+								<h6>接收用户</h6>
+								<div class="i">
+								<span>{$list.username}</span>
+								</div>
+							</div>
+							<div class="l">
+								<h6>信息</h6>
+								<div class="i">
+								<?php echo html_entity_decode($list['msg']) ?></div>
+							</div>
+							<input type="hidden" vlaue="{$user.nickname}" name = "nickname">
+						</fieldset>
+						<div class="btnCon btnCon2">
+
+							<a  class="btnA" href= "{:U('usermsg')}">返回</a>
+						</div>
+					</form>
+					
+				</div>
+
+				<!--主提交按钮-->
+			</div>
+		</div>
+		<!--main end-->
+</div>
+<!--container end-->
+<script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/swfobject.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.js"></script>
+<script type="text/javascript" src="__PUBLIC__/statics/js/sea.css.js"></script>
+<!--富文本编辑器-->
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/stage/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!--富文本编辑器 end-->
+<script type="text/javascript">
+    seajs.use("__PUBLIC__/statics/statics/js/form.js");
+</script>
+<script type="text/javascript" src="__PUBLIC__/sxx.js">
+</script>
+<script>
+	var imgUploadServer = "{:urlencode(U("Upload/upload_image?path=news"))}";
+	var imgUploadFile = '__ROOT__/Uploads';
+	var swfUrl = "__ROOT__/Public/stage/swf";
+	$("#radioClick").click(function(){
+		$("#radioClick input").each(function(){
+			if($(this).prop("checked")){
+				console.log($(this).prop("value"))
+				if($(this).prop("value") == 2){
+					$("#starAction").show()
+				}else{
+					$("#starAction").hide()	
+				}
+			}
+		})
+	})
+	
+	$("#setTop").click(function(){
+		$("#setTop input").each(function(){
+			if($(this).prop("checked")){
+				console.log($(this).prop("value"))
+				if($(this).prop("value") == 2){
+					$("#topYes").show()
+				}else{
+					$("#topYes").hide()	
+				}
+			}
+		})
+	})
+	
+	$("#J_Form").submit(function(){
+		var title=$("#title").val();
+		if(title==''||title==null){
+			$.tips.error('标题不能为空');
+			return false;
+		}
+	});
+</script>
+
+
+
+</body>
+</html>
+
+</block>

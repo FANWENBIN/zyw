@@ -17,11 +17,18 @@ class UserController extends ComController {
     public function index()
     {
         $user = M("User");
-        $count     = $user->where(array('status'=>'1'))->count();
+        $submit = I('post.sousuo');
+        if(!empty($submit)){
+            $condition = I('post.keywords');
+            session('key',$condition);
+            $condition || session('key',null);    
+        }
+        $data['nickname|mobile'] = array('like','%'.session('key').'%');
+        $count     = $user->where(array('status'=>'1'))->where($data)->count();
         $Page      = new \Think\Page($count,10);
         $this->page= $Page->show();
         //用户列表
-        $this->list = $user->where(array('status'=>'1'))->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->list = $user->where(array('status'=>'1'))->where($data)->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('cur',1);
         $this->display();
     }
@@ -145,7 +152,6 @@ class UserController extends ComController {
         $condition['type'] = 1;
         $condition['status'] = array('neq',0);
         //$list = $user_msg->where()->order('instime')->select();
-
         $count      = $user_msg->where($condition)->count();
         // 查询满足要求的总记录数
         $Page       = new \Think\Page($count,10);
