@@ -32,8 +32,8 @@ $(function() {
       console.log($(":text[name=mb]").val(),$(":text[name=idcode1]").val())
       $.ajax({
         url: "./index.php?m=Home&c=Login&a=yzm",
-        type: "get",
         dataType: "json",
+        type: "get",
         data: {
           phone: $(":text[name=mb]").val(),
           code: $(":text[name=idcode1]").val()
