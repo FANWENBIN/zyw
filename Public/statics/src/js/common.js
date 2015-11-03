@@ -31,13 +31,13 @@ $(function() {
     getVer: function(){
       console.log($(":text[name=mb]").val(),$(":text[name=idcode1]").val())
       $.ajax({
-        url: "http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Login&a=yzm&phone=13564071438&code=pfvm",
+        url: "./index.php?m=Home&c=Login&a=yzm",
         type: "get",
         dataType: "json",
-        // data: {
-        //   phone: $(":text[name=mb]").val(),
-        //   code: $(":text[name=idcode1]").val()
-        // },
+        data: {
+          phone: $(":text[name=mb]").val(),
+          code: $(":text[name=idcode1]").val()
+        },
         success: function(json){
           if(json.status == "102"){
             $("#error").html("验证码输入错误");
