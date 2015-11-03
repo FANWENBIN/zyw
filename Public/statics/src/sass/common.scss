@@ -397,6 +397,17 @@ a.important {
 }
 .registeralert-main-item .pic img {
   border: 1px solid #ccc;
+  width: 130px;
+  height: 37px;
+}
+#img2{
+  cursor: pointer;
+}
+#error{
+  position: absolute;
+  margin-left: 100px;
+  margin-top: 30px;
+  color: red;
 }
 .registeralert-main-item .reflesh {
   position: absolute;
@@ -404,7 +415,7 @@ a.important {
   width: 35px;
   height: 35px;
   margin-left: 140px;
-  margin-top: 2px;
+  margin-top: 3px;
   border: 1px solid #ccc;
 }
 .registeralert-main-item .reflesh img {
