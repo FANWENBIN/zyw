@@ -104,6 +104,9 @@ class PerformingController extends ComController {
         //推荐活动
          $active = M('active');
          $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
+         if(!$activeval){
+            $this->assign('empty',1);
+         }
          $this->assign('activeval',$activeval);
         $this->assign('sign',11);
         $this->display();

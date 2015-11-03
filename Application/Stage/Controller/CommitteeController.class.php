@@ -20,7 +20,7 @@ class CommitteeController extends ComController {
 		$this->assign('cur',7);
 		$this->display();
 		//echo $ip = get_client_ip();
-	}
+	} 
 	//新增演工委
 	public function add(){
 		$submit = I('post.submit');
@@ -33,7 +33,8 @@ class CommitteeController extends ComController {
 			$data['img']     = I('post.img');
 			$data['digest']  = I('post.digest');
 			$data['content'] = I('post.content');
-
+			$array = explode('|', $_POST['instime']);
+			$data['instime'] = strtotime($array[0].' '.$array[1]);
 			$sign = $this->checkDump($data);
 			$sign || $this->error('数据不可为空');
 			$data['top']     = I('post.top');
@@ -67,6 +68,8 @@ class CommitteeController extends ComController {
 			$data['img']     = I('post.img');
 			$data['digest']  = I('post.digest');
 			$data['content'] = I('post.content');
+			$array = explode('|', $_POST['instime']);
+			$data['instime'] = strtotime($array[0].' '.$array[1]);
 			$sign = $this->checkDump($data);
 			$sign || $this->error('数据不可为空');
 			$data['top']     = I('post.top');
