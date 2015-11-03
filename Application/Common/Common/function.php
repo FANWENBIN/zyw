@@ -88,6 +88,15 @@
 				return '影视资讯';
 		}
 	}
+	/**
+	*判断系统消息是否已发送到用户
+	* @author：winter
+	* @version:2015年11月3日13:07:37
+	*/
+	function finshTime($time){
+		return $time > time() ? '未发送' : '已发送';
+	
+	}
     /**
      * 获取文件路径
      * @author huqinlou

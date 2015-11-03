@@ -88,6 +88,20 @@ class UserController extends ComController {
         M("User")->where(array('id'=>$id))->save(array('status'=>'0'));
         $this->success('操作成功!');        
     }
+    /**
+    *撤回消息
+    *@author：winter
+    *@version:2015年11月3日13:22:16
+    */
+    public function deletesms(){
+        $id = I('post.id',0,'intval');
+        $user = M("user_msg")->where(array('id'=>$id))->find();
+       // var_dump($id);die();
+        empty($user)&&$this->error('未找到此数据');
+        //删除
+        M("user_msg")->where(array('id'=>$id))->save(array('status'=>'0'));
+        $this->success('操作成功!');  
+    }
 
     /*给用户发送消息
     author:winter
@@ -108,9 +122,10 @@ class UserController extends ComController {
             $user_msg = M('user_msg');
             $data['type'] = 1;
             $data['msg']  = I('post.content');
-            $data['instime'] = time();
+            $data['instime'] = strtotime(I('post.instime'));
             $data['status'] = 2;
             $data['uid'] = $id;
+            $data['username'] = I('post.nickname');
             $sign = $user_msg->add($data);
             if($sign){
                 $this->success('发送成功',U('User/index'));
@@ -120,12 +135,40 @@ class UserController extends ComController {
 
         }
     }
-    /*用户消息管理
-    author：winter
-    date:2015年11月3日12:07:17
+    /**
+    * @note 用户消息管理
+    * @author ：winter
+    * @date :2015年11月3日12:07:17
     */
     public function usermsg(){
-        
+        $user_msg = M('user_msg');
+        $condition['type'] = 1;
+        $condition['status'] = array('neq',0);
+        //$list = $user_msg->where()->order('instime')->select();
+
+        $count      = $user_msg->where($condition)->count();
+        // 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,10);
+        // 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+        // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = $user_msg->where($condition)->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('list',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+        $this->display();
+    }
+    /**
+    *@note:消息详情
+    *@author：winter
+    *@version :2015年11月3日13:28:03
+    */
+    public function smsinfo(){
+        $id = I('get.id','','trim');
+        $user_msg = M('user_msg');
+        $list = $user_msg->where('id='.$id)->find();
+        empty($list)&&$this->error('未找到该数据');
+        $this->assign('list',$list);
+        $this->display();
     }
     
 }
