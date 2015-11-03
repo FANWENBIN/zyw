@@ -88,14 +88,19 @@ class UserController extends ComController {
         M("User")->where(array('id'=>$id))->save(array('status'=>'0'));
         $this->success('操作成功!');        
     }
-    //给用户发送消息
-    public function sendmsg(){
 
+    /*给用户发送消息
+    author:winter
+    date：2015年11月3日11:32:55
+    添加用户接受消息表
+    */
+    public function sendmsg(){
         $submit = I('post.submit');
         if(empty($submit)){
             $id = I('get.id','','intval');
             $this->user = M("User")->where(array('status'=>'1','id'=>$id))->find();
             empty($this->user)&&$this->error('未找到此数据');
+            $this->time = date('Y-m-d|H:i');
             $this->assign('cur',1);
             $this->display();
         }else{
@@ -114,6 +119,13 @@ class UserController extends ComController {
             }
 
         }
+    }
+    /*用户消息管理
+    author：winter
+    date:2015年11月3日12:07:17
+    */
+    public function usermsg(){
+        
     }
     
 }

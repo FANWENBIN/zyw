@@ -24,6 +24,7 @@
 .table .t5 p.cease { color: #ff6363;}
 .table .t6 { text-align: center;}
 .table .t7 { text-align: center; width: 120px;}
+.i span {color:red; font-size: 10px; padding-left: 10px}
 </style>
 </head>
 
@@ -49,7 +50,10 @@
 					</div>
 					<form action="{:U('sendmsg',array('id'=>$user['id']))}" method="post" enctype="multipart/form-data">
 						<fieldset>
-
+							<div class="l">
+								<h6>设置发送时间</h6>
+								<div class="i"><input type="text" class="js_date" data-time="true" value="{$time}" name="instime"/><span>*如果时间为过去时间或当前则立即发送</span></div>
+							</div>
 							<div class="l">
 								<h6>信息</h6>
 								<div class="i"><script id="container" name="content" class="js_ueditor" type="text/plain"><?php echo html_entity_decode($user['msg'])?></script></div>
