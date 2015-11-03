@@ -104,6 +104,11 @@ class LoginController extends Controller {
         //随机生成验证码
         $ver = rand(1000,9999);
         $phone = I('get.phone');
+
+        if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
+            ajaxReturn(103,'手机输入不符合格式');  
+        }
+
         $sign = $this->sms($phone,$ver);
         if($sign){
             ajaxReturn(101,'发送失败','');

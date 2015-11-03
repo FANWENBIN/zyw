@@ -121,7 +121,22 @@ class StageController extends ComController {
 
             $sign = $stage->where('id='.$id)->save($data);
             if($sign){
-                $this->success('审核完毕',U('Stage/index'));
+                $val = $stage->where('id='.$id)->find();
+                if($data['status'] == 1){
+                   // $id,$content,$nickname,$type,$time = ''
+                    
+                    $content = '您发布的作品通过审核：'.$val['remark'];
+                }else{
+                    $content = '您发布的作品未通过审核：'.$val['remark'];
+                } 
+                
+                $userid = $val['userid'];
+                $user = M('user')->where('id='.$userid)->find();
+                $nickname = $user['nickname'];
+                $time = time();
+                $this->sendmsg($userid,$content,$nickname,1,$time);
+                
+                $this->success('审核完毕',U('Stage/audit'));
             }else{
                 $this->error('未做任何审核');
             }

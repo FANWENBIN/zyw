@@ -164,9 +164,9 @@ class UserController extends ComController {
         $this->display();
     }
     /**
-    *@note:消息详情
-    *@author：winter
-    *@version :2015年11月3日13:28:03
+    *@note : 消息详情
+    *@author ：winter
+    *@version : 2015年11月3日13:28:03
     */
     public function smsinfo(){
         $id = I('get.id','','trim');

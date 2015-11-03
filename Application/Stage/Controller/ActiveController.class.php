@@ -86,6 +86,14 @@ class ActiveController extends ComController {
             $data['order'] = I('post.order');
             $sign = $active->save($data);
             if($sign){
+                if($data['status'] == 1){
+                    $content = '您发布的活动审核成功'.$data['remark'];
+                }else{
+                    $content = '您发布的活动未通过审核'.$data['remark'];
+                }
+                $val = $active->where('id='.$data['id'])->find();
+                $userid = $val['userid'];
+                $this->sendmsg($userid,$content,$nickname,1,$time);
                 $this->success('活动审核成功',U('Active/audit'));
             }else{
                 $this->error('未做活动审核');
