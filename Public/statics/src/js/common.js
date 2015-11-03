@@ -29,7 +29,7 @@ $(function() {
       }
     },
     getVer: function() {
-      console.log($(":text[name=mb]").val(), $(":text[name=idcode1]").val())
+      console.log(typeof $(":text[name=mb]").val(),typeof $(":text[name=idcode1]").val())
       $.ajax({
         url: './index.php?m=Home&c=Login&a=yzm',
         type: 'get',
