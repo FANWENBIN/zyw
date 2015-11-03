@@ -120,5 +120,12 @@ class UserController extends ComController {
 
         }
     }
+    /*用户消息管理
+    author：winter
+    date:2015年11月3日12:07:17
+    */
+    public function usermsg(){
+        
+    }
     
 }
