@@ -30,26 +30,17 @@ $(function() {
     },
     getVer: function(){
       console.log($(":text[name=mb]").val(),$(":text[name=idcode1]").val())
-      $.ajax({
-        url: "./index.php?m=Home&c=Login&a=yzm",
-        dataType: "json",
-        type: "get",
-        data: {
-          phone: $(":text[name=mb]").val(),
-          code: $(":text[name=idcode1]").val()
-        },
-        success: function(json){
-          if(json.status == "102"){
-            $("#error").html("验证码输入错误");
-          }else if(json.status == "101"){
-            $("#error").html("服务器错误，请稍后再试");
-          }else if(json.status == "0"){
-            // $("#error").html("手机验证码获取成功");
-          }
-        },
-        error: function(){
-        }
-      })
+  $.ajax({
+    url:'./index.php?m=Home&c=Login&a=yzm',
+    type:'get',
+    dataType:'json',
+    success:function(d){
+      console.log(d);
+    },
+    error:function(d){
+      //
+    }
+  });
     },
     changePic: function(){
       $("#img1").attr("src","./index.php?m=Home&c=Login&a=verify");
