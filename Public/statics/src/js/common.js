@@ -30,7 +30,7 @@ $(function() {
     },
     getVer: function(){
       $.ajax({
-        url: "./index.php?m=Home&c=Login&a=yzw",
+        url: "./index.php?m=Home&c=Login&a=yzm",
         type: "get",
         dataType: "json",
         data: {
