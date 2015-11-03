@@ -93,6 +93,8 @@ class ActiveController extends ComController {
                 }
                 $val = $active->where('id='.$data['id'])->find();
                 $userid = $val['userid'];
+                $user = M('user')->where('id='.$userid)->find();
+                $nickname = $user['nickname'];
                 $this->sendmsg($userid,$content,$nickname,1,$time);
                 $this->success('活动审核成功',U('Active/audit'));
             }else{

@@ -21,17 +21,18 @@ class UserController extends Controller {
     */
     public function acthis(){
     	$acthis = M('acthis');
-    	$data['uid'] = session('userid');       
+    	$data['userid'] = session('userid');       
     	//用户浏览活动记录，只记录最近的三个，数量由添加记录时控制
     	$this->$list = $acthis->where($data)->order('instime desc')->select();
     	//用户发起的活动
-    		//待审核的活动
     	$active = M('active');
+    		//待审核的活动
     	$data['status'] = 2;
     	$this->checkpending = $active->where($data)->order('instime desc')->select();
     		//审核通过的活动
     	$data['status'] = 1;
-    	$this->actlist = $active->where($data)->order('instime desc')->select();
+    	$this->passactive = $active->where($data)->order('instime desc')->select();
+
     	$this->display();
     }
     /**
@@ -49,6 +50,16 @@ class UserController extends Controller {
     	$this->syslist = $msg->where($data)->order('instime desc')->select();
     	$data['type'] = 2; // 帖子评论回复消息
     	$this->uselist = $msg->where($data)->order('instime desc')->select();
+    	$this->display();
+    }
+    /**
+	*我关注的饭团
+	*@author：winter
+	*@version:2015年11月3日19:45:10
+    */
+    public function confans(){
+    	$userfans = M('user_fans');
+    	$this->$val = $userfans->where('userid='.session('userid'))->order('instime desc')->select();
     	$this->display();
     }
 
