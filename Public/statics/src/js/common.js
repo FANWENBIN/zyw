@@ -34,6 +34,8 @@ $(function() {
     url:'./index.php?m=Home&c=Login&a=yzm',
     type:'get',
     dataType:'json',
+    data:{code:$(":text[name=idcode1]").val(),
+    phone:$(":text[name=mb]").val()},
     success:function(d){
       console.log(d);
     },
