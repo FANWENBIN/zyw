@@ -38,13 +38,13 @@
         <volist name="banner" id="vo">
           <if condition="$i eq 1">
             <li class="active">
-              <a href="{:U('video_details',array('id'=>$vo['id']))}">
+              <a href="{:U('video_details',array('id'=>$vo['newsid']))}">
                 <img src="./Uploads{$vo.img}" alt="{$vo.title}" />
               </a>
             </li>
             <else />
             <li>
-             <a href="{:U('video_details',array('id'=>$vo['id']))}">
+             <a href="{:U('video_details',array('id'=>$vo['newsid']))}">
                 <img src="./Uploads{$vo.img}" alt="{$vo.title}" />
               </a>
             </li>
