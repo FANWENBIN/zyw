@@ -134,6 +134,7 @@ class StageController extends ComController {
                 $user = M('user')->where('id='.$userid)->find();
                 $nickname = $user['nickname'];
                 $time = time();
+                //给用户发送消息
                 $this->sendmsg($userid,$content,$nickname,1,$time);
                 
                 $this->success('审核完毕',U('Stage/audit'));
