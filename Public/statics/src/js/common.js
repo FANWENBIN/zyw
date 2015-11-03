@@ -4,49 +4,80 @@ $(function() {
 
   };
   var page = {
-    init: function(){
-      $("#login").on("click",page.showInfo);
-      $("body").on("click",page.hideInfo);
+    init: function() {
+      // 点击#login 显示登陆框
+      $("#login").on("click", page.showInfo);
+      // 点击body隐藏登录框
+      $("body").on("click", page.hideInfo);
+      // 未登陆时，点击#reg 注册框出来
+      $("#reg").on("click", page.regShow);
+      // 未登陆时，点击#log 登录框出来
+      $("#log").on("click", page.logShow);
+      // 上面两个框的关闭按钮
+      $(".close").on("click", page.closeAlert);
+      // 刷新二维码
+      $("#img1").on("click", page.changePic);
+      $("#img2").on("click", page.changePic);
+      $("#getfreemesg").on("click", page.getVer);
+      // 增加$.testLogin函数验证登陆
       page.addLogin();
-      if($.testLogin()){
+      // 用户登陆检测判断
+      if ($.testLogin()) {
         $("#islogin").show();
-      }else{
+      } else {
         $("#nologin").show();
       }
-      $("#reg").on("click",page.regShow);
-      $("#log").on("click",page.logShow);
-      $(".close").on("click",page.closeAlert)
     },
-    closeAlert: function(){
+    getVer: function() {
+      console.log(typeof $(":text[name=mb]").val(),typeof $(":text[name=idcode1]").val())
+      $.ajax({
+        url: './index.php?m=Home&c=Login&a=yzm',
+        type: 'get',
+        dataType: 'json',
+        data: {
+          code: $(":text[name=idcode1]").val(),
+          phone: $(":text[name=mb]").val()
+        },
+        success: function(d) {
+          console.log(d);
+        },
+        error: function(d) {
+          //
+        }
+      });
+    },
+    changePic: function() {
+      $("#img1").attr("src", "./index.php?m=Home&c=Login&a=verify");
+    },
+    closeAlert: function() {
       $(this).parent().parent().hide();
     },
-    regShow: function(){
+    regShow: function() {
       $("#registeralert").show();
     },
-    logShow: function(){
+    logShow: function() {
       $("#loginalert").show();
     },
-    showInfo: function(e){
+    showInfo: function(e) {
       $("#myinfoalert").show();
       return false;
     },
-    hideInfo: function(){
-        $("#myinfoalert").hide();
+    hideInfo: function() {
+      $("#myinfoalert").hide();
     },
-    addLogin: function(){
+    // jq插件 增加testLogin函数验证登陆
+    addLogin: function() {
       $.extend({
-        testLogin: function(){
+        testLogin: function() {
           $.ajax({
             url: "./index.php?m=Home&c=Login&a=checklogin",
             dataType: "json",
             type: "get",
-            success: function(json){
-              if(json.status == "0")return false;
-              if(json.status == "1")return true;
+            success: function(json) {
+              if (json.status == "0") return false;
+              if (json.status == "1") return true;
             },
-            error: function(){
-
-            }
+            error: function() {}
           })
         }
       })

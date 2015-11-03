@@ -15,13 +15,14 @@
         <div class="registeralert-main-item">
           <label for="idcode">验证码：</label>
           <input type="text" class="idcode1" name="idcode1" value="" id="idcode1" placeholder="请输入右侧字母">
-          <div class="pic"><img src="__PUBLIC__/statics/images/p_identifycode.jpg" alt="" /></div>
-          <span class="reflesh"><img src="__PUBLIC__/statics/images/p_reflesh.jpg" alt="" /></span>
+          <div class="pic"><img src="./index.php?m=Home&c=Login&a=verify" alt="" id="img1" /></div>
+          <span class="reflesh"><img src="__PUBLIC__/statics/images/p_reflesh.jpg" alt="" id="img2" /></span>
         </div>
         <div class="registeralert-main-item">
           <input type="text" name="idcode2" value="" id="idcode2" placeholder="请输入验证码"><!--
-          --><span class="getfreemesg">免费获取短信</span>
+          --><span class="getfreemesg" id="getfreemesg">免费获取短信</span>
         </div>
+        <span id="error"></span>
         <div class="registeralert-main-item">
             <input type="checkbox" name="rulechecked" value="">
             <!-- <span class="agree">&nbsp;&nbsp;我同意<em><用户协议></em></span> -->
