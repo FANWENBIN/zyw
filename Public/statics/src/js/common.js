@@ -32,19 +32,19 @@ $(function() {
       }
     },
     regSubmit: function(){
-      alert(1)
       $.ajax({
         url: "./index.php?m=Home&c=Login&a=register",
         type: "get",
         dataType: "json",
         data: {
           phone: $(":text[name=mb]").val(),
-          passwd: $(":text[name=password]").val(),
+          passwd: $(":password[name=password]").val(),
           verify: $(":text[name=idcode2]").val()
         },
         success: function(json){
           if(json.status == "0"){
-            console.log("成功")
+            console.log("成功");
+
           }else if(json.status == "101"){
             $("#error").html("注册失败,请稍后再试");
           }else if(json.status == "102"){
