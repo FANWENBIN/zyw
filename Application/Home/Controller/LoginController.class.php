@@ -6,7 +6,7 @@ use Think\Controller;
  * @author winter
  * @version 2015年9月24日16:41:44
  */
-class LoginController extends Controller {
+class LoginController extends ComController {
 
     public function qqlogin(){
         require('QQ/API/qqConnectAPI.php');
