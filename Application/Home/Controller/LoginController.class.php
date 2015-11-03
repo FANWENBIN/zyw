@@ -76,16 +76,16 @@ class LoginController extends ComController {
             ajaxReturn(102,'手机验证码输入错误','');
         }
         $user = M('user');
-        $data['phone'] = $phone;
+        $data['mobile'] = $phone;
         $data['passwd'] = $passwd;
         $data['nickname'] = $phone;
-        $sum = $user->where('phone='.$phone)->count();
+        $sum = $user->where('mobile='.$phone)->count();
         if($sum>1){
             ajaxReturn(103,'账号已被注册过','');
         }
         $sign = $user->add($data);
         if($sign){
-             session('userid',$sign);
+            session('userid',$sign);
             session('username',$data['nickname']);
             session('userphone',$data['phone']);
             ajaxReturn(0,'注册成功','');
@@ -104,11 +104,9 @@ class LoginController extends ComController {
         //随机生成验证码
         $ver = rand(1000,9999);
         $phone = I('get.phone');
-
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  
         }
-
         $sign = $this->sms($phone,$ver);
         if($sign){
             ajaxReturn(101,'发送失败','');
@@ -124,7 +122,7 @@ class LoginController extends ComController {
      */
     public function logout(){
         if(IS_POST){
-            session('user',null);
+            session(null);
             $this->success(U('User/index'));
         }
     }
