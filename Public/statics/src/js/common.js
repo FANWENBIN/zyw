@@ -32,6 +32,7 @@ $(function() {
       }
     },
     regSubmit: function(){
+      alert(1)
       $.ajax({
         url: "./index.php?m=Home&c=Login&a=register",
         type: "get",
@@ -48,7 +49,7 @@ $(function() {
             $("#error").html("注册失败,请稍后再试");
           }else if(json.status == "102"){
             $("#error").html("手机号码输入错误，请重新输入");
-          }else if(){
+          }else if(json.status == "103"){
             $("#error").html("该手机账号已被注册过");
           }
         },
@@ -74,7 +75,7 @@ $(function() {
             $("#error").html("服务器错误,请稍后再试");
           }else if(json.status == "102"){
             $("#error").html("验证码输入错误，请重新输入");
-          }else if(){
+          }else if(json.status == "103"){
             $("#error").html("手机号码输入错误，请重新输入");
           }
         },
