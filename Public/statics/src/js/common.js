@@ -18,7 +18,7 @@ $(function() {
       // 刷新二维码
       $("#img1").on("click",page.changePic);
       $("#img2").on("click",page.changePic);
-      $("#getfreemesg").on("click",page.getVer)
+      $("#getfreemesg").on("click",page.getVer);
       // 增加$.testLogin函数验证登陆
       page.addLogin();
       // 用户登陆检测判断
@@ -29,13 +29,14 @@ $(function() {
       }
     },
     getVer: function(){
+      console.log($(":text[name=mb]"),)
       $.ajax({
         url: "./index.php?m=Home&c=Login&a=yzm",
         type: "get",
         dataType: "json",
         data: {
-          phone: $(":text[name=mb]"),
-          code: $(":text[name=idcode1]")
+          phone: $(":text[name=mb]").val(),
+          code: $(":text[name=idcode1]").val()
         },
         success: function(json){
           if(json.status == "102"){
@@ -43,7 +44,7 @@ $(function() {
           }else if(json.status == "101"){
             $("#error").html("服务器错误，请稍后再试");
           }else if(json.status == "0"){
-            $("#error").html("手机验证码获取成功");
+            // $("#error").html("手机验证码获取成功");
           }
         },
         error: function(){
