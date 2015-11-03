@@ -49,6 +49,7 @@ class ComController extends Controller {
     	}
     	return 1;
     }
+
     /**
      * 上传图片--用于异步上传
      * @author huqinlou
@@ -95,6 +96,30 @@ class ComController extends Controller {
                 }
             }
         }
+    }
+
+    /**
+    *系统给用户发送消息
+    *@param id 用户id，
+    *        type 1：系统消息  2：评论回复消息,
+    *        time 格式化时间
+    *        content 消息内容
+    *        nickname 用户名
+    *@author:winter
+    *@version:2015年11月3日18:53:50
+    */
+    public function sendmsg($id,$content,$nickname,$type,$time = ''){
+            $time = $time?$time:time();
+            $id = intval($id);
+            $user_msg = M('user_msg');
+            $data['type'] = $type;
+            $data['msg']  = $content;
+            $data['instime'] = $time;
+            $data['status'] = 2;
+            $data['uid'] = $id;
+            $data['username'] = $nickname;
+            $sign = $user_msg->add($data);
+            return $sign;
     }
 }
 ?>
