@@ -42,7 +42,7 @@ $(function() {
           passwd: $(":text[name=password]").val(),
           verify: $(":text[name=idcode2]").val()
         },
-        success: function(){
+        success: function(json){
           if(json.status == "0"){
             console.log("成功")
           }else if(json.status == "101"){
