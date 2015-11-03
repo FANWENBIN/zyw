@@ -36,14 +36,14 @@ $(function() {
         data: {
           phone: $(":text[name=mb]"),
           code: $(":text[name=idcode1]")
-        }
+        },
         success: function(json){
           if(json.status == "102"){
             $("#error").html("验证码输入错误");
           }else if(json.status == "101"){
-            $("#error").html("服务器错误，请稍后再试")
-          }elese if(json.status == "0"){
-            $("#error").html("手机验证码获取成功")
+            $("#error").html("服务器错误，请稍后再试");
+          }else if(json.status == "0"){
+            $("#error").html("手机验证码获取成功");
           }
         },
         error: function(){
