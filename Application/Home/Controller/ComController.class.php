@@ -266,7 +266,7 @@ class ComController extends Controller {
             //var_dump(1);
             
             //exit($user);
-            $this->$userinfo = $user->where('id='.session('userid'))->find();
+            $this->$userinfo = M('user')->where('id='.session('userid'))->find();
             $this->$status = 1;
         }else{
             $this->$status = 0;
