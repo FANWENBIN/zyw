@@ -179,7 +179,7 @@ a.important {
   height: 20px;
   background: url("../../images/icon-logface.jpg") 50% no-repeat;
 }
-.navTitle .loginfo>.name {
+.navTitle .loginfo>.islogin>.name {
   display: inline-block;
   float: left;
   height: 20px;
@@ -187,7 +187,7 @@ a.important {
   line-height: 20px;
   cursor: pointer;
 }
-.navTitle .loginfo>.name:after {
+.navTitle .loginfo>.islogin>.name:after {
   content: "";
   display: block;
   position: absolute;
