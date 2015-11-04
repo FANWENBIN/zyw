@@ -25,8 +25,8 @@ class LoginController extends ComController {
    //验证登陆接口
     public function checklogin(){
         //md5(xxzyw916);
-        $data['id'] = session('uid');
-        $data['name'] = session('name');
+        $data['id'] = session('userid');
+        $data['name'] = session('username');
         $user = M('user');
         $list = $user->where($data)->find();
         if(!$list){
@@ -35,20 +35,7 @@ class LoginController extends ComController {
             ajaxReturn(1,'已登录',$list);
         }
     }
-    /**
-    *登陆注册、用户信息判断显示
-    *@author：winter
-    *@version：2015年11月4日13:34:48
-    */
-    public function userinfo(){
-        if(session('userid')&&session('username')&&session('userphone')){
-            $user =　M('user');
-            $this->$userinfo = $user->where('id='.session('userid'))->find();
-            $this->$status = 1;
-        }else{
-            $this->$status = 0;
-        }
-    }
+    
     /**
     * 验证码
     * @author winter

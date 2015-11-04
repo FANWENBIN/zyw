@@ -134,7 +134,7 @@ class IndexController extends ComController {
     $this->like();
     $this->assign('sign',1);
     //显示用户信息还是未登录。
-    $this->userinfo();
+    //$this->userinfo();
 		$this->display();
 }
 
