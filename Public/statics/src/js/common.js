@@ -170,7 +170,8 @@ $(function() {
         '</form>'+
       '</div>');
       $("body").append($log);
-      $(".logform").on("submit",page.logSubmit)
+      $(".logform").on("submit",page.logSubmit);
+
     },
     logSubmit: function(){
       $.ajax({
@@ -186,6 +187,7 @@ $(function() {
           $("#loginalert").remove();
           $("#islogin").show();
           $("#nologin").hide();
+          $.testLogin();
         }else if(json.status == "0"){
           $("#error").html("账号密码输入错误")
         }
