@@ -19,9 +19,9 @@ $(function() {
       $("body").on("click","#img1", page.changePic);
       $("body").on("click","#img2", page.changePic);
       // 获取二维码
-      $("#getfreemesg").on("click",page.getVer);
+      $("body").on("click","#getfreemesg",page.getVer);
       // 注册提交
-      $(".registerform").on("submit", page.regSubmit);
+      $("body").on("submit",".registerform", page.regSubmit);
       // 增加$.testLogin函数验证登陆
       page.addLogin();
       // 用户登陆检测判断
