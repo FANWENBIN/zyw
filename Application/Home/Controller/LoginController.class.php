@@ -32,10 +32,23 @@ class LoginController extends ComController {
         if(!$list){
             ajaxReturn(0,'未登录','');
         }else{
-            ajaxReturn(1,'已登录','');
+            ajaxReturn(1,'已登录',$list);
         }
     }
-
+    /**
+    *登陆注册、用户信息判断显示
+    *@author：winter
+    *@version：2015年11月4日13:34:48
+    */
+    public function userinfo(){
+        if(session('userid')&&session('username')&&session('userphone')){
+            $user =　M('user');
+            $this->$userinfo = $user->where('id='.session('userid'))->find();
+            $this->$status = 1;
+        }else{
+            $this->$status = 0;
+        }
+    }
     /**
     * 验证码
     * @author winter
@@ -85,9 +98,6 @@ class LoginController extends ComController {
         }
         $sign = $user->add($data);
         if($sign){
-            session('userid',$sign);
-            session('username',$data['nickname']);
-            session('userphone',$data['phone']);
             ajaxReturn(0,'注册成功','');
         }else{
             ajaxReturn(101,'注册失败','');

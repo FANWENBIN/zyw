@@ -133,8 +133,10 @@ class IndexController extends ComController {
 
     $this->like();
     $this->assign('sign',1);
+    //显示用户信息还是未登录。
+    $this->userinfo();
 		$this->display();
-    }
+}
 
 //===========首页分组请求按照名次演员数据接口start
     public function redgroup(){
