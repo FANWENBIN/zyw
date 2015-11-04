@@ -216,7 +216,8 @@ $(function() {
             success: function(json) {
               console.log(json)
               $(".myinfoalert-header-content .name").html(json.data.nickname);
-              $(".myinfoalert-header-face").css("background": json.data.headpic)
+              $(".myinfoalert-header-face").css("background": json.data.headpic);
+              $(".islogin .face").attr("src": json.data.headpic);
               // if (true) {
                 // $("#islogin").show();
               // } else {
