@@ -22,11 +22,18 @@ $(function() {
       $("body").on("click","#getfreemesg",page.getVer);
       // 注册提交
       $("body").on("submit",".registerform", page.regSubmit);
+
+      $(".logout").on("click",page.logOut);
+
       // 增加$.testLogin函数验证登陆
       page.addLogin();
       // 用户登陆检测判断
       $.testLogin();
 
+    },
+    logOut: function(){
+    window.location.href = "./index.php?m=Home&c=Login&a=logout";
+        
     },
     regSubmit: function(){
       $.ajax({
@@ -185,8 +192,6 @@ $(function() {
         success: function(json){
           if(json.status == "1"){
           $("#loginalert").remove();
-          $("#islogin").show();
-          $("#nologin").hide();
           console.log("登陆成功")
           $.testLogin();
         }else if(json.status == "0"){
@@ -215,13 +220,17 @@ $(function() {
             type: "get",
             success: function(json) {
               console.log(json)
-              $(".myinfoalert-header-content .name").html(json.data.nickname)
-              $(".myinfoalert-header-face").css({"background-image": json.data.headpic})
-              // if (true) {
-                // $("#islogin").show();
-              // } else {
-                // $("#nologin").show();
-              // }
+
+              if (json.status == "1") {
+                $(".myinfoalert-header-content .name").html(json.data.nickname);
+                $(".myinfoalert-header-face").css("background", json.data.headpic);
+                $(".islogin .face").attr("src", json.data.headpic);
+                $("#nologin").hide();
+                $("#islogin").show();
+              } else if(json.status == "0"){
+                $("#nologin").show();
+                $("#islogin").hide();
+                              }
             },
             error: function() {}
           })
