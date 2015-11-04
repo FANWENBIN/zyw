@@ -187,6 +187,7 @@ $(function() {
           $("#loginalert").remove();
           $("#islogin").show();
           $("#nologin").hide();
+          console.log("登陆成功")
           $.testLogin();
         }else if(json.status == "0"){
           $("#error").html("账号密码输入错误")
