@@ -57,12 +57,12 @@ class LoginController extends ComController {
         $user = M('user');
         $data['nickname'] = $name;
         $data['passwd']   = $passwd;
-        $sign =  $user->where($data)->find();
+        $sign =  $user->field('id,nickname,headpic,mobile,email,createtime,sex,address,birthday')->where($data)->find();
         if($sign){
             session('userid',$sign['id']);
             session('username',$sign['nickname']);
             session('userphone',$sign['mobile']);
-            ajaxReturn(1,'登陆成功','');
+            ajaxReturn(1,'登陆成功',$sign);
         }else{
             ajaxReturn(0,'账号密码输入错误','');
         }
