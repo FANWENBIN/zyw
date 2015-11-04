@@ -15,11 +15,11 @@ class RankController extends Controller {
           	$data['oldrank'] = $val['rank'];
           	$data['rank']    = $key+1;
           	$id = $val['id'];
-          	$rank = $key+1;
-          	if($rank != $data['rank'] || $val['rank'] != $val['oldrank']){  //如果没有改变就不做改变 
+          	//$rank = $key+1;
+          //	if($rank != $data['rank'] || $val['rank'] != $val['oldrank']){  //如果没有改变就不做改变 
 				      $sign = $actors->where('id='.$id)->save($data);
-          	}
-          	if(!$sign){
+          	//}
+          	if($sign === false){
           		$actors->rollback();
           		$fall = false;
           	}
