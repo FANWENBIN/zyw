@@ -80,7 +80,7 @@ class LoginController extends ComController {
         $data['passwd'] = $passwd;
         $data['nickname'] = $phone;
         $sum = $user->where('mobile='.$phone)->count();
-        if($sum>1){
+        if($sum >= 1){
             ajaxReturn(103,'账号已被注册过','');
         }
         $sign = $user->add($data);

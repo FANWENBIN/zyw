@@ -59,11 +59,16 @@
         <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
 		</form>--> 
 		
-       <form action="" method="post"><div class="i mr20">
+       <form action="{:U('index')}" method="post"><div class="i mr20">
           <input type="text" name="keywords"
          value="{$Think.session.key}" class="input w180" placeholder="姓名、地区"></div>
         <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
 		  </form>
+      </div>
+       <div class="tableInfo">
+        <div class="item"><h2>红组</h2><span><a href="{:U('Gactor/index?groupid='.$group[1]['groupid'])}">{$group[1]['count(*)']}</a></span></div>
+        <div class="item"><h2>蓝组</h2><span><a href="{:U('Gactor/index?groupid='.$group[2]['groupid'])}">{$group[2]['count(*)']}</a></span></div>
+        <div class="item"><h2>绿组</h2><span><a href="{:U('Gactor/index?groupid='.$group[3]['groupid'])}">{$group[3]['count(*)']}</a></span></div>
       </div>
 				<table class="table" id="J_Table">
 					<thead>
