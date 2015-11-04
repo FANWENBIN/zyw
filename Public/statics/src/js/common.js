@@ -14,7 +14,7 @@ $(function() {
       // 未登陆时，点击#log 登录框出来
       $("#log").on("click", page.logShow);
       // 上面两个框的关闭按钮
-      $(".close").on("click", page.closeAlert);
+      $("body").on("click","#close", page.closeAlert);
       // 刷新二维码
       $("#img1").on("click", page.changePic);
       $("#img2").on("click", page.changePic);
@@ -87,10 +87,54 @@ $(function() {
       $("#img1").attr("src", "./index.php?m=Home&c=Login&a=verify");
     },
     closeAlert: function() {
-      $(this).parent().parent().hide();
+      // $(this).parent().parent().hide();
+      $(this).parent().parent().remove();
     },
     regShow: function() {
-      $("#registeralert").show();
+      // $("#registeralert").show();
+      var $reg = $('<div class="registeralert" id="registeralert"></div>');
+      $reg.html('<div class="registeralert-main">'+
+        '<div class="close" id="close">'+
+        '</div>'+
+        '<form class="registerform" action="index.html" method="post">'+
+          '<div class="registeralert-main-item">'+
+            '<label for="mb">手&nbsp;&nbsp;机：</label>'+
+            '<input type="text" name="mb" value="" id="mb" placeholder="请输入手机号码">'+
+          '</div>'+
+          '<div class="registeralert-main-item">'+
+            '<label for="password">密&nbsp;&nbsp;码：</label>'+
+            '<input type="password" name="password" value="" id="password" placeholder="请输入密码">'+
+          '</div>'+
+          '<div class="registeralert-main-item">'+
+            '<label for="idcode">验证码：</label>'+
+            '<input type="text" class="idcode1" name="idcode1" value="" id="idcode1" placeholder="请输入右侧字母">'+
+            '<div class="pic">'+
+              '<img src="./index.php?m=Home&c=Login&a=verify" alt="" id="img1" />'+
+            '</div>'+
+            '<span class="reflesh">'+
+              '<img src="__PUBLIC__/statics/images/p_reflesh.jpg" alt="" id="img2" />'+
+            '</span>'+
+          '</div>'+
+          '<div class="registeralert-main-item">'+
+            '<input type="text" name="idcode2" value="" id="idcode2" placeholder="请输入验证码"><!-- -- ><span class="getfreemesg" id="getfreemesg">免费获取短信</span>'+
+          '</div>'+
+          '<span id="error"></span>'+
+          '<div class="registeralert-main-item">'+
+            '<input type="checkbox" name="rulechecked" value="">'+
+            '<!-- <span class="agree">&nbsp;&nbsp;我同意<em><用户协议></em></span> -->'+
+            '<span class="login">立即登录</span>'+
+          '</div>'+
+          '<div class="registeralert-main-item">'+
+            '<input type="submit" name="name" value="注册" id="regsubmit">'+
+          '</div>'+
+          '<div class="registeralert-main-item">'+
+            '<span class="login-weibo"></span>'+
+            '<span class="login-weichat"></span>'+
+          '</div>'+
+        '</form>'+
+      '</div>')
+      $("body").append($reg);
+
     },
     logShow: function() {
       $("#loginalert").show();
