@@ -116,7 +116,7 @@ $(function() {
             '</span>'+
           '</div>'+
           '<div class="registeralert-main-item">'+
-            '<input type="text" name="idcode2" value="" id="idcode2" placeholder="请输入验证码"><!-- -- ><span class="getfreemesg" id="getfreemesg">免费获取短信</span>'+
+            '<input type="text" name="idcode2" value="" id="idcode2" placeholder="请输入验证码"><span class="getfreemesg" id="getfreemesg">免费获取短信</span>'+
           '</div>'+
           '<span id="error"></span>'+
           '<div class="registeralert-main-item">'+
