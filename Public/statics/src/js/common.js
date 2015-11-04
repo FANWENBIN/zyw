@@ -44,6 +44,7 @@ $(function() {
         success: function(json){
           if(json.status == "0"){
             console.log("成功");
+            $("#error").html("注册成功,请去登陆");
           }else if(json.status == "101"){
             $("#error").html("注册失败,请稍后再试");
           }else if(json.status == "102"){
@@ -134,6 +135,10 @@ $(function() {
         '</form>'+
       '</div>')
       $("body").append($reg);
+      $(".login").on("click",function(){
+        $("#registeralert").remove();
+        page.logShow();
+      })
 
     },
     logShow: function() {
@@ -142,7 +147,7 @@ $(function() {
       $log.html('<div class="loginalert-main">'+
         '<div class="close" id="close">'+
         '</div>'+
-        '<form class="" action="index.html" method="post">'+
+        '<form class="logform" action="index.html" method="post">'+
           '<div class="loginalert-main-item">'+
             '<label for="mb">手&nbsp;&nbsp;机：</label>'+
             '<input type="text" name="mb" value="" id="mb" placeholder="请输入手机号码">'+
@@ -151,6 +156,7 @@ $(function() {
             '<label for="password">密&nbsp;&nbsp;码：</label>'+
             '<input type="password" name="password" value="" id="password" placeholder="请输入密码">'+
           '</div>'+
+          '<span id="error"></span>'+
           '<div class="loginalert-main-item">'+
             '<input type="checkbox" name="rulechecked" value="">'+
             '<!-- <span class="remenber">&nbsp;&nbsp;记住我</span> -->'+
@@ -167,6 +173,30 @@ $(function() {
         '</form>'+
       '</div>');
       $("body").append($log);
+      $(".logform").on("submit",page.logSubmit)
+    },
+    logSubmit: function(){
+      $.ajax({
+        url: "./index.php?m=Home&c=Login&a=login",
+        type: "get",
+        dataType: "json",
+        data: {
+          name: $(":text[name=mb]").val(),
+          passwd: $(":password[name=password]").val()
+        },
+        success: function(json){
+          if(json.status == "1"){
+          $("#loginalert").remove();
+          $("#islogin").show();
+          $("#nologin").hide();
+        }else if(json.status == "0"){
+          $("#error").html("账号密码输入错误")
+        }
+        },
+        error: function(){
+        }
+      })
+      return false;
     },
     showInfo: function(e) {
       $("#myinfoalert").show();
