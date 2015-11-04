@@ -256,6 +256,20 @@ class ComController extends Controller {
         }
          
     }
+    /**
+    *登陆注册、用户信息判断显示
+    *@author：winter
+    *@version：2015年11月4日13:34:48
+    */
+    public function userinfo(){
+        if(session('userid')&&session('username')&&session('userphone')){
+            $user =　M('user');
+            $this->$userinfo = $user->where('id='.session('userid'))->find();
+            $this->$status = 1;
+        }else{
+            $this->$status = 0;
+        }
+    }
    
 }
    

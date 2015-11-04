@@ -96,6 +96,8 @@ class LoginController extends ComController {
         if($sum >= 1){
             ajaxReturn(103,'账号已被注册过','');
         }
+        $data['createtime'] = time();
+        $data['status'] = 1;
         $sign = $user->add($data);
         if($sign){
             ajaxReturn(0,'注册成功','');
