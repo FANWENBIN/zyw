@@ -182,6 +182,8 @@ $(function() {
         success: function(json){
           if(json.status == "1"){
           $("#loginalert").remove();
+          $("#islogin").show();
+          $("#nologin").hide();
         }else if(json.status == "0"){
           $("#error").html("账号密码输入错误")
         }
