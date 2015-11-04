@@ -217,8 +217,8 @@ $(function() {
               console.log(json)
               $(".myinfoalert-header-content .name").html(json.data.nickname);
               console.log(json.data.headpic);
-              $(".myinfoalert-header-face").css("background": json.data.headpic);
-              $(".islogin .face").attr("src": json.data.headpic);
+              $(".myinfoalert-header-face").css("background", json.data.headpic);
+              $(".islogin .face").attr("src", json.data.headpic);
               // if (true) {
                 // $("#islogin").show();
               // } else {
