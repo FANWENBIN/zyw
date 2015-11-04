@@ -264,7 +264,7 @@ class ComController extends Controller {
     public function userinfo(){
         if(session('userid')&&session('username')&&session('userphone')){
             //var_dump(1);
-            //$user =　M('user');
+            $user =　M('user');
             exit($user);
             $this->$userinfo = $user->where('id='.session('userid'))->find();
             $this->$status = 1;
