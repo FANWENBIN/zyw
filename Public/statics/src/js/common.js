@@ -16,8 +16,8 @@ $(function() {
       // 上面两个框的关闭按钮
       $("body").on("click","#close", page.closeAlert);
       // 刷新二维码
-      $("#img1").on("click", page.changePic);
-      $("#img2").on("click", page.changePic);
+      $("body").on("click","#img1", page.changePic);
+      $("body").on("click","#img2", page.changePic);
       // 获取二维码
       $("#getfreemesg").on("click",page.getVer);
       // 注册提交
@@ -112,7 +112,7 @@ $(function() {
               '<img src="./index.php?m=Home&c=Login&a=verify" alt="" id="img1" />'+
             '</div>'+
             '<span class="reflesh">'+
-              '<img src="__PUBLIC__/statics/images/p_reflesh.jpg" alt="" id="img2" />'+
+              '<span class="img" id="img2"></span>'+
             '</span>'+
           '</div>'+
           '<div class="registeralert-main-item">'+
@@ -137,7 +137,36 @@ $(function() {
 
     },
     logShow: function() {
-      $("#loginalert").show();
+      // $("#loginalert").show()
+      var $log = $('<div class="loginalert" id="loginalert"></div>');
+      $log.html('<div class="loginalert-main">'+
+        '<div class="close" id="close">'+
+        '</div>'+
+        '<form class="" action="index.html" method="post">'+
+          '<div class="loginalert-main-item">'+
+            '<label for="mb">手&nbsp;&nbsp;机：</label>'+
+            '<input type="text" name="mb" value="" id="mb" placeholder="请输入手机号码">'+
+          '</div>'+
+          '<div class="loginalert-main-item">'+
+            '<label for="password">密&nbsp;&nbsp;码：</label>'+
+            '<input type="password" name="password" value="" id="password" placeholder="请输入密码">'+
+          '</div>'+
+          '<div class="loginalert-main-item">'+
+            '<input type="checkbox" name="rulechecked" value="">'+
+            '<!-- <span class="remenber">&nbsp;&nbsp;记住我</span> -->'+
+            '<span class="register">立即注册</span>'+
+            '<span class="searchpass">找回密码</span>'+
+          '</div>'+
+          '<div class="loginalert-main-item">'+
+            '<input type="submit" name="name" value="登陆">'+
+          '</div>'+
+          '<div class="loginalert-main-item">'+
+            '<span class="login-weibo"></span>'+
+            '<span class="login-weichat"></span>'+
+          '</div>'+
+        '</form>'+
+      '</div>');
+      $("body").append($log);
     },
     showInfo: function(e) {
       $("#myinfoalert").show();
