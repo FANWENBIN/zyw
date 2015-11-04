@@ -120,10 +120,10 @@ class LoginController extends ComController {
      * @version 2015年10月28日19:15:49
      */
     public function logout(){
-        if(IS_POST){
+        
             session(null);
-            $this->success(U('User/index'));
-        }
+            $this->success(U('Index/index'));
+        
     }
     
 }
