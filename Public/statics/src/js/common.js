@@ -44,6 +44,7 @@ $(function() {
         success: function(json){
           if(json.status == "0"){
             console.log("成功");
+            $("#error").html("注册成功,请去登陆");
           }else if(json.status == "101"){
             $("#error").html("注册失败,请稍后再试");
           }else if(json.status == "102"){
@@ -134,6 +135,10 @@ $(function() {
         '</form>'+
       '</div>')
       $("body").append($reg);
+      $(".login").on("click",function(){
+        $("#registeralert").remove();
+        page.logShow();
+      })
 
     },
     logShow: function() {
