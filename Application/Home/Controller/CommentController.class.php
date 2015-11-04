@@ -39,6 +39,9 @@ class CommentController extends ComController {
 
 
     }
+    public function commentlist(){
+       
+    }
    
    
 }

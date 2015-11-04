@@ -23,51 +23,54 @@ class ComController extends Controller {
     //用户中心登陆验证直接返回首页重新登陆
     public function checkuserLogin(){
         //md5(xxzyw916);
-        $data['id'] = session('uid');
-        $data['name'] = session('name');
+        $data['id'] = session('userid');
+        $data['name'] = session('username');
         $user = M('user');
         $list = $user->where($data)->find();
         if(!$list){
             $this->error('请先登录',U('Index/index'));  //从用户中心返回首页
+        }else{
+            return $list;
         }
     }
     //外部验证登陆返回上一层
     public function checkLogin(){
         //md5(xxzyw916);
-        $data['id'] = session('uid');
-        $data['nickname'] = session('name');
+        $data['id'] = session('userid');
+        $data['nickname'] = session('username');
         $user = M('user');
         $list = $user->where($data)->find();
         if(!$list){
             $this->error('请先登录');  //error 返回上一层
         }
     }
-//测试
-    public function test(){
+// //测试
+//     public function test(){
 
-        $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=actorinfo';
-        $data = array('opid'=>'3099502f8652e48cd2d15e49bb5bf67f','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
-    	$a =  $this->htcurl($url,$data);
-      //var_dump($a);
-    }
-//post测试接口
-     public function htcurl($url,$data){
-    	 $url = $url;
-    	 $post_data = $data;
-    	 $ch = curl_init();
-    	 curl_setopt($ch, CURLOPT_URL, $url);
-    	 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    	 // post数据
-    	 curl_setopt($ch, CURLOPT_POST, 1);
-    	 // post的变量
-    	 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-    	 $output = curl_exec($ch);
-    	 curl_close($ch);
-    	 //打印获得的数据
-    	 print_r($output);
-    }
+//         $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=actorinfo';
+//         $data = array('opid'=>'3099502f8652e48cd2d15e49bb5bf67f','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
+//     	$a =  $this->htcurl($url,$data);
+//       //var_dump($a);
+//     }
+// //post测试接口
+//      public function htcurl($url,$data){
+//     	 $url = $url;
+//     	 $post_data = $data;
+//     	 $ch = curl_init();
+//     	 curl_setopt($ch, CURLOPT_URL, $url);
+//     	 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//     	 // post数据
+//     	 curl_setopt($ch, CURLOPT_POST, 1);
+//     	 // post的变量
+//     	 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+//     	 $output = curl_exec($ch);
+//     	 curl_close($ch);
+//     	 //打印获得的数据
+//     	 print_r($output);
+//     }
     /** 
     * 获取本周第一天/最后一天的时间戳 
+    * @author winter
     * @param string $type 
     * @return integer 
     * 
@@ -95,21 +98,21 @@ class ComController extends Controller {
                 $lastday = $lastday - $nowMonthDay;  
                 $lastMonth = $month + 1;  
                 $time_2 = strtotime( $year . "-" . $lastMonth . "-" . $lastday );  
-            } else {  
+            } else {
                 $time_2 = strtotime( $year . "-" . $month . "-" . $lastday );  
-            }  
-            return $time_2;  
+            }
+            return $time_2;
             }  
     } 
-     /*判断活动是否有周末
+     /**
+     *判断活动是否有周末
      * @author winter
-     * @date 2015年10月10日17:36:27
-     * @parameter begin 开始时间
-     * @parameter last  结束时间
+     * @version 2015年10月10日17:36:27
+     * @param begin 开始时间
+     * @param last  结束时间
     */
     public function isWeek($begin,$last){
         $span = intval($last-$begin);
-
         if($span >= 604800){
             return 1;
         }else if($span > 0){

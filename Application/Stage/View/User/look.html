@@ -80,8 +80,8 @@ input[disabled = "disabled"]{border: none;}
             </div>
 			<div class="l">
                 <h6>所在地</h6>
-                <div class="i"><input type="text" class="input w200" disabled="disabled" value="{$user['address']}" name="photo" placeholder="" /></div>
-            </div>
+                <div class="i"><input type="text" class="input w200" disabled="disabled" value="{$user['province']}-{$user['city']}" name="photo" placeholder="" /></div>
+            </div> 
 			<div class="l">
                 <h6>生日</h6>
                 <div class="i"><input type="text" class="input w200"  disabled="disabled" value="{:hql_date($user['birthday'])}" name="photo" placeholder="" /></div>
