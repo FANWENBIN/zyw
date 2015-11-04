@@ -171,25 +171,26 @@ $(function() {
       $(".logform").on("submit",page.logSubmit)
     },
     logSubmit: function(){
+      alert(1);
       $.ajax({
         url: "./index.php?m=Home&c=Login&a=login",
         type: "get",
         dataType: "json",
         data: {
-          name: $(":text[name=mb]"),
-          passwd: $(":password[name=password]")
+          name: $(":text[name=mb]").val(),
+          passwd: $(":password[name=password]").val()
         },
         success: function(json){
-          if(json.status == 0){
+          if(json.status == "0"){
           $("#loginalert").remove();
-
-        }else if(){
+        }else if(json.status == "101"){
           $("#error").html("账号密码输入错误")
         }
         },
         error: function(){
         }
       })
+      return false;
     },
     showInfo: function(e) {
       $("#myinfoalert").show();
