@@ -215,6 +215,8 @@ $(function() {
             type: "get",
             success: function(json) {
               console.log(json)
+              $(".myinfoalert-header-content .name").html(json.data.nickname)
+              $(".myinfoalert-header-face").css({"background-image": json.data.headpic})
               // if (true) {
                 // $("#islogin").show();
               // } else {
