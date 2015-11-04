@@ -185,8 +185,6 @@ $(function() {
         success: function(json){
           if(json.status == "1"){
           $("#loginalert").remove();
-          $("#islogin").show();
-          $("#nologin").hide();
           console.log("登陆成功")
           $.testLogin();
         }else if(json.status == "0"){
@@ -215,15 +213,17 @@ $(function() {
             type: "get",
             success: function(json) {
               console.log(json)
-              $(".myinfoalert-header-content .name").html(json.data.nickname);
-              console.log(json.data.headpic);
-              $(".myinfoalert-header-face").css("background", json.data.headpic);
-              $(".islogin .face").attr("src", json.data.headpic);
-              // if (true) {
-                // $("#islogin").show();
-              // } else {
-                // $("#nologin").show();
-              // }
+
+              if (json.status == "1") {
+                $(".myinfoalert-header-content .name").html(json.data.nickname);
+                $(".myinfoalert-header-face").css("background", json.data.headpic);
+                $(".islogin .face").attr("src", json.data.headpic);
+                $("#nologin").hide();
+                $("#islogin").show();
+              } else if(json.status == "0"){
+                $("#nologin").show();
+                $("#islogin").hide();
+                              }
             },
             error: function() {}
           })
