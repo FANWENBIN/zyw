@@ -109,32 +109,32 @@ class IndexController extends ComController {
         $star = $actors->where($where5)->order('clickrate desc')->limit(0,9)->select();
         $this->assign('starlist',$star);
 
-    $vedio = M('vedio');
+        $vedio = M('vedio');
 
-    $data['status'] = 1;
-    //视频汇
-    //电影电视
-    $data['type'] = 1;
-    $tvvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,18)->select();
-    $this->assign('tvvideo',$tvvideo);
-    //制作花絮
-    $data['type'] = 2;
-    $hxvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,18)->select();
-    $this->assign('hxvideo',$hxvideo);
-    //视频教学
-    $data['type'] = 3;
-    $spvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,18)->select();
-    $this->assign('spvideo',$spvideo);
-    //探班周低
-    $data['type'] = 4;
-    $tbvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,18)->select();
+        $data['status'] = 1;
+        //视频汇
+        //电影电视
+        $data['type'] = 1;
+        $tvvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,18)->select();
+        $this->assign('tvvideo',$tvvideo);
+        //制作花絮
+        $data['type'] = 2;
+        $hxvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,18)->select();
+        $this->assign('hxvideo',$hxvideo);
+        //视频教学
+        $data['type'] = 3;
+        $spvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,18)->select();
+        $this->assign('spvideo',$spvideo);
+        //探班周低
+        $data['type'] = 4;
+        $tbvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,18)->select();
 
-    $this->assign('tbvideo',$tbvideo);
+        $this->assign('tbvideo',$tbvideo);
 
-    $this->like();
-    $this->assign('sign',1);
-    //显示用户信息还是未登录。
-    //$this->userinfo();
+        $this->like();
+        $this->assign('sign',1);
+        //显示用户信息还是未登录。
+        //$this->userinfo();
 		$this->display();
 }
 

@@ -120,10 +120,8 @@ class LoginController extends ComController {
      * @version 2015年10月28日19:15:49
      */
     public function logout(){
-        
             session(null);
-            $this->success(U('Index/index'));
-        
+            $this->redirect(U('Index/index'),'',0,'');
     }
     
 }
