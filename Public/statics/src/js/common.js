@@ -22,11 +22,18 @@ $(function() {
       $("body").on("click","#getfreemesg",page.getVer);
       // 注册提交
       $("body").on("submit",".registerform", page.regSubmit);
+
+      $(".logout").on("click",page.logOut);
+
       // 增加$.testLogin函数验证登陆
       page.addLogin();
       // 用户登陆检测判断
       $.testLogin();
 
+    },
+    logOut: function(){
+    window.location.href = "./index.php?m=Home&c=Login&a=logout";
+        
     },
     regSubmit: function(){
       $.ajax({
