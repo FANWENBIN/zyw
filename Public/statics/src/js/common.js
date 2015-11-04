@@ -25,6 +25,7 @@ $(function() {
       // 增加$.testLogin函数验证登陆
       page.addLogin();
       // 用户登陆检测判断
+      $.testLogin();
 
     },
     regSubmit: function(){
