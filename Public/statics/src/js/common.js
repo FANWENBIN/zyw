@@ -171,7 +171,6 @@ $(function() {
       $(".logform").on("submit",page.logSubmit)
     },
     logSubmit: function(){
-      alert(1);
       $.ajax({
         url: "./index.php?m=Home&c=Login&a=login",
         type: "get",
@@ -181,9 +180,9 @@ $(function() {
           passwd: $(":password[name=password]").val()
         },
         success: function(json){
-          if(json.status == "0"){
+          if(json.status == "1"){
           $("#loginalert").remove();
-        }else if(json.status == "101"){
+        }else if(json.status == "0"){
           $("#error").html("账号密码输入错误")
         }
         },
