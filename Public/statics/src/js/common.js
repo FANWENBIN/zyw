@@ -25,11 +25,8 @@ $(function() {
       // 增加$.testLogin函数验证登陆
       page.addLogin();
       // 用户登陆检测判断
-      if ($.testLogin()) {
-        $("#islogin").show();
-      } else {
-        $("#nologin").show();
-      }
+      $.testLogin();
+
     },
     regSubmit: function(){
       $.ajax({
@@ -173,7 +170,8 @@ $(function() {
         '</form>'+
       '</div>');
       $("body").append($log);
-      $(".logform").on("submit",page.logSubmit)
+      $(".logform").on("submit",page.logSubmit);
+
     },
     logSubmit: function(){
       $.ajax({
@@ -189,6 +187,8 @@ $(function() {
           $("#loginalert").remove();
           $("#islogin").show();
           $("#nologin").hide();
+          console.log("登陆成功")
+          $.testLogin();
         }else if(json.status == "0"){
           $("#error").html("账号密码输入错误")
         }
@@ -214,8 +214,12 @@ $(function() {
             dataType: "json",
             type: "get",
             success: function(json) {
-              if (json.status == "0") return false;
-              if (json.status == "1") return true;
+              console.log(json)
+              // if (true) {
+                // $("#islogin").show();
+              // } else {
+                // $("#nologin").show();
+              // }
             },
             error: function() {}
           })
