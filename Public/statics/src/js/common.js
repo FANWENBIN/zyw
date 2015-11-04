@@ -25,11 +25,7 @@ $(function() {
       // 增加$.testLogin函数验证登陆
       page.addLogin();
       // 用户登陆检测判断
-      if ($.testLogin()) {
-        $("#islogin").show();
-      } else {
-        $("#nologin").show();
-      }
+
     },
     regSubmit: function(){
       $.ajax({
@@ -214,8 +210,12 @@ $(function() {
             dataType: "json",
             type: "get",
             success: function(json) {
-              if (json.status == "0") return false;
-              if (json.status == "1") return true;
+              console.log(json)
+              // if (true) {
+                // $("#islogin").show();
+              // } else {
+                // $("#nologin").show();
+              // }
             },
             error: function() {}
           })
