@@ -95,7 +95,12 @@ class GactorController extends ComController {
             
             $data['sex']     = I('post.sex');
             $a = $this->checkDump($data);
-            $data['birthday']  = strtotime(I('post.birthday'));
+            //$data['birthday']  = strtotime(I('post.birthday'));
+
+            $data['birthday']  = I('post.birthday');
+            
+            //var_dump($data);die();
+
                                 //strtotime(I('post.timet'))
             $data['national']  = I('post.national');
             $data['address']   = I('post.address');
@@ -194,7 +199,9 @@ class GactorController extends ComController {
 
             $id = I('post.actorid');
             $this->checkDump($data);
-            $data['birthday']  = strtotime(I('post.birthday'));
+
+            $data['birthday']  = I('post.birthday');
+           
             $data['newser']    = I('post.newser');
             $data['area']      = I('post.area');                   //strtotime(I('post.timet'))
             $data['national']  = I('post.national');

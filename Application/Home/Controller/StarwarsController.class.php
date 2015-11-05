@@ -35,7 +35,7 @@ class StarwarsController extends ComController {
     }
     //推荐团成员详情
     public function starinfo(){
-    	$id = I('get.id');
+    	$id = I('get.id'); 
     	$recommend = M('recommend');
     	$recommendval = $recommend->where('id='.$id)->find();
     	$this->assign('list',$recommendval);

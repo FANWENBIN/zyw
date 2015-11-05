@@ -42,7 +42,8 @@ class RecommendController extends ComController {
             $data['height']      = I('post.height');
             $data['weight']      = I('post.weight');
             $data['address']     = I('post.address');
-            $data['birthday']    = strtotime(I('post.birthday'));
+
+            $data['birthday']  = I('post.birthday');
             $data['job']         = I('post.job');
             $data['school']      = I('post.school');
             $data['achievement'] = I('post.achievement');
@@ -108,7 +109,9 @@ class RecommendController extends ComController {
             $data['height']      = I('post.height');
             $data['weight']      = I('post.weight');
             $data['address']     = I('post.address');
-            $data['birthday']    = strtotime(I('post.birthday'));
+
+            $data['birthday']  = I('post.birthday');
+            
             $data['job']         = I('post.job');
             $data['school']      = I('post.school');
             $data['achievement'] = I('post.achievement');

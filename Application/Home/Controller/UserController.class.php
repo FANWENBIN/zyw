@@ -24,7 +24,7 @@ class UserController extends ComController {
     }
     //手机更换绑定
     public function phonebinding(){
-        $data['mobile'] = I('post.mobile');
+        $data['mobile'] = I('post.phone');
         $code = I('post.code');
         if($code != session('yzm')){
             ajaxReturn(101,'验证码输入错误');
@@ -51,6 +51,7 @@ class UserController extends ComController {
         //随机生成验证码
         $ver = rand(1000,9999);
         $phone = I('get.phone');
+        ajaxReturn($phone);
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  
         }
