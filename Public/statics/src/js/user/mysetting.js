@@ -57,6 +57,7 @@ $(function(){
       })
     },
     getVerInSetting: function(){
+      console.log($(":text[name=mbchange]").val());
       $.ajax({
         url: "./index.php?m=Home&c=User&a=yzm",
         type: "get",
