@@ -40,6 +40,7 @@ class UserController extends ComController {
         $sign = $user->where('id='.session('userid'))->save($data);
 
         if($sign === false){
+            ajaxReturn($user->getlastsql());
             ajaxReturn(102,'绑定失败');
         }else{
             ajaxReturn(0,'绑定成功');
