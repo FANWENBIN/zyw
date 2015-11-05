@@ -47,7 +47,6 @@ $(function(){
             _html += '<option data-id="'+ _arr[i].cityid +'">'+ _arr[i].city +'</option>'
           }
           $("#city").html(_html);
-
         },
         error: function(){}
       })
