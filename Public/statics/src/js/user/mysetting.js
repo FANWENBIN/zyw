@@ -59,7 +59,7 @@ $(function(){
     getVerInSetting: function(){
       $.ajax({
         url: "./index.php?m=Home&c=User&a=yzm",
-        type: "get",
+        type: "post",
         dataType: "json",
         data: {
           Phone: $(":text[name=mbchange]").val(),
