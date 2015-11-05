@@ -1,5 +1,6 @@
 $(function(){
   var scope = {
+    provinceid: "440000"
 
   };
   var page = {
@@ -10,27 +11,66 @@ $(function(){
       $("#changeNum").on("click",page.toStep2);
       $("#sendverify").on("click",page.getVerInSetting);
       $("#confirmmb").on("click",page.confirmMb);
+      $("#province").on("change",page.changeProvince);
+      // 初始化province city
+      page.getProvince();
+      page.getCity();
 
+    },
+    changeProvince: function(){
+      scope.provinceid = $("#province option:selected").data("id");
+      page.getCity();
     },
     getProvince: function(){
-      
+      $.ajax({
+        url: "./index.php?m=Home&c=Area&a=province",
+        type: "get",
+        dataType: "json",
+        success: function(json){
+          var _arr = json.data;
+          var _html = "";
+          for(var i = 0, len = _arr.length ; i < len ; i++){
+            _html += '<option data-id="'+ _arr[i].provinceid +'">'+ _arr[i].province +'</option>'
+          }
+          $("#province").html(_html);
+        },
+        error: function(){}
+      })
     },
     getCity: function(){
-
-    },
-    getVerInSetting: function(){
       $.ajax({
-        url: "./index.php?m=Home&c=Login&a=yzm",
+        url: "./index.php?m=Home&c=Area&a=city",
         type: "get",
         dataType: "json",
         data: {
-
+          provinceid: scope.provinceid
+        },
+        success: function(json){
+          var _arr = json.data;
+          var _html = "";
+          for(var i = 0, len = _arr.length ; i < len ; i++){
+            _html += '<option data-id="'+ _arr[i].cityid +'">'+ _arr[i].city +'</option>'
+          }
+          $("#city").html(_html);
+        },
+        error: function(){}
+      })
+    },
+    getVerInSetting: function(){
+      $.ajax({
+        url: "./index.php?m=Home&c=User&a=yzm",
+        type: "get",
+        dataType: "json",
+        data: {
+          Phone: $(":text[name=mbchange]").val(),
         },
         success: function(json){
           if(json.status == "0"){
-
-          }else if(json.status == "1"){
-
+            $("#error").html("验证码已发送，请注意查收");
+          }else if(json.status == "101"){
+            $("#error").html("发送失败，请稍后再试");
+          }else if(json.status == "102"){
+            $("#error").html("手机号码错误，请检查后再试");
           }
         },
         error: function(){
@@ -43,7 +83,7 @@ $(function(){
         type: "get",
         dataType: "json",
         data: {
-
+          
         },
         success: function(json){
           if(json.status == "0"){
