@@ -20,7 +20,7 @@ $(function(){
       $(this).addClass("active");
       $(".list").find(".bottomitem").removeClass("active");
       $(".list").find(".bottomitem").eq($(this).index()).addClass("active");
-    }
+    }  
   };
   page.init();
 })
