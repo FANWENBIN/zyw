@@ -72,7 +72,7 @@ $(function(){
                   '<h3>' + _arr[i].instime + '</h3>'+
                 '</div>'+
                 '<sub></sub>'+
-            '</a>'+
+            '</a>'
           }
           $("#itemgroup").html(_html);
         },
