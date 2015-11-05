@@ -42,27 +42,27 @@ class NewsController extends ComController {
 	
     */
 	 public function news_details(){
-		 //内容
-		 $id=intval($_GET['id']);
+		//内容
+		$id=intval($_GET['id']);
 
-		 $news=  M('news');
-		 $result=$news->where('id ='.$id)->find();
-		 session('news',$result);
-		 $dump['hot'] = $result['hot']+1;
-		 $news->where('id='.$id)->save($dump);
-		 $this->assign('result',$result);
-		 //热点
-		 $hotnews=$news->limit('0,5')->where('status = 1')->order(array('order'=>'desc','instime'=>'desc'))->select();
-		 $this->assign('hotnews',$hotnews);
-		 //活动
-		 $active = M('active');
-		 $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
+		$news=  M('news');
+		$result=$news->where('id ='.$id)->find();
+		session('news',$result);
+		$dump['hot'] = $result['hot']+1;
+		$news->where('id='.$id)->save($dump);
+		$this->assign('result',$result);
+		//热点
+		$hotnews=$news->limit('0,5')->where('status = 1')->order(array('order'=>'desc','instime'=>'desc'))->select();
+		$this->assign('hotnews',$hotnews);
+		//活动
+		$active = M('active');
+		$activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
  		if(!$activeval){
  			$this->assign('empty',1);
  		}
-		 $this->assign('activeval',$activeval);
-		 $this->assign('sign',2);
-		 $this->display('news_details');
+		$this->assign('activeval',$activeval);
+		$this->assign('sign',2);
+		$this->display('news_details');
 	 }
 	 //艺术中国梦
 	 public function news_dream(){

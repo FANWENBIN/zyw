@@ -94,7 +94,7 @@ class LoginController extends ComController {
             ajaxReturn(101,'注册失败','');
         }
     }
-    //前台调用验证码接口
+    //前台调用验证码接口验证登陆
     public function yzm(){
         //调用短信先验证验证码是否正确
         $code = I('get.code');

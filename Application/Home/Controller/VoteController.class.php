@@ -262,21 +262,21 @@ class VoteController extends ComController {
 	/*二维码生成*/
     public function code(){
         ob_end_clean();
-    	 vendor("phpqrcode.phpqrcode");
-    		$opid = I('get.opid');
-            //$data = 'http://yz2500.gov.cn/TP/actor/Index/index.php?opid='.$opid;
-             $data = 'http://www.zmyzr.gov.cn/zyw_vote/Index/index.php?opid='.$opid;
-            
-            // 纠错级别：L、M、Q、H
-            $level = 'L';
-            // 点的大小：1到10,用于手机端4就可以了
-            $size = 2;
-            // 下面注释了把二维码图片保存到本地的代码,如果要保存图片,用$fileName替换第二个参数false
-           // $path = __PUBLIC__."/images/";
-            // 生成的文件名
-            //$fileName = $path.$size.'.png';
-            \QRcode::png($data, false, $level, $size);
-            exit;
+        vendor("phpqrcode.phpqrcode");
+        $opid = I('get.opid');
+        //$data = 'http://yz2500.gov.cn/TP/actor/Index/index.php?opid='.$opid;
+        $data = 'http://www.zmyzr.gov.cn/zyw_vote/Index/index.php?opid='.$opid;
+
+        // 纠错级别：L、M、Q、H
+        $level = 'L';
+        // 点的大小：1到10,用于手机端4就可以了
+        $size = 2;
+        // 下面注释了把二维码图片保存到本地的代码,如果要保存图片,用$fileName替换第二个参数false
+        // $path = __PUBLIC__."/images/";
+        // 生成的文件名
+        //$fileName = $path.$size.'.png';
+        \QRcode::png($data, false, $level, $size);
+        exit;
     }
     //投票页，按照姓氏排名
     public function redgroup(){
