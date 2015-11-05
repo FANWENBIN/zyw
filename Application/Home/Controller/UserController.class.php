@@ -35,10 +35,8 @@ class UserController extends ComController {
         $userlist = $this->checkuserLogin(); //验证登陆，并返回登陆信息
         $user = M('user');
         if(!$userlist){
-             $this->error('请先登录',U('Index/index'));
-            ajaxReturn(103,'未登录','');
+            ajaxReturn(102,'未登录','');
         }
-        
         $sign = $user->where('id='.session('userid'))->save($data);
 
         if($sign === false){
