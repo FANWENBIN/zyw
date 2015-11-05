@@ -11,10 +11,15 @@ $(function(){
       $("#changeNum").on("click",page.toStep2);
       $("#sendverify").on("click",page.getVerInSetting);
       $("#confirmmb").on("click",page.confirmMb);
+      $("#province").on("change",page.changeProvince)
       // 初始化province city
       page.getProvince();
       page.getCity();
 
+    },
+    changeProvince: function(){
+      scope.provinceid = $("#province option:selected").data("id");
+      page.getCity();
     },
     getProvince: function(){
       $.ajax({
