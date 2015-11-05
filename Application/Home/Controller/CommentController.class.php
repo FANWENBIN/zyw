@@ -50,8 +50,6 @@ class CommentController extends ComController {
 
       	}
 
-
-
     }
    
    
