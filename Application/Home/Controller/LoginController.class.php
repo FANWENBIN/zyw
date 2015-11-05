@@ -77,6 +77,9 @@ class LoginController extends ComController {
         if($verify != session('yzm')){
             ajaxReturn(102,'手机验证码输入错误','');
         }
+        if($phone != session('phone')){
+            ajaxReturn(105,'手机验证码输入错误','');
+        }
         $user = M('user');
         $data['mobile'] = $phone;
         $data['passwd'] = $passwd;
@@ -113,6 +116,7 @@ class LoginController extends ComController {
             ajaxReturn(101,'发送失败','');
         }else{
             session('yzm',$ver);
+            session('phone',$phone);
             ajaxReturn(0,'发送成功','');
         }
     }
