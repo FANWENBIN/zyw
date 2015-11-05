@@ -198,6 +198,11 @@ input[type=submit]{
     }
     .step{
       display: none;
+      font-size: 16px;
+      .changeNum{
+        color: #999;
+        margin-left: 20px;
+      }
     }
     .step1{
       display: block;
@@ -208,6 +213,56 @@ input[type=submit]{
     // .my-radio-active {
     //   background-image: url("../../../images/icon_myradio.gif");
     // }
+
+    .step2{
+      dt{
+        float: left;
+        width: 100px;
+        height: 60px;
+      }
+      dd{
+        margin-left: 100px;
+        height: 60px;
+        input[type=text]{
+          width: 310px;
+          height: 30px;
+          border: 1px solid #000;
+          background-color: #fff;
+          text-indent: 15px;
+        }
+        button{
+          display: inline-block;
+          width: 120px;
+          height: 30px;
+          color: #fff;
+          background-color: #000;
+          text-align: center;
+          cursor: pointer;
+        }
+        #error{
+          margin: {
+            left: 10px;
+            top: 6px;
+          }
+        }
+
+      }
+      .confirmmb{
+        display: inline-block;
+        width: 120px;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        background-color: #000;
+        text-align: center;
+      }
+    }
+    .step3{
+      .successtips{
+        color: #999;
+        margin-left: 15px;
+      }
+    }
   }
 }
 .webmain .content .list .right h3 {
