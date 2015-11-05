@@ -66,7 +66,7 @@ $(function(){
           }
           for(var i = 0, len = _arr.length; i < len; i++ ){
             _html += '<a href="#" class="item">'+
-                '<img src="'+ _arr[i].bigimg +'" alt="" />'+
+                '<img src="./Uploads'+ _arr[i].bigimg +'" alt="" />'+
                 '<div class="text">'+
                   '<h1>' + _arr[i].title + '</h1>'+
                   '<h3>' + _arr[i].instime + '</h3>'+
