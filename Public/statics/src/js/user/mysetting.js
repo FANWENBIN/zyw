@@ -69,7 +69,7 @@ $(function(){
             $("#error").html("验证码已发送，请注意查收");
           }else if(json.status == "101"){
             $("#error").html("发送失败，请稍后再试");
-          }else if(json.status == "103"){
+          }else if(json.status == "102"){
             $("#error").html("手机号码错误，请检查后再试");
           }
         },
