@@ -33,17 +33,18 @@ class UserController extends ComController {
             ajaxReturn(105,'手机与接收验证码手机号不符合');
         }
         $userlist = $this->checkuserLogin(); //验证登陆，并返回登陆信息
-        $user = M('user');
+        //$user = M('user');
         if(!$userlist){
+             $this->error('请先登录',U('Index/index'));
             ajaxReturn(103,'未登录','');
         }
         
         $sign = $user->where('id='.session('userid'))->save($data);
 
         if($sign === false){
-            ajaxReturn($user->getlastsql());
-            //ajaxReturn(102,'绑定失败');
+            ajaxReturn(102,'绑定失败');
         }else{
+             $this->error('请先登录',U('Index/index'));
             ajaxReturn(0,'绑定成功');
         }
 
