@@ -7,7 +7,27 @@ $(function(){
       // initRadio("sex");
       $(".sublist").on("click","li",page.leftClick);
       $(".group").on("click","li",page.upClick);
-      $("#changemb").on("click",".")
+      $("#changeNum").on("click",page.toStep2);
+      $("#sendverify").on("click",page.getVerInSetting);
+      $("#confirmmb").on("click",page.confirmMb)
+    },
+    getVerInSetting: function(){
+      $.ajax({
+        url: "./index.php?m=Home&c=Login&a=yzm",
+        type: "get",
+        dataType: "json",
+        data: {
+
+        },
+        success
+      })
+    },
+    confirmMb: function(){
+
+    },
+    toStep2: function(){
+      $(".step1").hide();
+      $(".step2").show();
     },
     leftClick: function(){
       $(this).parent().find("li").removeClass("active");
@@ -20,7 +40,7 @@ $(function(){
       $(this).addClass("active");
       $(".list").find(".bottomitem").removeClass("active");
       $(".list").find(".bottomitem").eq($(this).index()).addClass("active");
-    }  
+    }
   };
   page.init();
 })
