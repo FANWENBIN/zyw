@@ -1,6 +1,6 @@
 $(function(){
   var scope = {
-    provinceid: "4000"
+    provinceid: "440000"
 
   };
   var page = {
@@ -22,8 +22,7 @@ $(function(){
         type: "get",
         dataType: "json",
         success: function(json){
-
-          var _arr = json.data.data;
+          var _arr = json.data;
           var _html = "";
           for(var i = 0, len = _arr.length ; i < len ; i++){
             _html += '<option data-id="'+ _arr[i].provinceid +'">'+ _arr[i].province +'</option>'
@@ -42,7 +41,7 @@ $(function(){
           provinceid: scope.provinceid
         },
         success: function(json){
-          var _arr = json.data.data;
+          var _arr = json.data;
           var _html = "";
           for(var i = 0, len = _arr.length ; i < len ; i++){
             _html += '<option data-id="'+ _arr[i].cityid +'">'+ _arr[i].city +'</option>'
