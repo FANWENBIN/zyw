@@ -18,7 +18,7 @@ class VoteController extends ComController {
         $where['groupid'] = 3;
         $green = $actors->where($where)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit('0,2')->select();
         $actorsvalue = $red;
-
+ 
         foreach ($manblue as $key => $value) {
             array_push($actorsvalue, $value);
         }
