@@ -80,7 +80,7 @@ $(function(){
     },
     confirmMb: function(){
       $.ajax({
-        url: "./index.php?m=Home&c=Login&a=register",
+        url: "./index.php?m=Home&c=User&a=phonebinding",
         type: "post",
         dataType: "json",
         data: {
@@ -90,6 +90,8 @@ $(function(){
         success: function(json){
           if(json.status == "0"){
             $("#error").html("绑定成功");
+            $(".step2").hide();
+            $(".step3").show();
           }else if(json.status == "101"){
             $("#error").html("验证码错误");
           }else if(json.status == "102"){
@@ -99,8 +101,7 @@ $(function(){
           }
         }
       });
-      // $(".step2").hide();
-      // $(".step3").show();
+
     },
     toStep2: function(){
       $(".step1").hide();
