@@ -99,8 +99,8 @@ $(function(){
           }
         }
       });
-      $(".step2").hide();
-      $(".step3").show();
+      // $(".step2").hide();
+      // $(".step3").show();
     },
     toStep2: function(){
       $(".step1").hide();
