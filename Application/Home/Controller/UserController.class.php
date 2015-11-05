@@ -29,6 +29,26 @@ class UserController extends ComController {
         $this->assign();
     }
     /**
+    *用户更换手机发送验证码
+    *@
+    */
+    public function yzm(){
+        //调用短信先验证验证码是否正确
+        //随机生成验证码
+        $ver = rand(1000,9999);
+        $phone = I('get.phone');
+        if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
+            ajaxReturn(103,'手机输入不符合格式');  
+        }
+        $sign = $this->sms($phone,$ver);
+        if($sign){
+            ajaxReturn(101,'发送失败','');
+        }else{
+            session('yzm',$ver);
+            ajaxReturn(0,'发送成功','');
+        }
+    }
+    /**
 	*我的活动，活动浏览记录以及发起的活动
 	* @author：winter
 	* @version：2015年11月3日16:58:12
