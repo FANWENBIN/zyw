@@ -89,7 +89,7 @@ code, pre, tt {
 }
 input, select {
   outline: 0;
-  -webkit-appearance: none;
+  /*-webkit-appearance: none;*/
   border: none;
   border-radius: 0
 }

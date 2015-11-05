@@ -4,9 +4,10 @@ $(function(){
   };
   var page = {
     init: function(){
-      initRadio("sex");
+      // initRadio("sex");
       $(".sublist").on("click","li",page.leftClick);
       $(".group").on("click","li",page.upClick);
+      $("#changemb").on("click",".")
     },
     leftClick: function(){
       $(this).parent().find("li").removeClass("active");
@@ -14,7 +15,7 @@ $(function(){
       $(this).parents(".bottomitem").find(".item").removeClass("active");
       $(this).parents(".bottomitem").find(".item").eq($(this).index()).addClass("active");
     },
-    upClick: function(){ 
+    upClick: function(){
       $(this).parent().find("li").removeClass("active");
       $(this).addClass("active");
       $(".list").find(".bottomitem").removeClass("active");

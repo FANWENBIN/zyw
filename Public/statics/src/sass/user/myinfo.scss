@@ -1,4 +1,25 @@
 @charset "utf-8";
+
+select{
+  width: 120px;
+  height: 30px;
+  border: 1px solid #000;
+  background: #fff;
+}
+input[type=submit]{
+  width: 75px;
+  height: 30px;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+}
+// input[type=file]{
+//   width: 100px;
+//   height: 30px;
+//   border: 1px solid #000;
+//   background: #fff;
+// }
+
 .webmain .con {
   margin-bottom: 45px;
 }
@@ -21,7 +42,7 @@
   overflow: hidden;
 }
 .webmain .con .title h2 {
-  display: block; 
+  display: block;
   width: 100px;
   height: 60px;
   background-image: url("../../../images/txt_contitle.gif");
@@ -169,17 +190,24 @@
     li {
       height: 60px;
       margin-left: 150px;
+      line-height: 60px;
       .item-head {
         position: absolute;
         margin-left: -100px;
       }
     }
-    .my-radio {
-      background-image: url("../../../images/icon_myradio.gif");
+    .step{
+      display: none;
     }
-    .my-radio-active {
-      background-image: url("../../../images/icon_myradio.gif");
+    .step1{
+      display: block;
     }
+    // .my-radio {
+    //   background-image: url("../../../images/icon_myradio.gif");
+    // }
+    // .my-radio-active {
+    //   background-image: url("../../../images/icon_myradio.gif");
+    // }
   }
 }
 .webmain .content .list .right h3 {
