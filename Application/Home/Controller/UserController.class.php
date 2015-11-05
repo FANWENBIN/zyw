@@ -51,7 +51,7 @@ class UserController extends ComController {
         //随机生成验证码
         $ver = rand(1000,9999);
         $phone = I('get.phone');
-        ajaxReturn($phone);
+       // ajaxReturn($phone);
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  
         }
