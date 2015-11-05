@@ -53,19 +53,39 @@
 
       <div class="details clearFix">
         <div class="left-col">
+      <if condition = "$list['name'] neq '' ">
           <div class="list"><span class="des">中文名：</span><span class="cont">{$list.name}</span></div>
+      </if>
+      <if condition = "$list['nationality'] neq '' ">
           <div class="list"><span class="des">国&nbsp;&nbsp;籍：</span><span class="cont">{$list.nationality}</span></div>
+          </if>
+        <if condition = "$list['nation'] neq '' ">
           <div class="list"><span class="des">民&nbsp;&nbsp;族：</span><span class="cont">{$list.nation}</span></div>
+          </if>
+          <if condition = "$list['height'] neq '' ">
           <div class="list"><span class="des">身&nbsp;&nbsp;高：</span><span class="cont">{$list.height}CM</span></div>
+          </if>
+          <if condition = "$list['weight'] neq '' ">
           <div class="list"><span class="des">体&nbsp;&nbsp;重：</span><span class="cont">{$list.weight}KG</span></div>
+          </if>
+          <if condition = "$list['address'] neq '' ">
           <div class="list"><span class="des">出生地：</span><span class="cont">{$list.address}</span></div>
+          </if>
         </div>
         <div class="right-col">
-          <div class="list"><span class="des">出生日期：</span><span class="cont">{$list.birthday|date="Y年m月d日",###}</span></div>
+    <if condition = "$list['birthday'] neq '' ">
+          <div class="list"><span class="des">出生日期：</span><span class="cont">
+          {$list.birthday|date="Y年m月d日",###}</span></div>
+    </if>
+    <if condition = "$list['job'] neq '' ">
           <div class="list"><span class="des">职&nbsp;&nbsp;业：</span><span class="cont">{$list.job}</span></div>
+        </if>
+        <if condition = "$list['school'] neq '' ">
           <div class="list"><span class="des">毕业院校：</span><span class="cont">{$list.school}</span></div>
-
+</if>
+<if condition = "$list['achievement'] neq '' ">
           <div class="list"><span class="des">主要成就：</span><span class="cont">{$list.achievement}</span></div>
+          </if>
         </div>
 
       </div>

@@ -54,7 +54,7 @@ class StarwarsController extends ComController {
         $count      = $actors->where($where)->count();// 查询满足要求的总记录数
         $Page       = new \Think\Page($count,8);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
-        // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        //  进行分页数据查询注意limit方法的参数要使用Page类的属性
         $list = $actors->field('id,img,name')->where($where)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
        
         $data['page'] = ceil($count/8);
@@ -64,7 +64,5 @@ class StarwarsController extends ComController {
         }else{
             ajaxReturn(0,'',$data);
         }
-
-
     }
 }

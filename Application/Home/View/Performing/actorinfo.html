@@ -32,10 +32,16 @@
         <h3>{$actorsval.name}</h3>
         <span>{:html_entity_decode($actorsval['about'])}</span>
         <ul>
+        <if condition = "$actorsval['birthday'] neq '' ">
           <li><span class="title">出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生</span><span class="des">{$actorsval.birthday|date="Y年m月d日",###} {$actorsval.address}</span></li>
+        </if>
+         <if condition = "$actorsval['national'] neq '' ">
           <li><span class="title">国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍</span><span class="des">{$actorsval.national}</span></li>
+          </if>
           <li><span class="title">人物信息</span><span class="des"><if condition = "$actorsval.blood eq '' ">未知血<else />{$actorsval.blood}</if>型 | <if condition = "$actorsval.constellation eq '' ">未知星座<else />{$actorsval.constellation}</if> | <if condition = "$actorsval.height eq '' ">未知身高<else />{$actorsval.height}</if>cm | <if condition = "$actorsval.weight eq '' ">未知体重<else />{$actorsval.weight}</if>kg</span></li>
+          <if condition = "$actorsval['talent'] neq '' ">
           <li><span class="title">经纪公司</span><span class="des">{$actorsval.talent}</span></li>
+          </if>
         </ul>
 
       </div>

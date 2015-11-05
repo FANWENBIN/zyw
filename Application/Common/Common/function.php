@@ -122,7 +122,9 @@
      * date  :2015年9月25日14:00:51
      */
     function winter_date($time){
-    	empty($time)&&($time=time());
+    	if(empty($time)){
+    		return '';
+    	}
     	return date('Y-m-d',$time);
     }
     /**
