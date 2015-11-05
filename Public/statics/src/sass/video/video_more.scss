@@ -4,6 +4,7 @@
   background: url("../../../images/sprite_video.gif") 0 0 no-repeat;
 }
 .webmain .video {
+  position: relative;
   .title {
     h2 {
       width: 145px;
@@ -13,9 +14,7 @@
       width: 90px;
     }
   }
-.webmain .video{
-  position: relative;
-}
+
 .pagelist{
   bottom: -45px;
 }
