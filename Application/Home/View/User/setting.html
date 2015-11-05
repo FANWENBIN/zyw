@@ -84,7 +84,7 @@
                     <li>
                       <span class="item-head">性&nbsp;别：</span>
                       <div class="item-body">
-                        <input type="radio" name="sex" value="male">男
+                        <input type="radio" name="sex" value="male">&nbsp;男
                         <input type="radio" name="sex" value="female">女
                       </div>
                     </li>
@@ -129,13 +129,17 @@
 
                 <!--  修改头像-->
               <div class="item">
-                <button type="button" name="button">上传头像</button>
-                <span>(支持JPG,PNG,GIF格式的图片，最大2M)</span>
+                <!-- <button type="file" name="button">上传头像</button> -->
+                <input type="file" name="name" value="上传头像">
+                <span>(建议大小100*100PX，支持jpg,gif,png格式)</span>
                 <div class="uploadpic">
 
                 </div>
 
-                <button type="button" name="button">保存</button>
+                <!-- <button type="button" name="button">保存</button> -->
+                <br>
+                <br>
+                <input type="submit" name="submit" value="保存">
               </div>
               <div class="item">
                 <!--  绑定网站-->
@@ -152,11 +156,22 @@
               </ul>
             </div>
             <div class="right">
-              <div class="item active">
-                <h3>标题</h3>
-                <p>
-                  大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打
-                </p>
+              <div class="item active" id="changemb">
+                <div class="step step1">
+                  <span>已绑定手机</span><span>13155556666</span><span>更换号码</span>
+                </div>
+                <div class="step step2">
+                  <dl class="">
+                    <dt>手机：</dt>
+                    <dd><input type="text" name="mbchange" value="" placeholder="输入更换号码"><button type="button" name="button">发送验证码</button></dd>
+                    <dt>验证码：</dt>
+                    <dd><input type="text" name="veri" value="" placeholder="输入手机验证码"></dd>
+                  </dl>
+                    <input type="submit" name="submit" value="下一步">
+                </div>
+                <div class="step step3">
+                  <span>已绑定手机</span><span>13155556666</span><span>绑定成功</span>
+                </div>
               </div>
               <div class="item">
                 <h3>标题</h3>
@@ -184,6 +199,6 @@
 <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
 <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
 <script src="__PUBLIC__/statics/dist/js/user/myinfo.js"></script>
-<script src="__PUBLIC__/statics/js/form/myComponent.js"></script>
+<!-- <script src="__PUBLIC__/statics/js/form/myComponent.js"></script> -->
 </body>
 </html>
