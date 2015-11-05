@@ -11,7 +11,7 @@ $(function(){
       $("#changeNum").on("click",page.toStep2);
       $("#sendverify").on("click",page.getVerInSetting);
       $("#confirmmb").on("click",page.confirmMb);
-      $("#province").on("change",page.changeProvince)
+      $("#province").on("change",page.changeProvince);
       // 初始化province city
       page.getProvince();
       page.getCity();
@@ -58,15 +58,15 @@ $(function(){
     },
     getVerInSetting: function(){
       $.ajax({
-        url: "./index.php?m=Home&c=Login&a=yzm",
+        url: "./index.php?m=Home&c=User&a=yzm",
         type: "get",
         dataType: "json",
         data: {
-
+          Phone: $(":text[name=mbchange]").val(),
         },
         success: function(json){
           if(json.status == "0"){
-
+            $("#error").html();
           }else if(json.status == "1"){
 
           }
