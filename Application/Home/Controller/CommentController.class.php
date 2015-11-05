@@ -21,10 +21,24 @@ class CommentController extends ComController {
     		$data['pageid'] = I('post.pageid');
     		$data['pagename'] = I('post.pagename');
     		$sign = $this->checkDump($data);
+
     		if(!$sign){
     			ajaxReturn(102,'不可有空信息','');
     		}
-    		$userval = M('user')->where('id='.$id)->find();
+            //检测路径的c参数值。
+            $param = getUrlParam($data['pagehref']);
+            switch ($param['c']) {
+                case 'News':
+                   $data['typeid'] = 1;
+                    break;
+                case 'Video':
+                   $data['typeid'] = 2;
+                    break;
+                default:
+                    
+                    break;
+            }
+    		$userval = M('user')->where('id='.session('userid'))->find();
     		$data['namehead'] = $userval['headpic'];           //查询用户头像
     		$comment = M('comment');
     		$sign = $comment->add($data);

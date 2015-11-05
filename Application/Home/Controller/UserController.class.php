@@ -6,7 +6,22 @@ use Think\Controller;
  * @author winter
  * @version 2015年11月2日16:38:31
  */
-class UserController extends Controller {
+class UserController extends ComController {
+    /**基本设置*/
+    public function setting(){
+
+        //映射用户信息
+        $userinfo = $this->checkuserLogin();
+        //城市地区
+        $province = M('provinces')->select();
+        if(!empty($userinfo['provinceid'])){
+            $where['provinceid'] = $userinfo['provinceid'];
+        }else{
+            $where['provinceid'] = $province[0]['provinceid'];
+        }
+        $this->$cities = M('cities')->where($where)->select();
+        $this->display();
+    }
     //手机绑定
     public function phonebinding(){
         $user = M('user');
@@ -15,8 +30,8 @@ class UserController extends Controller {
     }
     /**
 	*我的活动，活动浏览记录以及发起的活动
-	*@author：winter
-	*@version：2015年11月3日16:58:12
+	* @author：winter
+	* @version：2015年11月3日16:58:12
 	*
     */
     public function acthis(){

@@ -223,5 +223,22 @@ function getFirstCharter($str){
      if($asc>=-11055&&$asc<=-10247) return 'Z';
      return S;
  }
+	/**
+	*截取提交url路径的参数
+	*@param url "http://localhost/zyw/index.php?m=Home&c=News&a=news_details&id=71"
+	*@version 2015年11月4日17:38:27
+	*@author witner
+	*@return param  Array ( [m] => Home [c] => News [a] => news_details [id] => 71 )
+	*/
+	function getUrlParam($url){
+		//$url = "http://localhost/zyw/index.php?m=Home&c=News&a=news_details&id=71";
+        $str = explode('?', $url);
+        $logy = explode('&', $str[1]);
+        foreach($logy as $key=>$val){
+            $swop = explode('=', $val);
+            $param[$swop[0]] = $swop[1];
+        }
+        return $param;
+	}
 
 ?>
