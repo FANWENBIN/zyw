@@ -6,7 +6,7 @@ $(function() {
     color2: 1,
     sex2: 1,
     allcolor: "redgroup",
-    allsex: "2"
+    allsex: "1"
 
   };
 

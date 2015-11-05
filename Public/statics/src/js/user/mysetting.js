@@ -9,7 +9,14 @@ $(function(){
       $(".group").on("click","li",page.upClick);
       $("#changeNum").on("click",page.toStep2);
       $("#sendverify").on("click",page.getVerInSetting);
-      $("#confirmmb").on("click",page.confirmMb)
+      $("#confirmmb").on("click",page.confirmMb);
+
+    },
+    getProvince: function(){
+      
+    },
+    getCity: function(){
+
     },
     getVerInSetting: function(){
       $.ajax({
