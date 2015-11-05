@@ -22,15 +22,29 @@ class UserController extends ComController {
         $this->$cities = M('cities')->where($where)->select();
         $this->display();
     }
-    //手机绑定
+    //手机更换绑定
     public function phonebinding(){
-        $user = M('user');
-        $userval = $user->find(session('userid'));
-        $this->assign();
+        $data['mobile'] = I('post.mobile');
+        $code = I('post.code');
+        if($code != session('yzm')){
+            ajaxReturn(101,'验证码输入错误');
+        }
+        if($data['mobile'] != session('phone')){
+            ajaxReturn(105,'手机与接收验证码手机号不符合');
+        }
+        $userlist = $this->checkuserLogin(); //验证登陆，并返回登陆信息
+        $sign = $user->where('id='.session('userid'))->save($data);
+        if($sign === false){
+            ajaxReturn(102,'绑定失败');
+        }else{
+            ajaxReturn(0,'绑定成功');
+        }
+
     }
     /**
     *用户更换手机发送验证码
-    *@
+    * @version 2015年11月5日15:45:00
+    * @author witner
     */
     public function yzm(){
         //调用短信先验证验证码是否正确
@@ -45,6 +59,7 @@ class UserController extends ComController {
             ajaxReturn(101,'发送失败','');
         }else{
             session('yzm',$ver);
+            session('phone',$phone);
             ajaxReturn(0,'发送成功','');
         }
     }
@@ -67,7 +82,6 @@ class UserController extends ComController {
     		//审核通过的活动
     	$data['status'] = 1;
     	$this->passactive = $active->where($data)->order('instime desc')->select();
-
     	$this->display();
     }
     /**
