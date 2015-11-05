@@ -28,7 +28,7 @@ class ComController extends Controller {
         $user = M('user');
         $list = $user->where($data)->find();
         if(!$list){
-            $this->error('请先登录',U('Index/index'));  //从用户中心返回首页
+           return 0;  //从用户中心返回首页
         }else{
             return $list;
         }
