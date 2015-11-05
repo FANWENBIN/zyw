@@ -44,7 +44,6 @@ class RecommendController extends ComController {
             $data['address']     = I('post.address');
 
             $data['birthday']  = I('post.birthday');
-          
             $data['job']         = I('post.job');
             $data['school']      = I('post.school');
             $data['achievement'] = I('post.achievement');
