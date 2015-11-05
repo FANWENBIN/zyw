@@ -63,7 +63,7 @@ $(function(){
         type: "get",
         dataType: "json",
         data: {
-          Phone: $(":text[name=mbchange]").val(),
+          phone: $(":text[name=mbchange]").val(),
         },
         success: function(json){
           if(json.status == "0"){
