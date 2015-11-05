@@ -19,11 +19,35 @@ $(function(){
         data: {
 
         },
-        success
+        success: function(json){
+          if(json.status == "0"){
+
+          }else if(json.status == "1"){
+
+          }
+        },
+        error: function(){
+        }
       })
     },
     confirmMb: function(){
+      $.ajax({
+        url: "./index.php?m=Home&c=Login&a=yzm",
+        type: "get",
+        dataType: "json",
+        data: {
 
+        },
+        success: function(json){
+          if(json.status == "0"){
+
+          }else if(json.status == "1"){
+
+          }
+        }
+      });
+      $(".step2").hide();
+      $(".step3").show();
     },
     toStep2: function(){
       $(".step1").hide();
