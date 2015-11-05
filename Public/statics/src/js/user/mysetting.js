@@ -60,7 +60,7 @@ $(function(){
       console.log($(":text[name=mbchange]").val());
       $.ajax({
         url: "./index.php?m=Home&c=User&a=yzm",
-        type: "post",
+        type: "get",
         dataType: "json",
         data: {
           Phone: $(":text[name=mbchange]").val(),
