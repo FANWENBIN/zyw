@@ -33,7 +33,7 @@ class UserController extends ComController {
             ajaxReturn(105,'手机与接收验证码手机号不符合');
         }
         $userlist = $this->checkuserLogin(); //验证登陆，并返回登陆信息
-        //$user = M('user');
+        $user = M('user');
         if(!$userlist){
              $this->error('请先登录',U('Index/index'));
             ajaxReturn(103,'未登录','');
