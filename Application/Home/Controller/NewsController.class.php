@@ -60,6 +60,8 @@ class NewsController extends ComController {
  		if(!$activeval){
  			$this->assign('empty',1);
  		}
+ 		//评论
+ 		
 		$this->assign('activeval',$activeval);
 		$this->assign('sign',2);
 		$this->display('news_details');
