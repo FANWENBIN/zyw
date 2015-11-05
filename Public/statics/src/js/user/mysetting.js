@@ -80,22 +80,27 @@ $(function(){
     },
     confirmMb: function(){
       $.ajax({
-        url: "./index.php?m=Home&c=Login&a=yzm",
-        type: "get",
+        url: "./index.php?m=Home&c=Login&a=register",
+        type: "post",
         dataType: "json",
         data: {
-
+          phone: $(":text[name=mbchange]").val(),
+          code: $(":text[name=veri]").val()
         },
         success: function(json){
           if(json.status == "0"){
-
-          }else if(json.status == "1"){
-
+            $("#error").html("绑定成功");
+          }else if(json.status == "101"){
+            $("#error").html("验证码错误");
+          }else if(json.status == "102"){
+            $("#error").html("绑定失败，请稍后再试");
+          }else if(json.status == "105"){
+            $("#error").html("验证码与手机号码不匹配，请重新尝试");
           }
         }
       });
-      $(".step2").hide();
-      $(".step3").show();
+      // $(".step2").hide();
+      // $(".step3").show();
     },
     toStep2: function(){
       $(".step1").hide();
