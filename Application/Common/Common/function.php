@@ -16,6 +16,33 @@
 	function is_weixin(){   
 		return strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false;
 	}
+	
+	//获取token
+    function get_access_token($appid,$appsecret,$table){
+        $link = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential';
+        $link .= '&appid='.urlencode($appid).'&secret='.urlencode($appsecret);
+        //echo $link;
+        $cfg['ssl'] = true;
+        $output = curlOpen($link, $cfg,0);
+        //获取json数据
+        $obj = json_decode($output);
+        $access_token = $obj->access_token;
+        M($table)->data(array('access_token' => $access_token,'timestamps' => date('U')))->add();
+        return $access_token;
+    }
+
+    //oauth 2.0 授权
+    function oauth($url_0,$appid){
+        $url = 'https://open.weixin.qq.com/connect/oauth2/authorize';
+        $url .= '?appid='.$appid;
+        $url .= '&redirect_uri='.$url_0;
+        $url .= '&response_type=code';
+        $url .= '&scope=snsapi_userinfo';
+        $url .= '&state=123#wechat_redirect';
+        echo '<a href="'.$url.'">'.$url.'</a><br/>';
+        header('Location:'.$url);
+    }
+	
 	function isAjax() {
     	return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 'xmlhttprequest' == strtolower($_SERVER['HTTP_X_REQUESTED_WITH']);
 	}
@@ -88,15 +115,6 @@
 				return '影视资讯';
 		}
 	}
-	/**
-	*判断系统消息是否已发送到用户
-	* @author：winter
-	* @version:2015年11月3日13:07:37
-	*/
-	function finshTime($time){
-		return $time > time() ? '未发送' : '已发送';
-	
-	}
     /**
      * 获取文件路径
      * @author huqinlou
@@ -117,16 +135,25 @@
     }
     /**
      * 简单格式化年月日
-     * param ： int $time 时间戳
-     * author： winter
-     * date  :2015年9月25日14:00:51
+     * @param ： int $time 时间戳
+     * @author： winter
+     * @version  :2015年9月25日14:00:51
      */
     function winter_date($time){
     	if(empty($time)){
-    		return '';
-    	}
+    		return null;
+    	}else{
     	return date('Y-m-d',$time);
+    	}
     }
+    /**
+	*判断系统消息是否已发送到用户
+	* @author：winter
+	* @version:2015年11月3日13:07:37
+	*/
+	function finshTime($time){
+		return $time > time() ? '未发送' : '已发送';
+	}
     /**
      * 获取文件相对路径
      * @author hxf
@@ -242,5 +269,4 @@ function getFirstCharter($str){
         }
         return $param;
 	}
-
 ?>

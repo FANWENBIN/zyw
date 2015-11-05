@@ -33,7 +33,7 @@
         <span>{:html_entity_decode($actorsval['about'])}</span>
         <ul>
         <if condition = "$actorsval['birthday'] neq '' ">
-          <li><span class="title">出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生</span><span class="des">{$actorsval.birthday|date="Y年m月d日",###} {$actorsval.address}</span></li>
+          <li><span class="title">出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生</span><span class="des">{$actorsval.birthday} {$actorsval.address}</span></li>
         </if>
          <if condition = "$actorsval['national'] neq '' ">
           <li><span class="title">国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍</span><span class="des">{$actorsval.national}</span></li>
