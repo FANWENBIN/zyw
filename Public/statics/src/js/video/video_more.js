@@ -65,7 +65,7 @@ $(function(){
             return false;
           }
           for(var i = 0, len = _arr.length; i < len; i++ ){
-            _html += '<a href="#" class="item">'+
+            _html += '<a href="./index.php?m=Home&c=Video&a=video_details&id='+  _arr[i].id +'" class="item">'+
                 '<img src="./Uploads'+ _arr[i].bigimg +'" alt="" />'+
                 '<div class="text">'+
                   '<h1>' + _arr[i].title + '</h1>'+
