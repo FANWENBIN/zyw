@@ -9,25 +9,34 @@ use Think\Controller;
 class UserController extends ComController {
     /**基本设置*/
     public function setting(){
-
-        //映射用户信息
+        $submit = I('post.submit');
+        //用户信息
         $userinfo = $this->checkuserLogin();
-
-        //城市地区
-        $province = M('provinces')->select();
-        $this->assign('province',$province);
-        if(!empty($userinfo['provinceid'])){
-            $where['provinceid'] = $userinfo['provinceid'];
+        if(empty($submit)){ 
+            //城市地区
+            $province = M('provinces')->select();
+            $this->assign('province',$province);
+            if(!empty($userinfo['provinceid'])){
+                $where['provinceid'] = $userinfo['provinceid'];
+            }else{
+                $where['provinceid'] = $province[0]['provinceid'];
+            }
+            $cities = M('cities')->where($where)->select();
+            $this->assign('cities',$cities);
+            $userinfo['mobile'] = preg_replace('/'.substr($userinfo['mobile'],3,4).'/','****',$userinfo['mobile']);    
+            $this->assign('userinfo',$userinfo);
+            $this->display();
         }else{
-            $where['provinceid'] = $province[0]['provinceid'];
+            $user = M('user');
+            $data['nickname'] = I('post.nickname');
+            $provinces  = explode('|', I('post.province'));
+            $cities     = explode('|', I('post.cities'));
+            $data['provinceid'] = $provinces[0];
+            $data['province']   = $provinces[1];
+            $data['city']   = $cities[0];
+            $data['cityid'] = $cities[1];
+            $data[] = I();
         }
-
-        $cities = M('cities')->where($where)->select();
-        $this->assign('cities',$cities);
-
-        $userinfo['mobile'] = substr($userinfo['mobile'], 3,6);        
-        $this->assign('userinfo',$userinfo);
-        $this->display();
     }
     //手机更换绑定
     public function phonebinding(){
