@@ -93,10 +93,10 @@
                         <select class="" name="province" id="province">
                           <volist name = "province" id = "vo">
                           <if condition = "$userinfo['provinceid'] eq $vo['provinceid']">
-                          <option value="{$vo.provinceid}|{$vo.province}" selected="selected">{$vo.province}</option>
+                          <option value="{$vo.provinceid}|{$vo.province}" data-id = "{$vo.provinceid}" selected="selected">{$vo.province}</option>
 
                           <else />
-                          <option value="{$vo.provinceid|{$vo.province}}">{$vo.province}</option>
+                          <option value="{$vo.provinceid}|{$vo.province}" data-id = "{$vo.provinceid}">{$vo.province}</option>
                           </if>
 
                           </volist>
@@ -108,7 +108,7 @@
                           <if condition = "$userinfo['cityid'] eq $vo['cityid']">
                           <option value="{$vo.cityid}|{$vo.city}" selected="selected">{$vo.city}</option>
                           <else />
-                          <option value="{$vo.cityid|{$vo.city}}">{$vo.city}</option>
+                          <option value="{$vo.cityid}|{$vo.city}">{$vo.city}</option>
                           </if>
                           </volist>
                         </select>
@@ -131,9 +131,9 @@
 
                 <!--  修改头像-->
               <div class="item">
-                <form class="" action="#" method="post">
+                <form class="" action="{:U('upheadimg')}" method="post" enctype="multipart/form-data"s>
                   <!-- <button type="file" name="button">上传头像</button> -->
-                  <input type="file" name="name" value="上传头像">
+                  <input type="file" name="photo" value="上传头像">
                   <span>(建议大小100*100PX，支持jpg,gif,png格式)</span>
                   <div class="uploadpic">
                   </div>

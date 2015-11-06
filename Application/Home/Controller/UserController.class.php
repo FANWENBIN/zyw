@@ -12,7 +12,7 @@ class UserController extends ComController {
         $submit = I('post.submit');
         //用户信息
         $userinfo = $this->checkuserLogin();
-        if(empty($submit)){ 
+        if(empty($submit)){
             //城市地区
             $province = M('provinces')->select();
             $this->assign('province',$province);
@@ -23,7 +23,7 @@ class UserController extends ComController {
             }
             $cities = M('cities')->where($where)->select();
             $this->assign('cities',$cities);
-            $userinfo['mobile'] = preg_replace('/'.substr($userinfo['mobile'],3,4).'/','****',$userinfo['mobile']);    
+            $userinfo['mobile'] = preg_replace('/'.substr($userinfo['mobile'],3,4).'/','****',$userinfo['mobile']);   
             $this->assign('userinfo',$userinfo);
             $this->display();
         }else{
@@ -35,7 +35,15 @@ class UserController extends ComController {
             $data['province']   = $provinces[1];
             $data['city']   = $cities[0];
             $data['cityid'] = $cities[1];
-            $data[] = I();
+            $data['birthday'] = strtotime(I('post.birthday'));
+            $data['sex']    = I('post.sex');
+            $sign = $user->where('id='.session('userid'))->save($data);
+            if($sign === false){
+                $this->redirect(U('setting'),'', 2, '修改失败');
+            }else{
+                session('username',$data['nickname']); //更换用户名
+                $this->redirect(U('setting'),array('cate_id' => 2), 0, '');
+            }
         }
     }
     //手机更换绑定
@@ -57,6 +65,7 @@ class UserController extends ComController {
         if($sign === false){
             ajaxReturn(102,'绑定失败');
         }else{
+            session('userphone',$data['mobile']);
             ajaxReturn(0,'绑定成功');
         }
     }

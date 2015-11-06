@@ -23,12 +23,12 @@ class ComController extends Controller {
     //用户中心登陆验证直接返回首页重新登陆
     public function checkuserLogin(){
         //md5(xxzyw916);
-        $data['id'] = session('userid');
-        $data['nickname'] = session('username');
+        $data['id']     = session('userid');
+        $data['mobile'] = session('userphone');
         $user = M('user');
         $list = $user->where($data)->find();
         if(!$list){
-           //return 0;  //从用户中心返回首页
+           //return 0; //从用户中心返回首页
            $this->error('请登录',U('Index/index'));
         }else{
             return $list;
@@ -38,7 +38,7 @@ class ComController extends Controller {
     public function checkLogin(){
         //md5(xxzyw916);
         $data['id'] = session('userid');
-        $data['nickname'] = session('username');
+        $data['mobile'] = session('userphone');
         $user = M('user');
         $list = $user->where($data)->find();
         if(!$list){
