@@ -365,6 +365,7 @@ class BannerController extends ComController {
         if(empty($submit)){
             $list = $banner->where('type = 7')->find();
             $this->assign('bannerval',$list);
+            $this->assign('cur',4);
             $this->display();
         }else{
             $data['title'] = I('post.title');
@@ -377,6 +378,56 @@ class BannerController extends ComController {
             }
         }
         
+    }
+    //===================饭团banner=================、、
+    public function fans(){
+        $submit = I('post.submit');
+        $model = M();
+        $banner = M('banner');
+        $model->startTrans();
+        $Duck = true;
+        $banner->where('type = 6')->delete();
+        if(!empty($submit)){
+            for($i = 1;$i<6;$i++){
+                $data['title'] = I('post.name'.$i);
+                $data['img'] = I('post.photo'.$i);
+                $data['newsid']  = I('post.newsid'.$i);
+                if(!empty($data['title']) && !empty($data['img'])){
+                    $image = new \Think\Image(); 
+                    $image->open('./Uploads'.$data['img']);
+                    $able = explode('.',$data['img']);
+                    //按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.jpg   1200  470   
+                    $urlimg = './Uploads/small/'.date('YmdHis').rand(1000,99999).'.'.$able[1];  
+                    $image->thumb(120,47)->save($urlimg);
+                    //,\Think\Image::IMAGE_THUMB_SCALE   /small/banner/2015-09/144361715165112.jpg
+                    $data['smallimg'] = $urlimg;
+                    $data['type'] = 6;
+                    $sign = $banner->add($data);
+                    if(!$sign){
+                        $Duck = false;
+                    }
+                }
+            }
+            if($Duck){
+                $model->commit();
+                $this->success('保存成功',U('Banner/starwars'));
+            }else{
+                $model->rollback();
+                $this->success('未做任何保存');
+            }
+        }else{
+             $active = M('actors');
+        $activeval = $active->where('status <> 0')->order('initial asc')->select();
+        $this->assign('a','<option>暂时没有数据</option>');
+        $this->assign('newsval',$activeval);
+     
+        //banner 读取
+        $banner = M('banner');
+        $bannerval = $banner->where(' type= 5')->select();
+        $this->assign('bannerval',$bannerval);
+        $this->assign('cur',4);
+        $this->display();
+        } 
     }
 
 }
