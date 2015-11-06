@@ -45,30 +45,7 @@ class ComController extends Controller {
             $this->error('请先登录');  //error 返回上一层
         }
     }
-// //测试
-//     public function test(){
 
-//         $url = 'http://m2.nadoo.cn/p/zyw/index.php?m=Home&c=Vote&a=actorinfo';
-//         $data = array('opid'=>'3099502f8652e48cd2d15e49bb5bf67f','wxopenid'=>'ox9LYshHRsmsTzCOjJjmcO6N-7VA');
-//     	$a =  $this->htcurl($url,$data);
-//       //var_dump($a);
-//     }
-// //post测试接口
-//      public function htcurl($url,$data){
-//     	 $url = $url;
-//     	 $post_data = $data;
-//     	 $ch = curl_init();
-//     	 curl_setopt($ch, CURLOPT_URL, $url);
-//     	 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//     	 // post数据
-//     	 curl_setopt($ch, CURLOPT_POST, 1);
-//     	 // post的变量
-//     	 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-//     	 $output = curl_exec($ch);
-//     	 curl_close($ch);
-//     	 //打印获得的数据
-//     	 print_r($output);
-//     }
     /** 
     * 获取本周第一天/最后一天的时间戳 
     * @author winter
@@ -275,6 +252,16 @@ class ComController extends Controller {
         }else{
             $this->$status = 0;
         }
+    }
+    /**
+    *上传
+    *@author winter
+    *@version 2015年11月6日16:49:20
+    */
+    public function uploadimg(){
+       
+     //等待开发中
+        
     }
    
 }

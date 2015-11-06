@@ -46,6 +46,33 @@ class UserController extends ComController {
             }
         }
     }
+    /**
+    *用户修改头像
+    *
+    */
+    public function uploadimg(){
+        $upload = new \Think\Upload();// 实例化上传类    
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小    
+        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型    
+        $upload->savePath  =      '/userimg/'; // 设置附件上传目录    // 上传文件     
+        $info   =   $upload->upload();  
+        
+        if(!$info) {// 上传错误提示错误信息        
+            $this->error($upload->getError());    
+        }else{// 上传成功      
+            $user = M('user');
+            $data['headpic'] = $info['photo']['savepath'].$info['photo']['savename'];
+            $sign = $user->where('id='.session('userid'))->save($data);
+            if($sign === false){
+                $this->error('修改失败！'); 
+            }else{
+                $this->redirect(U('setting'),'', 0, '修改成功');
+            }
+             
+
+        }
+            
+    }
     //手机更换绑定
     public function phonebinding(){
         $data['mobile'] = I('post.phone');
