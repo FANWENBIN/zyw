@@ -35,7 +35,14 @@ class UserController extends ComController {
             $data['province']   = $provinces[1];
             $data['city']   = $cities[0];
             $data['cityid'] = $cities[1];
-            $data[] = I();
+            $data['birthday'] = strtotime(I('post.birthday'));
+            $sign = $user->where('id='.session('userid'))->save($data);
+            if($sign === false){
+                $this->redirect(U('setting'),'', 2, '修改失败');
+            }else{
+                session('username',$data['nickname']); //更换用户名
+                $this->redirect(U('setting'),array('cate_id' => 2), 0, '');
+            }
         }
     }
     //手机更换绑定
@@ -57,6 +64,7 @@ class UserController extends ComController {
         if($sign === false){
             ajaxReturn(102,'绑定失败');
         }else{
+            session('userphone',$data['mobile']);
             ajaxReturn(0,'绑定成功');
         }
     }

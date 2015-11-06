@@ -96,7 +96,7 @@
                           <option value="{$vo.provinceid}|{$vo.province}" selected="selected">{$vo.province}</option>
 
                           <else />
-                          <option value="{$vo.provinceid|{$vo.province}}">{$vo.province}</option>
+                          <option value="{$vo.provinceid}|{$vo.province}">{$vo.province}</option>
                           </if>
 
                           </volist>
@@ -108,7 +108,7 @@
                           <if condition = "$userinfo['cityid'] eq $vo['cityid']">
                           <option value="{$vo.cityid}|{$vo.city}" selected="selected">{$vo.city}</option>
                           <else />
-                          <option value="{$vo.cityid|{$vo.city}}">{$vo.city}</option>
+                          <option value="{$vo.cityid}|{$vo.city}">{$vo.city}</option>
                           </if>
                           </volist>
                         </select>

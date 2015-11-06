@@ -55,7 +55,7 @@ class LoginController extends ComController {
         $name = I('get.name');
         $passwd = I('get.passwd','','md5');
         $user = M('user');
-        $data['nickname'] = $name;
+        $data['mobile'] = $name;
         $data['passwd']   = $passwd;
 
         $sign =  $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
