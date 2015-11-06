@@ -14,6 +14,7 @@ $(function(){
             $("#imgList").on("mouseover",page.mouseover);
             $("#imgList").on("mouseout",page.mouseout);
             $("#newActive").on("click",page.createActive);
+            $(".close").on("click",page.closeAlert)
 
             //banner切换
             tabinit();
@@ -26,8 +27,9 @@ $(function(){
                 page.getActiveData(index);
               });
             });
-
-
+        },
+        closeAlert: function(){
+          $(this).parents(".mask").hide();
         },
         tabBanner: function(){
             clearTimeout(scope.timer);

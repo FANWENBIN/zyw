@@ -165,6 +165,7 @@
     <!-- 发起活动弹出层-->
     <div class="mask" id="mask">
       <div class="popbox">
+        <a href="javascript:;" class="close">X</a>
         <form action="#">
           <h3>发起新活动</h3>
           <input type="text" placeholder="请输入活动名称" class="activeName" />
@@ -179,7 +180,11 @@
             <input type="text" placeholder="请输入活动地址" class="activeAdress" name="activeAdress" id="activeAdress" />
           </div>
           <div>
-            <input type="file" placeholder="封面图" class="pic" id="pic" name="pic" /><i class="camera"></i></div>
+            <a href="javascript:;"  class="pic" id="pic">添加图片
+            <input type="file" placeholder="封面图"name="pic" />
+            </a>
+            <!-- <i class="camera"></i> -->
+          </div>
           <textarea name="" id="" placeholder="活动详情"></textarea>
           <h3>主办人信息</h3>
           <input type="text" placeholder="姓名" style="width: 245px" />

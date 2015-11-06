@@ -1,3 +1,29 @@
+(function($){
+  // 增加$.testLogin函数验证登陆
+  // jq插件 增加testLogin函数验证登陆
+  $.testLogin = function(fn){
+    $.ajax({
+      url: "./index.php?m=Home&c=Login&a=checklogin",
+      dataType: "json",
+      type: "get",
+      success: function(json) {
+        if (json.status == "1") {
+          $(".myinfoalert-header-content .name").html(json.data.nickname);
+          $(".myinfoalert-header-face").css("background", json.data.headpic);
+          $(".islogin .face").attr("src", json.data.headpic);
+          $("#nologin").hide();
+          $("#islogin").show();
+          fn(json.data);
+        } else if(json.status == "0"){
+          $("#nologin").show();
+          $("#islogin").hide();
+        }
+      },
+      error: function() {}
+    });
+  }
+})(jQuery);
+
 $(function() {
 
   var scope = {
@@ -25,15 +51,13 @@ $(function() {
 
       $(".logout").on("click",page.logOut);
 
-      // 增加$.testLogin函数验证登陆
-      page.addLogin();
       // 用户登陆检测判断
-      $.testLogin();
+      $.testLogin(function(){});
 
     },
     logOut: function(){
     window.location.href = "./index.php?m=Home&c=Login&a=logout";
-        
+
     },
     regSubmit: function(){
       $.ajax({
@@ -209,33 +233,6 @@ $(function() {
     },
     hideInfo: function() {
       $("#myinfoalert").hide();
-    },
-    // jq插件 增加testLogin函数验证登陆
-    addLogin: function() {
-      $.extend({
-        testLogin: function() {
-          $.ajax({
-            url: "./index.php?m=Home&c=Login&a=checklogin",
-            dataType: "json",
-            type: "get",
-            success: function(json) {
-              console.log(json)
-
-              if (json.status == "1") {
-                $(".myinfoalert-header-content .name").html(json.data.nickname);
-                $(".myinfoalert-header-face").css("background", json.data.headpic);
-                $(".islogin .face").attr("src", json.data.headpic);
-                $("#nologin").hide();
-                $("#islogin").show();
-              } else if(json.status == "0"){
-                $("#nologin").show();
-                $("#islogin").hide();
-                              }
-            },
-            error: function() {}
-          })
-        }
-      })
     }
   };
   page.init();

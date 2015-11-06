@@ -280,8 +280,32 @@
 .mask .popbox select option {
   text-indent: 15px;
 }
+
 .mask .popbox .pic {
+  position: relative;
   width: 500px;
+  height: 35px;
+  display: block;
+  margin-left: 30px;
+  border: 1px solid #ccc;
+  margin-bottom: 24px;
+  font-size: 12px;
+  color: #999;
+  line-height: 35px;
+  text-indent: 15px;
+  overflow: hidden;
+  input{
+    position: absolute;
+    // top:10px;
+    left: 0;
+    margin-left: 0px;
+    height: 35px;
+    margin-top: 5px;
+    border: 0;
+    width: 500px;
+    // opacity: 0;
+    // filter: alpha(opcity=0)
+  }
 }
 .mask .popbox .camera {
   display: inline-block;
@@ -330,4 +354,9 @@
   margin-left: 155px;
   background-color: #000;
   color: #fff;
+}
+.close{
+  position: absolute;
+  top: 10px;
+  left: 545px;
 }
