@@ -48,7 +48,10 @@
     <!--webmain-->
     <div class="webmain">
       <div class="con nav clearFix" id="J_nav">
-          <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="#">用户中心</a> ><div class="loginfo"><span class="face"></span><span class="name">用户名</span></div></div>
+          <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="#">用户中心</a> >
+            <include file = "Header/login" />
+
+          </div>
       </div>
       <div class="content">
         <div class="subnav">
@@ -182,6 +185,8 @@
 <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
 <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
 <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+<script src="__PUBLIC__/statics/dist/js/common.js"></script>
+
 <script src="__PUBLIC__/statics/dist/js/index/myinfo.js"></script>
 <script src="__PUBLIC__/statics/js/form/myComponent.js"></script>
 </body>
