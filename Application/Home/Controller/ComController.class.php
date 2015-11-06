@@ -28,7 +28,8 @@ class ComController extends Controller {
         $user = M('user');
         $list = $user->where($data)->find();
         if(!$list){
-           return 0;  //从用户中心返回首页
+           //return 0;  //从用户中心返回首页
+           $this->error('请登录',U('Index/index'));
         }else{
             return $list;
         }

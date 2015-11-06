@@ -38,14 +38,11 @@ class UserController extends ComController {
             ajaxReturn(102,'未登录','');
         }
         $sign = $user->where('id='.session('userid'))->save($data);
-
         if($sign === false){
             ajaxReturn(102,'绑定失败');
         }else{
-             $this->error('请先登录',U('Index/index'));
             ajaxReturn(0,'绑定成功');
         }
-
     }
     /**
     *用户更换手机发送验证码
