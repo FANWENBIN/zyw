@@ -13,7 +13,7 @@
           $(".islogin .face").attr("src", json.data.headpic);
           $("#nologin").hide();
           $("#islogin").show();
-            fn(json.data);
+          fn(json.data);
         } else if(json.status == "0"){
           $("#nologin").show();
           $("#islogin").hide();
