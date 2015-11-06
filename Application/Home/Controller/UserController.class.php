@@ -15,13 +15,16 @@ class UserController extends ComController {
 
         //城市地区
         $province = M('provinces')->select();
+        $this->assign('province',$province);
         if(!empty($userinfo['provinceid'])){
             $where['provinceid'] = $userinfo['provinceid'];
         }else{
             $where['provinceid'] = $province[0]['provinceid'];
         }
-        $this->$cities = M('cities')->where($where)->select();
-      
+
+        $cities = M('cities')->where($where)->select();
+        $this->assign('cities',$cities);
+
         $userinfo['mobile'] = substr($userinfo['mobile'], 3,6);        
         $this->assign('userinfo',$userinfo);
         $this->display();
