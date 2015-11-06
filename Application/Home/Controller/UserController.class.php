@@ -21,6 +21,8 @@ class UserController extends ComController {
             $where['provinceid'] = $province[0]['provinceid'];
         }
         $this->$cities = M('cities')->where($where)->select();
+      
+        $userinfo['mobile'] = substr($userinfo['mobile'], 3,6);        
         $this->assign('userinfo',$userinfo);
         $this->display();
     }
