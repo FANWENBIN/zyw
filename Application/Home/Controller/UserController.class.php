@@ -15,6 +15,7 @@ class UserController extends ComController {
 
         //城市地区
         $province = M('provinces')->select();
+        $this->assign('province',$province);
         if(!empty($userinfo['provinceid'])){
             $where['provinceid'] = $userinfo['provinceid'];
         }else{

@@ -91,12 +91,26 @@
                       <span class="item-head">所在地：</span>
                       <div class="item-body">
                         <select class="" name="province" id="province">
-                          <!-- <option>上海市</option>
-                          <option>北京市</option> -->
+                          <volist name = "province" id = "vo">
+                          <if condition = "$userinfo['provinceid'] eq $vo['provinceid']">
+                          <option data-id="{$vo.provinceid}" checked>{$vo.province}</option>
+                          <else />
+                          <option data-id="{$vo.provinceid}">{$vo.province}</option>
+                          </if>
+                          </volist>
                         </select>
                         <select class="" name="city" id="city">
                           <!-- <option>普陀区</option>
                           <option>黄浦区</option> -->
+                          <volist name = "cities" id = "vo">
+
+                          
+                          <if condition = "$userinfo['cityid'] eq $vo['cityid']">
+                          <option data-id="{$vo.cityid}" checked>{$vo.city}</option>
+                          <else />
+                          <option data-id="{$vo.cityid}">{$vo.city}</option>
+                          </if>
+                          </volist>
                         </select>
                       </div>
                     </li>
