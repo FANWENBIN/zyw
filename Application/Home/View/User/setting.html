@@ -93,10 +93,10 @@
                         <select class="" name="province" id="province">
                           <volist name = "province" id = "vo">
                           <if condition = "$userinfo['provinceid'] eq $vo['provinceid']">
-                          <option value="{$vo.provinceid}|{$vo.province}" selected="selected">{$vo.province}</option>
+                          <option value="{$vo.provinceid}|{$vo.province}" data-id = "{$vo.provinceid}" selected="selected">{$vo.province}</option>
 
                           <else />
-                          <option value="{$vo.provinceid}|{$vo.province}">{$vo.province}</option>
+                          <option value="{$vo.provinceid}|{$vo.province}" data-id = "{$vo.provinceid}">{$vo.province}</option>
                           </if>
 
                           </volist>
