@@ -30,7 +30,7 @@ $(function(){
           var _arr = json.data;
           var _html = "";
           for(var i = 0, len = _arr.length ; i < len ; i++){
-            _html += '<option data-id="'+ _arr[i].provinceid +'|'+ _arr[i].province +'">'+ _arr[i].province +'</option>'
+            _html += '<option data-id="'+ _arr[i].provinceid +'" value="'+ _arr[i].provinceid +'|'+ _arr[i].province +'">'+ _arr[i].province +'</option>'
           }
           $("#province").html(_html);
         },
@@ -49,7 +49,7 @@ $(function(){
           var _arr = json.data;
           var _html = "";
           for(var i = 0, len = _arr.length ; i < len ; i++){
-            _html += '<option data-id="'+ _arr[i].cityid +'|'+ _arr[i].city +'">'+ _arr[i].city +'</option>'
+            _html += '<option value="'+ _arr[i].cityid +'|'+ _arr[i].city +'">'+ _arr[i].city +'</option>'
           }
           $("#city").html(_html);
         },
