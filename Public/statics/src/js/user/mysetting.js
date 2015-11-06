@@ -13,8 +13,8 @@ $(function(){
       $("#confirmmb").on("click",page.confirmMb);
       $("#province").on("change",page.changeProvince);
       // 初始化province city
-      page.getProvince();
-      page.getCity();
+      // page.getProvince();
+      // page.getCity();
 
     },
     changeProvince: function(){
@@ -30,7 +30,7 @@ $(function(){
           var _arr = json.data;
           var _html = "";
           for(var i = 0, len = _arr.length ; i < len ; i++){
-            _html += '<option data-id="'+ _arr[i].provinceid +'">'+ _arr[i].province +'</option>'
+            _html += '<option data-id="'+ _arr[i].provinceid +'|'+ _arr[i].province +'">'+ _arr[i].province +'</option>'
           }
           $("#province").html(_html);
         },
@@ -49,7 +49,7 @@ $(function(){
           var _arr = json.data;
           var _html = "";
           for(var i = 0, len = _arr.length ; i < len ; i++){
-            _html += '<option data-id="'+ _arr[i].cityid +'">'+ _arr[i].city +'</option>'
+            _html += '<option data-id="'+ _arr[i].cityid +'|'+ _arr[i].city +'">'+ _arr[i].city +'</option>'
           }
           $("#city").html(_html);
         },
