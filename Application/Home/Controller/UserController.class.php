@@ -12,6 +12,7 @@ class UserController extends ComController {
 
         //映射用户信息
         $userinfo = $this->checkuserLogin();
+
         //城市地区
         $province = M('provinces')->select();
         if(!empty($userinfo['provinceid'])){
@@ -20,6 +21,7 @@ class UserController extends ComController {
             $where['provinceid'] = $province[0]['provinceid'];
         }
         $this->$cities = M('cities')->where($where)->select();
+        $this->assign('userinfo',$userinfo);
         $this->display();
     }
     //手机更换绑定
