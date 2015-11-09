@@ -62,8 +62,11 @@ class CommentController extends ComController {
         //评论显示
         $comment = M('comment');
         $data['status'] = 1;
-        $type = trim(I('get.type')) || ajaxReturn(102,'参数错误','');
-        $id = trim(I('get.id')) || ajaxReturn(102,'参数错误','');
+        $type = trim(I('get.type'));
+        $id = trim(I('get.id'));
+        if(empty($type) || empty($id)){
+            ajaxReturn(102,'参数错误','');
+        }
         $data['typeid'] = $type;
         $data['pageid'] = $id;
         //$commentlist = $comment->field('id,name,namehead,content,instime,')->where($data)->select();
@@ -72,7 +75,6 @@ class CommentController extends ComController {
         $show  = $Page->show(); //分页显示输出
         // 进行分页数据查询注意limit方法的参数要使用Page类的属性
         $list = $comment->field('id,name,namehead,content,instime')->where($data)->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
-
         //$this->assign('lists',$list); //赋值数据集
        // $this->assign('page',$show); //赋值分页输出
         $page = ceil($count/5);
