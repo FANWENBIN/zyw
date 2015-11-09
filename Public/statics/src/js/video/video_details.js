@@ -11,18 +11,39 @@ $(function(){
       $("#J_CommentSendbox .submit").on("click",page.addComments);
     },
     addComments: function(){
-      console.log(scope.userdata);
       var _content = $("#J_CommentSendbox textarea").val();
-      $("#J_CommentList").prepend('<div class="item clearFix">'+
-        '<div class="head">'+
-          '<img src="'+ scope.userdata.headpic +'">'+
-        '</div>'+
-        '<div class="info">'+
-          '<span>'+ scope.userdata.nickname +' 发表日期：'+ new Date().toLocaleString() +'</span>'+
-          '<p>'+ _content +'</p>'+
-        '</div>'+
-      '</div>')
-      $("#J_CommentList .item").eq(5).remove();
+      $.ajax({
+        type: "post",
+        dataType: "json",
+        url: "./index.php?m=Home&c=Comment&a=addcomment",
+        data: {
+          content: _content,
+          href: window.location.href
+        },
+        success: function(json){
+          if(json.status === 0){
+            $("#J_CommentList").prepend('<div class="item clearFix">'+
+              '<div class="head">'+
+                '<img src="'+ scope.userdata.headpic +'">'+
+              '</div>'+
+              '<div class="info">'+
+                '<span>'+ scope.userdata.nickname +' 发表日期：'+ new Date().toLocaleString() +'</span>'+
+                '<p>'+ _content +'</p>'+
+              '</div>'+
+            '</div>')
+            $("#J_CommentList .item").eq(5).remove();
+          }else if(json.status === 101){
+            console.log(json.msg)
+          }else if(json.status === 102){
+            console.log(json.msg)
+          }else if(json.status === 105){
+            console.log(json.msg)
+          }
+        },
+        error: function(){
+        }
+      })
+
       // 提交内容
     }
   }
