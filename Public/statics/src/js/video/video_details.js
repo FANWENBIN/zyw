@@ -1,14 +1,73 @@
 $(function(){
   var scope = {
-    userdata: {}
+    userdata: {},
+    pageNum: 1
   }
   var page = {
     init: function(){
+      // 获取用户信息
       $.testLogin(function(data){
         scope.userdata = data;
       });
-      // 提交时
+      // 分页
+      page.getPage(function(){
+        pageInit(parseInt(scope.pageNum),5,function(index){
+          //回调，刷新内容页
+          if(index == 0)return false;
+          page.getData(index);
+        });
+      });
       $("#J_CommentSendbox .submit").on("click",page.addComments);
+    },
+    getPage: function(fn){
+      $.ajax({
+        url: "./index.php?m=Home&c=Comment&a=commentlist",
+        type: "get",
+        dataType: "json",
+        data: {
+          type: 2,
+          id: $.getId()
+        },
+        success: function(json){
+          scope.pageNum = json.data.page;
+          fn();
+        },
+        error: function(){
+        }
+      })
+    },
+    getData: function(page){
+      $.ajax({
+        url: "./index.php?m=Home&c=Comment&a=commentlist",
+        type: "get",
+        dataType: "json",
+        data: {
+          type: 2,
+          id: $.getId()
+        },
+        success: function(json){
+          var _arr = json.data.data;
+          var _html = "";
+          if(json.data.page == 0) {
+            $("#itemlist").html(_html);
+            return false;
+          }
+          for(var i = 0, len = _arr.length; i < len; i++ ){
+            _html += '<div class="item clearFix">'+
+              '<div class="head">'+
+                '<img src="./Uploads'+ _arr[i].namehead +'">'+
+              '</div>'+
+              '<div class="info">'+
+                '<span>'+ _arr[i].name +' 发表日期：'+ _arr[i].instime +'</span>'+
+                '<p>'+ _arr[i].content +'</p>'+
+              '</div>'+
+            '</div>'
+          }
+          $("#itemlist").html(_html);
+        },
+        error: function(){
+        }
+      })
     },
     addComments: function(){
       var _content = $("#J_CommentSendbox textarea").val();
