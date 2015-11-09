@@ -119,7 +119,7 @@ $(function() {
     closeAlert: function() {
       // $(this).parent().parent().hide();
       $(this).parent().parent().remove();
-    },
+    }, 
     regShow: function() {
       // $("#registeralert").show();
       var $reg = $('<div class="registeralert" id="registeralert"></div>');
