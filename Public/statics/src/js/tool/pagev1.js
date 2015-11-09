@@ -64,8 +64,8 @@ $(function() {
           }
         }
         $("#pagelist .num").html(_html);
-        fn(1);
       }
+        fn(1);
     }else{
       console.log("页数是非数字，请确认！");
       scope.totalpage = 1;
@@ -90,7 +90,7 @@ $(function() {
       var _html = "";
       for(var i = 0,len = scope.eachpage; i < len ; i++){
         if(i == len-1){
-          _html += '<li class="active">' + scope.minpage + '</li>'
+          _html += '<li class="active">' + (scope.minpage + i) + '</li>'
         }else{
           _html += '<li>' + (scope.minpage + i) + '</li>'
         }
@@ -127,7 +127,7 @@ $(function() {
           _html += '<li>' + (scope.minpage + i) + '</li>'
         }
       }
-      
+
       $("#pagelist .num").html(_html)
       fn(scope.currentpage);
       //当前页大于等于最大页&&+10大于总数

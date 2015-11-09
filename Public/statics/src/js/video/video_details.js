@@ -11,13 +11,14 @@ $(function(){
       });
       // 分页
       page.getPage(function(){
-        pageInit(parseInt(scope.pageNum),5,function(index){
+        pageInit(parseInt(scope.pageNum),10,function(index){
           //回调，刷新内容页
-          console.log(index)
+          console.log(index,1)
           if(index == 0)return false;
           page.getData(index);
         });
       });
+
       $("#J_CommentSendbox .submit").on("click",page.addComments);
     },
     getPage: function(fn){
