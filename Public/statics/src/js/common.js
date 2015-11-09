@@ -9,8 +9,8 @@
       success: function(json) {
         if (json.status == "1") {
           $(".myinfoalert-header-content .name").html(json.data.nickname);
-          $(".myinfoalert-header-face").css("background", "./Upload"+json.data.headpic);
-          $(".islogin .face").attr("src", "./Upload/"+json.data.headpic);
+          $(".myinfoalert-header-face").css("background", "./Uploads"+json.data.headpic);
+          $(".islogin .face").attr("src", "./Uploads"+json.data.headpic);
           $("#login").html(json.data.nickname)
           $("#nologin").hide();
           $("#islogin").show();
@@ -119,7 +119,7 @@ $(function() {
     closeAlert: function() {
       // $(this).parent().parent().hide();
       $(this).parent().parent().remove();
-    }, 
+    },
     regShow: function() {
       // $("#registeralert").show();
       var $reg = $('<div class="registeralert" id="registeralert"></div>');
