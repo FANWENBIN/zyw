@@ -50,7 +50,7 @@ class RiceController extends ComController {
     	$list = $fans_club->order($order)->limit($Page->firstRow.','.$Page->listRows)->select();
     	$this->assign('list',$list);// 赋值数据集
     	$this->assign('page',$show);// 赋值分页输出
-    	
+
     	$page = ceil($count/8);
     	if($list === false){
     		ajaxReturn(101,'请求失败，','');
@@ -58,7 +58,7 @@ class RiceController extends ComController {
     		if(!$list){
     			$list = array();
     		}
-    		$data = array($list,$page);
+    		$data = array('data'=>$list,'page'=>$page);
     		ajaxReturn(0,'',$data);
     	}
 

@@ -1,5 +1,5 @@
 <?php
-// 本类由系统自动生成，仅供测试用途
+// 评论发起，和请求评论列表
 namespace Home\Controller;
 use Think\Controller;
 class CommentController extends ComController {
@@ -26,7 +26,7 @@ class CommentController extends ComController {
     		}
             //检测路径的c参数值。
             $data['pagehref'] =  preg_replace('/amp;/', '', $data['pagehref']);
-            $param = getUrlParam($data['pagehref']);
+            $param = getUrlParam($data['pagehref']);  //取出地址链接作为数组
             switch ($param['c']) {
                 case 'News':
                    $data['typeid'] = 1;
@@ -51,6 +51,47 @@ class CommentController extends ComController {
       	}
 
     }
+    /**
+    *评论分页显示数据调用
+    *@param
+    *@author witner
+    *@version 2015年11月9日15:37:37
+    *@return 
+    */
+    public function commentlist(){
+        //评论显示
+        $comment = M('comment');
+        $data['status'] = 1;
+        $type = trim(I('get.type')) || ajaxReturn(102,'参数错误','');
+        $id = trim(I('get.id')) || ajaxReturn(102,'参数错误','');
+        $data['type'] = $type;
+        $data['pageid'] = $id;
+        //$commentlist = $comment->field('id,name,namehead,content,instime,')->where($data)->select();
+        $count = $comment->where($data)->count(); // 查询满足要求的总记录数
+        $Page  = new \Think\Page($count,5); // 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show  = $Page->show(); //分页显示输出
+        // 进行分页数据查询注意limit方法的参数要使用Page类的属性
+        $list = $comment->field('id,name,namehead,content,instime')->where($data)->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
+
+        //$this->assign('lists',$list); //赋值数据集
+       // $this->assign('page',$show); //赋值分页输出
+        $page = ceil($count/5);
+        if(false === $list){
+            ajaxReturn(101,'请求失败，重新请求','');
+        }else{
+            if(!$list){
+                $list = array();
+            }else{
+                foreach ($list as $key => $value) {
+                    $list[$key]['instime'] = date('Y/m/d H:i:s',$value['instime']);
+                }
+            }
+            $data = array('data'=>$list,'page'=>$page);
+            ajaxReturn(0,'',$data);
+        }
+
+    }
+
    
    
 }
