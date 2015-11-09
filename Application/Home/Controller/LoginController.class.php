@@ -26,7 +26,7 @@ class LoginController extends ComController {
     public function checklogin(){
         //md5(xxzyw916);
         $data['id'] = session('userid');
-        $data['name'] = session('username');
+        $data['mobile'] = session('userphone');
         $user = M('user');
         $list = $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
         if(!$list){
