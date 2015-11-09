@@ -18,7 +18,8 @@ $(function(){
         url: "./index.php?m=Home&c=Comment&a=addcomment",
         data: {
           content: _content,
-          href: window.location.href
+          href: window.location.href,
+          pagename: $(".videoname").html(),
         },
         success: function(json){
           if(json.status === 0){
