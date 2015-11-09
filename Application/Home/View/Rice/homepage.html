@@ -146,9 +146,13 @@
         <h2>发帖</h2>
 
       </div>
-      <form class="" action="#" method="post">
+      <!-- <form class="" action="#" method="post">
         <textarea name="name" rows="8" cols="40"></textarea>
-      </form>
+      </form> -->
+
+      <textarea id="editor_id" name="content" style="width:700px;height:300px;"></textarea>
+
+
     </div>
 
   </div>
@@ -165,6 +169,23 @@
   <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
   <script src="__PUBLIC__/statics/dist/js/common.js"></script>
   <script src="__PUBLIC__/statics/dist/js/rice/homepage.js"></script>
+
+  <!--  kindeditor-->
+  <script charset="utf-8" src="__PUBLIC__/statics/js/kindeditor/kindeditor.js"></script>
+  <script charset="utf-8" src="__PUBLIC__/statics/js/kindeditor/lang/zh_CN.js"></script>
+  <script>
+        var options = {
+          items: [
+            'cut','copy','paste','justifyleft','justifycenter','justifyright','justifyfull','fontsize','forecolor','bold','italic',
+            'image','emoticons'
+          ],
+          width : '1198px'
+        };
+        KindEditor.ready(function(K) {
+          window.editor = K.create('#editor_id',options);
+        });
+  </script>
+  <!--  kindeditor end-->
 
 </body>
 
