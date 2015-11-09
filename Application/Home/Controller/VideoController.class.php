@@ -4,7 +4,7 @@ namespace Home\Controller;
 use Think\Controller;
 class VideoController extends ComController {
   public function index(){
-    echo session('user');
+ 
   
     //banner
     $banner = M('banner');
@@ -39,6 +39,7 @@ class VideoController extends ComController {
   }
     //视频详情页
   public function video_details(){
+    var_dump(session('user'));
     $id = I('get.id');
     $vedio = M('vedio');
     $vedioval = $vedio->where('id='.$id)->find();
