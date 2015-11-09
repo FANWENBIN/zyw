@@ -19,12 +19,13 @@ class CommentController extends ComController {
     		$data['pagehref'] = I('post.href');
     		$data['instime']  = time();
     		$data['pagename'] = I('post.pagename');
-    		$sign = $this->checkDump($data);
 
+            $sign = $this->checkDump($data);
     		if(!$sign){
     			ajaxReturn(102,'不可有空信息','');
     		}
             //检测路径的c参数值。
+            $data['pagehref'] =  preg_replace('/amp;/', '', $data['pagehref']);
             $param = getUrlParam($data['pagehref']);
             switch ($param['c']) {
                 case 'News':
@@ -40,8 +41,8 @@ class CommentController extends ComController {
     		$userval = M('user')->where('id='.session('userid'))->find();
     		$data['namehead'] = $userval['headpic'];           //查询用户头像
     		$comment = M('comment');
-    		$sign = $comment->add($data);
-    		if($sign){
+    		$addid = $comment->add($data);
+    		if($addid){
     			ajaxReturn(0,'评论成功','');
     		}else{
     			ajaxReturn(101,'评论失败','');
