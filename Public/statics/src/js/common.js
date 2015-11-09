@@ -9,8 +9,9 @@
       success: function(json) {
         if (json.status == "1") {
           $(".myinfoalert-header-content .name").html(json.data.nickname);
-          $(".myinfoalert-header-face").css("background", json.data.headpic);
-          $(".islogin .face").attr("src", json.data.headpic);
+          $(".myinfoalert-header-face").attr("src", "./Uploads"+json.data.headpic);
+          $(".islogin .face").attr("src", "./Uploads"+json.data.headpic);
+          $("#login").html(json.data.nickname)
           $("#nologin").hide();
           $("#islogin").show();
           fn(json.data);
@@ -177,7 +178,7 @@ $(function() {
         '</div>'+
         '<form class="logform" action="index.html" method="post">'+
           '<div class="loginalert-main-item">'+
-            '<label for="mb">手&nbsp;&nbsp;机：</label>'+
+            '<label for="mb">用户名：</label>'+
             '<input type="text" name="mb" value="" id="mb" placeholder="请输入手机号码">'+
           '</div>'+
           '<div class="loginalert-main-item">'+
