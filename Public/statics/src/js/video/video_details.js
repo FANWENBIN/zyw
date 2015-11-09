@@ -26,7 +26,8 @@ $(function(){
         dataType: "json",
         data: {
           type: 2,
-          id: $.getId()
+          id: $.getId(),
+          p: 1
         },
         success: function(json){
           scope.pageNum = json.data.page;
@@ -43,7 +44,8 @@ $(function(){
         dataType: "json",
         data: {
           type: 2,
-          id: $.getId()
+          id: $.getId(),
+          p: page
         },
         success: function(json){
           var _arr = json.data.data;
