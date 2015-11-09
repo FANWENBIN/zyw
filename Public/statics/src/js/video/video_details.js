@@ -13,6 +13,7 @@ $(function(){
       page.getPage(function(){
         pageInit(parseInt(scope.pageNum),5,function(index){
           //回调，刷新内容页
+          console.log(index)
           if(index == 0)return false;
           page.getData(index);
         });
