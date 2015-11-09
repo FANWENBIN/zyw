@@ -34,32 +34,31 @@
 
     <div class="topbanner" id="banner">
       <ul class="imglist">
+      <volist name = "banner" id = "vo">
+      <if condition = "$i eq 1">
         <li class="active">
-          <a href="#">
-            <img src="#" alt="1" />
+          <a href="{:U('homepage',array('id'=>$vo['id']))}">
+            <img src="./Uploads{$vo.img}" alt="1" />
           </a>
         </li>
+      <else />
         <li>
-          <a href="#">
-            <img src="#" alt="2" />
+          <a href="{:U('homepage',array('id'=>$vo['id']))}">
+            <img src="./Uploads{$vo.img}" alt="2" />
           </a>
         </li>
-        <li>
-          <a href="#">
-            <img src="#" alt="3" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="#" alt="4" />
-          </a>
-        </li>
+        </if>
+       </volist>
+
       </ul>
       <ul class="dotlist">
+      <volist name = "banner" id = "vo">
+      <if condition = "$i eq 1">
         <li class="active"></li>
+        <else />
         <li></li>
-        <li></li>
-        <li></li>
+        </if>
+        </volist>
       </ul>
     </div>
 
@@ -137,7 +136,5 @@
   <script src="__PUBLIC__/statics/dist/js/common.js"></script>
   <script src="__PUBLIC__/statics/dist/js/tool/tab.js"></script>
   <script src="__PUBLIC__/statics/dist/js/rice/rice.js"></script>
-
 </body>
-
 </html>
