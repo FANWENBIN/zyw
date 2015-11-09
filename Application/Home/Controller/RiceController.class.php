@@ -53,7 +53,7 @@ class RiceController extends ComController {
 
     	$page = ceil($count/8);
     	if($list === false){
-    		ajaxReturn(101,'请求失败，','');
+    		ajaxReturn(101,'请求失败','');
     	}else{
     		if(!$list){
     			$list = array();
