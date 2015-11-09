@@ -381,13 +381,16 @@ class BannerController extends ComController {
     }
     //===================饭团banner=================、、
     public function fans(){
+
         $submit = I('post.submit');
         $model = M();
-        $banner = M('banner');
         $model->startTrans();
+        $banner = M('banner');
+        
         $Duck = true;
-        $banner->where('type = 6')->delete();
+        
         if(!empty($submit)){
+            $banner->where('type = 9')->delete();
             for($i = 1;$i<6;$i++){
                 $data['title'] = I('post.name'.$i);
                 $data['img'] = I('post.photo'.$i);
@@ -401,7 +404,7 @@ class BannerController extends ComController {
                     $image->thumb(120,47)->save($urlimg);
                     //,\Think\Image::IMAGE_THUMB_SCALE   /small/banner/2015-09/144361715165112.jpg
                     $data['smallimg'] = $urlimg;
-                    $data['type'] = 6;
+                    $data['type'] = 9;
                     $sign = $banner->add($data);
                     if(!$sign){
                         $Duck = false;
@@ -410,24 +413,26 @@ class BannerController extends ComController {
             }
             if($Duck){
                 $model->commit();
-                $this->success('保存成功',U('Banner/starwars'));
+                $this->success('保存成功',U('Banner/fans'));
             }else{
                 $model->rollback();
                 $this->success('未做任何保存');
             }
         }else{
-             $active = M('actors');
-        $activeval = $active->where('status <> 0')->order('initial asc')->select();
-        $this->assign('a','<option>暂时没有数据</option>');
-        $this->assign('newsval',$activeval);
-     
-        //banner 读取
-        $banner = M('banner');
-        $bannerval = $banner->where(' type= 5')->select();
-        $this->assign('bannerval',$bannerval);
-        $this->assign('cur',4);
-        $this->display();
-        } 
+            $active = M('fans_club');
+            $activeval = $active->order('instime desc')->select();
+            $this->assign('a','<option>暂时没有数据</option>');
+            $this->assign('newsval',$activeval);
+        
+            //banner 读取
+            $banner = D('Banner');
+            $data['type'] = 9;
+            //$bannerval = $banner->where('type = 8')->select();
+            $bannerval = $banner->where($data)->select();
+            $this->assign('bannerval',$bannerval);
+            $this->assign('cur',4);
+            $this->display();
+        }
     }
 
 }

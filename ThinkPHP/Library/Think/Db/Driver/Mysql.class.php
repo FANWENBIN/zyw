@@ -85,6 +85,7 @@ class Mysql extends Db{
      * @return mixed
      */
     public function query($str) {
+        
         if(0===stripos($str, 'call')){ // 存储过程查询支持
             $this->close();
             $this->connected    =   false;
@@ -99,6 +100,7 @@ class Mysql extends Db{
         G('queryStartTime');
         $this->queryID = mysql_query($str, $this->_linkID);
         $this->debug();
+    
         if ( false === $this->queryID ) {
             $this->error();
             return false;
