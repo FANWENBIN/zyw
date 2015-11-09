@@ -4,8 +4,8 @@ namespace Home\Controller;
 use Think\Controller;
 class VideoController extends ComController {
   public function index(){
-    var_dump(session());
-    echo session('username');
+    echo session('user');
+  
     //banner
     $banner = M('banner');
     $bannerval = $banner->where('type = 4')->select();
