@@ -9,8 +9,7 @@
       success: function(json) {
         if (json.status == "1") {
           $(".myinfoalert-header-content .name").html(json.data.nickname);
-          $(".myinfoalert-header-face").css("background-image", "./Uploads"+json.data.headpic);
-          $(".myinfoalert-header-face").css("background", "red");
+          $(".myinfoalert-header-face").css("background", "./Uploads"+json.data.headpic);
 
           $(".islogin .face").attr("src", "./Uploads"+json.data.headpic);
           $("#login").html(json.data.nickname)
