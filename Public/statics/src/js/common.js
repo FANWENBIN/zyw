@@ -23,6 +23,11 @@
       error: function() {}
     });
   }
+  $.getId = function(){
+    var _str = window.location.href;
+    var _arr = _str.split("id=");
+    return _arr[1];
+  }
 })(jQuery);
 
 $(function() {
