@@ -64,7 +64,7 @@ class CommentController extends ComController {
         $data['status'] = 1;
         $type = trim(I('get.type')) || ajaxReturn(102,'参数错误','');
         $id = trim(I('get.id')) || ajaxReturn(102,'参数错误','');
-        $data['type'] = $type;
+        $data['typeid'] = $type;
         $data['pageid'] = $id;
         //$commentlist = $comment->field('id,name,namehead,content,instime,')->where($data)->select();
         $count = $comment->where($data)->count(); // 查询满足要求的总记录数
