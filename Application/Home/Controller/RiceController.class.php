@@ -20,6 +20,7 @@ class RiceController extends ComController {
     	$actlist = $fans_club->order('poststime desc')->limit(0,8)->select();
     	$this->assign('actlist',$actlist);
     		//banner
+    	$this->banner = M('banner')->where('type = 9')->select();
     	$banner = M('banner');
         $this->display();
     }
@@ -49,7 +50,7 @@ class RiceController extends ComController {
     	$list = $fans_club->order($order)->limit($Page->firstRow.','.$Page->listRows)->select();
     	$this->assign('list',$list);// 赋值数据集
     	$this->assign('page',$show);// 赋值分页输出
-
+    	
     	$page = ceil($count/8);
     	if($list === false){
     		ajaxReturn(101,'请求失败，','');
@@ -62,7 +63,14 @@ class RiceController extends ComController {
     	}
 
     }
-    
+    /**
+	*粉丝饭团详情页
+	*@author winter
+	*@version 2015年11月9日13:48:40
+    */
+    public function homepage(){
+    	$this->display();
+    }
 
 
 }

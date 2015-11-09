@@ -18,7 +18,6 @@ class CommentController extends ComController {
     		$data['content']  = I('post.content');
     		$data['pagehref'] = I('post.href');
     		$data['instime']  = time();
-    		$data['pageid'] = I('post.pageid');
     		$data['pagename'] = I('post.pagename');
     		$sign = $this->checkDump($data);
 
@@ -34,10 +33,10 @@ class CommentController extends ComController {
                 case 'Video':
                    $data['typeid'] = 2;
                     break;
-                default:
-                    
+                default: 
                     break;
             }
+            $data['pageid'] = $param['id'];
     		$userval = M('user')->where('id='.session('userid'))->find();
     		$data['namehead'] = $userval['headpic'];           //查询用户头像
     		$comment = M('comment');
