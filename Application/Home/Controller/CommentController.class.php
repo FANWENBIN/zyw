@@ -53,7 +53,7 @@ class CommentController extends ComController {
     }
     /**
     *评论分页显示数据调用
-    *@param
+    *@param  id  页面id。type  类型
     *@author witner
     *@version 2015年11月9日15:37:37
     *@return 
@@ -84,7 +84,7 @@ class CommentController extends ComController {
             if(!$list){
                 $list = array();
             }else{
-                foreach ($list as $key => $value) {
+                foreach($list as $key => $value) {
                     $list[$key]['instime'] = date('Y/m/d H:i:s',$value['instime']);
                 }
             }
