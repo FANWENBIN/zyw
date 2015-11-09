@@ -25,7 +25,7 @@ $(function(){
           if(json.status === 0){
             $("#J_CommentList").prepend('<div class="item clearFix">'+
               '<div class="head">'+
-                '<img src="'+ scope.userdata.headpic +'">'+
+                '<img src="./Uploads'+ scope.userdata.headpic +'">'+
               '</div>'+
               '<div class="info">'+
                 '<span>'+ scope.userdata.nickname +' 发表日期：'+ new Date().toLocaleString() +'</span>'+
