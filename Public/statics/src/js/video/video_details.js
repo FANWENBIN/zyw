@@ -63,7 +63,7 @@ $(function(){
               '</div>'+
             '</div>'
           }
-          $("#itemlist").html(_html);
+          $("#J_CommentList").html(_html);
         },
         error: function(){
         }
