@@ -47,7 +47,7 @@ class CommentController extends ComController {
     		$comment = M('comment');
     		$addid = $comment->add($data);
     		if($addid){
-                //session(array('user'=>'1','expire'=>60));
+                session(array('user'=>'1','expire'=>60));
     			ajaxReturn(0,'评论成功','');
     		}else{
     			ajaxReturn(101,'评论失败','');
