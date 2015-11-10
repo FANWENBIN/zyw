@@ -103,35 +103,37 @@
       <div class="rightsection">
         <ul class="fansinfo clearFix">
           <li class="item">
-            <span class="no">3669</span>
+            <span class="no">{$list.fanssum}</span>
             <span class="tit">粉丝数</span>
           </li>
           <li class="item">
-            <span class="no">3669</span>
+            <span class="no">{$list.posts}</span>
             <span class="tit">发帖量</span>
           </li>
           <li class="item">
-            <span class="no">3669</span>
+            <span class="no">{$list.readers}</span>
             <span class="tit">阅读</span>
           </li>
         </ul>
+
         <div class="cols active">
           <div class="title">
 
           </div>
-          <a href="#" class="item">
-            <img src="#" alt="" />
+          <a href="{:U('Active/active_details',array('id'=>$activeval['id']))}" class="item">
+            <img src="./Uploads{$activeval.img}" alt="" />
             <div class="text">
-              <h1>标题</h1>
-              <h3>10.25-11.11</h3>
+              <h1>{$activeval.title}</h1>
+              <h3>{$activeval.begin_time|date="m.d",###}-{$activeval.last_time|date="m.d",###}</h3>
             </div>
             <sub></sub>
           </a>
           <p>
-            活动介绍活动介绍
+            <?php echo mb_strlen($activeval['content'],'utf8')>75?mb_substr($activeval['content'], 0,80,'utf8'):$activeval['title'] ?>
           </p>
-          <span class="focus">25888</span>
+          <span class="focus">{$activeval.concern}</span>
         </div>
+
         <div class="cols interview">
           <div class="title">
 

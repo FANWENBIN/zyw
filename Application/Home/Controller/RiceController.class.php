@@ -89,6 +89,7 @@ class RiceController extends ComController {
         if(!$activeval){
             $this->assign('empty',1);
         }
+        $this->assign('activeval',$activeval);
     	$this->display();
     }
     /**
