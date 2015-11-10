@@ -13,17 +13,15 @@ class CommentController extends ComController {
     	if(empty($name) || empty($id)){
     		ajaxReturn('105','未登录','');   //
     	}else{
-            if(session(0)['user'] == 1){
+            if(cookie('comment') == 1){
                 ajaxReturn(104,'1分钟之后在评论','');
             }
-
     		$data['name']     = session('username');
     		$data['nameid']   = session('userid');
     		$data['content']  = I('post.content');
     		$data['pagehref'] = I('post.href');
     		$data['instime']  = time();
     		$data['pagename'] = I('post.pagename');
-
             $sign = $this->checkDump($data);
     		if(!$sign){
     			ajaxReturn(102,'不可有空信息','');
@@ -47,7 +45,7 @@ class CommentController extends ComController {
     		$comment = M('comment');
     		$addid = $comment->add($data);
     		if($addid){
-                session(array('user'=>'1','expire'=>60));
+                cookie('comment','1',60);
     			ajaxReturn(0,'评论成功','');
     		}else{
     			ajaxReturn(101,'评论失败','');

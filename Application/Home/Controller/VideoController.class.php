@@ -39,7 +39,7 @@ class VideoController extends ComController {
   }
     //视频详情页
   public function video_details(){
-    var_dump(session('user'));
+    
     $id = I('get.id');
     $vedio = M('vedio');
     $vedioval = $vedio->where('id='.$id)->find();
