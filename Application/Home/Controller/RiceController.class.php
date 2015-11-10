@@ -61,7 +61,6 @@ class RiceController extends ComController {
     		$data = array('data'=>$list,'page'=>$page);
     		ajaxReturn(0,'',$data);
     	}
-
     }
     /**
 	*粉丝饭团详情页
@@ -69,6 +68,27 @@ class RiceController extends ComController {
 	*@version 2015年11月9日13:48:40
     */
     public function homepage(){
+        $id = I('get.id');
+        $fans_club = M('fans_club');
+        $fans_posts = M('posts');
+        //饭团信息
+        $this->list = $fans_club->where('id='.$id)->find();
+        //饭团帖子
+        // $fans_posts->where('fansclubid='.$id)->select();
+
+        $count      = $fans_posts->where('fansclubid='.$id)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,4);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+        // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $list = $fans_posts->where('fansclubid='.$id)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('posts',$list);// 赋值数据集
+        $this->assign('page',$show);// 赋值分页输出
+        //推荐活动
+        $active = M('active');
+        $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
+        if(!$activeval){
+            $this->assign('empty',1);
+        }
     	$this->display();
     }
     /**

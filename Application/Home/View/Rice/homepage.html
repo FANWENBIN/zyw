@@ -27,13 +27,13 @@
   <div class="webmain">
 
     <div class="navTitle">
-      <a href="{:U('Index/index')}">首页</a> > <a href="#">饭团</a> > <a href="#">粉丝社群</a> > <a href="#">李易峰</a><!--
+      <a href="{:U('Index/index')}">首页</a> > <a href="{:U('Rice/index')}">饭团</a> > <a href="{:U('Rice/riceall')}">粉丝社群</a> > <a href="#">{$list.name}</a><!--
            --><include file = "Header/login" />
     </div>
 
     <div class="headsection">
-      <img src="#" alt="" class="face"/><br>
-      <span class="name">李易峰</span><br>
+      <img src="./Uploads{$list.img}" alt="" class="face"/><br>
+      <span class="name">{$list.name}</span><br>
       <a href="#" class="join">+ 入团</a>
     </div>
     <ul class="sectiontab">
@@ -43,6 +43,8 @@
     <div class="maincontent">
       <div class="leftsection">
         <ul class="commentlist">
+        <volist name = "posts" id = "vo">
+        <if condition = "">
           <li>
             <div class="comment-list-head clearFix">
               <img src="#" alt="" class="userhead" />
@@ -69,6 +71,7 @@
               </div>
             </div>
           </li>
+          <else />
           <li>
             <div class="comment-list-head clearFix">
               <img src="#" alt="" class="userhead" />
@@ -82,9 +85,6 @@
                 <div class="comment-content">
                   adadaddada
                 </div>
-                <div class="piclist clearFix">
-                  <img src="#" alt="" />
-                </div>
               </div>
               <div class="remark">
                 <span>10月30号</span>
@@ -95,7 +95,8 @@
               </div>
             </div>
           </li>
-
+        </if>
+        </volist>
         </ul>
 
       </div>
