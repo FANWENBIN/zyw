@@ -13,13 +13,15 @@ class CommentController extends ComController {
     	if(empty($name) || empty($id)){
     		ajaxReturn('105','未登录','');   //
     	}else{
+            if(cookie('comment') == 1){
+                ajaxReturn(104,'1分钟之后在评论','');
+            }
     		$data['name']     = session('username');
     		$data['nameid']   = session('userid');
     		$data['content']  = I('post.content');
     		$data['pagehref'] = I('post.href');
     		$data['instime']  = time();
     		$data['pagename'] = I('post.pagename');
-
             $sign = $this->checkDump($data);
     		if(!$sign){
     			ajaxReturn(102,'不可有空信息','');
@@ -43,6 +45,7 @@ class CommentController extends ComController {
     		$comment = M('comment');
     		$addid = $comment->add($data);
     		if($addid){
+                cookie('comment','1',60);
     			ajaxReturn(0,'评论成功','');
     		}else{
     			ajaxReturn(101,'评论失败','');
@@ -53,7 +56,7 @@ class CommentController extends ComController {
     }
     /**
     *评论分页显示数据调用
-    *@param
+    *@param  id  页面id。type  类型
     *@author witner
     *@version 2015年11月9日15:37:37
     *@return 
@@ -84,7 +87,7 @@ class CommentController extends ComController {
             if(!$list){
                 $list = array();
             }else{
-                foreach ($list as $key => $value) {
+                foreach($list as $key => $value) {
                     $list[$key]['instime'] = date('Y/m/d H:i:s',$value['instime']);
                 }
             }

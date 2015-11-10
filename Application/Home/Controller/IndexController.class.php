@@ -4,6 +4,7 @@ use Think\Controller;
 //首页类
 class IndexController extends ComController {
     public function index(){
+
         //演员显示
         $actors = M('actors');
         //红组
