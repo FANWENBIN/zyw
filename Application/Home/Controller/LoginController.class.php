@@ -64,6 +64,7 @@ class LoginController extends ComController {
             session('userid',$sign['id']);
             session('username',$sign['nickname']);
             session('userphone',$sign['mobile']);
+            session('userimg',$sign['headpic']);
             ajaxReturn(1,'登陆成功',$sign);
         }else{
             ajaxReturn(0,'账号密码输入错误','');

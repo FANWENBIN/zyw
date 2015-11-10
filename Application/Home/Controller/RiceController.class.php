@@ -30,6 +30,7 @@ class RiceController extends ComController {
 	*@version 2015年11月6日19:43:28
     */
     public function riceall(){
+       // $this->alertinfo('info');
     	$this->display();
     }
     /**
@@ -73,6 +74,8 @@ class RiceController extends ComController {
         $fans_posts = M('posts');
         //饭团信息
         $this->list = $fans_club->where('id='.$id)->find();
+        
+        $fans_club->where('id='.$id)->setInc('readers',1);//阅读数加1
         //饭团帖子
         // $fans_posts->where('fansclubid='.$id)->select();
 
@@ -91,6 +94,20 @@ class RiceController extends ComController {
         }
         $this->assign('activeval',$activeval);
     	$this->display();
+    }
+    /**
+    *帖子详情页
+    *@author witner
+    *@version 2015年11月10日19:59:05
+    *@
+    */
+    public function post_details(){
+        $id = I('get.id'); //帖子id
+        $fans_club    = M('fans_club');   //论坛
+        $fans_posts   = M('fans_posts');  //帖子
+        $fans_comment = M('fans_comment'); //评论回复
+        $postslist = $fans_posts->where('id = '.$id)->find();
+
     }
     /**
     *加入饭团接口
@@ -118,11 +135,76 @@ class RiceController extends ComController {
         }
         $sign = $user_fans->add($data);
         if($sign){
+            $fans->where('id='.$data['fansid'])->setInc('fanssum',1);//阅读数加1
             ajaxReturn(0,'加入成功','');
         }else{
             ajaxReturn(101,'加入失败，重新加入','');
         }
     }
+    /**
+    *发帖子接口
+    *@author winter
+    *@version winter
+    *@param fansclubid 论坛id，title 帖子标题，content 帖子内容，
+    *@return 状态码
+    */
+    public function postini(){
+        $data['fansclubid'] = I('post.fansclubid');
+        $data['username']   = session('username');
+        $data['usreid']     = session('userid');
+        $data['title']      = I('post.title');
+        $data['content']    = I('post.content');
+        $data['instime']    = time();
+        $data['headimg']    = session('userimg');
+        $result = $this->checkDump($data);
+        if($result == 0){ajaxReturn(102,'参数不可为空','');}
+        $posts = M('fans_posts');
+        $fans_club = M('fans_club');
+        $sign = $posts->add($data);
+        if($sign){
+            $fans_club->where('id='.$data['fansclubid'])->setInc('posts',1);
+            ajaxReturn(0,'发布成功','');
+        }else{
+            ajaxReturn(101,'','发帖失败');
+        }
+    }
+    /**
+    *发布评论接口
+    *@author winter
+    *@version 2015年11月10日19:38:47
+    *@param fid 被评论内容id，postid 帖子id，content 评论内容，
+    */
+    public function comment(){
+        $data['userid'] = session('userid');
+        $data['fid']    = I('post.fid');
+        $data['postid'] = I('post.postid');
+        $data['content'] = I('post.content');
+        $data['instime'] = time();
+        $data['status']  = 1;
+        $data['headimg'] = session('userimg');
+        $result = $this->checkDump($data);
+        if($result == 0){ajaxReturn(102,'参数不可为空','');}
+        $fans_comment = M('fans_comment');     //论坛评论表
+        $user_msg = M('user_msg');             //用户消息表
+        $user = M('user');                    //用户表
+        $sign = $fans_comment->add($data);
+        if($sign){
 
+            $fval = $fans_comment->where('id='.$data['fid'])->find(); //父级数据；
+            $userval = $user->where('id='.$fval['userid'])->find(); //被评论者用户数据
+
+            $msg['type'] = 2;
+            $msg['msg']  = $data['content'];
+            $msg['status'] = 2;
+            $msg['instime'] = time();
+            $msg['uid'] = $userval['id'];
+            $msg['username'] = $userval['nickname'];
+            $user_msg->add($msg);     //被评论者接收数据
+            ajaxReturn(0,'评论成功','');
+        }else{
+            ajaxReturn(101,'评论失败','');
+        }
+
+    }
 
 }
