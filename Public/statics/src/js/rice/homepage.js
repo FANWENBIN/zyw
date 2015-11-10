@@ -10,7 +10,9 @@ $(function(){
       $.ajax({
         type: "get",
         url: "./index.php?m=Home&c=Rice&a=joinfans",
-        data: $(".webmain").data("id"),
+        data: {
+          fansid: $(".webmain").data("id")
+        },
         dataType: "json"
         success: function(json){
           if(json.status === 0){
