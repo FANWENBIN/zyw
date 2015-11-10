@@ -87,6 +87,17 @@
     }
     .comment-body{
       margin-top: 20px;
+      .comment-content{
+        font-size: 14px;
+        line-height: 35px;
+      }
+      .piclist{
+        height: 130px;
+        img{
+          float: left;
+          height: 130px;
+        }
+      }
     }
     .remark{
       height: 70px;
