@@ -19,7 +19,7 @@ class RiceController extends ComController {
     		//活跃
     	$actlist = $fans_club->order('poststime desc')->limit(0,8)->select();
     	$this->assign('actlist',$actlist);
-    		//banner
+    		//banner 
     	$this->banner = M('banner')->where('type = 9')->select();
     	$banner = M('banner');
         $this->display();
@@ -70,6 +70,37 @@ class RiceController extends ComController {
     */
     public function homepage(){
     	$this->display();
+    }
+    /**
+    *加入饭团接口
+    *@author winter
+    *@version 2015年11月10日16:14:21
+    *@param 
+    */
+    public function joinfans(){
+        $fans = M('fans_club');    //粉丝团
+        $user_fans = M('user_fans'); //用户关注粉丝团表
+        $data['fansid'] = I('get.fansid');
+        $data['userid'] = session('userid');
+        $data['instime'] = time();
+        $dump = $this->checkDump($data);          //检查数据不为空
+        if($dump == 0){ajaxReturn(102,'数据不可为空','');}
+        //根据id查询粉丝团是否存在
+        $fansval = $fans->where('id='.$data['fansid'])->count();
+        if(!$fansval){
+            ajaxReturn(103,'不存在该团','');
+        }
+        //根据俩个id查询用户是否已关注粉丝团
+        $userval = $user_fans->where('fansid = '.$data['fansid'].' and userid='.$data['userid'])->count();
+        if(!$userval){
+            ajaxReturn(104,'用户已加入团内','');
+        }
+        $sign = $user_fans->add($data);
+        if($sign){
+            ajaxReturn(0,'加入成功','');
+        }else{
+            ajaxReturn(101,'加入失败，重新加入','');
+        }
     }
 
 
