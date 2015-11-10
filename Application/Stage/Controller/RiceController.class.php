@@ -48,7 +48,6 @@ class RiceController extends Controller {
       }else{
         $sign = $fans->add($data);
       }
-    
       if($sign){
         $this->success('操作成功',U('index'));
       }else{
@@ -62,6 +61,15 @@ class RiceController extends Controller {
   *@version 2015年11月10日15:39:21
   */
   public function posts(){
+    $this->cur = 14;
+    $this->display();
+  }
+  /**
+  *论坛评论回复
+  *@author witner
+  *@version 2015年11月10日15:42:09
+  */
+  public function comment(){
     $this->cur = 14;
     $this->display();
   }
