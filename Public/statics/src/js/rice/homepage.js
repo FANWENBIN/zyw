@@ -13,22 +13,22 @@ $(function(){
         data: {
           fansid: $(".webmain").data("id")
         },
-        dataType: "json"
+        dataType: "json",
         success: function(json){
           if(json.status === 0){
-            cosole.log(json.msg)
+            console.log(json.msg)
             $(".join").html("已入团")
           }else if(json.status === 101){
-            cosole.log(json.msg)
+            console.log(json.msg)
             alert("加入失败，请稍后再试")
           }else if(json.status === 102){
-            cosole.log(json.msg)
+            console.log(json.msg)
             alert("加入失败，请稍后再试")
           }else if(json.status === 103){
-            cosole.log(json.msg)
+            console.log(json.msg)
             alert("加入失败，请稍后再试")
           }else if(json.status === 104){
-            cosole.log(json.msg)
+            console.log(json.msg)
           }
         },
         error: function(){
