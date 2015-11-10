@@ -25,6 +25,7 @@
           <dt><span></span>基本元素</dt>
           <dd>
             <ul id="tabList">
+            <li <if condition="$cur eq 0">class = "current"</if> ><a href="{:U('Admin/index')}">管理员管理</a></li>
              <li <if condition="$cur eq 1">class = "current"</if> ><a href="{:U('User/index')}">用户管理</a></li>
               <li <if condition="$cur eq 2">class = "current"</if> ><a href="{:U('Gactor/index')}">候选演员管理</a></li>
 
@@ -40,6 +41,7 @@
         <li <if condition="$cur eq 9">class = "current"</if> ><a href="{:U('Vedio/index')}">视频管理</a></li>
         <li <if condition="$cur eq 10">class = "current"</if> ><a href="{:U('Performing/index')}">演艺库管理<if condition="$actorssum neq 0"><sub>{$actorssum}</sub></if></a></li>
         <li <if condition="$cur eq 13">class = "current"</if> ><a href="{:U('Stage/index')}">Stage-作品管理<if condition="$works neq 0"><sub>{$works}</sub></if></a></li>
+        <li <if condition="$cur eq 14">class = "current"</if> ><a href="{:U('Rice/index')}">饭团管理<if condition="$fens neq 0"><sub>{$fens}</sub></if></a></li>
         <li <if condition="$cur eq 11">class = "current"</if> ><a href="{:U('Comment/index')}">评论</if></a></li>
         <li <if condition="$cur eq 12">class = "current"</if> ><a href="{:U('Configure/index')}">网站基础配置</a></li>
 
