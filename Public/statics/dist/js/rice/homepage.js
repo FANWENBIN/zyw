@@ -1,1 +1,1 @@
-$(function(){});
+$(function(){var o={init:function(){$(".join").on("click",o.join)},join:function(){$.ajax({type:"get",url:"./index.php?m=Home&c=Rice&a=joinfans",data:{fansid:$(".webmain").data("id")},dataType:"json",success:function(o){0===o.status?(console.log(o.msg),$(".join").html("已入团")):101===o.status?(console.log(o.msg),alert("加入失败，请稍后再试")):102===o.status?(console.log(o.msg),alert("加入失败，请稍后再试")):103===o.status?(console.log(o.msg),alert("加入失败，请稍后再试")):104===o.status&&console.log(o.msg)},error:function(){}})}};o.init()});
