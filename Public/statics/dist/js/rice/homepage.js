@@ -1,1 +1,1 @@
-$(function(){});
+$(function(){var n={init:function(){$(".join").on("click",n.join)},join:function(){$.ajax({type:"get",url:"./index.php?m=Home&c=Rice&a=joinfans",data:""})}};n.init()});
