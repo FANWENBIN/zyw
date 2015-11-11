@@ -13,10 +13,12 @@ $bannerheight:530px;
 //banner
 .topbanner{
 @include banner1($bannerwidth, $bannerheight, 450px);
- 
+
 }
 
-
+.community{
+  position: relative;
+}
 
 //粉丝社群
 .community .inner{
