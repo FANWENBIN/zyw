@@ -29,13 +29,14 @@ $(function(){
             alert("发布失败，请稍后再试")
           }else if(json.status === 102){
             console.log(json.msg);
-            alert("请登录或稍后再试")；
+            alert("请登录或稍后再试")
           }
         },
         error: function(){
 
         }
       })
+      return false;
     },
     submit: function(){
       $.ajax({
@@ -56,7 +57,7 @@ $(function(){
             alert("发布失败，请稍后再试")
           }else if(json.status === 102){
             console.log(json.msg);
-            alert("请登录或稍后再试")；
+            alert("请登录或稍后再试");
           }
         },
         error: function(){
