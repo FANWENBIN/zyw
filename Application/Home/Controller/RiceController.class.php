@@ -120,7 +120,7 @@ class RiceController extends ComController {
         $this->display();
     }
     /**
-    *加入饭团接口
+    *加入粉丝饭团接口
     *@author winter
     *@version 2015年11月10日16:14:21
     *@param 
@@ -149,6 +149,24 @@ class RiceController extends ComController {
             ajaxReturn(0,'加入成功','');
         }else{
             ajaxReturn(101,'加入失败，重新加入','');
+        }
+    }
+    /**
+    *检测用户是否已加入
+    *@author winter
+    *@version 2015年11月11日19:12:23
+    *@
+    */
+    public function checkjoin(){
+        $user_fans = M('user_fans');
+        $data['fansid'] = I('get.fansid');
+        $data['userid'] = session('userid');
+        //根据俩个id查询用户是否已关注粉丝团
+        $userval = $user_fans->where('fansid = '.$data['fansid'].' and userid='.$data['userid'])->count();
+        if($userval){
+            ajaxReturn(1,'用户已加入团内','');
+        }else{
+            ajaxReturn(0,'未加入','');
         }
     }
     /**
