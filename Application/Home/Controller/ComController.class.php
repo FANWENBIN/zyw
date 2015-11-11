@@ -107,6 +107,28 @@ class ComController extends Controller {
             }
         }
     } 
+    /*
+    参数说明：$cate:查询数据
+        $pid 是父级id
+        $level 是下一级的前置空格数
+        $html是设施前置留空白还是'--'
+        $fid  父id字段
+        $id  id字段
+    //本方法返回值为数组、可调节性高。个性化设置~~~方法大家随便用。
+    //$tree=$user->sortOut($val,0,0,'---','fid','a_id');
+    */
+    public function sortOut($cate,$pid=0,$level=0,$html='--',$fid='fid',$id='a_id'){
+        $tree = array();
+        foreach($cate as $v){
+            if($v[$fid] == $pid){
+                $v['level'] = $level + 1;
+                $v['html'] = str_repeat($html, $level);
+                $tree[] = $v;
+                $tree = array_merge($tree,$this->sortOut($cate,$v[$id],$level+1,$html,$fid,$id));
+            }
+        }
+        return $tree;
+    }
 
     /*根据浏览几率猜你喜欢
     author：winter

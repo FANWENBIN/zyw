@@ -34,7 +34,7 @@ class RiceController extends ComController {
     	$this->display();
     }
     /**
-    *粉丝团所有接口数据
+    *粉丝团所有数据接口
     *@author winter
     *@version 2015年11月6日19:40:54
     */
@@ -107,7 +107,11 @@ class RiceController extends ComController {
         $fans_posts   = M('fans_posts');  //帖子
         $fans_comment = M('fans_comment'); //评论回复
         $postslist = $fans_posts->where('id = '.$id)->find();
-
+        $clublist  = $fans_club->where('id = '.$postslist['fansclubid'])->find();
+        $commentlist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1')->select();
+        var_dump($commentlist);
+        $val = $this->sortOut($commentlist,0,0,'---','fid','id');
+var_dump($val);
     }
     /**
     *加入饭团接口
@@ -151,7 +155,7 @@ class RiceController extends ComController {
     public function postini(){
         $data['fansclubid'] = I('post.fansclubid');
         $data['username']   = session('username');
-        $data['usreid']     = session('userid');
+        $data['userid']     = session('userid');
         $data['title']      = I('post.title');
         $data['content']    = I('post.content');
         $data['instime']    = time();
