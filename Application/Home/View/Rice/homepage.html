@@ -48,7 +48,7 @@
         <if condition = "$vo['img'] neq ''">
           <li>
             <div class="comment-list-head clearFix">
-              <img src="#" alt="" class="userhead" />
+              <img src="./Uploads{$vo.headimg}" alt="" class="userhead" />
               <span class="username">{$vo.username}</span>
             </div>
             <div class="commentsec">
@@ -75,7 +75,7 @@
           <else />
           <li>
              <div class="comment-list-head clearFix">
-              <img src="#" alt="" class="userhead" />
+              <img src="./Uploads{$vo.headimg}" alt="" class="userhead" />
               <span class="username">{$vo.username}</span>
             </div>
             <div class="commentsec">
