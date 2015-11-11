@@ -182,7 +182,7 @@ class RiceController extends ComController {
     */
     public function comment(){
         $data['userid'] = session('userid');
-        $data['fid']    = I('post.fid');
+       
         $data['postid'] = I('post.postid');
         $data['content'] = I('post.content');
         $data['instime'] = time();
@@ -190,6 +190,7 @@ class RiceController extends ComController {
         $data['headimg'] = session('userimg');
         $result = $this->checkDump($data);
         if($result == 0){ajaxReturn(102,'参数不可为空','');}
+        $data['fid']    = I('post.fid'); 
         $fans_comment = M('fans_comment');     //论坛评论表
         $user_msg = M('user_msg');             //用户消息表
         $user = M('user');                    //用户表
