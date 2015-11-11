@@ -102,6 +102,26 @@
     .inner-content{
       margin-left: 70px;
     }
+    .mainreply{
+      margin-top: 30px;
+      input{
+        float: left;
+        height: 30px;
+        width: 100%;
+        margin-bottom: 10px;
+        text-indent: 15px;
+        border: 1px solid #000;
+        background-color: #fff;
+      }
+      button{
+        float: right;
+        width: 80px;
+        height: 30px;
+        background-color: #000;
+        border: 0;
+        color: #fff;
+      }
+    }
     .comment{
       margin-top: 100px;
       .replygroup{

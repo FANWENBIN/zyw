@@ -24,7 +24,7 @@
 
 
   <!--webmain-->
-    <div class="webmain">
+    <div class="webmain" data-id="1">
 
     <div class="navTitle">
       <a href="{:U('Index/index')}">首页</a> > <a href="#">饭团</a> > <a href="#">粉丝社群</a> > <a href="#">李易峰</a> > <a href="#">贴贴贴</a><!--
@@ -57,6 +57,7 @@
               </div>
             </div>
           </div>
+
           <div class="inner-content">
             正文内容  <br>
             正文内容  <br>
@@ -64,8 +65,12 @@
             正文内容  <br>
             正文内容  <br>
           </div>
+          <div class="mainreply">
+            <input type="text" name="name" value="" id="mainreplycontent">
+            <button type="button" name="button" class="mainreply-button" id="mainreply">评论</button>
+          </div>
           <div class="comment">
-            <div class="outeritem">
+            <div class="outeritem" data-id="1">
               <div class="item">
                 <div class="item-left">
                   <img src="#" alt="" />
@@ -99,13 +104,13 @@
                 </div>
               </div>
               <div class="inputsection clearFix">
-                <form class="" action="index.html" method="post">
+                <form class="" action="#" method="post">
                   <input type="text" name="content" value="" class="replytext">
-                  <input type="submit" name="submit"  class="reply" value="确定">
+                  <input type="submit" name="submit"  class="reply subreplysubmit" value="确定">
                 </form>
               </div>
             </div>
-            <div class="outeritem">
+            <div class="outeritem" data-id="1">
               <div class="item">
                 <div class="item-left">
                   <img src="#" alt="" />
@@ -139,9 +144,9 @@
                 </div>
               </div>
               <div class="inputsection clearFix">
-                <form class="" action="index.html" method="post">
+                <form class="" action="#" method="post">
                   <input type="text" name="content" value="" class="replytext">
-                  <input type="submit" name="submit"  class="reply" value="确定">
+                  <input type="submit" name="submit"  class="reply subreplysubmit" value="确定">
                 </form>
               </div>
             </div>
