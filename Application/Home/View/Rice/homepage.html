@@ -44,26 +44,27 @@
       <div class="leftsection">
         <ul class="commentlist">
         <volist name = "posts" id = "vo">
-        <if condition = "$i">
+
+        <if condition = "$vo['img'] neq ''">
           <li>
             <div class="comment-list-head clearFix">
               <img src="#" alt="" class="userhead" />
-              <span class="username">用户名</span>
+              <span class="username">{$vo.username}</span>
             </div>
             <div class="commentsec">
               <div class="comment-title">
-                评论标题
+                {$vo.title}
               </div>
               <div class="comment-body">
                 <div class="comment-content">
-                  adadaddada
+                  {:html_entity_decode($vo['content'])}
                 </div>
                 <div class="piclist clearFix">
-                  <img src="#" alt="" />
+                   {:imgTab($vo['img'])}
                 </div>
               </div>
               <div class="remark">
-                <span>10月30号</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
                 <div class="focussection">
                   <span class="remarknum">22555</span>
                   <span class="hotnum">22095</span>
@@ -73,21 +74,21 @@
           </li>
           <else />
           <li>
-            <div class="comment-list-head clearFix">
+             <div class="comment-list-head clearFix">
               <img src="#" alt="" class="userhead" />
-              <span class="username">用户名</span>
+              <span class="username">{$vo.username}</span>
             </div>
             <div class="commentsec">
               <div class="comment-title">
-                评论标题
+                {$vo.title}
               </div>
               <div class="comment-body">
                 <div class="comment-content">
-                  adadaddada
+                  {:html_entity_decode($vo['content'])}
                 </div>
               </div>
               <div class="remark">
-                <span>10月30号</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
                 <div class="focussection">
                   <span class="remarknum">22555</span>
                   <span class="hotnum">22095</span>
@@ -97,6 +98,7 @@
           </li>
         </if>
         </volist>
+        {$page}
         </ul>
 
       </div>
