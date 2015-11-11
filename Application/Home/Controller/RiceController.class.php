@@ -109,9 +109,9 @@ class RiceController extends ComController {
         $postslist = $fans_posts->where('id = '.$id)->find();
         $clublist  = $fans_club->where('id = '.$postslist['fansclubid'])->find();
         $commentlist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1')->select();
-        var_dump($commentlist);
-        $val = $this->sortOut($commentlist,0,0,'---','fid','id');
-        var_dump($val);
+        //var_dump($commentlist);
+        $this->$list = $this->sortOut($commentlist,0,0,'---','fid','id');
+        //var_dump($val);
         $this->display();
     }
     /**
@@ -135,7 +135,7 @@ class RiceController extends ComController {
         }
         //根据俩个id查询用户是否已关注粉丝团
         $userval = $user_fans->where('fansid = '.$data['fansid'].' and userid='.$data['userid'])->count();
-        if(!$userval){
+        if($userval){
             ajaxReturn(104,'用户已加入团内','');
         }
         $sign = $user_fans->add($data);
@@ -162,6 +162,7 @@ class RiceController extends ComController {
         $data['instime']    = time();
         $data['headimg']    = session('userimg');
         $result = $this->checkDump($data);
+        //ajaxReturn(102,'',$data);
         if($result == 0){ajaxReturn(102,'参数不可为空','');}
         $posts = M('fans_posts');
         $fans_club = M('fans_club');
