@@ -111,7 +111,8 @@ class RiceController extends ComController {
         $commentlist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1')->select();
         var_dump($commentlist);
         $val = $this->sortOut($commentlist,0,0,'---','fid','id');
-var_dump($val);
+        var_dump($val);
+        $this->display();
     }
     /**
     *加入饭团接口
