@@ -71,8 +71,9 @@ class RiceController extends ComController {
     public function homepage(){
         $id = I('get.id');
         $fans_club = M('fans_club');
-        $fans_posts = M('posts');
+        $fans_posts = M('fans_posts');
         //饭团信息
+
         $this->list = $fans_club->where('id='.$id)->find();
         
         $fans_club->where('id='.$id)->setInc('readers',1);//阅读数加1
@@ -84,6 +85,10 @@ class RiceController extends ComController {
         $show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = $fans_posts->where('fansclubid='.$id)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+
+        foreach($list as $key=>$value){
+            $list[$key]['content'] = preg_replace('/&lt;img\s+src=&quot;(.*?\/attached.*?(\.jpg|\.jpeg|\.gif|\.png).*?&gt;)/', '', $value['content']);
+        }
         $this->assign('posts',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
         //推荐活动
@@ -159,11 +164,18 @@ class RiceController extends ComController {
         $data['userid']     = session('userid');
         $data['title']      = I('post.title');
         $data['content']    = I('post.content');
+
+
         $data['instime']    = time();
         $data['headimg']    = session('userimg');
         $result = $this->checkDump($data);
         //ajaxReturn(102,'',$data);
         if($result == 0){ajaxReturn(102,'参数不可为空','');}
+        preg_match_all('/src=&quot;(.*?\/attached.*?(\.jpg|\.jpeg|\.gif|\.png))/',$data['content'], $strs);
+        $data['img'] = '';
+        foreach($strs[1] as $key=>$val){
+            $data['img'] .= $val.',';               //加入图片
+        }
         $posts = M('fans_posts');
         $fans_club = M('fans_club');
         $sign = $posts->add($data);

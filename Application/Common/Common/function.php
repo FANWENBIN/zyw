@@ -176,7 +176,21 @@
 				return '编剧';
 		}
 	}
-
+	/**
+	*粉丝发帖图片单独显示
+	*@author witner
+	*@version 2015年11月11日17:20:36
+	*@param 逗号隔开的路径
+	*@return 图片整体标签
+	*/	
+	function imgTab($url){
+		$arr = explode(',', $url);
+		$img = '';
+		foreach($arr as $key=>$value){
+			$img .= '<img src="'.$value.'" alt="" />';
+		}
+		return $img;
+	}
 	function newtype($id){
 		switch ($id) {
 			case '1':
