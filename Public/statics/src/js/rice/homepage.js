@@ -4,7 +4,44 @@ $(function(){
   };
   var page = {
     init: function(){
-      $(".join").on("click",page.join)
+      $(".join").on("click",page.join);
+      $(".submitmessage").on("click",page.submit)
+    },
+    submit: function(){
+      // 取得HTML内容
+      var html = editor.html();
+
+      // 同步数据后可以直接取得textarea的value
+      editor.sync();
+      html = $('#editor_id').val(); // jQuery
+      var title = $(".articletitle").val();
+      console.log(title,html);
+      $.ajax({
+        type: "post",
+        url: "./index.php?m=Home&c=Rice&a=postini",
+        data: {
+          fansclubid: $(".webmain").data("id"),
+          title: title,
+          content: html
+        },
+        dataType: "json",
+        success: function(json){
+          if(json.status === 0){
+            console.log(json.msg);
+            window.location.reload();
+          }else if(json.status === 101){
+            console.log(json.msg);
+            alert("发送失败，请稍后再试");
+          }else if(json.status === 102){
+            console.log(json.msg);
+            alert("请填写全相关信息");
+          }
+        },
+        error: function(){
+
+        }
+
+      })
     },
     join: function(){
       $.ajax({
