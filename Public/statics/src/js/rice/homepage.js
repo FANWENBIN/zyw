@@ -72,6 +72,28 @@ $(function(){
 
         }
       })
+    },
+    testJoin: function(){
+      $.ajax({
+        type: "get",
+        url: "./index.php?m=Home&c=Rice&a=checkjoin",
+        data: {
+          fansid: $(".webmain").data("id")
+        },
+        dataType: "json",
+        success: function(json){
+          if(json.status === 0){
+            $(".join").html("已入团")
+            console.log(json.msg)
+          }else if(json.status === 1){
+            $(".join").html("+ 入团")
+            console.log(json.msg)
+          }
+        },
+        error: function(){
+
+        }
+
     }
   };
   page.init();
