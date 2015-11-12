@@ -30,6 +30,8 @@
       <a href="{:U('Index/index')}">首页</a> > <a href="{:U('Rice/index')}">饭团</a> > <a href="{:U('Rice/riceall')}">粉丝社群</a> > <a href="{:U('Rice/homepage',array('id'=>$clublist['id']))}">{$clublist.name}</a> > <a href="{:U('Rice/post_details',array('id'=>$postslist['id']))}">{$postslist['title']}</a><!--
            --><include file = "Header/login" />
     </div>
+
+
     <div class="sectionleft">
       <div class="topcon">
         <img src="./Uploads{$clublist.img}" class="head"><span class="stickname">{$clublist.name}</span>
@@ -37,6 +39,8 @@
           <button type="button" name="button">已入团</button><button type="button" name="button">发帖</button>
         </div> -->
       </div>
+
+
       <div class="content">
         <div class="content-head">
           <div class="userinfo">
@@ -50,20 +54,16 @@
           <div class="content-title">
             <h3>{$postslist.title}</h3>
             <div class="content-info">
-              <span class="time">{$posts.instime|date="Y-m-d H:i:s",###}</span>
+              <span class="time">{$postslist.instime|date="Y-m-d H:i:s",###}</span>
               <div class="focusinfo">
-                <span class="reply">131313</span>
-                <span class="focus">1313131</span>
+                <span class="reply">{$postslist.comments}</span>
+                <span class="focus">{$postslist.readers}</span>
               </div>
             </div>
           </div>
 
           <div class="inner-content">
-            正文内容  <br>
-            正文内容  <br>
-            正文内容  <br>
-            正文内容  <br>
-            正文内容  <br>
+            {:html_entity_decode($postslist['content'])}
           </div>
           <div class="mainreply">
             <input type="text" name="name" value="" id="mainreplycontent">
@@ -71,9 +71,10 @@
           </div>
           <div class="comment">
             <div class="outeritem" data-id="1">
+
               <div class="item">
                 <div class="item-left">
-                  <img src="#" alt="" />
+                  <img src="#" alt="" /> 
                 </div>
                 <div class="item-right">
                   <div class="item-title">
@@ -88,8 +89,25 @@
                   </div>
                 </div>
               </div>
+<!-- h回复 -->
               <div class="replygroup">
+
+                <div data-name="王小二" data-id = "" class="itemreply clearFix">
+                  <div class="itemreply-left">
+                    <img src="#" alt="" />
+                  </div>
+                  <div class="itemreply-right">
+                    <div class="itemreply-title">
+                      <span class="name">用户名</span>
+                      <span>大家好。。。。。。。。。</span>
+                      <a href="javascript:;" class="replybutton">回复</a>
+                      <span class="time">06-07 10:30</span>
+                    </div>
+                  </div>
+                </div>
+
                 <div data-name="王小二" data-id="1" class="itemreply clearFix">
+
                   <div class="itemreply-left">
                     <img src="#" alt="" />
                   </div>
@@ -102,7 +120,11 @@
                     </div>
                   </div>
                 </div>
+
+
               </div>
+
+
               <div class="inputsection clearFix">
                 <form class="" action="#" method="post">
                   <input type="text" name="content" value="" class="replytext">
@@ -110,6 +132,7 @@
                 </form>
               </div>
             </div>
+
             <div class="outeritem" data-id="1">
               <div class="item">
                 <div class="item-left">
@@ -143,12 +166,14 @@
                   </div>
                 </div>
               </div>
+
               <div class="inputsection clearFix">
                 <form class="" action="#" method="post">
                   <input type="text" name="content" value="" class="replytext">
                   <input type="submit" name="submit"  class="reply subreplysubmit" value="确定">
                 </form>
               </div>
+
             </div>
 
           </div>
@@ -190,7 +215,7 @@
         </div>
       </div>
     </div>
-
+</div>
 
   </div>
   <!--webmain end-->
