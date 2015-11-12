@@ -70,18 +70,18 @@
             <button type="button" name="button" class="mainreply-button" id="mainreply">评论</button>
           </div>
           <div class="comment">
-       
-            <div class="outeritem" data-id="{$vo.id}" data-name="{$vo.username}">
+       <volist name = "list" id = "vo">
+            <div class="outeritem" data-id="{$vo.flist.id}" data-name="{$vo.flist.username}">
               
               <div class="item">
                 <div class="item-left">
-                  <img src="./Uploads{$vo.headimg}" alt="" /> 
+                  <img src="./Uploads{$vo.flist.headimg}" alt="" /> 
                 </div>
                 <div class="item-right">
                   <div class="item-title">
-                    <span class="name">{$vo.username}</span>
-                    <span>{$vo.content}</span>
-                    <span class="time">{$vo.instime|date="Y-m-d H:i:s",###}</span>
+                    <span class="name">{$vo.flist.username}</span>
+                    <span>{$vo.flist.content}</span>
+                    <span class="time">{$vo.flist.instime|date="Y-m-d H:i:s",###}</span>
                   </div>
                   <div class="replysection">
                     <div class="clearFix">
@@ -134,7 +134,7 @@
               </div>
 
             </div>
-
+          </volist>
             
 
           </div>

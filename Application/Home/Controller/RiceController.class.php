@@ -113,13 +113,20 @@ class RiceController extends ComController {
         $fans_comment = M('fans_comment'); //评论回复
         $postslist = $fans_posts->where('id = '.$id)->find(); //帖子详情
         $clublist  = $fans_club->where('id = '.$postslist['fansclubid'])->find(); //饭团详情
-        $commentlist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1')->select();  //评论列表
-        //序列化
+
         $fans_posts->where('id='.$id)->setInc('readers',1);  //阅读数加1
+        //序列化
         //$this->$count = $fans_comment->where('postid = '.$postslist['id'].' and status = 1')->count();//评论数量
-        $this->list = $this->sortOut($commentlist,0,0,'---','fid','id');
+        //$list = $this->sortOut($commentlist,0,0,'---','fid','id');
         //echo $fans_comment->getlastsql();
-        //var_dump($list);
+        $flist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->select();  //评论列表
+        foreach ($flist as $key => $value) {
+            $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = '.$value['id'])->select();
+           // echo $fans_comment->getlastsql();
+            $array[$key]['flist'] = $value;
+            $array[$key]['slist'] = $slist;
+        }
+        $this->list = $array;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
         //var_dump($val);
