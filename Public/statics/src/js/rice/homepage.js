@@ -5,7 +5,8 @@ $(function(){
   var page = {
     init: function(){
       $(".join").on("click",page.join);
-      $(".submitmessage").on("click",page.submit)
+      $(".submitmessage").on("click",page.submit);
+      page.testJoin()
     },
     submit: function(){
       // 取得HTML内容
