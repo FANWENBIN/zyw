@@ -27,6 +27,7 @@ class LoginController extends ComController {
         //md5(xxzyw916);
         $data['id'] = session('userid');
         $data['mobile'] = session('userphone');
+        ajaxReturn(0,'',session('userid'));
         $user = M('user');
         $list = $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
         $sql = $user->getlastsql();
@@ -67,6 +68,7 @@ class LoginController extends ComController {
             session('username',$sign['nickname']);
             session('userphone',$sign['mobile']);
             session('userimg',$sign['headpic']);
+
             ajaxReturn(1,'登陆成功',$sign);
         }else{
             ajaxReturn(0,'账号密码输入错误','');
