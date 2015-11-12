@@ -5,7 +5,8 @@ $(function(){
   var page = {
     init: function(){
       $(".join").on("click",page.join);
-      $(".submitmessage").on("click",page.submit)
+      $(".submitmessage").on("click",page.submit);
+      page.testJoin()
     },
     submit: function(){
       // 取得HTML内容
@@ -53,8 +54,8 @@ $(function(){
         dataType: "json",
         success: function(json){
           if(json.status === 0){
-            console.log(json.msg)
-            $(".join").html("已入团")
+            console.log(json.msg);
+            $(".join").html("已入团");
           }else if(json.status === 101){
             console.log(json.msg)
             alert("加入失败，请稍后再试")
@@ -72,7 +73,29 @@ $(function(){
 
         }
       })
+    },
+    testJoin: function(){
+      $.ajax({
+        type: "get",
+        url: "./index.php?m=Home&c=Rice&a=checkjoin",
+        data: {
+          fansid: $(".webmain").data("id")
+        },
+        dataType: "json",
+        success: function(json){
+          if(json.status === 1){
+            $(".join").html("已入团")
+            console.log(json.msg)
+          }else if(json.status === 0){
+            $(".join").html("+ 入团")
+            console.log(json.msg)
+          }
+        },
+        error: function(){
+
+        }
+      })
     }
-  };
+  }
   page.init();
 })
