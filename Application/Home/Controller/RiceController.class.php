@@ -111,10 +111,10 @@ class RiceController extends ComController {
         $fans_club    = M('fans_club');   //论坛
         $fans_posts   = M('fans_posts');  //帖子
         $fans_comment = M('fans_comment'); //评论回复
-        $postslist = $fans_posts->where('id = '.$id)->find();
-        $clublist  = $fans_club->where('id = '.$postslist['fansclubid'])->find();
-        $commentlist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1')->select();
-        //var_dump($commentlist);
+        $postslist = $fans_posts->where('id = '.$id)->find(); //帖子详情
+        $clublist  = $fans_club->where('id = '.$postslist['fansclubid'])->find(); //饭团详情
+        $commentlist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1')->select();  //评论列表
+        //序列化
         $this->$list = $this->sortOut($commentlist,0,0,'---','fid','id');
         //var_dump($val);
         $this->display();
