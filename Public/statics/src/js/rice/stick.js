@@ -1,6 +1,6 @@
 $(function(){
   var scope = {
-
+    followId : 0
   };
   var page = {
     init: function(){
@@ -69,11 +69,9 @@ $(function(){
       if($(this).parents(".outeritem").find(".inputsection").css("display") === "none"){
       $(this).parents(".outeritem").find(".inputsection").show().find(".replytext")[0].focus();
       $(this).parents(".outeritem").find(".replytext").val("");
-      $(this).html("收起");
     }else{
       $(this).parents(".outeritem").find(".inputsection").hide();
       $(this).parents(".outeritem").find(".replytext").val("");
-      $(this).html("回复");
     }
     },
     subreply: function(){
