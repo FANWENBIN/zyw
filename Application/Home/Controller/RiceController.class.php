@@ -117,10 +117,16 @@ class RiceController extends ComController {
 
         $fans_posts->where('id='.$id)->setInc('readers',1);  //阅读数加1
         //序列化
-        //$this->$count = $fans_comment->where('postid = '.$postslist['id'].' and status = 1')->count();//评论数量
         //$list = $this->sortOut($commentlist,0,0,'---','fid','id');
-        //echo $fans_comment->getlastsql();
-        $flist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->select();  //评论列表
+       // $flist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->select();  //评论列表
+
+        $count      = $fans_comment->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,1);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+        // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $flist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('page',$show);// 赋值分页输出
+
         foreach ($flist as $key => $value) {
             $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = '.$value['id'])->select();
            
