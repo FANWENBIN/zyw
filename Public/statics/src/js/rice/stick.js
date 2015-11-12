@@ -69,11 +69,19 @@ $(function(){
       if($(this).parents(".outeritem").find(".inputsection").css("display") === "none"){
       $(this).parents(".outeritem").find(".inputsection").show().find(".replytext")[0].focus();
       $(this).parents(".outeritem").find(".replytext").val("")
-      }
+    }else{
+      $(this).parents(".outeritem").find(".inputsection").hide();
+      $(this).parents(".outeritem").find(".replytext").val("");
+
+    }
     },
     subreply: function(){
+      if(){
       $(this).parents(".outeritem").find(".replytext").val("@"+$(this).parents(".itemreply").data("name")+" ")
       $(this).parents(".outeritem").find(".inputsection").show().find(".replytext")[0].focus();
+    }else{
+      
+    }
     }
 
   };
