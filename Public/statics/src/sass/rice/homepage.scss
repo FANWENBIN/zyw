@@ -91,7 +91,7 @@
         font-size: 14px;
         line-height: 35px;
         img{
-          display: inline-block; 
+          display: inline-block;
         }
       }
       .piclist{
@@ -163,6 +163,9 @@
       }
     }
     .active{
+      &>p{
+        font-size: 14px;
+      }
       .title{
         height: 60px;
         background: url("../../../images/icon_fans_title.gif") 0 0 no-repeat;
