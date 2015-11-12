@@ -69,6 +69,10 @@ class RiceController extends ComController {
 	*@version 2015年11月9日13:48:40
     */
     public function homepage(){
+        echo session('userid');
+        echo     session('username');
+        echo   session('userphone');
+        echo    session('userimg');
         $id = I('get.id');
         $fans_club = M('fans_club');
         $fans_posts = M('fans_posts');
@@ -126,7 +130,7 @@ class RiceController extends ComController {
             $array[$key]['flist'] = $value;
             $array[$key]['slist'] = $slist;
         }
-       
+
         $this->list = $array;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
