@@ -24,7 +24,7 @@
 
 
   <!--webmain-->
-    <div class="webmain" data-id="1">
+    <div class="webmain" data-id="{$postslist.id}">
 
     <div class="navTitle">
       <a href="{:U('Index/index')}">首页</a> > <a href="{:U('Rice/index')}">饭团</a> > <a href="{:U('Rice/riceall')}">粉丝社群</a> > <a href="{:U('Rice/homepage',array('id'=>$clublist['id']))}">{$clublist.name}</a> > <a href="{:U('Rice/post_details',array('id'=>$postslist['id']))}">{$postslist['title']}</a><!--
@@ -79,7 +79,7 @@
                 </div>
                 <div class="item-right">
                   <div class="item-title">
-                    <span class="name">{$vo.flist.username}</span>
+                    <span class="name">{$vo.flist.name}</span>
                     <span>{$vo.flist.content}</span>
                     <span class="time">{$vo.flist.instime|date="Y-m-d H:i:s",###}</span>
                   </div>
@@ -93,7 +93,7 @@
 <!-- h回复 -->
               <div class="replygroup">
               <volist name = "vo['slist']" id= "svo"> 
-                <div data-name="王小二" data-id="1" class="itemreply clearFix">
+                <div data-name="王小二" data-id="{$svo.id}" class="itemreply clearFix">
 
                   <div class="itemreply-left">
                     <img src="./Uploads{$svo.headimg}" alt="" />
@@ -122,7 +122,7 @@
             </div>
           </volist>
             
-
+            {$page}
           </div>
         </div>
       </div>

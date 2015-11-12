@@ -24,6 +24,7 @@ class LoginController extends ComController {
     }
    //验证登陆接口
     public function checklogin(){
+
         //md5(xxzyw916);
         $data['id'] = session('userid');
         $data['mobile'] = session('userphone');
@@ -35,21 +36,6 @@ class LoginController extends ComController {
             ajaxReturn(1,'已登录',$list);
         }
     }
-    
-    /**
-    * 验证码
-    * @author winter
-    * @version 2015年10月28日19:15:25
-    */
-    public function verify(){
-        ob_end_clean();
-        $verify = new \Think\Verify(array('imageH'=>40,'imageW'=>140,'length'=>4,'fontSize'=>18,'useNoise'=>false,'expire'=>1800));
-        $verify->entry();
-    }
-    function check_verify($code){  
-    $verify = new \Think\Verify();   
-    return $verify->check($code);
-    }
     //登陆接口
     public function login(){
         $name = I('get.name');
@@ -57,7 +43,6 @@ class LoginController extends ComController {
         $user = M('user');
         $data['mobile'] = $name;
         $data['passwd']   = $passwd;
-
         $sign =  $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
       
         if($sign){
@@ -65,6 +50,7 @@ class LoginController extends ComController {
             session('username',$sign['nickname']);
             session('userphone',$sign['mobile']);
             session('userimg',$sign['headpic']);
+       
             ajaxReturn(1,'登陆成功',$sign);
         }else{
             ajaxReturn(0,'账号密码输入错误','');
@@ -98,7 +84,7 @@ class LoginController extends ComController {
             ajaxReturn(101,'注册失败','');
         }
     }
-    //前台调用验证码接口验证登陆
+    //前台调手机验证码接口验证登陆
     public function yzm(){
         //调用短信先验证验证码是否正确
         $code = I('get.code');
@@ -107,7 +93,7 @@ class LoginController extends ComController {
             ajaxReturn(102,'验证码输入错误','');
         }
         //随机生成验证码
-        $ver = rand(1000,9999);
+        $ver = rand(100000,999999);
         $phone = I('get.phone');
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  
@@ -120,6 +106,20 @@ class LoginController extends ComController {
             session('phone',$phone);
             ajaxReturn(0,'发送成功','');
         }
+    }
+    /**
+    * 验证码
+    * @author winter
+    * @version 2015年10月28日19:15:25
+    */
+    public function verify(){
+        ob_end_clean();
+        $verify = new \Think\Verify(array('imageH'=>40,'imageW'=>140,'length'=>4,'fontSize'=>18,'useNoise'=>false,'expire'=>1800));
+        $verify->entry();
+    }
+    function check_verify($code){  
+        $verify = new \Think\Verify();   
+        return $verify->check($code);
     }
     /**
      * 退出登录

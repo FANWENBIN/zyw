@@ -5,13 +5,13 @@ use Think\Controller;
 class RiceController extends Controller {
   public function index(){
     $fans = M('fans_club');
-    $this->list = $fans->order('fanssum desc')->select();
-
-    $count      = $fans->count();// 查询满足要求的总记录数
+    //$this->list = $fans->order('fanssum desc')->select();
+    $data['status'] = 1;
+    $count      = $fans->where($data)->count();// 查询满足要求的总记录数
     $Page       = new \Think\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
     $show       = $Page->show();// 分页显示输出
     // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-    $list = $fans->order('fanssum desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+    $list = $fans->where($data)->order('fanssum desc')->limit($Page->firstRow.','.$Page->listRows)->select();
     $this->assign('page',$show);// 赋值分页输出
 
     $this->list = $list;
@@ -57,6 +57,38 @@ class RiceController extends Controller {
     }
   }
   /**
+  *删除论坛
+  *@author winter
+  *@version 2015年11月12日17:19:57
+  */
+  public function delete(){
+    $id = I('post.id');
+    $club = M('fans_club');
+    $data['status'] = 0;
+    $sign = $club->where('id='.$id)->save($data);
+    if($sign){
+      $this->success(U('index'),'删除成功');
+    }else{
+      $this->error('删除失败');
+    }
+  }
+  /**
+  *删除帖子
+  *@author winter
+  *@version 2015年11月12日17:39:22
+  */
+  public function postsdelete(){
+    $id = I('post.id');
+    $fans_posts = M('fans_posts');
+    $data['status'] = 0;
+    $sign = $fans_posts->where('id='.$id)->save($data);
+    if($sign){
+      $this->success(U('posts'),'删除成功');
+    }else{
+      $this->error('删除失败');
+    }
+  }
+  /**
   *论坛帖子管理
   *@author winter
   *@version 2015年11月10日15:39:21
@@ -66,10 +98,11 @@ class RiceController extends Controller {
     $fans_club  = M('fans_club');
 
     //$postslist  = $fans_posts->order('instime desc')->select();
-    $count = $fans_posts->count();
+    $data['status'] = 1;
+    $count = $fans_posts->where($data)->count();
     $page  = new \Think\Page($count,15);
     $show  = $page->show();
-    $postslist = $fans_posts->order('instime desc')->limit($page->firstRow.','.$page->listRows)->select();
+    $postslist = $fans_posts->where($data)->order('instime desc')->limit($page->firstRow.','.$page->listRows)->select();
     $this->page = $show;
     foreach ($postslist as $key => $value) {
       $clubval = $fans_club->where('id='.$value['fansclubid'])->find();
@@ -108,8 +141,6 @@ class RiceController extends Controller {
         foreach($strs[1] as $key=>$val){
             $data['img'] .= $val.',';               //加入图片
         }
-
-
       $id = I('get.id');
       
       $sign = $fans->where('id='.$id)->save($data);
@@ -127,8 +158,34 @@ class RiceController extends Controller {
   *@version 2015年11月10日15:42:09
   */
   public function comment(){
+    $fans_comment = M('fans_comment');
+     //$postslist  = $fans_posts->order('instime desc')->select();
+    $data['status'] = 1;
+    $count = $fans_comment->where($data)->count();
+    $page  = new \Think\Page($count,15);
+    $show  = $page->show();
+    $postslist = $fans_comment->where($data)->order('instime desc')->limit($page->firstRow.','.$page->listRows)->select();
+    $this->page = $show;
+    $this->list = $postslist;
+    
     $this->cur = 14;
     $this->display();
+  }
+  /**
+  *删除论坛评论回复
+  *@author、 winter
+  *@version 2015年11月12日19:36:02
+  */
+  public function commentdelete(){
+    $fans_comment = M('fans_comment');
+    $id = I('post.id');
+    $data['status'] = 0;
+    $sign = $fans_comment->where('id='.$id)->save($data);
+    if($sign){
+      $this->success(U('comment'),'删除成功');
+    }else{
+      $this->error('删除失败');
+    }
   }
 
 }

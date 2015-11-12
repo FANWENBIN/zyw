@@ -97,6 +97,42 @@ class UserController extends ComController {
         }
     }
     /**
+    *更改密码
+    *@author witner
+    *@version 2015年11月12日19:45:30
+    */
+    public function modipasswd(){
+        $oldpasswd = I('post.oldpasswd','','md5');
+        $newpasswd = I('post.newpasswd','','md5');
+        $user = M('user');
+        $data['mobile'] = session('userphone');
+        $data['passwd'] = $oldpasswd;
+        $userlist = $user->where($data)->find();
+        if($userlist){
+            $newdump['passwd'] = $newpasswd;
+            $sign = $user->where('id='.$userlist['id'])->save($newdump);
+            if($sign){
+                ajaxReturn(0,'修改成功','');
+            }else{
+                ajaxReturn(101,'修改失败','');
+            }
+        }else{
+            ajaxReturn(102,'旧密码错误','');
+        }
+    }
+    /**
+    *验证手机号，和验证码
+    */
+    public function checkphver(){
+        $phone   = I('get.phone');
+        $version = I('get.version');
+        if($phone != session('phone') || $version != session('yzm')){
+            ajaxReturn(104,'验证码输入错误');
+        }else{
+            ajaxReturn(0,'通过','');
+        }
+    }
+    /**
     *用户更换手机发送验证码
     * @version 2015年11月5日15:45:00
     * @author witner
@@ -104,7 +140,7 @@ class UserController extends ComController {
     public function yzm(){
         //调用短信先验证验证码是否正确
         //随机生成验证码
-        $ver = rand(1000,9999);
+        $ver = rand(100000,999999);
         $phone = I('get.phone');
        // ajaxReturn($phone);
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
@@ -121,8 +157,8 @@ class UserController extends ComController {
     }
     /**
 	*我的活动，活动浏览记录以及发起的活动
-	* @author：winter
-	* @version：2015年11月3日16:58:12
+	* @author ：winter
+	* @version ：2015年11月3日16:58:12
 	*
     */
     public function acthis(){

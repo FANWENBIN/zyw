@@ -9,15 +9,16 @@ class RiceController extends ComController {
     	$fans_club = M('fans_club');
     		//人数
     	//$where[''] =  '';
+        $where['status'] = 1;
     	//$this->$perlist = $fans_club->order('fanssum desc')->limit(0,8)->select();
-    	$perlist = $fans_club->order('fanssum desc')->limit(0,8)->select();
+    	$perlist = $fans_club->where($where)->order('fanssum desc')->limit(0,8)->select();
     	$this->assign('perlist',$perlist);
     	//var_dump($perlist);
     		//人气
-    	$fanlist = $fans_club->order('readers desc')->limit(0,8)->select();
+    	$fanlist = $fans_club->where($where)->order('readers desc')->limit(0,8)->select();
     	$this->assign('fanlist',$fanlist);
     		//活跃
-    	$actlist = $fans_club->order('poststime desc')->limit(0,8)->select();
+    	$actlist = $fans_club->where($where)->order('poststime desc')->limit(0,8)->select();
     	$this->assign('actlist',$actlist);
     		//banner 
     	$this->banner = M('banner')->where('type = 9')->select();
@@ -44,11 +45,12 @@ class RiceController extends ComController {
     	//验证参数
     	$condition == 'fanssum' || $condition == 'readers' || $condition == 'poststime' || ajaxReturn(102,'参数错误','');
     	$order = $condition.' desc';
-    	$count      = $fans_club->count();// 查询满足要求的总记录数
+        $where['status'] = 1;
+    	$count      = $fans_club->where($where)->count();// 查询满足要求的总记录数
     	$Page       = new \Think\Page($count,8);// 实例化分页类 传入总记录数和每页显示的记录数(25)
     	$show       = $Page->show();// 分页显示输出
     	// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-    	$list = $fans_club->order($order)->limit($Page->firstRow.','.$Page->listRows)->select();
+    	$list = $fans_club->where($where)->order($order)->limit($Page->firstRow.','.$Page->listRows)->select();
     	$this->assign('list',$list);// 赋值数据集
     	$this->assign('page',$show);// 赋值分页输出
 
@@ -69,22 +71,21 @@ class RiceController extends ComController {
 	*@version 2015年11月9日13:48:40
     */
     public function homepage(){
+
         $id = I('get.id');
         $fans_club = M('fans_club');
         $fans_posts = M('fans_posts');
         //饭团信息
 
         $this->list = $fans_club->where('id='.$id)->find();
-        
         $fans_club->where('id='.$id)->setInc('readers',1);//阅读数加1
         //饭团帖子
         // $fans_posts->where('fansclubid='.$id)->select();
-
-        $count      = $fans_posts->where('fansclubid='.$id)->count();// 查询满足要求的总记录数
+        $count      = $fans_posts->where('fansclubid='.$id.' and status = 1')->count();// 查询满足要求的总记录数
         $Page       = new \Think\Page($count,4);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $list = $fans_posts->where('fansclubid='.$id)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $list = $fans_posts->where('fansclubid='.$id.' and status = 1')->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
 
         foreach($list as $key=>$value){
             $list[$key]['content'] = preg_replace('/&lt;img\s+src=&quot;(.*?\/attached.*?(\.jpg|\.jpeg|\.gif|\.png).*?&gt;)/', '', $value['content']);
@@ -116,17 +117,23 @@ class RiceController extends ComController {
 
         $fans_posts->where('id='.$id)->setInc('readers',1);  //阅读数加1
         //序列化
-        //$this->$count = $fans_comment->where('postid = '.$postslist['id'].' and status = 1')->count();//评论数量
         //$list = $this->sortOut($commentlist,0,0,'---','fid','id');
-        //echo $fans_comment->getlastsql();
-        $flist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->select();  //评论列表
+       // $flist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->select();  //评论列表
+
+        $count      = $fans_comment->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+        // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $flist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('page',$show);// 赋值分页输出
+
         foreach ($flist as $key => $value) {
             $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = '.$value['id'])->select();
            
             $array[$key]['flist'] = $value;
             $array[$key]['slist'] = $slist;
         }
-       
+
         $this->list = $array;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
