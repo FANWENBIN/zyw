@@ -13,11 +13,41 @@ $(function(){
       $("#confirmmb").on("click",page.confirmMb);
       $("#province").on("change",page.changeProvince);
       $("#codesendverify").on("click",page.codesendverify);
-      $("#codesendmbverify").on("click",page.codesendmbverify)
+      $("#codesendmbverify").on("click",page.codesendmbverify);
+      $("#confirmmbcode").on("click",page.confirmmbcode);
       // 初始化province city
       // page.getProvince();
       // page.getCity();
 
+    },
+    confirmmbcode: function(){
+      if($(":password[name=newcode]").val() !== $(":password[name=repeatnewcode]").val()){
+        alert("两次输入的新密码不等，请重新输入");
+      }else{
+      $.ajax({
+        type: "get",
+        url: "./index.php?m=Home&c=User&a=modipasswd",
+        data: {
+          oldpasswd: $(":text[name=oldcode]").val(),
+          newpasswd: $(":password[name=newcode]").val()
+        },
+        dataType: "json",
+        success: function(json){
+          if(json.status === 0){
+            console.log(json.msg)
+            window.location.reload();
+          }else if(json.status === 101){
+            console.log(json.msg)
+            alert("服务器错误，请稍后再试")
+          }else if(json.status === 102){
+            console.log(json.msg)
+            alert("旧密码错误，请重新输入")
+          }
+        },
+        error: function(){
+        }
+      })
+      }
     },
     codesendmbverify: function(){
       $.ajax({
