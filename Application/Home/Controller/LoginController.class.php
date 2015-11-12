@@ -45,20 +45,7 @@ class LoginController extends ComController {
         echo session('userphone');
         echo session('userimg');
     }
-    /**
-    * 验证码
-    * @author winter
-    * @version 2015年10月28日19:15:25
-    */
-    public function verify(){
-        ob_end_clean();
-        $verify = new \Think\Verify(array('imageH'=>40,'imageW'=>140,'length'=>4,'fontSize'=>18,'useNoise'=>false,'expire'=>1800));
-        $verify->entry();
-    }
-    function check_verify($code){  
-    $verify = new \Think\Verify();   
-    return $verify->check($code);
-    }
+    
     
     //登陆接口
     public function login(){
@@ -75,7 +62,7 @@ class LoginController extends ComController {
             session('username',$sign['nickname']);
             session('userphone',$sign['mobile']);
             session('userimg',$sign['headpic']);
-echo session('userid');
+        echo session('userid');
         echo session('username');
         echo session('userphone');
         echo session('userimg');
@@ -112,7 +99,7 @@ echo session('userid');
             ajaxReturn(101,'注册失败','');
         }
     }
-    //前台调用验证码接口验证登陆
+    //前台调手机验证码接口验证登陆
     public function yzm(){
         //调用短信先验证验证码是否正确
         $code = I('get.code');
@@ -136,12 +123,26 @@ echo session('userid');
         }
     }
     /**
+    * 验证码
+    * @author winter
+    * @version 2015年10月28日19:15:25
+    */
+    public function verify(){
+        ob_end_clean();
+        $verify = new \Think\Verify(array('imageH'=>40,'imageW'=>140,'length'=>4,'fontSize'=>18,'useNoise'=>false,'expire'=>1800));
+        $verify->entry();
+    }
+    function check_verify($code){  
+    $verify = new \Think\Verify();   
+    return $verify->check($code);
+    }
+    /**
      * 退出登录
      * @author winter
      * @version 2015年10月28日19:15:49
      */
     public function logout(){
-            session(null);
+            //session(null);
             $this->redirect(U('Index/index'),'',0,'');
     }
     
