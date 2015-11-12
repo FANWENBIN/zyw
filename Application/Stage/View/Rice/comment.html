@@ -79,10 +79,10 @@
               <td class="t2">{$vo.name}</td>
               <td class="t3">{$vo.content}</td>
               <td class="t4">{$vo.instime|date="Y-m-d H:i:s",###}</td>
-              <td class="t5"><p>{$vo.pagename}<br /><a href="{$vo.pagehref}">查看页面</a></p></td>
+              <td class="t5"><p><a href="{:U('Home/Rice/post_details',array('id'=>$vo['postid']))}">查看页面</a></p></td>
               <td class="t7">
                 <p class="console">
-                  <a href="{:U('Comment/upcomment?id='.$vo['id'])}" class="setting">编辑</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="delete" data-id="{$vo.id}">移至垃圾站</a>
+                  <a href="javascript:void(0)" class="delete" data-id="{$vo.id}">移至垃圾站</a>
                 </p>
               </td>
             </tr>
@@ -116,7 +116,7 @@
 <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
 <script>
-    var delete_url='{:U("delete")}';/*删除*/
+    var delete_url='{:U("commentdelete")}';/*删除*/
 </script>
 
 </body>

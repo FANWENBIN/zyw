@@ -171,5 +171,21 @@ class RiceController extends Controller {
     $this->cur = 14;
     $this->display();
   }
+  /**
+  *删除论坛评论回复
+  *@author、 winter
+  *@version 2015年11月12日19:36:02
+  */
+  public function commentdelete(){
+    $fans_comment = M('fans_comment');
+    $id = I('post.id');
+    $data['status'] = 0;
+    $sign = $fans_comment->where('id='.$id)->save($data);
+    if($sign){
+      $this->success(U('comment'),'删除成功');
+    }else{
+      $this->error('删除失败');
+    }
+  }
 
 }

@@ -36,17 +36,6 @@ class LoginController extends ComController {
             ajaxReturn(1,'已登录',$list);
         }
     }
-    public function sessionte(){
-        echo 'SESSION:'.session('test');die();
-        echo session('userid');
-        echo session('username');
-        echo session('userphone');
-        echo session('userimg');
-    }
-    
-    public function setsession(){
-        session('test','宋肖肖');
-    }
     //登陆接口
     public function login(){
         $name = I('get.name');
@@ -54,7 +43,6 @@ class LoginController extends ComController {
         $user = M('user');
         $data['mobile'] = $name;
         $data['passwd']   = $passwd;
-
         $sign =  $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
       
         if($sign){
@@ -105,7 +93,7 @@ class LoginController extends ComController {
             ajaxReturn(102,'验证码输入错误','');
         }
         //随机生成验证码
-        $ver = rand(1000,9999);
+        $ver = rand(100000,999999);
         $phone = I('get.phone');
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  
@@ -130,8 +118,8 @@ class LoginController extends ComController {
         $verify->entry();
     }
     function check_verify($code){  
-    $verify = new \Think\Verify();   
-    return $verify->check($code);
+        $verify = new \Think\Verify();   
+        return $verify->check($code);
     }
     /**
      * 退出登录
