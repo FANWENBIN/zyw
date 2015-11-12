@@ -126,7 +126,7 @@ class RiceController extends ComController {
             $array[$key]['flist'] = $value;
             $array[$key]['slist'] = $slist;
         }
-        var_dump($array);
+       
         $this->list = $array;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
