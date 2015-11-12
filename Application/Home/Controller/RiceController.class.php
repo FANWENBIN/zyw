@@ -117,7 +117,9 @@ class RiceController extends ComController {
         //序列化
         $fans_posts->where('id='.$id)->setInc('readers',1);  //阅读数加1
         //$this->$count = $fans_comment->where('postid = '.$postslist['id'].' and status = 1')->count();//评论数量
-        $this->$list = $this->sortOut($commentlist,0,0,'---','fid','id');
+        $this->list = $this->sortOut($commentlist,0,0,'---','fid','id');
+        //echo $fans_comment->getlastsql();
+        //var_dump($list);
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
         //var_dump($val);

@@ -70,28 +70,28 @@
             <button type="button" name="button" class="mainreply-button" id="mainreply">评论</button>
           </div>
           <div class="comment">
-            <div class="outeritem" data-id="1">
-
+       
+            <div class="outeritem" data-id="{$vo.id}" data-name="{$vo.username}">
+              
               <div class="item">
                 <div class="item-left">
-                  <img src="#" alt="" /> 
+                  <img src="./Uploads{$vo.headimg}" alt="" /> 
                 </div>
                 <div class="item-right">
                   <div class="item-title">
-                    <span class="name">用户名</span>
-                    <span>大家好。。。。。。。。。</span>
-                    <span class="time">06-07 10:30</span>
+                    <span class="name">{$vo.username}</span>
+                    <span>{$vo.content}</span>
+                    <span class="time">{$vo.instime|date="Y-m-d H:i:s",###}</span>
                   </div>
                   <div class="replysection">
                     <div class="clearFix">
-                     <button type="button" name="button" class="reply itemreplybutton" data-id="1">回复</button>
+                     <button type="button" name="button" class="reply itemreplybutton" data-id="{$vo.id}">回复</button>
                     </div>
                   </div>
                 </div>
               </div>
 <!-- h回复 -->
               <div class="replygroup">
-
                 <div data-name="王小二" data-id = "" class="itemreply clearFix">
                   <div class="itemreply-left">
                     <img src="#" alt="" />
@@ -104,6 +104,7 @@
                       <span class="time">06-07 10:30</span>
                     </div>
                   </div>
+
                 </div>
 
                 <div data-name="王小二" data-id="1" class="itemreply clearFix">
@@ -123,49 +124,7 @@
 
 
               </div>
-
-
-              <div class="inputsection clearFix">
-                <form class="" action="#" method="post">
-                  <input type="text" name="content" value="" class="replytext">
-                  <input type="submit" name="submit"  class="reply subreplysubmit" value="确定">
-                </form>
-              </div>
-            </div>
-
-            <div class="outeritem" data-id="1">
-              <div class="item">
-                <div class="item-left">
-                  <img src="#" alt="" />
-                </div>
-                <div class="item-right">
-                  <div class="item-title">
-                    <span class="name">用户名</span>
-                    <span>大家好。。。。。。。。。</span>
-                    <span class="time">06-07 10:30</span>
-                  </div>
-                  <div class="replysection">
-                    <div class="clearFix">
-                     <button type="button" name="button" class="reply itemreplybutton">回复</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="replygroup">
-                <div data-name="王小二" class="itemreply clearFix">
-                  <div class="itemreply-left">
-                    <img src="#" alt="" />
-                  </div>
-                  <div class="itemreply-right">
-                    <div class="itemreply-title">
-                      <span class="name">用户名</span>
-                      <span>大家好。。。。。。。。。</span>
-                      <a href="javascript:;" class="replybutton">回复</a>
-                      <span class="time">06-07 10:30</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+         
 
               <div class="inputsection clearFix">
                 <form class="" action="#" method="post">
@@ -175,6 +134,8 @@
               </div>
 
             </div>
+
+            
 
           </div>
         </div>
