@@ -69,7 +69,7 @@ class LoginController extends ComController {
             session('userphone',$sign['mobile']);
             session('userimg',$sign['headpic']);
 
-            ajaxReturn(1,'登陆成功',$sign);
+            ajaxReturn(1,'登陆成功',session('userid'));
         }else{
             ajaxReturn(0,'账号密码输入错误','');
         }
