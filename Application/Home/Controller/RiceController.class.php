@@ -122,10 +122,11 @@ class RiceController extends ComController {
         $flist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = 0')->select();  //评论列表
         foreach ($flist as $key => $value) {
             $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = '.$value['id'])->select();
-           // echo $fans_comment->getlastsql();
+           
             $array[$key]['flist'] = $value;
             $array[$key]['slist'] = $slist;
         }
+        var_dump($array);
         $this->list = $array;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
@@ -230,6 +231,7 @@ class RiceController extends ComController {
         $data['content'] = I('post.content');
         $data['instime'] = time();
         $data['status']  = 1;
+        $data['name'] = session('username');
         $data['headimg'] = session('userimg');
         $result = $this->checkDump($data);
         if($result == 0){ajaxReturn(102,'参数不可为空','');}

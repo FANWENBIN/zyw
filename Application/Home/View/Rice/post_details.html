@@ -92,36 +92,22 @@
               </div>
 <!-- h回复 -->
               <div class="replygroup">
-                <div data-name="王小二" data-id = "" class="itemreply clearFix">
-                  <div class="itemreply-left">
-                    <img src="#" alt="" />
-                  </div>
-                  <div class="itemreply-right">
-                    <div class="itemreply-title">
-                      <span class="name">用户名</span>
-                      <span>大家好。。。。。。。。。</span>
-                      <a href="javascript:;" class="replybutton">回复</a>
-                      <span class="time">06-07 10:30</span>
-                    </div>
-                  </div>
-
-                </div>
-
+              <volist name = "vo['slist']" id= "svo"> 
                 <div data-name="王小二" data-id="1" class="itemreply clearFix">
 
                   <div class="itemreply-left">
-                    <img src="#" alt="" />
+                    <img src="./Uploads{$svo.headimg}" alt="" />
                   </div>
                   <div class="itemreply-right">
                     <div class="itemreply-title">
-                      <span class="name">用户名</span>
-                      <span>大家好。。。。。。。。。</span>
+                      <span class="name">{$svo.name}</span>
+                      <span>{$svo.content}</span>
                       <a href="javascript:;" class="replybutton" data-id="2">回复</a>
-                      <span class="time">06-07 10:30</span>
+                      <span class="time">{$svo.instime|date="Y-m-d H:i:s",###}</span>
                     </div>
                   </div>
                 </div>
-
+              </volist>
 
               </div>
          
