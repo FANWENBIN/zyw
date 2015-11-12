@@ -27,12 +27,12 @@
     <div class="webmain" data-id="1">
 
     <div class="navTitle">
-      <a href="{:U('Index/index')}">首页</a> > <a href="{:U('Rice/index')}">饭团</a> > <a href="{:U('Rice/riceall')}">粉丝社群</a> > <a href="{:U('Rice/homepage',array('id'=>''))}">李易峰</a> > <a href="#">贴贴贴</a><!--
+      <a href="{:U('Index/index')}">首页</a> > <a href="{:U('Rice/index')}">饭团</a> > <a href="{:U('Rice/riceall')}">粉丝社群</a> > <a href="{:U('Rice/homepage',array('id'=>$clublist['id']))}">{$clublist.name}</a> > <a href="{:U('Rice/post_details',array('id'=>$postslist['id']))}">{$postslist['title']}</a><!--
            --><include file = "Header/login" />
     </div>
     <div class="sectionleft">
       <div class="topcon">
-        <img src="#" class="head"><span class="stickname">霍建华粉丝团</span>
+        <img src="./Uploads{$clublist.img}" class="head"><span class="stickname">{$clublist.name}</span>
         <div class="buttons">
           <button type="button" name="button">已入团</button><button type="button" name="button">发帖</button>
         </div>
@@ -41,16 +41,16 @@
         <div class="content-head">
           <div class="userinfo">
             <div class="content-head-face">
-              <img src="#" alt="  " />
+              <img src="./Uploads{$postslist.headimg}" alt="  " />
             </div>
             <div class="content-head-name">
-              用户名
+              {$postslist.username}
             </div>
           </div>
           <div class="content-title">
-            <h3>标题</h3>
+            <h3>{$postslist.title}</h3>
             <div class="content-info">
-              <span class="time">10月10日</span>
+              <span class="time">{$posts.instime|date="Y-m-d H:i:s",###}</span>
               <div class="focusinfo">
                 <span class="reply">131313</span>
                 <span class="focus">1313131</span>
