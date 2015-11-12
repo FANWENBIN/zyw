@@ -53,6 +53,12 @@ class LoginController extends ComController {
     $verify = new \Think\Verify();   
     return $verify->check($code);
     }
+    public function sessionte(){
+        echo session('userid');
+        echo session('username');
+        echo session('userphone');
+        echo session('userimg');
+    }
     //登陆接口
     public function login(){
         $name = I('get.name');
