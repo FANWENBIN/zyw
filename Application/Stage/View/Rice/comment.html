@@ -79,7 +79,7 @@
               <td class="t2">{$vo.name}</td>
               <td class="t3">{$vo.content}</td>
               <td class="t4">{$vo.instime|date="Y-m-d H:i:s",###}</td>
-              <td class="t5"><p><a href="{:U('Home/Rice/post_details',array('id'=>$vo['postid']))}">查看页面</a></p></td>
+              <td class="t5"><p><a href="{:U('Home/Rice/post_details',array('id'=>$vo['postid']))}" target="parsent">查看页面</a></p></td>
               <td class="t7">
                 <p class="console">
                   <a href="javascript:void(0)" class="delete" data-id="{$vo.id}">移至垃圾站</a>
@@ -105,7 +105,7 @@
     </div>
     <div class="btnCon">
        <div class="btnCon">
-        <a href="{:U('Rice/edit')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
+        <!-- <a href="{:U('Rice/edit')}"><input type="button" id="showAlert" class="btnA" value="新增"></a> -->
       </div>
     </div>
   </div>

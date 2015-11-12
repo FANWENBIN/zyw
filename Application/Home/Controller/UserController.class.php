@@ -157,8 +157,8 @@ class UserController extends ComController {
     }
     /**
 	*我的活动，活动浏览记录以及发起的活动
-	* @author：winter
-	* @version：2015年11月3日16:58:12
+	* @author ：winter
+	* @version ：2015年11月3日16:58:12
 	*
     */
     public function acthis(){
