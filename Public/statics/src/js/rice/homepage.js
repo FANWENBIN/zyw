@@ -93,8 +93,8 @@ $(function(){
         error: function(){
 
         }
-
+      })
     }
-  };
+  }
   page.init();
 })
