@@ -115,7 +115,7 @@ class RiceController extends ComController {
         $clublist  = $fans_club->where('id = '.$postslist['fansclubid'])->find(); //饭团详情
         $commentlist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1')->select();  //评论列表
         //序列化
-        $fans_posts->setInc('readers',1);  //阅读数加1
+        $fans_posts->where('id='.$id)->setInc('readers',1);  //阅读数加1
         //$this->$count = $fans_comment->where('postid = '.$postslist['id'].' and status = 1')->count();//评论数量
         $this->$list = $this->sortOut($commentlist,0,0,'---','fid','id');
         $this->postslist = $postslist;
@@ -231,7 +231,7 @@ class RiceController extends ComController {
         $fans_posts = M('fans_posts');  //评论表
         $sign = $fans_comment->add($data);
         if($sign){
-            $fans_posts->setInc('comments',1);  //评论数加1
+            $fans_posts->where('id='.$data['postid'])->setInc('comments',1);  //评论数加1
             $fval = $fans_comment->where('id='.$data['fid'])->find(); //父级数据；
             $userval = $user->where('id='.$fval['userid'])->find(); //被评论者用户数据
 
