@@ -40,13 +40,16 @@ class LoginController extends ComController {
         }
     }
     public function sessionte(){
+        echo session('test');die();
         echo session('userid');
         echo session('username');
         echo session('userphone');
         echo session('userimg');
     }
     
-    
+    public function setsession(){
+        session('test','宋肖肖');
+    }
     //登陆接口
     public function login(){
         $name = I('get.name');
