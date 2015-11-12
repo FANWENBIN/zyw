@@ -207,7 +207,7 @@ class RiceController extends ComController {
         }else{
             ajaxReturn(101,'','发帖失败');
         }
-    }
+    } 
     /**
     *发布评论接口
     *@author winter
