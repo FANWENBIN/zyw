@@ -12,10 +12,59 @@ $(function(){
       $("#sendverify").on("click",page.getVerInSetting);
       $("#confirmmb").on("click",page.confirmMb);
       $("#province").on("change",page.changeProvince);
+      $("#codesendverify").on("click",page.codesendverify);
+      $("#codesendmbverify").on("click",page.codesendmbverify)
       // 初始化province city
       // page.getProvince();
       // page.getCity();
 
+    },
+    codesendmbverify: function(){
+      $.ajax({
+        type: "get",
+        url: "./index.php?m=Home&c=User&a=checkphver",
+        data: {
+          phone: $(":text[name=codemb]").val(),
+          version: $(":text[name=recode]").val()
+        },
+        dataType: "json",
+        success: function(json){
+          if(json.status === 0){
+            console.log(json.msg)
+            $("#changecode .step1").hide();
+            $("#changecode .step2").show();
+          }else if(json.status === 104){
+            console.log(json.msg)
+            $(".error").html("验证码错误，请重新输入")
+          }
+        },
+        error: function(){
+        }
+      })
+    },
+    codesendverify: function(){
+      $.ajax({
+        type: "get",
+        url: "./index.php?m=Home&c=User&a=yzm",
+        data: {
+          phone: $(":text[name=codemb]").val()
+        },
+        dataType: "json",
+        success: function(json){
+          if(json.status === 0){
+            console.log(json.msg)
+            $(".error").html("发送成功，请注意查收")
+          }else if(json.status === 101){
+            console.log(json.msg)
+            $(".error").html("发送失败，请稍后再试")
+          }else if(json.status === 102){
+            console.log(json.msg)
+            $(".error").html("手机号码格式不正确，请重新输入")
+          }
+        },
+        error: function(){
+        }
+      })
     },
     changeProvince: function(){
       scope.provinceid = $("#province option:selected").data("id");
@@ -90,8 +139,9 @@ $(function(){
         success: function(json){
           if(json.status == "0"){
             $("#error").html("绑定成功");
-            $(".step2").hide();
-            $(".step3").show();
+            $("#changemb .step2").hide();
+            $("#changemb .step3").show();
+            $("#changemb .step3 .newmb").html($(":text[name=mbchange]").val())
           }else if(json.status == "101"){
             $("#error").html("验证码错误");
           }else if(json.status == "102"){
@@ -104,8 +154,8 @@ $(function(){
 
     },
     toStep2: function(){
-      $(".step1").hide();
-      $(".step2").show();
+      $("#changemb .step1").hide();
+      $("#changemb .step2").show();
     },
     leftClick: function(){
       $(this).parent().find("li").removeClass("active");
