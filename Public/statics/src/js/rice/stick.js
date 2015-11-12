@@ -68,6 +68,7 @@ $(function(){
     replycomment: function(){
       if($(this).parents(".outeritem").find(".inputsection").css("display") === "none"){
       $(this).parents(".outeritem").find(".inputsection").show().find(".replytext")[0].focus();
+      $(this).parents(".outeritem").find(".replytext").val("@"+$(this).parents(".outeritem").data("name")+" ")
       $(this).parents(".outeritem").find(".replytext").val("");
       $(this).parents(".outeritem").find(".inputsection").find("form").data("id",$(this).data("id"))
 
