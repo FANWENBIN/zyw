@@ -40,7 +40,7 @@ class LoginController extends ComController {
         }
     }
     public function sessionte(){
-        echo session('test');die();
+        echo 'SESSION:'.session('test');die();
         echo session('userid');
         echo session('username');
         echo session('userphone');
