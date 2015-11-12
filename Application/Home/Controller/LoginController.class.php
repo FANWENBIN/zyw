@@ -24,21 +24,27 @@ class LoginController extends ComController {
     }
    //验证登陆接口
     public function checklogin(){
+        echo session('userid');
+        echo session('username');
+        echo session('userphone');
+        echo session('userimg');
         //md5(xxzyw916);
         $data['id'] = session('userid');
         $data['mobile'] = session('userphone');
-        //ajaxReturn(0,'',session('userid'));
         $user = M('user');
         $list = $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
-        //$sql = $user->getlastsql();
-        //ajaxReturn(0,'',$sql);
         if(!$list){
             ajaxReturn(0,'未登录','');
         }else{
             ajaxReturn(1,'已登录',$list);
         }
     }
-    
+    public function sessionte(){
+        echo session('userid');
+        echo session('username');
+        echo session('userphone');
+        echo session('userimg');
+    }
     /**
     * 验证码
     * @author winter
@@ -53,12 +59,7 @@ class LoginController extends ComController {
     $verify = new \Think\Verify();   
     return $verify->check($code);
     }
-    public function sessionte(){
-        echo session('userid');
-        echo session('username');
-        echo session('userphone');
-        echo session('userimg');
-    }
+    
     //登陆接口
     public function login(){
         $name = I('get.name');
@@ -74,7 +75,10 @@ class LoginController extends ComController {
             session('username',$sign['nickname']);
             session('userphone',$sign['mobile']);
             session('userimg',$sign['headpic']);
-
+echo session('userid');
+        echo session('username');
+        echo session('userphone');
+        echo session('userimg');
             ajaxReturn(1,'登陆成功',$sign);
         }else{
             ajaxReturn(0,'账号密码输入错误','');
