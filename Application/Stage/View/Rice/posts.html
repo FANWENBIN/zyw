@@ -65,9 +65,9 @@
         <tr>
           <td class="t1">编号</td>
           <td class="t2">饭团名</td>
-          <td class="t3">粉丝数</td>
-          <td class="t4">封面图</td>
-          <td class="t5">创建时间</td>
+          <td class="t3">用户名</td>
+          <td class="t4">标题</td>
+          <td class="t5">发帖时间</td>
           <td class="t6">操作</td>
         </tr>
         </thead>
@@ -76,13 +76,13 @@
           <tr>
             <td class="t1">{$i}</td>
             <td class="t2">
-            {$v.name}</td>
-            <td class="t3">{$v.fanssum}</td>
-            <td class="t4"> <notempty name="v['img']"><img src="./Uploads{$v['img']}" width="50" height="50" /></notempty></td>
+            {$v.fansclubid}</td>
+            <td class="t3">{$v.username}</td>
+            <td class="t4">{$v.title}</td>
             <td class="t5">{$v.instime|date="Y-m-d H:i:s",###}</td>
             <td class="t6">
               <p class="console">
-                <a href="{:U('edit',array('id'=>$v['id']))}" class="setting">编辑</a>
+                <a href="{:U('postsedit',array('id'=>$v['id']))}" class="setting">编辑</a>
                 <a data-id="{$v['id']}" href="javascript:void(0)" class="delete">删除</a>
               </p>
             </td>
@@ -110,9 +110,9 @@
 
     </div>
     <div class="btnCon">
-       <div class="btnCon">
+       <!-- <div class="btnCon">
         <a href="{:U('Rice/edit')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
-      </div>
+      </div> -->
     </div>
   </div>
   <!--main end-->
@@ -122,7 +122,7 @@
 <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
 <script>
-    var delete_url='{:U("delete")}';/*删除*/
+    var delete_url='{:U("postsdelete")}';/*删除*/
 </script>
 
 </body>

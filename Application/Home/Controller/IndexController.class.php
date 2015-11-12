@@ -81,7 +81,7 @@ class IndexController extends ComController {
 		$map['status'] = 1;
 		$newsresult=$news->where($map)->order(array('order'=>'desc','instime'=>'desc'))->limit('0,21')->select();
 		$this->assign('newsresult',$newsresult);
-
+        //echo $news->getlastsql();
         //热门活动
         $active = M('active');
         $activeval = $active->where('status = 1')->order('`order` desc,concern desc,instime desc')->limit(0,3)->select();
