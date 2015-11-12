@@ -54,8 +54,8 @@ $(function(){
         dataType: "json",
         success: function(json){
           if(json.status === 0){
-            console.log(json.msg)
-            $(".join").html("已入团")
+            console.log(json.msg);
+            $(".join").html("已入团");
           }else if(json.status === 101){
             console.log(json.msg)
             alert("加入失败，请稍后再试")
@@ -83,10 +83,10 @@ $(function(){
         },
         dataType: "json",
         success: function(json){
-          if(json.status === 0){
+          if(json.status === 1){
             $(".join").html("已入团")
             console.log(json.msg)
-          }else if(json.status === 1){
+          }else if(json.status === 0){
             $(".join").html("+ 入团")
             console.log(json.msg)
           }
