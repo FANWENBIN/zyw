@@ -1,6 +1,6 @@
 $(function(){
   var scope = {
-
+    isJoin: false
   };
   var page = {
     init: function(){
@@ -17,32 +17,36 @@ $(function(){
       html = $('#editor_id').val(); // jQuery
       var title = $(".articletitle").val();
       console.log(title,html);
-      $.ajax({
-        type: "post",
-        url: "./index.php?m=Home&c=Rice&a=postini",
-        data: {
-          fansclubid: $(".webmain").data("id"),
-          title: title,
-          content: html
-        },
-        dataType: "json",
-        success: function(json){
-          if(json.status === 0){
-            console.log(json.msg);
-            window.location.reload();
-          }else if(json.status === 101){
-            console.log(json.msg);
-            alert("发送失败，请稍后再试");
-          }else if(json.status === 102){
-            console.log(json.msg);
-            alert("请填写全相关信息");
+      if(scope.isJoin){
+        $.ajax({
+          type: "post",
+          url: "./index.php?m=Home&c=Rice&a=postini",
+          data: {
+            fansclubid: $(".webmain").data("id"),
+            title: title,
+            content: html
+          },
+          dataType: "json",
+          success: function(json){
+            if(json.status === 0){
+              console.log(json.msg);
+              window.location.reload();
+            }else if(json.status === 101){
+              console.log(json.msg);
+              alert("发送失败，请稍后再试");
+            }else if(json.status === 102){
+              console.log(json.msg);
+              alert("请填写全相关信息");
+            }
+          },
+          error: function(){
+
           }
-        },
-        error: function(){
 
-        }
-
-      })
+        })
+      }else{
+        alert("请先加入饭团")
+      }
     },
     join: function(){
       $.ajax({
@@ -61,12 +65,13 @@ $(function(){
             alert("加入失败，请稍后再试")
           }else if(json.status === 102){
             console.log(json.msg)
-            alert("加入失败，请稍后再试")
+            alert("请先登陆后再尝试")
           }else if(json.status === 103){
             console.log(json.msg)
             alert("加入失败，请稍后再试")
           }else if(json.status === 104){
-            console.log(json.msg)
+            console.log(json.msg);
+            $(".join").html("已入团");
           }
         },
         error: function(){
@@ -84,11 +89,12 @@ $(function(){
         dataType: "json",
         success: function(json){
           if(json.status === 1){
-            $(".join").html("已入团")
-            console.log(json.msg)
+            scope.isJoin = true;
+            $(".join").html("已入团");
+            console.log(json.msg);
           }else if(json.status === 0){
-            $(".join").html("+ 入团")
-            console.log(json.msg)
+            $(".join").html("+ 入团");
+            console.log(json.msg);
           }
         },
         error: function(){
