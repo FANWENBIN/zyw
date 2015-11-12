@@ -40,7 +40,7 @@
       <li class="active">主页</li>
       <li>相册</li>
     </ul>
-    <div class="maincontent">
+    <div class="maincontent clearFix">
       <div class="leftsection">
         <ul class="commentlist">
         <volist name = "posts" id = "vo">
@@ -52,7 +52,7 @@
               <span class="username">{$vo.username}</span>
             </div>
             <div class="commentsec">
-            
+
               <a class="comment-title" href = "{:U('post_details',array('id'=>$vo['id']))}">
                 {$vo.title}
               </a>
@@ -80,7 +80,7 @@
               <span class="username">{$vo.username}</span>
             </div>
             <div class="commentsec">
-              <a class="comment-title" href = "{:U('post_details',array('id'=>$vo['id']))}"> 
+              <a class="comment-title" href = "{:U('post_details',array('id'=>$vo['id']))}">
                 {$vo.title}
               </a>
               <div class="comment-body">

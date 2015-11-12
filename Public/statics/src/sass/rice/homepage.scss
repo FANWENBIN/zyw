@@ -90,6 +90,9 @@
       .comment-content{
         font-size: 14px;
         line-height: 35px;
+        img{
+          display: inline-block; 
+        }
       }
       .piclist{
         height: 130px;
@@ -223,4 +226,7 @@
     background-color: #000;
 
   }
+}
+.current{
+  color: red;
 }
