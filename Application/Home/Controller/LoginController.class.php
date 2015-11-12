@@ -24,10 +24,7 @@ class LoginController extends ComController {
     }
    //验证登陆接口
     public function checklogin(){
-        echo session('userid');
-        echo session('username');
-        echo session('userphone');
-        echo session('userimg');
+
         //md5(xxzyw916);
         $data['id'] = session('userid');
         $data['mobile'] = session('userphone');
@@ -65,10 +62,7 @@ class LoginController extends ComController {
             session('username',$sign['nickname']);
             session('userphone',$sign['mobile']);
             session('userimg',$sign['headpic']);
-        echo session('userid');
-        echo session('username');
-        echo session('userphone');
-        echo session('userimg');
+       
             ajaxReturn(1,'登陆成功',$sign);
         }else{
             ajaxReturn(0,'账号密码输入错误','');
