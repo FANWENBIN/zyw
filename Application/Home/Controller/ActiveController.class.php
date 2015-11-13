@@ -14,7 +14,7 @@ class ActiveController extends ComController {
 		//echo $ip = get_client_ip();
     }
     public function active_details(){
-        $id = I('get.id');
+        $id     = I('get.id');
         $active = M('active');
         $list   = $active->where('id='.$id)->find();
         session('active',$list);
@@ -24,6 +24,8 @@ class ActiveController extends ComController {
         $img = M('active_img');
         $imglist = $img->where('activeid='.$id)->select();
         $this->assign('imglist',$imglist);
+        //用户浏览活动记录
+        
         $this->assign('sign',3);
         $this->display();
     }

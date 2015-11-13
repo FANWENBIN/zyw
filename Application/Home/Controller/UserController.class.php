@@ -130,8 +130,16 @@ class UserController extends ComController {
         if($phone != session('phone') || $version != session('yzm')){
             ajaxReturn(104,'验证码输入错误');
         }else{
+            $user = M('user');
+            $data['mobile'] = $phone;
+            $data['id'] = session('userid');
+            $sign = $user->where($data)->find();
+            if($sing){
+                ajaxReturn(0,'通过','');
+            }else{
+                ajaxReturn(104,'验证码错误','');
+            }
             
-            ajaxReturn(0,'通过','');
         }
     }
     /**
