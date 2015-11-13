@@ -47,7 +47,7 @@ class UserController extends ComController {
         }
     }
     /**
-    *用户修改头像
+    *用户上传修改头像
     *
     */
     public function uploadimg(){
@@ -68,8 +68,6 @@ class UserController extends ComController {
             }else{
                 $this->redirect(U('setting'),'', 0, '修改成功');
             }
-             
-
         }
             
     }
