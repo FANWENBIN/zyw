@@ -167,21 +167,43 @@
                 <div class="step step2">
                   <dl class="">
                     <dt>手机：</dt>
-                    <dd><input type="text" name="mbchange" value="" placeholder="输入更换号码"><button type="button" name="button" id="sendverify">发送验证码</button><span class="error" id="error"></span></dd>
+                    <dd><input type="text" class="mbchange" value="" placeholder="输入更换号码"><button type="button" name="button" id="sendverify">发送验证码</button><span class="error" id="error"></span></dd>
                     <dt>验证码：</dt>
                     <dd><input type="text" name="veri" value="" placeholder="输入手机验证码"></dd>
                   </dl>
                     <a href="javascript:;" class="confirmmb" id="confirmmb">下一步</a>
                 </div>
                 <div class="step step3">
-                  <span>已绑定手机:</span><span>1315***6666</span><span class="successtips">绑定成功</span>
+                  <span>已绑定手机:</span><span class="newmb">1315***6666</span><span class="successtips">绑定成功</span>
                 </div>
               </div>
-              <div class="item">
-                <h3>标题</h3>
-                <p>
-                  大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打大大大大点委屈啊啊大大阿达大大大少打打打打打打打打打
-                </p>
+              <div class="item" id="changecode">
+                <div class="step step1">
+                  <span class="tips">为了保证您的账号安全，修改密码需进行安全验证</span>
+                  <dl class="">
+                    <dt>手机号码：</dt>
+                    <dd><input type="text" name="codemb" value="" placeholder="输入手机号码"><button type="button" id="codesendverify" name="button">发送验证码</button><span class="error"></span></dd>
+                    <dt>短信验证码：</dt>
+                    <dd><input type="text" name="recode" value="" placeholder="输入短信验证码"></dd>
+                  </dl>
+                    <a href="javascript:;" class="confirmmb" id="codesendmbverify">下一步</a>
+                  </div>
+                <div class="step step2">
+                  <span class="tips">为了保证您的账号安全，修改密码需进行安全验证</span>
+                  <dl class="">
+                    <dt>旧密码：</dt>
+                    <dd><input type="text" name="oldcode" value="" placeholder="输入当前账号密码"></dd>
+                    <dt>新密码：</dt>
+                    <dd><input type="password" name="newcode" value="" placeholder="8~20位字母、数字或字符,至少包含两种"></dd>
+                    <dt>再次输入：</dt>
+                    <dd><input type="password" name="repeatnewcode" value="" placeholder="两次输入密码必须一致"></dd>
+                  </dl>
+                    <a href="javascript:;" class="confirmmb" id="confirmmbcode">确认</a>
+                </div>
+
+              </div>
+
+
               </div>
             </div>
           </li>
