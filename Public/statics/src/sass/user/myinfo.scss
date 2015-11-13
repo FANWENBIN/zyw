@@ -159,6 +159,9 @@ input[type=submit]{
 .webmain .content .left li.active {
   background-color: #000;
   color: #fff;
+  a{
+    color: #000;
+  }
 }
 .webmain .content .right {
   margin-left: 240px;
@@ -395,6 +398,7 @@ input[type=submit]{
 
 .webmain .content .news{
   .supitem{
+    overflow: hidden;
     border-bottom: 1px solid #999;
     .left{
       float: left;
