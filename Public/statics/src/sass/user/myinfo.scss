@@ -399,7 +399,9 @@ input[type=submit]{
 .webmain .content .news{
   .supitem{
     overflow: hidden;
-    border-bottom: 1px solid #999;
+    .subitem{
+      border-bottom: 1px solid #999;
+    }
     .left{
       float: left;
       width: 100px;
