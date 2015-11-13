@@ -2,7 +2,7 @@
 namespace Stage\Controller;
 use Think\Controller;
 //粉丝团
-class RiceController extends Controller {
+class RiceController extends ComController {
   public function index(){
     $fans = M('fans_club');
     //$this->list = $fans->order('fanssum desc')->select();

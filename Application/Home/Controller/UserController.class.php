@@ -190,6 +190,7 @@ class UserController extends ComController {
     		//审核通过的活动
     	$data['status'] = 1;
     	$this->passactive = $active->where($data)->order('instime desc')->select();
+        $this->mssage();//调用读取未读消息显示
     	$this->display();
 
     }
@@ -205,17 +206,16 @@ class UserController extends ComController {
     	$data['status'] = array('neq',0);
     	$data['instime'] = array('elt',time());
     	$data['uid'] = session('userid');
-    	$data['type'] = 1; //系统消息
-        $count      = $msg->where($data)->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
-        $show       = $Page->show();// 分页显示输出
+    	//$data['type'] = 1; //系统消息
+        //$count      = $msg->where($data)->count();// 查询满足要求的总记录数
+        //$Page       = new \Think\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        //$show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-       // $this->syslist = $msg->where($data)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        // $this->syslist = $msg->where($data)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
         //$this->assign('page',$show);// 赋值分页输出
 
 
     	$data['type'] = 2; // 帖子评论回复消息
-
     	//$this->uselist = $msg->where($data)->order('instime desc')->select();
         $count      = $msg->where($data)->count();// 查询满足要求的总记录数
         $Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
