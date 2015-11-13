@@ -173,7 +173,7 @@ class RiceController extends Controller {
   }
   /**
   *删除论坛评论回复
-  *@author、 winter
+  *@author  winter
   *@version 2015年11月12日19:36:02
   */
   public function commentdelete(){
