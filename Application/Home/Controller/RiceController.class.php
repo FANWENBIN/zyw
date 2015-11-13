@@ -259,6 +259,7 @@ class RiceController extends ComController {
             $msg['instime'] = time();
             $msg['uid'] = $userval['id'];
             $msg['username'] = $userval['nickname'];
+            $msg['postsid'] = $data['postid'];
             $user_msg->add($msg);     //被评论者接收数据
             ajaxReturn(0,'评论成功','');
         }else{

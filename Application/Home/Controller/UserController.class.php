@@ -163,11 +163,19 @@ class UserController extends ComController {
 	* @version ：2015年11月3日16:58:12
 	*
     */
-    public function acthis(){
-    	$acthis = M('acthis');
+    public function myinfo_active(){
+    	$acthis = M('user_acthis');
+        $active = M('active');
     	$data['userid'] = session('userid');       
     	//用户浏览活动记录，只记录最近的三个，数量由添加记录时控制
-    	$this->$list = $acthis->where($data)->order('instime desc')->select();
+    	$acth = $acthis->where($data)->order('instime desc')->select();
+        $activeid = '';
+        foreach ($acth as $key => $value) {
+            $activeid .= $value['activeid'].',';
+        }
+        $where['id'] = array('in',implode(',',explode(',', $activeid)));
+        $where['status'] = 1;
+        $this->list = $active->where($where)->select();
     	//用户发起的活动
     	$active = M('active');
     		//待审核的活动
@@ -177,22 +185,46 @@ class UserController extends ComController {
     	$data['status'] = 1;
     	$this->passactive = $active->where($data)->order('instime desc')->select();
     	$this->display();
+
     }
     /**
     *我的消息，包括论坛消息和系统消息
     *@author:winter
     *@version:2015年11月3日17:08:03
     */
-    public function mysms(){
+
+    public function myinfo_news(){
     //显示status= 1或者2 的系统消息和论坛消息，时间戳要大于此时的，为了定时消息
     	$msg = M('user_msg');
     	$data['status'] = array('neq',0);
     	$data['instime'] = array('elt',time());
     	$data['uid'] = session('userid');
     	$data['type'] = 1; //系统消息
-    	$this->syslist = $msg->where($data)->order('instime desc')->select();
+    	
+
+        $count      = $msg->where($data)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+        // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $this->syslist = $msg->where($data)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('page',$show);// 赋值分页输出
+
+
     	$data['type'] = 2; // 帖子评论回复消息
-    	$this->uselist = $msg->where($data)->order('instime desc')->select();
+
+    	//$this->uselist = $msg->where($data)->order('instime desc')->select();
+        $count      = $msg->where($data)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show       = $Page->show();// 分页显示输出
+        // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+        $userlist = $msg->where($data)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('pages',$show);// 赋值分页输出
+        $user = M('user');
+        foreach ($userlist as $key => $value) {
+            $uselist = $user->where('id='.$value['uid'])->find();
+            $userlist[$key]['headimg'] = $uselist['headpic'];
+        }
+        $this->userlist = $userlist;
     	$this->display();
     }
     /**
@@ -200,9 +232,17 @@ class UserController extends ComController {
 	*@author：winter
 	*@version:2015年11月3日19:45:10
     */
-    public function confans(){
-    	$userfans = M('user_fans');
-    	$this->$val = $userfans->where('userid='.session('userid'))->order('instime desc')->select();
+    public function myinfo_rice(){
+    	$userfans  = M('user_fans');
+        $fans_club = M('fans_club');
+    	$userlist = $userfans->where('userid='.session('userid'))->order('instime desc')->select();
+        $fansid = '';
+        foreach ($userlist as $key => $value) {
+            $fansid .= $value['fansid'].',';
+        }
+        $fansid = implode(',',explode(',', $fansid));
+        $data['id'] = array('in',$fansid);
+        $this->clublist = $fans_club->where($data)->select();
     	$this->display();
     }
 

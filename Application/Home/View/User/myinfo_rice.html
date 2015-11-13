@@ -62,31 +62,14 @@
           </ul>
         </div>
         <div class="rice">
-          <a href="#" class="item">
-              <img src="#" alt="" />
-              <p>李志</p>
+        <volist name = "clublist" id = "vo">
+          <a href="{:U('Rice/homepage',array('id'=>$vo['id']))}" class="item">
+              <img src="./Uploads{$vo.img}" alt="" />
+              <p>{$vo.name}</p>
               <sub></sub>
           </a>
-          <a href="#" class="item">
-              <img src="#" alt="" />
-              <p>李志</p>
-              <sub></sub>
-          </a>
-          <a href="#" class="item">
-              <img src="#" alt="" />
-              <p>李志</p>
-              <sub></sub>
-          </a>
-          <a href="#" class="item">
-              <img src="#" alt="" />
-              <p>李志</p>
-              <sub></sub>
-          </a>
-          <a href="#" class="item">
-              <img src="#" alt="" />
-              <p>李志</p>
-              <sub></sub>
-          </a>
+        </volist>
+         
 
 
         </div>

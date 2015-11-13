@@ -77,46 +77,18 @@
               <div class="item active">
                 <span class="tips">最近浏览</span>
                 <div class="container">
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
+
+                <volist name = "list" id = "vo">
+                  <a href="{:U('Active/active_details',array('id'=>$vo['id']))}" class="subitem">
+                      <img src="./Uploads{$vo.img}" alt="" />
                       <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
+                        <h1>{$vo.title}</h1>
+                        <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
                       </div>
                       <sub></sub>
                   </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
+                </volist>
+
                 </div>
               </div>
 
@@ -124,89 +96,30 @@
               <div class="item">
                 <span class="tips">正在发布</span>
                 <div class="container clearFix">
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
+                <volist name = "checkpending" id = "vo"> 
+
+                  <a href="{:U('Active/active_details',array('id'=>$vo['id']))}" class="subitem">
+                      <img src="./Uploads{$vo.img}" alt="" />
                       <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
+                        <h1>{$vo.title}</h1>
+                        <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
                       </div>
                       <sub></sub>
                   </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
+                </volist>
                 </div>
                 <span class="tips">历史发布</span>
                 <div class="container clearFix">
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
+                <volist name = "passactive" id = "vo">
+                  <a href="{:U('Active/active_details',array('id'=>$vo['id']))}" class="subitem">
+                      <img src="./Uploads{$vo.img}" alt="" />
                       <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
+                        <h1>{$vo.title}</h1>
+                        <h3>{$vo.begin_time|date="m.d",###}-{$vo.last_time|date="m.d",###}</h3>
                       </div>
                       <sub></sub>
                   </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
-                  <a href="#" class="subitem">
-                      <img src="#" alt="" />
-                      <div class="text">
-                        <h1>标题</h1>
-                        <h3>10.25-10.30</h3>
-                      </div>
-                      <sub></sub>
-                  </a>
+                </volist>
                 </div>
               </div>
 
