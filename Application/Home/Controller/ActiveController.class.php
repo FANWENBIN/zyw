@@ -104,9 +104,6 @@ class ActiveController extends ComController {
     	}
         $data['status'] = 1;
     	//$activeval = $active->where($data)->select();
-
-
-
         $count      = $active->where($data)->count();// 查询满足要求的总记录数
         $Page       = new \Think\Page($count,12);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
