@@ -200,8 +200,6 @@ class UserController extends ComController {
     	$data['instime'] = array('elt',time());
     	$data['uid'] = session('userid');
     	$data['type'] = 1; //系统消息
-    	
-
         $count      = $msg->where($data)->count();// 查询满足要求的总记录数
         $Page       = new \Think\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出

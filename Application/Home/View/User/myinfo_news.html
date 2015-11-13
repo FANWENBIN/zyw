@@ -93,10 +93,12 @@
                   </li>
                   </volist>
                 </ul>
+                {$pages}
               </div>
 
               <div class="item">
                 <ul>
+                <volist name = "syslist" id = "vo">
                   <li class="subitem clearFix">
                     <div class="left">
                       <img class="zywmsg" src="__PUBLIC__/statics/images/icon_msg_zyw.gif" alt="" />
@@ -104,14 +106,16 @@
                     <div class="middle">
                       <span class="username">中演网：内容消息</span>
                       <p>
-                        尊敬的xxx，。。。。。
+                        {:html_entity_decode($vo['msg'])}
                       </p>
                     </div>
                     <div class="right">
-                      <span>06-17 19:11</span>
+                      <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
                     </div>
                   </li>
+                  </volist>
                 </ul>
+                {$page}
               </div>
 
             </div>
