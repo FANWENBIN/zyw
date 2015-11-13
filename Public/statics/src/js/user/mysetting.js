@@ -31,7 +31,7 @@ $(function(){
           oldpasswd: $(":text[name=oldcode]").val(),
           newpasswd: $(":password[name=newcode]").val()
         },
-        dataType: "json",
+        dataType: "json", 
         success: function(json){
           if(json.status === 0){
             console.log(json.msg)
