@@ -25,7 +25,7 @@ $(function(){
         alert("两次输入的新密码不等，请重新输入");
       }else{
       $.ajax({
-        type: "get",
+        type: "post",
         url: "./index.php?m=Home&c=User&a=modipasswd",
         data: {
           oldpasswd: $(":text[name=oldcode]").val(),
