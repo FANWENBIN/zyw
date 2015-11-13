@@ -16,16 +16,34 @@ class ActiveController extends ComController {
     public function active_details(){
         $id     = I('get.id');
         $active = M('active');
+        $img    = M('active_img');
         $list   = $active->where('id='.$id)->find();
         session('active',$list);
         $this->assign('list',$list);
         $data['concern'] = $list['concern']+1;
         $active->where('id='.$id)->save($data);
-        $img = M('active_img');
+        
         $imglist = $img->where('activeid='.$id)->select();
         $this->assign('imglist',$imglist);
         //用户浏览活动记录
-        
+        $uid = session('userid');
+        if(!empty($uid)){
+            $user_acthis = M('user_acthis');
+            $sum = $user_acthis->where('uid='.$uid)->count();
+            if($sum < 3){
+                $histriy['activeid'] = $id;
+                $histriy['uid']      = $uid;
+                $histriy['instime']  = time();
+                $user_acthis->add($histriy);
+            }else{
+                $oldlist = $user_acthis->order('instime asc')->find();
+                $histriy['activeid'] = $id;
+                $histriy['uid']      = $uid;
+                $histriy['instime']  = time();
+                $user_acthis->where($oldlist)->save($data);
+            }
+
+        }
         $this->assign('sign',3);
         $this->display();
     }
