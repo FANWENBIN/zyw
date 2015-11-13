@@ -107,6 +107,7 @@ class UserController extends ComController {
         $user = M('user');
         $data['mobile'] = session('userphone');
         $data['passwd'] = $oldpasswd;
+        ajaxReturn(1,'',$data);
         $userlist = $user->where($data)->find();
         if($userlist){
             $newdump['passwd'] = $newpasswd;
@@ -129,6 +130,7 @@ class UserController extends ComController {
         if($phone != session('phone') || $version != session('yzm')){
             ajaxReturn(104,'验证码输入错误');
         }else{
+            
             ajaxReturn(0,'通过','');
         }
     }
