@@ -27,7 +27,7 @@ $(function(){
         type: "get",
         dataType: "json",
         data: {
-          type: 2,
+          type: 1,
           id: $.getId(),
           p: 1
         },
