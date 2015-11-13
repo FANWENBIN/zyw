@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import "../sasscommon";
+
 select{
   width: 120px;
   height: 30px;
@@ -127,18 +129,18 @@ input[type=submit]{
   height: 0;
   border-bottom: 4px solid black;
 }
-.webmain .content .list .left {
+.webmain .content .left {
   float: left;
   width: 200px;
   height: 500px;
 }
-.webmain .content .list .bottomitem {
+.webmain .content .bottomitem {
   display: none;
   &.active {
     display: block;
   }
 }
-.webmain .content .list .left li {
+.webmain .content .left li {
   width: 180px;
   height: 60px;
   text-align: center;
@@ -146,11 +148,11 @@ input[type=submit]{
   font-size: 16px;
   cursor: pointer;
 }
-.webmain .content .list .left li.active {
+.webmain .content .left li.active {
   background-color: #000;
   color: #fff;
 }
-.webmain .content .list .right {
+.webmain .content .right {
   margin-left: 240px;
   #changecode{
 
@@ -333,4 +335,105 @@ input[type=submit]{
 }
 .webmain .content .list .right p {
   font-size: 12px;
+}
+.rice{
+  .tips{
+    display: inline-block;
+    color: #999;
+    margin: {
+      bottom: 30px;
+    }
+  }
+  margin-left: -25px;
+  .item{
+    @include item1(280px, 415px, 50px, 16px);
+    float: left;
+    margin: {
+      left: 25px;
+      bottom: 30px;
+    }
+  }
+
+}
+.right .container{
+  width: 1000px;
+  margin-left: -30px;
+}
+.activity{
+  .tips{
+    display: inline-block;
+    color: #999;
+    margin: {
+      bottom: 30px;
+    }
+  }
+  margin-left: -25px;
+  .subitem{
+    @include item3(305px, 229px, 35px, 14px, 12px);
+    float: left;
+    margin: {
+      left: 25px;
+      bottom: 30px;
+    }
+  }
+}
+
+.webmain .content .news .right .item li{
+  margin-left: 0;
+  height: 115px;
+  line-height: 30px;
+}
+
+.webmain .content .news{
+  .subitem{
+    border-bottom: 1px solid #999;
+    .left{
+      float: left;
+      width: 100px;
+      height: 115px;
+      text-align: center;
+      .zywmsg{
+        display: inline-block;
+        margin-top: 20px;
+        width: 55px;
+        height: 55px;
+      }
+    }
+    .middle{
+      display: inline-block;
+      width: 620px;
+      height: 115px;
+      font-size: 12px;
+      .username{
+        color: #999;
+      }
+    }
+    .right{
+      float: right;
+      margin-left: 0;
+      height: 115px;
+      width: 100px;
+      font-size: 12px;
+      span{
+        color: #999;
+      }
+      a{
+        display: inline-block;
+        width: 85px;
+        height: 30px;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        line-height: 30px;
+      }
+    }
+    .face{
+      display: inline-block;
+      margin-top: 20px;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #999;
+      border-radius: 50%;
+    }
+  }
 }
