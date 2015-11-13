@@ -194,7 +194,7 @@ $(function() {
           '<div class="loginalert-main-item">'+
             // '<input type="checkbox" name="rulechecked" value="">'+
             '<!-- <span class="remenber">&nbsp;&nbsp;记住我</span> -->'+
-            '<span class="register" id="#go2reg">立即注册</span>'+
+            '<span class="register" id="go2reg">立即注册</span>'+
             '<span class="searchpass">找回密码</span>'+
           '</div>'+
           '<div class="loginalert-main-item">'+
