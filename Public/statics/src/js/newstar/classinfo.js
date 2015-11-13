@@ -45,7 +45,7 @@ $(function(){
         type: "get",
         dataType: "json",
         data: {
-          type: 2,
+          type: 3,
           id: $.getId(),
           p: page
         },
@@ -82,7 +82,7 @@ $(function(){
         data: {
           content: _content,
           href: window.location.href,
-          pagename: $(".videoname").html(),
+          pagename: $(".videoname").html()
         },
         success: function(json){
           if(json.status === 0){
