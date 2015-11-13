@@ -1,0 +1,139 @@
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<head>
+<meta property="qc:admins" content="2055274421614776367072177" />
+<meta charset="utf-8">
+<title>中演网</title>
+<link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/dist/css/user/myinfo.css" rel="stylesheet" type="text/css" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+</head>
+
+<body>
+
+    <!--webheader-->
+    <div class="webheader">
+        <div class="inner clearFix">
+            <a href="index.html" class="logo"></a>
+            <div class="nav">
+                <ul class="clearFix">
+                  <li class="first c"><a href="{:U('Index/index')}">首页</a></li>
+                  <li><a href="{:U('News/index')}">资讯</a></li>
+                  <li><a href="{:U('Active/index')}">活动</a></li>
+                  <li><a href="{:U('Committee/index')}">演工委之声</a></li>
+                  <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
+                  <li><a href="{:U('#/index')}">饭团</a></li>
+                  <li><a href="{:U('Starwars/index')}">星站</a></li>
+                  <li><a href="{:U('#/index')}">明日之星</a></li>
+                  <li><a href="{:U('Video/index')}">视频</a></li>
+                  <li><a href="{:U('#/index')}">Stage</a></li>
+                  <li><a href="{:U('Performing/index')}">演艺库</a></li>
+                </ul>
+            </div>
+            <a href="#" class="search"></a>
+        </div>
+    </div>
+    <!--webheader end-->
+
+
+
+    <!--webmain-->
+    <div class="webmain">
+      <div class="con nav clearFix" id="J_nav">
+          <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="#">用户中心</a> >
+            <include file = "Header/login" />
+          </div>
+      </div>
+      <div class="content">
+        <div class="subnav">
+          <div class="title">个人中心</div>
+          <ul class="group">
+            <li><a href="#"><a href="{:U('User/myinfo_rice')}">我的饭团</a></a></li>
+            <li><a href="{:U('User/myinfo_active')}">我的活动</a></li>
+            <li class="active"><a href="{:U('User/myinfo_news')}">我的消息</a></li>
+          </ul>
+        </div>
+        <ul class="news">
+
+
+
+          <li class="active bottomitem">
+            <div class="left">
+              <ul class="sublist">
+                <li class="active">评论</li>
+                <li>系统消息</li>
+              </ul>
+            </div>
+            <div class="right">
+              <div class="item active">
+                <ul>
+                  <li class="subitem clearFix">
+                    <div class="left">
+                      <img src="#" alt="" class="face" />
+                    </div>
+                    <div class="middle">
+                      <span class="username">用户名：</span>
+                      <p>
+                        大家好
+                      </p>
+                    </div>
+                    <div class="right">
+                      <span>06-17 19:11</span>
+                      <a href="#">回复</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <ul>
+                  <li class="subitem clearFix">
+                    <div class="left">
+                      <img class="zywmsg" src="__PUBLIC__/statics/images/icon_msg_zyw.gif" alt="" />
+                    </div>
+                    <div class="middle">
+                      <span class="username">中演网：内容消息</span>
+                      <p>
+                        尊敬的xxx，。。。。。
+                      </p>
+                    </div>
+                    <div class="right">
+                      <span>06-17 19:11</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+
+    </div>
+    <!--webmain end-->
+
+
+<include file="Header/header" />
+
+
+<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+<script src="__PUBLIC__/statics/dist/js/common.js"></script>
+
+<script src="__PUBLIC__/statics/dist/js/index/myinfo.js"></script>
+<script src="__PUBLIC__/statics/js/form/myComponent.js"></script>
+</body>
+</html>
