@@ -107,7 +107,7 @@ class UserController extends ComController {
         $user = M('user');
         $data['mobile'] = session('userphone');
         $data['passwd'] = $oldpasswd;
-        ajaxReturn(1,'',$data);
+        //ajaxReturn(1,'',$data);
         $userlist = $user->where($data)->find();
         if($userlist){
             $newdump['passwd'] = $newpasswd;
