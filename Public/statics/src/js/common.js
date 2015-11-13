@@ -42,9 +42,9 @@ $(function() {
       // 点击body隐藏登录框
       $("body").on("click", page.hideInfo);
       // 未登陆时，点击#reg 注册框出来
-      $("#reg").on("click", page.regShow);
+      $("#reg").off().on("click", page.regShow);
       // 未登陆时，点击#log 登录框出来
-      $("#log").on("click", page.logShow);
+      $("#log").off().on("click", page.logShow);
       // 上面两个框的关闭按钮
       $("body").on("click","#close", page.closeAlert);
       // 刷新二维码

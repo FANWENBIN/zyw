@@ -19,11 +19,11 @@ $(function(){
         $(".step2 .error")("两次输入的密码不相等, 请检查后重新输入")
       }else{
         $.ajax({
-          type: "get",
-          url: "./index.php?m=Home&c=User&a=checkphver",
+          type: "post",
+          url: "./index.php?m=Home&c=User&a=modipasswd",
           data: {
-            phone: $(":text[name=tel]").val(),
-            version: $(":text[name=ver]").val()
+            oldpasswd: $(":text[name=oldcode]").val(),
+            newpasswd: $(":text[name=code]").val()
           },
           dataType: "json",
           success: function(json){
@@ -31,11 +31,11 @@ $(function(){
               console.log(json.msg);
               $(".step2").hide();
               $(".step3").show();
-            }else if(json.status === 103){
-              $(".step2 .error")("两次输入的密码不相等，请检查后重新输入")
+            }else if(json.status === 102){
+              $(".step2 .error")("旧密码输入错误");
               console.log(json.msg);
             }else{
-              console.log(json.msg)
+              console.log(json.msg);
             }
           },
           error: function(){}
