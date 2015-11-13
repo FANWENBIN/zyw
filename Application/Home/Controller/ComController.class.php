@@ -45,7 +45,23 @@ class ComController extends Controller {
             $this->error('请先登录');  //error 返回上一层
         }
     }
+    /**
+    *系统消息提示和评论回复消息提示
+    *@author winter
+    *@version 2015年11月13日18:57:22
+    */
+    public function mssage(){
+        $user_msg = M('user_msg');
+        $data['status'] = 2;
+        $data['uid'] = session('userid');
+        //所有未读消息
+        $this->sum = $user_msg->where($data)->count();
+        $data['type'] = 1;
+        $this->syssum = $user_msg->where($data)->count();//未读系统消息
+        $data['type'] = 2;
+        $this->usersum = $user_msg->where($data)->count();//用户评论回复消息
 
+    }
     /** 
     * 获取本周第一天/最后一天的时间戳 
     * @author winter
