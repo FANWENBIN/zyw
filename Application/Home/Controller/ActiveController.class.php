@@ -30,7 +30,8 @@ class ActiveController extends ComController {
         if(!empty($uid)){
             $user_acthis = M('user_acthis');
             $sum = $user_acthis->where('uid='.$uid)->count();
-            if($sum < 3){
+            $is = $user_acthis->where('uid='.$uid.' and activeid='.$id)->count();
+            if($sum < 3 && !$is){
                 $histriy['activeid'] = $id;
                 $histriy['uid']      = $uid;
                 $histriy['instime']  = time();
@@ -42,7 +43,6 @@ class ActiveController extends ComController {
                 $histriy['instime']  = time();
                 $user_acthis->where($oldlist)->save($data);
             }
-
         }
         $this->assign('sign',3);
         $this->display();
