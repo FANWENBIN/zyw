@@ -155,7 +155,7 @@ $(function() {
           '</div>'+
           '<span id="error"></span>'+
           '<div class="registeralert-main-item">'+
-            '<input type="checkbox" name="rulechecked" value="">'+
+            // '<input type="checkbox" name="rulechecked" value="">'+
             '<!-- <span class="agree">&nbsp;&nbsp;我同意<em><用户协议></em></span> -->'+
             '<span class="login">立即登录</span>'+
           '</div>'+
@@ -192,7 +192,7 @@ $(function() {
           '</div>'+
           '<span id="error"></span>'+
           '<div class="loginalert-main-item">'+
-            '<input type="checkbox" name="rulechecked" value="">'+
+            // '<input type="checkbox" name="rulechecked" value="">'+
             '<!-- <span class="remenber">&nbsp;&nbsp;记住我</span> -->'+
             '<span class="register">立即注册</span>'+
             '<span class="searchpass">找回密码</span>'+
@@ -208,7 +208,10 @@ $(function() {
       '</div>');
       $("body").append($log);
       $(".logform").on("submit",page.logSubmit);
-
+      $(".register").on("click",function(){
+        $("#loginalert").remove();
+        page.regShow();
+      })
     },
     logSubmit: function(){
       $.ajax({
