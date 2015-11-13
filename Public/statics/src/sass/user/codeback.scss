@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+
+
+.title{
+  width: 200px;
+  height: 60px;
+  background: url("../../../images/sprite_lookback.gif") 0 0 no-repeat;
+}
+
+.step1{
+
+}
+.step2{
+  display: none;
+}
+.step3{
+  display: none;
+}
+
+button{
+  height: 35px;
+  padding: {
+    left: 15px;
+    right: 15px;
+  }
+  background-color: #000;
+  color: #fff;
+  border: 0;
+}
+
+.done{
+  display: inline-block;
+  margin-top: 30px;
+}
+
+dl{
+  font-size: 16px;
+  dt{
+    float: left;
+    width: 145px;
+    height: 70px;
+    line-height: 70px;
+    text-align: right;
+
+  }
+  dd{
+    height: 70px;
+    line-height: 70px;
+    margin-left: 170px;
+    input{
+      height: 31px;
+      width: 310px;
+      text-indent: 15px;
+      border: 1px solid #000;
+      background-color: #fff;
+    }
+  }
+}
+.error{
+  display: inline-block;
+  color: red;
+  text-indent: 30px;
+}

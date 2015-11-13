@@ -42,9 +42,9 @@ $(function() {
       // 点击body隐藏登录框
       $("body").on("click", page.hideInfo);
       // 未登陆时，点击#reg 注册框出来
-      $("#reg").on("click", page.regShow);
+      $("#reg").off().on("click", page.regShow);
       // 未登陆时，点击#log 登录框出来
-      $("#log").on("click", page.logShow);
+      $("#log").off().on("click", page.logShow);
       // 上面两个框的关闭按钮
       $("body").on("click","#close", page.closeAlert);
       // 刷新二维码
@@ -157,7 +157,7 @@ $(function() {
           '<div class="registeralert-main-item">'+
             // '<input type="checkbox" name="rulechecked" value="">'+
             '<!-- <span class="agree">&nbsp;&nbsp;我同意<em><用户协议></em></span> -->'+
-            '<span class="login">立即登录</span>'+
+            '<span class="login" id="go2login">立即登录</span>'+
           '</div>'+
           '<div class="registeralert-main-item">'+
             '<input type="submit" name="name" value="注册" id="regsubmit">'+
@@ -169,7 +169,7 @@ $(function() {
         '</form>'+
       '</div>')
       $("body").append($reg);
-      $(".login").on("click",function(){
+      $("#go2login").off().on("click",function(){
         $("#registeralert").remove();
         page.logShow();
       })
@@ -194,7 +194,7 @@ $(function() {
           '<div class="loginalert-main-item">'+
             // '<input type="checkbox" name="rulechecked" value="">'+
             '<!-- <span class="remenber">&nbsp;&nbsp;记住我</span> -->'+
-            '<span class="register">立即注册</span>'+
+            '<span class="register" id="go2reg">立即注册</span>'+
             '<span class="searchpass">找回密码</span>'+
           '</div>'+
           '<div class="loginalert-main-item">'+
@@ -208,7 +208,7 @@ $(function() {
       '</div>');
       $("body").append($log);
       $(".logform").on("submit",page.logSubmit);
-      $(".register").on("click",function(){
+      $("#go2reg").on("click",function(){
         $("#loginalert").remove();
         page.regShow();
       })

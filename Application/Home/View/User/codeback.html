@@ -1,0 +1,109 @@
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<head>
+<meta property="qc:admins" content="2055274421614776367072177" />
+<meta charset="utf-8">
+<title>中演网</title>
+<link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/dist/css/user/codeback.css" rel="stylesheet" type="text/css" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+</head>
+
+<body>
+
+    <!--webheader-->
+    <div class="webheader">
+        <div class="inner clearFix">
+            <a href="index.html" class="logo"></a>
+            <div class="nav">
+                <ul class="clearFix">
+                  <li class="first c"><a href="{:U('Index/index')}">首页</a></li>
+                  <li><a href="{:U('News/index')}">资讯</a></li>
+                  <li><a href="{:U('Active/index')}">活动</a></li>
+                  <li><a href="{:U('Committee/index')}">演工委之声</a></li>
+                  <li><a href="{:U('Vote/index')}">中国电视好演员评选</a></li>
+                  <li><a href="{:U('#/index')}">饭团</a></li>
+                  <li><a href="{:U('Starwars/index')}">星站</a></li>
+                  <li><a href="{:U('#/index')}">明日之星</a></li>
+                  <li><a href="{:U('Video/index')}">视频</a></li>
+                  <li><a href="{:U('#/index')}">Stage</a></li>
+                  <li><a href="{:U('Performing/index')}">演艺库</a></li>
+                </ul>
+            </div>
+            <a href="#" class="search"></a>
+        </div>
+    </div>
+    <!--webheader end-->
+
+
+
+    <!--webmain-->
+    <div class="webmain">
+      <div class="con nav clearFix" id="J_nav">
+          <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="#">找回密码</a> >
+            <include file = "Header/login" />
+          </div>
+      </div>
+      <div class="title">
+
+      </div>
+      <div class="">
+        <div class="step step1">
+          <dl class="">
+            <dt>输入绑定的手机号：</dt>
+            <dd><input type="text" name="tel" placeholder="输入绑定的手机号码" value=""><button type="button" name="button" id="getVer">发送验证码</button><span class="error"></span></dd>
+            <dt>验证码：</dt>
+            <dd><input type="text" name="ver" value="" placeholder="输入手机验证码"></dd>
+            <dt></dt>
+            <dd>
+              <button type="button" name="next" id="checkmb">下一步</button>
+            </dd>
+          </dl>
+        </div>
+        <div class="step step2">
+          <dl class="">
+            <dt>旧密码：</dt>
+            <dd><input type="text" name="oldcode" value="" placeholder="输入旧密码"><span class="error"></span></dd>
+            <dt>新密码：</dt>
+            <dd><input type="text" name="code" value="" placeholder="8~20位字母、数字或字符,至少包含两种"></dd>
+            <dt>再次输入：</dt>
+            <dd><input type="text" name="recode" value="" placeholder="两次输入密码必须一致"></dd>
+            <dt></dt>
+            <dd>
+              <button type="button" name="next" id="confirmcode">确认</button>
+            </dd>
+          </dl>
+        </div>
+        <div class="step step3">
+          <span class="done">设置密码成功</span>
+        </div>
+
+      </div>
+
+
+    </div>
+    <!--webmain end-->
+
+
+<include file="Header/header" />
+
+
+<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+<script src="__PUBLIC__/statics/dist/js/common.js"></script>
+<script src="__PUBLIC__/statics/dist/js/user/codeback.js"></script>
+
+
+
+
+</body>
+</html>

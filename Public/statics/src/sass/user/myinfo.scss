@@ -111,6 +111,7 @@ input[type=submit]{
   margin-left: 240px;
 }
 .webmain .content .subnav .group li {
+  cursor: pointer;
   float: left;
   width: 130px;
   font-size: 22px;
@@ -151,6 +152,13 @@ input[type=submit]{
 .webmain .content .left li.active {
   background-color: #000;
   color: #fff;
+  a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+  }
 }
 .webmain .content .right {
   margin-left: 240px;
@@ -237,6 +245,7 @@ input[type=submit]{
   }
   .item {
     display: none;
+    overflow: hidden;
     &.active {
       display: block;
     }
@@ -357,7 +366,7 @@ input[type=submit]{
 }
 .right .container{
   width: 1000px;
-  margin-left: -30px;
+  margin-left: -25px;
 }
 .activity{
   .tips{
@@ -385,7 +394,7 @@ input[type=submit]{
 }
 
 .webmain .content .news{
-  .subitem{
+  .supitem{
     border-bottom: 1px solid #999;
     .left{
       float: left;

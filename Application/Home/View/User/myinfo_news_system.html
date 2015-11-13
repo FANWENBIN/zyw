@@ -68,12 +68,12 @@
           <li class="active bottomitem">
             <div class="left">
               <ul class="sublist">
-                <li class="active"><a href="{:U('User/myinfo_news')}">评论</a></li>
-                <li><a href="{:U('User/myinfo_news_system')}">系统消息</a></li>
+                <li><a href="{:U('User/myinfo_news')}">评论</a></li>
+                <li class="active"><a href="{:U('User/myinfo_news_system')}">系统消息</a></li>
               </ul>
             </div>
             <div class="right">
-              <div class="supitem active">
+              <!-- <div class="supitem">
                 <ul>
                 <volist name = "userlist" id = "vo">
                   <li class="subitem clearFix">
@@ -94,9 +94,9 @@
                   </volist>
                 </ul>
                 {$pages}
-              </div>
+              </div> -->
 
-              <!-- <div class="supitem">
+              <div class="supitem active">
                 <ul>
                 <volist name = "syslist" id = "vo">
                   <li class="subitem clearFix">
@@ -116,7 +116,7 @@
                   </volist>
                 </ul>
                 {$page}
-              </div> -->
+              </div>
 
             </div>
           </li>
