@@ -57,7 +57,7 @@ $(function(){
             return false;
           }
           for(var i = 0, len = _arr.length; i < len; i++ ){
-            _html += '<div class="item clearFix">'+
+            _html += '<div class="itemcomment clearFix">'+
               '<div class="head">'+
                 '<img src="./Uploads'+ _arr[i].namehead +'">'+
               '</div>'+
@@ -86,7 +86,7 @@ $(function(){
         },
         success: function(json){
           if(json.status === 0){
-            $("#J_CommentList").prepend('<div class="item clearFix">'+
+            $("#J_CommentList").prepend('<div class="itemcomment clearFix">'+
               '<div class="head">'+
                 '<img src="./Uploads'+ scope.userdata.headpic +'">'+
               '</div>'+
@@ -95,7 +95,7 @@ $(function(){
                 '<p>'+ _content +'</p>'+
               '</div>'+
             '</div>')
-            $("#J_CommentList .item").eq(5).remove();
+            $("#J_CommentList .itemcomment").eq(5).remove();
           }else if(json.status === 101){
             console.log(json.msg)
           }else if(json.status === 102){
