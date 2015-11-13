@@ -14,16 +14,36 @@ class ActiveController extends ComController {
 		//echo $ip = get_client_ip();
     }
     public function active_details(){
-        $id = I('get.id');
+        $id     = I('get.id');
         $active = M('active');
+        $img    = M('active_img');
         $list   = $active->where('id='.$id)->find();
         session('active',$list);
         $this->assign('list',$list);
         $data['concern'] = $list['concern']+1;
         $active->where('id='.$id)->save($data);
-        $img = M('active_img');
+        
         $imglist = $img->where('activeid='.$id)->select();
         $this->assign('imglist',$imglist);
+        //用户浏览活动记录
+        $uid = session('userid');
+        if(!empty($uid)){
+            $user_acthis = M('user_acthis');
+            $sum = $user_acthis->where('uid='.$uid)->count();
+            if($sum < 3){
+                $histriy['activeid'] = $id;
+                $histriy['uid']      = $uid;
+                $histriy['instime']  = time();
+                $user_acthis->add($histriy);
+            }else{
+                $oldlist = $user_acthis->order('instime asc')->find();
+                $histriy['activeid'] = $id;
+                $histriy['uid']      = $uid;
+                $histriy['instime']  = time();
+                $user_acthis->where($oldlist)->save($data);
+            }
+
+        }
         $this->assign('sign',3);
         $this->display();
     }
@@ -84,9 +104,6 @@ class ActiveController extends ComController {
     	}
         $data['status'] = 1;
     	//$activeval = $active->where($data)->select();
-
-
-
         $count      = $active->where($data)->count();// 查询满足要求的总记录数
         $Page       = new \Think\Page($count,12);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
