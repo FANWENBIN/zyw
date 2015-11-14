@@ -139,6 +139,8 @@ class RiceController extends ComController {
         if(!$activeval){
             $this->assign('empty',1);
         }
+        $this->assign('activeval',$activeval);
+        
         $this->list = $array;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
