@@ -133,7 +133,12 @@ class RiceController extends ComController {
             $array[$key]['flist'] = $value;
             $array[$key]['slist'] = $slist;
         }
-
+        //推荐活动
+        $active = M('active');
+        $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();
+        if(!$activeval){
+            $this->assign('empty',1);
+        }
         $this->list = $array;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
