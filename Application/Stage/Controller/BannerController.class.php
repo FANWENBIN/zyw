@@ -420,7 +420,8 @@ class BannerController extends ComController {
             }
         }else{
             $active = M('fans_club');
-            $activeval = $active->order('instime desc')->select();
+
+            $activeval = $active->where('status = 1')->order('instime desc')->select();
             $this->assign('a','<option>暂时没有数据</option>');
             $this->assign('newsval',$activeval);
         
