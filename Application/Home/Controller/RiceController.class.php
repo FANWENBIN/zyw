@@ -140,7 +140,7 @@ class RiceController extends ComController {
             $this->assign('empty',1);
         }
         $this->assign('activeval',$activeval);
-        
+
         $this->list = $array;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
@@ -248,7 +248,7 @@ class RiceController extends ComController {
         $data['name'] = session('username');
         $data['headimg'] = session('userimg');
         $result = $this->checkDump($data);
-        if($result == 0){ajaxReturn(102,'参数不可为空','');}
+        if($result == 0){ajaxReturn(102,'参数不可为空',$data);}
         $data['fid']    = I('post.fid'); 
         $fans_comment = M('fans_comment');     //论坛评论表
         $user_msg = M('user_msg');             //用户消息表
