@@ -7,7 +7,7 @@
 <html>
 <!--<![endif]-->
 
-<head> 
+<head>
   <meta charset="utf-8">
   <title>中演网</title>
   <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
@@ -28,7 +28,11 @@
   <!--webmain-->
   <div class="webmain">
 
-    <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="{:U('Newstar/index')}">明日之星</a> > {$list.title}</div>
+    <div class="navTitle">
+      <a href="{:U('Index/index')}">首页</a> > <a href="{:U('Newstar/index')}">明日之星</a> > <span class="videoname">{$list.title}</span>
+
+      <include file = "Header/login" />
+    </div>
 
     <!--<img src="__PUBLIC__/statics/images/p/p2.jpg"/>-->
     <iframe width=1200 height=800 src="{$list.href}" frameborder=0 allowfullscreen></iframe>
@@ -44,7 +48,7 @@
           <a href="javascript:void(0);" class="submit">评论</a>
         </div>
         <div class="list" id="J_CommentList">
-          <div class="item clearFix">
+          <!-- <div class="item clearFix">
             <div class="head">
               <img src="/zyw/Public/statics/images/p/a10.jpeg">
             </div>
@@ -94,20 +98,22 @@
 
               <p>大家好。最好的明星就是那些有品行有好的影响力。</p>
             </div>
-          </div>
-        </div>
-        <div class="pager clearFix">
-          <a href="javascript:void(0);">首页</a>
-          <a href="javascript:void(0);" class="c">1</a>
-          <a href="javascript:void(0);">2</a>
-          <span>...</span>
-          <a href="javascript:void(0);">3</a>
-          <a href="javascript:void(0);">4</a>
-          <a href="javascript:void(0);">5</a>
-          <a href="javascript:void(0);">未页</a>
+          </div> -->
         </div>
 
+
       </div>
+      <!--  分页    引进page.js-->
+      <div class="pagelist" id="pagelist">
+        <a href="javacript:;" class="pre">上一页</a>
+        <ul class="num">
+          <!-- <li class="active">1</li>
+          <li>2</li>
+          <li>3</li> -->
+        </ul>
+        <a href="javacript:;" class="next">下一页</a>
+      </div>
+
     </div>
 
 
@@ -120,8 +126,10 @@
   <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
   <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
   <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+  <script src="__PUBLIC__/statics/src/js/common.js"></script>
+  <script src="__PUBLIC__/statics/dist/js/tool/pagev1.js"></script>
 
-  <script src="__PUBLIC__/statics/js/index/index_video.js"></script>
+  <script src="__PUBLIC__/statics/dist/js/newstar/classinfo.js"></script>
 
 </body>
 

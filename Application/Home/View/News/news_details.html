@@ -40,7 +40,7 @@
         <!--正文-->
         <div class="content">
             <div class="header">
-                <h1>{$result.title}</h1>
+                <h1 class="videoname">{$result.title}</h1>
                 <h3>{$result['instime']|date='Y-m-d H:i:s',###}</h3>
             </div>
             <div class="content">
@@ -100,6 +100,36 @@
         </div>
     </div>
 
+    <div class="con conComment">
+
+      <div class="title">
+        <h2>评论</h2>
+      </div>
+      <div class="inner clearFix">
+        <div class="send" id="J_CommentSendbox">
+          <textarea></textarea>
+          <a href="javascript:void(0);" class="submit">评论</a>
+        </div>
+        <div class="list" id="J_CommentList">
+
+        </div>
+
+
+      </div>
+
+      <!--  分页    引进page.js-->
+      <div class="pagelist" id="pagelist">
+        <a href="javacript:;" class="pre">上一页</a>
+        <ul class="num">
+          <!-- <li class="active">1</li>
+          <li>2</li>
+          <li>3</li> -->
+        </ul>
+        <a href="javacript:;" class="next">下一页</a>
+      </div>
+
+    </div>
+
 </div>
 
     <!--webmain end-->
@@ -110,8 +140,11 @@
     <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
     <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
     <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+    <script src="__PUBLIC__/statics/src/js/common.js"></script>
+    <script src="__PUBLIC__/statics/dist/js/tool/pagev1.js"></script>
 
     <script src="__PUBLIC__/statics/dist/js/news/news.js"></script>
+    <script src="__PUBLIC__/statics/dist/js/news/newscomment.js"></script>
 
 </body>
 </html>
