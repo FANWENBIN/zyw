@@ -36,6 +36,9 @@ class CommentController extends ComController {
                 case 'Video':
                    $data['typeid'] = 2;
                     break;
+                case 'Newstar':
+                   $data['typeid'] = 3;
+                    break;
                 default: 
                     break;
             }

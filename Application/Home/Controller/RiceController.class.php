@@ -203,8 +203,6 @@ class RiceController extends ComController {
         $data['userid']     = session('userid');
         $data['title']      = I('post.title');
         $data['content']    = I('post.content');
-
-
         $data['instime']    = time();
         $data['headimg']    = session('userimg');
         $result = $this->checkDump($data);
@@ -220,6 +218,8 @@ class RiceController extends ComController {
         $sign = $posts->add($data);
         if($sign){
             $fans_club->where('id='.$data['fansclubid'])->setInc('posts',1);
+            $data['poststime'] = time();
+            $fans_club->where('id='.$data['fansclubid'])->save();
             ajaxReturn(0,'发布成功','');
         }else{
             ajaxReturn(101,'','发帖失败');
