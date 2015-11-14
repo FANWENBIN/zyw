@@ -60,7 +60,12 @@ class RiceController extends ComController {
     	}else{
     		if(!$list){
     			$list = array();
-    		}
+    		}else{
+                foreach ($list as $key => $value) {
+                    $list[$key]['img'] = './Uploads'.$value['img'];
+                }
+            }
+
     		$data = array('data'=>$list,'page'=>$page);
     		ajaxReturn(0,'',$data);
     	}
