@@ -260,6 +260,7 @@ class UserController extends ComController {
         }
         $fansid = implode(',',explode(',', $fansid));
         $data['id'] = array('in',$fansid);
+        $data['status'] = 1;
         $this->clublist = $fans_club->where($data)->select();
     	$this->display();
     }
