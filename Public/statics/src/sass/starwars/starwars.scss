@@ -50,7 +50,7 @@ $starmargin: 26px;
 }
 
 .banner{
-  @include banner1($bannerwidth, $bannerheight, 480px);
+  @include banner1($bannerwidth, $bannerheight, 480px); 
 }
 
 
