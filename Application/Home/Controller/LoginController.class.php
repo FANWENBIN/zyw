@@ -24,7 +24,6 @@ class LoginController extends ComController {
     }
    //验证登陆接口
     public function checklogin(){
-
         //md5(xxzyw916);
         $data['id'] = session('userid');
         $data['mobile'] = session('userphone');
@@ -56,12 +55,7 @@ class LoginController extends ComController {
             ajaxReturn(0,'账号密码输入错误','');
         }
     }
-    public function test(){
-        session('userid',17);
-        session('username','18516313142');
-        session('userphone',18516313142);
-        session('userimg','/statics/images/icon_face.jpg');
-    }
+  
     //注册接口
     public function register(){
         $phone = I('get.phone','','trim');
