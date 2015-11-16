@@ -30,12 +30,13 @@ $(function(){
     getActor: function(){
       $.ajax({
         type: "post",
-        url: "./index.php?m=Home&c=Rice&a=actors"
+        url: "./index.php?m=Home&c=Rice&a=actors",
         dataType: "json",
         success: function(json){
+          console.log(json)
           var _html = "";
           var _arr = json.data;
-          for(var i = 0; len = _arr.length; i < len ; i++){
+          for(var i = 0, len = _arr.length; i < len ; i++){
             _html　+= '<options value="'+ _arr[i].id +'">'+ _arr[i].name +'</options>'
           }
           $(".actorname").html(_html);
