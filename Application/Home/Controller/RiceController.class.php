@@ -328,7 +328,7 @@ class RiceController extends ComController {
     */
     public function actors(){
         $actors = M('actors');
-        $actorslist = $active->field('id,name')->where('status <> 0 and status <> 3')->order('initial asc')->select();
+        $actorslist = $actors->field('id,name')->where('status <> 0 and status <> 3')->order('initial asc')->select();
         if(false === $actorslist){
             ajaxReturn(101,'请求失败','');
         }else{
