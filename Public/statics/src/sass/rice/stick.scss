@@ -63,6 +63,9 @@
     }
     .content-title{
       margin-left: 70px;
+      img{
+        display: inline-block;
+      }
       h3{
         height: 32px;
         font-size: 18px;
@@ -100,7 +103,7 @@
       }
     }
     .inner-content{
-      // margin-left: 70px; 
+      // margin-left: 70px;
     }
     .mainreply{
       margin-top: 30px;
@@ -123,7 +126,7 @@
       }
     }
     .comment{
-      margin-top: 100px;
+      margin-top: 140px;
       .replygroup{
         margin-left: 100px;
         .itemreply{
@@ -131,7 +134,7 @@
             top: 15px;
             bottom: 25px;
           }
-          border-bottom: 1px solid #999;
+          border-top: 1px solid #999;
           .itemreply-left{
             width: 50px;
             margin-left: 30px;
@@ -188,7 +191,7 @@
           top: 15px;
           bottom: 25px;
         }
-        border-bottom: 1px solid #999;
+        border-top: 1px solid #999;
         .item-left{
           width: 50px;
           margin-left: 30px;
@@ -234,6 +237,10 @@
     background: url("../../../images/icon_fans_title.gif") 0 0 no-repeat;
   }
   .fans{
+    p{
+      font-size: 14px;
+      line-height: 33px;
+    }
     .item{
       float: left;
       @include item3(380px, 285px, 60px, 14px, 12px)

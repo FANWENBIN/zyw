@@ -65,7 +65,7 @@ $(function(){
                   '粉丝数 '+ _arr[i].fanssum +'&nbsp;&nbsp;贴&nbsp;量 '+ _arr[i].posts +
                 '</div>'+
                 '<br/>'+
-                '<a href="/zyw/index.php?m=Home&c=Rice&a=homepage&id='+ _arr[i].actorid +'">我要报名</a>'+
+                '<a href="/zyw/index.php?m=Home&c=Rice&a=homepage&id='+ _arr[i].id +'">我要报名</a>'+
               '</div>'+
             '</div>'
           }
