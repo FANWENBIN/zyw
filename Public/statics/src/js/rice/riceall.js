@@ -37,9 +37,8 @@ $(function(){
           var _html = "";
           var _arr = json.data;
           for(var i = 0, len = _arr.length; i < len ; i++){
-            _html　+= '<options value="'+ _arr[i].id +'">'+ _arr[i].name +'</options>'
+            _html　+= '<option value="'+ _arr[i].id +'">'+ _arr[i].name +'</option>'
           }
-          console.log(_html)
           $(".actorname").html(_html);
         },
         error: function(e){
