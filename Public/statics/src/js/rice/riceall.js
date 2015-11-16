@@ -1,7 +1,8 @@
 $(function(){
   var scope = {
     type: "fanssum",
-    pageNum: 1
+    pageNum: 1,
+    imgUrl: ""
   };
   var page = {
     init: function(){
@@ -24,6 +25,25 @@ $(function(){
           page.getData(index);
         });
       });
+      page.getActor();
+    },
+    getActor: function(){
+      $.ajax({
+        type: "post",
+        url: "./index.php?m=Home&c=Rice&a=actors"
+        dataType: "json",
+        success: function(json){
+          var _html = "";
+          var _arr = json.data;
+          for(var i = 0; len = _arr.length; i < len ; i++){
+            _html　+= '<options value="'+ _arr[i].id +'">'+ _arr[i].name +'</options>'
+          }
+          $(".actorname").html(_html);
+        },
+        error: function(e){
+          consolo.log(e)
+        }
+      })
     },
     closeConfirm: function(){
       $(this).parent().parent().hide();

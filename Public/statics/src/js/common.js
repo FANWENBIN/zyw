@@ -154,7 +154,7 @@ $(function() {
             '<input type="text" name="idcode2" value="" id="idcode2" placeholder="请输入验证码"><span class="getfreemesg" id="getfreemesg">免费获取短信</span>'+
           '</div>'+
           '<span id="error"></span>'+
-          '<div class="registeralert-main-item">'+
+          '<div class="registeralert-main-item customstyle1">'+
             // '<input type="checkbox" name="rulechecked" value="">'+
             '<!-- <span class="agree">&nbsp;&nbsp;我同意<em><用户协议></em></span> -->'+
             '<span class="login" id="go2login">立即登录</span>'+
@@ -191,7 +191,7 @@ $(function() {
             '<input type="password" name="password" value="" id="password" placeholder="请输入密码">'+
           '</div>'+
           '<span id="error"></span>'+
-          '<div class="loginalert-main-item">'+
+          '<div class="loginalert-main-item customstyle1">'+
             // '<input type="checkbox" name="rulechecked" value="">'+
             '<!-- <span class="remenber">&nbsp;&nbsp;记住我</span> -->'+
             '<span class="register" id="go2reg">立即注册</span>'+
