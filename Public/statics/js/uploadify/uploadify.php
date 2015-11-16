@@ -21,9 +21,16 @@ if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 	
 	if (in_array($fileParts['extension'],$fileTypes)) {
 		move_uploaded_file($tempFile,$targetFile);
-		echo '1';
+		$data['status'] = 0;
+		$data['msg']  = '';
+		$data['data'] = array('targetFile'=>$targetFile);
+		exit(json_encode($data,JSON_UNESCAPED_UNICODE));
 	} else {
-		echo 'Invalid file type.';
+		$data['status'] = 0;
+		$data['msg']  = '上传失败';
+		$data['data'] = '';
+		exit(json_encode($data,JSON_UNESCAPED_UNICODE));
+		
 	}
 }
 ?>
