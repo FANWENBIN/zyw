@@ -26,7 +26,7 @@ if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 		$data['data'] = array('targetFile'=>$targetFile);
 		exit(json_encode($data,JSON_UNESCAPED_UNICODE));
 	} else {
-		$data['status'] = 0;
+		$data['status'] = 101;
 		$data['msg']  = '上传失败';
 		$data['data'] = '';
 		exit(json_encode($data,JSON_UNESCAPED_UNICODE));
