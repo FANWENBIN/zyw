@@ -15,8 +15,8 @@ $(function(){
        'swf'      : 'public/statics/js/uploadify/uploadify.swf',
        'uploader' : 'public/statics/js/uploadify/uploadify.php',
        'buttonText' : '上传粉丝团封面图',
-       'onUploadSuccess' : function(file) {
-            console.log(file);
+       'onUploadSuccess' : function(file,data,response) {
+            console.log(data);
         }
        // Put your options here
       });
@@ -54,15 +54,17 @@ $(function(){
     },
     formSubmit: function(){
       console.log($(":text[name=name]").val())
-      if(!/^.+$/.test($(":text[name=name]").val())){
-        alert("请填入明星名字");
+      if(!/^.+$/.test($(":text[name=ricename]").val())){
+        alert("请填入饭团名字");
         return false;
       }
       $.ajax({
-        type: "get",
-        url: "",
+        type: "post",
+        url: "./index.php?m=Home&c=Rice&a=createfans",
         data: {
-
+          actorid:
+          name: ,
+          img:
         },
         dataType: "json",
         success: function(){
