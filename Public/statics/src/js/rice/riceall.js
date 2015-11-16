@@ -25,6 +25,7 @@ $(function(){
           page.getData(index);
         });
       });
+      page.getActor();
     },
     getActor: function(){
       $.ajax({
