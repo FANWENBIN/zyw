@@ -53,6 +53,7 @@ class PerformingController extends ComController {
                         ->where("initial ='".$v."'")
                         ->where($where)
                         ->select();
+                       // if($v == S){ajaxReturn(111,$actors->getlastsql());}
                 foreach($data[$v] as $key=>$val){
                     $data[$v][$key]['img'] = './Uploads'.$val['img'];
                 }
@@ -60,7 +61,6 @@ class PerformingController extends ComController {
                     ajaxReturn(101,'请求失败','');
                 }
             }
-
         }
 		ajaxReturn(0,'',$data);
     }
