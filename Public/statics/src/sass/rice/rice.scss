@@ -2,6 +2,9 @@
 
 @import "../sasscommon";
 
+html,body{
+  height: 100%;
+}
 
 // 全局变量
 //大图
@@ -57,5 +60,85 @@ $bannerheight:530px;
         border: 1px solid #fff;
       }
     }
+  }
+}
+.creatRice{
+  float: right;
+  width: 150px;
+  height: 44px;
+  margin-top: 8px;
+  color: #fff;
+  font-size: 14px;
+  border: 0;
+  background-color: #000;
+  cursor: pointer;
+}
+.create-mask{
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background: url("../../../images/space.png") 0 0 repeat;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+  background-color: rgba(0,0,0,0.3);
+  .close{
+    position: absolute;
+    top: 10px;
+    left: 395px;
+    cursor: pointer;
+  }
+}
+.create-alert{
+  position: relative;
+  width: 420px;
+  height: 340px;
+  top: 300px;
+  margin: 0 auto;
+  border: 6px solid #999;
+  background-color: #fff;
+  form{
+    margin: {
+      left: 80px;
+      top: 45px;
+    }
+  }
+}
+.create-alert{
+  dt{
+    float: left;
+    width: 70px;
+    height: 55px;
+    font-size: 14px;
+    text-align: right;
+    line-height: 55px;
+  }
+  dd{
+    margin-left: 75px;
+    height: 55px;
+    font-size: 14px;
+    line-height: 55px;
+    input[type=text]{
+      height: 35px;
+      border: 1px solid #000;
+      background-color: #fff;
+      text-indent: 15px;
+    }
+    select{
+      height: 35px;
+      width: 70px;
+      border: 1px solid #000;
+      background-color: #fff;
+      text-indent: 10px;
+    }
+  }
+  input[type=submit]{
+    height: 35px;
+    width: 250px;
+    margin-top: 45px;
+    border: 1px solid #000;
+    background-color: #000;
+    text-indent: 10px;
+    color: #fff;
   }
 }
