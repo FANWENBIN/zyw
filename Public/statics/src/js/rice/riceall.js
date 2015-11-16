@@ -15,7 +15,7 @@ $(function(){
        'uploader' : 'public/statics/js/uploadify/uploadify.php',
        'buttonText' : '上传粉丝团封面图',
        'onUploadSuccess' : function(file, data, response) {
-            console.log(file);
+            console.log(file,data,response);
         }
        // Put your options here
       });
