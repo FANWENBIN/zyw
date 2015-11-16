@@ -133,11 +133,13 @@ class RiceController extends ComController {
         $this->assign('page',$show);// 赋值分页输出
 
         foreach ($flist as $key => $value) {
-            $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = '.$value['id'])->select();
-           
+            $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid <> 0')->select();
             $array[$key]['flist'] = $value;
             $array[$key]['slist'] = $slist;
+           
         }
+
+
         //推荐活动
         $active = M('active');
         $activeval = $active->where('status = 1')->order('`order` desc,instime desc,concern desc')->find();

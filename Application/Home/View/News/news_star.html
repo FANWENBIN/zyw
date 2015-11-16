@@ -61,7 +61,7 @@
                 <volist name = "timenews" id = "vo" offset = "1" length = "6">
                     <li>
                         <a href="{:U('News/news_details?id='.$vo['id'])}"><?php echo strlen($vo['title'],'utf8')>30?mb_substr($vo['title'],0,24,'utf-8').'......':$vo['title'] ?></a>
-                        <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                        <span>{$vo.instime|date="Y-m-d H:i:s"}</span>
                     </li>
                 </volist>
                 </ul>

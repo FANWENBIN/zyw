@@ -38,7 +38,7 @@ class IndexController extends ComController {
             $bluegroup[$key]['lifting'] = $val['oldrank']-$val['rank'];
         }
         $this->assign('bluegroup',$bluegroup); 
-        //蓝组男演员
+        //蓝组男演员 
         $where2['sex'] = 1;
         $manbluegroup   = $actors->where($where2)->order(array('votes'=>'desc','chinese_sum'=>'asc'))->limit(0,10)->select();
         foreach($manbluegroup as $key=>$val){
