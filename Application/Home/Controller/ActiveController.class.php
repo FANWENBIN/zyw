@@ -81,6 +81,7 @@ class ActiveController extends ComController {
     			break;
     		case '4':
     			$data['week'] = 1;
+                //$data['last_time'] = 
     			break;
     		case '5':
     			$data['begin_time'] = array('lt',get_week_time('last'));
@@ -127,8 +128,23 @@ class ActiveController extends ComController {
     }
     //用户发起活动
     public function useraddactive(){
+
+        $upload = new \Think\Upload();// 实例化上传类    
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小    
+        $upload->exts      =     array('jpg', 'png', 'jpeg');
+        // 设置附件上传类型    
+        $upload->savePath  =      '/active/'; // 设置附件上传目录    // 上传文件     
+        $info   =   $upload->upload();    
+        if(!$info) {// 上传错误提示错误信息        
+            $this->error($upload->getError());    
+        }else{
+        $data['img'] = $info['mypic']['savepath'].$info['mypic']['savename'];
+        }
+
         $data['title']        = I('post.title');
-        $data['img']          = I('post.imgpath');
+
+        
+
         $data['content']      = I('post.content');
         $data['phone']        = I('post.phone');
         $data['begin_time']   = strtotime(I('post.begin_time'));
@@ -144,7 +160,7 @@ class ActiveController extends ComController {
         $a = $this->checkDump($data);
         if(!$a){
             ajaxReturn(102,'活动主体信息不可为空','');
-          //  $this->error('');
+          //$this->error('');
         }
         $data['linetype']    = I('post.line_type');
         if($data['linetype'] == 0){
