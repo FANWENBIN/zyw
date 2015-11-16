@@ -43,6 +43,10 @@ $(function(){
       return false;
     },
     submit: function(){
+      if(!$("#mainreplycontent").val()){
+        alert("请输入内容");
+        return false;
+      }
       $.ajax({
         type: "post",
         url: "./index.php?m=Home&c=Rice&a=comment",
