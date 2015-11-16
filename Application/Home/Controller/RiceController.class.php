@@ -311,8 +311,16 @@ class RiceController extends ComController {
         $data['userid']  = session('userid');
         $data['username'] = session('username');
         $data['instime'] = time();
+        $check = $this->checkDump($data);
+        if(!$check){ajaxReturn(102,'参数有空值');}
+
         $fans_club = M('fans_club');
-        ajaxReturn(000,'',$data);
+        $sign = $fans_club->add($data);
+        if($sign){
+            ajaxReturn(0,'发起成功，静待审核','');
+        }else{
+            ajaxReturn(101,'发起失败','');
+        }
 
     }
     /**

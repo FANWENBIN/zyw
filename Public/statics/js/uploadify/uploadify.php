@@ -6,14 +6,14 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 */
 
 // Define a destination
-$targetFolder = 'zyw/Uploads/fans'; // Relative to the root
+$targetFolder = '/Uploads/fans'; // Relative to the root
 
 //$verifyToken = md5('unique_salt'.$_POST['timestamp']);
 
 //if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 if (!empty($_FILES)) {
 	$tempFile = $_FILES['Filedata']['tmp_name'];
-	$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
+	$targetPath = $_SERVER['DOCUMENT_ROOT'].'zyw' . $targetFolder;
 	if(!is_dir($targetPath)){
             mkdir($targetPath,0777,true);
     }
@@ -28,7 +28,8 @@ if (!empty($_FILES)) {
 		move_uploaded_file($tempFile,$targetFile);
 		$data['status'] = 0;
 		$data['msg']  = '';
-		$data['data'] = array('targetFile'=>$targetFile);
+		$path = "./Uploads/fans/".$_FILES['Filedata']['name'];
+		$data['data'] = array('targetFile'=>$path);
 		exit(json_encode($data,JSON_UNESCAPED_UNICODE));
 	} else {
 		$data['status'] = 101;
