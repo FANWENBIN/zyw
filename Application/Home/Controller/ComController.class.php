@@ -301,6 +301,20 @@ class ComController extends Controller {
      //等待开发中
         
     }
+    /**
+    *无限循环评论回复！！！！   .给跪了。。
+    *@author winter
+    *@version 2015年11月16日14:06:55
+    */
+    public function reply($flist,$key,$value){
+
+       $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = '.$value['id'])->select();
+           
+            $array[$key]['flist'] = $value;
+            $array[$key]['slist'] = $slist;
+            echo $fans_comment->getlastsql();
+            var_dump($slist);
+    }
    
 }
    
