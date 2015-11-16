@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>测试</title>
+  <link rel="stylesheet" href="uploadify.css" media="screen" title="no title" charset="utf-8">
+  <style>
+    #file_upload {
+      background-color: #ccc;
+    }
+  </style>
+
+</head>
+
+<body>
+  <input type="file" name="file_upload" id="file_upload" />
+
+
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.uploadify.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      $('#file_upload').uploadify({
+        'swf': 'uploadify.swf',
+        'uploader': 'uploadify.php',
+        'onUploadSuccess' : function(file, data, response) {
+            alert('The file ' + file.name + ' was successfully uploaded with a response of ' + response + ':' + data);
+        }
+      });
+
+    })
+  </script>
+</body>
+
+</html>

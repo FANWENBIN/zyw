@@ -9,14 +9,27 @@ $(function(){
       $(".creatRice").on("click",page.showCreateRice);
       $(".create-mask form").on("submit",page.formSubmit);
       $(".close").on("click",page.closeCreateRice);
+      $(".confirm").on("click",page.closeConfirm);
+      $('#file_upload').uploadify({
+       'swf'      : 'public/statics/js/uploadify/uploadify.swf',
+       'uploader' : 'public/statics/js/uploadify/uploadify.php',
+       'buttonText' : '上传粉丝团封面图',
+       'onUploadSuccess' : function(file, data, response) {
+            console.log(file,data,response);
+        }
+       // Put your options here
+      });
       page.getPage(function(){
         pageInit(scope.pageNum,10,function(index){
           page.getData(index);
         });
       });
     },
+    closeConfirm: function(){
+      $(this).parent().parent().hide();
+    },
     closeCreateRice: function(){
-      $(".create-mask").hide();
+      $(this).parent().parent().hide();
     },
     formSubmit: function(){
       console.log($(":text[name=name]").val())
@@ -24,7 +37,21 @@ $(function(){
         alert("请填入明星名字");
         return false;
       }
+      $.ajax({
+        type: "get",
+        url: "",
+        data: {
 
+        },
+        dataType: "json",
+        success: function(){
+
+        },
+        error: function(){
+
+        }
+      })
+      return false;
     },
     showCreateRice: function(){
       $(".create-mask").show();
