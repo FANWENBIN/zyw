@@ -143,7 +143,6 @@ class ActiveController extends ComController {
 
         $data['title']        = I('post.title');
 
-        
 
         $data['content']      = I('post.content');
         $data['phone']        = I('post.phone');

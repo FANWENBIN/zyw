@@ -129,7 +129,9 @@ class UserController extends ComController {
             $user_msg = M('user_msg');
             $data['type'] = 1;
             $data['msg']  = I('post.content');
-            $data['instime'] = strtotime(I('post.instime'));
+            $array = explode('|', $_POST['instime']);
+            $data['instime'] = strtotime($array[0].' '.$array[1]);
+            //$data['instime'] = strtotime(I('post.instime'));
             $data['status'] = 2;
             $data['uid'] = $id;
             $data['username'] = I('post.nickname');
