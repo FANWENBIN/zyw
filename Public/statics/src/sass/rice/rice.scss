@@ -133,9 +133,10 @@ $bannerheight:530px;
     }
   }
   input[type=submit]{
+    position: absolute;
+    bottom: 10px;
     height: 35px;
     width: 250px;
-    margin-top: 150px;
     border: 1px solid #000;
     background-color: #000;
     text-indent: 10px;
@@ -190,4 +191,10 @@ $bannerheight:530px;
 
 
 
+}
+.tips2{
+  position: absolute;
+  top:283px;
+  left: 290px;
+  font-size: 14px;
 }

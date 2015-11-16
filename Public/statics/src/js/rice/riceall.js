@@ -14,7 +14,7 @@ $(function(){
        'swf'      : 'public/statics/js/uploadify/uploadify.swf',
        'uploader' : 'public/statics/js/uploadify/uploadify.php',
        'buttonText' : '上传粉丝团封面图',
-       'onUploadSuccess' : function(file, data, response) {
+       'onUploadSuccess' : function(file) {
             console.log(file);
         }
        // Put your options here
