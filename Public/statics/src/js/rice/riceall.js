@@ -6,11 +6,28 @@ $(function(){
   var page = {
     init: function(){
       $(".group").on("click","li",page.tab);
+      $(".creatRice").on("click",page.showCreateRice);
+      $(".create-mask form").on("submit",page.formSubmit);
+      $(".close").on("click",page.closeCreateRice);
       page.getPage(function(){
         pageInit(scope.pageNum,10,function(index){
           page.getData(index);
         });
       });
+    },
+    closeCreateRice: function(){
+      $(".create-mask").hide();
+    },
+    formSubmit: function(){
+      console.log($(":text[name=name]").val())
+      if(!/^.+$/.test($(":text[name=name]").val())){
+        alert("请填入明星名字");
+        return false;
+      }
+
+    },
+    showCreateRice: function(){
+      $(".create-mask").show();
     },
     tab: function(){
       scope.type = $(this).data("type");

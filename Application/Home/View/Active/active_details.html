@@ -31,8 +31,8 @@
         </div>
         <div class="topCon">
             <div class="header">
-                <h1>{$list.title}</h1><!--
-                --><span class="newActive" id="newActive">发起活动</span>
+                <h1>{$list.title}</h1>
+                <!-- <span class="newActive" id="newActive">发起活动</span> -->
             </div>
             <p>地址：<em><if condition="$list.line_address neq '' ">{$list.line_address}<else />线上活动</if></em></p>
             <p>时间：<em>{$list.begin_time|date="m月d日 周N H:i",###} -- {$list.last_time|date="m月d日 周N H:i",###}</em></p>
