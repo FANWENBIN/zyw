@@ -42,7 +42,7 @@ $(function(){
           $(".actorname").html(_html);
         },
         error: function(e){
-          consolo.log(e)
+          console.log(e)
         }
       })
     },
