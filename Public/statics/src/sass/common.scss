@@ -159,8 +159,11 @@ a.important {
 
 /*导航栏*/
 .navTitle {
-  color: #ccc;
+  height: 30px;
+  line-height: 30px;
   margin-bottom: 10px;
+  color: #ccc;
+  font-size: 14px;
 }
 .navTitle a {
   color: inherit;
@@ -736,4 +739,8 @@ a.important {
   .next{
     float: left;
   }
+}
+.customstyle1{
+  margin-top: 5px;
+  margin-bottom: -20px;
 }
