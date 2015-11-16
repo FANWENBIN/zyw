@@ -10,6 +10,10 @@ $(function(){
       $(".inputsection form").on("submit",page.subSubmit)
     },
     subSubmit: function(){
+      if(!$(".replytext").val()){
+        alert("请输入内容");
+        return false;
+      }
       var _this = this;
       $.ajax({
         type: "post",
@@ -23,7 +27,7 @@ $(function(){
         success: function(json){
           if(json.status === 0){
             console.log(json.msg);
-            // window.location.reload()
+            window.location.reload()
           }else if(json.status === 101){
             console.log(json.msg);
             alert("发布失败，请稍后再试")
