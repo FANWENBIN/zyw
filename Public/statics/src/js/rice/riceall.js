@@ -39,6 +39,7 @@ $(function(){
           for(var i = 0, len = _arr.length; i < len ; i++){
             _html　+= '<options value="'+ _arr[i].id +'">'+ _arr[i].name +'</options>'
           }
+          console.log(_html)
           $(".actorname").html(_html);
         },
         error: function(e){
