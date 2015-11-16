@@ -23,7 +23,7 @@ $(function(){
         success: function(json){
           if(json.status === 0){
             console.log(json.msg);
-            window.location.reload()
+            // window.location.reload()
           }else if(json.status === 101){
             console.log(json.msg);
             alert("发布失败，请稍后再试")
@@ -51,6 +51,7 @@ $(function(){
         success: function(json){
           if(json.status === 0){
             console.log(json.msg);
+
             window.location.reload()
           }else if(json.status === 101){
             console.log(json.msg);
