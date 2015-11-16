@@ -53,6 +53,9 @@
           </div>
           <div class="content-title">
             <h3>{$postslist.title}</h3>
+            <div class="inner-content">
+              {:html_entity_decode($postslist['content'])}
+            </div>
             <div class="content-info">
               <span class="time">{$postslist.instime|date="Y-m-d H:i:s",###}</span>
               <div class="focusinfo">
@@ -62,9 +65,7 @@
             </div>
           </div>
 
-          <div class="inner-content">
-            {:html_entity_decode($postslist['content'])}
-          </div>
+
           <div class="mainreply">
             <input type="text" name="name" value="" id="mainreplycontent">
             <button type="button" name="button" class="mainreply-button" id="mainreply">评论</button>
@@ -72,10 +73,10 @@
           <div class="comment">
        <volist name = "list" id = "vo">
             <div class="outeritem" data-id="{$vo.flist.id}" data-name="{$vo.flist.username}">
-              
+
               <div class="item">
                 <div class="item-left">
-                  <img src="./Uploads{$vo.flist.headimg}" alt="" /> 
+                  <img src="./Uploads{$vo.flist.headimg}" alt="" />
                 </div>
                 <div class="item-right">
                   <div class="item-title">
@@ -92,7 +93,7 @@
               </div>
 <!-- h回复 -->
               <div class="replygroup">
-              <volist name = "vo['slist']" id= "svo"> 
+              <volist name = "vo['slist']" id= "svo">
                 <div data-name="{$svo.name}" data-id="{$svo.id}" class="itemreply clearFix">
 
                   <div class="itemreply-left">
@@ -110,7 +111,7 @@
               </volist>
 
               </div>
-         
+
 
               <div class="inputsection clearFix">
                 <form class="" action="#" method="post">
@@ -121,7 +122,7 @@
 
             </div>
           </volist>
-            
+
             {$page}
           </div>
         </div>
