@@ -15,7 +15,7 @@ $(function(){
             $("#imgList").on("mouseout",page.mouseout);
             $("#newActive").on("click",page.createActive);
             $(".close").on("click",page.closeAlert)
-
+            $(".activeType").on("change",page.SelectChange)
             //banner切换
             tabinit();
 
@@ -27,6 +27,14 @@ $(function(){
                 page.getActiveData(index);
               });
             });
+        },
+        SelectChange: function(){
+          var _val = $(this).find("option:selected").val();
+          if(_val == "1"){
+            $(".activeAdress").removeAttr("disabled","disabled");
+          }else{
+            $(".activeAdress").val("").attr("disabled","disabled");
+          }
         },
         closeAlert: function(){
           $(this).parents(".mask").hide();
