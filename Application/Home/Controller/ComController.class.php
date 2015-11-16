@@ -25,6 +25,7 @@ class ComController extends Controller {
         //md5(xxzyw916);
         $data['id']     = session('userid');
         $data['mobile'] = session('userphone');
+        $data['status'] = 1;
         $user = M('user');
         $list = $user->where($data)->find();
         if(!$list){
@@ -35,16 +36,21 @@ class ComController extends Controller {
         }
     }
     //外部验证登陆返回上一层
-    public function checkLogin(){
+     public function checklogin(){
         //md5(xxzyw916);
         $data['id'] = session('userid');
         $data['mobile'] = session('userphone');
+        $data['status'] = 1;
         $user = M('user');
-        $list = $user->where($data)->find();
+        $list = $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
         if(!$list){
-            $this->error('请先登录');  //error 返回上一层
+            session();
+            return 0;
+        }else{
+            return 1;
         }
     }
+
     /**
     *系统消息提示和评论回复消息提示
     *@author winter

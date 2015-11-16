@@ -128,7 +128,7 @@ class ActiveController extends ComController {
     }
     //用户发起活动
     public function useraddactive(){
-
+        $this->checklogin();  //验证登陆
         $upload = new \Think\Upload();// 实例化上传类    
         $upload->maxSize   =     3145728 ;// 设置附件上传大小    
         $upload->exts      =     array('jpg', 'png', 'jpeg');

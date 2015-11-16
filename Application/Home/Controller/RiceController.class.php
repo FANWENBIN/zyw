@@ -287,24 +287,47 @@ class RiceController extends ComController {
     *@version 2015年11月16日15:22:25
     */
     public function createfans(){
-        $upload = new \Think\Upload();// 实例化上传类    
-        $upload->maxSize   =     3145728 ;// 设置附件上传大小    
-        $upload->exts      =     array('jpg', 'png', 'jpeg');
-        // 设置附件上传类型    
-        $upload->savePath  =      '/active/'; // 设置附件上传目录    // 上传文件     
-        $info   =   $upload->upload();    
-        if(!$info) {// 上传错误提示错误信息        
-            $this->error($upload->getError());
-        }else{
-        $data['img'] = $info['mypic']['savepath'].$info['mypic']['savename'];
-        }
+        // $upload = new \Think\Upload();// 实例化上传类    
+        // $upload->maxSize   =     3145728 ;// 设置附件上传大小    
+        // $upload->exts      =     array('jpg', 'png', 'jpeg');
+        // // 设置附件上传类型    
+        // $upload->savePath  =      '/active/'; // 设置附件上传目录    // 上传文件     
+        // $info   =   $upload->upload();    
+        // if(!$info) {// 上传错误提示错误信息        
+        //     $this->error($upload->getError());
+        // }else{
+        // $data['img'] = $info['mypic']['savepath'].$info['mypic']['savename'];
+        // }
+
+        //$data['img'] = I('post.img');
+        $check = $this->checklogin();
+        if(!$check){ajaxReturn(103,'未登录','');}
+
         $data['actorid'] = I('post.actorid');
         $data['name']    = I('post.name');
         $data['img']     = I('post.img');
-        $data['status']  = I('post.status');
+        $data['status']  = 2;
         $data['userid']  = session('userid');
         $data['username'] = session('username');
+        $data['instime'] = time();
+        $fans_club = M('fans_club');
+        ajaxReturn(000,'',$data);
 
+    }
+    /**
+    *创建粉丝团，明星列表相关
+    */
+    public function actors(){
+        $actors = M('actors');
+        $actorslist = $active->field('id,name')->where('status <> 0 and status <> 3')->order('initial asc')->select();
+        if(false === $actorslist){
+            ajaxReturn(101,'请求失败','');
+        }else{
+            if(!$actorslist){
+                $actorslist = array();
+            }
+            ajaxReturn(0,'',$actorslist);
+        }
     }
 
 }

@@ -27,9 +27,11 @@ class LoginController extends ComController {
         //md5(xxzyw916);
         $data['id'] = session('userid');
         $data['mobile'] = session('userphone');
+        $data['status'] = 1;
         $user = M('user');
         $list = $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
         if(!$list){
+            session();
             ajaxReturn(0,'未登录','');
         }else{
             ajaxReturn(1,'已登录',$list);
@@ -42,6 +44,7 @@ class LoginController extends ComController {
         $user = M('user');
         $data['mobile'] = $name;
         $data['passwd']   = $passwd;
+        $data['status'] = 1;
         $sign =  $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
       
         if($sign){
@@ -49,7 +52,6 @@ class LoginController extends ComController {
             session('username',$sign['nickname']);
             session('userphone',$sign['mobile']);
             session('userimg',$sign['headpic']);
-       
             ajaxReturn(1,'登陆成功',$sign);
         }else{
             ajaxReturn(0,'账号密码输入错误','');
