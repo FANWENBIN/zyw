@@ -242,7 +242,7 @@ class BannerController extends ComController {
      public function stage(){
         //演员读取
         $active = M('actors');
-        $activeval = $active->where('status <> 0')->order('initial asc')->select();
+        $activeval = $active->where('status <> 0 and status <> 3')->order('initial asc')->select();
         $this->assign('a','<option>暂时没有数据</option>');
         $this->assign('newsval',$activeval);
      

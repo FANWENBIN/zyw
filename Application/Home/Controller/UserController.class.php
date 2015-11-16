@@ -131,11 +131,12 @@ class UserController extends ComController {
             $user = M('user');
             $data['mobile'] = $phone;
             $data['id'] = session('userid');
+            $data['status'] = 1;
             $sign = $user->where($data)->find();
-            if($sing){
+            if($sign){
                 ajaxReturn(0,'通过','');
             }else{
-                ajaxReturn(104,'验证码错误','');
+                ajaxReturn(104,'无效用户','');
             }
             
         }
@@ -264,5 +265,12 @@ class UserController extends ComController {
         $this->clublist = $fans_club->where($data)->select();
     	$this->display();
     }
-
+    /**
+    *找回密码
+    *@author winter
+    *@version 2015年11月16日17:58:14
+    */
+    public function forgotpasswd(){
+        
+    }
 }

@@ -25,6 +25,7 @@ class ComController extends Controller {
         //md5(xxzyw916);
         $data['id']     = session('userid');
         $data['mobile'] = session('userphone');
+        $data['status'] = 1;
         $user = M('user');
         $list = $user->where($data)->find();
         if(!$list){
@@ -35,16 +36,21 @@ class ComController extends Controller {
         }
     }
     //外部验证登陆返回上一层
-    public function checkLogin(){
+     public function checklogin(){
         //md5(xxzyw916);
         $data['id'] = session('userid');
         $data['mobile'] = session('userphone');
+        $data['status'] = 1;
         $user = M('user');
-        $list = $user->where($data)->find();
+        $list = $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
         if(!$list){
-            $this->error('请先登录');  //error 返回上一层
+            session();
+            return 0;
+        }else{
+            return 1;
         }
     }
+
     /**
     *系统消息提示和评论回复消息提示
     *@author winter
@@ -301,19 +307,12 @@ class ComController extends Controller {
      //等待开发中
         
     }
-    /**
-    *无限循环评论回复！！！！   .给跪了。。
-    *@author winter
-    *@version 2015年11月16日14:06:55
-    */
-    public function reply($flist,$key,$value){
-
-       $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid = '.$value['id'])->select();
-           
-            $array[$key]['flist'] = $value;
-            $array[$key]['slist'] = $slist;
-            echo $fans_comment->getlastsql();
-            var_dump($slist);
+     /**
+    *404
+     */
+    function _empty(){
+        header("HTTP/1.0 404 Not Found");//使HTTP返回404状态码
+        $this->display("Public:404");
     }
    
 }

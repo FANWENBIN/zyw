@@ -1,0 +1,578 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no">
+<!--禁用手机号码链接(for iPhone)-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+<!--自适应设备宽度-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!--控制全屏时顶部状态栏的外，默认白色-->
+
+<title>WIKI</title>
+<link href="style/reset.css" rel="stylesheet" type="text/css" />
+<link href="style/style.css" rel="stylesheet" type="text/css" />
+<link href="style/shCoreDefault.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="wrapper">
+
+	<div class="aside" id="aside">
+		<h2><a href="javascript:void(0)" data-id="common">common目录</a></h2>
+		<h2><a href="javascript:void(0)" data-id="nd_base">nd.base</a></h2>
+		<ul>
+			<li><a href="javascript:void(0)" data-id="check_device_type">判断设备型号</a></li>
+			<li><a href="javascript:void(0)" data-id="prevent_default">浏览器默认事件</a></li>
+			<li><a href="javascript:void(0)" data-id="regexp">正则判断</a></li>
+			<li><a href="javascript:void(0)" data-id="share_pop">微信分享提示框</a></li>
+			<li><a href="javascript:void(0)" data-id="loading">Loading提示</a></li>
+			<li><a href="javascript:void(0)" data-id="alert">Alert信息提示框</a></li>
+			<li><a href="javascript:void(0)" data-id="query_string">Url参数操作</a></li>
+			<li><a href="javascript:void(0)" data-id="cookie">Cookie操作</a></li>
+			<li><a href="javascript:void(0)" data-id="storage">Storage操作</a></li>
+			<li><a href="javascript:void(0)" data-id="string">字符串操作</a></li>
+			<li><a href="javascript:void(0)" data-id="float">数值操作</a></li>
+			<li><a href="javascript:void(0)" data-id="ajax">Ajax</a></li>
+			<li><a href="javascript:void(0)" data-id="waterfall">瀑布流布局</a></li>
+			<li><a href="javascript:void(0)" data-id="preloader">图片预加载</a></li>
+		</ul>
+		<h2><a href="javascript:void(0)" data-id="iscroll">iscroll插件</a></h2>
+		<h2><a href="javascript:void(0)" data-id="page_to">pageTo插件</a></h2>
+		<h2><a href="javascript:void(0)" data-id="touch">touch插件</a></h2>
+		<ul>
+			<li><a href="javascript:void(0)" data-id="touch_touchend">按下事件</a></li>
+			<li><a href="javascript:void(0)" data-id="touch_hover">按下高亮</a></li>
+			<li><a href="javascript:void(0)" data-id="touch_touchmoved">判断按下后是否有移动</a></li>
+		</ul>
+		<h2><a href="javascript:void(0)" data-id="swipe">swipe插件</a></h2>
+	</div>
+
+	<div class="main" id="main">
+
+		<h1 class="title" id="main_title">判断设备型号</h1>
+		<div class="inner" id="main_inner"></div>
+
+	</div>
+
+</div>
+
+
+<script type="text/javascript" src="js/shCore.js"></script>
+<script type="text/javascript" src="js/shBrushJScript.js"></script>
+<script type="text/javascript" src="js/shBrushCss.js"></script>
+<script type="text/javascript" src="js/shBrushPhp.js"></script>
+<script type="text/javascript" src="js/shBrushXml.js"></script>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/main.js"></script>
+
+
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="common">
+<p>reset.css<strong>两者只可引用一个</strong></p>
+
+<pre class="brush: xml;">
+// 移动端使用
+&lt;link href="http://m.nadoo.cn/common/style/reset.css" rel="stylesheet" type="text/css" /&gt;
+
+// PC端使用（用的是玉伯和正淳写的版本）
+&lt;link href="http://m.nadoo.cn/common/style/pcreset.css" rel="stylesheet" type="text/css" /&gt;
+</pre>
+
+<br/>
+<p>sea.js<strong>以后开发项目都要用seajs加载模块，具体看nd.base</strong></p>
+
+<pre class="brush: xml;">
+&lt;script type="text/javascript" src="http://m.nadoo.cn/common/js/sea.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="http://m.nadoo.cn/common/js/sea.css.js"&gt;&lt;/script&gt;
+</pre>
+
+<br/>
+<p>移动端页面html基本结构</p>
+
+<pre class="brush: xml;">
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;meta name="format-detection" content="telephone=no"&gt;
+&lt;meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" /&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="black"&gt;
+&lt;title&gt;title&lt;/title&gt;
+&lt;link href="http://m.nadoo.cn/common/style/reset.css" rel="stylesheet" type="text/css" /&gt;
+&lt;!--页面相关css引用--&gt;
+&lt;link href="xxxx.css" rel="stylesheet" type="text/css" /&gt;
+&lt;!--页面相关css引用结束--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="wrapper"&gt;
+&lt;!--页面主体html--&gt;
+&lt;h1&gt;hello nadoo!&lt;/h1&gt;
+&lt;!--页面主体html结束--&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript" src="http://m.nadoo.cn/common/js/jquery-2.1.3.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="http://m.nadoo.cn/common/js/sea.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="http://m.nadoo.cn/common/js/sea.css.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+// 页面js入口，默认路径为项目文件夹下的js/main.js
+seajs.use("./js/main");
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="nd_base">
+<p>需要先引用jquery和sea.js</p>
+<pre class="brush: js;">
+&lt;script type="text/javascript" src="http://m.nadoo.cn/common/js/jquery-2.1.3.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="http://m.nadoo.cn/common/js/sea.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="http://m.nadoo.cn/common/js/sea.css.js"&gt;&lt;/script&gt;
+</code>
+</pre>
+<br/>
+<p>新建项目js，写入</p>
+<pre class="brush: js;">
+define(function(require, exports, module){
+	var nb = require("unit/nd.base");
+
+	$(function(){
+		// nb就是nd.base
+	});
+});
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="check_device_type">
+<pre class="brush: js;">
+// 判断是否为ios系统
+if (nb.isIOS()){
+	alert("is ios");
+}
+
+// 判断是否为安卓系统
+if (nb.isAndroid()){
+	alert("is android");
+}
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="prevent_default">
+<pre class="brush: js;">
+// touchmove时禁用系统回弹
+nb.preventDefault("touchmove");
+
+// 恢复
+nb.resetDefault("touchmove");
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="regexp">
+<pre class="brush: js;">
+// 验证是否为邮箱地址
+nb.isEmail("nadoo@nadoo.cn");
+
+// 判断是否为手机号，默认只判断手机号
+nb.isPhone("13800138000");
+
+// 判断手机号码和固定电话都可以
+nb.isPhone("65666566", true);
+
+// 判断是否为身份证号
+nb.isIDCard("31011019700101123X");
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="string">
+<pre class="brush: js;">
+// 去头尾空格
+var str1 = "  string  ";
+str1.trim(); // 输出"string"
+
+// 获取字节长度
+var str1 = "string";
+str1.byteLength(); // 输出6
+
+var str2 = "纳豆";
+str2.byteLength(); // 输出4
+
+var str3 = "逗B";
+str3.byteLength(); // 输出3
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="share_pop">
+<pre class="brush: js;">
+// 显示
+nb.sharePopup.show();
+
+// 隐藏
+nb.sharePopup.hide();
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="loading">
+<pre class="brush: js;">
+// 显示
+nb.loading.show();
+
+// 隐藏
+nb.loading.hide();
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="alert">
+<pre class="brush: js;">
+// 最简单写法（只有一个确定按钮）
+nb.alert.show("this is alert");
+
+// 一个按钮，在确定后有事件
+nb.alert.show({
+	txt: "这是一个提示框",
+	btn: "确定",
+	callback: function(){
+		// 确定后的回调函数
+	}
+});
+
+// 两个按钮，都有事件
+nb.alert.show({
+	txt: "这是一个提示框",
+	btnN: "取消",
+	btnY: "确定",
+	callbackN: function(){
+		// 取消后的回调函数
+	},
+	callbackY: function(){
+		// 确定后的回调函数
+	}
+});
+
+// 自定义样式
+nb.alert.show({
+	txt: "这是一个提示框",
+	btn: "确定",
+	class: "classA", // 弹出框外层会带上该class名，方便做样式修改
+	callback: function(){
+		// 确定后的回调函数
+	}
+});
+
+// 隐藏（一般用不到）
+nb.alert.hide();
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="query_string">
+<pre class="brush: js;">
+// 获取当前url的参数
+nb.getQueryString("id");
+
+// 获取指定url的参数
+nb.getQueryString("key", "http://www.nadoo.com?key=关键字");
+
+
+// 设置url的参数（使用h5的historyAPI实现，页面无跳转）
+nb.setQueryString("id", 999);
+
+// 设置多个url参数
+nb.setQueryString({
+	id: 999,
+	name: "nadoo"
+});
+
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="cookie">
+<pre class="brush: js;">
+// 获取cookie
+nb.getCookie("name");
+
+// 设置cookie储存时长为Session，一般在20分钟，详细百度搜索 session 生命周期
+nb.setCookie("name", "nadoo");
+
+// 设置cookie，参数分别为名称、值和储存时长（小时）
+nb.setCookie("name", "nadoo", 1);
+
+// 删除cookie
+nb.deleteCookie("name");
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="storage">
+<pre class="brush: js;">
+// 获取storage
+nb.getStorage("name");
+
+// 设置storage
+nb.setStorage("name", "nadoo");
+
+// 删除storage
+nb.deleteStorage("name");
+
+// 删除全部storage
+nb.deleteAllStorage("name");
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="float">
+<pre class="brush: js;">
+// 获取0~5之间（不包含5）的随机整数
+nb.random(5);
+
+// 获取0~5之间（不包含5）的随机浮点数
+nb.random(5, true);
+
+// 获取3~4之间（包含3，不包含5）的随机浮点数
+nb.random(5, 3, true);
+
+// 转换成金额数字
+nb.fmoney(6488); // 返回6,488.00
+
+nb.fmoney(6488, 0); // 返回6,488 第个参数为保留几位小数，默认2位
+
+nb.fmoney(6488, 4); // 返回6,488.0000
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="ajax">
+<pre class="brush: js;">
+// 完整写法
+nb.ajax({
+	url: "_api.php",
+	data: { what: "abc"}, // 可不写
+	loading: true, // 显示loading框，默认显示
+	type: "POST", // 默认post
+	dataType: "json", // 默认json
+	success: function(e){
+		// do success
+	},
+	error: function(e){
+		// error方法可不写
+		// do error
+	}
+});
+
+// 简单写法
+nb.ajax({
+	url: "_api.php",
+	data: { what: "abc"},
+	success: function(e){
+		// do success
+	}
+});
+
+// 纯粹只是请求的写法
+nb.ajax("_api.php");
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="waterfall">
+<pre class="brush: js;">
+// 说明：
+// 要保证外容器（这里为.wrapper）的css属性有position: relative;或position: absolute;
+// 参数1 .wrapper为瀑布流的外容器
+// 参数2 .item为每个子容器
+// 参数3 2为划分为左右2列
+// 参数4 100为列宽
+// 参数5 10为margin(可不写)
+nb.waterfall(".wrapper", ".item", 2, 100, 10);
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="preloader">
+<pre class="brush: js;">
+// 图片预加载
+nb.preloader({
+	basePath: "http://www.nadoo.cn/",
+	fileList: [
+		"a.jpg",
+		"b.jpg",
+		"c.jpg"
+	],
+	progress: function(e){
+		console.log(e.completed / e.total);
+	},
+	error: function(o){
+		console.log("error", o);
+	},
+	complete: function(){
+		console.log("conplete");
+	}
+});
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="iscroll">
+<pre class="brush: js;">
+define(function(require, exports, module){
+	var is = require("iscroll.sea"); // 加载iscroll插件
+	
+    $(function(){
+
+		// 使用
+		var scroll = new is("#scroll", { mouseWheel: true, click: true});
+
+    });
+});
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="page_to">
+<p>一般情况下，做动画的两个页面都是绝对定位的页面，位置一致，当前的页面为显示，将要入场的页面隐藏</p>
+<pre class="brush: js;">
+define(function(require, exports, module){
+	require("unit/jq.$pageTo"); // 不需要赋值，因为是jQuery插件
+
+	$(function(){
+
+		// 判断是否在转场动画中
+		$.pageToing(); // 在执行返回true，否则返回false
+		
+		// 普通写法
+		$("#pageA").pageTo($("#pageB"), {
+			type: "move", // 转场动画类型
+			back: false, // 是否为反向动画，默认false
+			speed: 1, // 动画速度，可不设置（默认会根据动画类型给出相应合理的时间值）
+			ease: "ease-out", // 缓动类型，可不设置（默认会根据动画类型给出相应合理的缓动类型）
+			callback: function(){
+				// 转场完成后的回调
+			}
+		});
+
+		// 自定义keyframe写法（一般不使用，有一定使用难度，如果一定要使用又不会找Eason或看源码）
+		$("#pageA").pageTo($("#pageB"), {
+			keyframe: "myKeyFrame", // keyframe名称
+			back: false, // 是否为反向动画，默认false
+			speed: 1, // 动画速度，可不设置（默认0.4）
+			ease: "ease-out", // 缓动类型，可不设置（默认ease-out）
+			callback: function(){
+				// 转场完成后的回调
+			}
+		});
+
+		// css需要写上
+		// myKeyFrameInCurrent 正向动画#pageA的移除动画
+		// myKeyFrameInTarget 正向动画#pageB的入场动画
+		// myKeyFrameOutCurrent 反向动画#pageA的移除动画
+		// myKeyFrameOutTarget 反向动画#pageB的入场动画
+
+
+	});
+});
+</pre>
+<p>type的类型有：<br/>
+move：平移动画<br/>
+slide：竖向的平移动画<br/>
+fb：flipboard应用的这种方式<br/>
+cover：覆盖<br/>
+fade：淡出淡入<br/>
+scale：缩放<br/>
+poker：翻牌动画
+</p>
+</script>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="touch">
+<pre class="brush: js;">
+define(function(require, exports, module){
+	require("unit/jq.$touch"); // 不需要赋值，因为是jQuery插件
+
+	$(function(){
+		
+		// do it
+
+	});
+});
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="touch_touchend">
+<pre class="brush: js;">
+// somebutton可配合写上css: #somebutton[hover] { somecss } 实现按下时的高亮效果
+// 注意：这里如果按下后手指有移动（超过一个被认可的范围），不会触发事件
+$("#somebutton").touchend(function(){
+	alert("click");
+});
+
+// 这种写法不判定手指移动，注意最后的true
+$("#somebutton").touchend(function(){
+	alert("click");
+}, true);
+
+// 代理方式添加
+$("body").touchend("#somebutton", function(){
+	alert("click");
+});
+
+// 卸载，目前只是做了卸载全部touchend事件，使用上需要注意
+$("#somebutton").offTouchend();
+
+$("body").offTouchend("#somebutton");
+
+
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="touch_hover">
+<pre class="brush: js;">
+// somebutton可配合写上css: #somebutton[hover] { somecss } 实现按下时的高亮效果
+// 注意，这只是一个效果，并没有事件，要高亮并有事件的话请使用【按下事件】
+$("#somebutton").hover();
+
+// 去掉
+$("#somebutton").removeHover();
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="touch_touchmoved">
+<pre class="brush: js;">
+$("#somebutton").on("touchend", function(){
+	if ($.touchmoved()){
+		// 手指移动之后的处理
+	} else {
+		// 手指未移动之后的处理
+	}
+});
+</pre>
+</script>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script type="text/html" id="swipe">
+<pre class="brush: js;">
+define(function(require, exports, module){
+	require("unit/jq.$swipe"); // 不需要赋值，因为是jQuery插件
+
+	$(function(){
+		
+		// 只在手指抬起后触发的模式
+		$("#page").swipe(swipeFn);
+		function swipeFn(type){
+			// type值:
+			// right 是右滑动
+			// left 是左滑动
+			// up 是上滑动
+			// dowm 是下滑动
+			// 除了以上情况会返回none
+		}
+
+		// 手指移动过程中一直触发的模式，注意第二个参数为true
+		$("#page").swipe(swipeFn2, true);
+		function swipeFn2(type, o){
+			// type照旧，在抬起后跟上面一样的反馈
+			// o 是个json {x: int, y: int}
+			// x 与 y 是手指按下到手指移动的偏移量
+		}
+
+	});
+});
+</pre>
+</script>
+
+</body>
+</html>

@@ -199,44 +199,6 @@ class PerformingController extends ComController {
         
 
     }
-    /**时间戳改为日期*/
-    public function timetodate(){
-        $actors = M('actors');
-        $value = $actors->select();
-        $b = true;
-        foreach($value as $key=>$val){
-            $data['id'] = $val['id'];
-           
-            if(date("Y年m月d日",$val['birthday'])){
-                 $data['birthday'] = date("Y年m月d日",$val['birthday']);
-            }
-            $a = $actors->save($data);
-            if($a === false){
-                $b = false;
-            }
-        }
-        echo $b;
-
-    }
-    public function timetodaterem(){
-        $recommend = M('recommend');
-        $value = $recommend->select();
-        $b = true;
-        foreach($value as $key=>$val){
-            $data['id'] = $val['id'];
-           
-            if($val['birthday'] != 0){
-                 $data['birthday'] = date("Y年m月d日",$val['birthday']);
-            }else{
-                $data['birthday'] = '';
-            }
-            $a = $recommend->save($data);
-            if($a === false){
-                $b = false;
-            }
-        }
-        echo $b;
-
-    }
+   
 
 }

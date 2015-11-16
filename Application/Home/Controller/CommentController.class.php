@@ -8,9 +8,15 @@ class CommentController extends ComController {
     }
     //用户增加评论接口
     public function addcomment(){
-    	$name = session('username');
-    	$id   = session('userid');
-    	if(empty($name) || empty($id)){
+
+
+        $data['id']     = session('userid');
+        $data['mobile'] = session('userphone');
+        $data['status'] = 1;
+        $user = M('user');
+        $list = $user->where($data)->find();
+
+    	if(!$list){
     		ajaxReturn('105','未登录','');   //
     	}else{
             if(cookie('comment') == 1){

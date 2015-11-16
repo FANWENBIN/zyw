@@ -1,0 +1,71 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="zh_CN"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>404 - 文件没有找到</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<!-- CSS: implied media=all -->
+	<link rel="stylesheet" href="__PUBLIC__/404/css/style.css">
+	<link rel="stylesheet" href="__PUBLIC__/404/css/blue.css">
+	<script src="__PUBLIC__/404/js/jquery-1.6.2.min.js"></script>
+	<script src="__PUBLIC__/404/js/script.js"></script>
+</head>
+<body>
+	<div id="error-container">
+		<div id="error">
+			<div id="pacman"></div>
+		</div>		
+		<div id="container">
+			<div id="title">
+				<h1>对不起, 你访问的页面不存在!</h1>
+			</div>
+			<div id="content">
+				<div class="left">
+					<p class="no-top">可能是如下原因引起了这个错误:</p>
+					<ul>
+						<li>URL输入错误</li>
+						<li>失效连接</li>
+						<li>...</li>
+					</ul>
+					<p></p>
+                   
+					<a><input type="button" class="search" value="返回本站" onClick="javascript:history.go(-1)" ></a>
+				
+                    <div class="clearfix"></div>
+				</div>
+				<div class="right">					
+					<p class="no-top">你可以通过以下连接继续访问我们的网站：</p>
+					
+					<ul class="links">
+					<volist name ="nav" id = "vo" offset = "0" length = "4">
+						<li <if condition= "$sign eq $vo['id']"> class="first c"</if> >
+						<a href="{:U($vo['href'])}">» {$vo.name}</a>
+						</li>
+					</volist>
+						
+					</ul>
+					<ul class="links">
+						<volist name ="nav" id = "vo" offset = "5" length = "6">
+						<li <if condition= "$sign eq $vo['id']"> class="first c"</if> >
+						<a href="{:U($vo['href'])}">» {$vo.name}</a>
+						</li>
+					</volist>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<include file="Header/header" />
+		</div>
+	</div>
+</body>
+
+</html>
