@@ -63,6 +63,9 @@
     }
     .content-title{
       margin-left: 70px;
+      img{
+        display: inline-block;
+      }
       h3{
         height: 32px;
         font-size: 18px;
@@ -234,6 +237,10 @@
     background: url("../../../images/icon_fans_title.gif") 0 0 no-repeat;
   }
   .fans{
+    p{
+      font-size: 14px;
+      line-height: 33px;
+    }
     .item{
       float: left;
       @include item3(380px, 285px, 60px, 14px, 12px)
