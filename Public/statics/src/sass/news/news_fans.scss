@@ -74,7 +74,7 @@
   top: 0;
   height: 30px;
   margin-right: 15px;
-} 
+}
 .navTitle .loginfo .face {
   display: inline-block;
   float: left;
@@ -303,6 +303,7 @@
   left: 0;
   width: 2460px;
   height: 285px;
+  transition: all 1s linear;
 }
 .webmain .favNews .box .list .item {
   float: left;
