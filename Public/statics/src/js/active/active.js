@@ -32,7 +32,7 @@ $(function(){
             $('#file_upload').uploadify({
              'swf'      : './Public/statics/js/uploadify/uploadify.swf',
              'uploader' : './Public/statics/js/uploadify/uploadify.php',
-             'buttonText' : '上传活动图片 建议380*285像素',
+             'buttonText' : '上传活动图片',
              'onUploadSuccess' : function(file, data, response) {
                   console.log(file,data,response);
                   var str = data.match(/\.\\\/Uploads.+"/)[0];
