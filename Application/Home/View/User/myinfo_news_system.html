@@ -37,7 +37,7 @@
           <ul class="group">
             <li><a href="#"><a href="{:U('User/myinfo_rice')}">我的饭团</a></a></li>
             <li><a href="{:U('User/myinfo_active')}">我的活动</a></li>
-            <li class="active"><a href="{:U('User/myinfo_news')}">我的消息<span class="tips-num tips-num-3">5</span></a></li>
+            <li class="active"><a href="{:U('User/myinfo_news')}">我的消息<span class="tips-num tips-num-3">{$sum}</span></a></li>
           </ul>
         </div>
         <ul class="news">
@@ -47,8 +47,8 @@
           <li class="active bottomitem">
             <div class="left">
               <ul class="sublist">
-                <li><a href="{:U('User/myinfo_news')}">评论<span class="tips-num tips-num-1">5</span></a></li>
-                <li class="active"><a href="{:U('User/myinfo_news_system')}">系统消息<span class="tips-num tips-num-2">5</span></a></li>
+                <li><a href="{:U('User/myinfo_news')}">评论<span class="tips-num tips-num-1">{$usersum}</span></a></li>
+                <li class="active"><a href="{:U('User/myinfo_news_system')}">系统消息<span class="tips-num tips-num-2">{$syssum}</span></a></li>
               </ul>
             </div>
             <div class="right">

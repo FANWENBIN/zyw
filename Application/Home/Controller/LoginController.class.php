@@ -46,7 +46,6 @@ class LoginController extends ComController {
         $data['passwd']   = $passwd;
         $data['status'] = 1;
         $sign =  $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
-      
         if($sign){
             session('userid',$sign['id']);
             session('username',$sign['nickname']);
@@ -67,7 +66,12 @@ class LoginController extends ComController {
             ajaxReturn(102,'手机验证码输入错误','');
         }
         if($phone != session('phone')){
-            ajaxReturn(105,'手机验证码输入错误','');
+            ajaxReturn(102,'手机验证码输入错误','');
+        }
+        $password = I('get.passwd');
+        preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/",$password,$array);
+        if($array){
+            ajaxReturn(105,'密码过于简单');
         }
         $user = M('user');
         $data['mobile'] = $phone;

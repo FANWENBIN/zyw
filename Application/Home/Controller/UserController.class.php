@@ -171,6 +171,7 @@ class UserController extends ComController {
 	*
     */
     public function myinfo_active(){
+        $this->mssage();//消息提示
     	$acthis = M('user_acthis');
         $active = M('active');
     	$data['userid'] = session('userid');       
@@ -202,18 +203,14 @@ class UserController extends ComController {
     */
 
     public function myinfo_news(){
+        $this->mssage();//消息提示
+
     //显示status= 1或者2 的系统消息和论坛消息，时间戳要大于此时的，为了定时消息
     	$msg = M('user_msg');
     	$data['status'] = array('neq',0);
     	$data['instime'] = array('elt',time());
     	$data['uid'] = session('userid');
-    	//$data['type'] = 1; //系统消息
-        //$count      = $msg->where($data)->count();// 查询满足要求的总记录数
-        //$Page       = new \Think\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
-        //$show       = $Page->show();// 分页显示输出
-        // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        // $this->syslist = $msg->where($data)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
-        //$this->assign('page',$show);// 赋值分页输出
+    	
 
 
     	$data['type'] = 2; // 帖子评论回复消息
@@ -228,11 +225,19 @@ class UserController extends ComController {
         foreach ($userlist as $key => $value) {
             $uselist = $user->where('id='.$value['uid'])->find();
             $userlist[$key]['headimg'] = $uselist['headpic'];
+           
+
         }
         $this->userlist = $userlist;
+         //清除未读消息
+        foreach ($userlist as $key => $value) {
+            $stat['status'] = 1;
+            $msg->where('id='.$value['id'])->save($stat);
+        }
     	$this->display();
     }
     public function myinfo_news_system(){
+        $this->mssage();//消息提示
         $msg = M('user_msg');
         $data['status'] = array('neq',0);
         $data['instime'] = array('elt',time());
@@ -242,7 +247,13 @@ class UserController extends ComController {
         $Page       = new \Think\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $this->syslist = $msg->where($data)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $syslist = $msg->where($data)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+
+        $this->syslist = $syslist;
+        foreach ($syslist as $key => $value) {
+            $stat['status'] = 1;
+            $msg->where('id='.$value['id'])->save($stat);
+        }
         $this->assign('page',$show);// 赋值分页输出
         $this->display();
     }
@@ -252,6 +263,7 @@ class UserController extends ComController {
 	*@version:2015年11月3日19:45:10
     */
     public function myinfo_rice(){
+        $this->mssage();//消息提示
     	$userfans  = M('user_fans');
         $fans_club = M('fans_club');
     	$userlist = $userfans->where('userid='.session('userid'))->order('instime desc')->select();
@@ -280,7 +292,6 @@ class UserController extends ComController {
     *@version 2015年11月17日13:51:21
     */
     public function changepasswd(){
-        
         $passwd = I('get.passwd');
         preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/",$passwd,$array);
         if($array){
