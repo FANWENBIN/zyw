@@ -454,3 +454,34 @@ input[type=submit]{
     }
   }
 }
+
+.tips-num{
+  position: absolute;
+  display: inline-block;
+  width: 14px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  background-color: #f00;
+  border-radius: 1px;
+}
+.tips-num-1{
+  margin: {
+    left: 30px;
+    top: 22px;
+  }
+}
+.tips-num-2{
+  margin: {
+    left: 14px;
+    top: 22px;
+  }
+}
+.tips-num-3{
+  margin: {
+    left: 14px;
+    top: 22px;
+  }
+}
