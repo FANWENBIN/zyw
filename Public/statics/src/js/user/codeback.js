@@ -48,7 +48,7 @@ $(function(){
         url: "./index.php?m=Home&c=User&a=code",
         data: {
           phone: $(":text[name=tel]").val(),
-          version: $(":text[name=ver]").val()
+          verify: $(":text[name=ver]").val()
         },
         dataType: "json",
         success: function(json){
