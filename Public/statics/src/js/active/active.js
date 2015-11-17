@@ -72,8 +72,8 @@ $(function(){
             }
 
             $.ajax({
-              type: "get",
-              url: "",
+              type: "post",
+              url: "./index.php?m=Home&c=Active&a=useraddactive",
               data: {
                 title: $(":text[name=activeName]").val(),
                 img: scope.imgUrl,
