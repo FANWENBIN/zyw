@@ -85,6 +85,7 @@ $(function(){
           pagename: $(".videoname").html(),
         },
         success: function(json){
+          console.log(json.msg)
           if(json.status === 0){
             $("#J_CommentList").prepend('<div class="itemcomment clearFix">'+
               '<div class="head">'+
@@ -96,12 +97,8 @@ $(function(){
               '</div>'+
             '</div>')
             $("#J_CommentList .itemcomment").eq(5).remove();
-          }else if(json.status === 101){
-            console.log(json.msg)
-          }else if(json.status === 102){
-            console.log(json.msg)
           }else if(json.status === 105){
-            console.log(json.msg)
+            alert("请登录后进行评论")
           }
         },
         error: function(){

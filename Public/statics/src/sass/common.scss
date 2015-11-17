@@ -730,8 +730,10 @@ a.important {
       float: left;
       cursor: pointer;
       width: 25px;
+      font-size: 14px;
       &.active{
         color: red;
+        font-size: 14px;
       }
     }
 
