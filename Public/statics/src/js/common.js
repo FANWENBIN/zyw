@@ -67,7 +67,7 @@ $(function() {
     },
     regSubmit: function() {
       if (!/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/.test($(":password[name=password]").val())) {
-        $("#error").html("密码必须有6-20位，并包含数字和字母");
+        $("#error").html("密码至少8位，至少包含数字和字符");
       } else if (!/^(0[1-9]\d{1,2}-)?[1-9]\d{6,7}$/.test($(":text[name=mb]").val())) {
         $("#error").html("手机号码输入错误，请重新输入");
       } else {
@@ -90,6 +90,8 @@ $(function() {
               $("#error").html("手机号码输入错误，请重新输入");
             } else if (json.status == "103") {
               $("#error").html("该手机账号已被注册过");
+            } else if (json.status == "105") {
+              $("#error").html("密码不符合规则");
             }
           },
           error: function() {}
@@ -143,7 +145,7 @@ $(function() {
         '</div>' +
         '<div class="registeralert-main-item">' +
         '<label for="password">密&nbsp;&nbsp;码：</label>' +
-        '<input type="password" name="password" value="" id="password" placeholder="请输入密码">' +
+        '<input type="password" name="password" value="" id="password" placeholder="密码至少8位，至少包含数字和字符">' +
         '</div>' +
         '<div class="registeralert-main-item">' +
         '<label for="idcode">验证码：</label>' +
