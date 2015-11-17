@@ -20,7 +20,7 @@ $(function(){
       }else{
         $.ajax({
           type: "post",
-          url: "./index.php?m=Home&c=User&a=modipasswd",
+          url: "./index.php?m=Home&c=User&a=changepasswd",
           data: {
             oldpasswd: $(":text[name=oldcode]").val(),
             newpasswd: $(":text[name=code]").val()
@@ -45,22 +45,19 @@ $(function(){
     checkmb: function(){
       $.ajax({
         type: "get",
-        url: "./index.php?m=Home&c=User&a=checkphver",
+        url: "./index.php?m=Home&c=User&a=code",
         data: {
           phone: $(":text[name=tel]").val(),
           version: $(":text[name=ver]").val()
         },
         dataType: "json",
         success: function(json){
-          if(json.status === 0){
             console.log(json.msg);
+          if(json.status === 0){
             $(".step1").hide();
             $(".step2").show();
-          }else if(json.status === 103){
+          }else if(json.status === 102){
             alert("验证码错误")
-            console.log(json.msg);
-          }else{
-            console.log(json.msg)
           }
         },
         error: function(){}
@@ -71,21 +68,21 @@ $(function(){
         scope.verStatus = false;
         $.ajax({
           type: "get",
-          url: "./index.php?m=Home&c=User&a=yzm",
+          url: "./index.php?m=Home&c=User&a=gsend",
           data: {
             phone: $(":text[name=tel]").val()
           },
           dataType: "json",
           success: function(json){
+            console.log(json.msg)
             if(json.status === 0){
               $(".step1 .error").html("发送成功，请注意查收")
-              console.log(json.msg)
             }else if(json.status === 101){
               $(".step1 .error").html("服务器错误，请稍后再试")
-              console.log(json.msg)
-            }else if(json.status === 102){
-              console.log(json.msg)
+            }else if(json.status === 103){
               $(".step1 .error").html("手机号码错误，请检查错误后再试")
+            }else if(json.status === 104){
+              $(".step1 .error").html("手机号码未注册")
             }
             scope.verStatus = true;
           },
