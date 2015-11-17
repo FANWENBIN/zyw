@@ -2,11 +2,11 @@
 namespace Stage\Controller;
 use Think\Controller;
 //管理员页面
-class AdminController extends Controller {
+class AdminController extends ComController {
     //
     public function index (){
         $admin = M('admin');
-        $this->list = $admin->select();
+        $this->list = $admin->where('id <> 1')->select();
        
         $this->assign('cur',0);
         $this->display();
