@@ -135,10 +135,11 @@ class RiceController extends ComController {
 
         foreach ($flist as $key => $value) {
             $list[$key]['flist'] = $value;
-            $list[$key]['slist'] = $this->loopreply($value,$postslist);
+            $list[$key]['slist'] = $fans_comment->order('instime asc')->where('status <> 0 and postid='.$postslist['id'].' and cid='.$value['cid'])->select();
+            var_dump($list);
         }
         
-       var_dump($list);
+      //  var_dump($list);
 
         //推荐活动
         $active = M('active');
@@ -148,7 +149,7 @@ class RiceController extends ComController {
         }
         $this->assign('activeval',$activeval);
 
-        $this->list = $array;
+        $this->list = $list;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
         //var_dump($val);
