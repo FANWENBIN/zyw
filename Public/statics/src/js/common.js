@@ -1,7 +1,7 @@
-(function($){
+(function($) {
   // 增加$.testLogin函数验证登陆
   // jq插件 增加testLogin函数验证登陆
-  $.testLogin = function(fn){
+  $.testLogin = function(fn) {
     $.ajax({
       url: "./index.php?m=Home&c=Login&a=checklogin",
       dataType: "json",
@@ -9,13 +9,13 @@
       success: function(json) {
         if (json.status == "1") {
           $(".myinfoalert-header-content .name").html(json.data.nickname);
-          $(".myinfoalert-header-face").attr("src", "./Uploads"+json.data.headpic);
-          $(".islogin .face").attr("src", "./Uploads"+json.data.headpic);
+          $(".myinfoalert-header-face").attr("src", "./Uploads" + json.data.headpic);
+          $(".islogin .face").attr("src", "./Uploads" + json.data.headpic);
           $("#login").html(json.data.nickname)
           $("#nologin").hide();
           $("#islogin").show();
           fn(json.data);
-        } else if(json.status == "0"){
+        } else if (json.status == "0") {
           $("#nologin").show();
           $("#islogin").hide();
         }
@@ -23,7 +23,7 @@
       error: function() {}
     });
   }
-  $.getId = function(){
+  $.getId = function() {
     var _str = window.location.href;
     var _arr = _str.split("id=");
     return _arr[1];
@@ -46,54 +46,59 @@ $(function() {
       // 未登陆时，点击#log 登录框出来
       $("#log").off().on("click", page.logShow);
       // 上面两个框的关闭按钮
-      $("body").on("click","#close", page.closeAlert);
+      $("body").on("click", "#close", page.closeAlert);
       // 刷新二维码
-      $("body").on("click","#img1", page.changePic);
-      $("body").on("click","#img2", page.changePic);
+      $("body").on("click", "#img1", page.changePic);
+      $("body").on("click", "#img2", page.changePic);
       // 获取二维码
-      $("body").on("click","#getfreemesg",page.getVer);
+      $("body").on("click", "#getfreemesg", page.getVer);
       // 注册提交
-      $("body").on("submit",".registerform", page.regSubmit);
+      $("body").on("submit", ".registerform", page.regSubmit);
 
-      $(".logout").on("click",page.logOut);
+      $(".logout").on("click", page.logOut);
 
       // 用户登陆检测判断
-      $.testLogin(function(){});
+      $.testLogin(function() {});
 
     },
-    logOut: function(){
-    window.location.href = "./index.php?m=Home&c=Login&a=logout";
+    logOut: function() {
+      window.location.href = "./index.php?m=Home&c=Login&a=logout";
 
     },
-    regSubmit: function(){
-      $.ajax({
-        url: "./index.php?m=Home&c=Login&a=register",
-        type: "get",
-        dataType: "json",
-        data: {
-          phone: $(":text[name=mb]").val(),
-          passwd: $(":password[name=password]").val(),
-          verify: $(":text[name=idcode2]").val()
-        },
-        success: function(json){
-          if(json.status == "0"){
-            console.log("成功");
-            $("#error").html("注册成功,请去登陆");
-          }else if(json.status == "101"){
-            $("#error").html("注册失败,请稍后再试");
-          }else if(json.status == "102"){
-            $("#error").html("手机号码输入错误，请重新输入");
-          }else if(json.status == "103"){
-            $("#error").html("该手机账号已被注册过");
-          }
-        },
-        error: function(){
-        }
-      })
+    regSubmit: function() {
+      if (!/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/.test($(":password[name=password]").val())) {
+        $("#error").html("密码必须有6-20位，并包含数字和字母");
+      } else if (!/^(0[1-9]\d{1,2}-)?[1-9]\d{6,7}$/.test($(":text[name=mb]").val())) {
+        $("#error").html("手机号码输入错误，请重新输入");
+      } else {
+        $.ajax({
+          url: "./index.php?m=Home&c=Login&a=register",
+          type: "get",
+          dataType: "json",
+          data: {
+            phone: $(":text[name=mb]").val(),
+            passwd: $(":password[name=password]").val(),
+            verify: $(":text[name=idcode2]").val()
+          },
+          success: function(json) {
+            console.log(json.msg)
+            if (json.status == "0") {
+              $("#error").html("注册成功,请去登陆");
+            } else if (json.status == "101") {
+              $("#error").html("注册失败,请稍后再试");
+            } else if (json.status == "102") {
+              $("#error").html("手机号码输入错误，请重新输入");
+            } else if (json.status == "103") {
+              $("#error").html("该手机账号已被注册过");
+            }
+          },
+          error: function() {}
+        })
+      }
       return false;
     },
     getVer: function() {
-      console.log(typeof $(":text[name=mb]").val(),typeof $(":text[name=idcode1]").val())
+      console.log(typeof $(":text[name=mb]").val(), typeof $(":text[name=idcode1]").val())
       $.ajax({
         url: './index.php?m=Home&c=Login&a=yzm',
         type: 'get',
@@ -103,13 +108,13 @@ $(function() {
           phone: $(":text[name=mb]").val()
         },
         success: function(json) {
-          if(json.status == "0"){
+          if (json.status == "0") {
             $("#error").html("验证已发送,请注意查收");
-          }else if(json.status == "101"){
+          } else if (json.status == "101") {
             $("#error").html("服务器错误,请稍后再试");
-          }else if(json.status == "102"){
+          } else if (json.status == "102") {
             $("#error").html("验证码输入错误，请重新输入");
-          }else if(json.status == "103"){
+          } else if (json.status == "103") {
             $("#error").html("手机号码输入错误，请重新输入");
           }
         },
@@ -128,48 +133,48 @@ $(function() {
     regShow: function() {
       // $("#registeralert").show();
       var $reg = $('<div class="registeralert" id="registeralert"></div>');
-      $reg.html('<div class="registeralert-main">'+
-        '<div class="close" id="close">'+
-        '</div>'+
-        '<form class="registerform" action="index.html" method="post">'+
-          '<div class="registeralert-main-item">'+
-            '<label for="mb">手&nbsp;&nbsp;机：</label>'+
-            '<input type="text" name="mb" value="" id="mb" placeholder="请输入手机号码">'+
-          '</div>'+
-          '<div class="registeralert-main-item">'+
-            '<label for="password">密&nbsp;&nbsp;码：</label>'+
-            '<input type="password" name="password" value="" id="password" placeholder="请输入密码">'+
-          '</div>'+
-          '<div class="registeralert-main-item">'+
-            '<label for="idcode">验证码：</label>'+
-            '<input type="text" class="idcode1" name="idcode1" value="" id="idcode1" placeholder="请输入右侧字母">'+
-            '<div class="pic">'+
-              '<img src="./index.php?m=Home&c=Login&a=verify" alt="" id="img1" />'+
-            '</div>'+
-            '<span class="reflesh">'+
-              '<span class="img" id="img2"></span>'+
-            '</span>'+
-          '</div>'+
-          '<div class="registeralert-main-item">'+
-            '<input type="text" name="idcode2" value="" id="idcode2" placeholder="请输入验证码"><span class="getfreemesg" id="getfreemesg">免费获取短信</span>'+
-          '</div>'+
-          '<span id="error"></span>'+
-          '<div class="registeralert-main-item customstyle1">'+
-            // '<input type="checkbox" name="rulechecked" value="">'+
-            '<!-- <span class="agree">&nbsp;&nbsp;我同意<em><用户协议></em></span> -->'+
-            '<span class="login" id="go2login">立即登录</span>'+
-          '</div>'+
-          '<div class="registeralert-main-item">'+
-            '<input type="submit" name="name" value="注册" id="regsubmit">'+
-          '</div>'+
-          '<div class="registeralert-main-item">'+
-            '<span class="login-weibo"></span>'+
-            '<span class="login-weichat"></span>'+
-          '</div>'+
-        '</form>'+
-      '</div>')
+      $reg.html('<div class="registeralert-main">' +
+        '<div class="close" id="close">' +
+        '</div>' +
+        '<form class="registerform" action="index.html" method="post">' +
+        '<div class="registeralert-main-item">' +
+        '<label for="mb">手&nbsp;&nbsp;机：</label>' +
+        '<input type="text" name="mb" value="" id="mb" placeholder="请输入手机号码">' +
+        '</div>' +
+        '<div class="registeralert-main-item">' +
+        '<label for="password">密&nbsp;&nbsp;码：</label>' +
+        '<input type="password" name="password" value="" id="password" placeholder="请输入密码">' +
+        '</div>' +
+        '<div class="registeralert-main-item">' +
+        '<label for="idcode">验证码：</label>' +
+        '<input type="text" class="idcode1" name="idcode1" value="" id="idcode1" placeholder="请输入右侧字母">' +
+        '<div class="pic">' +
+        '<img src="./index.php?m=Home&c=Login&a=verify" alt="" id="img1" />' +
+        '</div>' +
+        '<span class="reflesh">' +
+        '<span class="img" id="img2"></span>' +
+        '</span>' +
+        '</div>' +
+        '<div class="registeralert-main-item">' +
+        '<input type="text" name="idcode2" value="" id="idcode2" placeholder="请输入验证码"><span class="getfreemesg" id="getfreemesg">免费获取短信</span>' +
+        '</div>' +
+        '<span id="error"></span>' +
+        '<div class="registeralert-main-item customstyle1">' +
+        // '<input type="checkbox" name="rulechecked" value="">'+
+        '<!-- <span class="agree">&nbsp;&nbsp;我同意<em><用户协议></em></span> -->' +
+        '<span class="login" id="go2login">立即登录</span>' +
+        '</div>' +
+        '<div class="registeralert-main-item">' +
+        '<input type="submit" name="name" value="注册" id="regsubmit">' +
+        '</div>' +
+        '<div class="registeralert-main-item">' +
+        '<span class="login-weibo"></span>' +
+        '<span class="login-weichat"></span>' +
+        '</div>' +
+        '</form>' +
+        '</div>')
       $("body").append($reg);
-      $("#go2login").off().on("click",function(){
+      $("#go2login").off().on("click", function() {
         $("#registeralert").remove();
         page.logShow();
       })
@@ -178,42 +183,42 @@ $(function() {
     logShow: function() {
       // $("#loginalert").show()
       var $log = $('<div class="loginalert" id="loginalert"></div>');
-      $log.html('<div class="loginalert-main">'+
-        '<div class="close" id="close">'+
-        '</div>'+
-        '<form class="logform" action="index.html" method="post">'+
-          '<div class="loginalert-main-item">'+
-            '<label for="mb">用户名：</label>'+
-            '<input type="text" name="mb" value="" id="mb" placeholder="请输入手机号码">'+
-          '</div>'+
-          '<div class="loginalert-main-item">'+
-            '<label for="password">密&nbsp;&nbsp;码：</label>'+
-            '<input type="password" name="password" value="" id="password" placeholder="请输入密码">'+
-          '</div>'+
-          '<span id="error"></span>'+
-          '<div class="loginalert-main-item customstyle1">'+
-            // '<input type="checkbox" name="rulechecked" value="">'+
-            '<!-- <span class="remenber">&nbsp;&nbsp;记住我</span> -->'+
-            '<span class="register" id="go2reg">立即注册</span>'+
-            '<a href="./index.php?m=Home&c=User&a=codeback" class="searchpass">找回密码</a>'+
-          '</div>'+
-          '<div class="loginalert-main-item">'+
-            '<input type="submit" name="name" value="登陆">'+
-          '</div>'+
-          '<div class="loginalert-main-item">'+
-            '<span class="login-weibo"></span>'+
-            '<span class="login-weichat"></span>'+
-          '</div>'+
-        '</form>'+
-      '</div>');
+      $log.html('<div class="loginalert-main">' +
+        '<div class="close" id="close">' +
+        '</div>' +
+        '<form class="logform" action="index.html" method="post">' +
+        '<div class="loginalert-main-item">' +
+        '<label for="mb">用户名：</label>' +
+        '<input type="text" name="mb" value="" id="mb" placeholder="请输入手机号码">' +
+        '</div>' +
+        '<div class="loginalert-main-item">' +
+        '<label for="password">密&nbsp;&nbsp;码：</label>' +
+        '<input type="password" name="password" value="" id="password" placeholder="请输入密码">' +
+        '</div>' +
+        '<span id="error"></span>' +
+        '<div class="loginalert-main-item customstyle1">' +
+        // '<input type="checkbox" name="rulechecked" value="">'+
+        '<!-- <span class="remenber">&nbsp;&nbsp;记住我</span> -->' +
+        '<span class="register" id="go2reg">立即注册</span>' +
+        '<a href="./index.php?m=Home&c=User&a=codeback" class="searchpass">找回密码</a>' +
+        '</div>' +
+        '<div class="loginalert-main-item">' +
+        '<input type="submit" name="name" value="登陆">' +
+        '</div>' +
+        '<div class="loginalert-main-item">' +
+        '<span class="login-weibo"></span>' +
+        '<span class="login-weichat"></span>' +
+        '</div>' +
+        '</form>' +
+        '</div>');
       $("body").append($log);
-      $(".logform").on("submit",page.logSubmit);
-      $("#go2reg").on("click",function(){
+      $(".logform").on("submit", page.logSubmit);
+      $("#go2reg").on("click", function() {
         $("#loginalert").remove();
         page.regShow();
       })
     },
-    logSubmit: function(){
+    logSubmit: function() {
       $.ajax({
         url: "./index.php?m=Home&c=Login&a=login",
         type: "get",
@@ -222,17 +227,16 @@ $(function() {
           name: $(":text[name=mb]").val(),
           passwd: $(":password[name=password]").val()
         },
-        success: function(json){
-          if(json.status == "1"){
-          $("#loginalert").remove();
-          console.log("登陆成功")
-          $.testLogin();
-        }else if(json.status == "0"){
-          $("#error").html("账号密码输入错误")
-        }
+        success: function(json) {
+          if (json.status == "1") {
+            $("#loginalert").remove();
+            console.log("登陆成功")
+            $.testLogin();
+          } else if (json.status == "0") {
+            $("#error").html("账号密码输入错误")
+          }
         },
-        error: function(){
-        }
+        error: function() {}
       })
       return false;
     },
