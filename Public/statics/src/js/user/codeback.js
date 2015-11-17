@@ -9,33 +9,29 @@ $(function(){
       $("#confirmcode").on("click",page.confirmcode);
     },
     confirmcode: function(){
-      if(!/^.+$/.test($(":text[name=oldcode]").val())){
-        $(".step2 .error")("请输入旧密码")
-      }else if(!/^.+$/.test($(":text[name=code]").val())){
+      if(!/^.+$/.test($(":text[name=code]").val())){
         $(".step2 .error")("请输入新密码")
       }else if(!/^.+$/.test($(":text[name=recode]").val())){
         $(".step2 .error")("请再次输入新密码")
       }else if($(":text[name=code]").val() !== $(":text[name=recode]").val()){
         $(".step2 .error")("两次输入的密码不相等, 请检查后重新输入")
+      }else if(/\d/.test($(":text[name=code]").val()) && /a-zA-Z/.test($(":text[name=code]").val()) && /.{8,20}/.test($(":text[name=code]").val())){
+        alert("密码必须有6-20位，并包含数字和字母")
       }else{
         $.ajax({
           type: "post",
           url: "./index.php?m=Home&c=User&a=changepasswd",
           data: {
-            oldpasswd: $(":text[name=oldcode]").val(),
-            newpasswd: $(":text[name=code]").val()
+            passwd: $(":text[name=code]").val(),
           },
           dataType: "json",
           success: function(json){
+            console.log(json.msg);
             if(json.status === 0){
-              console.log(json.msg);
               $(".step2").hide();
               $(".step3").show();
             }else if(json.status === 102){
-              $(".step2 .error")("旧密码输入错误");
-              console.log(json.msg);
-            }else{
-              console.log(json.msg);
+              $(".step2 .error")("系统错误，请稍后再试");
             }
           },
           error: function(){}
