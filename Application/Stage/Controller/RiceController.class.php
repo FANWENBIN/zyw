@@ -202,7 +202,7 @@ class RiceController extends ComController {
     // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
     $list = $fans->where($data)->order('fanssum desc')->limit($Page->firstRow.','.$Page->listRows)->select();
     $this->assign('page',$show);// 赋值分页输出
-
+    
     $this->list = $list;
 
     $this->cur = 14;
@@ -230,26 +230,40 @@ class RiceController extends ComController {
     if(empty($submit)){
       if(!empty($id)){
         $where['id'] = $id;
-        $this->list = $fans->where($where)->find();
+        $list = $fans->where($where)->find();
+        $this->list = $list;
       }
       $this->actor = $actors->field('id,name')->where('status <> 0 and status <> 3')->order('initial')->select();
       $this->cur = 14;
       $this->display();
     }else{
-      $audit = I('post.audit');
-      $data['actorid'] = I('post.actorid');
-      $data['name']    = I('post.name');
-      $data['img']     = I('post.img');
       $id = I('get.id');
-      if(!empty($id)){
+      $audit = I('post.audit');
+
+      if($audit == 0){
+        $data['status'] = 0;
         $sign = $fans->where('id='.$id)->save($data);
+        if($sign){
+          $this->success('操作成功',U('auditlist'));
+        }else{
+          $this->error('操作失败');
+        }
       }else{
-        $sign = $fans->add($data);
-      }
-      if($sign){
-        $this->success('操作成功',U('index'));
-      }else{
-        $this->error('操作失败');
+        $data['status'] = 1;
+        $data['actorid'] = I('post.actorid');
+        $data['name']    = I('post.name');
+        $data['img']     = I('post.img');
+        
+        if(!empty($id)){
+          $sign = $fans->where('id='.$id)->save($data);
+        }else{
+          $sign = $fans->add($data);
+        }
+        if($sign){
+          $this->success('操作成功',U('auditlist'));
+        }else{
+          $this->error('操作失败');
+        }
       }
     }
   }
