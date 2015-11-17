@@ -143,10 +143,8 @@ class ActiveController extends ComController {
         // }else{
         // $data['img'] = $info['mypic']['savepath'].$info['mypic']['savename'];
         // }
-        $data['img'] = $data['img']     = substr(stripslashes(I('post.img')), 9);
+        $data['img'] = substr(stripslashes(I('post.img')), 9);
         $data['title']        = I('post.title');
-
-
         $data['content']      = I('post.content');
         $data['phone']        = I('post.phone');
         $data['begin_time']   = strtotime(I('post.begin_time'));
