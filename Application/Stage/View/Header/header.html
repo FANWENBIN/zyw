@@ -25,7 +25,9 @@
           <dt><span></span>基本元素</dt>
           <dd>
             <ul id="tabList">
-            <li <if condition="$cur eq 0">class = "current"</if> ><a href="{:U('Admin/index')}">管理员管理</a></li>
+            <?php if($isadmin == 1){ ?>
+            <li <if condition="$cur eq 0">class = "current" </if> ><a href="{:U('Admin/index')}">管理员管理</a></li>
+            <?php } ?>
              <li <if condition="$cur eq 1">class = "current"</if> ><a href="{:U('User/index')}">用户管理</a></li>
               <li <if condition="$cur eq 2">class = "current"</if> ><a href="{:U('Gactor/index')}">候选演员管理</a></li>
 

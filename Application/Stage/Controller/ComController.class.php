@@ -19,7 +19,10 @@ class ComController extends Controller {
         $stage = M('stageworks');
         $works = $stage->where('status = 2')->count();
         $this->assign('works',$works);
-        
+        $id = session('uid');
+        if($id == 1){
+            $this->assign('isadmin',1);
+        }
 
     }
 //验证登录
