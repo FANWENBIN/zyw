@@ -30,10 +30,10 @@ $(function(){
         },
         SelectChange: function(){
           var _val = $(this).find("option:selected").val();
-          if(_val == "1"){
-            $(".activeAdress").removeAttr("disabled","disabled");
+          if(_val == "0"){
+            $(".activeAdress").prop("placeholder","请输入活动地址").removeAttr("disabled","disabled");
           }else{
-            $(".activeAdress").val("").attr("disabled","disabled");
+            $(".activeAdress").prop("placeholder","无需活动地址").val("").attr("disabled","disabled");
           }
         },
         closeAlert: function(){

@@ -14,7 +14,7 @@ $(function() {
       $(this).addClass("c");
       $(this).parents(".group").find(".list").hide();
       $(this).parents(".group").find(".list").eq($(this).index()).show()
-    },
+    }, 
 		tabEvent: function(){
 			$("#eventlist").find("li").removeClass("c");
 			$(this).addClass("c");
