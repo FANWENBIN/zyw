@@ -4,7 +4,8 @@ $(function(){
         timer: null,
         type: 0,
         time: 0,
-        pageNum: 1
+        pageNum: 1,
+        imgUrl: ""
     };
     var page = {
         init: function(){
@@ -26,6 +27,18 @@ $(function(){
                 if(index == 0)return false;
                 page.getActiveData(index);
               });
+            });
+            // 上传图片
+            $('#file_upload').uploadify({
+             'swf'      : './Public/statics/js/uploadify/uploadify.swf',
+             'uploader' : './Public/statics/js/uploadify/uploadify.php',
+             'buttonText' : '上传活动图片 建议380*285像素',
+             'onUploadSuccess' : function(file, data, response) {
+                  console.log(file,data,response);
+                  var str = data.match(/\.\\\/Uploads.+"/)[0];
+                  scope.imgUrl = str.substring(0,str.length-1);
+              }
+             // Put your options here
             });
         },
         SelectChange: function(){
