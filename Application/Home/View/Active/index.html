@@ -11,7 +11,7 @@
   <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
   <link href="__PUBLIC__/statics/js/uploadify/uploadify.css" rel="stylesheet" type="text/css"/>
-  
+
   <link href="__PUBLIC__/statics/dist/css/active/active.css" rel="stylesheet" type="text/css" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="Keywords" content="">
@@ -80,8 +80,9 @@
       <div class="popbox">
         <a href="javascript:;" class="close">X</a>
         <form action="#">
+          <span class="errorsubmit"></span>
           <h3>发起新活动</h3>
-          <input type="text" placeholder="请输入活动名称" class="activeName" />
+          <input type="text" name="activeName" placeholder="请输入活动名称" class="activeName" />
           <br>
           <input type="text" placeholder="活动日期" class="fromTime" name="fromTime" id="fromTime" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd HH:mm'})" /> -
           <input type="text" placeholder="活动日期" class="toTime" name="toTime" id="toTime" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd HH:mm'})" />
@@ -94,19 +95,20 @@
           </div>
           <div>
             <a href="javascript:;"  class="pic" id="pic">
-            <input type="file" name="Filedata" id="file_upload" />
+            <input type="file" name="Filedata" id="file_upload" /><span class="upload-tips">建议上传380*285像素的图片</span>
             </a>
             <!-- <i class="camera"></i> -->
           </div>
-          <textarea name="" id="" placeholder="活动详情"></textarea>
+          <input type="text" name="activebrief" placeholder="请输入活动简介" class="activebrief" />
+          <textarea name="activeinfo" id="" placeholder="活动详情"></textarea>
           <h3>主办人信息</h3>
-          <input type="text" placeholder="姓名" style="width: 245px" />
+          <input type="text" name="hostname" placeholder="姓名" style="width: 245px" />
           <br/>
-          <input type="text" placeholder="电话" style="width: 245px" />
+          <input type="text" name="hosttel" placeholder="电话" style="width: 245px" />
           <br/>
-          <input type="text" placeholder="地址" style="width: 500px" />
+          <input type="text" name="hostaddress" placeholder="地址" style="width: 500px" />
           <br/>
-          <input type="text" placeholder="邮箱" style="width: 245px" />
+          <input type="text" name="hostemail" placeholder="邮箱" style="width: 245px" />
           <br/>
           <input type="submit" value="确认" class="submit" />
         </form>

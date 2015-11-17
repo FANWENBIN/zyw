@@ -355,8 +355,27 @@
   background-color: #000;
   color: #fff;
 }
-.close{
+.popbox .close{
   position: absolute;
   top: 10px;
   left: 545px;
+}
+
+#file_upload{
+  float: left;
+}
+.upload-tips{
+  position: absolute;
+  top: 10px;
+  left: 230px;
+}
+#file_upload-queue{
+}
+.errorsubmit{
+  position: absolute;
+  color: red;
+  margin:{
+    left: 130px;
+    top: 13px;
+  }
 }

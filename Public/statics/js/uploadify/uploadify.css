@@ -60,6 +60,7 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 	width: 200px;
 }
 .uploadify-queue-item {
+	position: absolute;
 	background-color: #F5F5F5;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -69,6 +70,13 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 	max-width: 350px;
 	padding: 10px;
 }
+.popbox .uploadify-queue-item{
+	position: absolute;
+	left: 100px;
+	padding-top: 0;
+}
+
+
 .uploadify-error {
 	background-color: #FDE5DD !important;
 }

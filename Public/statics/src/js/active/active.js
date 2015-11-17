@@ -5,7 +5,8 @@ $(function(){
         type: 0,
         time: 0,
         pageNum: 1,
-        imgUrl: ""
+        imgUrl: "",
+        activeType: ""
     };
     var page = {
         init: function(){
@@ -16,7 +17,8 @@ $(function(){
             $("#imgList").on("mouseout",page.mouseout);
             $("#newActive").on("click",page.createActive);
             $(".close").on("click",page.closeAlert)
-            $(".activeType").on("change",page.SelectChange)
+            $(".activeType").on("change",page.SelectChange);
+            $("form").on("submit",page.submit)
             //banner切换
             tabinit();
 
@@ -32,7 +34,7 @@ $(function(){
             $('#file_upload').uploadify({
              'swf'      : './Public/statics/js/uploadify/uploadify.swf',
              'uploader' : './Public/statics/js/uploadify/uploadify.php',
-             'buttonText' : '上传活动图片',
+             'buttonText' : '活动图片',
              'onUploadSuccess' : function(file, data, response) {
                   console.log(file,data,response);
                   var str = data.match(/\.\\\/Uploads.+"/)[0];
@@ -40,6 +42,72 @@ $(function(){
               }
              // Put your options here
             });
+        },
+        submit: function(){
+          if(!/^.+$/.test($(":text[name=activeName]").val())){
+            $(".errorsubmit").html("活动名称不能为空")
+          }else if(!/^.+$/.test($(":text[name=fromTime]").val())){
+            $(".errorsubmit").html("活动起始时间不能为空")
+          }else if(!/^.+$/.test($(":text[name=toTime]").val())){
+            $(".errorsubmit").html("活动结束时间不能为空")
+          }else if(!/^.+$/.test($(":text[name=activebrief]").val())){
+            $(".errorsubmit").html("活动简介不能为空")
+          }else if(!/^.+$/.test($("textarea[name=activeinfo]").val())){
+            $(".errorsubmit").html("活动信息不能为空")
+          }else if(!/^.+$/.test($(":text[name=hostname]").val())){
+            $(".errorsubmit").html("主办人姓名不能为空")
+          }else if(!/^.+$/.test($(":text[name=hosttel]").val())){
+            $(".errorsubmit").html("主办人电话不能为空")
+          }else if(!/^.+$/.test($(":text[name=hostaddress]").val())){
+            $(".errorsubmit").html("主办人地址不能为空")
+          }else if(!/^.+$/.test($(":text[name=hostemail]").val())){
+            $(".errorsubmit").html("主办人邮箱不能为空")
+          }else{
+            var _val = $(this).find("option:selected").val();
+            if(_val == "0"){
+              if(!/^.+$/.test($(".activeAdress").val())){
+                $(".errorsubmit").html("活动地址不能为空")
+                return false;
+              }
+            }
+
+            $.ajax({
+              type: "get",
+              url: "",
+              data: {
+                title: $(":text[name=activeName]").val(),
+                img: scope.imgUrl,
+                content: $(":text[name=activebrief]").val(),
+                info: $("textarea[name=activeinfo]").val(),
+                phone: $(":text[name=hosttel]").val(),
+                begin_time: $(":text[name=fromTime]").val(),
+                last_time: $(":text[name=toTime]").val(),
+                line_type: _val,
+                line_address: $(".activeAdress").val(),
+                sponsor_name: $(":text[name=hostname]").val(),
+                sponsor_phone: $(":text[name=hosttel]").val(),
+                sponsor_address: $(":text[name=hostaddress]").val(),
+                sponsor_email: $(":text[name=hostemail]").val()
+              },
+              dataType: "json",
+              success: function(json){
+                console.log(json.msg)
+                if(json.status === 0){
+                  $("#mask").hide();
+                  alert("活动发起成功静待审核");
+                }else if(json.status === 101){
+                  $(".errorsubmit").html("系统错误，请稍后再试")
+                }else if(json.status === 102){
+                  $(".errorsubmit").html("请检查信息是否填完整")
+                }else if(json.status === 103){
+                  $(".errorsubmit").html("活动日期有误")
+                }
+              },
+              error: function(){
+              }
+            })
+          }
+          return false;
         },
         SelectChange: function(){
           var _val = $(this).find("option:selected").val();
