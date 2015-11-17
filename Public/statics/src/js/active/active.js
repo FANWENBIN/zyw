@@ -4,7 +4,8 @@ $(function(){
         timer: null,
         type: 0,
         time: 0,
-        pageNum: 1
+        pageNum: 1,
+        imgUrl: ""
     };
     var page = {
         init: function(){
@@ -27,13 +28,25 @@ $(function(){
                 page.getActiveData(index);
               });
             });
+            // 上传图片
+            $('#file_upload').uploadify({
+             'swf'      : './Public/statics/js/uploadify/uploadify.swf',
+             'uploader' : './Public/statics/js/uploadify/uploadify.php',
+             'buttonText' : '上传活动图片',
+             'onUploadSuccess' : function(file, data, response) {
+                  console.log(file,data,response);
+                  var str = data.match(/\.\\\/Uploads.+"/)[0];
+                  scope.imgUrl = str.substring(0,str.length-1);
+              }
+             // Put your options here
+            });
         },
         SelectChange: function(){
           var _val = $(this).find("option:selected").val();
-          if(_val == "1"){
-            $(".activeAdress").removeAttr("disabled","disabled");
+          if(_val == "0"){
+            $(".activeAdress").prop("placeholder","请输入活动地址").removeAttr("disabled","disabled");
           }else{
-            $(".activeAdress").val("").attr("disabled","disabled");
+            $(".activeAdress").prop("placeholder","无需活动地址").val("").attr("disabled","disabled");
           }
         },
         closeAlert: function(){

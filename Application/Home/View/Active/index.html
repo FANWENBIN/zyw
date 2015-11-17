@@ -10,6 +10,8 @@
   <title>中演网</title>
   <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/js/uploadify/uploadify.css" rel="stylesheet" type="text/css"/>
+  
   <link href="__PUBLIC__/statics/dist/css/active/active.css" rel="stylesheet" type="text/css" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="Keywords" content="">
@@ -57,96 +59,7 @@
           </ul>
         </div>
         <ul class="inner clearFix" id="itemlist">
-          <!-- <li>
-            <a>
-              <img src="__PUBLIC__/statics/images/p_active.jpg">
-              <div class="tags">
-                <h3>伟来眼中的他们</h3>
-                <p>10.25-11.2</p>
-              </div>
-              <sub></sub>
-            </a>
-            <div class="desc">
-              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-              <div>
-                <span class="num">12313</span><i class="focus"></i></div>
-            </div>
-          </li>
-          <li>
-            <a>
-              <img src="__PUBLIC__/statics/images/p_active.jpg">
-              <div class="tags">
-                <h3>伟来眼中的他们</h3>
-                <p>10.25-11.2</p>
-              </div>
-              <sub></sub>
-            </a>
-            <div class="desc">
-              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-              <div>
-                <span class="num">12313</span><i class="focus"></i></div>
-            </div>
-          </li>
-          <li>
-            <a>
-              <img src="__PUBLIC__/statics/images/p_active.jpg">
-              <div class="tags">
-                <h3>伟来眼中的他们</h3>
-                <p>10.25-11.2</p>
-              </div>
-              <sub></sub>
-            </a>
-            <div class="desc">
-              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-              <div>
-                <span class="num">12313</span><i class="focus"></i></div>
-            </div>
-          </li>
-          <li>
-            <a>
-              <img src="__PUBLIC__/statics/images/p_active.jpg">
-              <div class="tags">
-                <h3>伟来眼中的他们</h3>
-                <p>10.25-11.2</p>
-              </div>
-              <sub></sub>
-            </a>
-            <div class="desc">
-              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-              <div>
-                <span class="num">12313</span><i class="focus"></i></div>
-            </div>
-          </li>
-          <li>
-            <a>
-              <img src="__PUBLIC__/statics/images/p_active.jpg">
-              <div class="tags">
-                <h3>伟来眼中的他们</h3>
-                <p>10.25-11.2</p>
-              </div>
-              <sub></sub>
-            </a>
-            <div class="desc">
-              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-              <div>
-                <span class="num">12313</span><i class="focus"></i></div>
-            </div>
-          </li>
-          <li>
-            <a>
-              <img src="__PUBLIC__/statics/images/p_active.jpg">
-              <div class="tags">
-                <h3>伟来眼中的他们</h3>
-                <p>10.25-11.2</p>
-              </div>
-              <sub></sub>
-            </a>
-            <div class="desc">
-              <span class="txt">伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们伟来眼中的他们</span>
-              <div>
-                <span class="num">12313</span><i class="focus"></i></div>
-            </div>
-          </li> -->
+          <!--  内容-->
         </ul>
         <div class="pagelist" id="pagelist">
           <a href="javacript:;" class="pre">上一页</a>
@@ -177,11 +90,11 @@
               <option value="1">线上活动</option>
               <option value="0">线下活动</option>
             </select>
-            <input type="text" placeholder="请输入活动地址" class="activeAdress" name="activeAdress" id="activeAdress" />
+            <input type="text" placeholder="无需输入活动地址" disabled="disabled" class="activeAdress" name="activeAdress" id="activeAdress" />
           </div>
           <div>
-            <a href="javascript:;"  class="pic" id="pic">添加图片
-            <input type="file" placeholder="封面图"name="pic" />
+            <a href="javascript:;"  class="pic" id="pic">
+            <input type="file" name="Filedata" id="file_upload" />
             </a>
             <!-- <i class="camera"></i> -->
           </div>
@@ -199,11 +112,15 @@
         </form>
       </div>
     </div>
+
+
   </div>
 
   <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
   <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
   <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+  <script src="__PUBLIC__/statics/js/uploadify/jquery.uploadify.min.js"></script>
+
   <script src="__PUBLIC__/statics/dist/js/common.js"></script>
   <script src="__PUBLIC__/statics/dist/js/tool/pagev1.js"></script>
   <script src="__PUBLIC__/statics/dist/js/tool/tab.js"></script>

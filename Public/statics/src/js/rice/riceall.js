@@ -12,8 +12,8 @@ $(function(){
       $(".close").on("click",page.closeCreateRice);
       $(".confirm").on("click",page.closeConfirm);
       $('#file_upload').uploadify({
-       'swf'      : 'public/statics/js/uploadify/uploadify.swf',
-       'uploader' : 'public/statics/js/uploadify/uploadify.php',
+       'swf'      : './Public/statics/js/uploadify/uploadify.swf',
+       'uploader' : './Public/statics/js/uploadify/uploadify.php',
        'buttonText' : '上传粉丝团封面图',
        'onUploadSuccess' : function(file, data, response) {
             console.log(file,data,response);
