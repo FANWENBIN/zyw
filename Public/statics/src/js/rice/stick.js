@@ -20,6 +20,7 @@ $(function(){
         url: "./index.php?m=Home&c=Rice&a=comment",
         data: {
           fid: $(_this).data("id"),
+          cid: $(_this).data("cid"),
           postid: $(".webmain").data("id"),
           content: $(_this).find(".replytext").val()
         },
@@ -80,6 +81,7 @@ $(function(){
       $(this).parents(".outeritem").find(".replytext").val("@"+$(this).parents(".outeritem").data("name")+" ")
       $(this).parents(".outeritem").find(".replytext").val("");
       $(this).parents(".outeritem").find(".inputsection").find("form").data("id",$(this).data("id"))
+      $(this).parents(".outeritem").find(".inputsection").find("form").data("cid",$(this).data("cid"))
 
     }else{
       $(this).parents(".outeritem").find(".inputsection").hide();
@@ -90,6 +92,7 @@ $(function(){
       $(this).parents(".outeritem").find(".replytext").val("@"+$(this).parents(".itemreply").data("name")+" ")
       $(this).parents(".outeritem").find(".inputsection").show().find(".replytext")[0].focus();
       $(this).parents(".outeritem").find(".inputsection").find("form").data("id",$(this).data("id"))
+      $(this).parents(".outeritem").find(".inputsection").find("form").data("cid",$(this).data("cid"))
     }
 
   };
