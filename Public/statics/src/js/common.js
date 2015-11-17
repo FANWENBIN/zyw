@@ -195,7 +195,7 @@ $(function() {
             // '<input type="checkbox" name="rulechecked" value="">'+
             '<!-- <span class="remenber">&nbsp;&nbsp;记住我</span> -->'+
             '<span class="register" id="go2reg">立即注册</span>'+
-            '<a href="/p/zyw/index.php?m=Home&c=User&a=codeback" class="searchpass">找回密码</a>'+
+            '<a href="./index.php?m=Home&c=User&a=codeback" class="searchpass">找回密码</a>'+
           '</div>'+
           '<div class="loginalert-main-item">'+
             '<input type="submit" name="name" value="登陆">'+
@@ -205,7 +205,7 @@ $(function() {
             '<span class="login-weichat"></span>'+
           '</div>'+
         '</form>'+
-      '</div>'); 
+      '</div>');
       $("body").append($log);
       $(".logform").on("submit",page.logSubmit);
       $("#go2reg").on("click",function(){
