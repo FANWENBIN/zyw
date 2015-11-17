@@ -67,7 +67,11 @@ class LoginController extends ComController {
             ajaxReturn(102,'手机验证码输入错误','');
         }
         if($phone != session('phone')){
-            ajaxReturn(105,'手机验证码输入错误','');
+            ajaxReturn(102,'手机验证码输入错误','');
+        }
+        preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/",$passwd,$array);
+        if($array){
+            ajaxReturn(105,'密码过于简单');
         }
         $user = M('user');
         $data['mobile'] = $phone;
