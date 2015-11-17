@@ -15,8 +15,10 @@ $(function(){
        'swf'      : 'public/statics/js/uploadify/uploadify.swf',
        'uploader' : 'public/statics/js/uploadify/uploadify.php',
        'buttonText' : '上传粉丝团封面图',
-       'onUploadSuccess' : function(file,data,response) {
-            console.log(data);
+       'onUploadSuccess' : function(file, data, response) {
+            console.log(file,data,response);
+            var str = data.match(/\.\\\/Uploads.+"/)[0];
+            scope.imgUrl = str.substring(0,str.length-1);
         }
        // Put your options here
       });
@@ -57,18 +59,28 @@ $(function(){
       if(!/^.+$/.test($(":text[name=ricename]").val())){
         alert("请填入饭团名字");
         return false;
+      }else if(!scope.imgUrl){
+        alert("请上传饭团图片")
       }
       $.ajax({
         type: "post",
         url: "./index.php?m=Home&c=Rice&a=createfans",
         data: {
-          actorid:
-          name: ,
-          img:
+          actorid: $(".actorname").find("option:selected").val(),
+          name: $(":text[name=ricename]").val(),
+          img: scope.imgUrl
         },
         dataType: "json",
-        success: function(){
-
+        success: function(json){
+          console.log(json.msg)
+          if(json.status === 0){
+            $(".create-mask").hide();
+            $(".done-mask").show();
+          }else if(json.status === 103){
+            alert("未登录，请登陆后尝试");
+          }else{
+            alert("服务器错误，请稍后再试");
+          }
         },
         error: function(){
 
