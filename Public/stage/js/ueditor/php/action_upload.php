@@ -63,4 +63,4 @@ $up = new Uploader($fieldName, $config, $base64);
  */
 
 /* 返回数据 */
-return json_encode($up->getFileInfo('http://m2.nadoo.cn/p'));
+return json_encode($up->getFileInfo('http://m2.nadoo.cn/p/zyw'));
