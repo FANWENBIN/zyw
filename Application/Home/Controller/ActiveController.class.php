@@ -128,8 +128,8 @@ class ActiveController extends ComController {
     //用户发起活动
     public function useraddactive(){
         $a = $this->checklogin();  //验证登陆
-        
-        if($a){
+         
+        if(!$a){
             ajaxReturn(104,'未登录','');
         }
         $active = M('active');
