@@ -104,7 +104,10 @@
     }
     .inner-content{
       // margin-left: 70px;
-      
+      img{
+        max-width: 720px;
+      }
+
     }
     .mainreply{
       margin-top: 30px;
