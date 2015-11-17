@@ -119,8 +119,8 @@ class Uploader
         if (!(move_uploaded_file($file["tmp_name"], $this->filePath) && file_exists($this->filePath))) { //移动失败
             $this->stateInfo = $this->getStateInfo("ERROR_FILE_MOVE");
         } else { //移动成功
-            //$this->stateInfo = $this->filePath;
-            $this->stateInfo = $this->stateMap[0];
+            $this->stateInfo = $this->filePath;
+            //$this->stateInfo = $this->stateMap[0];
         }
     }
 
@@ -231,6 +231,7 @@ class Uploader
         if (!(file_put_contents($this->filePath, $img) && file_exists($this->filePath))) { //移动失败
             $this->stateInfo = $this->getStateInfo("ERROR_WRITE_CONTENT");
         } else { //移动成功
+           // $this->stateInfo = $
             $this->stateInfo = $this->stateMap[0];
         }
 
