@@ -317,23 +317,13 @@ class ComController extends Controller {
         $this->display("Public:404");
     }
     /**
-    *循环匹配评论回复
+    *匹配评论回复
     *@author
     */
-    public function loopreply($flist,$value,$postslist){
+    public function loopreply($value,$postslist){
         $fans_comment = M('fans_comment'); //评论回复
-        
-        $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid ='.$value['id'])->select();
-        $array['slist'][] = $slist;
-        foreach ($slist as $key => $val) {
-            $sum = $fans_comment->where('fid = '.$val['id'])->count();
-            if($sum > 0){
-
-            }
-        }
-        
+        $array = $fans_comment->order('instime asc')->where('status <> 0 and postid='.$postslist['id'].' and cid='.$value['cid'])->select();
         return $array;
-
     }
 
 
