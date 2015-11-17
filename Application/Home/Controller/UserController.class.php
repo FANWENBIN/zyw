@@ -271,6 +271,64 @@ class UserController extends ComController {
     *@version 2015年11月16日17:58:14
     */
     public function codeback(){
+
         $this->display();
+    }
+    /**
+    *更改密码
+    *@author winter
+    *@version 2015年11月17日13:51:21
+    */
+    public function changepasswd(){
+        $passwd = I('post.passwd','','md5');
+        $phone = session('phone');
+        $user = M('user');
+        $data['status'] = 1;
+        $data['passwd'] = $passwd;
+        $sign = $user->where('mobile = '.$phone)->save($data);
+        if($sign){
+            ajaxReturn(0,'修改成功','');
+        }else{
+            ajaxReturn(101,'修改失败','');
+        }
+
+    }
+    /**
+    *验证手机和验证码。
+    *@author winter
+    *@version 2015年11月17日13:43:23
+    */
+    public function code(){
+        $phone = I('get.phone');
+        $verify = I('get.verify');
+        if($phone != session('phone') || $verify != session('yzm')){
+            ajaxReturn(102,'验证码输入错误','');
+        }
+        ajaxReturn(0,'通过','');
+    }
+    /**
+    *找回密码输入手机号发送验证码
+    *@author winter
+    *@version 2015年11月17日13:44:57
+    */
+    public function gsend(){
+        $phone = I('get.phone');
+        if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
+            ajaxReturn(103,'手机输入不符合格式');  
+        }
+        $user = M('user');
+        $usersum = $user->where('status = 1 and mobile = '.$phone)->count();
+        if($usersum < 1){
+            ajaxReturn(104,'手机号未注册','');
+        }
+        $ver = rand(100000,999999);
+        $sign = $this->sms($phone,$ver);
+        if($sign){
+            ajaxReturn(101,'发送失败','');
+        }else{
+            session('yzm',$ver);
+            session('phone',$phone);
+            ajaxReturn(0,'发送成功','');
+        }
     }
 }

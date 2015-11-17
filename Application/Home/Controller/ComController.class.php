@@ -316,15 +316,7 @@ class ComController extends Controller {
         header("HTTP/1.0 404 Not Found");//使HTTP返回404状态码
         $this->display("Public:404");
     }
-    /**
-    *匹配评论回复
-    *@author
-    */
-    public function loopreply($value,$postslist){
-        $fans_comment = M('fans_comment'); //评论回复
-        $array = $fans_comment->order('instime asc')->where('status <> 0 and postid='.$postslist['id'].' and cid='.$value['cid'])->select();
-        return $array;
-    }
+    
 
 
    

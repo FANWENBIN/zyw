@@ -187,5 +187,70 @@ class RiceController extends ComController {
       $this->error('删除失败');
     }
   }
+  /**
+  *待审核粉丝团列表
+  *@author winter
+  *@version 2015年11月17日14:07:43
+  */
+  public function auditlist(){
+    $fans = M('fans_club');
+    //$this->list = $fans->order('fanssum desc')->select();
+    $data['status'] = 2;
+    $count      = $fans->where($data)->count();// 查询满足要求的总记录数
+    $Page       = new \Think\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+    $show       = $Page->show();// 分页显示输出
+    // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+    $list = $fans->where($data)->order('fanssum desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+    $this->assign('page',$show);// 赋值分页输出
 
+    $this->list = $list;
+
+    $this->cur = 14;
+    $this->display();
+  }
+  public function auditdelete(){
+    $id = I('post.id');
+    $club = M('fans_club');
+    $data['status'] = 0;
+    $sign = $club->where('id='.$id)->save($data);
+    if($sign){
+      $this->success(U('index'),'删除成功');
+    }else{
+      $this->error('删除失败');
+    }
+  }
+  /**
+  *审核 修改
+  */
+  public function auditedit(){
+    $submit = I('post.submit');
+    $id = I('get.id');
+    $fans = M('fans_club');
+    $actors = M('actors');
+    if(empty($submit)){
+      if(!empty($id)){
+        $where['id'] = $id;
+        $this->list = $fans->where($where)->find();
+      }
+      $this->actor = $actors->field('id,name')->where('status <> 0 and status <> 3')->order('initial')->select();
+      $this->cur = 14;
+      $this->display();
+    }else{
+      $audit = I('post.audit');
+      $data['actorid'] = I('post.actorid');
+      $data['name']    = I('post.name');
+      $data['img']     = I('post.img');
+      $id = I('get.id');
+      if(!empty($id)){
+        $sign = $fans->where('id='.$id)->save($data);
+      }else{
+        $sign = $fans->add($data);
+      }
+      if($sign){
+        $this->success('操作成功',U('index'));
+      }else{
+        $this->error('操作失败');
+      }
+    }
+  }
 }

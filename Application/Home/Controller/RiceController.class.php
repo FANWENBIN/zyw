@@ -135,8 +135,8 @@ class RiceController extends ComController {
 
         foreach ($flist as $key => $value) {
             $list[$key]['flist'] = $value;
-            $list[$key]['slist'] = $fans_comment->order('instime asc')->where('status <> 0 and postid='.$postslist['id'].' and cid='.$value['cid'])->select();
-            var_dump($list);
+            $list[$key]['slist'] = $fans_comment->order('instime asc')->where('status <> 0 and postid='.$postslist['id'].' and cid='.$value['id'])->select();
+           // var_dump($list);
         }
         
       //  var_dump($list);
@@ -307,7 +307,7 @@ class RiceController extends ComController {
 
         $data['actorid'] = I('post.actorid');
         $data['name']    = I('post.name');
-        $data['img']     = I('post.img');
+        $data['img']     = stripslashes(I('post.img'));
         $data['status']  = 2;
         $data['userid']  = session('userid');
         $data['username'] = session('username');
