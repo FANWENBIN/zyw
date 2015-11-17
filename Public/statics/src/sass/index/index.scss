@@ -138,13 +138,13 @@
   position: absolute;
   left: 0;
   bottom: 0;
+  width: 360px;
   z-index: 3;
   width: 100%;
   padding: 12px 10px 10px;
-  background: rgb(0,0,0);
-  background: rgba(0,0,0,0.6);
-  width: 360px;
+  background: url("../../../images/space.png") 0 0 repeat;
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+  background: rgba(0,0,0,0.6);
 }
 .webmain .conTop .r .item .txt h3 {
   color: #fff;
