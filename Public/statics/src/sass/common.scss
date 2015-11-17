@@ -719,6 +719,8 @@ a.important {
   position: absolute;
   width: 100%;
   bottom: 0;
+  height: 25px;
+  line-height: 25px;
   .pre{
     float: left;
 
@@ -726,6 +728,8 @@ a.important {
   .num{
     float: left;
     display: inline-block;
+    height: 25px;
+    line-height: 25px;
     li{
       float: left;
       cursor: pointer;
