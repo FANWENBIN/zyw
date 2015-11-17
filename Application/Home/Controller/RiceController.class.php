@@ -307,7 +307,7 @@ class RiceController extends ComController {
 
         $data['actorid'] = I('post.actorid');
         $data['name']    = I('post.name');
-        $data['img']     = stripslashes(I('post.img'));
+        $data['img']     = substr(stripslashes(I('post.img')), 9);
         $data['status']  = 2;
         $data['userid']  = session('userid');
         $data['username'] = session('username');

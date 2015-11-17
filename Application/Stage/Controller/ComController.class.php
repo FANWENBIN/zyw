@@ -19,6 +19,10 @@ class ComController extends Controller {
         $stage = M('stageworks');
         $works = $stage->where('status = 2')->count();
         $this->assign('works',$works);
+        //饭团待审核
+        $fans = M('fans_club');
+        $this->fanssum = $fans->where('status = 2')->count();
+
         $id = session('uid');
         if($id == 1){
             $this->assign('isadmin',1);
