@@ -1,2 +1,1 @@
-$(function(){var n={now:0},i={init:function(){$("#preview").click(i.preClick),$("#next").click(i.nextClick)},preClick:function(){n.now--,n.now<0&&(n.now=0),i.repoUl()},nextClick:function(){n.now++,n.now>3&&(n.now=3),i.repoUl()},repoUl:function(){$("#list").css("left",-(410*n.now))}};i.init()});
-//# sourceMappingURL=news_fans.js.map
+$(function(){var n={now:0,max:0},i={init:function(){$("#preview").click(i.preClick),$("#next").click(i.nextClick),n.max=$("#list").find(".item").length},preClick:function(){n.now--,n.now<0&&(n.now=0),i.repoUl()},nextClick:function(){n.now++,n.now>n.max-3&&(n.now=n.max-3),i.repoUl()},repoUl:function(){$("#list").css("left",-(410*n.now))}};i.init()});

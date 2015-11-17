@@ -1,12 +1,14 @@
 $(function(){
 
 var scope = {
-    now : 0
+    now : 0,
+    max: 0
 }
 var page = {
     init: function(){
         $("#preview").click(page.preClick);
         $("#next").click(page.nextClick);
+        scope.max = $("#list").find(".item").length;
     },
     preClick: function(){
         scope.now--;
@@ -15,7 +17,7 @@ var page = {
     },
     nextClick: function(){
         scope.now++;
-        if(scope.now > 3)scope.now = 3;
+        if(scope.now > scope.max -3)scope.now = scope.max - 3;
          page.repoUl();
     },
     repoUl: function(){
