@@ -128,19 +128,22 @@ class ActiveController extends ComController {
     }
     //用户发起活动
     public function useraddactive(){
-        $this->checklogin();  //验证登陆
-        $upload = new \Think\Upload();// 实例化上传类    
-        $upload->maxSize   =     3145728 ;// 设置附件上传大小    
-        $upload->exts      =     array('jpg', 'png', 'jpeg');
-        // 设置附件上传类型    
-        $upload->savePath  =      '/active/'; // 设置附件上传目录    // 上传文件     
-        $info   =   $upload->upload();    
-        if(!$info) {// 上传错误提示错误信息        
-            $this->error($upload->getError());    
-        }else{
-        $data['img'] = $info['mypic']['savepath'].$info['mypic']['savename'];
+        $a = $this->checklogin();  //验证登陆
+        if($a){
+            ajaxReturn();
         }
-
+        // $upload = new \Think\Upload();// 实例化上传类    
+        // $upload->maxSize   =     3145728 ;// 设置附件上传大小    
+        // $upload->exts      =     array('jpg', 'png', 'jpeg');
+        // // 设置附件上传类型    
+        // $upload->savePath  =      '/active/'; // 设置附件上传目录    // 上传文件     
+        // $info   =   $upload->upload();    
+        // if(!$info) {// 上传错误提示错误信息        
+        //     $this->error($upload->getError());    
+        // }else{
+        // $data['img'] = $info['mypic']['savepath'].$info['mypic']['savename'];
+        // }
+        $data['img'] = $data['img']     = substr(stripslashes(I('post.img')), 9);
         $data['title']        = I('post.title');
 
 
@@ -178,7 +181,7 @@ class ActiveController extends ComController {
         if($sign){
             ajaxReturn(0,'活动发起成功,静待审核通过','');
         }else{
-            $this->error('101','系统错误','');
+            ajaxReturn(101,'发起失败','');
         }
     }
 }
