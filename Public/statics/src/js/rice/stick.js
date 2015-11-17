@@ -10,7 +10,7 @@ $(function(){
       $(".inputsection form").on("submit",page.subSubmit)
     },
     subSubmit: function(){
-      if(!$(".replytext").val()){
+      if(!$(this).find(".replytext").val()){
         alert("请输入内容");
         return false;
       }
@@ -21,7 +21,7 @@ $(function(){
         data: {
           fid: $(_this).data("id"),
           postid: $(".webmain").data("id"),
-          content: $(".replytext").val()
+          content: $(_this).find(".replytext").val()
         },
         dataType: "json",
         success: function(json){
