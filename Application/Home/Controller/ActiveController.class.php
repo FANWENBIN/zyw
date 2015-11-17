@@ -22,7 +22,6 @@ class ActiveController extends ComController {
         $this->assign('list',$list);
         $data['concern'] = $list['concern']+1;
         $active->where('id='.$id)->save($data);
-        
         $imglist = $img->where('activeid='.$id)->select();
         $this->assign('imglist',$imglist);
         //用户浏览活动记录
