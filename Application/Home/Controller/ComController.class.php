@@ -309,11 +309,34 @@ class ComController extends Controller {
     }
      /**
     *404
+    *@author winter
+    *@version 2015年11月17日11:13:11
      */
     function _empty(){
         header("HTTP/1.0 404 Not Found");//使HTTP返回404状态码
         $this->display("Public:404");
     }
+    /**
+    *循环匹配评论回复
+    *@author
+    */
+    public function loopreply($flist,$value,$postslist){
+        $fans_comment = M('fans_comment'); //评论回复
+        
+        $slist = $fans_comment->order('instime asc')->where('postid = '.$postslist['id'].' and status = 1 and fid ='.$value['id'])->select();
+        $array['slist'][] = $slist;
+        foreach ($slist as $key => $val) {
+            $sum = $fans_comment->where('fid = '.$val['id'])->count();
+            if($sum > 0){
+
+            }
+        }
+        
+        return $array;
+
+    }
+
+
    
 }
    

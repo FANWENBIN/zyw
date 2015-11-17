@@ -270,7 +270,7 @@ class UserController extends ComController {
     *@author winter
     *@version 2015年11月16日17:58:14
     */
-    public function forgotpasswd(){
-        
+    public function codeback(){
+        $this->display();
     }
 }
