@@ -9,6 +9,10 @@ var page = {
         $("#preview").click(page.preClick);
         $("#next").click(page.nextClick);
         scope.max = $("#list").find(".item").length;
+        if(scope.max < 4){
+          $("#preview").hide();
+          $("#next").hide();
+        }
     },
     preClick: function(){
         scope.now--;
