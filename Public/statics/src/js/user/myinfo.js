@@ -7,7 +7,34 @@ $(function(){
       // initRadio("sex");
       $(".sublist").on("click","li",page.leftClick);
       $(".group").on("click","li",page.upClick);
-      $("#changemb").on("click",".")
+      // $("#changemb").on("click",".");
+
+      // 删除消息
+      $(document).on("mouseenter",".date",function(){
+        $(this).data("content",$(this).html())
+        $(this).html("删除");
+      });
+      $(document).on("mouseout",".date",function(){
+        $(this).html($(this).data("content"));
+      })
+      $(".date").on("click",page.delMessage);
+    },
+    delMessage: function(){
+      $.ajax({
+        type: "get",
+        url: "./index.php?m=Home&c=User&a=delmsg",
+        dataType: "json",
+        success: function(json){
+          console.log(json.msg);
+          if(json.status === 0){
+            $(this).parents(".subitem").remove();
+          }else{
+            alert("删除失败，请稍后再试")
+          }
+        },
+        error: function(){
+        }
+      });
     },
     leftClick: function(){
       $(this).parent().find("li").removeClass("active");
