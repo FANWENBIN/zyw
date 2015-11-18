@@ -432,6 +432,9 @@ input[type=submit]{
       padding-top: 20px;
       font-size: 12px;
       span{
+        display: inline-block;
+        width: 85px;
+        height: 35px; 
         color: #999;
       }
       a{
