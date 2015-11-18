@@ -428,19 +428,24 @@ input[type=submit]{
       float: right;
       margin-left: 0;
       height: 85px;
-      width: 100px;
+      width: 150px;
       padding-top: 20px;
       font-size: 12px;
+      text-align: right;
       span{
         display: inline-block;
-        width: 85px;
-        height: 35px; 
+        width: 120px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
         color: #999;
+        cursor: pointer;
       }
       a{
         display: inline-block;
         width: 85px;
         height: 30px;
+        margin-right: 15px;
         background-color: #000;
         color: #fff;
         text-align: center;
