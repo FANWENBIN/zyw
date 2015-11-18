@@ -20,9 +20,13 @@ $(function(){
       $(".date").on("click",page.delMessage);
     },
     delMessage: function(){
+      var _this = this;
       $.ajax({
         type: "get",
         url: "./index.php?m=Home&c=User&a=delmsg",
+        data: {
+          id: $(_this).data("id")
+        }
         dataType: "json",
         success: function(json){
           console.log(json.msg);
