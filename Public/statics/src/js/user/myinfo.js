@@ -26,12 +26,12 @@ $(function(){
         url: "./index.php?m=Home&c=User&a=delmsg",
         data: {
           id: $(_this).data("id")
-        }
+        },
         dataType: "json",
         success: function(json){
           console.log(json.msg);
           if(json.status === 0){
-            $(this).parents(".subitem").remove();
+            $(_this).parents(".subitem").remove();
           }else{
             alert("删除失败，请稍后再试")
           }
