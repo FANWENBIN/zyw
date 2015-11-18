@@ -72,9 +72,9 @@
 
                 <!--  修改头像-->
               <div class="item">
-                <span class="tips">正在发布</span>
+                <span class="tips">通过审核</span>
                 <div class="container clearFix">
-                <volist name = "checkpending" id = "vo"> 
+                <volist name = "passactive" id = "vo"> 
 
                   <a href="{:U('Active/active_details',array('id'=>$vo['id']))}" class="subitem">
                       <img src="./Uploads{$vo.img}" alt="" />
@@ -86,9 +86,9 @@
                   </a>
                 </volist>
                 </div>
-                <span class="tips">历史发布</span>
+                <span class="tips">待审核</span>
                 <div class="container clearFix">
-                <volist name = "passactive" id = "vo">
+                <volist name = "checkpending" id = "vo">
                   <a href="{:U('Active/active_details',array('id'=>$vo['id']))}" class="subitem">
                       <img src="./Uploads{$vo.img}" alt="" />
                       <div class="text">

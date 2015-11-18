@@ -176,7 +176,7 @@ class ActiveController extends ComController {
         $data['order'] = I('post.order');
         $data['status'] = 2;
         $data['mast'] = session('username');
-        $data['userid'] = session('id');
+        $data['userid'] = session('userid');
         $sign = $active->add($data);
         if($sign){
             ajaxReturn(0,'活动发起成功,静待审核通过','');

@@ -189,7 +189,7 @@ class UserController extends ComController {
     		//待审核的活动
     	$data['status'] = 2;
     	$this->checkpending = $active->where($data)->order('instime desc')->select();
-    		//审核通过的活动
+    		//审核通过的活动 
     	$data['status'] = 1;
     	$this->passactive = $active->where($data)->order('instime desc')->select();
         $this->mssage();//调用读取未读消息显示
@@ -346,6 +346,17 @@ class UserController extends ComController {
             session('yzm',$ver);
             session('phone',$phone);
             ajaxReturn(0,'发送成功','');
+        }
+    }
+    public function delmsg(){
+        $data['id'] = I('get.id');
+        $data['uid'] = session('userid');
+        $user_msg = M('user_msg');
+        $sign = $user_msg->where($data)->delete();
+        if($sign){
+            ajaxReturn(0,'删除成功','');
+        }else{
+            ajaxReturn(101,'删除失败','');
         }
     }
 }

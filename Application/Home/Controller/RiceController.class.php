@@ -188,6 +188,27 @@ class RiceController extends ComController {
         }
     }
     /**
+    *取消关注饭团
+    *@author witner
+    *@version 2015年11月18日10:54:19
+    */
+    public function quitfans(){
+        $fans = M('fans_club');
+        $userfans = M('user_fans');
+        $data['userid'] = session('userid');
+        $data['fansid'] = I('get.fansid');
+        $sum = $userfans->where($data)->count();
+        if($sum < 1){
+            ajaxReturn(102,'未关注','');
+        }
+        $sign = $userfans->where($data)->delete();
+        if($sign){
+            ajaxReturn(0,'取消成功','');
+        }else{
+            ajaxReturn(101,'取消失败','');
+        }
+    }
+    /**
     *检测用户是否已加入
     *@author winter
     *@version 2015年11月11日19:12:23
