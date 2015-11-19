@@ -157,7 +157,11 @@
         <volist name="revi" id="vo">
           <a href="{:U('Newstar/classinfo',array('id'=>$vo['id']))}">
             <div class="item">
+            <if condition = "$vo['topimg'] neq ''">
               <img src="./Uploads{$vo.topimg}" alt="" />
+              <else />
+              <img src="./Uploads{$vo.img}" alt="" />
+            </if>
               <div class="text">
                 <h1>
                   <?php echo mb_strlen($vo['title'],'utf8')>15?mb_substr($vo['title'],0,15,'utf-8').'...':$vo['title'] ?>
