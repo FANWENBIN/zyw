@@ -5,6 +5,8 @@ $(function() {
   var page = {
     init: function() {
       $(".join").on("click", page.join);
+      $(".join").on("mouseenter", page.joinEnter);
+      $(".join").on("mouseout", page.joinOut);
       $(".submitmessage").on("click", page.submit);
       page.testJoin()
     },
@@ -52,36 +54,71 @@ $(function() {
         //   alert("请先登陆并加入饭团");
         // }
     },
-    join: function() {
+    joinEnter: function() {
+      if (scope.isJoin) {
+        $(this).html("退团")
+      }else{
+      }
+    },
+    joinOut: function(){
+      if(scope.isJoin){
+        $(this).html("已入团")
+      }else{
+      }
+    },
+    release: function(){
       $.ajax({
         type: "get",
-        url: "./index.php?m=Home&c=Rice&a=joinfans",
+        url: "./index.php?m=Home&c=Rice&a=quitfans",
         data: {
           fansid: $(".webmain").data("id")
         },
         dataType: "json",
-        success: function(json) {
-          if (json.status === 0) {
+        success: function(json){
             console.log(json.msg);
-            $(".join").html("已入团");
-          } else if (json.status === 101) {
-            console.log(json.msg)
-            alert("加入失败，请稍后再试")
-          } else if (json.status === 102) {
-            console.log(json.msg)
-            alert("请先登陆后再尝试")
-          } else if (json.status === 103) {
-            console.log(json.msg)
-            alert("加入失败，请稍后再试")
-          } else if (json.status === 104) {
-            console.log(json.msg);
-            $(".join").html("已入团");
-          }
+            if(json.status === 0){
+              scope.isJoin = false;
+              $(".join").html("+入团");
+            }else if(json.status === 101){
+              alert("系统错误，请稍后再试")
+            }else if(json.status === 102 ){
+              alert("饭团未关注")
+            }
         },
-        error: function() {
-
+        error: function(){
         }
       })
+    },
+    join: function() {
+      if (scope.isJoin) {
+        page.release()
+      } else {
+        $.ajax({
+          type: "get",
+          url: "./index.php?m=Home&c=Rice&a=joinfans",
+          data: {
+            fansid: $(".webmain").data("id")
+          },
+          dataType: "json",
+          success: function(json) {
+              console.log(json.msg);
+            if (json.status === 0) {
+              $(".join").html("已入团");
+              scope.isJoin = true;
+            } else if (json.status === 101) {
+              alert("加入失败，请稍后再试")
+            } else if (json.status === 102) {
+              alert("请先登陆后再尝试")
+            } else if (json.status === 103) {
+              alert("加入失败，请稍后再试")
+            } else if (json.status === 104) {
+              $(".join").html("已入团");
+            }
+          },
+          error: function() {
+          }
+        })
+      }
     },
     testJoin: function() {
       $.ajax({
@@ -92,13 +129,13 @@ $(function() {
         },
         dataType: "json",
         success: function(json) {
+          console.log(json.msg);
           if (json.status === 1) {
             scope.isJoin = true;
             $(".join").html("已入团");
-            console.log(json.msg);
           } else if (json.status === 0) {
+            scope.isJoin = true;
             $(".join").html("+ 入团");
-            console.log(json.msg);
           }
         },
         error: function() {
