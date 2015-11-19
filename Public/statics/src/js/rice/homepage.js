@@ -101,20 +101,17 @@ $(function() {
           },
           dataType: "json",
           success: function(json) {
-            if (json.status === 0) {
               console.log(json.msg);
+            if (json.status === 0) {
               $(".join").html("已入团");
+              scope.isJoin = true;
             } else if (json.status === 101) {
-              console.log(json.msg)
               alert("加入失败，请稍后再试")
             } else if (json.status === 102) {
-              console.log(json.msg)
               alert("请先登陆后再尝试")
             } else if (json.status === 103) {
-              console.log(json.msg)
               alert("加入失败，请稍后再试")
             } else if (json.status === 104) {
-              console.log(json.msg);
               $(".join").html("已入团");
             }
           },
