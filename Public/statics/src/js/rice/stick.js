@@ -10,7 +10,7 @@ $(function(){
       $(".inputsection form").on("submit",page.subSubmit)
     },
     subSubmit: function(){
-      if(!$(this).find(".replytext").val()){
+      if(!/^.+$/.test($(this).find(".replytext").val())){
         alert("请输入内容");
         return false;
       }
