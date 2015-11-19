@@ -23,7 +23,7 @@ $(function() {
       if ($(":password[name=newcode]").val() !== $(":password[name=repeatnewcode]").val()) {
         alert("两次输入的新密码不等，请重新输入");
       } else if (!/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/.test($(":password[name=newcode]").val())) {
-        alert("密码必须有6-20位，并包含数字和字母");
+        alert("至少8位，至少包含数字和字符");
       } else {
         $.ajax({
           type: "post",

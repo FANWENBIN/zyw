@@ -16,7 +16,7 @@ $(function(){
       }else if($(":password[name=code]").val() !== $(":password[name=recode]").val()){
         $(".step2 .error").html("两次输入的密码不相等, 请检查后重新输入")
       }else if(!/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/.test($(":password[name=code]").val())){
-        $(".step2 .error").html("密码必须有6-20位，并包含数字和字母")
+        $(".step2 .error").html("至少8位，至少包含数字和字符")
       }else{
         $.ajax({
           type: "post",
