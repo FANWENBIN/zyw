@@ -1,7 +1,7 @@
 $(function() {
   var scope = {
-    provinceid: "440000"
-
+    provinceid: "440000",
+    btrue: true
   };
   var page = {
     init: function() {
@@ -133,24 +133,32 @@ $(function() {
     },
     getVerInSetting: function() {
       console.log($(":text[name=mbchange]").val());
-      $.ajax({
-        url: "./index.php?m=Home&c=User&a=yzm",
-        type: "get",
-        dataType: "json",
-        data: {
-          phone: $(":text[name=mbchange]").val(),
-        },
-        success: function(json) {
-          if (json.status == "0") {
-            $("#error").html("验证码已发送，请注意查收");
-          } else if (json.status == "101") {
-            $("#error").html("发送失败，请稍后再试");
-          } else if (json.status == "102") {
-            $("#error").html("手机号码错误，请检查后再试");
+      if(scope.btrue){
+        scope.btrue = false;
+        $.ajax({
+          url: "./index.php?m=Home&c=User&a=yzm",
+          type: "get",
+          dataType: "json",
+          data: {
+            phone: $(":text[name=mbchange]").val(),
+          },
+          success: function(json) {
+            if (json.status == "0") {
+              $("#error").html("验证码已发送，请注意查收");
+            } else if (json.status == "101") {
+              $("#error").html("发送失败，请稍后再试");
+            } else if (json.status == "102") {
+              $("#error").html("手机号码错误，请检查后再试");
+            }
+            scope.btrue = true;
+          },
+          error: function() {
+            alert("系统错误，请稍后再试");
+            scope.btrue = true;
           }
-        },
-        error: function() {}
-      })
+        })
+      }
+
     },
     confirmMb: function() {
       $.ajax({
