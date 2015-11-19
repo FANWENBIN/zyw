@@ -377,7 +377,6 @@ class BannerController extends ComController {
                 $data['type'] = 7;
                 $sign = $banner->add($data);
             }
-            
             if($sign){
                 $this->success('保存成功',U('committee'));
             }else{
