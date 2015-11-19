@@ -170,11 +170,12 @@ $(function() {
           code: $(":text[name=veri]").val()
         },
         success: function(json) {
+          console.log(json.msg)
           if (json.status == "0") {
             $("#error").html("绑定成功");
             $("#changemb .step2").hide();
             $("#changemb .step3").show();
-            $("#changemb .step3 .newmb").html($(":text[name=mbchange]").val())
+            $("#changemb .step3 .newmb").html($(".mbchange").val())
           } else if (json.status == "101") {
             $("#error").html("验证码错误");
           } else if (json.status == "102") {
