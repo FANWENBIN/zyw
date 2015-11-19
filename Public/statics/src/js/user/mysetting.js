@@ -166,7 +166,7 @@ $(function() {
         type: "post",
         dataType: "json",
         data: {
-          phone: $(":text[name=mbchange]").val(),
+          phone: $(".mbchange").val(),
           code: $(":text[name=veri]").val()
         },
         success: function(json) {
