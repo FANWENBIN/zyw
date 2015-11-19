@@ -25,7 +25,7 @@ class UserController extends ComController {
             $this->assign('cities',$cities);
             $userinfo['mobile'] = preg_replace('/'.substr($userinfo['mobile'],3,4).'/','****',$userinfo['mobile']);   
             $this->assign('userinfo',$userinfo);
-            $this->display();
+            $this->display(); 
         }else{
             $user = M('user');
             $data['nickname'] = I('post.nickname');
