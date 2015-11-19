@@ -370,7 +370,14 @@ class BannerController extends ComController {
         }else{
             $data['title'] = I('post.title');
             $data['img'] = I('post.photo');
-            $sign = $banner->where('type = 7')->save($data);
+            $id = I('get.id');
+            if($id > 0){
+                $sign = $banner->where('type = 7')->save($data);
+            }else{
+                $data['type'] = 7;
+                $sign = $banner->add($data);
+            }
+            
             if($sign){
                 $this->success('保存成功',U('committee'));
             }else{
