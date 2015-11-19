@@ -38,6 +38,7 @@ class NewstarController extends ComController {
         $futurestar = M('futurestar');
         $vedioval = $futurestar->where('id='.$id)->find();
         $this->assign('list',$vedioval);
+        $futurestar->where('id = '.$id)->setInc('hot',1);
         $this->assign('sign',8);
         $this->display();
     }
