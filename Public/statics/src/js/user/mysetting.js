@@ -132,7 +132,7 @@ $(function() {
       })
     },
     getVerInSetting: function() {
-      console.log($(":text[name=mbchange]").val());
+      console.log($(".mbchange").val());
       if(scope.btrue){
         scope.btrue = false;
         $.ajax({
@@ -140,7 +140,7 @@ $(function() {
           type: "get",
           dataType: "json",
           data: {
-            phone: $(":text[name=mbchange]").val(),
+            phone: $(".mbchange").val()
           },
           success: function(json) {
             if (json.status == "0") {
