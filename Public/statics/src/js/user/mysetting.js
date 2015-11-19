@@ -15,9 +15,18 @@ $(function() {
       $("#codesendverify").on("click", page.codesendverify);
       $("#codesendmbverify").on("click", page.codesendmbverify);
       $("#confirmmbcode").on("click", page.confirmmbcode);
+      $("#photo").on("change",page.photoChange);
       // 初始化province city
       // page.getProvince();
       // page.getCity();
+    },
+    photoChange: function(){
+      var _src = window.URL.createObjectURL(this.files[0]);
+      if(_src){
+      $(".uploadimg").attr("src",_src)
+    }else{
+      $(".uploadimg").attr("src","./Public/statics/images/default_fans_headpic.jpg")
+    }
     },
     confirmmbcode: function() {
       if ($(":password[name=newcode]").val() !== $(":password[name=repeatnewcode]").val()) {
