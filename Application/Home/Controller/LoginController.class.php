@@ -34,7 +34,9 @@ class LoginController extends ComController {
             $data['mobile']   = 'QQ';
             $data['createtime'] = time();
             $sign = $user->add($data);
-            
+            if(!$sign){
+                $this->error('登陆失败');
+            }
             $list = $user->where('id='.$sign)->find();
         }
         if($list){
@@ -54,7 +56,75 @@ class LoginController extends ComController {
     *@version 2015年11月20日17:27:32
     */
     public function weibologin(){
-        echo 12;
+        include_once( './libweibo/config.php' );
+        include_once( './libweibo/saetv2.ex.class.php' );
+        $o = new \SaeTOAuthV2( WB_AKEY , WB_SKEY );
+        $code_url = $o->getAuthorizeURL( WB_CALLBACK_URL );
+        $this->redirect($code_url, '', 0, '页面跳转中...');
+    }
+    /**
+    *微博回调
+    *@author winter
+    *@version 2015年11月20日19:52:33
+    */
+    public function weibocallback(){
+        include_once( 'config.php' );
+        include_once( 'saetv2.ex.class.php' );
+        $o = new \SaeTOAuthV2( WB_AKEY , WB_SKEY );
+        if (isset($_REQUEST['code'])) {
+            $keys = array();
+            $keys['code'] = $_REQUEST['code'];
+            $keys['redirect_uri'] = WB_CALLBACK_URL;
+            try {
+            $token = $o->getAccessToken( 'code', $keys ) ;
+            } catch (OAuthException $e) {
+            }
+        }
+        if ($token) {
+            //授权完成
+            $_SESSION['token'] = $token;
+            setcookie( 'weibojs_'.$o->client_id, http_build_query($token) );
+            $c = new \SaeTClientV2( WB_AKEY , WB_SKEY , $_SESSION['token']['access_token'] );
+            //$ms  = $c->home_timeline(); // done
+            $uid_get = $c->get_uid();
+            $uid = $uid_get['uid'];
+            $user_message = $c->show_user_by_id( $uid);//根据ID获取用户等基本信息
+            if($user_message){
+                $user = M('user');
+                $list = $user->where('wbuid = '.$uid)->find();
+                if(!$list){
+                    $data['nickname'] = $user_message['screen_name'];
+                    $data['sex']      = ($user_message['gender'] == 'm')?1:2;
+                    $address = explode(' ', $user_message['location']);
+                    $data['province'] = $address[0];
+                    $data['city']     = $address[1];
+                    $data['headpic']  = $user_message['profile_image_url'];
+                    $data['wbuid']    = $uid;
+                    $data['passwd']   = md5('123456');
+                    $data['mobile']   = 'WB';
+                    $data['createtime'] = time();
+                    $sign = $user->add($data);
+                    if(!$sign){
+                        $this->error('登陆失败');
+                    }
+                    $list = $user->where('id='.$sign)->find();
+                }
+                session('userid',$list['id']);
+                session('username',$list['nickname']);
+                session('userphone',$list['mobile']);
+                session('userimg',$list['headpic']);
+                //echo "<script>window.close();window.opener.location.reload()</script>";
+                echo 123;
+
+
+            }else{
+                $this->error('登陆失败');
+            }
+        } else {
+            //授权失败
+            $this->error('登陆失败');
+        }
+
     }
    //验证登陆接口
     public function checklogin(){
