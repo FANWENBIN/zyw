@@ -42,7 +42,8 @@ class LoginController extends ComController {
             session('username',$list['nickname']);
             session('userphone',$list['mobile']);
             session('userimg',$list['headpic']);
-            $this->redirect('Index/index', '', 0, '页面跳转中...');
+            echo "<script>window.close();</script>";
+            //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
             $this->error('登陆失败');
         }
