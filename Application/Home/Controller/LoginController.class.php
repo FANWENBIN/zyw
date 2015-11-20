@@ -21,7 +21,7 @@ class LoginController extends ComController {
         $qc = new \QC($acs,$oid);
         $uinfo = $qc->get_user_info();  //获取用户信息
         $user = M('user');
-        $list = $user->where('openid='.$oid)->find();
+        $list = $user->where("openid='".$oid."'")->find();
         echo $user->getlastsql();
         if(!$list){
             $data['nickname'] = $uinfo['nickname'];
