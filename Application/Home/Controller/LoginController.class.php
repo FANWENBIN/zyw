@@ -60,7 +60,7 @@ class LoginController extends ComController {
         include_once( './libweibo/saetv2.ex.class.php' );
         $o = new \SaeTOAuthV2( WB_AKEY , WB_SKEY );
         $code_url = $o->getAuthorizeURL( WB_CALLBACK_URL );
-        var_dump($code_url);die();
+        var_dump($code_url);
         $this->redirect($code_url, '', 0, '页面跳转中...');
     }
     /**
