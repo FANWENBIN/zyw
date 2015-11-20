@@ -10,7 +10,7 @@ class LoginController extends ComController {
 
     public function qqlogin(){
         require('QQ/API/qqConnectAPI.php');
-        $qc = new \QC();
+        $qc = new \QC(); 
         $qc->qq_login();
     }
     public function callback(){
@@ -18,9 +18,36 @@ class LoginController extends ComController {
         $qc = new \QC();  
         $acs = $qc->qq_callback();      //获取access-token 和openid
         $oid = $qc->get_openid();  
-        $qc = new \QC($acs,$oid);  
+        $qc = new \QC($acs,$oid);
         $uinfo = $qc->get_user_info();  //获取用户信息
-        var_dump($uinfo);
+        $user = M('user');
+        $list = $user->where("openid='".$oid."'")->find();
+        
+        if(!$list){
+            $data['nickname'] = $uinfo['nickname'];
+            $data['sex']      = $uinfo['gender'];
+            $data['province'] = $uinfo['province'];
+            $data['city']     = $uinfo['city'];
+            $data['headpic']  = $uinfo['figureurl_2'];
+            $data['openid']   = $oid;
+            $data['passwd']   = md5('123456');
+            $data['mobile']   = 'QQ';
+            $data['createtime'] = time();
+            $sign = $user->add($data);
+            
+            $list = $user->where('id='.$sign)->find();
+        }
+        if($list){
+            session('userid',$list['id']);
+            session('username',$list['nickname']);
+            session('userphone',$list['mobile']);
+            session('userimg',$list['headpic']);
+            $this->redirect('Index/index', '', 0, '页面跳转中...');
+        }else{
+            $this->error('登陆失败');
+        }
+        
+        
     }
    //验证登陆接口
     public function checklogin(){

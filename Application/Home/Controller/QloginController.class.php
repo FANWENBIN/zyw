@@ -15,7 +15,7 @@ class QloginController extends Controller {
     $qc = new \QC();
     echo $qc->qq_callback();
     echo $qc->get_openid();
-   // var_dump($qc);
+    var_dump($qc);
    }
     
 }

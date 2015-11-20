@@ -25,12 +25,12 @@ class UserController extends ComController {
             $this->assign('cities',$cities);
             $userinfo['mobile'] = preg_replace('/'.substr($userinfo['mobile'],3,4).'/','****',$userinfo['mobile']);   
             $this->assign('userinfo',$userinfo);
-            $this->display();
+            $this->display(); 
         }else{
-            $user = M('user');
+            $user = M('user'); 
             $data['nickname'] = I('post.nickname');
-            $provinces  = explode('|', I('post.province'));
-            $cities     = explode('|', I('post.cities'));
+            $provinces = explode('|', I('post.province'));
+            $cities    = explode('|', I('post.cities'));
             $data['provinceid'] = $provinces[0];
             $data['province']   = $provinces[1];
             $data['city']   = $cities[0];
@@ -61,7 +61,7 @@ class UserController extends ComController {
             $this->error($upload->getError());    
         }else{// 上传成功      
             $user = M('user');
-            $data['headpic'] = $info['photo']['savepath'].$info['photo']['savename'];
+            $data['headpic'] = './Uploads'.$info['photo']['savepath'].$info['photo']['savename'];
             $sign = $user->where('id='.session('userid'))->save($data);
             if($sign === false){
                 $this->error('修改失败！'); 

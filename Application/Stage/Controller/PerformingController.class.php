@@ -36,7 +36,7 @@ class PerformingController extends ComController {
             $data['name']    = I('post.name');
             $data['sex']     = I('post.sex');
             $a = $this->checkDump($data);
-            $data['birthday']  = strtotime(I('post.birthday'));
+            $data['birthday']  = I('post.birthday');
                                 //strtotime(I('post.timet'))
             $data['national']  = I('post.national');
             $data['address']   = I('post.address');
