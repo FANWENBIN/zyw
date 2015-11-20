@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class NewsController extends ComController {
     public function index(){
+
 		$news=  M('news');
 		//echo $_SERVER['DOCUMENT_ROOT'];
 		//var_dump($_SERVER);

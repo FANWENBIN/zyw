@@ -10,16 +10,21 @@ class LoginController extends ComController {
 
     public function qqlogin(){
         require('QQ/API/qqConnectAPI.php');
-        $qc = new \QC();
+        $qc = new \QC(); 
         $qc->qq_login();
     }
     public function callback(){
+         $code = I('get.code');
+        $state = I('get.state');
+        session('code',$code);
         require('QQ/API/qqConnectAPI.php');//引进qqapi 接口
         $qc = new \QC();  
+
         $acs = $qc->qq_callback();      //获取access-token 和openid
+
         $oid = $qc->get_openid();  
         $qc = new \QC($acs,$oid);  
-        $uinfo = $qc->get_user_info();  //获取用户信息
+       // $uinfo = $qc->get_user_info();  //获取用户信息
         var_dump($uinfo);
     }
    //验证登陆接口
