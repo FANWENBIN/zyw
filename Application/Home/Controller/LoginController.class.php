@@ -92,6 +92,7 @@ class LoginController extends ComController {
             if($user_message){
                 $user = M('user');
                 $list = $user->where("wbuid = '".$uid."'")->find();
+                echo $user->getlastsql();die();
                 if(!$list){
                     $data['nickname'] = $user_message['screen_name'];
                     $data['sex']      = ($user_message['gender'] == 'm')?1:2;
