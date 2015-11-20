@@ -14,9 +14,6 @@ class LoginController extends ComController {
         $qc->qq_login();
     }
     public function callback(){
-         $code = I('get.code');
-        $state = I('get.state');
-        session('code',$code);
         require('QQ/API/qqConnectAPI.php');//引进qqapi 接口
         $qc = new \QC();  
 
