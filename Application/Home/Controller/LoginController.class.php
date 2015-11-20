@@ -91,7 +91,7 @@ class LoginController extends ComController {
             $user_message = $c->show_user_by_id( $uid);//根据ID获取用户等基本信息
             if($user_message){
                 $user = M('user');
-                $list = $user->where('wbuid = '.$uid)->find();
+                $list = $user->where("wbuid = '".$uid."'")->find();
                 if(!$list){
                     $data['nickname'] = $user_message['screen_name'];
                     $data['sex']      = ($user_message['gender'] == 'm')?1:2;
