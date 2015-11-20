@@ -25,7 +25,7 @@ class LoginController extends ComController {
         
         if(!$list){
             $data['nickname'] = $uinfo['nickname'];
-            $data['sex']      = $uinfo['gender'];
+            $data['sex']      = $uinfo['gender'] == '男'?1:2;
             $data['province'] = $uinfo['province'];
             $data['city']     = $uinfo['city'];
             $data['headpic']  = $uinfo['figureurl_2'];
