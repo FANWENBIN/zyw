@@ -9,8 +9,8 @@
       success: function(json) {
         if (json.status == "1") {
           $(".myinfoalert-header-content .name").html(json.data.nickname);
-          $(".myinfoalert-header-face").attr("src", "./Uploads" + json.data.headpic);
-          $(".islogin .face").attr("src", "./Uploads" + json.data.headpic);
+          $(".myinfoalert-header-face").attr("src", json.data.headpic); 
+          $(".islogin .face").attr("src", json.data.headpic);
           $("#login").html(json.data.nickname)
           $("#nologin").hide();
           $("#islogin").show();
