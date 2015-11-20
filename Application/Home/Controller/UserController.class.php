@@ -27,10 +27,10 @@ class UserController extends ComController {
             $this->assign('userinfo',$userinfo);
             $this->display(); 
         }else{
-            $user = M('user');
+            $user = M('user'); 
             $data['nickname'] = I('post.nickname');
-            $provinces  = explode('|', I('post.province'));
-            $cities     = explode('|', I('post.cities'));
+            $provinces = explode('|', I('post.province'));
+            $cities    = explode('|', I('post.cities'));
             $data['provinceid'] = $provinces[0];
             $data['province']   = $provinces[1];
             $data['city']   = $cities[0];
