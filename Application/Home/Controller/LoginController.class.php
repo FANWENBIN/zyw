@@ -22,6 +22,7 @@ class LoginController extends ComController {
         $uinfo = $qc->get_user_info();  //获取用户信息
         $user = M('user');
         $list = $user->where('openid='.$oid)->find();
+        echo $user->getlastsql();
         if(!$list){
             $data['nickname'] = $uinfo['nickname'];
             $data['sex']      = $uinfo['gender'];
@@ -31,6 +32,7 @@ class LoginController extends ComController {
             $data['openid']   = $oid;
             $data['passwd']   = md5('123456');
             $data['mobile']   = 'QQ';
+            $data['createtime'] = time();
             $sign = $user->add($data);
             echo $user->getlastsql();
             $list = $user->where('id='.$sign)->find();
