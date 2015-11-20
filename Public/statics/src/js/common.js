@@ -170,9 +170,9 @@ $(function() {
             '<input type="submit" name="name" value="注册" id="regsubmit">' +
             '</div>' +
             '<div class="registeralert-main-item">' +
-            '<a href="./javascript:;" class="login-weibo"></a>' +
-            '<a href="./javascript:;" class="login-qq"></a>' +
-            '<a href="./javascript:;" class="login-weichat"></a>' +
+            '<a href="javascript:;" class="login-weibo"></a>' +
+            '<a href="javascript:;" class="login-qq"></a>' +
+            '<a href="javascript:;" class="login-weichat"></a>' +
             '</div>' +
             '</form>' +
             '</div>')
@@ -222,7 +222,7 @@ $(function() {
             $("#loginalert").remove();
             page.regShow();
           });
-            $(".login-qq").on("click", page.toLoginQQ);
+          $(".login-qq").on("click", page.toLoginQQ);
         },
         logSubmit: function() {
           $.ajax({
