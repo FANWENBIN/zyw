@@ -25,7 +25,7 @@ class LoginController extends ComController {
         
         if(!$list){
             $data['nickname'] = $uinfo['nickname'];
-            $data['sex']      = $uinfo['gender'] == '男'?1:2;
+            $data['sex']      = ($uinfo['gender'] == '男')?1:2;
             $data['province'] = $uinfo['province'];
             $data['city']     = $uinfo['city'];
             $data['headpic']  = $uinfo['figureurl_2'];
@@ -42,7 +42,7 @@ class LoginController extends ComController {
             session('username',$list['nickname']);
             session('userphone',$list['mobile']);
             session('userimg',$list['headpic']);
-            echo "<script>window.close();parent.location.reload()</script>";
+            echo "<script>window.close();window.parent.location.reload()</script>";
             //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
             $this->error('登陆失败');
