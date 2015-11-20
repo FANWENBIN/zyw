@@ -171,7 +171,7 @@ $(function() {
         '</div>' +
         '<div class="registeralert-main-item">' +
         '<span class="login-weibo"></span>' +
-        '<span class="login-qq"></span>' +
+        '<a href="./index.php?m=Home&c=Login&a=qqlogin" class="login-qq"></span>' +
         '<span class="login-weichat"></span>' +
         '</div>' +
         '</form>' +
@@ -210,7 +210,7 @@ $(function() {
         '</div>' +
         '<div class="loginalert-main-item">' +
         '<span class="login-weibo"></span>' +
-        '<span class="login-qq"></span>' +
+        '<a href="./index.php?m=Home&c=Login&a=qqlogin" class="login-qq"></span>' +
         '<span class="login-weichat"></span>' +
         '</div>' +
         '</form>' +
