@@ -46,9 +46,15 @@ class LoginController extends ComController {
             //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
             $this->error('登陆失败');
-        }
-        
-        
+        }  
+    }
+    /**
+    *微博登陆
+    *@author winter
+    *@version 2015年11月20日17:27:32
+    */
+    public function weibologin(){
+        echo 12;
     }
    //验证登陆接口
     public function checklogin(){
