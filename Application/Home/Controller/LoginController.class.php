@@ -22,7 +22,7 @@ class LoginController extends ComController {
         $uinfo = $qc->get_user_info();  //获取用户信息
         $user = M('user');
         $list = $user->where("openid='".$oid."'")->find();
-        echo $user->getlastsql();
+        
         if(!$list){
             $data['nickname'] = $uinfo['nickname'];
             $data['sex']      = $uinfo['gender'];
@@ -34,16 +34,20 @@ class LoginController extends ComController {
             $data['mobile']   = 'QQ';
             $data['createtime'] = time();
             $sign = $user->add($data);
-            echo $user->getlastsql();
+            
             $list = $user->where('id='.$sign)->find();
         }
-        echo $user->getlastsql();
-        session('userid',$sign['id']);
-        session('username',$sign['nickname']);
-        session('userphone',$sign['mobile']);
-        session('userimg',$sign['headpic']);
+        if($list){
+            session('userid',$list['id']);
+            session('username',$list['nickname']);
+            session('userphone',$list['mobile']);
+            session('userimg',$list['headpic']);
+            $this->redirect('Index/index', '', 0, '页面跳转中...');
+        }else{
+            $this->error('登陆失败');
+        }
         
-        var_dump($uinfo);
+        
     }
    //验证登陆接口
     public function checklogin(){
