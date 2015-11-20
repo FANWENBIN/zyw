@@ -61,7 +61,7 @@ class UserController extends ComController {
             $this->error($upload->getError());    
         }else{// 上传成功      
             $user = M('user');
-            $data['headpic'] = $info['photo']['savepath'].$info['photo']['savename'];
+            $data['headpic'] = './Uploads'.$info['photo']['savepath'].$info['photo']['savename'];
             $sign = $user->where('id='.session('userid'))->save($data);
             if($sign === false){
                 $this->error('修改失败！'); 
