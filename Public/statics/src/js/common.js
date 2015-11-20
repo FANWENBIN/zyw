@@ -9,7 +9,7 @@
       success: function(json) {
         if (json.status == "1") {
           $(".myinfoalert-header-content .name").html(json.data.nickname);
-          $(".myinfoalert-header-face").attr("src", json.data.headpic); 
+          $(".myinfoalert-header-face").attr("src", json.data.headpic);
           $(".islogin .face").attr("src", json.data.headpic);
           $("#login").html(json.data.nickname)
           $("#nologin").hide();
@@ -171,6 +171,7 @@ $(function() {
         '</div>' +
         '<div class="registeralert-main-item">' +
         '<span class="login-weibo"></span>' +
+        '<span class="login-qq"></span>' +
         '<span class="login-weichat"></span>' +
         '</div>' +
         '</form>' +
@@ -209,6 +210,7 @@ $(function() {
         '</div>' +
         '<div class="loginalert-main-item">' +
         '<span class="login-weibo"></span>' +
+        '<span class="login-qq"></span>' +
         '<span class="login-weichat"></span>' +
         '</div>' +
         '</form>' +
