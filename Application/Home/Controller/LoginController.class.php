@@ -24,7 +24,7 @@ class LoginController extends ComController {
 
         $oid = $qc->get_openid();  
         $qc = new \QC($acs,$oid);  
-       // $uinfo = $qc->get_user_info();  //获取用户信息
+        $uinfo = $qc->get_user_info();  //获取用户信息
         var_dump($uinfo);
     }
    //验证登陆接口
