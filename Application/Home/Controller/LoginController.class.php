@@ -42,7 +42,7 @@ class LoginController extends ComController {
             session('username',$list['nickname']);
             session('userphone',$list['mobile']);
             session('userimg',$list['headpic']);
-            echo "<script>window.close();window.parent.location.reload()</script>";
+            echo "<script>window.close();window.opener.location.reload()</script>";
             //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
             $this->error('登陆失败');
