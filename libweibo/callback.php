@@ -18,13 +18,8 @@ if (isset($_REQUEST['code'])) {
 if ($token) {
 	$_SESSION['token'] = $token;
 	setcookie( 'weibojs_'.$o->client_id, http_build_query($token) );
-	$uid = $o->get_uid();
-	echo 123;
-	echo $uid;
-	$info = $o->account_profile_basic($uid);
-	var_dump($info);
-	//account_profile_basic //获取用户信息
-	//get_uid//获取用户id
+	
+	
 ?>
 授权完成,<a href="weibolist.php">进入你的微博列表页面</a><br />
 <?php
