@@ -8,7 +8,7 @@ $c = new SaeTClientV2( WB_AKEY , WB_SKEY , $_SESSION['token']['access_token'] );
 $ms  = $c->home_timeline(); // done
 $uid_get = $c->get_uid();
 $uid = $uid_get['uid'];
-echo $uid;
+var_dump($uid);
 $user_message = $c->show_user_by_id( $uid);//根据ID获取用户等基本信息
 var_dump($user_message);
 ?>
