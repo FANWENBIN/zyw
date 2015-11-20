@@ -68,8 +68,8 @@ class LoginController extends ComController {
     *@version 2015年11月20日19:52:33
     */
     public function weibocallback(){
-        include_once( 'config.php' );
-        include_once( 'saetv2.ex.class.php' );
+        include_once( './libweibo/config.php' );
+        include_once( './libweibo/saetv2.ex.class.php' );
         $o = new \SaeTOAuthV2( WB_AKEY , WB_SKEY );
         if (isset($_REQUEST['code'])) {
             $keys = array();
