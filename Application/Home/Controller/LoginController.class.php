@@ -30,7 +30,7 @@ class LoginController extends ComController {
             $data['headpic']  = $uinfo['figureurl_2'];
             $data['openid']   = $oid;
             $data['passwd']   = md5('123456');
-            $data['mobile']   = 'QQ'
+            $data['mobile']   = 'QQ';
             $sign = $user->add($data);
             echo $user->getlastsql();
             $list = $user->where('id='.$sign)->find();
