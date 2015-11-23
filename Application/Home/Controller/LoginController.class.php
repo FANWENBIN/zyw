@@ -115,8 +115,6 @@ class LoginController extends ComController {
                 session('userphone',$list['mobile']);
                 session('userimg',$list['headpic']);
                 //echo "<script>window.close();window.opener.location.reload()</script>";
-                echo 123;
-
 
             }else{
                 $this->error('登陆失败');
