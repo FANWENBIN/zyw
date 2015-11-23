@@ -59,7 +59,7 @@ $(function() {
 
       // 用户登陆检测判断
       $.testLogin(function() {});
-      $(window).on("unload",function(){
+      $(window).unload(function(){
         $.ajax({
           type: "get",
           url: "./index.php?m=Stage&c=Index&a=loginout",
