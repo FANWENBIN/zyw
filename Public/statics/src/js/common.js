@@ -208,7 +208,7 @@ $(function() {
         '</div>' +
         '<div class="loginalert-main-item">' +
         '<input type="submit" name="name" value="登陆">' +
-        '</div>' +
+        '</div>' + 
         '<div class="loginalert-main-item">' +
         '<a target="_blank" href="./index.php?m=Home&c=Login&a=weibologin" class="login-weibo"></a>' +
         '<a href="javascript:;" class="login-qq"></a>' +
