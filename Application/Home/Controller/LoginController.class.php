@@ -173,7 +173,8 @@ class LoginController extends ComController {
         }
         $password = I('get.passwd');
         preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/",$password,$array);
-        if($array){
+        //var_dump($array);
+        if(!$array){
             ajaxReturn(105,'密码过于简单');
         }
         $user = M('user');
