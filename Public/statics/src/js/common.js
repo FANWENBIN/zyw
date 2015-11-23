@@ -59,6 +59,7 @@ $(function() {
 
       // 用户登陆检测判断
       $.testLogin(function() {});
+    
 
     },
     logOut: function() {
