@@ -170,7 +170,7 @@ $(function() {
         '<input type="submit" name="name" value="注册" id="regsubmit">' +
         '</div>' +
         '<div class="registeralert-main-item">' +
-        '<a href="javascript:;" class="login-weibo"></a>' +
+        '<a target="_blank" href="./index.php?m=Home&c=Login&a=weibologin" class="login-weibo"></a>' +
         '<a href="javascript:;" class="login-qq"></a>' +
         '<a href="javascript:;" class="login-weichat"></a>' +
         '</div>' +
@@ -210,7 +210,7 @@ $(function() {
         '<input type="submit" name="name" value="登陆">' +
         '</div>' +
         '<div class="loginalert-main-item">' +
-        '<a href="javascript:;" class="login-weibo"></a>' +
+        '<a target="_blank" href="./index.php?m=Home&c=Login&a=weibologin" class="login-weibo"></a>' +
         '<a href="javascript:;" class="login-qq"></a>' +
         '<a href="javascript:;" class="login-weichat"></a>' +
         '</div>' +
@@ -257,7 +257,7 @@ $(function() {
       //以下为按钮点击事件的逻辑。注意这里要重新打开窗口
       //否则后面跳转到QQ登录，授权页面时会直接缩小当前浏览器的窗口，而不是打开新窗口
       var A = window.open("./index.php?m=Home&c=Login&a=qqlogin", "TencentLogin", "width=450,height=320,menubar=0,scrollbars=1, resizable = 1, status = 1, titlebar = 0, toolbar = 0, location = 1 ");
-      
+
     }
   };
   page.init();
