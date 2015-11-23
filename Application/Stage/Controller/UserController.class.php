@@ -163,6 +163,7 @@ class UserController extends ComController {
         $list = $user_msg->where($condition)->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
+        $this->cur = 1;
         $this->display();
     }
     /**
