@@ -93,6 +93,7 @@ class UserController extends ComController {
         empty($user)&&$this->error('未找到此数据');
         //删除
         M("User")->where(array('id'=>$id))->save(array('status'=>'0'));
+        $this->addadminlog($user['nickname'],M("User")->getlastsql(),'删除用户',$id,'userid');
         $this->success('操作成功!');        
     }
     /**
@@ -107,6 +108,7 @@ class UserController extends ComController {
         empty($user)&&$this->error('未找到此数据');
         //删除
         M("user_msg")->where(array('id'=>$id))->save(array('status'=>'0'));
+        $this->addadminlog($user['username'],M("user_msg")->getlastsql(),'撤回用户消息',$id,'userid');
         $this->success('操作成功!');  
     }
 
@@ -134,9 +136,11 @@ class UserController extends ComController {
             //$data['instime'] = strtotime(I('post.instime'));
             $data['status'] = 2;
             $data['uid'] = $id;
-            $data['username'] = I('post.nickname');
+            $data['username'] = I('get.name');
             $sign = $user_msg->add($data);
+           
             if($sign){
+                $this->addadminlog($data['username'],$user_msg->getlastsql(),'发送消息',$id,'userid');
                 $this->success('发送成功',U('User/index'));
             }else{
                 $this->error('消息未发送');

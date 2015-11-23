@@ -164,6 +164,7 @@ class GactorController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog($data['name'],$actors->getlastsql(),'新增演员',$id,'gactorid');
                 $this->success('新增成功',U('Gactor/index'));
             }else{
                 $model->rollback();
@@ -236,8 +237,6 @@ class GactorController extends ComController {
                 }
             }
 
-
-
             $data['headimg'] = I('post.photo1');
             $data['img']     = I('post.photo2');
             $sign = $actors->where('id='.$id)->save($data);
@@ -246,6 +245,7 @@ class GactorController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog($data['name'],$actors->getlastsql(),'修改演员',$id,'gactorid');
                 $this->success('修改成功',U('Gactor/index'));
             }else{
                 $model->rollback();
@@ -265,6 +265,7 @@ class GactorController extends ComController {
         $data['status'] = 0;
         $sign   = $actors->where('id='.$id)->save($data);
         if($sign){
+            $this->addadminlog('演员ID：'.$id,$actors->getlastsql(),'删除演员',$id,'gactorid');
             $this->success('删除成功',U('Gactor/index'));
         }else{
             $this->error('未删除');

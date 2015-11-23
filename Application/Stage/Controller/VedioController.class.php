@@ -39,6 +39,7 @@ class VedioController extends ComController {
 			}
     		$sign = $vedio->where('id='.$id)->save($data);
     		if($sign){
+                $this->addadminlog($data['title'],$vedio->getlastsql(),'修改视频',$id,'vedioid');
     			$this->success('修改成功',U('Vedio/index'));
     		}else{
     			$this->error('未做任何修改');
@@ -52,8 +53,10 @@ class VedioController extends ComController {
     	$id = I('post.id','','intval');
     	$vedio = M('vedio');
     	$data['status'] = 0;
+        $list = $vedio->where('id='.$id)->find();
     	$sign = $vedio->where('id='.$id)->save($data);
     	if($sign){
+            $this->addadminlog($list['title'],$vedio->getlastsql(),'删除视频',$id,'vedioid');
     		$this->success('删除成功',U('Vedio/index'));
     	}else{
     		$this->error('未删除');
@@ -85,6 +88,7 @@ class VedioController extends ComController {
 
     		$sign = $vedio->add($data);
     		if($sign){
+                $this->addadminlog($data['title'],$vedio->getlastsql(),'新增视频',$sign,'vedioid');
     			$this->success('新增成功',U('Vedio/index'));
     		}else{
     			$this->error('未做任何新增');

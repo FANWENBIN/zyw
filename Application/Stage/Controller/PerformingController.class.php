@@ -97,6 +97,7 @@ class PerformingController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog($data['name'],$actors->getlastsql(),'新增演员',$id,'gactorid');
                 $this->success('新增成功',U('Performing/index'));
             }else{
                 $model->rollback();
@@ -179,6 +180,7 @@ class PerformingController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog($data['name'],$actors->getlastsql(),'修改演员',$id,'gactorid');
                 $this->success('修改成功',U('Performing/index'));
             }else{
                 $model->rollback();
@@ -196,8 +198,10 @@ class PerformingController extends ComController {
         $id     = I('get.id');
         $actors = M('actors');
         $data['status'] = 0;
-        $sign   = $actors->where('id='.$id)->save($data);
+        $list = $actors->where('id='.$id)->find();
+        $sign = $actors->where('id='.$id)->save($data);
         if($sign){
+            $this->addadminlog($list['name'],$actors->getlastsql(),'删除演员',$id,'gactorid');
             $this->success('删除成功',U('Performing/index'));
         }else{
             $this->error('未删除');
@@ -292,7 +296,13 @@ class PerformingController extends ComController {
             }
             if($Duck){
                 $model->commit();
-                $this->success('修改成功',U('Performing/index'));
+                if($data['status'] == 0){
+ $this->addadminlog($data['name'],$actors->getlastsql(),'审核演员: 不通过',$id,'gactorid');
+                }else{
+ $this->addadminlog($data['name'],$actors->getlastsql(),'审核演员: 通过',$id,'gactorid');
+                }
+           
+                $this->success('修改完毕',U('Performing/index'));
             }else{
                 $model->rollback();
                 $this->error('没做任何修改');

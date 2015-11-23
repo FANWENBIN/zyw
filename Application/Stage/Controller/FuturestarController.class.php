@@ -7,9 +7,6 @@ class FuturestarController extends ComController {
 	public function index(){
 		$committee  = M('futurestar');
 
-	
-	
-
 		$count      = $committee->where('status=1')->count();// 查询满足要求的总记录数
 		$Page       = new \Think\Page($count,10);
 		// 实例化分页类 传入总记录数和每页显示的记录数(25)
@@ -61,6 +58,7 @@ class FuturestarController extends ComController {
 			}
 			$sign = $futurestar->where('id='.$id)->save($data);
 			if($sign){
+		$this->addadminlog($data['title'],$futurestar->getlastsql(),'修改明日之星教程',$id,'futurestarid');
 				$this->success('修改成功',U('Futurestar/index'));
 			}else{
 				$this->error('未做任何修改');
@@ -95,6 +93,7 @@ class FuturestarController extends ComController {
 			$data['instime'] = time();
 			$sign = $futurestar->add($data);
 			if($sign){
+		$this->addadminlog($data['title'],$futurestar->getlastsql(),'新增明日之星教程',$sign,'futurestarid');
 				$this->success('新增成功',U('Futurestar/index'));
 			}else{
 				$this->error('新增失败');
@@ -107,8 +106,10 @@ class FuturestarController extends ComController {
 		$futurestar = M('futurestar');
 		$id = I('get.id');
 		$data['status'] = 0;
+		$list = $futurestar->where('id='.$id)->find();
 		$sign = $futurestar->where('id='.$id)->save($data);
 		if($sign){
+		$this->addadminlog($list['title'],$futurestar->getlastsql(),'删除明日之星教程',$id,'futurestarid');	
 			$this->success('删除成功',U('Futurestar/index'));
 		}else{
 			$this->error('未删除');

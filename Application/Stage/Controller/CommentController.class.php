@@ -25,8 +25,10 @@ class CommentController extends ComController {
     	$id = I('get.id');
     	$comment = M('comment');
     	$data['status'] = 0;
+        $list = $comment->where('id='.$id)->find();
     	$sign = $comment->where('id='.$id)->save($data);
     	if($sign){
+            $this->addadminlog($list['content'],$comment->getlastsql(),'删除页面评论',$id,'commentid');
     		$this->success('已将垃圾扔进回收站',U('Comment/index'));
     	}else{
     		$this->error('删除未成功');
@@ -49,6 +51,7 @@ class CommentController extends ComController {
     		$id = I('post.id');
     		$sign = $comment->where('id='.$id)->save($data);
     		if($sign === false){
+                $this->addadminlog($data['content'],$comment->getlastsql(),'修改页面评论',$id,'commentid');
     			$this->error('未做修改');
     		}else{
     			$this->success('修改成功',U('Comment/index'));

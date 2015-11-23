@@ -74,6 +74,7 @@ class RecommendController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog($data['name'],$commend->getlastsql(),'新增评委',$id,'recommendid');
                 $this->success('新增成功',U('Recommend/index'));
             }else{
                 $model->rollback();
@@ -144,6 +145,7 @@ class RecommendController extends ComController {
 
             if($Duck){
                 $model->commit();
+                $this->addadminlog($data['name'],$commend->getlastsql(),'修改评委',$id,'recommendid');
                 $this->success('修改成功',U('Recommend/index'));
             }else{
                 $model->rollback();
@@ -159,6 +161,7 @@ class RecommendController extends ComController {
         $recommend = M('recommend');
         $sign = $recommend->delete($id);
         if($sign){
+            $this->addadminlog('评委ID:'.$id,$recommend->getlastsql(),'新增评委',$id,'recommendid');
             $this->success('删除成功',U('Recommend/index'));
         }else{
             $this->error('未删除');

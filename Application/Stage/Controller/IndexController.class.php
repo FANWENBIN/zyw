@@ -22,6 +22,13 @@ class IndexController extends Controller {
                    // $uid = md5('xxxzyw916');
                     session('uid',$userval['id']);
                     session('name',$data['name']);
+                    $admin_online = M('admin_online');
+                    $line['admin'] = $data['name'];
+                    $line['admid'] = $userval['id'];
+                    $line['instime'] = time();
+                    $line['outime'] = time();
+                    $id = $admin_online->add($line);
+                    session('outimeid',$id);
                     $this->success('登陆成功',U('Gactor/index'),2);
                     //$this->redirect('New/category', array('cate_id' => 2), 5, '页面跳转中...');
                 }else{
@@ -36,9 +43,13 @@ class IndexController extends Controller {
     }
     //退出
     public function loginout(){
-       session(null);
-       //echo '退出';
-       $this->success('安全退出',U('Index/index'));
+        $online = M('admin_online');
+        $data['outime'] = time();
+        $online->where('id='.session('outimeid'))->save($data);
+        session(null);
+        //echo '退出';
+
+        $this->success('安全退出',U('Index/index'));
     }
     //修改密码
     public function uppasswd(){

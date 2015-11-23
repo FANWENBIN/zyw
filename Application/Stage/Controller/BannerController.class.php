@@ -57,6 +57,7 @@ class BannerController extends ComController {
     		}
 	    	if($Duck){
 	    		$model->commit();
+                $this->addadminlog('新闻banner','','修改新闻banner',$sign,'bannerid');
 	    		$this->success('保存成功',U('Banner/index'));
 	    	}else{
 	    		$model->rollback();
@@ -113,6 +114,7 @@ class BannerController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog('活动banner','','修改活动banner',$sign,'bannerid');
                 $this->success('保存成功',U('Banner/active'));
             }else{
                 $model->rollback();
@@ -170,6 +172,7 @@ class BannerController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog('明日之星banner','','修改明日之星banner',$sign,'bannerid');
                 $this->success('保存成功',U('Banner/futurestar'));
             }else{
                 $model->rollback();
@@ -227,6 +230,7 @@ class BannerController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog('视频banner','','修改视频banner',$sign,'bannerid');
                 $this->success('保存成功',U('Banner/vedio'));
             }else{
                 $model->rollback();
@@ -288,6 +292,7 @@ class BannerController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog('Stage-banner','','修改Stage-banner',$sign,'bannerid');
                 $this->success('保存成功',U('Banner/stage'));
             }else{
                 $model->rollback();
@@ -350,6 +355,7 @@ class BannerController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog('星战banner','','修改星战banner',$sign,'bannerid');
                 $this->success('保存成功',U('Banner/starwars'));
             }else{
                 $model->rollback();
@@ -419,6 +425,7 @@ class BannerController extends ComController {
             }
             if($Duck){
                 $model->commit();
+                $this->addadminlog('饭团banner','','修改饭团banner',$sign,'bannerid');
                 $this->success('保存成功',U('Banner/fans'));
             }else{
                 $model->rollback();
