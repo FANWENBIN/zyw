@@ -68,7 +68,7 @@ $(function() {
     regSubmit: function() {
       if (!/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/.test($(":password[name=password]").val())) {
         $("#error").html("密码至少8位，至少包含数字和字符");
-      } else if (!/^(0[1-9]\d{1,2}-)?[1-9]\d{6,7}$/.test($(":text[name=mb]").val())) {
+      } else if (!/^1[23456789]\d{9}$/.test($(":text[name=mb]").val())) {
         $("#error").html("手机号码输入错误，请重新输入");
       } else {
         $.ajax({
