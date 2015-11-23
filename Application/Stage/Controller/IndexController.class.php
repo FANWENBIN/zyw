@@ -37,6 +37,7 @@ class IndexController extends Controller {
     //退出
     public function loginout(){
        session(null);
+       //echo '退出';
        $this->success('安全退出',U('Index/index'));
     }
     //修改密码
