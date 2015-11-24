@@ -4,7 +4,7 @@
 
 
 .banner{
-  @include banner1(1200px, 530px, 480px); 
+  @include banner1(1200px, 530px, 480px);
 }
 .webmain .con .title h2{
   background: url("../../../images/sprite_video.gif") 0 0 no-repeat;
@@ -108,6 +108,28 @@
           color: #ccc;
         }
       }
+    }
+  }
+}
+
+.webmain .interview{
+  .title {
+    h2{
+      width: 145px;
+      background: url("../../../images/sprite_interview.gif") 0 0 no-repeat;
+    }
+    a.more{
+      top: 15px;
+      background-image: url("../../../images/more_contitle.gif");
+    }
+  }
+  .inner{
+    .item{
+      @include item3(380px, 285px, 60px, 14px, 12px);
+      float: left;
+    }
+    .item+.item{
+      margin-left: 30px; 
     }
   }
 }
