@@ -1,0 +1,110 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>中演网</title>
+<link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/dist/css/video/video_more.css" rel="stylesheet" type="text/css" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+</head>
+
+<body>
+
+    <!--webheader-->
+ <include file = "Header/nav" />
+    <!--webheader end-->
+
+
+    <!--webmain-->
+    <div class="webmain">
+
+      <!-- 登陆栏 -->
+       <div class="navTitle">
+         <a href="{:U('Index/index')}">首页</a> > <a href="#">视频汇</a>
+         <include file = "Header/login" />
+       </div>
+
+        <!--  视频汇-->
+        <div class="con video">
+          <div class="title">
+            <h2>视频汇</h2>
+            <ul class="group" id="group">
+              <li class="active" data-group="1">电影电视</li>
+              <li data-group="2">制作花絮</li>
+              <li data-group="3">影视教学</li>
+              <li data-group="4">探班周边</li>
+            </ul>
+          </div>
+          <div class="inner clearFix" id="itemgroup">
+            <!-- <a href="#" class="item">
+                <img src="#" alt="" />
+                <div class="text">
+                  <h1>xxx</h1>
+                  <h3>xxxx</h3>
+                </div>
+                <sub></sub>
+            </a>
+            <a href="#" class="item">
+                <img src="#" alt="" />
+                <div class="text">
+                  <h1>xxx</h1>
+                  <h3>xxxx</h3>
+                </div>
+                <sub></sub>
+            </a>
+            <a href="#" class="item">
+                <img src="#" alt="" />
+                <div class="text">
+                  <h1>xxx</h1>
+                  <h3>xxxx</h3>
+                </div>
+                <sub></sub>
+            </a>
+            <a href="#" class="item">
+                <img src="#" alt="" />
+                <div class="text">
+                  <h1>xxx</h1>
+                  <h3>xxxx</h3>
+                </div>
+                <sub></sub>
+            </a> -->
+          </div>
+          <!--  分页-->
+          <div class="pagelist" id="pagelist">
+            <a href="javacript:;" class="pre">上一页</a>
+            <ul class="num">
+              <!-- <li class="active">1</li>
+              <li>2</li>
+              <li>3</li> -->
+            </ul>
+            <a href="javacript:;" class="next">下一页</a>
+          </div>
+
+        </div>
+
+    </div>
+    <!--webmain end-->
+
+
+    <!--webfooter-->
+<include file="Header/header" />
+    <!--webfooter end-->
+
+
+<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+<script src="__PUBLIC__/statics/dist/js/common.js"></script>
+
+
+<script src="__PUBLIC__/statics/dist/js/tool/pagev1.js"></script>
+
+<script src="__PUBLIC__/statics/dist/js/video/video_more.js"></script>
+
+</body>
+</html>
