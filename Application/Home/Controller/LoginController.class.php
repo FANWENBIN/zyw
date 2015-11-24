@@ -7,7 +7,9 @@ use Think\Controller;
  * @version 2015年9月24日16:41:44
  */
 class LoginController extends ComController {
-
+    /**
+    *QQ登陆    
+    */
     public function qqlogin(){
         require('QQ/API/qqConnectAPI.php');
         $qc = new \QC(); 
@@ -124,6 +126,21 @@ class LoginController extends ComController {
             $this->error('登陆失败');
         }
 
+    }
+    /**
+    *微信登陆
+    */
+    public function weixinlogin(){
+        $path = C('DOMAIN_PATH');
+        $code_url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx891ba79c70766c9b&redirect_uri='.$path.'/Home/Login/weixincallback&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
+        header("Location:".$code_url);
+        
+    }
+    /**
+    *微信回调
+    */
+    public function weixincallback(){
+        var_dump(I('get.'));
     }
    //验证登陆接口
     public function checklogin(){
