@@ -202,7 +202,7 @@ class RiceController extends ComController {
         }
         $sign = $userfans->where($data)->delete();
         if($sign){
-            $fans->where($data)->setDec('fanssum',1);
+            $fans->where('id='.$data['fansid'])->setDec('fanssum',1); //粉丝数减一
             ajaxReturn(0,'取消成功','');
         }else{
             ajaxReturn(101,'取消失败','');
