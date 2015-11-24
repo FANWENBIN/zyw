@@ -27,11 +27,25 @@ class Weixin{
         $url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$this->Appid.'&secret='.$this->AppSecret.'&code='.$this->code.'&grant_type=authorization_code';
         $str = $this->http_get($url);//访问url获得返回值
         //parse_str($str,$arr);
-        return $str;
+        return  json_decode($str,true);
     }
     /**
-    *
+    *获取用户个人信息（UnionID机制）
+    *http请求方式: GET
+    *https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID
+    *@param access_token  调用凭证
+    *@param openid 普通用户的标识，对当前开发者帐号唯一
+    *@param lang 国家地区语言版本，zh_CN 简体，zh_TW 繁体，en 英语，默认为zh-CN
+    *@version 2015年11月24日15:37:32
+    *@author winter
+    *@return json
     */
+    public function get_user_info($access_token,$openid){
+      $url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid;
+      $val = $this->http_get($url);
+      return json_decode($val,true);
+
+    }
     /**
      * GET 请求
      * @param string $url

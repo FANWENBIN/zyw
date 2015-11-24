@@ -152,8 +152,36 @@ class LoginController extends ComController {
         $state = I('get.state');
         if($state == session('state')){
             $weixin = new \Home\Common\Weixin($code);
-            $token = $weixin->get_token();
-            var_dump($token);
+            $gettoken = $weixin->get_token();
+         
+            $token = $gettoken['access_token'];
+            $openid = $gettoken['openid'];
+            $user = M('user');
+            $list = $user->where('openid = '.$openid)->find();
+            if(!$list){
+                $userinfo = $weixin->get_user_info($token,$openid);
+                $data['nickname'] = $userinfo['nickname'];
+                $data['sex']      = $userinfo['sex'];
+                $data['province'] = $userinfo['province'];
+                $data['city']     = $userinfo['city'];
+                $data['headpic']  = $userinfo['headimgurl'];
+                $data['openid']   = $openid;
+                $data['passwd']   = md5('123456');
+                $data['mobile']   = 'weixin';
+                $data['createtime'] = time();
+                $sign = $user->add($data);
+                if(!$sign){
+                    $this->error(U('Index/index'),'登陆失败');
+                }else{
+                    $list = $user->where('openid='.$openid)->find();
+                }
+            }
+            session('userid',$list['id']);
+            session('username',$list['nickname']);
+            session('userphone',$list['mobile']);
+            session('userimg',$list['headpic']);
+            echo "<script>window.close();window.opener.location.reload()</script>";
+            
         }else{
             $this->display('Public:404');
         }
