@@ -134,8 +134,8 @@ class LoginController extends ComController {
         $path = C('DOMAIN_PATH');
         //$path = 'http://m2.nadoo.cn/p/zyw';
         $url = urlencode($path.'/index.php/Home/Login/weixincallback');
-        session('state',md5('sxx123'));
-        $state = session('state');
+        //session('state',md5('sxx123'));
+        //$state = session('state');
         $code_url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx891ba79c70766c9b&redirect_uri='.$url.'&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
         //echo $url;die();
 
