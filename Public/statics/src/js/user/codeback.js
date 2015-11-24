@@ -63,12 +63,14 @@ $(function() {
       if (/^.+$/.test($(":text[name=tel]").val())) {
         if (scope.verStatus) {
           scope.verStatus = false;
-          var _time = 30
+          var _time = 30;
           var _timer = setTimeout(function(){
-            $("#getVer").html(_time--)
+            $("#getVer").html(_time--);
+            console.log(_time);
             if(_time === 0){
               _timer = null;
               scope.verStatus = true;
+              $("#getVer").html("发送验证码");
             }
           },1000)
           $.ajax({
