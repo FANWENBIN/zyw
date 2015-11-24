@@ -17,7 +17,8 @@ if (!empty($_FILES)) {
 	if(!is_dir($targetPath)){
             mkdir($targetPath,0777,true);
     }
-
+    $filespath = explode(',', $_FILES['Filedata']['name']);
+    $_FILES['Filedata']['name'] = date('YmdHis').rand(1000,999).$filespath[1];
 	$targetFile = rtrim($targetPath,'/') . '/' . $_FILES['Filedata']['name'];
 	//var_dump($targetFile);die();
 	// Validate the file type
