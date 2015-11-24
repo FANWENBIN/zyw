@@ -136,8 +136,8 @@ class LoginController extends ComController {
         $url = urlencode($path.'/index.php/Home/Login/weixincallback');
         session('state',md5('sxx123'));
         $state = session('state');
-        $code_url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx891ba79c70766c9b&redirect_uri='.$url.'&response_type=code&scope=snsapi_login&state='.$state.'#wechat_redirect';
-        echo $code_url;die();
+        $code_url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx891ba79c70766c9b&redirect_uri='.$url.'&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
+        //echo $url;die();
 
 
 
@@ -150,15 +150,7 @@ class LoginController extends ComController {
     public function weixincallback(){
         $weixin = new \Home\Common\Weixin();
         $code = I('get.code');
-        $state = I('get.state');
-        var_dump($code.','.$state);
-        die();
-        if($state == session('state')){
-            echo 123;
-        }else{
-            echo 123;
-            $this->display('Public:404');
-        }
+        var_dump(I('get.'));
 
     }
    //验证登陆接口
