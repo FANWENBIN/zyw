@@ -67,7 +67,7 @@ $(function() {
           var _timer = setInterval(function(){
             $("#getVer").html(_time--);
             if(_time === 0){
-              _timer = null;
+              clearInterval(_timer);
               scope.verStatus = true;
               $("#getVer").html("发送验证码");
             }
