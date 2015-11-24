@@ -1,3 +1,4 @@
 Application/Runtime/
 /Uploads
 /Public/statics/node_modules
+/Public/statics/js

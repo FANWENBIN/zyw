@@ -33,7 +33,7 @@
 $(function() {
 
   var scope = {
-
+    ver: true
   };
   var page = {
     init: function() {
@@ -102,29 +102,41 @@ $(function() {
     },
     getVer: function() {
       console.log(typeof $(":text[name=mb]").val(), typeof $(":text[name=idcode1]").val())
-      $.ajax({
-        url: './index.php?m=Home&c=Login&a=yzm',
-        type: 'get',
-        dataType: 'json',
-        data: {
-          code: $(":text[name=idcode1]").val(),
-          phone: $(":text[name=mb]").val()
-        },
-        success: function(json) {
-          if (json.status == "0") {
-            $("#error").html("验证已发送,请注意查收");
-          } else if (json.status == "101") {
-            $("#error").html("服务器错误,请稍后再试");
-          } else if (json.status == "102") {
-            $("#error").html("验证码输入错误，请重新输入");
-          } else if (json.status == "103") {
-            $("#error").html("手机号码输入错误，请重新输入");
+      if (scope.ver) {
+        scope.ver = false;
+         var _time = 30;
+         var _timer = setInterval(function(){
+           $("#getfreemesg").html(_time--);
+           if(_time === 0){
+             clearInterval(_timer);
+             scope.ver = true;
+             $("#getfreemesg").html("免费获取短信");
+           }
+           console.log(_time);
+         },1000)
+        $.ajax({
+          url: './index.php?m=Home&c=Login&a=yzm',
+          type: 'get',
+          dataType: 'json',
+          data: {
+            code: $(":text[name=idcode1]").val(),
+            phone: $(":text[name=mb]").val()
+          },
+          success: function(json) {
+            if (json.status == "0") {
+              $("#error").html("验证已发送,请注意查收");
+            } else if (json.status == "101") {
+              $("#error").html("服务器错误,请稍后再试");
+            } else if (json.status == "102") {
+              $("#error").html("验证码输入错误，请重新输入");
+            } else if (json.status == "103") {
+              $("#error").html("手机号码输入错误，请重新输入");
+            }
+          },
+          error: function(d) {
           }
-        },
-        error: function(d) {
-          //
-        }
-      });
+        });
+      }
     },
     changePic: function() {
       $("#img1").attr("src", "./index.php?m=Home&c=Login&a=verify");
@@ -183,8 +195,8 @@ $(function() {
         page.logShow();
       })
       $(".login-qq").on("click", page.toLoginQQ);
-      $(".login-weibo").on("click",page.toLoginWeiBo);
-      $(".login-weichat").on("click",page.toLoginWeiChat);
+      $(".login-weibo").on("click", page.toLoginWeiBo);
+      $(".login-weichat").on("click", page.toLoginWeiChat);
 
     },
     logShow: function() {
@@ -226,8 +238,8 @@ $(function() {
         page.regShow();
       });
       $(".login-qq").on("click", page.toLoginQQ);
-      $(".login-weibo").on("click",page.toLoginWeiBo);
-      $(".login-weichat").on("click",page.toLoginWeiChat);
+      $(".login-weibo").on("click", page.toLoginWeiBo);
+      $(".login-weichat").on("click", page.toLoginWeiChat);
 
     },
     logSubmit: function() {
@@ -266,10 +278,10 @@ $(function() {
       var A = window.open("./index.php?m=Home&c=Login&a=qqlogin", "TencentLogin", "width=450,height=320,menubar=0,scrollbars=1, resizable = 1, status = 1, titlebar = 0, toolbar = 0, location = 1 ");
 
     },
-    toLoginWeiBo: function(){
+    toLoginWeiBo: function() {
       var A = window.open("./index.php?m=Home&c=Login&a=weibologin", "TencentLogin", "width=450,height=320,menubar=0,scrollbars=1, resizable = 1, status = 1, titlebar = 0, toolbar = 0, location = 1 ");
     },
-    toLoginWeiChat: function(){
+    toLoginWeiChat: function() {
       var A = window.open("./index.php?m=Home&c=Login&a=weixinlogin", "TencentLogin", "width=450,height=520,menubar=0,scrollbars=1, resizable = 1, status = 1, titlebar = 0, toolbar = 0, location = 1 ");
     }
   };
