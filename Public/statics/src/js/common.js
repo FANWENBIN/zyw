@@ -59,7 +59,7 @@ $(function() {
 
       // 用户登陆检测判断
       $.testLogin(function() {});
-    
+
 
     },
     logOut: function() {
@@ -184,6 +184,7 @@ $(function() {
       })
       $(".login-qq").on("click", page.toLoginQQ);
       $(".login-weibo").on("click",page.toLoginWeiBo);
+      $(".login-weichat").on("click",page.toLoginWeiChat);
 
     },
     logShow: function() {
@@ -226,6 +227,7 @@ $(function() {
       });
       $(".login-qq").on("click", page.toLoginQQ);
       $(".login-weibo").on("click",page.toLoginWeiBo);
+      $(".login-weichat").on("click",page.toLoginWeiChat);
 
     },
     logSubmit: function() {
@@ -265,6 +267,9 @@ $(function() {
     },
     toLoginWeiBo: function(){
       var A = window.open("./index.php?m=Home&c=Login&a=weibologin", "TencentLogin", "width=450,height=320,menubar=0,scrollbars=1, resizable = 1, status = 1, titlebar = 0, toolbar = 0, location = 1 ");
+    },
+    toLoginWeiChat: function(){
+      var A = window.open("./index.php?m=Home&c=Login&a=weixinlogin", "TencentLogin", "width=450,height=320,menubar=0,scrollbars=1, resizable = 1, status = 1, titlebar = 0, toolbar = 0, location = 1 ");
     }
   };
   page.init();
