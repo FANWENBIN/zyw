@@ -60,9 +60,9 @@ class ComController extends Controller {
         $user_msg = M('user_msg');
         $data['status'] = 2;
         $data['uid'] = session('userid');
+        $data['instime'] = array('elt',time());
         //所有未读消息
         $this->sum = $user_msg->where($data)->count();
-        $data['instime'] = array('elt',time());
         $data['type'] = 1;
         $this->syssum = $user_msg->where($data)->count();//未读系统消息
         $data['type'] = 2;
