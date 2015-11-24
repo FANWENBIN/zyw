@@ -179,6 +179,8 @@ class LoginController extends ComController {
             session('username',$list['nickname']);
             session('userphone',$list['mobile']);
             session('userimg',$list['headpic']);
+            var_dump($userinfo);
+            var_dump($data);
             var_dump($list);
             echo "<script>window.close();window.opener.location.reload()</script>";
             
