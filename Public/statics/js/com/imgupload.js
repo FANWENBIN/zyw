@@ -22,7 +22,7 @@ define(function(require, exports, module){
 					var maxWidth = _in.attr("maxWidth") || 400;
 					var root = _in.attr("root") || "";
 					var val = _in.val(), html;
-					if (val.indexOf(".jpg") != -1 || val.indexOf(".jpeg") != -1){
+					if (val.indexOf(".png") != -1 ||val.indexOf(".jpg") != -1 || val.indexOf(".jpeg") != -1){
 						html = "<div class='js_swfimgupload clearFix'><p class='p'>" + val + "</p><div class='thumb'><img src='" + imgUploadFile + val + "' /></div><a href='javascript:void(0)' class='delBtn'>删除</a>";
 					} else {
 						if (cutWidth > 0 && cutHeight > 0){

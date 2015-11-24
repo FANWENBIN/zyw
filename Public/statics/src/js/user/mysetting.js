@@ -1,7 +1,8 @@
 $(function() {
   var scope = {
     provinceid: "440000",
-    btrue: true
+    btrue: true,
+    ver: true
   };
   var page = {
     init: function() {
@@ -15,18 +16,18 @@ $(function() {
       $("#codesendverify").on("click", page.codesendverify);
       $("#codesendmbverify").on("click", page.codesendmbverify);
       $("#confirmmbcode").on("click", page.confirmmbcode);
-      $("#photo").on("change",page.photoChange);
+      $("#photo").on("change", page.photoChange);
       // 初始化province city
       // page.getProvince();
       // page.getCity();
     },
-    photoChange: function(){
+    photoChange: function() {
       var _src = window.URL.createObjectURL(this.files[0]);
-      if(_src){
-      $(".uploadimg").attr("src",_src)
-    }else{
-      $(".uploadimg").attr("src","./Public/statics/images/default_fans_headpic.jpg")
-    }
+      if (_src) {
+        $(".uploadimg").attr("src", _src)
+      } else {
+        $(".uploadimg").attr("src", "./Public/statics/images/default_fans_headpic.jpg")
+      }
     },
     confirmmbcode: function() {
       if ($(":password[name=newcode]").val() !== $(":password[name=repeatnewcode]").val()) {
@@ -79,27 +80,41 @@ $(function() {
       })
     },
     codesendverify: function() {
-      $.ajax({
-        type: "get",
-        url: "./index.php?m=Home&c=User&a=yzm",
-        data: {
-          phone: $(":text[name=codemb]").val()
-        },
-        dataType: "json",
-        success: function(json) {
-          if (json.status === 0) {
-            console.log(json.msg)
-            $(".error").html("发送成功，请注意查收")
-          } else if (json.status === 101) {
-            console.log(json.msg)
-            $(".error").html("发送失败，请稍后再试")
-          } else if (json.status === 102) {
-            console.log(json.msg)
-            $(".error").html("手机号码格式不正确，请重新输入")
-          }
-        },
-        error: function() {}
-      })
+      if (scope.ver) {
+        scope.ver = false;
+        var _time = 30;
+        var _timer = setInterval(function() {
+          $("#codesendverify").html(_time + "秒后重新获得");
+          _time--;
+          if (_time === 0) {
+            clearInterval(_timer);
+            scope.ver = true;
+            $("#codesendverify").html("发送验证码")
+          } 
+          console.log(_time);
+        }, 1000)
+        $.ajax({
+          type: "get",
+          url: "./index.php?m=Home&c=User&a=yzm",
+          data: {
+            phone: $(":text[name=codemb]").val()
+          },
+          dataType: "json",
+          success: function(json) {
+            if (json.status === 0) {
+              console.log(json.msg)
+              $(".error").html("发送成功，请注意查收")
+            } else if (json.status === 101) {
+              console.log(json.msg)
+              $(".error").html("发送失败，请稍后再试")
+            } else if (json.status === 102) {
+              console.log(json.msg)
+              $(".error").html("手机号码格式不正确，请重新输入")
+            }
+          },
+          error: function() {}
+        })
+      }
     },
     changeProvince: function() {
       scope.provinceid = $("#province option:selected").data("id");
@@ -142,7 +157,7 @@ $(function() {
     },
     getVerInSetting: function() {
       console.log($(".mbchange").val());
-      if(scope.btrue){
+      if (scope.btrue) {
         scope.btrue = false;
         $.ajax({
           url: "./index.php?m=Home&c=User&a=yzm",

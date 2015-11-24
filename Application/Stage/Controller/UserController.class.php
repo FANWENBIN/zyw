@@ -164,7 +164,7 @@ class UserController extends ComController {
         // 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $list = $user_msg->where($condition)->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $list = $user_msg->where($condition)->order('instime desc')->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
         $this->cur = 1;
