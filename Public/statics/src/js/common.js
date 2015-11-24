@@ -269,7 +269,7 @@ $(function() {
       var A = window.open("./index.php?m=Home&c=Login&a=weibologin", "TencentLogin", "width=450,height=320,menubar=0,scrollbars=1, resizable = 1, status = 1, titlebar = 0, toolbar = 0, location = 1 ");
     },
     toLoginWeiChat: function(){
-      var A = window.open("./index.php?m=Home&c=Login&a=weixinlogin", "TencentLogin", "width=450,height=320,menubar=0,scrollbars=1, resizable = 1, status = 1, titlebar = 0, toolbar = 0, location = 1 ");
+      var A = window.open("./index.php?m=Home&c=Login&a=weixinlogin", "TencentLogin", "width=450,height=500,menubar=0,scrollbars=1, resizable = 1, status = 1, titlebar = 0, toolbar = 0, location = 1 ");
     }
   };
   page.init();
