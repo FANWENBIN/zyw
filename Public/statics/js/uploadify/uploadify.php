@@ -13,12 +13,13 @@ $targetFolder = '/Uploads/fans'; // Relative to the root
 //if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 if (!empty($_FILES)) {
 	$tempFile = $_FILES['Filedata']['tmp_name'];
-	$targetPath = $_SERVER['DOCUMENT_ROOT'].'zyw' . $targetFolder;
+	$targetPath = $_SERVER['DOCUMENT_ROOT'].'/p/zyw' . $targetFolder;
 	if(!is_dir($targetPath)){
             mkdir($targetPath,0777,true);
     }
     $filespath = explode('.', $_FILES['Filedata']['name']);
     $_FILES['Filedata']['name'] = date('YmdHis').rand(1000,999).'.'.$filespath[1];
+
 	$targetFile = rtrim($targetPath,'/') . '/' . $_FILES['Filedata']['name'];
 	//var_dump($targetFile);die();
 	// Validate the file type
