@@ -22,7 +22,7 @@ $(function(){
           type: "post",
           url: "./index.php?m=Home&c=User&a=changepasswd",
           data: {
-            passwd: $(":text[name=code]").val(),
+            passwd: $(":password[name=code]").val(),
           },
           dataType: "json",
           success: function(json){
