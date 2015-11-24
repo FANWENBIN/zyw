@@ -96,4 +96,11 @@ class VedioController extends ComController {
     	}
 
     }
+    /**
+    *微访谈
+    */
+    public function micro(){
+        $this->cur = 9;
+        $this->display();
+    }
 }
