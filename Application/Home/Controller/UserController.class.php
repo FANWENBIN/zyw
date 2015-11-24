@@ -303,14 +303,14 @@ class UserController extends ComController {
         if($array){
             ajaxReturn(105,'密码过于简单');
         }
-        var_dump($passwd);
+
         $passwd = I('post.passwd','','md5');
         $phone = session('phone');
         $user = M('user');
         $data['status'] = 1;
         $data['passwd'] = $passwd;
         $sign = $user->where('mobile = '.$phone)->save($data);
-        //echo $user->getlastsql();
+        echo $user->getlastsql();
         if($sign){
             ajaxReturn(0,'修改成功','');
         }else{
