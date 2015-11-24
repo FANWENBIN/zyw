@@ -301,7 +301,7 @@ class UserController extends ComController {
         $passwd = I('post.passwd');
         var_dump($passwd);
         preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/",$passwd,$array);
-        if($array){
+        if(!$array){
             ajaxReturn(105,'密码过于简单');
         }
 
