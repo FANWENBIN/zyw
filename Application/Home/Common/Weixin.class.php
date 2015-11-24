@@ -26,8 +26,8 @@ class Weixin{
     public function get_token(){
         $url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$this->Appid.'&secret='.$this->AppSecret.'&code='.$this->code.'&grant_type=authorization_code';
         $str = $this->http_get($url);//访问url获得返回值
-        parse_str($str,$arr);
-        return $arr;
+        //parse_str($str,$arr);
+        return $str;
     }
     /**
     *
