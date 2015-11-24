@@ -172,7 +172,7 @@ class LoginController extends ComController {
                 if(!$sign){
                     $this->error(U('Index/index'),'登陆失败');
                 }else{
-                    $list = $user->where('openid='.$openid)->find();
+                    $list = $user->where("openid='".$openid."'")->find();
                 }
             }
             session('userid',$list['id']);
