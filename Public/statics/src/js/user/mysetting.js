@@ -90,7 +90,7 @@ $(function() {
             clearInterval(_timer);
             scope.ver = true;
             $("#codesendverify").html("发送验证码")
-          } 
+          }
           console.log(_time);
         }, 1000)
         $.ajax({
@@ -101,14 +101,12 @@ $(function() {
           },
           dataType: "json",
           success: function(json) {
-            if (json.status === 0) {
               console.log(json.msg)
+            if (json.status === 0) {
               $(".error").html("发送成功，请注意查收")
             } else if (json.status === 101) {
-              console.log(json.msg)
               $(".error").html("发送失败，请稍后再试")
-            } else if (json.status === 102) {
-              console.log(json.msg)
+            } else if (json.status === 103) {
               $(".error").html("手机号码格式不正确，请重新输入")
             }
           },
