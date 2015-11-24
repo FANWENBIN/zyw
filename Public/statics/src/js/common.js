@@ -105,7 +105,8 @@ $(function() {
         scope.ver = false;
          var _time = 30;
          var _timer = setInterval(function(){
-           $("#getfreemesg").html(_time-- + "秒后继续");
+           $("#getfreemesg").html(_time + "秒后继续");
+           _time--;
            if(_time === 0){
              clearInterval(_timer);
              scope.ver = true;
