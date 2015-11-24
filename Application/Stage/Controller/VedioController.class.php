@@ -6,7 +6,7 @@ class VedioController extends ComController {
     //首页显示
     public function index(){
     	$vedio = M('vedio');
-    	$vedioval = $vedio->where('status = 1')->order('instime desc')->select();
+    	$vedioval = $vedio->where('status = 1 and type <> 7')->order('instime desc')->select();
 
     	$this->assign('list',$vedioval);
     	$this->assign('cur',9);
@@ -100,7 +100,11 @@ class VedioController extends ComController {
     *微访谈
     */
     public function micro(){
-        $this->cur = 9;
+        $vedio = M('vedio');
+        $vedioval = $vedio->where('status = 1 and type = 7')->order('instime desc')->select();
+
+        $this->assign('list',$vedioval);
+        $this->assign('cur',9);
         $this->display();
     }
 }

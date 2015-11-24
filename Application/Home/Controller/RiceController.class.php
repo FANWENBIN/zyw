@@ -253,8 +253,8 @@ class RiceController extends ComController {
         $sign = $posts->add($data);
         if($sign){
             $fans_club->where('id='.$data['fansclubid'])->setInc('posts',1);
-            $data['poststime'] = time();
-            $fans_club->where('id='.$data['fansclubid'])->save();
+            $da['poststime'] = time();
+            $fans_club->where('id='.$data['fansclubid'])->save($da);
             ajaxReturn(0,'发布成功','');
         }else{
             ajaxReturn(101,'','发帖失败');

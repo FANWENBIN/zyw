@@ -31,6 +31,9 @@ class VideoController extends ComController {
     //探班周低
     $data['type'] = 4;
     $tbvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,15)->select();
+    //微访谈
+    $data['type'] = 7;
+    $weital = $vedio->where($data)->order('instime desc,hot desc')->limit(0,15)->select();
 
     $this->assign('tbvideo',$tbvideo);
     $this->like();
@@ -45,7 +48,7 @@ class VideoController extends ComController {
     $vedioval = $vedio->where('id='.$id)->find();
     session('video',$vedioval);
     $this->assign('list',$vedioval);
-
+    $vedio->where('id='.$id)->setInc('hot',1);
     $this->assign('sign',9);
 
     $this->display();
