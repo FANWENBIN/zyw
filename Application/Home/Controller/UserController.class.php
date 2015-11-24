@@ -303,7 +303,7 @@ class UserController extends ComController {
         if($array){
             ajaxReturn(105,'密码过于简单');
         }
-        echo $passwd;
+        var_dump($passwd);
         $passwd = I('post.passwd','','md5');
         $phone = session('phone');
         $user = M('user');
