@@ -153,11 +153,10 @@ class LoginController extends ComController {
         if($state == session('state')){
             $weixin = new \Home\Common\Weixin($code);
             $gettoken = $weixin->get_token();
-         
             $token = $gettoken['access_token'];
             $openid = $gettoken['openid'];
             $user = M('user');
-            $list = $user->where('openid = '.$openid)->find();
+            $list = $user->where("openid = '".$openid."'")->find();
             if(!$list){
                 $userinfo = $weixin->get_user_info($token,$openid);
                 $data['nickname'] = $userinfo['nickname'];
@@ -180,6 +179,7 @@ class LoginController extends ComController {
             session('username',$list['nickname']);
             session('userphone',$list['mobile']);
             session('userimg',$list['headpic']);
+            var_dump($list);
             echo "<script>window.close();window.opener.location.reload()</script>";
             
         }else{
