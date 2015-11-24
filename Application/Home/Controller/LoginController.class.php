@@ -137,7 +137,7 @@ class LoginController extends ComController {
         session('state',md5('sxx123'));
         $state = session('state');
         $code_url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx891ba79c70766c9b&redirect_uri='.$url.'&response_type=code&scope=snsapi_login&state='.$state.'#wechat_redirect';
-        //echo $url;die();
+        echo $code_url;die();
 
 
 
