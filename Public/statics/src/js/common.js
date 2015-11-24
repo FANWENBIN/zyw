@@ -101,12 +101,11 @@ $(function() {
       return false;
     },
     getVer: function() {
-      console.log(typeof $(":text[name=mb]").val(), typeof $(":text[name=idcode1]").val())
       if (scope.ver) {
         scope.ver = false;
          var _time = 30;
          var _timer = setInterval(function(){
-           $("#getfreemesg").html(_time--);
+           $("#getfreemesg").html(_time-- + "秒后继续");
            if(_time === 0){
              clearInterval(_timer);
              scope.ver = true;
