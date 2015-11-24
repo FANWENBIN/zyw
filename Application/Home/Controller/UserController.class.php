@@ -257,7 +257,7 @@ class UserController extends ComController {
         foreach ($syslist as $key => $value) {
             $stat['status'] = 1;
             $msg->where('id='.$value['id'])->save($stat);
-            echo $value['id'];
+           
         }
         $this->assign('page',$show);// 赋值分页输出
         $this->display();
