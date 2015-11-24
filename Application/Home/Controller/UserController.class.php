@@ -178,11 +178,11 @@ class UserController extends ComController {
         $this->mssage();//消息提示
     	$acthis = M('user_acthis');
         $active = M('active');
-    	$data['userid'] = session('userid');       
+    	$data['uid'] = session('userid');       
     	//用户浏览活动记录，只记录最近的三个，数量由添加记录时控制
     	$acth = $acthis->where($data)->order('instime desc')->select();
         $activeid = '';
-        var_dump($data['userid']);
+        
         foreach ($acth as $key => $value) {
             $activeid .= $value['activeid'].',';
         }
