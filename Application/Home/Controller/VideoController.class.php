@@ -97,6 +97,11 @@ class VideoController extends ComController {
         ajaxReturn(0,'',$dump);
     }
   }
-
+  /**
+    *微访谈页面
+  */
+  public function video_interview(){
+    $this->display();
+  }
 
 }
