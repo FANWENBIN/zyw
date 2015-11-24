@@ -607,30 +607,17 @@
         <a class="more" href="{:U('video_interview')}">更多</a>
       </div>
       <div class="inner clearFix">
-        <a href="#" class="item">
-          <img src="#" alt="" />
+      <volist name = "weital" id = "vo">
+        <a href="{:U('video_details',array('id'=>$vo['id']))}" class="item">
+          <img src="./Uploads{$vo.bigimg}" alt="" />
           <div class="text">
-            <h1>标题</h1>
-            <h3>7：30</h3>
+            <h1><?php echo strlen($vo['title'],'utf8')>24?mb_substr($vo['title'],0,23,'utf-8').'...':$vo['title'] ?></h1>
+            <h3>{$vo.instime|date="Y-m-d H:i:s",###}</h3>
           </div>
           <sub></sub>
         </a>
-        <a href="#" class="item">
-          <img src="#" alt="" />
-          <div class="text">
-            <h1>标题</h1>
-            <h3>7：30</h3>
-          </div>
-          <sub></sub>
-        </a>
-        <a href="#" class="item">
-          <img src="#" alt="" />
-          <div class="text">
-            <h1>标题</h1>
-            <h3>7：30</h3>
-          </div>
-          <sub></sub>
-        </a>
+        
+      </volist>
       </div>
     </div>
 

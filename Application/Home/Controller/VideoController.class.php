@@ -31,11 +31,12 @@ class VideoController extends ComController {
     //探班周低
     $data['type'] = 4;
     $tbvideo = $vedio->where($data)->order('instime desc,hot desc')->limit(0,15)->select();
+    $this->assign('tbvideo',$tbvideo);
     //微访谈
     $data['type'] = 7;
-    $weital = $vedio->where($data)->order('instime desc,hot desc')->limit(0,15)->select();
+    $this->weital = $vedio->where($data)->order('instime desc,hot desc')->limit(0,3)->select();
 
-    $this->assign('tbvideo',$tbvideo);
+    
     $this->like();
     $this->assign('sign',9);
     $this->display();
