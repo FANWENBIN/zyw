@@ -7,7 +7,9 @@ use Think\Controller;
  * @version 2015年9月24日16:41:44
  */
 class LoginController extends ComController {
-
+    /**
+    *QQ登陆    
+    */
     public function qqlogin(){
         require('QQ/API/qqConnectAPI.php');
         $qc = new \QC(); 
@@ -114,7 +116,7 @@ class LoginController extends ComController {
                 session('username',$list['nickname']);
                 session('userphone',$list['mobile']);
                 session('userimg',$list['headpic']);
-                //echo "<script>window.close();window.opener.location.reload()</script>";
+                echo "<script>window.close();window.opener.location.reload()</script>";
 
             }else{
                 $this->error('登陆失败');
@@ -122,6 +124,62 @@ class LoginController extends ComController {
         } else {
             //授权失败
             $this->error('登陆失败');
+        }
+
+    }
+    /**
+    *微信登陆
+    */
+    public function weixinlogin(){
+        $path = C('DOMAIN_PATH');
+        //$path = 'http://m2.nadoo.cn/p/zyw';
+        $url = urlencode($path.'/index.php/Home/Login/weixincallback');
+        $state = md5(md5('sxx123').rand(100,222));
+        session('state',$state);
+        $code_url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx891ba79c70766c9b&redirect_uri='.$url.'&response_type=code&scope=snsapi_login&state='.$state.'#wechat_redirect';
+
+        header("Location:".$code_url);
+        
+    }
+    /**
+    *微信回调
+    */
+    public function weixincallback(){
+        $code = I('get.code');
+        $state = I('get.state');
+        if($state == session('state')){
+            $weixin = new \Home\Common\Weixin($code);
+            $gettoken = $weixin->get_token();
+            $token = $gettoken['access_token'];
+            $openid = $gettoken['openid'];
+            $user = M('user');
+            $list = $user->where("openid = '".$openid."'")->find();
+            if(!$list){
+                $userinfo = $weixin->get_user_info($token,$openid);
+                $data['nickname'] = $userinfo['nickname'];
+                $data['sex']      = $userinfo['sex'];
+                $data['province'] = $userinfo['province'];
+                $data['city']     = $userinfo['city'];
+                $data['headpic']  = $userinfo['headimgurl'];
+                $data['openid']   = $openid;
+                $data['passwd']   = md5('123456');
+                $data['mobile']   = 'weixin';
+                $data['createtime'] = time();
+                $sign = $user->add($data);
+                if(!$sign){
+                    $this->error(U('Index/index'),'登陆失败');
+                }else{
+                    $list = $user->where("openid='".$openid."'")->find();
+                }
+            }
+            session('userid',$list['id']);          //存储登陆信息
+            session('username',$list['nickname']);
+            session('userphone',$list['mobile']);
+            session('userimg',$list['headpic']);
+            echo "<script>window.close();window.opener.location.reload()</script>";    //关闭页面
+            
+        }else{
+            $this->display('Public:404');
         }
 
     }

@@ -1,0 +1,112 @@
+<extend name="Header/header"/>
+<block name='header'>
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie6 ieOld"><![endif]-->
+<!--[if IE 7 ]><html class="ie7 ieOld"><![endif]-->
+<!--[if IE 8 ]><html class="ie8 ieOld"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中演网管理平台</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css" />
+<!--每个页面独立的样式文件-->
+<style type="text/css">
+.table .t1 { text-align: center; width: 80px;}
+.table .t2 { text-align: center; width: 100px;}
+.table .t2 img { display: block; margin: 0 auto;}
+.table .t3 { text-align: center; width: 100px;}
+.table .t4 { text-align: center; width: 150px;}
+.table .t5 { text-align: center; width: 100px;}
+.table .t5 p { text-align: center; color: #41a82c;}
+.table .t5 p.cease { color: #ff6363;}
+.table .t6 { text-align: center;}
+.table .t7 { text-align: center; width: 120px;}
+</style>
+</head>
+
+<body>
+</block>
+  
+
+<block name="div">
+  <!--container-->
+  <div class="webContainer clearFix" id="webContainer">
+</block>
+<block name="content">
+  
+ <!--main-->
+		<div class="webMain">
+			<div class="mainHeader">
+				<h1>操作详情</h1>
+				<!--<ul class="menu clearFix">-->
+					<!--<li class="current"><a href="#">菜单A</a></li>-->
+					<!--<li><a href="#">菜单B</a></li>-->
+					<!--<li><a href="#">菜单C</a></li>-->
+				<!--</ul>-->
+			</div>
+			<div class="mainBody">
+
+				<!--摘要提示等-->
+				<!--<div class="summary mb20">最近一段时间，互联网圈子里流行“举报”——先有腾讯匿名举报快播视频侵权；后有搜狐“举报”今日头条侵犯版权；日前，阿里巴巴也实名举报《IT时代周刊》舆论胁迫及恶意伤害阿里巴巴声誉。8月7日下午，阿里巴巴公关总监颜乔发表微博，实名举报《IT时代周刊》及下属网站“IT商业新闻网”长期通过舆论胁迫及恶意伤害阿里巴巴集团商誉。</div>-->
+
+				<!--表单-->
+				<div class="form">
+					<div class="formHeader">
+						<h1>操作详细信息</h1>
+					</div>
+					<form action="" method="post" enctype="multipart/form-data">
+						<fieldset>
+              <!-- 姓名-->
+            <div class="l">
+                <h6>操作者</h6>
+                <div class="i">{$list['name']}</div>
+            </div>
+            <div class="l">
+                <h6>操作时间</h6>
+                <div class="i">{$list.instime|date='Y-m-d H:i:s',###}</div>
+            </div>
+
+ 			
+			<div class="l">
+                <h6>操作简介</h6>
+                <div class="i">{$list['type']}</div>
+            </div>
+			<div class="l">
+                <h6>被操作名称</h6>
+                <div class="i">{$list['title']}</div>
+            </div>
+			<div class="l">
+                <h6>具体SQL语句<font color="red">*</font></h6>
+                <div class="i">
+				{$list['sqlcontent']}
+                </div>
+            </div>
+            
+
+				<!--主提交按钮-->
+				<div class="btnCon btnCon2">
+					
+					<a href="{:U('adminloglist')}" class="btnD">返回</a>
+				</div>
+
+						</fieldset>
+					</form>
+				</div>
+
+			</div>
+		</div>
+		<!--main end-->
+
+</div>
+<!--container end-->
+
+<script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>
+
+
+</body>
+</html>
+</block>

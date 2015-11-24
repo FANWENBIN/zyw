@@ -17,6 +17,7 @@ class ConfigureController extends ComController {
             $data['stagerule'] = I('post.stagerule');
             $sign = $configure->where('type = 4')->save($data);
             if($sign){
+                $this->addadminlog('备案号修改',$configure->getlastsql(),'备案号修改',4,'Configureid');
                 $this->success('保存成功',U('Configure/index'));
             }else{
                 $this->error('未保存');
@@ -37,6 +38,7 @@ class ConfigureController extends ComController {
             $data['records'] = I('post.records');
             $sign = $configure->where('type = 4')->save($data);
             if($sign){
+                $this->addadminlog('logo设置',$configure->getlastsql(),'logo设置',4,'Configureid');
                 $this->success('保存成功',U('Configure/index'));
             }else{
                 $this->error('未保存');
@@ -57,6 +59,7 @@ class ConfigureController extends ComController {
             $data['stagerule'] = I('post.stagerule');
             $sign = $configure->where('type = 1')->save($data);
             if($sign){
+                $this->addadminlog('报名规则修改',$configure->getlastsql(),'报名规则修改',1,'Configureid');
                 $this->success('保存成功',U('Configure/rule'));
             }else{
                 $this->error('未保存');
@@ -94,6 +97,7 @@ class ConfigureController extends ComController {
 
             if($sign == 1){
                 $nav->commit();
+            $this->addadminlog('管理导航栏修改',$nav->getlastsql(),'管理导航栏修改',$data['id'],'Configureid');
                 $this->success('保存成功',U('nav'));
             }else{
                 $nav->rollback();
@@ -107,6 +111,7 @@ class ConfigureController extends ComController {
         $nav = M('nav');
         $sign = $nav->where('id='.$id)->save($data);
         if($sign){
+            $this->addadminlog('管理导航栏修改',$nav->getlastsql(),'管理导航栏修改',$id,'Configureid');
             $this->redirect(U('nav'),'',0,'');
         }else{
             $this->error('修改失败');

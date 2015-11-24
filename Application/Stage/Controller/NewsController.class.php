@@ -63,6 +63,12 @@ class NewsController extends ComController {
 					$result=$news->add();	
 				}
 				if($result){
+					if($_POST['hid_id']>0){
+						$this->addadminlog($_POST['title'],$news->getlastsql(),'修改新闻',$id,'newsid');
+					}else{
+						$this->addadminlog($_POST['title'],$news->getlastsql(),'新增新闻',$result,'newsid');
+					}
+					
 					$this->success('操作成功',U('news/index'),3);
 				}
 				else{
@@ -81,8 +87,10 @@ class NewsController extends ComController {
 		if($_GET['id']>0){
 			$id=$_GET['id'];
 			$map['status']=0 ;
+			$list = $news->where('id='.$id)->find();
 			$result=$news->where('id = '.$_GET['id'])->save($map);
 			if($result){
+				$this->addadminlog($list['title'],$news->getlastsql(),'删除新闻',$id,'newsid');
 				$this->success('操作成功',U('news/index'),3);
 			}
 			else{

@@ -45,6 +45,7 @@ class CommitteeController extends ComController {
 			$committee = M('committee');
 			$sign = $committee->add($data);
 			if($sign){
+				$this->addadminlog($data['title'],$committee->getlastsql(),'新增演工委新闻',$sign,'committeeid');
 				$this->success('新增成功',U('Committee/index'));
 			}else{
 				$this->error('新增失败');
@@ -82,6 +83,7 @@ class CommitteeController extends ComController {
 			$committee = M('committee');
 			$sign = $committee->where('id='.$id)->save($data);
 			if($sign){
+				$this->addadminlog($data['title'],$committee->getlastsql(),'修改演工委新闻',$id,'committeeid');
 				$this->success('修改成功',U('Committee/index'));
 			}else{
 				$this->error('未做新增');
@@ -93,8 +95,10 @@ class CommitteeController extends ComController {
 		$id = I('get.id');
 		$committee = M('committee');
 		$data['status'] = 0;
+		$list = $committee->where('id='.$id)->find();
 		$sign = $committee->where('id='.$id)->save($data);
 		if($sign){
+			$this->addadminlog($list['title'],$committee->getlastsql(),'修改演工委新闻',$id,'committeeid');
 			$this->success('删除成功',U('index'));
 		}else{
 			$this->error('未删除');
@@ -119,6 +123,7 @@ class CommitteeController extends ComController {
 				
 				$sign = $council_rule->save();
 				if($sign){
+				$this->addadminlog($_POST['title'],$council_rule->getlastsql(),'修改委员会简介',$id,'council_rule');
 					$this->redirect(U('about'),'',0,'');
 				}else{
 					$this->error('未保存');
@@ -147,6 +152,7 @@ class CommitteeController extends ComController {
 				
 				$sign = $council_rule->save();
 				if($sign){
+				$this->addadminlog($_POST['title'],$council_rule->getlastsql(),'修改委员会章程',$id,'council_rule');
 					$this->redirect(U('rule'),'',0,'');
 				}else{
 					$this->error('未保存');
@@ -175,6 +181,7 @@ class CommitteeController extends ComController {
 				
 				$sign = $council_rule->save();
 				if($sign){
+					$this->addadminlog($_POST['title'],$council_rule->getlastsql(),'修改委员会人员名册',$id,'council_rule');
 					$this->redirect(U('roll'),'',0,'');
 				}else{
 					$this->error('未保存');
@@ -203,6 +210,7 @@ class CommitteeController extends ComController {
 				
 				$sign = $council_rule->save();
 				if($sign){
+					$this->addadminlog($_POST['title'],$council_rule->getlastsql(),'修改委员会公告',$id,'council_rule');
 					$this->redirect(U('notice'),'',0,'');
 				}else{
 					$this->error('未保存');
@@ -278,6 +286,7 @@ class CommitteeController extends ComController {
 				}
 				
 				if($sign){
+					$this->addadminlog($_POST['title'],$council_rule->getlastsql(),'修改委员会站提摘要',$id,'council_rule');
 					$this->redirect(U('special'),'',0,'');
 				}else{
 					$this->error('未保存');
@@ -293,8 +302,10 @@ class CommitteeController extends ComController {
 		$id = trim(I('get.id'));
 		$council_rule = M('council_rule');
 		$data['status'] = 0;
+		$list = $council_rule->where('id='.$id)->find();
 		$sign = $council_rule->where('id='.$id)->save($data);
 		if($sign){
+		$this->addadminlog($list['title'],$council_rule->getlastsql(),'删除委员会专题摘要',$id,'council_rule');
 			$this->redirect(U('special'),'',0,'');
 		}else{
 			$this->error('删除失败');
@@ -360,14 +371,17 @@ class CommitteeController extends ComController {
 			
 				if($id != 0){
 					$sign = $council_rule->save();
-				}else{
-					
+				}else{		
 					$sign = $council_rule->add();
+					$id = $sign;
 				}
 				
 				if($sign){
+
+			$this->addadminlog($_POST['title'],$council_rule->getlastsql(),'委员会相关简介增加修改',$id,'council_rule');
 					$this->redirect(U('intro'),'',0,'');
 				}else{
+
 					$this->error('未保存');
 				}
 
@@ -381,8 +395,10 @@ class CommitteeController extends ComController {
 		$id = trim(I('get.id'));
 		$council_rule = M('council_rule');
 		$data['status'] = 0;
+		$list = $council_rule->where('id='.$id)->find();
 		$sign = $council_rule->where('id='.$id)->save($data);
 		if($sign){
+	$this->addadminlog($list['title'],$council_rule->getlastsql(),'删除委员会相关简介',$id,'council_rule');
 			$this->redirect(U('intro'),'',0,'');
 		}else{
 			$this->error('删除失败');

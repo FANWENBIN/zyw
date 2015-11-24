@@ -48,8 +48,10 @@ class RiceController extends ComController {
         $sign = $fans->where('id='.$id)->save($data);
       }else{
         $sign = $fans->add($data);
+        $id = $sign;
       }
       if($sign){
+        $this->addadminlog($data['name'],$fans->getlastsql(),'删除/新增 饭团',$id,'riceid');
         $this->success('操作成功',U('index'));
       }else{
         $this->error('操作失败');
@@ -65,8 +67,10 @@ class RiceController extends ComController {
     $id = I('post.id');
     $club = M('fans_club');
     $data['status'] = 0;
+    $list = $club->where('id='.$id)->find();
     $sign = $club->where('id='.$id)->save($data);
     if($sign){
+      $this->addadminlog($list['name'],$club->getlastsql(),'删除饭团',$id,'riceid');
       $this->success(U('index'),'删除成功');
     }else{
       $this->error('删除失败');
@@ -81,8 +85,10 @@ class RiceController extends ComController {
     $id = I('post.id');
     $fans_posts = M('fans_posts');
     $data['status'] = 0;
+    $list = $fans_posts->where('id='.$id)->find();
     $sign = $fans_posts->where('id='.$id)->save($data);
     if($sign){
+      $this->addadminlog($list['title'],$fans_posts->getlastsql(),'删除帖子',$id,'riceid');
       $this->success(U('posts'),'删除成功');
     }else{
       $this->error('删除失败');
@@ -146,6 +152,7 @@ class RiceController extends ComController {
       $sign = $fans->where('id='.$id)->save($data);
       
       if($sign){
+      $this->addadminlog($data['title'],$fans->getlastsql(),'修改帖子',$id,'riceid');
         $this->success('操作成功',U('posts'));
       }else{
         $this->error('操作失败');
@@ -180,8 +187,10 @@ class RiceController extends ComController {
     $fans_comment = M('fans_comment');
     $id = I('post.id');
     $data['status'] = 0;
+    $list = $fans_comment->where('id='.$id)->find();
     $sign = $fans_comment->where('id='.$id)->save($data);
     if($sign){
+      $this->addadminlog($list['title'],$fans_comment->getlastsql(),'删除论坛评论',$id,'riceid');
       $this->success(U('comment'),'删除成功');
     }else{
       $this->error('删除失败');
@@ -212,8 +221,10 @@ class RiceController extends ComController {
     $id = I('post.id');
     $club = M('fans_club');
     $data['status'] = 0;
+    $list = $club->where('id='.$id)->find();
     $sign = $club->where('id='.$id)->save($data);
     if($sign){
+    $this->addadminlog($list['name'],$club->getlastsql(),'删除待审核粉丝团',$id,'riceid');
       $this->success(U('index'),'删除成功');
     }else{
       $this->error('删除失败');
@@ -258,8 +269,10 @@ class RiceController extends ComController {
           $sign = $fans->where('id='.$id)->save($data);
         }else{
           $sign = $fans->add($data);
+          $id = $sign;
         }
         if($sign){
+          $this->addadminlog($data['name'],$fans->getlastsql(),'删除待审核粉丝团',$id,'riceid');
           $this->success('操作成功',U('auditlist'));
         }else{
           $this->error('操作失败');

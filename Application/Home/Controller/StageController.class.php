@@ -25,7 +25,8 @@ class StageController extends ComController {
 		$this->display();
     }
     //学员报名
-   	public function apply(){
+   	public function enroll(){
+        $this->display();
         
    	}
    //做品榜

@@ -13,12 +13,13 @@
 <link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css" />
 <!--每个页面独立的样式文件-->
-<style type="text/css"> 
+<style type="text/css">
 .table .t1 { text-align: center; width: 80px;}
 .table .t2 { text-align: center; width: 100px;}
 .table .t2 img { display: block; margin: 0 auto;}
 .table .t3 { text-align: center; width: 100px;}
-.table .t4 { text-align: center; width: 150px;}
+.table .t4 { text-align: center; width: 150px; }
+.table .t4 img {display:inline-block;}
 .table .t5 { text-align: center; width: 100px;}
 .table .t5 p { text-align: center; color: #41a82c;}
 .table .t5 p.cease { color: #ff6363;}
@@ -40,33 +41,30 @@
   <!--main-->
   <div class="webMain" style="">
     <div class="mainHeader">
-      <h1>管理员管理</h1>
-        <ul class="menu clearFix">
-          <li class="current"><a href="{:U('index')}">管理员管理</a></li>
-          <li><a href = "{:U('adminloglist')}">管理员操作日志</a></li>
-          <li><a href = "{:U('online')}">管理员在线时间日志</a></li>
-        </ul>
-
+      <h1>视频管理</h1>
+      <ul class="menu clearFix">
+      <li><a href="{:U('index')}">视频汇</a></li>
+      <li class="current"><a href="{:U('micro')}">微访谈</a></li>
+      </ul>
     </div>
     <div class="mainBody">
 
-     <!--  筛选
-     <div class="tableTools clearFix mb30">
+      <!--筛选-->
+      <!--div class="tableTools clearFix mb30">
         <hr>
         <h6 class="w100 tr">关键字：</h6>
-        <form action="" method="post"><div class="i mr20">
-          <input type="text" name="keywords"
-         value="{$Think.session.key}" class="input w180" placeholder="姓名、手机号"></div>
-        <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
-        </form>
-      </div> -->
 
+        <div class="i mr20"><input type="text" class="input w180"></div>
+        <div class="i"><a href="javascript:void(0)" class="btnB btnSmall">查找</a></div>
+      </div-->
       <!--表格-->
       <table class="table">
         <thead>
         <tr>
           <td class="t1">编号</td>
-          <td class="t2">账户名</td>
+          <td class="t2">标题</td>
+          <td class="t3">类型</td>
+          <td class="t4">封面图</td>
           <td class="t5">创建时间</td>
           <td class="t6">操作</td>
         </tr>
@@ -74,13 +72,16 @@
         <tbody>
         <volist name="list" id="v">
           <tr>
-            <td class="t1">{$v.id}</td>
-            <td class="t2">{$v.name}
-            </td>   
-            <td class="t5">{:hql_date($v['instime'])}</td>
+            <td class="t1">{$i}</td>
+            <td class="t2">
+            {$v.title}</td>
+            <td class="t3">{:vediotyp($v['type'])}</td>
+            <td class="t4"> <notempty name="v['img']"><img src="./Uploads{$v['img']}" width="50" height="50" /></notempty></td>
+            <td class="t5">{$v.instime|date="Y-m-d H:i:s",###}</td>
             <td class="t6">
               <p class="console">
-                <a data-id="{$v['id']}" href="javascript:void(0)" class="delete">删除账号</a>
+                <a href="{:U('edit',array('id'=>$v['id']))}" class="setting">编辑</a>
+                <a data-id="{$v['id']}" href="javascript:void(0)" class="delete">删除</a>
               </p>
             </td>
           </tr>
@@ -91,23 +92,30 @@
         <tr>
           <td colspan="7">
           {$page}
-
+            <!--div class="pagers">
+              <ul class="clearFix">
+                <li><a class="disabled prev" href="#">上一页</a></li>
+                <li><p><span class="c">1</span><span>/</span><span>5</span></p></li>
+                <li><a class="next" href="#">下一页</a></li>
+                <li class="in"><input type="text"></li>
+                <li><a href="javascript:void(0)">跳转</a></li>
+              </ul>
+            </div-->
           </td>
         </tr>
         </tfoot>
       </table>
-         <div class="btnCon">
-           <div class="btnCon">
-            <a href="{:U('add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
-          </div>
-        </div>
+
+    </div>
+    <div class="btnCon">
+       <div class="btnCon">
+        <a href="{:U('Vedio/add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
+      </div>
     </div>
   </div>
   <!--main end-->
 
-</div>
 <!--container end-->
-
 
 <script type="text/javascript" src="__PUBLIC__/stage/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/stage/js/common.js"></script>

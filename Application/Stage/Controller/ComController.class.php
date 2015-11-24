@@ -27,7 +27,19 @@ class ComController extends Controller {
         if($id == 1){
             $this->assign('isadmin',1);
         }
+        //记录最后一次操作时间作为登出时间
+        $this->setoutime();
 
+    }
+    /**
+    *J记录登出时间
+    *@author winter
+    *@version 2015年11月23日20:52
+    */
+    public function setoutime(){
+        $online = M('admin_online');
+        $data['outime'] = time();
+        $online->where('id='.session('outimeid'))->save($data);
     }
 //验证登录
     public function vercklogin(){
@@ -127,6 +139,23 @@ class ComController extends Controller {
             $data['username'] = $nickname;
             $sign = $user_msg->add($data);
             return $sign;
+    }
+    /**
+    *记录管理员操作日志
+    *@author winter
+    *@version 2015年11月23日16:42:01
+    */
+    public function addadminlog($title,$sqlcontent,$type,$id,$idname){
+        $data['adminid'] = session('uid');
+        $data['name']    = session('name');
+        $data['title']    = $title;
+        $data['instime'] = time();
+        $data['sqlcontent'] = $sqlcontent;
+        $data['type']    = $type;
+        $data[$idname]   = $id;
+        $adminlog = M('admin_log');
+        $adminlog->add($data);
+        //echo $adminlog->getlastsql();die();
     }
 }
 ?>

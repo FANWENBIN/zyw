@@ -36,6 +36,7 @@ class StageController extends ComController {
 
             $sign = $stage->where('id='.$id)->save($data);
             if($sign){
+                $this->addadminlog($data['title'],$stage->getlastsql(),'修改Stage作品',$id,'stageid');
                 $this->success('修改成功',U('Stage/index'));
             }else{
                 $this->error('未做任何修改');
@@ -48,9 +49,10 @@ class StageController extends ComController {
         $id = I('post.id','','intval');
         $stage = M('stageworks');
         $data['status'] = 0;
-
+        $list = $stage->where('id='.$id)->find();
         $sign = $stage->where('id='.$id)->save($data);
         if($sign){
+        $this->addadminlog($list['title'],$stage->getlastsql(),'删除Stage作品',$id,'stageid');
             $this->success('删除成功',U('Vedio/index'));
         }else{
             $this->error('未删除');
@@ -80,6 +82,7 @@ class StageController extends ComController {
 
             $sign = $stage->add($data);
             if($sign){
+              $this->addadminlog($data['title'],$stage->getlastsql(),'新增Stage作品',$id,'stageid');  
                 $this->success('新增成功',U('Stage/index'));
             }else{
                 $this->error('新增失败');
@@ -118,16 +121,17 @@ class StageController extends ComController {
             }
             $data['status'] = I('post.status');
             $data['remark'] = I('post.remark');
-
+            $val = $stage->where('id='.$id)->find();
             $sign = $stage->where('id='.$id)->save($data);
             if($sign){
-                $val = $stage->where('id='.$id)->find();
+                
                 if($data['status'] == 1){
                    // $id,$content,$nickname,$type,$time = ''
-                    
                     $content = '您发布的作品通过审核：'.$val['remark'];
+                    $tall = '通过';
                 }else{
                     $content = '您发布的作品未通过审核：'.$val['remark'];
+                    $tall = "不通过";
                 } 
                 
                 $userid = $val['userid'];
@@ -136,7 +140,7 @@ class StageController extends ComController {
                 $time = time();
                 //给用户发送消息
                 $this->sendmsg($userid,$content,$nickname,1,$time);
-                
+                $this->addadminlog($data['title'],$stage->getlastsql(),'审核Stage作品:'.$tall,$id,'stageid');
                 $this->success('审核完毕',U('Stage/audit'));
             }else{
                 $this->error('未做任何审核');

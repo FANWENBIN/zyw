@@ -84,18 +84,22 @@ class ActiveController extends ComController {
             $data['sponsor_address'] = I('post.sponsor_address');
             $data['sponsor_email'] = I('post.sponsor_email');
             $data['order'] = I('post.order');
+            $val = $active->where('id='.$data['id'])->find();
             $sign = $active->save($data);
             if($sign){
                 if($data['status'] == 1){
                     $content = '您发布的活动审核成功'.$data['remark'];
+                    $tall = '通过';
                 }else{
                     $content = '您发布的活动未通过审核'.$data['remark'];
+                    $tall = '不通过';
                 }
-                $val = $active->where('id='.$data['id'])->find();
+                
                 $userid = $val['userid'];
                 $user = M('user')->where('id='.$userid)->find();
                 $nickname = $user['nickname'];
                 $this->sendmsg($userid,$content,$nickname,1,$time);
+                $this->addadminlog($val['title'],$active->getlastsql(),'审核活动:'.$tall,$val['id'],'activeid');
                 $this->success('活动审核成功',U('Active/audit'));
             }else{
                 $this->error('未做活动审核');
@@ -174,6 +178,7 @@ class ActiveController extends ComController {
 
             if($Duck){
                 $model->commit();
+                $this->addadminlog($data['title'],$active->getlastsql(),'修改活动',$data['id'],'activeid');
                 $this->success('活动修改成功',U('Active/index'));
             }else{
                 $model->rollback();
@@ -225,6 +230,7 @@ class ActiveController extends ComController {
 			$data['order'] = I('post.order');
 			$sign = $active->add($data);
 			if($sign){
+                $this->addadminlog($data['title'],$active->getlastsql(),'新增活动',$sign,'activeid');
 				$this->success('活动发起成功',U('Active/index'));
 			}else{
 				$this->error('活动发起失败');
@@ -237,8 +243,10 @@ class ActiveController extends ComController {
     	$id = I('get.id');
     	$active = M('active');
     	$data['status'] = 0;
+        $list = $active->where('id='.$id)->find();
     	$sign = $active->where('id='.$id)->save($data);
     	if($sign){
+            $this->addadminlog($list['title'],$active->getlastsql(),'删除活动',$id,'activeid');
     		$this->success('删除成功',U('Active/index'));
     	}else{
     		$this->error('未删除任何数据');
