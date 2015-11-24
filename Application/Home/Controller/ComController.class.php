@@ -65,8 +65,10 @@ class ComController extends Controller {
         $this->sum = $user_msg->where($data)->count();
         $data['type'] = 1;
         $this->syssum = $user_msg->where($data)->count();//未读系统消息
+        echo $user_msg->getlastsql();
         $data['type'] = 2;
         $this->usersum = $user_msg->where($data)->count();//用户评论回复消息
+
 
     }
     /** 
