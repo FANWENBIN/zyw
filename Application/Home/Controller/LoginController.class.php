@@ -131,15 +131,16 @@ class LoginController extends ComController {
     *微信登陆
     */
     public function weixinlogin(){
-        $weixin = new \Home\Common\Weixin();
-        //$path = C('DOMAIN_PATH');
-        $path = 'http://m2.nadoo.cn/p/zyw';
+        $path = C('DOMAIN_PATH');
+        //$path = 'http://m2.nadoo.cn/p/zyw';
         $url = urlencode($path.'/index.php/Home/Login/weixincallback');
-        $code_url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx891ba79c70766c9b&redirect_uri='.$url.'&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect';
+        session('state',md5('sxx123'));
+        $state = session('state');
+        $code_url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx891ba79c70766c9b&redirect_uri='.$url.'&response_type=code&scope=snsapi_login&state='.$state.'#wechat_redirect';
         //echo $url;die();
 
 
-        
+
         header("Location:".$code_url);
         
     }
@@ -147,7 +148,15 @@ class LoginController extends ComController {
     *微信回调
     */
     public function weixincallback(){
-        var_dump(I('get.'));
+        $weixin = new \Home\Common\Weixin();
+        $code = I('get.code');
+        $state = I('get.state');
+        if($state == session('state')){
+
+        }else{
+            $this->display('Public:404');
+        }
+
     }
    //验证登陆接口
     public function checklogin(){
