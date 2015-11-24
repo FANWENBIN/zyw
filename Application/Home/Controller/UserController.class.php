@@ -309,7 +309,7 @@ class UserController extends ComController {
         $data['status'] = 1;
         $data['passwd'] = $passwd;
         $sign = $user->where('mobile = '.$phone)->save($data);
-        echo $usre->getlastsql();
+        echo $user->getlastsql();
         if($sign){
             ajaxReturn(0,'修改成功','');
         }else{
