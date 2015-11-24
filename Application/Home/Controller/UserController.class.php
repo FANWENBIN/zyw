@@ -178,10 +178,11 @@ class UserController extends ComController {
         $this->mssage();//消息提示
     	$acthis = M('user_acthis');
         $active = M('active');
-    	$data['userid'] = session('userid');       
+    	$data['uid'] = session('userid');       
     	//用户浏览活动记录，只记录最近的三个，数量由添加记录时控制
     	$acth = $acthis->where($data)->order('instime desc')->select();
         $activeid = '';
+        
         foreach ($acth as $key => $value) {
             $activeid .= $value['activeid'].',';
         }
@@ -191,11 +192,12 @@ class UserController extends ComController {
     	//用户发起的活动
     	$active = M('active');
     		//待审核的活动
-    	$data['status'] = 2;
-    	$this->checkpending = $active->where($data)->order('instime desc')->select();
+        $damp['userid'] = session('userid'); 
+    	$damp['status'] = 2;
+    	$this->checkpending = $active->where($damp)->order('instime desc')->select();
     		//审核通过的活动 
-    	$data['status'] = 1;
-    	$this->passactive = $active->where($data)->order('instime desc')->select();
+    	$damp['status'] = 1;
+    	$this->passactive = $active->where($damp)->order('instime desc')->select();
         $this->mssage();//调用读取未读消息显示
     	$this->display();
 
