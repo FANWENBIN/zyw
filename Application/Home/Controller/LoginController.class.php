@@ -148,9 +148,13 @@ class LoginController extends ComController {
     *微信回调
     */
     public function weixincallback(){
-        $weixin = new \Home\Common\Weixin();
         $code = I('get.code');
-        var_dump(I('get.'));
+        $state = I('get.state');
+        if($state == sesison('state');){
+            $weixin = new \Home\Common\Weixin();
+        }else{
+            $this->display('Public:404');
+        }
 
     }
    //验证登陆接口
