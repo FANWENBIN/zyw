@@ -182,6 +182,7 @@ class UserController extends ComController {
     	//用户浏览活动记录，只记录最近的三个，数量由添加记录时控制
     	$acth = $acthis->where($data)->order('instime desc')->select();
         $activeid = '';
+        echo $data['userid'];
         foreach ($acth as $key => $value) {
             $activeid .= $value['activeid'].',';
         }
