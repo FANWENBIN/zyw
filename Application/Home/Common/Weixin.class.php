@@ -2,7 +2,10 @@
 namespace Home\Common;
 
 /**
- * $qq = new \Home\Common\Weixin();*/
+ * $qq = new \Home\Common\Weixin();
+ * @author  witner
+ * @version 2015年11月24日16:15:51
+ */
 class Weixin{
     public $Appid;
     public $AppSecret;

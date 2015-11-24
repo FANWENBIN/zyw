@@ -134,12 +134,9 @@ class LoginController extends ComController {
         $path = C('DOMAIN_PATH');
         //$path = 'http://m2.nadoo.cn/p/zyw';
         $url = urlencode($path.'/index.php/Home/Login/weixincallback');
-        session('state',md5('sxx123'));
-        $state = session('state');
+        $state = md5(md5('sxx123').rand(100,222));
+        session('state',$state);
         $code_url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx891ba79c70766c9b&redirect_uri='.$url.'&response_type=code&scope=snsapi_login&state='.$state.'#wechat_redirect';
-        //echo $url;die();
-
-
 
         header("Location:".$code_url);
         
@@ -175,14 +172,11 @@ class LoginController extends ComController {
                     $list = $user->where("openid='".$openid."'")->find();
                 }
             }
-            session('userid',$list['id']);
+            session('userid',$list['id']);          //存储登陆信息
             session('username',$list['nickname']);
             session('userphone',$list['mobile']);
             session('userimg',$list['headpic']);
-            var_dump($userinfo);
-            var_dump($data);
-            var_dump($list);
-            echo "<script>window.close();window.opener.location.reload()</script>";
+            echo "<script>window.close();window.opener.location.reload()</script>";    //关闭页面
             
         }else{
             $this->display('Public:404');
