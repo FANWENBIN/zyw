@@ -152,6 +152,7 @@ class LoginController extends ComController {
         $state = I('get.state');
         if($state == sesison('state');){
             $weixin = new \Home\Common\Weixin();
+            echo 123;
         }else{
             $this->display('Public:404');
         }
