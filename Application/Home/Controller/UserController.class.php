@@ -300,16 +300,17 @@ class UserController extends ComController {
     public function changepasswd(){
         $passwd = I('post.passwd');
         preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/",$passwd,$array);
-        if($array){
+        if(!$array){
             ajaxReturn(105,'密码过于简单');
         }
+
         $passwd = I('post.passwd','','md5');
         $phone = session('phone');
         $user = M('user');
         $data['status'] = 1;
         $data['passwd'] = $passwd;
         $sign = $user->where('mobile = '.$phone)->save($data);
-        echo $user->getlastsql();
+        
         if($sign){
             ajaxReturn(0,'修改成功','');
         }else{

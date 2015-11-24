@@ -207,7 +207,6 @@ class LoginController extends ComController {
         $data['passwd']   = $passwd;
         $data['status'] = 1;
         $sign =  $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
-        echo $user->getlastsql();
         if($sign){
             session('userid',$sign['id']);
             session('username',$sign['nickname']);
