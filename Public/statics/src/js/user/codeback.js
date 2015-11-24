@@ -64,14 +64,14 @@ $(function() {
         if (scope.verStatus) {
           scope.verStatus = false;
           var _time = 30;
-          var _timer = setTimeout(function(){
+          var _timer = setInterval(function(){
             $("#getVer").html(_time--);
-            console.log(_time);
             if(_time === 0){
               _timer = null;
               scope.verStatus = true;
               $("#getVer").html("发送验证码");
             }
+            console.log(_time);
           },1000)
           $.ajax({
             type: "get",
