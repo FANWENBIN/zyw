@@ -71,6 +71,8 @@ $(function() {
         $("#error").html("密码至少8位，至少包含数字和字符");
       } else if (!/^1[23456789]\d{9}$/.test($(":text[name=mb]").val())) {
         $("#error").html("手机号码输入错误，请重新输入");
+      }else if (!/^.+$/.test($(":text[name=idcode2]").val())) {
+        $("#error").html("手机号码输入错误，请重新输入");
       } else {
         $.ajax({
           url: "./index.php?m=Home&c=Login&a=register",
@@ -101,7 +103,11 @@ $(function() {
       return false;
     },
     getVer: function() {
-      if (scope.ver) {
+      if(!/^1[3456789]\d{9}$/.test($(":text[name=mb]").val())){
+        $("#error").html("手机号码错误");
+      }else if(!/^.+$/.test($(":text[name=idcode1]").val())){
+        $("#error").html("请输入验证号码");
+      }else if (scope.ver) {
         scope.ver = false;
          var _time = 30;
          var _timer = setInterval(function(){
@@ -123,6 +129,7 @@ $(function() {
             phone: $(":text[name=mb]").val()
           },
           success: function(json) {
+            console.log(json.msg);
             if (json.status == "0") {
               $("#error").html("验证已发送,请注意查收");
             } else if (json.status == "101") {
