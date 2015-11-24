@@ -150,7 +150,8 @@ class LoginController extends ComController {
     public function weixincallback(){
         $code = I('get.code');
         $state = I('get.state');
-        if($state == session('state')){
+        //if($state == session('state')){
+            if($state == 123){
             $weixin = new \Home\Common\Weixin();
             echo 123;
         }else{
