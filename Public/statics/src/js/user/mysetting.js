@@ -90,7 +90,7 @@ $(function() {
             clearInterval(_timer);
             scope.ver = true;
             $("#codesendverify").html("发送验证码")
-          }
+          } 
           console.log(_time);
         }, 1000)
         $.ajax({
