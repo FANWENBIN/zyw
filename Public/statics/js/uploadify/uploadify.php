@@ -19,8 +19,9 @@ if (!empty($_FILES)) {
     }
     $filespath = explode('.', $_FILES['Filedata']['name']);
     $_FILES['Filedata']['name'] = date('YmdHis').rand(1000,999).'.'.$filespath[1];
+
 	$targetFile = rtrim($targetPath,'/') . '/' . $_FILES['Filedata']['name'];
-	//var_dump($targetFile);die();
+	var_dump($targetFile);die();
 	// Validate the file type
 	$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
 	$fileParts = pathinfo($_FILES['Filedata']['name']);
