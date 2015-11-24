@@ -211,7 +211,7 @@ class RiceController extends ComController {
     // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
     $list = $fans->where($data)->order('fanssum desc')->limit($Page->firstRow.','.$Page->listRows)->select();
     $this->assign('page',$show);// 赋值分页输出
-    
+     
     $this->list = $list;
 
     $this->cur = 14;
