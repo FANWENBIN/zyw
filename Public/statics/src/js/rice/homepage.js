@@ -134,7 +134,7 @@ $(function() {
             scope.isJoin = true;
             $(".join").html("已入团");
           } else if (json.status === 0) {
-            scope.isJoin = true;
+            scope.isJoin = false;
             $(".join").html("+ 入团");
           }
         },
