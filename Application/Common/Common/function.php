@@ -113,6 +113,9 @@
 				return '娱乐头条';
 			case '6':
 				return '影视资讯';
+			case '7':
+				return '微访谈';
+				break;
 		}
 	}
     /**
