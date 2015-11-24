@@ -240,6 +240,7 @@ $(function() {
           passwd: $(":password[name=password]").val()
         },
         success: function(json) {
+          console.log(json.msg);
           if (json.status == "1") {
             $("#loginalert").remove();
             console.log("登陆成功")
