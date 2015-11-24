@@ -51,7 +51,7 @@ class RiceController extends ComController {
         $id = $sign;
       }
       if($sign){
-        $this->addadminlog($data['name'],$fans->getlastsql(),'删除/新增 饭团',$id,'riceid');
+        $this->addadminlog($data['name'],$fans->getlastsql(),'修改/新增 饭团',$id,'riceid');
         $this->success('操作成功',U('index'));
       }else{
         $this->error('操作失败');
