@@ -151,9 +151,12 @@ class LoginController extends ComController {
         $weixin = new \Home\Common\Weixin();
         $code = I('get.code');
         $state = I('get.state');
+        var_dump($code.','.$state);
+        die();
         if($state == session('state')){
-
+            echo 123;
         }else{
+            echo 123;
             $this->display('Public:404');
         }
 
