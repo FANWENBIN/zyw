@@ -63,24 +63,30 @@ class StageController extends ComController {
                 $data['acthrough'] = $info['acthrough']['savepath'].$info['acthrough']['savename']; //演艺经历
             }
             $isempty = $this->checkDump($data);
-            var_dump($data);
+            
             if(!$isempty){
-                ajaxReturn(102,'参数有空值','');
+                $this->jump(U('Stage/enroll'),'对不起，请不要有空数据',3);
+                //ajaxReturn(102,'对不起，请不要有空数据','');
             }
             $data['userid'] = session('userid');
             $stage = M('stageworks');
             $sign = $stage->add($data);
             if($sign){
-                ajaxReturn(0,'成功','');
+                $this->jump(U('Stage/index'),'恭喜您，提交成功啦~，请等待审核',3);
+                //ajaxReturn(0,'成功','');
             }else{
-                ajaxReturn(101,'失败','');
+                $this->jump(U('Stage/enroll'),'不好意思，提交失败了~，您可以重新提交',3);
+                //ajaxReturn(101,'失败','');
             }
             
         }
         
      
    	}
-    public function success(){
+    public function jump($url,$content,$time){
+        $this->href = $url;
+        $this->second = $time;
+        $this->content = $content;
         $this->display();
     }
    //做品榜
