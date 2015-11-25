@@ -57,6 +57,7 @@ $(function(){
       };
     },
     formSubmit: function(){
+      console.log($(":radio[name='sex']:checked").length);
       if(!/^.+$/.test($(":text[name=name]").val())){
         alert("请填入姓名");
         return false;
