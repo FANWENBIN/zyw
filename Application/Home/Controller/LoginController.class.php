@@ -46,6 +46,7 @@ class LoginController extends ComController {
             session('username',$list['nickname']);
             session('userphone',$list['mobile']);
             session('userimg',$list['headpic']);
+            var_dump($list);die();
             echo "<script>window.close();window.opener.location.reload()</script>";
             //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
