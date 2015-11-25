@@ -210,9 +210,9 @@ class RiceController extends ComController {
     }
     /**
     *检测用户是否已加入
-    *@author winter
-    *@version 2015年11月11日19:12:23
-    *@
+    * @author winter
+    * @version 2015年11月11日19:12:23
+    * @
     */
     public function checkjoin(){
         $user_fans = M('user_fans');
