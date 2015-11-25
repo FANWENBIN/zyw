@@ -26,9 +26,45 @@ class StageController extends ComController {
     }
     //学员报名
    	public function enroll(){
+        $submit = I('post.submit');
+        if(empty($submit)){
+            $this->display();
+        }else{
+            $data['title'] = I('post.title'); //标题
+            $data['href']  = I('post.href');//视频连接
+            $data['content'] = I('post.content');//作品简介
+            $data['acsex'] = I('post.acsex');
+            $data['statue'] = 2;//待审核
+            $data['img'] = I('post.img');//封面图
+            $data['instime'] = time();
+            $data['userid'] = session('userid');
+            $data['acname'] = I('post.acname'); //姓名
+            $data['accity'] = I('post.accity');//城市
+            //$data['accityid'] = I('post.accityid');
+            $data['acprovince'] = I('post.acprovince');//省市
+            //$data['acprovinceid'] = I();
+            $data['acbirthday'] = I('post.acbirthday');//出省日期
+            $data['acheight'] = I('post.acheight');//身高
+            $data['acweight'] = I('post.acweight'); //体重
+            $data['acschool'] = I('post.acschool');//毕业院校
+            $data['acphoto']  = I('post.acphoto');//照片
+            $data['acthrough'] = I('post.acthrough'); //演艺经历
+            $data['phone'] = I('post.phone');//联系手机号
+
+            $upload = new \Think\Upload();// 实例化上传类    
+            $upload->maxSize   =     3145728 ;// 设置附件上传大小    
+            $upload->exts      =     array('jpg', 'png', 'jpeg');
+            // 设置附件上传类型    
+            $upload->savePath  =      '/stage/'; // 设置附件上传目录    // 上传文件     
+            $info   =   $upload->upload();    
+            if(!$info) {// 上传错误提示错误信息        
+                $upload->getError();    
+            }else{
+                var_dump($info);
+            }
+        }
         
-        $this->display();
-        
+     
    	}
    //做品榜
     public function stageworks(){

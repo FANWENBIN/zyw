@@ -79,7 +79,57 @@
 				<h6>作品简介</h6>
 				<div class="i"><textarea class="input" name="content">{$vedioval.content}</textarea></div>
 			</div>
-		
+		<div class="l">
+				<h6>热度</h6>
+				<div class="i"><input type="text" class="input w200"  value="{$vedioval['hot']}" name="hot" placeholder="" /></div>
+			</div>
+			<div class="l">
+				<h6>创建时间</h6>
+				<div class="i"><input type="text" class="js_date" data-time="true" value="{:date('Y-m-d|H:i',$vedioval['instime'])}" name="instime"/></div>
+			</div>
+			<div class="l">
+                <h6>姓名</h6>
+                <div class="i"><input type="text" class="input w200"  value="{$vedioval['acname']}" name="acname" placeholder="请输入姓名" /></div>
+            </div>
+            <div class="l">
+				<h6>性别</h6>
+				<div class="i" id="radioClick">
+					<input type="radio" name="acsex" value="1" data-val="男"  data-css="r1" <if condition="($vedioval.acsex eq 1)">checked="checked"</if> />
+					<input type="radio" name="acsex" value="2" data-val="女"  data-css="r1" <if condition="($vedioval.acsex eq 2)">checked="checked"</if> />
+				</div>
+			</div>
+            <div class="l">
+                <h6>出生地</h6>
+                <div class="i"><input type="text" class="input w200"  value="{$vedioval['acprovince']}" name="acprovince" placeholder="请输入省" /><input type="text" class="input w200"  value="{$vedioval['accity']}" name="accity" placeholder="请输入市" /></div>
+            </div>
+            <div class="l">
+                <h6>生日</h6>
+                <div class="i"><input type="text" class="js_date"   value="{$vedioval['acbirthday']|date='Y-m-d',###}" name="acbirthday" placeholder="请输入生日" /></div>
+            </div>
+            <div class="l">
+                <h6>身高</h6>
+                <div class="i"><input type="text" class="input w200"  value="{$vedioval['acheight']}" name="acheight" placeholder="请输入身高" />CM</div>
+            </div>
+            <div class="l">
+                <h6>体重</h6>
+                <div class="i"><input type="text" class="input w200"  value="{$vedioval['acweight']}" name="acweight" placeholder="请输入体重" />KG</div>
+            </div>
+            <div class="l">
+                <h6>毕业院校</h6>
+                <div class="i"><input type="text" class="input w200"  value="{$vedioval['acschool']}" name="acschool" placeholder="请输入毕业院校" /></div>
+            </div>
+            <div class="l">
+                <h6>个人照片</h6>
+                <div class="i"><input type="text" value="{$vedioval['acphoto']}" class="js_imgupload" id="imgurl1" cut="true" width="175" height="140" name="acphoto" /></div>
+            </div>
+			<div class="l">
+                <h6>演艺经历</h6>
+                <div class="i"><input type="text" value="{$vedioval['acthrough']}" class="js_imgupload" id="imgurl1" cut="true" width="175" height="140" name="acthrough" /></div>
+            </div>
+            <div class="l">
+                <h6>联系方式</h6>
+                <div class="i"><input type="text" value="{$vedioval['phone']}" class="input w200"   width="175" height="140" name="phone" /></div>
+            </div>
 			<div class="l">
                 <h6>是否通过审核</h6>
                 <div class="i">
