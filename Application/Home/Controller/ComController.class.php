@@ -320,7 +320,18 @@ class ComController extends Controller {
         $this->display("Public:404");
     }
     
-
+    /**
+    *页面跳转
+    *@author witner
+    *@version 2015年11月25日20:54:24
+    *@param ￥url  跳转地址。content 提示内容   time 自动跳转时间
+    */
+    public function jump($url,$content,$time){
+        $this->href = $url;
+        $this->second = $time;
+        $this->content = $content;
+        $this->display('Stage:jump');
+    }
 
    
 }

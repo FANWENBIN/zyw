@@ -83,12 +83,7 @@ class StageController extends ComController {
         
      
    	}
-    public function jump($url,$content,$time){
-        $this->href = $url;
-        $this->second = $time;
-        $this->content = $content;
-        $this->display();
-    }
+    
    //做品榜
     public function stageworks(){
         $condition = trim(I('get.condition'));
