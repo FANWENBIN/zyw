@@ -35,7 +35,7 @@ class StageController extends ComController {
             $data['content'] = I('post.content');//作品简介
             $data['acsex'] = I('post.acsex');
             $data['statue'] = 2;//待审核
-            $data['img'] = I('post.img');//封面图
+                $data['img'] = I('post.img');//封面图
             $data['instime'] = time();
             $data['userid'] = session('userid');
             $data['acname'] = I('post.acname'); //姓名
@@ -43,12 +43,12 @@ class StageController extends ComController {
             //$data['accityid'] = I('post.accityid');
             $data['acprovince'] = I('post.acprovince');//省市
             //$data['acprovinceid'] = I();
-            $data['acbirthday'] = I('post.acbirthday');//出省日期
+            $data['acbirthday'] = I('post.acbirthday');//出生日期
             $data['acheight'] = I('post.acheight');//身高
             $data['acweight'] = I('post.acweight'); //体重
             $data['acschool'] = I('post.acschool');//毕业院校
-            $data['acphoto']  = I('post.acphoto');//照片
-            $data['acthrough'] = I('post.acthrough'); //演艺经历
+                $data['acphoto']  = I('post.acphoto');//照片
+                $data['acthrough'] = I('post.acthrough'); //演艺经历
             $data['phone'] = I('post.phone');//联系手机号
 
             $upload = new \Think\Upload();// 实例化上传类    
@@ -61,6 +61,8 @@ class StageController extends ComController {
                 $upload->getError();    
             }else{
                 var_dump($info);
+                echo "<prev>"
+                var_dump($data);
             }
         }
         

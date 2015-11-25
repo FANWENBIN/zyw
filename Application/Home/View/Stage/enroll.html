@@ -43,42 +43,42 @@
       </p>
     </div>
     <div class="chart">
-      <form class="" action="{:U('Stage/index')}" method="post" id="form">
+      <form class="" action="{:U('Stage/enroll')}" method="post" id="form" enctype="multipart/form-data">
 
 
         <dl class="clearFix">
           <dt>姓名</dt>
           <dd>
-            <input type="text" name="name" value="">
+            <input type="text" name="acname" value="">
           </dd>
           <dt>性别</dt>
           <dd>
             <label for="">
-              <input type="radio" name="sex" value="male">男</label>
+              <input type="radio" name="acsex" value="1">男</label>
             <label for="">
-              <input type="radio" name="sex" value="female">女</label>
+              <input type="radio" name="acsex" value="2">女</label>
           </dd>
           <dt>生日</dt>
           <dd>
-            <input type="text" placeholder="" class="" name="birthday" id="" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd'})" />
+            <input type="text" placeholder="" class="" name="acbirthday" id="" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd'})" />
           </dd>
           <dt>身高</dt>
           <dd>
-            <input type="text" name="height" value="">CM</dd>
+            <input type="text" name="acheight" value="">CM</dd>
           <dt>体重</dt>
           <dd>
-            <input type="text" name="weight" value="">KG</dd>
+            <input type="text" name="acweight" value="">KG</dd>
           <dt>最高学历</dt>
           <dd>
-            <input type="text" name="degree" value="">
+            <input type="text" name="acschool" value="">
           </dd>
           <dt>手机</dt>
-          <dd><input type="text" name="mb" value=""></dd>
+          <dd><input type="text" name="phone" value=""></dd>
           <dt>通讯地址</dt>
-          <dd><input type="text" name="address" value="" style="width: 600px"></dd>
+          <dd><input type="text" name="accity" value="" style="width: 600px"></dd>
           <dt>个人照片</dt>
           <dd>
-            <input type="file" name="pic" id="face" />
+            <input type="file" name="acphoto" id="face" />
             <span>请选择一张350*400的照片</span>
           </dd>
           <span>
@@ -86,7 +86,7 @@
           </span>
           <dt>演艺经历</dt>
           <dd>
-            <input type="file" name="pic" id="exp" />
+            <input type="file" name="acthrough" id="exp" />
             <!-- <span>请选择一张350*400的照片</span> -->
           </dd>
           <span>
@@ -105,11 +105,11 @@
             </dd>
             <dt>视频链接</dt>
             <dd>
-              <input type="text" name="link" value="">
+              <input type="text" name="href" value="">
             </dd>
             <dt>封面图</dt>
             <dd>
-              <input type="file" name="pic" id="represent" />
+              <input type="file" name="img" id="represent" />
               <span>请选择一张380*310的照片</span>
             </dd>
             <span>
@@ -117,7 +117,7 @@
             </span>
             <dt>作品简介 </dt>
             <dd>
-              <textarea name="comment" rows="8" cols="40"></textarea>
+              <textarea name="content" rows="8" cols="40"></textarea>
             </dd>
 
           </fieldset>
@@ -129,7 +129,7 @@
 
         </dl>
         <div class="submit">
-          <input type="submit" name="name" value="确认" class="confirm">
+          <input type="submit" name="submit" value="确认" class="confirm">
           <a href="{:U('Stage/index')}" class="cancel">取消</a>
         </div>
       </form>
