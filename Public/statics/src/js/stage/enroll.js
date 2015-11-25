@@ -57,29 +57,28 @@ $(function(){
       };
     },
     formSubmit: function(){
-      console.log($(":radio[name='sex']:checked").length);
-      if(!/^.+$/.test($(":text[name=name]").val())){
+      if(!/^.+$/.test($(":text[name=acname]").val())){
         alert("请填入姓名");
         return false;
-      }else if(!$(":radio[name='sex']:checked").length){
+      }else if(!$(":radio[name='acsex']:checked").length){
         alert("选择性别")
         return false;
-      }else if(!/^.+$/.test($(":text[name='birthday']").val())){
+      }else if(!/^.+$/.test($(":text[name='acbirthday']").val())){
         alert("请填入生日")
         return false;
-      }else if(!/^.+$/.test($(":text[name='height']").val())){
+      }else if(!/^.+$/.test($(":text[name='acheight']").val())){
         alert("请填入身高")
         return false;
-      }else if(!/^.+$/.test($(":text[name='weight']").val())){
+      }else if(!/^.+$/.test($(":text[name='acweight']").val())){
         alert("请填入体重")
         return false;
-      }else if(!/^.+$/.test($(":text[name='degree']").val())){
+      }else if(!/^.+$/.test($(":text[name='acschool']").val())){
         alert("请填入最高学历")
         return false;
-      }else if(!/^.+$/.test($(":text[name='mb']").val())){
+      }else if(!/^.+$/.test($(":text[name='phone']").val())){
         alert("请填入手机")
         return false;
-      }else if(!/^.+$/.test($(":text[name='address']").val())){
+      }else if(!/^.+$/.test($(":text[name='accity']").val())){
         alert("请填入联系地址")
         return false;
       }else if(!scope.faceReview){
@@ -97,7 +96,7 @@ $(function(){
       }else if(!/^.+$/.test($(":text[name='title']").val())){
         alert("请填入代表作标题")
         return false;
-      }else if(!/^.+$/.test($(":text[name='link']").val())){
+      }else if(!/^.+$/.test($(":text[name='href']").val())){
         alert("请填入代表作视频链接")
         return false;
       }else if(!/^.+$/.test($("textarea[name='comment']").val())){
