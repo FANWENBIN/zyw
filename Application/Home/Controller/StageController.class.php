@@ -34,7 +34,7 @@ class StageController extends ComController {
             $data['href']  = I('post.href');//视频连接
             $data['content'] = I('post.content');//作品简介
             $data['acsex'] = I('post.acsex');
-            $data['statue'] = 2;//待审核
+            $data['status'] = 2;//待审核
                 
             $data['instime'] = time();
             
