@@ -328,6 +328,9 @@ class UserController extends ComController {
         if($phone != session('phone') || $verify != session('yzm')){
             ajaxReturn(102,'验证码输入错误','');
         }
+        if(empty($phone)||empty($verify)){
+            ajaxReturn(103,'手机或者验证码不可为空','');
+        }
         ajaxReturn(0,'通过','');
     }
     /**
