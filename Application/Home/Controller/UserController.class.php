@@ -75,10 +75,10 @@ class UserController extends ComController {
     public function phonebinding(){
         $data['mobile'] = I('post.phone');
         $code = I('post.code');
-        if($code != session('yzm')){
+        if($code != session('yzm') || empty($code)){
             ajaxReturn(101,'验证码输入错误');
         }
-        if($data['mobile'] != session('phone')){
+        if($data['mobile'] != session('phone') || empty($data['mobile'])){
             ajaxReturn(105,'手机与接收验证码手机号不符合');
         }
         $userlist = $this->checkuserLogin(); //验证登陆，并返回登陆信息
