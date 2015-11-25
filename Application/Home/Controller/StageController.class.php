@@ -61,7 +61,7 @@ class StageController extends ComController {
                 $upload->getError();    
             }else{
                 var_dump($info);
-                echo "<prev>"
+                echo "<prev>";
                 var_dump($data);
             }
         }
