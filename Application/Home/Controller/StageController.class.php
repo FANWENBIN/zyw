@@ -70,15 +70,18 @@ class StageController extends ComController {
             $stage = M('stageworks');
             $sign = $stage->add($data);
             if($sign){
-                ajaxReturn();
+                ajaxReturn(0,'成功','');
             }else{
-                ajaxReturn();
+                ajaxReturn(101,'失败','');
             }
             
         }
         
      
    	}
+    public function redirect(){
+        $this->display();
+    }
    //做品榜
     public function stageworks(){
         $condition = trim(I('get.condition'));
