@@ -72,7 +72,7 @@ $(function() {
       } else if (!/^1[23456789]\d{9}$/.test($(":text[name=mb]").val())) {
         $("#error").html("手机号码输入错误，请重新输入");
       }else if (!/^.+$/.test($(":text[name=idcode2]").val())) {
-        $("#error").html("手机号码输入错误，请重新输入");
+        $("#error").html("验证码输入错误，请重新输入");
       } else {
         $.ajax({
           url: "./index.php?m=Home&c=Login&a=register",
