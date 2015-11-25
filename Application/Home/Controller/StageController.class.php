@@ -56,7 +56,7 @@ class StageController extends ComController {
             $upload->savePath  =      '/stage/'; // 设置附件上传目录    // 上传文件     
             $info   =   $upload->upload();    
             if(!$info) {// 上传错误提示错误信息        
-                $upload->getError();    
+                $this->jump(U('Stage/enroll',$upload->getError(),5));    
             }else{
                 $data['img'] = $info['img']['savepath'].$info['img']['savename'];//封面图
                 $data['acphoto']  = $info['acphoto']['savepath'].$info['acphoto']['savename'];//照片
@@ -65,17 +65,18 @@ class StageController extends ComController {
             $isempty = $this->checkDump($data);
             
             if(!$isempty){
-                $this->jump(U('Stage/enroll'),'对不起，请不要有空数据',3);
+                $this->jump(U('Stage/enroll'),'对不起，请不要有空数据',5);
                 //ajaxReturn(102,'对不起，请不要有空数据','');
             }
             $data['userid'] = session('userid');
             $stage = M('stageworks');
             $sign = $stage->add($data);
             if($sign){
-                $this->jump(U('Stage/index'),'恭喜您，提交成功啦~，请等待审核',3);
+
+                $this->jump(U('Stage/index'),'恭喜您，提交成功啦~，请等待审核',5);
                 //ajaxReturn(0,'成功','');
             }else{
-                $this->jump(U('Stage/enroll'),'不好意思，提交失败了~，您可以重新提交',3);
+                $this->jump(U('Stage/enroll'),'不好意思，提交失败了~，您可以重新提交',5);
                 //ajaxReturn(101,'失败','');
             }
             
