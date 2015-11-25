@@ -51,8 +51,8 @@
     </div>
 
     <div class="content">
-      <span class="success">提交成功，请等待审核！ <i>(1)</i> </span>
-      <a href="#" class="link">点击跳转</a>
+      <span class="success">{$content}<i>(<b id="wait">{$second}</b>)</i> </span>
+      <a href="{$href}" id = "href" class="link">点击跳转</a>
     </div>
 
 
@@ -72,6 +72,18 @@
 
   <!-- <script src="__PUBLIC__/statics/js/image-cropper/dist/cropper.js"></script> -->
 
+<script type="text/javascript">
+(function(){
+var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+var interval = setInterval(function(){
+  var time = --wait.innerHTML;
+  if(time <= 0) {
+    location.href = href;
+    clearInterval(interval);
+  };
+}, 1000);
+})();
+</script>
 </body>
 
 </html>
