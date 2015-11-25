@@ -66,16 +66,16 @@ $(function(){
       }else if(!/^.+$/.test($(":text[name='acbirthday']").val())){
         alert("请填入生日")
         return false;
-      }else if(!/^.+$/.test($(":text[name='acheight']").val())){
+      }else if(!/^\d+$/.test($(":text[name='acheight']").val())){
         alert("请填入身高")
         return false;
-      }else if(!/^.+$/.test($(":text[name='acweight']").val())){
+      }else if(!/^\d+$/.test($(":text[name='acweight']").val())){
         alert("请填入体重")
         return false;
       }else if(!/^.+$/.test($(":text[name='acschool']").val())){
         alert("请填入最高学历")
         return false;
-      }else if(!/^.+$/.test($(":text[name='phone']").val())){
+      }else if(!/^1[345678]\d{9}$/.test($(":text[name='phone']").val())){
         alert("请填入手机")
         return false;
       }else if(!/^.+$/.test($(":text[name='accity']").val())){
@@ -96,7 +96,7 @@ $(function(){
       }else if(!/^.+$/.test($(":text[name='title']").val())){
         alert("请填入代表作标题")
         return false;
-      }else if(!/^.+$/.test($(":text[name='href']").val())){
+      }else if(!/^http.+$/.test($(":text[name='href']").val())){
         alert("请填入代表作视频链接")
         return false;
       }else if(!/^.+$/.test($("textarea[name='comment']").val())){
