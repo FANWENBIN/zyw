@@ -1,6 +1,8 @@
 $(function(){
   var scope = {
-
+    faceReview: "",
+    expReview: "",
+    representReview: ""
   };
   var page = {
     init: function(){
@@ -8,16 +10,19 @@ $(function(){
       $("#form").on("submit",page.formSubmit);
       $("#face").on("change",page.changeFace);
       $("#exp").on("change",page.changeExp);
-      $("#represent").on("change",page.changeExp);
+      $("#represent").on("change",page.changeRepresent);
     },
     changeFace: function(){
-      $("#faceReview").attr("src",window.URL.createObjectURL(this.files[0]))
+      scope.faceReview = window.URL.createObjectURL(this.files[0]);
+      $("#faceReview").attr("src",scope.faceReview)
     },
     changeExp: function(){
-      $("#expReview").attr("src",window.URL.createObjectURL(this.files[0]))
+      scope.expReview = window.URL.createObjectURL(this.files[0])
+      $("#expReview").attr("src",scope.expReview)
     },
-    changeExp: function(){
-      $("#representReview").attr("src",window.URL.createObjectURL(this.files[0]))
+    changeRepresent: function(){
+      scope.representReview = window.URL.createObjectURL(this.files[0])
+      $("#representReview").attr("src",scope.representReview)
     },
     intitCropper: function(){
       var cropper = new Cropper({
@@ -52,26 +57,50 @@ $(function(){
       };
     },
     formSubmit: function(){
-      if(!/^.+$/.test($(":text[name='name']").val())){
+      if(!/^.+$/.test($(":text[name=name]").val())){
         alert("请填入姓名");
         return false;
-      }else if(!/^.+$/.test($(":text[name='company']").val())){
-        alert("请填入所属学校或公司")
+      }else if(!$(":radio[name='sex']:checked").length){
+        alert("选择性别")
         return false;
-      }else if(!/^.+$/.test($(":text[name='depart']").val())){
-        alert("请填入院系或部门")
+      }else if(!/^.+$/.test($(":text[name='birthday']").val())){
+        alert("请填入生日")
         return false;
-      }else if(!/^.+$/.test($(":text[name='address']").val())){
-        alert("请填入地址")
+      }else if(!/^.+$/.test($(":text[name='height']").val())){
+        alert("请填入身高")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='weight']").val())){
+        alert("请填入体重")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='degree']").val())){
+        alert("请填入最高学历")
         return false;
       }else if(!/^.+$/.test($(":text[name='mb']").val())){
         alert("请填入手机")
         return false;
-      }else if(!/^.+$/.test($(":text[name='email']").val())){
-        alert("请填入邮件")
+      }else if(!/^.+$/.test($(":text[name='address']").val())){
+        alert("请填入联系地址")
+        return false;
+      }else if(!scope.faceReview){
+        alert("请上传个人照片")
+        return false;
+      }else if(!scope.expReview){
+        alert("请上传演艺经历")
+        return false;
+      }else if(!scope.representReview){
+        alert("请上传代表作封面")
+        return false;
+      }else if(!scope.faceReview){
+        alert("请上传个人照片")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='title']").val())){
+        alert("请填入代表作标题")
+        return false;
+      }else if(!/^.+$/.test($(":text[name='link']").val())){
+        alert("请填入代表作视频链接")
         return false;
       }else if(!/^.+$/.test($("textarea[name='comment']").val())){
-        alert("请填入备注")
+        alert("请填入代表作简介")
         return false;
       }
       // console.log($(".form").serialize())
