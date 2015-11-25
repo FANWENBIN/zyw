@@ -4,7 +4,7 @@ $(function(){
   };
   var page = {
     init: function(){
-      page.intitCropper();
+      // page.intitCropper();
       $("#form").on("submit",page.formSubmit)
     },
     intitCropper: function(){
