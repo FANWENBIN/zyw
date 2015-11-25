@@ -63,6 +63,7 @@ class StageController extends ComController {
                 $data['acthrough'] = $info['acthrough']['savepath'].$info['acthrough']['savename']; //演艺经历
             }
             $isempty = $this->checkDump($data);
+            var_dump($data);
             if($isempty){
                 ajaxReturn(102,'参数有空值','');
             }
