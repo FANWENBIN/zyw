@@ -1,27 +1,26 @@
 @charset "UTF-8";
-
 @import "../sasscommon";
-
-.webmain .top{
-  h3{
+.webmain .top {
+  h3 {
     font-size: 26px;
     font-weight: bold;
   }
-  p{
+  p {
     font-size: 16px;
     line-height: 55px;
   }
 }
-.webmain .chart{
-  height: 600px;
+.webmain .chart {
+  // height: 600px;
   margin-top: 50px;
-  .submit{
+  .submit {
     position: absolute;
     margin: {
       left: 600px;
+
       // top: 400px;
     }
-    .confirm{
+    .confirm {
       float: left;
       width: 75px;
       height: 35px;
@@ -30,11 +29,11 @@
       color: #fff;
       font-size: 16px;
       background-color: #000;
-      &:active{
+      &:active {
         background-color: #ccc;
       }
     }
-    .cancel{
+    .cancel {
       float: left;
       width: 75px;
       height: 35px;
@@ -45,32 +44,33 @@
       color: #fff;
       font-size: 16px;
       background-color: #000;
-      &:active{
+      &:active {
         background-color: #ccc;
       }
     }
   }
-  dt{
+  dt {
     float: left;
     width: 315px;
     line-height: 35px;
     text-align: right;
   }
-  dd{
+  dd {
     height: 60px;
     margin-left: 360px;
-    input[type='text']{
+    line-height: 35px;
+    input[type='text'] {
       width: 280px;
       height: 35px;
       line-height: 35px;
       text-indent: 15px;
       border: 1px solid #000;
       background-color: #fff;
-      &.w440{
+      &.w440 {
         width: 440px;
       }
     }
-    textarea{
+    textarea {
       width: 440px;
       height: 120px;
       border: 1px solid #000;
@@ -78,12 +78,29 @@
       overflow: visible;
       padding: 15px;
     }
-    input[type='file']{
+    input[type='file'] {
+
       // display: inline-block;
       width: 200px;
     }
-    .filewrapper{
+    .filewrapper {
       margin-top: 5px;
     }
+    label{
+      line-height: 35px;
+    }
+  }
+  .review{
+    max-width: 175px;
+    // height: 200px;
+    margin:{
+      bottom: 30px;
+      left: 360px;
+    }
+  }
+  legend{
+    display: block;
+    height: 60px;
+    text-indent: 200px;
   }
 }

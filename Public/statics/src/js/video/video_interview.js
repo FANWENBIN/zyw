@@ -1,6 +1,6 @@
 $(function(){
   var scope = {
-    group: "1",
+    group: "new",
     pageNum: "1"
   }
   var page = {
@@ -34,8 +34,9 @@ $(function(){
         type: "get",
         dataType: "json",
         data: {
-          type: scope.group,
-          p: 1
+          type: 7,
+          p: 1,
+          condition: scope.group
         },
         success: function(json){
           scope.pageNum = json.data.page;
@@ -54,8 +55,9 @@ $(function(){
         type: "get",
         dataType: "json",
         data: {
-          type: scope.group,
-          p: page
+          type: 7,
+          p: 1,
+          condition: scope.group
         },
         success: function(json){
           var _arr = json.data.data;

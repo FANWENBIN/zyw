@@ -39,40 +39,48 @@ $(function() {
       }
     },
     checkmb: function() {
-      $.ajax({
-        type: "get",
-        url: "./index.php?m=Home&c=User&a=code",
-        data: {
-          phone: $(":text[name=tel]").val(),
-          verify: $(":text[name=ver]").val()
-        },
-        dataType: "json",
-        success: function(json) {
-          console.log(json.msg);
-          if (json.status === 0) {
-            $(".step1").hide();
-            $(".step2").show();
-          } else if (json.status === 102) {
-            alert("验证码错误")
-          }
-        },
-        error: function() {}
-      })
+      if (!/^.+$/.test($(":text[name=tel]").val())) {
+        alert("手机号码不能为空");
+      } else if (!/^.+$/.test($(":text[name=ver]").val())) {
+        alert("验证码不能为空");
+      } else {
+        $.ajax({
+          type: "get",
+          url: "./index.php?m=Home&c=User&a=code",
+          data: {
+            phone: $(":text[name=tel]").val(),
+            verify: $(":text[name=ver]").val()
+          },
+          dataType: "json",
+          success: function(json) {
+            console.log(json.msg);
+            if (json.status === 0) {
+              $(".step1").hide();
+              $(".step2").show();
+            } else if (json.status === 102) {
+              alert("验证码错误");
+            } else if (json.status === 103) {
+              alert("手机号码错误");
+            }
+          },
+          error: function() {}
+        })
+      }
     },
     gerVer: function() {
       if (/^.+$/.test($(":text[name=tel]").val())) {
         if (scope.verStatus) {
           scope.verStatus = false;
           var _time = 30;
-          var _timer = setInterval(function(){
+          var _timer = setInterval(function() {
             $("#getVer").html(_time--);
-            if(_time === 0){
+            if (_time === 0) {
               clearInterval(_timer);
               scope.verStatus = true;
               $("#getVer").html("发送验证码");
             }
             console.log(_time);
-          },1000)
+          }, 1000)
           $.ajax({
             type: "get",
             url: "./index.php?m=Home&c=User&a=gsend",
@@ -92,8 +100,7 @@ $(function() {
                 $(".step1 .error").html("手机号码未注册")
               }
             },
-            error: function() {
-            }
+            error: function() {}
           })
         }
       } else {
