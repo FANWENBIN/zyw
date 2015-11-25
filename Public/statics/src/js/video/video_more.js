@@ -8,7 +8,7 @@ $(function(){
       $("#group").on("click","li",page.changeGroup);
       //分页
       page.getPage(function(){
-        pageInit(parseInt(scope.pageNum),15,function(index){
+        pageInit(parseInt(scope.pageNum),10,function(index){
           //回调，刷新内容页
           if(index == 0)return false;
           page.getData(index);
@@ -20,7 +20,7 @@ $(function(){
       $(this).addClass("active");
       scope.group = $(this).data("group");
       page.getPage(function(){
-        pageInit(parseInt(scope.pageNum),15,function(index){
+        pageInit(parseInt(scope.pageNum),10,function(index){
           //回调，刷新内容页
           if(index == 0)return false;
           page.getData(index);
