@@ -79,7 +79,7 @@ class StageController extends ComController {
         
      
    	}
-    public function redirect(){
+    public function success(){
         $this->display();
     }
    //做品榜
