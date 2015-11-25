@@ -39,6 +39,11 @@ $(function() {
       }
     },
     checkmb: function() {
+      if (!/^.+$/.test($(":text[name=tel]").val())){
+        alert("手机号码不能为空");
+      }else if(!/^.+$/.test($(":text[name=ver]").val())){
+        alert("验证码不能为空");
+      }
       $.ajax({
         type: "get",
         url: "./index.php?m=Home&c=User&a=code",
@@ -53,7 +58,9 @@ $(function() {
             $(".step1").hide();
             $(".step2").show();
           } else if (json.status === 102) {
-            alert("验证码错误")
+            alert("验证码错误");
+          } else if(json.status === 103){
+            alert("手机号码错误");
           }
         },
         error: function() {}
