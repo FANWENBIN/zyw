@@ -360,6 +360,7 @@ a.important {
   background-color: #fff;
 }
 .registeralert-main-item {
+  position: relative;
   height: 40px;
   width: 330px;
   margin-left: 100px;
@@ -369,6 +370,7 @@ a.important {
 .registeralert-main-item label {
   position: absolute;
   margin-left: -60px;
+  left: 0;
 }
 .registeralert-main-item input[type=text] {
   height: 35px;
