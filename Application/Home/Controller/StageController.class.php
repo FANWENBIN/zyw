@@ -64,7 +64,7 @@ class StageController extends ComController {
             }
             $isempty = $this->checkDump($data);
             var_dump($data);
-            if($isempty){
+            if(!$isempty){
                 ajaxReturn(102,'参数有空值','');
             }
             $data['userid'] = session('userid');
