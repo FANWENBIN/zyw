@@ -146,7 +146,7 @@ $(function() {
       }
     },
     changePic: function() {
-      $("#img1").attr("src", "./index.php?m=Home&c=Login&a=verify");
+      $("#img1").props("src", "./index.php?m=Home&c=Login&a=verify");
     },
     closeAlert: function() {
       // $(this).parent().parent().hide();
