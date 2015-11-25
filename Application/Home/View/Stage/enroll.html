@@ -13,8 +13,8 @@
   <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
   <link href="__PUBLIC__/statics/dist/css/stage/enroll.css" rel="stylesheet" type="text/css" />
-  <link href="__PUBLIC__/statics/js/image-cropper/dist/cropper.css" rel="stylesheet" type="text/css"/>
-  <link href="__PUBLIC__/statics/js/image-cropper/demo/cropper-demo.css" rel="stylesheet" type="text/css"/>
+  <link href="__PUBLIC__/statics/js/image-cropper/dist/cropper.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/js/image-cropper/demo/cropper-demo.css" rel="stylesheet" type="text/css" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="Keywords" content="">
@@ -23,8 +23,8 @@
 
 <body>
 
-   <!--webheader-->
-<include file = "Header/nav" />
+  <!--webheader-->
+  <include file="Header/nav" />
   <!--webheader end-->
 
 
@@ -32,9 +32,9 @@
   <div class="webmain">
 
     <!-- 登陆栏 -->
-     <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > 报名表
-     <include file = "Header/login" />
-     </div>
+    <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > 报名表
+      <include file="Header/login" />
+    </div>
 
     <div class="top">
       <h3>报名表</h3>
@@ -46,66 +46,82 @@
       <form class="" action="{:U('Stage/index')}" method="post" id="form">
 
 
-      <dl class="clearFix">
-        <dt>姓名</dt>
-        <dd>
-          <input type="text" name="name" value="">
-        </dd>
-        <dt>性别</dt>
-        <dd><label for=""><input type="radio" name="sex" value="male">男</label><label for=""><input type="radio" name="sex" value="female">女</label></dd>
-        <dt>生日</dt>
-        <dd>
-          <input type="text" placeholder="活动日期" class="fromTime" name="birthday" id="fromTime" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd'})" />
-        </dd>
-        <dt>身高</dt>
-        <dd><input type="text" name="height" value="">CM</dd>
-        <dt>体重</dt>
-        <dd><input type="text" name="weight" value="">KG</dd>
-        <dt>最高学历</dt>
-        <dd><input type="text" name="degree " value=""></dd>
-        <dt>个人照片</dt>
-        <dd>
-            <input type="file" name="pic" id="mypic" />
+        <dl class="clearFix">
+          <dt>姓名</dt>
+          <dd>
+            <input type="text" name="name" value="">
+          </dd>
+          <dt>性别</dt>
+          <dd>
+            <label for="">
+              <input type="radio" name="sex" value="male">男</label>
+            <label for="">
+              <input type="radio" name="sex" value="female">女</label>
+          </dd>
+          <dt>生日</dt>
+          <dd>
+            <input type="text" placeholder="" class="" name="birthday" id="" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd'})" />
+          </dd>
+          <dt>身高</dt>
+          <dd>
+            <input type="text" name="height" value="">CM</dd>
+          <dt>体重</dt>
+          <dd>
+            <input type="text" name="weight" value="">KG</dd>
+          <dt>最高学历</dt>
+          <dd>
+            <input type="text" name="degree " value="">
+          </dd>
+          <dt>个人照片</dt>
+          <dd>
+            <input type="file" name="pic" id="face" />
             <span>请选择一张350*400的照片</span>
-        </dd>
-        <span><img src="#" alt="" class="review" /></span>
+          </dd>
+          <span>
+            <img src="__PUBLIC__/statics/images/default-img.gif" alt="" class="review" id="faceReview" />
+          </span>
+          <dt>演艺经历</dt>
+          <dd>
+            <input type="file" name="pic" id="exp" />
+            <!-- <span>请选择一张350*400的照片</span> -->
+          </dd>
+          <span>
+            <img src="__PUBLIC__/statics/images/default-img.gif" alt="" class="review" id="expReview" />
+          </span>
 
-        <dt>所属学校/公司</dt>
-        <dd>
-          <input type="text" name="company" value="">
-        </dd>
-        <dt>所属院系/部门</dt>
-        <dd>
-          <input type="text" name="depart" value="">
-        </dd>
-        <dt>通讯地址</dt>
-        <dd>
-          <input type="text" name="address" value="">
-        </dd>
-        <dt>手机</dt>
-        <dd>
-          <input type="text" name="mb" value="">
-        </dd>
-        <dt>电子邮件</dt>
-        <dd>
-          <input type="text" name="email" value="">
-        </dd>
-        <dt>备注 </dt>
-        <dd>
-          <textarea name="comment" rows="8" cols="40"></textarea>
-        </dd>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
 
-      </dl>
-      <div class="submit">
-        <input type="submit" name="name" value="确认" class="confirm">
-        <a href="{:U('Stage/index')}" class="cancel">取消</a>
-      </div>
-        </form>
+
+
+          <fieldset>
+            <legend>代表作品</legend>
+
+            <dt>标题</dt>
+            <dd>
+              <input type="text" name="title" value="">
+            </dd>
+            <dt>视频链接</dt>
+            <dd>
+              <input type="text" name="depart" value="">
+            </dd>
+
+            <dt>作品简介 </dt>
+            <dd>
+              <textarea name="comment" rows="8" cols="40"></textarea>
+            </dd>
+
+          </fieldset>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+        </dl>
+        <div class="submit">
+          <input type="submit" name="name" value="确认" class="confirm">
+          <a href="{:U('Stage/index')}" class="cancel">取消</a>
+        </div>
+      </form>
     </div>
 
 

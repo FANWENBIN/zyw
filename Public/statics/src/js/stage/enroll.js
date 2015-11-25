@@ -5,7 +5,15 @@ $(function(){
   var page = {
     init: function(){
       // page.intitCropper();
-      $("#form").on("submit",page.formSubmit)
+      $("#form").on("submit",page.formSubmit);
+      $("#face").on("change",page.changeFace);
+      $("#exp").on("change",page.changeExp);
+    },
+    changeFace: function(){
+      $("#faceReview").attr("src",window.URL.createObjectURL(this.files[0]))
+    },
+    changeExp: function(){
+      $("#expReview").attr("src",window.URL.createObjectURL(this.files[0]))
     },
     intitCropper: function(){
       var cropper = new Cropper({

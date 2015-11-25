@@ -58,6 +58,7 @@
   dd {
     height: 60px;
     margin-left: 360px;
+    line-height: 35px;
     input[type='text'] {
       width: 280px;
       height: 35px;
@@ -90,8 +91,16 @@
     }
   }
   .review{
-    width: 350px;
-    height: 400px;
-    margin-left: 360px;
+    max-width: 175px;
+    // height: 200px;
+    margin:{
+      bottom: 30px;
+      left: 360px;
+    }
+  }
+  legend{
+    display: block;
+    height: 60px;
+    text-indent: 200px;
   }
 }
