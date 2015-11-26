@@ -211,8 +211,12 @@ $(function() {
             $("#error").html("验证码错误");
           } else if (json.status == "102") {
             $("#error").html("绑定失败，请稍后再试");
+          } else if (json.status == "103") {
+            $("#error").html("改手机号码已被注册，请更换号码后再试");
           } else if (json.status == "105") {
             $("#error").html("验证码与手机号码不匹配，请重新尝试");
+          } else {
+            $("#error").html(json.msg);
           }
         }
       });
