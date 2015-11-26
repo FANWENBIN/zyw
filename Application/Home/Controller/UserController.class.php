@@ -83,6 +83,8 @@ class UserController extends ComController {
         }
         $userlist = $this->checkuserLogin(); //验证登陆，并返回登陆信息
         $user = M('user');
+        $sign = $user->where('mobile = '.$data['mobile'].' and status = 1')->find();
+        if($sign){ajaxReturn(103,'该手机号已被注册','');}
         if(!$userlist){
             ajaxReturn(102,'未登录','');
         }
