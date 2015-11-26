@@ -48,7 +48,9 @@ class StageController extends ComController {
             $data['acweight'] = I('post.acweight'); //体重
             $data['acschool'] = I('post.acschool');//毕业院校
             $data['phone'] = I('post.phone');//联系手机号
-
+            if(!preg_match("/1[3458]{1}\d{9}$/",$data['phone'])){  
+                $this->jump(U('Stage/enroll','手机格式不对',5)); 
+            }
             $upload = new \Think\Upload();// 实例化上传类    
             $upload->maxSize   =     3145728 ;// 设置附件上传大小    
             $upload->exts      =     array('jpg', 'png', 'jpeg');
