@@ -37,7 +37,10 @@ class UserController extends ComController {
             $data['cityid'] = $cities[1];
             $data['birthday'] = strtotime(I('post.birthday'));
             $data['sex']    = I('post.sex');
+            $ch = $user->where('nickname = '.$data['nickname'].' and status = 1 and id <>'.session('userid'))->find();
+            if($ch){$this->redirect(U('setting'),'', 2, '昵称已被使用');}
             $sign = $user->where('id='.session('userid'))->save($data);
+
             if($sign === false){
                 $this->redirect(U('setting'),'', 2, '修改失败');
             }else{
@@ -311,7 +314,7 @@ class UserController extends ComController {
         $data['status'] = 1;
         $data['passwd'] = $passwd;
         $sign = $user->where('mobile = '.$phone)->save($data);
-        
+        echo $user->getlastsql();
         if($sign){
             ajaxReturn(0,'修改成功','');
         }else{
