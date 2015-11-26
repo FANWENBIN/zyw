@@ -30,8 +30,8 @@ $(function() {
             if (json.status === 0) {
               $(".step2").hide();
               $(".step3").show();
-            } else if (json.status === 102) {
-              $(".step2 .error")("系统错误，请稍后再试");
+            } else {
+              $(".step2 .error").html(json.msg);
             }
           },
           error: function() {}
