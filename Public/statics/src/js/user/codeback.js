@@ -30,8 +30,8 @@ $(function() {
             if (json.status === 0) {
               $(".step2").hide();
               $(".step3").show();
-            } else if (json.status === 102) {
-              $(".step2 .error")("系统错误，请稍后再试");
+            } else {
+              $(".step2 .error").html(json.msg);
             }
           },
           error: function() {}
@@ -61,6 +61,8 @@ $(function() {
               alert("验证码错误");
             } else if (json.status === 103) {
               alert("手机号码错误");
+            } else{
+              alert("json.msg");
             }
           },
           error: function() {}
@@ -98,6 +100,8 @@ $(function() {
                 $(".step1 .error").html("手机号码错误，请检查错误后再试")
               } else if (json.status === 104) {
                 $(".step1 .error").html("手机号码未注册")
+              } else {
+                $(".step1 .error").html(json.msg)
               }
             },
             error: function() {}

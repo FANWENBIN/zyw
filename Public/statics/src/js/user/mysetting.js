@@ -157,6 +157,16 @@ $(function() {
       console.log($(".mbchange").val());
       if (scope.btrue) {
         scope.btrue = false;
+          var _time = 30;
+          var _timer = setInterval(function(){
+            $("#sendverify").html(_time--);
+            if(_time === 0){
+              clearInterval(_timer);
+              scope.btrue = true;
+              $("#sendverify").html("发送验证码");
+            }
+            console.log(_time);
+          },1000)
         $.ajax({
           url: "./index.php?m=Home&c=User&a=yzm",
           type: "get",
@@ -165,6 +175,7 @@ $(function() {
             phone: $(".mbchange").val()
           },
           success: function(json) {
+            console.log(json.msg)
             if (json.status == "0") {
               $("#error").html("验证码已发送，请注意查收");
             } else if (json.status == "101") {
@@ -172,11 +183,9 @@ $(function() {
             } else if (json.status == "102") {
               $("#error").html("手机号码错误，请检查后再试");
             }
-            scope.btrue = true;
           },
           error: function() {
             alert("系统错误，请稍后再试");
-            scope.btrue = true;
           }
         })
       }
@@ -202,8 +211,12 @@ $(function() {
             $("#error").html("验证码错误");
           } else if (json.status == "102") {
             $("#error").html("绑定失败，请稍后再试");
+          } else if (json.status == "103") {
+            $("#error").html("改手机号码已被注册，请更换号码后再试");
           } else if (json.status == "105") {
             $("#error").html("验证码与手机号码不匹配，请重新尝试");
+          } else {
+            $("#error").html(json.msg);
           }
         }
       });
