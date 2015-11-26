@@ -311,10 +311,10 @@ class UserController extends ComController {
         $passwd = I('post.passwd','','md5');
         $phone = session('phone');
         $user = M('user');
-        $data['status'] = 1;
+        
         $data['passwd'] = $passwd;
-        $sign = $user->where('mobile = '.$phone)->save($data);
-        echo $user->getlastsql();
+        $sign = $user->where("mobile = '".$phone."' and status = 1")->save($data);
+        
         if($sign){
             ajaxReturn(0,'修改成功','');
         }else{
@@ -349,7 +349,7 @@ class UserController extends ComController {
             ajaxReturn(103,'手机输入不符合格式');  
         }
         $user = M('user');
-        $usersum = $user->where('status = 1 and mobile = '.$phone)->count();
+        $usersum = $user->where("status = 1 and mobile = '".$phone."'")->count();
         if($usersum < 1){
             ajaxReturn(104,'手机号未注册','');
         }
