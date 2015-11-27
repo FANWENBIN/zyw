@@ -13,11 +13,11 @@ function lazyload(option) {
     console.log(defObj,defHeight,pageTop())
     defObj.each(function() {
       if ($(this).offset().top <= pageTop()) {
-        var _src = $(this).attr("_src");
+        var src2 = $(this).attr("src2");
         //已显示的不用再显示
-        if (_src) {
+        if (src2) {
           //显示后，去掉src2属性
-          $(this).attr("_src", _src).removeAttr("_src");
+          $(this).attr("src2", src2).removeAttr("src2");
         }
       }
     });
