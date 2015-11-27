@@ -28,5 +28,5 @@ function lazyload(option) {
   });
 }
 lazyload({
-  defObj: ".lazyload"
+  defObj: "lazyload"
 });
