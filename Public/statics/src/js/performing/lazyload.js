@@ -17,7 +17,7 @@ function lazyload(option) {
         //已显示的不用再显示
         if (_src) {
           //显示后，去掉src2属性
-          $(this).attr("src", _src).removeAttr("_src");
+          $(this).attr("_src", _src).removeAttr("_src");
         }
       }
     });
@@ -28,5 +28,5 @@ function lazyload(option) {
   });
 }
 lazyload({
-  defObj: "lazyload"
+  defObj: ".lazyload"
 });
