@@ -27,6 +27,3 @@ function lazyload(option) {
     imgLoad();
   });
 }
-lazyload({
-  defObj: ".lazyload"
-});

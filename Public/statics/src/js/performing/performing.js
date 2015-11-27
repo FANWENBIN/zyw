@@ -82,6 +82,9 @@ $(function(){
                 _outerhtml += _innerhtml;
             }
             $("#actorgroup").html(_outerhtml);
+            lazyload({
+              defObj: ".lazyload"
+            });
           }else{
           }
         },
