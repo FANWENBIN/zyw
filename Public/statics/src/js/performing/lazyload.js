@@ -17,7 +17,7 @@ function lazyload(option) {
         //已显示的不用再显示
         if (src2) {
           //显示后，去掉src2属性
-          $(this).attr("src2", src2).removeAttr("src2");
+          $(this).attr("src", src2).removeAttr("src2");
         }
       }
     });
