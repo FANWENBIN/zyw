@@ -5,8 +5,7 @@ function lazyload(option) {
   };
   settings = $.extend(settings, option || {});
   var defHeight = settings.defHeight;
-  // var defObj = (typeof settings.defObj == "object") ? settings.defObj.find("img") : $(settings.defObj).find("img");
-  var defObj = $(settings.defObj).find("img");
+  var defObj = (typeof settings.defObj == "object") ? settings.defObj.find("img") : $(settings.defObj).find("img");
   var pageTop = function() {
     return document.documentElement.clientHeight + Math.max(document.documentElement.scrollTop, document.body.scrollTop) - settings.defHeight;
   };
