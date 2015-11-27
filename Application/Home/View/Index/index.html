@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="Keywords" content="中演网，中国电视好演员网，好演员评选">
   <meta name="Description" content="">
-
+<meta property="qc:admins" content="205527442161477636707217" />
 </head>
 
 <body>
@@ -543,7 +543,7 @@
             <volist name ="tvvideo" id = "vo" offset = '3' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
 
@@ -565,7 +565,7 @@
              <volist name ="tvvideo" id = "vo" offset = '8' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
             </ul>
@@ -586,7 +586,7 @@
               <volist name ="tvvideo" id = "vo" offset = '13' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
             </ul>
@@ -609,7 +609,7 @@
             <volist name ="hxvideo" id = "vo" offset = '3' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
 
@@ -631,7 +631,7 @@
              <volist name ="hxvideo" id = "vo" offset = '8' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
             </ul>
@@ -652,7 +652,7 @@
               <volist name ="hxvideo" id = "vo" offset = '13' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
             </ul>
@@ -674,7 +674,7 @@
             <volist name ="spvideo" id = "vo" offset = '3' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
 
@@ -696,7 +696,7 @@
              <volist name ="spvideo" id = "vo" offset = '8' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
             </ul>
@@ -717,7 +717,7 @@
               <volist name ="spvideo" id = "vo" offset = '13' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
             </ul>
@@ -740,7 +740,7 @@
             <volist name ="tbvideo" id = "vo" offset = '3' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
 
@@ -762,7 +762,7 @@
              <volist name ="tbvideo" id = "vo" offset = '8' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
             </ul>
@@ -783,7 +783,7 @@
               <volist name ="tbvideo" id = "vo" offset = '13' length = "5">
               <li><a href="{:U('Video/video_details',array('id'=>$vo['id']))}">
               <?php echo strlen($vo['title'],'utf8')>20?mb_substr($vo['title'],0,20,'utf-8').'...':$vo['title'] ?></a>
-                <span><?php echo floor((time()-$vo['instime'])/3600)?>小时前</span>
+                <span>{$vo.instime|date="Y-m-d H:i:s",###}</span>
               </li>
             </volist>
             </ul>
