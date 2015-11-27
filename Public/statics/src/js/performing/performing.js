@@ -68,7 +68,7 @@ $(function(){
                   //item[key][i].
                   _innerhtml += '<a href = "index.php?m=Home&c=Performing&a=actorinfo&id='+ item[key][i].id +'">'
                       +'<div class="item">'
-                      +'<img src2="'+ item[key][i].img +'" alt="" />'
+                      +'<img _src="'+ item[key][i].img +'" alt="" />'
                       +'<p>'+ item[key][i].name +'</p>'
                       +'<sub></sub>'
                     +'</div>'
