@@ -173,8 +173,16 @@
   }
 }
 .go2top{
+  display: none;
   position: fixed;
-  width: 
+  bottom: 100px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  line-height: 50px;
   background: rgba(0,0,0,.3);
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
 }

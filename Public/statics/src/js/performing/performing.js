@@ -6,6 +6,19 @@ $(function(){
     init: function(){
       $("#sorting").on("click","li",page.tabGroup);
       page.loadData();
+      $(document).on("scroll",page.showGo2Top);
+      $(".go2top").on("click",page.go2Top)
+    },
+    go2Top: function(){
+      $("body").animate({scrollTop: 0});
+    },
+    showGo2Top: function(){
+      var scrollTop = $("body").scrollTop();
+      if(scrollTop > 500){
+        $(".go2top").show();
+      }else{
+        $(".go2top").hide();
+      }
     },
     tabGroup: function(){
       $("#sorting").find("li").removeClass("active");
