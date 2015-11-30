@@ -381,7 +381,8 @@ class UserController extends ComController {
         $this->userinfo = session('uinfo');
 
         var_dump(session('uinfo'));
-       // $this->display();
+        session('name','sxx');
+       $this->display();
     }
 
 }
