@@ -28,7 +28,7 @@ $(function(){
           success: function(json){
             console.log(json.msg);
             if(json.status === 0){
-              window.location.href = "./index.php?m=Home&c=User&a=myinfo"
+              window.location.href = "./index.php?m=Home&c=User&a=setting"
             }else if(json.status === 103){
               $(".error").html("手机号码格式不正确")
             }else if(json.status === 105){
