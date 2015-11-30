@@ -208,6 +208,7 @@ class LoginController extends ComController {
         $passwd = I('post.passwd');
         $verify = I('post.verify');
         var_dump(session('uinfo'));
+        echo session('sxx');
         die();
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  

@@ -379,8 +379,9 @@ class UserController extends ComController {
     */
     public function threepartlogin(){
         $this->userinfo = session('uinfo');
-        session('uinfo',session('uinfo'));
+        //session('uinfo',session('uinfo'));
         var_dump(session('uinfo'));
+        session('sxx','sxx');
         $this->display();
     }
 
