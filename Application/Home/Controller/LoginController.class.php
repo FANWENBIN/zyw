@@ -133,9 +133,9 @@ class LoginController extends ComController {
             if(!$list){
                 $userinfo = $weixin->get_user_info($token,$openid);
                 session('uinfo',$userinfo);
-                var_dump(session('uinfo'));exit();
+                var_dump(session('uinfo'));die();
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
-            exit;
+            
             }
             session('userid',$list['id']);          //存储登陆信息
             session('username',$list['nickname']);
