@@ -223,6 +223,7 @@ class LoginController extends ComController {
         if($phone != session('phone') || $verify != session('yzm')){
             ajaxReturn(104,'验证码输入错误','');
         }
+        var_dump(session('uinfo'));
 
 
     }
