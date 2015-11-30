@@ -1,57 +1,89 @@
-
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
-<head>
-<meta property="qc:admins" content="2055274421614776367072177" />
-<meta charset="utf-8">
-<title>中演网</title>
-<link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
-<link href="__PUBLIC__/statics/dist/css/user/codeback.css" rel="stylesheet" type="text/css" />
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<meta name="Keywords" content="">
-<meta name="Description" content="">
+<head>
+  <meta property="qc:admins" content="2055274421614776367072177" />
+  <meta charset="utf-8">
+  <title>中演网</title>
+  <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/statics/dist/css/user/threepartlogin.css" rel="stylesheet" type="text/css" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
 
 </head>
 
 <body>
 
-     <!--webheader-->
-<include file = "Header/nav" />
+  <!--webheader-->
+  <include file="Header/nav" />
   <!--webheader end-->
 
 
 
-    <!--webmain-->
-    <div class="webmain">
-      <div class="con nav clearFix" id="J_nav">
-          <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="#">找回密码</a> >
-            <include file = "Header/login" />
-          </div>
+  <!--webmain-->
+  <div class="webmain">
+    <div class="con nav clearFix" id="J_nav">
+      <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="#">绑定手机号码</a>
+        <include file="Header/login" />
       </div>
-      <div class="title">
-
-      </div>
-
-
     </div>
-    <!--webmain end-->
+    <div class="container">
 
 
-<include file="Header/header" />
+      <div class="formsection">
+        <dl class="">
+          <dt>手机：</dt>
+          <dd>
+            <input type="text" name="mb" value="" placeholder="请输入手机号码">
+            <span class="error"></span>
+          </dd>
+          <dt>密码：</dt>
+          <dd>
+            <input type="text" name="name" value="" placeholder="至少8位，至少包含数字和字符">
+          </dd>
+          <dt>验证码：</dt>
+          <dd>
+            <input type="text" name="name" value="" placeholder="请输入验证码">
+            <a href="#" class="getver" id="getver">获取验证码</a>
+          </dd>
+          <dt></dt>
+          <dd>
+            <button type="button" name="button">绑定</button>
+          </dd>
+        </dl>
+      </div>
+      <div class="logfacesection">
+        <div class="logicon">
+          <span>请正在使用<em>qq账号</em>登陆</span>
+          <img src="#" alt="" />
+          <span>名字</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--webmain end-->
 
 
-<script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
-<script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
-<script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
-<script src="__PUBLIC__/statics/dist/js/common.js"></script>
-<script src="__PUBLIC__/statics/dist/js/user/codeback.js"></script>
+  <include file="Header/header" />
+
+
+  <script src="__PUBLIC__/statics/js/jquery-1.8.0.min.js"></script>
+  <script src="__PUBLIC__/statics/js/modernizr.com-custom-2.6.1-01.js"></script>
+  <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
+  <script src="__PUBLIC__/statics/dist/js/common.js"></script>
+  <script src="__PUBLIC__/statics/dist/js/user/threepartlogin.js"></script>
 
 
 
 
 </body>
+
 </html>
