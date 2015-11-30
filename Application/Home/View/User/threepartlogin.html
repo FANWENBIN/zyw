@@ -64,13 +64,12 @@
           <span>请正在使用<em>{$Think.session.sign}</em>登陆</span>
           <if condition = "$Think.session.sign eq 'QQ账号' ">
             
-            <img src="{$userinfo.headimgurl}" alt="" />
-            <!-- {$userinfo.headimgurl} -->
+            <img src="{$userinfo.figureurl_2}" alt="" />
             <span>{$userinfo.nickname}</span>
           <elseif condition = "$Think.session.sign eq '微博账号' ">
-            <img src="{$userinfo.headimgurl}" alt="" />
+            <img src="{$userinfo.profile_image_ur}" alt="" />
             <!-- {$userinfo.headimgurl} -->
-            <span>{$userinfo.nickname}</span>
+            <span>{$userinfo.name}</span>
           <else />
             <img src="{$userinfo.headimgurl}" alt="" />
             <!-- {$userinfo.headimgurl} -->
