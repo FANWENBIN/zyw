@@ -32,11 +32,12 @@ class LoginController extends ComController {
             session('userimg',$list['headpic']);
             //var_dump($list);die();
             echo "<script>window.close();window.opener.location.reload()</script>";
+            exit();
             //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
             session('uinfo',$uinfo);
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
-            
+            exit();
         }  
     }
     /**
@@ -83,28 +84,16 @@ class LoginController extends ComController {
                 $list = $user->where("wbuid = '".$uid."'")->find();
                 //echo $user->getlastsql();die();
                 if(!$list){
-                    $data['nickname'] = $user_message['screen_name'];
-                    $data['sex']      = ($user_message['gender'] == 'm')?1:2;
-                    $address = explode(' ', $user_message['location']);
-                    $data['province'] = $address[0];
-                    $data['city']     = $address[1];
-                    $data['headpic']  = $user_message['profile_image_url'];
-                    $data['wbuid']    = $uid;
-                    $data['passwd']   = md5('123456');
-                    $data['mobile']   = 'WB';
-                    $data['createtime'] = time();
-                    $sign = $user->add($data);
-                    if(!$sign){
-                        $this->error('登陆失败');
-                    }
-                    $list = $user->where('id='.$sign)->find();
+                    session('uinfo',$user_message);
+            echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
+            exit();
                 }
                 session('userid',$list['id']);
                 session('username',$list['nickname']);
                 session('userphone',$list['mobile']);
                 session('userimg',$list['headpic']);
                 echo "<script>window.close();window.opener.location.reload()</script>";
-
+                exit();
             }else{
                 $this->error('登陆失败');
             }
@@ -143,21 +132,9 @@ class LoginController extends ComController {
             $list = $user->where("openid = '".$openid."'")->find();
             if(!$list){
                 $userinfo = $weixin->get_user_info($token,$openid);
-                $data['nickname'] = $userinfo['nickname'];
-                $data['sex']      = $userinfo['sex'];
-                $data['province'] = $userinfo['province'];
-                $data['city']     = $userinfo['city'];
-                $data['headpic']  = $userinfo['headimgurl'];
-                $data['openid']   = $openid;
-                $data['passwd']   = md5('123456');
-                $data['mobile']   = 'weixin';
-                $data['createtime'] = time();
-                $sign = $user->add($data);
-                if(!$sign){
-                    $this->error(U('Index/index'),'登陆失败');
-                }else{
-                    $list = $user->where("openid='".$openid."'")->find();
-                }
+                session('uinfo',$userinfo);
+            echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
+            exit;
             }
             session('userid',$list['id']);          //存储登陆信息
             session('username',$list['nickname']);
