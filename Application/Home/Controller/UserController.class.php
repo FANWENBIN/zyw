@@ -373,4 +373,11 @@ class UserController extends ComController {
             ajaxReturn(101,'删除失败','');
         }
     }
+    /**
+    *第三方登录页面
+    *@author witner
+    */
+    public function threepartlogin(){
+        $this->display();
+    }
 }
