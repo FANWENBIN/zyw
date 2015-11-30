@@ -378,8 +378,10 @@ class UserController extends ComController {
     *@author witner
     */
     public function threepartlogin(){
+        if(empty(session('uinfo'))){
+            $this->display('Public:404');
+        }
         $this->userinfo = session('uinfo');
-
         //var_dump(session('uinfo'));
         //session('name','sxx');
         $this->display();
