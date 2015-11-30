@@ -164,7 +164,7 @@ class LoginController extends ComController {
             ajaxReturn(103,'手机输入不符合格式');  
         }
         $user = M('user');
-        $list = $user->where('mobile = '.$phone)->find();
+        $list = $user->where('mobile = '.$phone.' and status = 1')->find();
         if($list === false){
             ajaxReturn(102,'验证失败，重新验证','');
         }else{
