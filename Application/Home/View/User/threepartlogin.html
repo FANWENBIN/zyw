@@ -62,12 +62,12 @@
       <div class="logfacesection">
         <div class="logicon">
           <span>请正在使用<em>{$Think.session.sign}</em>登陆</span>
-          <if condition = "$Think.session.sign = 'QQ账号' ">
+          <if condition = "$Think.session.sign == 'QQ账号' ">
             
             <img src="{$userinfo.headimgurl}" alt="" />
             <!-- {$userinfo.headimgurl} -->
             <span>{$userinfo.nickname}</span>
-          <elseif condition = "$Think.session.sign = '微博账号' ">
+          <elseif condition = "$Think.session.sign == '微博账号' ">
             <img src="{$userinfo.headimgurl}" alt="" />
             <!-- {$userinfo.headimgurl} -->
             <span>{$userinfo.nickname}</span>
