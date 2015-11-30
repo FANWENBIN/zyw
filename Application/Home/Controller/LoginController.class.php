@@ -35,7 +35,7 @@ class LoginController extends ComController {
             exit();
             //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
-            
+                session('openid',$oid);
                 session('uinfo',$uinfo);
                 session('sign',array('name'=>'QQ账号','code'=>1));
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
@@ -138,7 +138,7 @@ class LoginController extends ComController {
                 if(!empty($userinfo['sex'])){
                     session('uinfo',$userinfo);
                 }
-               
+                session('openid',$openid);
                 session('sign',array('name'=>'微信账号','code'=>3));
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
                 die();
@@ -233,7 +233,7 @@ class LoginController extends ComController {
             $data['province'] = $uinfo['province'];
             $data['city']     = $uinfo['city'];
             $data['headpic']  = $uinfo['figureurl_2'];
-            $data['openid']   = $uinfo['openid'];
+            $data['openid']   = session('openid');
             $data['passwd']   = md5($passwd);
             $data['mobile']   = $phone;
             $data['createtime'] = time();
@@ -257,7 +257,7 @@ class LoginController extends ComController {
             $data['province'] = $uinfo['province'];
             $data['city']     = $uinfo['city'];
             $data['headpic']  = $uinfo['headimgurl'];
-            $data['openid']   = $uinfo['openid'];
+            $data['openid']   = session('openid');
             $data['passwd']   = md5($passwd);
             $data['mobile']   = $phone;
             $data['createtime'] = time();
