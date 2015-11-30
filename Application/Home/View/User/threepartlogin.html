@@ -69,7 +69,7 @@
           <elseif condition = "$Think.session.sign.sign eq '2' ">
             <img src="{$userinfo.profile_image_url}" alt="" />
             <span>{$userinfo.name}</span>
-          <else />
+          <elseif condition = "$Think.session.sign.sign eq '3' " />
             <img src="{$userinfo.headimgurl}" alt="" />
             <!-- __PUBLIC__/statics/images/thresspartlog.gif -->
             <span>{$userinfo.nickname}</span>
