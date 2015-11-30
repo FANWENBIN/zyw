@@ -196,6 +196,30 @@ class LoginController extends ComController {
             ajaxReturn(0,'发送成功','');
         }
     }
+    /**
+    *第三方注册
+    * @author winter
+    * @version 2015年11月30日13:36:16
+    * @
+    */
+    public function thpareg(){
+        $phone = I('post.phone');
+        $passwd = I('post.passwd');
+        $verify = I('post.verify');
+        var_dump(session('uinfo'));
+        if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
+            ajaxReturn(103,'手机输入不符合格式');  
+        }
+        preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/",$passwd,$array);
+        if(!$array){
+            ajaxReturn(105,'密码过于简单');
+        }
+        if($phone != session('phone') || $verify != session('yzm')){
+            ajaxReturn(104,'验证码输入错误','');
+        }
+
+
+    }
    //验证登陆接口
     public function checklogin(){
         //md5(xxzyw916);
