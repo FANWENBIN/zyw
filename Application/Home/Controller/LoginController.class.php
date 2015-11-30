@@ -234,7 +234,9 @@ class LoginController extends ComController {
         $user = M('user');
         $list = $user->field('id,nickname,headpic,mobile,email,createtime,sex,province,city,birthday')->where($data)->find();
         if(!$list){
-            session();
+            session('userid','');
+            session('username','');
+            session('userphone','');
             ajaxReturn(0,'未登录','');
         }else{
             ajaxReturn(1,'已登录',$list);
