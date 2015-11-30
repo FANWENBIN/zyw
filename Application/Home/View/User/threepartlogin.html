@@ -67,12 +67,10 @@
             <img src="{$userinfo.figureurl_2}" alt="" />
             <span>{$userinfo.nickname}</span>
           <elseif condition = "$Think.session.sign eq '微博账号' ">
-            <img src="{$userinfo.avatar_hd}" alt="" />
-            <!-- {$userinfo.headimgurl} -->
+            <img src="{$userinfo.profile_image_url}" alt="" />
             <span>{$userinfo.name}</span>
           <else />
             <img src="{$userinfo.headimgurl}" alt="" />
-            <!-- {$userinfo.headimgurl} -->
             <!-- __PUBLIC__/statics/images/thresspartlog.gif -->
             <span>{$userinfo.nickname}</span>
           </if>
