@@ -24,23 +24,7 @@ class LoginController extends ComController {
         $uinfo = $qc->get_user_info();  //获取用户信息
         $user = M('user');
         $list = $user->where("openid='".$oid."'")->find();
-        
-        if(!$list){
-            $data['nickname'] = $uinfo['nickname'];
-            $data['sex']      = ($uinfo['gender'] == '男')?1:2;
-            $data['province'] = $uinfo['province'];
-            $data['city']     = $uinfo['city'];
-            $data['headpic']  = $uinfo['figureurl_2'];
-            $data['openid']   = $oid;
-            $data['passwd']   = md5('123456');
-            $data['mobile']   = 'QQ';
-            $data['createtime'] = time();
-            $sign = $user->add($data);
-            if(!$sign){
-                $this->error('登陆失败');
-            }
-            $list = $user->where('id='.$sign)->find();
-        }
+
         if($list){
             session('userid',$list['id']);
             session('username',$list['nickname']);
@@ -50,7 +34,9 @@ class LoginController extends ComController {
             echo "<script>window.close();window.opener.location.reload()</script>";
             //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
-            $this->error('登陆失败');
+            session('uinfo',$uinfo);
+            echo "<script>window.close();window.opener.location.href=".U('User/threepartlogin')."</script>";
+            
         }  
     }
     /**
