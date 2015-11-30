@@ -35,7 +35,9 @@ class LoginController extends ComController {
             exit();
             //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
-            session('uinfo',$uinfo);
+            
+                session('uinfo',$uinfo);
+                session('sign','QQ账号'); 
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
             exit();
         }  
@@ -85,6 +87,7 @@ class LoginController extends ComController {
                 //echo $user->getlastsql();die();
                 if(!$list){
                     session('uinfo',$user_message);
+                    session('sign','微博账号');
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
             exit();
                 }
@@ -135,8 +138,7 @@ class LoginController extends ComController {
                 if(!empty($userinfo['sex'])){
                     session('uinfo',$userinfo);
                 }
-                
-
+                session('sign','微信账号');
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
                 die();
             }
