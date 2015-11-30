@@ -184,6 +184,55 @@ class LoginController extends ComController {
         }
 
     }
+    /**
+    *第三方登陆验证手机是否已注册
+    *@author winter
+    *@version 2015年11月30日11:31:53
+    */
+    public function checkphone(){
+        $phone = I('get.phone');
+        if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
+            ajaxReturn(103,'手机输入不符合格式');  
+        }
+        $user = M('user');
+        $list = $user->where('mobile = '.$phone)->find();
+        if($list === false){
+            ajaxReturn(102,'验证失败，重新验证','');
+        }else{
+            if($list){
+                ajaxReturn(101,'手机号已被注册','');
+            }else{
+                session('checkphone',$phone);
+                ajaxReturn(0,'通过','');
+            }
+            
+        }
+    }
+    /**
+    *第三方登录 发送验证码
+    *@author winter
+    *@version 2015年11月30日11:52:47
+    */
+    public function sendyzm(){
+
+        //随机生成验证码
+        $ver = rand(100000,999999);
+        $phone = I('get.phone');
+        if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
+            ajaxReturn(103,'手机输入不符合格式');  
+        }
+        if($phone != session('checkphone')){
+            ajaxReturn(102,'手机号错误');
+        }
+        $sign = $this->sms($phone,$ver);
+        if($sign){
+            ajaxReturn(101,'发送失败','');
+        }else{
+            session('yzm',$ver);
+            session('phone',$phone);
+            ajaxReturn(0,'发送成功','');
+        }
+    }
    //验证登陆接口
     public function checklogin(){
         //md5(xxzyw916);
