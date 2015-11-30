@@ -46,24 +46,25 @@
           </dd>
           <dt>密码：</dt>
           <dd>
-            <input type="text" name="name" value="" placeholder="至少8位，至少包含数字和字符">
+            <input type="password" name="pass" value="" placeholder="至少8位，至少包含数字和字符">
           </dd>
           <dt>验证码：</dt>
           <dd>
-            <input type="text" name="name" value="" placeholder="请输入验证码">
+            <input type="text" name="ver" value="" placeholder="请输入验证码">
             <a href="#" class="getver" id="getver">获取验证码</a>
           </dd>
           <dt></dt>
           <dd>
-            <button type="button" name="button">绑定</button>
+            <button type="button" name="button" id="submit">绑定</button>
           </dd>
         </dl>
       </div>
       <div class="logfacesection">
         <div class="logicon">
+
           <span>请正在使用<em>{$Think.session.sign.name}</em>登陆</span>
           <if condition = "$Think.session.sign.code eq '1' ">
-            
+
             <img src="{$userinfo.figureurl_2}" alt="" />
             <span>{$userinfo.nickname}</span>
           <elseif condition = "$Think.session.sign.code eq '2' " />
@@ -74,6 +75,7 @@
             <!-- __PUBLIC__/statics/images/thresspartlog.gif -->
             <span>{$userinfo.nickname}</span>
           </if>
+
         </div>
       </div>
     </div>
