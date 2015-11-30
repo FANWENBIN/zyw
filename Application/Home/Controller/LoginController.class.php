@@ -272,8 +272,6 @@ class LoginController extends ComController {
         }else{
             ajaxReturn(101,'绑定失败','');
         }
-
-
     }   
    //验证登陆接口
     public function checklogin(){
