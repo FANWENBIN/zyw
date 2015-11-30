@@ -62,9 +62,21 @@
       <div class="logfacesection">
         <div class="logicon">
           <span>请正在使用<em>{$Think.session.sign}</em>登陆</span>
-          <img src="__PUBLIC__/statics/images/thresspartlog.gif" alt="" /> 
-          <!-- {$userinfo.headimgurl} -->
-          <span>{$userinfo.nickname}</span>
+          <if condition = "$Think.session.sign = 'QQ账号' ">
+            <if condition = "">
+            <img src="{$userinfo.headimgurl}" alt="" />
+            <!-- {$userinfo.headimgurl} -->
+            <span>{$userinfo.nickname}</span>
+          <elseif condition = "$Think.session.sign = '微博账号' ">
+            <img src="{$userinfo.headimgurl}" alt="" />
+            <!-- {$userinfo.headimgurl} -->
+            <span>{$userinfo.nickname}</span>
+          <else />
+            <img src="{$userinfo.headimgurl}" alt="" />
+            <!-- {$userinfo.headimgurl} -->
+            <!-- __PUBLIC__/statics/images/thresspartlog.gif -->
+            <span>{$userinfo.nickname}</span>
+          </if>
         </div>
       </div>
     </div>
