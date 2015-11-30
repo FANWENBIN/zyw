@@ -18,7 +18,7 @@ $(function(){
       }else{
         $.ajax({
           type: "post",
-          url: "./index.php?m=Home&c=Login&a=thpareg",
+          url: "./index.php?m=Home&c=Login&a=myinfo",
           data: {
             phone: $(":text[name=mb]").val(),
             passwd: $(":password[name=pass]").val(),
