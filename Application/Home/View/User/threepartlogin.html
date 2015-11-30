@@ -62,11 +62,11 @@
       <div class="logfacesection">
         <div class="logicon">
           <span>请正在使用<em>{$Think.session.sign.name}</em>登陆</span>
-          <if condition = "$Think.session.sign eq '1' ">
+          <if condition = "$Think.session.sign.sign eq '1' ">
             
             <img src="{$userinfo.figureurl_2}" alt="" />
             <span>{$userinfo.nickname}</span>
-          <elseif condition = "$Think.session.sign eq '2' ">
+          <elseif condition = "$Think.session.sign.sign eq '2' ">
             <img src="{$userinfo.profile_image_url}" alt="" />
             <span>{$userinfo.name}</span>
           <else />
