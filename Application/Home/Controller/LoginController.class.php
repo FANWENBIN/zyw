@@ -237,6 +237,7 @@ class LoginController extends ComController {
             $data['passwd']   = md5($passwd);
             $data['mobile']   = $phone;
             $data['createtime'] = time();
+            var_dump($uinfo);
             $sign = $user->add($data);
         }elseif (session('sign')['code'] == 2) {            //微博注册
             $data['nickname'] = $uinfo['screen_name'];
@@ -250,7 +251,7 @@ class LoginController extends ComController {
             $data['mobile']   = $phone;
             $data['createtime'] = time();
             $sign = $user->add($data);
-        }elseif (session('sign')['code'] == 3) {             //微博注册
+        }elseif (session('sign')['code'] == 3) {             //微信注册
             $data['nickname'] = $uinfo['nickname'];
             $data['sex']      = $uinfo['sex'];
             $data['province'] = $uinfo['province'];
@@ -263,7 +264,6 @@ class LoginController extends ComController {
             $sign = $user->add($data);
         }
         if($sign){
-            
             $list = $user->where('id='.$sign)->find();
             session('userid',$list['id']);
             session('username',$list['nickname']);
