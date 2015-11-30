@@ -384,7 +384,7 @@ class UserController extends ComController {
 
         session('name','sxx');
         echo session('name');
-        $this->display();
+        //$this->display();
     }
 
 }
