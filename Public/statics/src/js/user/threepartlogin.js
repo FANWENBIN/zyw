@@ -11,7 +11,7 @@ $(function(){
     submit: function(){
       if(!/^1[345678]\d{9}$/.test($(":text[name=mb]").val())){
         $(".error").html("手机号码错误，请重新输入")
-      }else if(!/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/.test($(":password[name=pass]"){
+      }else if(!/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/.test($(":password[name=pass]").val())){
         $(".error").html("至少8位，至少包含数字和字符");
       }else if(!/^.+$/.test($(":text[name=ver]").val())){
         $(".error").html("请输入验证码");
