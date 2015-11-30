@@ -213,7 +213,8 @@ class LoginController extends ComController {
         $phone = I('post.phone');
         $passwd = I('post.passwd');
         $verify = I('post.verify');
-        var_dump(session('uinfo'));
+        //var_dump(session('uinfo'));
+        echo session('sign')['code'];
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  
         }
@@ -224,7 +225,9 @@ class LoginController extends ComController {
         if($phone != session('phone') || $verify != session('yzm')){
             ajaxReturn(104,'验证码输入错误','');
         }
+        if(session()){
 
+        }
 
 
     }
