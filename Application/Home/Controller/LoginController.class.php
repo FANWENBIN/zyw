@@ -214,7 +214,7 @@ class LoginController extends ComController {
         $passwd = I('post.passwd');
         $verify = I('post.verify');
         //var_dump(session('uinfo'));
-        echo session('sign')['code'];
+        
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  
         }
@@ -225,8 +225,21 @@ class LoginController extends ComController {
         if($phone != session('phone') || $verify != session('yzm')){
             ajaxReturn(104,'验证码输入错误','');
         }
-        if(session()){
-
+        if(session('uinfo')['code'] == 1){
+            $data['nickname'] = $uinfo['nickname'];
+            $data['sex']      = ($uinfo['gender'] == '男')?1:2;
+            $data['province'] = $uinfo['province'];
+            $data['city']     = $uinfo['city'];
+            $data['headpic']  = $uinfo['figureurl_2'];
+            $data['openid']   = $uinfo['openid'];
+            $data['passwd']   = md5($passwd);
+            $data['mobile']   = $phone;
+            $data['createtime'] = time();
+            $sign = $user->add($data);
+        }elseif (session('uinfo')['code'] == 2) {
+            # code...
+        }elseif (session('uinfo')['code'] == 3) {
+            # code...
         }
 
 

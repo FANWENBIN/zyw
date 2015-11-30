@@ -380,8 +380,8 @@ class UserController extends ComController {
     public function threepartlogin(){
         $this->userinfo = session('uinfo');
 
-        //var_dump(session('uinfo'));
-        echo $this->userinfo['profile_image_url'];
+        var_dump(session('uinfo'));
+        
         //session('name','sxx');
         $this->display();
     }
