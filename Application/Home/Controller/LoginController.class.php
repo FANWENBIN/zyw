@@ -35,7 +35,7 @@ class LoginController extends ComController {
             //$this->redirect('Index/index', '', 0, '页面跳转中...');
         }else{
             session('uinfo',$uinfo);
-            echo "<script>window.close();window.opener.location.href=".U('User/threepartlogin')."</script>";
+            echo "<script>window.close();window.location.href=".U('User/threepartlogin')."</script>";
             
         }  
     }
