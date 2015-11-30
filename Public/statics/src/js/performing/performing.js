@@ -6,6 +6,19 @@ $(function(){
     init: function(){
       $("#sorting").on("click","li",page.tabGroup);
       page.loadData();
+      $(document).on("scroll",page.showGo2Top);
+      $(".go2top").on("click",page.go2Top)
+    },
+    go2Top: function(){
+      $("body").animate({scrollTop: 0});
+    },
+    showGo2Top: function(){
+      var scrollTop = $("body").scrollTop();
+      if(scrollTop > 500){
+        $(".go2top").show();
+      }else{
+        $(".go2top").hide();
+      }
     },
     tabGroup: function(){
       $("#sorting").find("li").removeClass("active");
@@ -55,7 +68,7 @@ $(function(){
                   //item[key][i].
                   _innerhtml += '<a href = "index.php?m=Home&c=Performing&a=actorinfo&id='+ item[key][i].id +'">'
                       +'<div class="item">'
-                      +'<img src="'+ item[key][i].img +'" alt="" />'
+                      +'<img src2="'+ item[key][i].img +'" alt="" />'
                       +'<p>'+ item[key][i].name +'</p>'
                       +'<sub></sub>'
                     +'</div>'
@@ -69,6 +82,9 @@ $(function(){
                 _outerhtml += _innerhtml;
             }
             $("#actorgroup").html(_outerhtml);
+            lazyload({
+              defObj: ".lazyload"
+            });
           }else{
           }
         },
