@@ -17,7 +17,7 @@ $(function(){
         $(".error").html("请输入验证码");
       }else{
         $.ajax({
-          type: "get",
+          type: "post",
           url: "./index.php?m=Home&c=Login&a=thpareg",
           data: {
             phone: $(":text[name=mb]").val(),
