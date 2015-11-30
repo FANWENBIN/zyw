@@ -132,7 +132,10 @@ class LoginController extends ComController {
             $list = $user->where("openid = '".$openid."'")->find();
             if(!$list){
                 $userinfo = $weixin->get_user_info($token,$openid);
-                session('uinfo',$userinfo);
+                if(!empty($userinfo['sex'])){
+                    session('uinfo',$userinfo);
+                }
+                
 
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
                 die();
