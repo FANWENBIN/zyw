@@ -243,7 +243,7 @@ class LoginController extends ComController {
         }
 
 
-    }
+    }   
    //验证登陆接口
     public function checklogin(){
         //md5(xxzyw916);
