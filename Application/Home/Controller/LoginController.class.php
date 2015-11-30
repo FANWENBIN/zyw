@@ -37,7 +37,7 @@ class LoginController extends ComController {
         }else{
             
                 session('uinfo',$uinfo);
-                session('sign','QQ账号'); 
+                session('sign',array('name'=>'QQ账号','code'=>1));
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
             exit();
         }  
@@ -87,7 +87,7 @@ class LoginController extends ComController {
                 //echo $user->getlastsql();die();
                 if(!$list){
                     session('uinfo',$user_message);
-                    session('sign','微博账号');
+                    session('sign',array('name'=>'微博账号','code'=>2));
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
             exit();
                 }
@@ -138,7 +138,8 @@ class LoginController extends ComController {
                 if(!empty($userinfo['sex'])){
                     session('uinfo',$userinfo);
                 }
-                session('sign','微信账号');
+               
+                session('sign',array('name'=>'微信账号','code'=>3));
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
                 die();
             }
@@ -213,6 +214,7 @@ class LoginController extends ComController {
         $passwd = I('post.passwd');
         $verify = I('post.verify');
         //var_dump(session('uinfo'));
+        
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  
         }
@@ -223,9 +225,54 @@ class LoginController extends ComController {
         if($phone != session('phone') || $verify != session('yzm')){
             ajaxReturn(104,'验证码输入错误','');
         }
-
-
-    }
+        $uinfo = session('uinfo');
+        if(session('sign')['code'] == 1){         //QQ注册
+            $data['nickname'] = $uinfo['nickname'];
+            $data['sex']      = ($uinfo['gender'] == '男')?1:2;
+            $data['province'] = $uinfo['province'];
+            $data['city']     = $uinfo['city'];
+            $data['headpic']  = $uinfo['figureurl_2'];
+            $data['openid']   = $uinfo['openid'];
+            $data['passwd']   = md5($passwd);
+            $data['mobile']   = $phone;
+            $data['createtime'] = time();
+            $sign = $user->add($data);
+        }elseif (session('sign')['code'] == 2) {            //微博注册
+            $data['nickname'] = $uinfo['screen_name'];
+            $data['sex']      = ($uinfo['gender'] == 'm')?1:2;
+            $address = explode(' ', $uinfo['location']);
+            $data['province'] = $address[0];
+            $data['city']     = $address[1];
+            $data['headpic']  = $uinfo['profile_image_url'];
+            $data['wbuid']    = $uinfo['id'];
+            $data['passwd']   = md5($passwd);
+            $data['mobile']   = $phone;
+            $data['createtime'] = time();
+            $sign = $user->add($data);
+        }elseif (session('sign')['code'] == 3) {             //微博注册
+            $data['nickname'] = $uinfo['nickname'];
+            $data['sex']      = $uinfo['sex'];
+            $data['province'] = $uinfo['province'];
+            $data['city']     = $uinfo['city'];
+            $data['headpic']  = $uinfo['headimgurl'];
+            $data['openid']   = $uinfo['openid'];
+            $data['passwd']   = md5($passwd);
+            $data['mobile']   = $phone;
+            $data['createtime'] = time();
+            $sign = $user->add($data);
+        }
+        if($sign){
+            $user = M('user');
+            $list = $user->where('id='.$sign)->find();
+            session('userid',$list['id']);
+            session('username',$list['nickname']);
+            session('userphone',$list['mobile']);
+            session('userimg',$list['headpic']);
+            ajaxReturn(0,'注册成功','');
+        }else{
+            ajaxReturn(101,'绑定失败','');
+        }
+    }   
    //验证登陆接口
     public function checklogin(){
         //md5(xxzyw916);

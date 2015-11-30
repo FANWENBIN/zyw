@@ -61,10 +61,21 @@
       </div>
       <div class="logfacesection">
         <div class="logicon">
-          <span>请正在使用<em>{$Think.session.sign}</em>登陆</span>
-          <img src="__PUBLIC__/statics/images/thresspartlog.gif" alt="" />
-          <!-- {$userinfo.headimgurl} -->
-          <span>{$userinfo.nickname}</span>
+
+          <span>请正在使用<em>{$Think.session.sign.name}</em>登陆</span>
+          <if condition = "$Think.session.sign.code eq '1' ">
+
+            <img src="{$userinfo.figureurl_2}" alt="" />
+            <span>{$userinfo.nickname}</span>
+          <elseif condition = "$Think.session.sign.code eq '2' " />
+            <img src="{$userinfo.profile_image_url}" alt="" />
+            <span>{$userinfo.name}</span>
+          <elseif condition = "$Think.session.sign.code eq '3' " />
+            <img src="{$userinfo.headimgurl}" alt="" />
+            <!-- __PUBLIC__/statics/images/thresspartlog.gif -->
+            <span>{$userinfo.nickname}</span>
+          </if>
+
         </div>
       </div>
     </div>
