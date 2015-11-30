@@ -133,11 +133,10 @@ class LoginController extends ComController {
             if(!$list){
                 $userinfo = $weixin->get_user_info($token,$openid);
                 session('uinfo',$userinfo);
-                session('sxx',123);
-                echo session('sxx');
-                var_dump(session('uinfo'));die();
+              
+
             echo "<script>window.close();window.opener.location.href='".U('User/threepartlogin')."'</script>";
-            
+                die();
             }
             session('userid',$list['id']);          //存储登陆信息
             session('username',$list['nickname']);
@@ -210,6 +209,7 @@ class LoginController extends ComController {
         $passwd = I('post.passwd');
         $verify = I('post.verify');
         var_dump(session('uinfo'));
+        die();
         if(!preg_match("/1[3458]{1}\d{9}$/",$phone)){  
             ajaxReturn(103,'手机输入不符合格式');  
         }
