@@ -226,6 +226,7 @@ class LoginController extends ComController {
             ajaxReturn(104,'验证码输入错误','');
         }
         $uinfo = session('uinfo');
+        $user = M('user');
         if(session('sign')['code'] == 1){         //QQ注册
             $data['nickname'] = $uinfo['nickname'];
             $data['sex']      = ($uinfo['gender'] == '男')?1:2;
@@ -262,7 +263,7 @@ class LoginController extends ComController {
             $sign = $user->add($data);
         }
         if($sign){
-            $user = M('user');
+            
             $list = $user->where('id='.$sign)->find();
             session('userid',$list['id']);
             session('username',$list['nickname']);
