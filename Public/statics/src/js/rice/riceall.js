@@ -145,7 +145,7 @@ $(function(){
                 '</div>'+
                 '<br/>'+
                 '<a href="./zyw/index.php?m=Home&c=Rice&a=homepage&id='+ _arr[i].id +'">我要报名</a>'+
-              '</div>'+
+              '</div>'+ 
             '</div>'
           }
           $("#itemlist").html(_html);
