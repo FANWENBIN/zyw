@@ -23,7 +23,7 @@ class LoginController extends ComController {
         $qc = new \QC($acs,$oid);
         $uinfo = $qc->get_user_info();  //获取用户信息
         $user = M('user');
-        $list = $user->where("openid='".$oid."'")->find();
+        $list = $user->where("openid='".$oid."'  and status = 1")->find();
 
         if($list){
             session('userid',$list['id']);
@@ -83,7 +83,7 @@ class LoginController extends ComController {
             $user_message = $c->show_user_by_id( $uid);//根据ID获取用户等基本信息
             if($user_message){
                 $user = M('user');
-                $list = $user->where("wbuid = '".$uid."'")->find();
+                $list = $user->where("wbuid = '".$uid."'  and status = 1")->find();
                 //echo $user->getlastsql();die();
                 if(!$list){
                     session('uinfo',$user_message);
