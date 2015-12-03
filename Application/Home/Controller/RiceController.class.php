@@ -164,7 +164,7 @@ class RiceController extends ComController {
         $fans = M('fans_club');    //粉丝团
         $user_fans = M('user_fans'); //用户关注粉丝团表
         $data['fansid'] = I('get.fansid');
-        $data['userid'] = session('userid');echo session('userid');
+        $data['userid'] = session('userid');
         $data['instime'] = time();
         $dump = $this->checkDump($data);          //检查数据不为空
         if($dump == 0){ajaxReturn(102,'数据不可为空','');}
