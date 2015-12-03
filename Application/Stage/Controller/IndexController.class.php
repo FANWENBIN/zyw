@@ -32,7 +32,7 @@ class IndexController extends Controller {
                     $this->success('登陆成功',U('Gactor/index'),2);
                     //$this->redirect('New/category', array('cate_id' => 2), 5, '页面跳转中...');
                 }else{
-                    echo $user->getlastsql();die();
+                    //echo $user->getlastsql();die();
                     $this->error('登陆失败',U('Index/index'),2);
                 }
             }else{
