@@ -300,16 +300,7 @@ class ComController extends Controller {
             $this->$status = 0;
         }
     }
-    /**
-    *上传
-    *@author winter
-    *@version 2015年11月6日16:49:20
-    */
-    public function uploadimg(){
-       
-     //等待开发中
-        
-    }
+
      /**
     *404
     *@author winter

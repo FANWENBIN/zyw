@@ -237,7 +237,7 @@ class LoginController extends ComController {
             $data['passwd']   = md5($passwd);
             $data['mobile']   = $phone;
             $data['createtime'] = time();
-            var_dump($uinfo);
+            
             $sign = $user->add($data);
         }elseif (session('sign')['code'] == 2) {            //微博注册
             $data['nickname'] = $uinfo['screen_name'];
