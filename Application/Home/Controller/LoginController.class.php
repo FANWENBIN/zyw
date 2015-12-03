@@ -132,7 +132,7 @@ class LoginController extends ComController {
             $token = $gettoken['access_token'];
             $openid = $gettoken['openid'];
             $user = M('user');
-            $list = $user->where("openid = '".$openid."'")->find();
+            $list = $user->where("openid = '".$openid."' and status = 1")->find();
             if(!$list){
                 $userinfo = $weixin->get_user_info($token,$openid);
                 if(!empty($userinfo['sex'])){
