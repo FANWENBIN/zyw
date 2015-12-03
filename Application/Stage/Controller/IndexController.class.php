@@ -85,8 +85,8 @@ class IndexController extends Controller {
         $Verify->entry();
     }
     function check_verify($code){  
-    $verify = new \Think\Verify();   
-    return $verify->check($code);
+        $verify = new \Think\Verify();   
+        return $verify->check($code);
     }
 
 }
