@@ -99,6 +99,8 @@ $(function(){
             $("#J_CommentList .itemcomment").eq(5).remove();
           }else if(json.status === 105){
             alert("请登录后进行评论")
+          } else {
+            alert(json.msg)
           }
         },
         error: function(){
