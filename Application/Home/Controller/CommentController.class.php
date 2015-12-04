@@ -53,6 +53,7 @@ class CommentController extends ComController {
     		$data['namehead'] = $userval['headpic'];           //查询用户头像
     		$comment = M('comment');
     		$addid = $comment->add($data);
+            echo $comment->getlastsql();
     		if($addid){
                 cookie('comment','1',60);
     			ajaxReturn(0,'评论成功','');
