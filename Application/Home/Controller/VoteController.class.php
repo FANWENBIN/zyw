@@ -363,6 +363,7 @@ class VoteController extends ComController {
             ajaxReturn(104,'参数错误','');
         }
         $where['promotion'] = $condition;
+        $where['status']   = 1;
         $sign = $actors->where($where)->count();
         if($sign < 1){ajaxReturn(102,'未产生'.$condition.'强','');}
         if($condition == 36){
@@ -376,13 +377,13 @@ class VoteController extends ComController {
         }
 
         //入围演员
-        $cutactors = $actors->field('headimg,votes,id,name,groupid')->where($where)->order(array('groupid'=>'asc','votes'=>'desc','chinese_sum'=>'asc'))->limit(0,$condition)->select();
+        $cutactors = $actors->field('img,votes,id,name,groupid')->where($where)->order(array('groupid'=>'asc','votes'=>'desc','chinese_sum'=>'asc'))->limit(0,$condition)->select();
        if($cutactors === false){
             ajaxReturn(101,'请求失败','');
        }else{
         foreach ($cutactors as $key => $value) {
             $cutactors[$key]['groupid'] = ($value['groupid'] == 1) ? '红组' : (($value['groupid'] == 2) ? '蓝组' : '绿组');
-            $cutactors[$key]['headimg'] = './Uploads'.$value['headimg'];
+            $cutactors[$key]['headimg'] = './Uploads'.$value['img'];
         }
             if(!$cutactors){$cutactors= array();}
             ajaxReturn(0,'',$cutactors);
