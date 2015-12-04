@@ -13,7 +13,7 @@
 <link href="__PUBLIC__/statics/style/reset.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/statics/style/base.css" rel="stylesheet" type="text/css" />
 <!--每个页面独立的样式文件-->
-<style type="text/css"> 
+<style type="text/css">
 .table .t1 { text-align: center; width: 80px;}
 .table .t2 { text-align: center; width: 100px;}
 .table .t2 img { display: block; margin: 0 auto;}
@@ -29,14 +29,14 @@
 
 <body>
 </block>
-  
+
 
 <block name="div">
   <!--container-->
   <div class="webContainer clearFix" id="webContainer">
 </block>
 <block name="content">
-  
+
   <!--main-->
   <div class="webMain" style="">
     <div class="mainHeader">
@@ -76,7 +76,7 @@
           <tr>
             <td class="t1">{$v.id}</td>
             <td class="t2">{$v.name}
-            </td>   
+            </td>
             <td class="t5">{:hql_date($v['instime'])}</td>
             <td class="t6">
               <p class="console">
@@ -85,7 +85,7 @@
             </td>
           </tr>
         </volist>
-        
+
         </tbody>
         <tfoot>
         <tr>
@@ -98,7 +98,7 @@
       </table>
          <div class="btnCon">
            <div class="btnCon">
-            <a href="{:U('add')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
+            <a href="{:U('add')}" id="showAlert" class="btnA">新增</a>
           </div>
         </div>
     </div>
