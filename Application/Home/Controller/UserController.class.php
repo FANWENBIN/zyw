@@ -315,6 +315,7 @@ class UserController extends ComController {
         
         $data['passwd'] = $passwd;
         $sign = $user->where("mobile = '".$phone."' and status = 1")->save($data);
+        echo $user->getlastsql();
         if(false === $sign){
             ajaxReturn(0,'修改成功','');
         }else{
