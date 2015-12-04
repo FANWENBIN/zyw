@@ -34,7 +34,7 @@
 	<div class="webContainer clearFix" id="webContainer">
 </block>
 <block name="content">
-  
+
 
   <!--main-->
   <div class="webMain" style="">
@@ -57,12 +57,12 @@
       <!--筛选-->
       <div class="tableTools clearFix mb30">
         <hr>
-    
-       
+
+
        <!--<form action="" method="post"><div class="i mr20"><input type="text" name="keywords" value="{$Think.session.condition}" class="input w180"></div>
         <div class="i"><input type="submit" name="sousuo" value="查找" class="btnB btnSmall"></a></div>
-		</form>--> 
-		
+		</form>-->
+
 
       </div>
 
@@ -79,7 +79,7 @@
         <tbody>
 		<volist name="data" id="vo">
         <tr>
-          <td class="t1">{$i}</td> 
+          <td class="t1">{$i}</td>
           <td class="t2">{$vo['title']}</td>
           <td class="t3">{$vo['instime']|date='Y-m-d',###}</td>
           <td class="t4">
@@ -100,11 +100,11 @@
         </tr>
         </tfoot>
       </table>
-	  
+
       <!--主提交按钮-->
 	  <div class="btnCon">
        <div class="btnCon">
-        <a href="{:U('Committee/introinfo')}"><input type="button" id="showAlert" class="btnA" value="新增"></a>
+        <a href="{:U('Committee/introinfo')}" id="showAlert" class="btnA">新增</a>
       </div>
     </div>
   </div>
