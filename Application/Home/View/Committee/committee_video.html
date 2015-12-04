@@ -26,12 +26,14 @@
 
 
   <!--webmain-->
-  <div class="webmain">
+  <div class="webmain" style="position: relative;">
 
     <div class="navTitle"><a href="{:U('Index/index')}">首页</a> > <a href="{:U('Committee/index')}">演工委之声</a> > {$list.title}
     <include file = "Header/login" />
     </div>
-
+    <div class = "shareframe">
+    <include file="Header/share" />
+    </div>
     <!--<img src="__PUBLIC__/statics/images/p/p2.jpg"/>-->
     <iframe width=1200 height=800 src="{$list.videohref}" frameborder=0 allowfullscreen></iframe>
 <!--
