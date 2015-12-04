@@ -93,6 +93,7 @@ class UserController extends ComController {
         empty($user)&&$this->error('未找到此数据');
         //删除
         M("User")->where(array('id'=>$id))->save(array('status'=>'0'));
+
         $this->addadminlog($user['nickname'],M("User")->getlastsql(),'删除用户',$id,'userid');
         $this->success('操作成功!');        
     }

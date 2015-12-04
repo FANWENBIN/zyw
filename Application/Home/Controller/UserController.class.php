@@ -2,7 +2,7 @@
 namespace Home\Controller;
 use Think\Controller;
 /**
- * 用户中心
+ * 用户中心 
  * @author winter
  * @version 2015年11月2日16:38:31
  */
@@ -33,8 +33,8 @@ class UserController extends ComController {
             $cities    = explode('|', I('post.cities'));
             $data['provinceid'] = $provinces[0];
             $data['province']   = $provinces[1];
-            $data['city']   = $cities[0];
-            $data['cityid'] = $cities[1];
+            $data['cityid']   = $cities[0];
+            $data['city'] = $cities[1];
             $data['birthday'] = strtotime(I('post.birthday'));
             $data['sex']    = I('post.sex');
             $ch = $user->where('nickname = '.$data['nickname'].' and status = 1 and id <>'.session('userid'))->find();

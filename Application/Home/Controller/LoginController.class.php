@@ -23,7 +23,7 @@ class LoginController extends ComController {
         $qc = new \QC($acs,$oid);
         $uinfo = $qc->get_user_info();  //获取用户信息
         $user = M('user');
-        $list = $user->where("openid='".$oid."'")->find();
+        $list = $user->where("openid='".$oid."'  and status = 1")->find();
 
         if($list){
             session('userid',$list['id']);
@@ -83,7 +83,7 @@ class LoginController extends ComController {
             $user_message = $c->show_user_by_id( $uid);//根据ID获取用户等基本信息
             if($user_message){
                 $user = M('user');
-                $list = $user->where("wbuid = '".$uid."'")->find();
+                $list = $user->where("wbuid = '".$uid."'  and status = 1")->find();
                 //echo $user->getlastsql();die();
                 if(!$list){
                     session('uinfo',$user_message);
@@ -132,7 +132,7 @@ class LoginController extends ComController {
             $token = $gettoken['access_token'];
             $openid = $gettoken['openid'];
             $user = M('user');
-            $list = $user->where("openid = '".$openid."'")->find();
+            $list = $user->where("openid = '".$openid."' and status = 1")->find();
             if(!$list){
                 $userinfo = $weixin->get_user_info($token,$openid);
                 if(!empty($userinfo['sex'])){
@@ -237,7 +237,7 @@ class LoginController extends ComController {
             $data['passwd']   = md5($passwd);
             $data['mobile']   = $phone;
             $data['createtime'] = time();
-            var_dump($uinfo);
+            
             $sign = $user->add($data);
         }elseif (session('sign')['code'] == 2) {            //微博注册
             $data['nickname'] = $uinfo['screen_name'];

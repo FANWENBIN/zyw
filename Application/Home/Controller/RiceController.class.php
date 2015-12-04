@@ -103,6 +103,9 @@ class RiceController extends ComController {
         if(!$activeval){
             $this->assign('empty',1);
         }
+        $vedio = M('vedio');
+        $this->velist = $vedio->where('status = 1 and type = 7')->order('instime desc')->find();
+
         $this->assign('activeval',$activeval);
     	$this->display();
     }
