@@ -111,7 +111,7 @@ class UserController extends ComController {
         $data['mobile'] = session('userphone');
         $data['passwd'] = $oldpasswd;
         preg_match("/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/",$newpasswd,$array);
-        if($array){
+        if(!$array){
             ajaxReturn(105,'密码过于简单');
         }
         //ajaxReturn(1,'',$data);
