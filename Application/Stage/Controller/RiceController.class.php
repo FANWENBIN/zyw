@@ -47,6 +47,7 @@ class RiceController extends ComController {
       if(!empty($id)){
         $sign = $fans->where('id='.$id)->save($data);
       }else{
+        $data['instime'] = time();
         $sign = $fans->add($data);
         $id = $sign;
       }
