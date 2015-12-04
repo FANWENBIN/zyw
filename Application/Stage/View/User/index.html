@@ -77,7 +77,7 @@
           <tr>
             <td class="t1">{$i}</td>
             <td class="t2">
-            <notempty name="v['headpic']"><img src="./Uploads{$v['headpic']}" width="50" height="50" /></notempty></td>
+            <notempty name="v['headpic']"><img src="{$v['headpic']}" width="50" height="50" /></notempty></td>
             <td class="t3">{$v['nickname']}</td>
             <td class="t4"><eq name="v['sex']" value="1">男<else/>女</eq></td>
             <td class="t5">{:hql_date($v['createtime'])}</td>
