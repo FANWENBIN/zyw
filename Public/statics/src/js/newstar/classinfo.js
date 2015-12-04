@@ -59,7 +59,7 @@ $(function(){
           for(var i = 0, len = _arr.length; i < len; i++ ){
             _html += '<div class="item clearFix">'+
               '<div class="head">'+
-                '<img src="./Uploads'+ _arr[i].namehead +'">'+
+                '<img src="'+ _arr[i].namehead +'">'+
               '</div>'+
               '<div class="info">'+
                 '<span>'+ _arr[i].name +' 发表日期：'+ _arr[i].instime +'</span>'+
@@ -85,10 +85,11 @@ $(function(){
           pagename: $(".videoname").html()
         },
         success: function(json){
+          console.log(json.msg)
           if(json.status === 0){
             $("#J_CommentList").prepend('<div class="item clearFix">'+
               '<div class="head">'+
-                '<img src="./Uploads'+ scope.userdata.headpic +'">'+
+                '<img src="'+ scope.userdata.headpic +'">'+
               '</div>'+
               '<div class="info">'+
                 '<span>'+ scope.userdata.nickname +' 发表日期：'+ new Date().toLocaleString() +'</span>'+
@@ -96,12 +97,8 @@ $(function(){
               '</div>'+
             '</div>')
             $("#J_CommentList .item").eq(5).remove();
-          }else if(json.status === 101){
-            console.log(json.msg)
-          }else if(json.status === 102){
-            console.log(json.msg)
-          }else if(json.status === 105){
-            console.log(json.msg)
+          }else {
+            alert(json.msg)
           }
         },
         error: function(){
