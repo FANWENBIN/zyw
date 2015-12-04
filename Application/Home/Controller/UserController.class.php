@@ -69,6 +69,7 @@ class UserController extends ComController {
             if($sign === false){
                 $this->error('修改失败！'); 
             }else{
+                session('userimg',$data['headpic']);
                 $this->redirect(U('setting'),'', 0, '修改成功');
             }
         }
