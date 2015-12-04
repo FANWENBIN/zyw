@@ -111,6 +111,8 @@ $(function() {
               $(".error").html("发送失败，请稍后再试")
             } else if (json.status === 103) {
               $(".error").html("手机号码格式不正确，请重新输入")
+            } else {
+              $(".error").html(json.msg)
             }
           },
           error: function() {}
@@ -185,6 +187,8 @@ $(function() {
               $("#error").html("发送失败，请稍后再试");
             } else if (json.status == "102") {
               $("#error").html("手机号码错误，请检查后再试");
+            } else {
+              $("#error").html(json.msg)
             }
           },
           error: function() {

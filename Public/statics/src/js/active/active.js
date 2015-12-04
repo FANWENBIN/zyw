@@ -101,6 +101,8 @@ $(function(){
                   $(".errorsubmit").html("请检查信息是否填完整")
                 }else if(json.status === 103){
                   $(".errorsubmit").html("活动日期有误")
+                } else {
+                  alert(json.msg)
                 }
               },
               error: function(){

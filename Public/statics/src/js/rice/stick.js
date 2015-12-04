@@ -26,15 +26,15 @@ $(function(){
         },
         dataType: "json",
         success: function(json){
-          if(json.status === 0){
             console.log(json.msg);
+          if(json.status === 0){
             window.location.reload()
           }else if(json.status === 101){
-            console.log(json.msg);
             alert("发布失败，请稍后再试")
           }else if(json.status === 102){
-            console.log(json.msg);
             alert("请登录或稍后再试")
+          } else {
+            alert(json.msg)
           }
         },
         error: function(){
@@ -58,16 +58,15 @@ $(function(){
         },
         dataType: "json",
         success: function(json){
-          if(json.status === 0){
             console.log(json.msg);
-
+          if(json.status === 0){
             window.location.reload()
           }else if(json.status === 101){
-            console.log(json.msg);
             alert("发布失败，请稍后再试")
           }else if(json.status === 102){
-            console.log(json.msg);
             alert("请登录或稍后再试");
+          } else {
+            alert(json.msg)
           }
         },
         error: function(){

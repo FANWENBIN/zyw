@@ -34,15 +34,15 @@ $(function() {
           },
           dataType: "json",
           success: function(json) {
-            if (json.status === 0) {
               console.log(json.msg);
+            if (json.status === 0) {
               window.location.reload();
             } else if (json.status === 101) {
-              console.log(json.msg);
               alert("发送失败，请稍后再试");
             } else if (json.status === 102) {
-              console.log(json.msg);
               alert("请先登录后再发帖");
+            } else {
+              alert(json.msg)
             }
           },
           error: function() {
@@ -83,6 +83,8 @@ $(function() {
               alert("系统错误，请稍后再试")
             }else if(json.status === 102 ){
               alert("饭团未关注")
+            } else {
+              alert(json.msg)
             }
         },
         error: function(){
@@ -113,6 +115,8 @@ $(function() {
               alert("加入失败，请稍后再试")
             } else if (json.status === 104) {
               $(".join").html("已入团");
+            } else {
+              alert(json.msg)
             }
           },
           error: function() {
