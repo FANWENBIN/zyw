@@ -363,6 +363,7 @@ class VoteController extends ComController {
             ajaxReturn(104,'参数错误','');
         }
         $where['promotion'] = $condition;
+        $where['status']   = 1;
         $sign = $actors->where($where)->count();
         if($sign < 1){ajaxReturn(102,'未产生'.$condition.'强','');}
         if($condition == 36){
