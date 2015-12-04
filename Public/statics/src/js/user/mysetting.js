@@ -69,13 +69,14 @@ $(function() {
         },
         dataType: "json",
         success: function(json) {
-          if (json.status === 0) {
             console.log(json.msg)
+          if (json.status === 0) {
             $("#changecode .step1").hide();
             $("#changecode .step2").show();
           } else if (json.status === 104) {
-            console.log(json.msg)
             $(".error").html("验证码错误，请重新输入")
+          } else {
+            alert(json.msg)
           }
         },
         error: function() {}
