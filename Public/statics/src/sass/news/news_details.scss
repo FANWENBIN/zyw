@@ -303,6 +303,9 @@
 .webmain .conComment {
   margin-bottom: 0;
   position: relative;
+  .title h2{
+    background: url("../../images/sprite_comment.gif")
+  }
 }
 .pagelist{
   bottom: -22px;

@@ -59,7 +59,7 @@ $(function(){
           for(var i = 0, len = _arr.length; i < len; i++ ){
             _html += '<div class="itemcomment clearFix">'+
               '<div class="head">'+
-                '<img src="./Uploads'+ _arr[i].namehead +'">'+
+                '<img src="'+ _arr[i].namehead +'">'+
               '</div>'+
               '<div class="info">'+
                 '<span>'+ _arr[i].name +' 发表日期：'+ _arr[i].instime +'</span>'+
@@ -89,7 +89,7 @@ $(function(){
           if(json.status === 0){
             $("#J_CommentList").prepend('<div class="itemcomment clearFix">'+
               '<div class="head">'+
-                '<img src="./Uploads'+ scope.userdata.headpic +'">'+
+                '<img src="'+ scope.userdata.headpic +'">'+
               '</div>'+
               '<div class="info">'+
                 '<span>'+ scope.userdata.nickname +' 发表日期：'+ new Date().toLocaleString() +'</span>'+

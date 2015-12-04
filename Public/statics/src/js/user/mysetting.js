@@ -39,7 +39,7 @@ $(function() {
           type: "post",
           url: "./index.php?m=Home&c=User&a=modipasswd",
           data: {
-            oldpasswd: $(":text[name=oldcode]").val(),
+            oldpasswd: $(":password[name=oldcode]").val(),
             newpasswd: $(":password[name=newcode]").val()
           },
           dataType: "json",
@@ -51,6 +51,8 @@ $(function() {
               alert("服务器错误，请稍后再试")
             } else if (json.status === 102) {
               alert("旧密码错误，请重新输入")
+            } else {
+              alert(json.msg)
             }
           },
           error: function() {}
