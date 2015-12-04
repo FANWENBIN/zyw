@@ -81,19 +81,21 @@ $(function(){
       }else if(!/^.+$/.test($(":text[name='accity']").val())){
         alert("请填入联系地址")
         return false;
-      }else if(!scope.faceReview){
-        alert("请上传个人照片")
-        return false;
-      }else if(!scope.expReview){
-        alert("请上传演艺经历")
-        return false;
-      }else if(!scope.representReview){
-        alert("请上传代表作封面")
-        return false;
-      }else if(!scope.faceReview){
-        alert("请上传个人照片")
-        return false;
-      }else if(!/^.+$/.test($(":text[name='title']").val())){
+      }
+      // else if(!scope.faceReview){
+      //   alert("请上传个人照片")
+      //   return false;
+      // }else if(!scope.expReview){
+      //   alert("请上传演艺经历")
+      //   return false;
+      // }else if(!scope.representReview){
+      //   alert("请上传代表作封面")
+      //   return false;
+      // }else if(!scope.faceReview){
+      //   alert("请上传个人照片")
+      //   return false;
+      // }
+      else if(!/^.+$/.test($(":text[name='title']").val())){
         alert("请填入代表作标题")
         return false;
       }else if(!/^http.+$/.test($(":text[name='href']").val())){
