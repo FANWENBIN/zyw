@@ -154,6 +154,8 @@ class RiceController extends ComController {
         $this->list = $list;
         $this->postslist = $postslist;
         $this->clublist  = $clublist;
+        $vedio = M('vedio'); //微访谈
+        $this->velist = $vedio->where('status = 1 and type = 7')->order('instime desc')->find();
         //var_dump($val);
         $this->display();
     }

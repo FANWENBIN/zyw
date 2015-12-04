@@ -152,11 +152,11 @@
           <h2>微访谈</h2>
         </div>
         <div class="inner">
-          <a href="#" class="item">
-            <img src="#" alt="" />
+          <a href="{:U('Video/video_details',array('id'=>$velist['id']))}" class="item">
+            <img src="./Uploads{$velist.bigimg}" alt="" />
             <div class="text">
-              <h1>xxx</h1>
-              <h3>xxxx</h3>
+              <h1>本期嘉宾</h1>
+              <h3>{$velist.title}</h3>
             </div>
             <sub></sub>
           </a>
