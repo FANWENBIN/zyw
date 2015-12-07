@@ -119,7 +119,7 @@ class GactorController extends ComController {
             $data['area']      = I('post.area');
             $data['recommend'] = I('post.recommend');
             if(!$a){
-                //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
+                $this->error('添加失败，不可有空数据！',U('Gactor/add'));
             }
             $counts = $actors->count();
             $data['rank']    = $counts+1;   //名次

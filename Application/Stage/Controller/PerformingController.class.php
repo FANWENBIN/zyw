@@ -54,7 +54,7 @@ class PerformingController extends ComController {
             $data['newser']    = I('post.newser');
             $data['area']      = I('post.area');
             if(!$a){
-                //$this->error('添加失败，不可有空数据！',U('Gactor/index'));
+                $this->error('添加失败，主体数据不可为空！',U('Performing/add'));
             }
             $counts = $actors->count();
             $data['rank']    = $counts+1;   //名次
