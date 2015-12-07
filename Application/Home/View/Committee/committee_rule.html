@@ -7,6 +7,7 @@
 <html> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
     <title>中演网</title>
     <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css"/>
     <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css"/>
@@ -43,7 +44,10 @@
                 <h1>{$result.title}</h1>
                 <h3>{$result['instime']|date='Y-m-d H:i:s',###}</h3>
             </div>
-            <div class="content">
+            <div class="content" style="position:relative;">
+              <div class = "shareframe">
+              <include file="Header/share" />
+              </div>
                <?php echo html_entity_decode($result['content']);?>
             </div>
 
@@ -134,7 +138,7 @@
     <script src="__PUBLIC__/statics/js/jquery.easing.js"></script>
     <script src="__PUBLIC__/statics/dist/js/common.js"></script>
 
-    <script src="__PUBLIC__/statics/dist/js/committee/committee.js"></script>
+    <!-- <script src="__PUBLIC__/statics/dist/js/committee/committee.js"></script> -->
 
 </body>
 </html>

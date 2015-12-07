@@ -156,7 +156,7 @@ $(function() {
             console.log(json.data);
             for (var i = 0, len = json.data.length; i < len; i++) {
               _html += '<div class="item">'
-                  +'<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'" class="hover">'
+                  +'<a target="_blank" href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'" class="hover">'
                   +'</a>'
                   +'<img class="img1" src="'+ json.data[i].headimg +'" alt="" />'
                   +'<div class="text">'
