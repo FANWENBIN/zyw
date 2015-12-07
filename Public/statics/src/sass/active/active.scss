@@ -235,7 +235,7 @@
 }
 .mask .popbox {
   position: absolute;
-  top: -110px;
+  top: -515px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -254,6 +254,7 @@
   margin-left: 30px;
   margin-bottom: 24px;
   height: 35px;
+  line-height: 35px;
   text-indent: 15px;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -272,7 +273,8 @@
 }
 .mask .popbox select {
   width: 118px;
-  height: 35px;
+  height: 37px;
+  line-height: 37px;
   text-indent: 15px;
   color: #999;
   background-color: #fff;
@@ -329,8 +331,11 @@
   margin-left: 30px;
   border: 1px solid #ccc;
   margin-bottom: 24px;
+  overflow: hidden;
 }
 .mask .popbox .border {
+  height: 37px;
+  line-height: 37px;
   width: 500px;
 }
 .mask .popbox .border:before {
