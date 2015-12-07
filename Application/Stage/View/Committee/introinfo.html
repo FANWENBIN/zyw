@@ -80,7 +80,7 @@
               </div>
               <div class="l">
                 <h6>发布时间</h6>
-                <div class="i"><input type="text" class="js_date" data-time="true" value="{:date('Y-m-d|H:i',$data['instime'])}" name="instime"/></div>
+                <div class="i"><input type="text" class="js_date" data-time="true" value='<if condition = "$data['instime'] neq '' ">{:date("Y-m-d|H:i",$data["instime"])} <else />{:winter_date($data['instime'])} </if>' name="instime"/></div>
               </div>
               <div class="l">
                 <h6>正文</h6>
