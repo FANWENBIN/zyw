@@ -73,16 +73,41 @@ $(function() {
       $("#voterulegroup").find("li").eq($(this).index()).show();
     },
     // 36强 查询
+    // add 修改tabSex1
     tabSex1: function() {
       $("#sexlist1").find("li").removeClass("active");
       $(this).addClass("active");
+      // 根据颜色判断
+      if(scope.color1 == 1){
+        $("#sexlist1").find("li").removeClass("redselect blueselect greenselect")
+        $(this).addClass("active").addClass("redselect");
+      }else if(scope.color1 == 2){
+        $("#sexlist1").find("li").removeClass("redselect blueselect greenselect")
+        $(this).addClass("active").addClass("blueselect");
+      }else if(scope.color1 == 3){
+        $("#sexlist1").find("li").removeClass("redselect blueselect greenselect")
+        $(this).addClass("active").addClass("greenselect");
+      }
+
       scope.sex1 = $(this).data("sex");
       page.refleshgroup1();
     },
+    // add 修改tabType1
     tabType1: function() {
       $("#colorlist1").find("li").removeClass("active");
       $(this).addClass("active");
       scope.color1 = $(this).data("color");
+      // 根据颜色判断
+      if(scope.color1 == 1){
+        $(this).parent().parent().removeClass("red blue green").addClass("red")
+        $("#sexlist1").find(".active").removeClass("redselect blueselect greenselect").addClass("redselect")
+      }else if(scope.color1 == 2){
+        $(this).parent().parent().removeClass("red blue green").addClass("blue")
+        $("#sexlist1").find(".active").removeClass("redselect blueselect greenselect").addClass("blueselect")
+      }else if(scope.color1 == 3){
+        $(this).parent().parent().removeClass("red blue green").addClass("green")
+        $("#sexlist1").find(".active").removeClass("redselect blueselect greenselect").addClass("greenselect")
+      }
       page.refleshgroup1();
     },
     // 36强 刷新列表
@@ -104,7 +129,8 @@ $(function() {
               var _html = "";
               for (var i = 0, len = json.data.length; i < len; i++) {
                 _html += '<div class="item">'
-                    +'<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'" class="hover">'
+                // add 增加 target="_black"
+                    +'<a target="_blank" href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'" class="hover">'
                     +'</a>'
                     +'<img class="img1" src="'+ json.data[i].headimg +'" alt="" />'
                     +'<div class="text">'
@@ -124,16 +150,40 @@ $(function() {
     },
 
     // 36强 查询
+    // add 修改tabSex2
     tabSex2: function() {
       $("#sexlist2").find("li").removeClass("active");
       $(this).addClass("active");
+      // 根据颜色判断
+      if(scope.color2 == 1){
+        $("#sexlist2").find("li").removeClass("redselect blueselect greenselect")
+        $(this).addClass("active").addClass("redselect");
+      }else if(scope.color2 == 2){
+        $("#sexlist2").find("li").removeClass("redselect blueselect greenselect")
+        $(this).addClass("active").addClass("blueselect");
+      }else if(scope.color2 == 3){
+        $("#sexlist2").find("li").removeClass("redselect blueselect greenselect")
+        $(this).addClass("active").addClass("greenselect");
+      }
       scope.sex2 = $(this).data("sex");
       page.refleshgroup2();
     },
+    // add 修改tabType2
     tabType2: function() {
       $("#colorlist2").find("li").removeClass("active");
       $(this).addClass("active");
       scope.color2 = $(this).data("color");
+      // 根据颜色判断
+      if(scope.color2 == 1){
+        $(this).parent().parent().removeClass("red blue green").addClass("red")
+        $("#sexlist2").find(".active").removeClass("redselect blueselect greenselect").addClass("redselect")
+      }else if(scope.color2 == 2){
+        $(this).parent().parent().removeClass("red blue green").addClass("blue")
+        $("#sexlist2").find(".active").removeClass("redselect blueselect greenselect").addClass("blueselect")
+      }else if(scope.color2 == 3){
+        $(this).parent().parent().removeClass("red blue green").addClass("green")
+        $("#sexlist2").find(".active").removeClass("redselect blueselect greenselect").addClass("greenselect")
+      }
       page.refleshgroup2();
     },
     // 36强 刷新列表
@@ -156,7 +206,8 @@ $(function() {
             console.log(json.data);
             for (var i = 0, len = json.data.length; i < len; i++) {
               _html += '<div class="item">'
-                  +'<a href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'" class="hover">'
+                // add 增加 target="_black"
+                  +'<a target="_blank" href="./index.php?m=Home&c=Performing&a=actorinfo&id='+ json.data[i].id +'" class="hover">'
                   +'</a>'
                   +'<img class="img1" src="'+ json.data[i].headimg +'" alt="" />'
                   +'<div class="text">'

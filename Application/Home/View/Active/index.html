@@ -7,11 +7,11 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
   <title>中演网</title>
   <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
-  <link href="__PUBLIC__/statics/js/uploadify/uploadify.css" rel="stylesheet" type="text/css"/>
-
+  <link href="__PUBLIC__/statics/js/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
   <link href="__PUBLIC__/statics/dist/css/active/active.css" rel="stylesheet" type="text/css" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="Keywords" content="">
@@ -22,18 +22,19 @@
   <div class="wrapper">
 
     <!--webheader-->
-    <include file = "Header/nav" />
+    <include file="Header/nav" />
     <!--webheader end-->
 
 
     <!--webmain-->
     <div class="webmain">
       <div class="navTitle">
-        <a href="{:U('Index/index')}">首页</a> > <a href="#">活动</a><!--
+        <a href="{:U('Index/index')}">首页</a> > <a href="#">活动</a>
+        <!--
              -->
-      <include file = "Header/login" />
+        <include file="Header/login" />
 
-  </div>
+      </div>
       <div class="con activity">
         <div class="title">
           <h2>全部活动</h2>
@@ -74,7 +75,7 @@
       </div>
     </div>
 
-<include file="Header/header" />
+    <include file="Header/header" />
     <!-- 发起活动弹出层-->
     <div class="mask" id="mask">
       <div class="popbox">
@@ -88,14 +89,15 @@
           <input type="text" placeholder="活动日期" class="toTime" name="toTime" id="toTime" onClick="WdatePicker({skin:'twoer',dateFmt:'yyyy-MM-dd HH:mm'})" />
           <div class="border">
             <select class="activeType">
-              <option value="1">线上活动</option>
               <option value="0">线下活动</option>
+              <option value="1">线上活动</option>
             </select>
-            <input type="text" placeholder="无需输入活动地址" disabled="disabled" class="activeAdress" name="activeAdress" id="activeAdress" />
+            <input type="text" placeholder="输入活动地址"  class="activeAdress" name="activeAdress" id="activeAdress" />
           </div>
           <div>
-            <a href="javascript:;"  class="pic" id="pic">
-            <input type="file" name="Filedata" id="file_upload" /><span class="upload-tips">建议上传380*285像素的图片</span>
+            <a href="javascript:;" class="pic" id="pic">
+              <input type="file" name="Filedata" id="file_upload" />
+              <span class="upload-tips">建议上传380*285像素的图片</span>
             </a>
             <!-- <i class="camera"></i> -->
           </div>
@@ -124,6 +126,30 @@
   <script src="__PUBLIC__/statics/js/uploadify/jquery.uploadify.min.js"></script>
 
   <script src="__PUBLIC__/statics/dist/js/common.js"></script>
+  <script type="text/javascript">
+    if (!('placeholder' in document.createElement('input'))) {
+      $('input[placeholder],textarea[placeholder]').each(function() {
+        var that = $(this),
+          text = that.attr('placeholder');
+        if (that.val() === "") {
+          that.val(text).addClass('placeholder');
+        }
+        that.focus(function() {
+          if (that.val() === text) {
+            that.val("").removeClass('placeholder');
+          }
+        }).blur(function() {
+          if (that.val() === "") {
+            that.val(text).addClass('placeholder');
+          }
+        }).closest('form').submit(function() {
+          if (that.val() === text) {
+            that.val('');
+          }
+        });
+      });
+    }
+  </script>
   <script src="__PUBLIC__/statics/dist/js/tool/pagev1.js"></script>
   <script src="__PUBLIC__/statics/dist/js/tool/tab.js"></script>
   <script src="__PUBLIC__/statics/dist/js/active/active.js"></script>

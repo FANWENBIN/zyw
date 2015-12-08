@@ -6,6 +6,7 @@
 <head>
 <meta property="qc:admins" content="2055274421614776367072177" />
 <meta charset="utf-8">
+<meta name="renderer" content="webkit">
 <title>中演网</title>
 <link href="__PUBLIC__/statics/dist/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/statics/dist/css/common.css" rel="stylesheet" type="text/css" />
@@ -74,7 +75,7 @@
               <div class="item">
                 <span class="tips">通过审核</span>
                 <div class="container clearFix">
-                <volist name = "passactive" id = "vo"> 
+                <volist name = "passactive" id = "vo">
 
                   <a href="{:U('Active/active_details',array('id'=>$vo['id']))}" class="subitem">
                       <img src="./Uploads{$vo.img}" alt="" />
