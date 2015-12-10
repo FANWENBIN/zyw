@@ -1,10 +1,9 @@
 <?php
 return array(
 	//'配置项'=>'配置值'
-	//'配置项'=>'配置值'
 	'DEFAULT_MODULE'     =>  'Home',  //默认模块
 	'url_model'          => '0', //url模式  
-	 
+	
 	'session_auto_start' => false, //是否开启session
 	//数据库设置
 		/*'DB_TYPE'   => 'mysql', 	// 数据库类型

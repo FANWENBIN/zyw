@@ -3,7 +3,7 @@ define(function(require, exports, module){
 	// 图片上传
 	;(function($){
 		function getSwfInstance(movieName) { 
-			if (navigator.appName.indexOf("Microsoft") != -1) { 
+			if (navigator.appName.indexOf("Microsoft") != -1) {
 				return window[movieName];
 			} else { 
 				return document[movieName];
@@ -36,7 +36,7 @@ define(function(require, exports, module){
 						}
 					}
 					if (canCut == "true" && cutWidth && cutHeight){
-						html += "<div class='uploadbtn'><a href='javascript:void(0)'>上传</a></div></div>";
+						html += "<div class='uploadbtn' style='float:right;'><a href='javascript:void(0)'>上传</a></div></div>";
 						_in.hide().after(html);
 						_in.next(".js_swfimgupload").find(".uploadbtn a").on("click", function(){
 							$.imgUploadPop({
@@ -55,7 +55,7 @@ define(function(require, exports, module){
 							});
 						});
 					} else {
-						html += "<div class='uploadbtn'><div id='_swf_" + _in.attr("id") + "'></div></div></div>";
+						html += "<div class='uploadbtn' style='float:right;'><div id='_swf_" + _in.attr("id") + "'></div></div></div>";
 						_in.hide().after(html);
 						swfobject.embedSWF(swfUrl + "/upload.swf?v2", "_swf_" + _in.attr("id"), 80, 36, "11.9.0", "", {"id": _in.attr("id"), "root": root, "imgServer": imgUploadServer, "maxWidth": maxWidth});
 					}

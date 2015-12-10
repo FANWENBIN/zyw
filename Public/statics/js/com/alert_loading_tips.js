@@ -80,7 +80,6 @@ define(function(require, exports, module){
 					return false;
 				}
 				$("#pop-alert").remove();
-				$.alert.ieBtn();
 			} else if (_t == "y" && alertCB.y && typeof alertCB.y == "function"){
 				var r = alertCB.y();
 				if (r == false){
@@ -88,12 +87,11 @@ define(function(require, exports, module){
 				}
 				if (alertCB.cy != false){
 					$("#pop-alert").remove();
-					$.alert.ieBtn();
 				}
 			} else {
 				$("#pop-alert").remove();
-				$.alert.ieBtn();
 			}
+			$.alert.ieBtn();
 		});
 		$.alert = function(o){
 			if (typeof o == "string"){

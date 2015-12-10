@@ -39,5 +39,22 @@ class UploadController extends Controller{
             $this->ajaxReturn(array('status'=>1,'msg'=>'上传失败'));
         }
     }
-    
+    public function examimg(){
+        $upload = new \Think\Upload();
+        $upload->maxSize = 3145728;
+        $upload->exts = array('jpg','gif','png','jpeg');
+        $upload->savePath = 'examimg/';
+        $info = $upload->upload();
+        var_dump($info);
+        $src = './Uploads/'.$info['img']['savepath'].$info['img']['savename'];
+        echo "<img src='".$src."''>";
+
+        var_dump(extension_loaded());
+
+        $image = new \Think\Image();
+        $image->open($src);
+        $image->thumb(300,200)->save($src);
+        echo "<img src='".$src."'' width='453' height='271'>";
+    }
+
 }

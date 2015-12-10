@@ -218,7 +218,7 @@ class VoteController extends ComController {
             $row = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes from zyw_actors where opid="'.$opid.'"');
             if(!empty($row)){
                 ajaxReturn(0,'', $row);
-            }    
+            }
         }else{
             errReturn(101,'请输入有效参数');
         }
@@ -362,7 +362,13 @@ class VoteController extends ComController {
         if($condition != 6 && $condition != 36){
             ajaxReturn(104,'参数错误','');
         }
-        $where['promotion'] = $condition;
+        if($condition == 6){
+            $where['promotion'] = 6;
+        }elseif($condition == 36){
+            $where['promotion'] = array('in','6,36');
+        }
+        
+        //$where['promotion'] = $condition;
         $where['status']   = 1;
         $sign = $actors->where($where)->count();
         if($sign < 1){ajaxReturn(102,'未产生'.$condition.'强','');}
