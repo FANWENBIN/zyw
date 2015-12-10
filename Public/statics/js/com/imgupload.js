@@ -3,7 +3,7 @@ define(function(require, exports, module){
 	// 图片上传
 	;(function($){
 		function getSwfInstance(movieName) { 
-			if (navigator.appName.indexOf("Microsoft") != -1) { 
+			if (navigator.appName.indexOf("Microsoft") != -1) {
 				return window[movieName];
 			} else { 
 				return document[movieName];
