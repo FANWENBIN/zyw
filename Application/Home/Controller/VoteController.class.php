@@ -218,7 +218,7 @@ class VoteController extends ComController {
             $row = $actors->query('select name,concat("'.$path.'",headimg) as headimg,concat("'.$path.'",img) as img,votes from zyw_actors where opid="'.$opid.'"');
             if(!empty($row)){
                 ajaxReturn(0,'', $row);
-            }    
+            }
         }else{
             errReturn(101,'请输入有效参数');
         }
