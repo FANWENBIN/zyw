@@ -44,7 +44,7 @@ class CommitteeController extends ComController {
     	$list = $committee->where('status=1 and type=2')->order('instime')->limit($Page->firstRow.','.$Page->listRows)->select();
     	$this->assign('blackcom',$list);// 赋值数据集
     	$this->assign('blackpage',$show);// 赋值分页输出
-
+ 
         $this->assign('sign',4);
 		$this->display();
 		//echo $ip = get_client_ip();
